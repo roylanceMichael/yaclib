@@ -149,6 +149,14 @@ public final class Models {
      * <code>GRADLE_EXT = 8;</code>
      */
     GRADLE_EXT(8, 8),
+    /**
+     * <code>JSON_EXT = 9;</code>
+     */
+    JSON_EXT(9, 9),
+    /**
+     * <code>TS_EXT = 10;</code>
+     */
+    TS_EXT(10, 10),
     ;
 
     /**
@@ -187,6 +195,14 @@ public final class Models {
      * <code>GRADLE_EXT = 8;</code>
      */
     public static final int GRADLE_EXT_VALUE = 8;
+    /**
+     * <code>JSON_EXT = 9;</code>
+     */
+    public static final int JSON_EXT_VALUE = 9;
+    /**
+     * <code>TS_EXT = 10;</code>
+     */
+    public static final int TS_EXT_VALUE = 10;
 
 
     public final int getNumber() { return value; }
@@ -202,6 +218,8 @@ public final class Models {
         case 6: return XML_EXT;
         case 7: return HTML_EXT;
         case 8: return GRADLE_EXT;
+        case 9: return JSON_EXT;
+        case 10: return TS_EXT;
         default: return null;
       }
     }
@@ -8017,12 +8035,13 @@ public final class Models {
       "ib.File\"F\n\016AllControllers\0224\n\013controllers" +
       "\030\001 \003(\0132\037.org.roylance.yaclib.Controller*" +
       "A\n\016DependencyType\022\010\n\004JAVA\020\000\022\016\n\nTYPESCRIP" +
-      "T\020\001\022\n\n\006CSHARP\020\002\022\t\n\005SWIFT\020\003*\230\001\n\rFileExten" +
+      "T\020\001\022\n\n\006CSHARP\020\002\022\t\n\005SWIFT\020\003*\262\001\n\rFileExten" +
       "sion\022\n\n\006KT_EXT\020\000\022\014\n\010JAVA_EXT\020\001\022\022\n\016TYPESC" +
       "RIPT_EXT\020\002\022\022\n\016JAVASCRIPT_EXT\020\003\022\r\n\tSWIFT_" +
       "EXT\020\004\022\013\n\007POM_EXT\020\005\022\013\n\007XML_EXT\020\006\022\014\n\010HTML_" +
-      "EXT\020\007\022\016\n\nGRADLE_EXT\020\010*8\n\016FileUpdateType\022",
-      "\r\n\tOVERWRITE\020\000\022\027\n\023WRITE_IF_NOT_EXISTS\020\001"
+      "EXT\020\007\022\016\n\nGRADLE_EXT\020\010\022\014\n\010JSON_EXT\020\t\022\n\n\006T",
+      "S_EXT\020\n*8\n\016FileUpdateType\022\r\n\tOVERWRITE\020\000" +
+      "\022\027\n\023WRITE_IF_NOT_EXISTS\020\001"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {

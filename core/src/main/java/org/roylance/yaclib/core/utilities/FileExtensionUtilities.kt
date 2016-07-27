@@ -25,6 +25,12 @@ object FileExtensionUtilities {
         if (Models.FileExtension.GRADLE_EXT.equals(extension)) {
             return ".gradle"
         }
+        if (Models.FileExtension.JSON_EXT.equals(extension)) {
+            return ".json"
+        }
+        if (Models.FileExtension.TS_EXT.equals(extension)) {
+            return ".ts"
+        }
 
         return ".java"
     }

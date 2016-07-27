@@ -18,6 +18,8 @@ enum FileExtension {
     XML_EXT = 6;
     HTML_EXT = 7;
     GRADLE_EXT = 8;
+    JSON_EXT = 9;
+    TS_EXT = 10;
 }
 
 enum FileUpdateType {
