@@ -5,16 +5,13 @@ import org.roylance.yaclib.core.services.IProcessLanguageService
 
 class TypeScriptProcessLanguageService: IProcessLanguageService {
     override fun buildInterface(controllers: Models.AllControllers,
-                                overallPackage: String,
-                                groupName: String,
                                 dependency: Models.Dependency): Models.AllFiles {
         val returnList = Models.AllFiles.newBuilder()
 
-        returnList.addFiles(PackageBuilder(overallPackage).build())
-        returnList.addFiles(HttpExecuteServiceBuilder(overallPackage).build())
+        returnList.addFiles(HttpExecuteServiceBuilder().build())
         controllers.controllersList.forEach { controller ->
-            returnList.addFiles(TypeScriptServiceBuilder(controller, overallPackage).build())
-            returnList.addFiles(TypeScriptServiceImplementationBuilder(controller, overallPackage).build())
+            returnList.addFiles(TypeScriptServiceBuilder(controller).build())
+            returnList.addFiles(TypeScriptServiceImplementationBuilder(controller, dependency).build())
         }
 
         return returnList.build()

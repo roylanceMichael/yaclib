@@ -5,22 +5,20 @@ import org.roylance.yaclib.core.services.IProcessLanguageService
 
 class JavaServerProcessLanguageService: IProcessLanguageService {
     override fun buildInterface(controllers: Models.AllControllers,
-                                overallPackage: String,
-                                groupName: String,
                                 dependency: Models.Dependency):Models.AllFiles {
         val returnList = Models.AllFiles.newBuilder()
 
         returnList.addFiles(IndexHTMLBuilder().build())
         returnList.addFiles(JavaLaunchBuilder().build())
         returnList.addFiles(JavaServletXMLBuilder().build())
-        returnList.addFiles(Java8Base64ServiceBuilder(overallPackage).build())
-        returnList.addFiles(POMFileBuilder(groupName, overallPackage, dependency).build())
-        returnList.addFiles(KotlinIServiceLocatorBuilder(controllers, overallPackage).build())
-        returnList.addFiles(KotlinServiceLocatorBuilder(controllers, overallPackage).build())
+        returnList.addFiles(Java8Base64ServiceBuilder(dependency).build())
+        returnList.addFiles(POMFileBuilder(dependency).build())
+        returnList.addFiles(KotlinIServiceLocatorBuilder(controllers, dependency).build())
+        returnList.addFiles(KotlinServiceLocatorBuilder(controllers, dependency).build())
 
         controllers.controllersList.forEach { controller ->
-            returnList.addFiles(KotlinServiceBuilder(controller, overallPackage).build())
-            returnList.addFiles(JavaRestBuilder(controller, overallPackage).build())
+            returnList.addFiles(KotlinServiceBuilder(controller, dependency).build())
+            returnList.addFiles(JavaRestBuilder(controller, dependency).build())
         }
 
         return returnList.build()

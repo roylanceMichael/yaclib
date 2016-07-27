@@ -31,6 +31,12 @@ object FileExtensionUtilities {
         if (Models.FileExtension.TS_EXT.equals(extension)) {
             return ".ts"
         }
+        if (Models.FileExtension.NONE_EXT.equals(extension)) {
+            return ""
+        }
+        if (Models.FileExtension.BAT_EXT.equals(extension)) {
+            return ".bat"
+        }
 
         return ".java"
     }

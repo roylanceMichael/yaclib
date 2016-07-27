@@ -7,9 +7,9 @@ import org.roylance.yaclib.core.utilities.StringUtilities
 
 class KotlinServiceBuilder(
         private val controller: Models.Controller,
-        private val overallPackage: String): IBuilder<Models.File> {
+        private val dependency: Models.Dependency): IBuilder<Models.File> {
     override fun build(): Models.File {
-        val initialTemplate = """package $overallPackage.${CommonTokens.ServicesName}
+        val initialTemplate = """package ${dependency.group}.${CommonTokens.ServicesName}
 
 interface ${StringUtilities.convertServiceNameToInterfaceName(controller)} {
 """
@@ -30,7 +30,7 @@ interface ${StringUtilities.convertServiceNameToInterfaceName(controller)} {
                 .setFileName(StringUtilities.convertServiceNameToInterfaceName(controller))
                 .setFileExtension(Models.FileExtension.KT_EXT)
                 .setFileToWrite(workspace.toString())
-                .setFullDirectoryLocation(StringUtilities.convertPackageToJavaFolderStructureServices(overallPackage, CommonTokens.ServicesName))
+                .setFullDirectoryLocation(StringUtilities.convertPackageToJavaFolderStructureServices(dependency.group, CommonTokens.ServicesName))
 
         return returnFile.build()
     }

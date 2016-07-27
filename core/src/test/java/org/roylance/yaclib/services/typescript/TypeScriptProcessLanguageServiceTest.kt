@@ -17,13 +17,13 @@ class TypeScriptProcessLanguageServiceTest {
         val processLanguageService = TypeScriptProcessLanguageService()
 
         val dependency = Models.Dependency.newBuilder()
-                .setGroup("org.naru.park")
-                .setName("api")
-                .setVersion("0.14-SNAPSHOT")
+                .setGroup("@mroylance/park")
+                .setName("models")
+                .setVersion("0.0.14")
                 .build()
 
         // act
-        val item = processLanguageService.buildInterface(controllers, "org.naru.park", "org.naru.park", dependency)
+        val item = processLanguageService.buildInterface(controllers, dependency)
 
         // assert
         item.filesList.forEach {

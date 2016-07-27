@@ -3,9 +3,9 @@ package org.roylance.yaclib.core.services.java.client
 import org.roylance.yaclib.Models
 import org.roylance.yaclib.core.services.IBuilder
 
-class GradleFileBuilder(overallPackage: String, dependency: Models.Dependency): IBuilder<Models.File> {
-    private val InitialTemplate = """group '$overallPackage'
-version '0.1-SNAPSHOT'
+class GradleFileBuilder(dependency: Models.Dependency): IBuilder<Models.File> {
+    private val InitialTemplate = """group '${dependency.group}'
+version '${dependency.version}'
 
 apply plugin: 'java'
 apply plugin: 'kotlin'
@@ -27,8 +27,8 @@ artifactory {
     publish {
         repository {
             repoKey = 'libs-snapshot-local'
-            username = ''
-            password = ''
+            username = '${dependency.userName}'
+            password = '${dependency.password}'
         }
         defaults {
             publications('mavenJava')

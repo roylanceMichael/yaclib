@@ -7,19 +7,19 @@ import org.roylance.yaclib.core.utilities.StringUtilities
 
 class JavaRestBuilder(
         private val controller: Models.Controller,
-        private val overallPackage: String): IBuilder<Models.File> {
+        private val dependency: Models.Dependency): IBuilder<Models.File> {
     override fun build(): Models.File {
         val workspace = StringBuilder()
         val lowercaseName = "${controller.name.toLowerCase()}"
         val serviceName = StringUtilities.convertServiceNameToVariableName(controller)
         val interfaceName = StringUtilities.convertServiceNameToInterfaceName(controller)
 
-        val initialTemplate = """package $overallPackage.${CommonTokens.RestName};
+        val initialTemplate = """package ${dependency.group}.${CommonTokens.RestName};
 
 import org.roylance.common.service.IProtoSerializerService;
 
-import $overallPackage.${CommonTokens.ServiceLocatorLocation};
-import $overallPackage.${CommonTokens.ServicesName}.${StringUtilities.convertServiceNameToInterfaceName(controller)};
+import ${dependency.group}.${CommonTokens.ServiceLocatorLocation};
+import ${dependency.group}.${CommonTokens.ServicesName}.${StringUtilities.convertServiceNameToInterfaceName(controller)};
 
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
@@ -95,7 +95,7 @@ public class ${controller.name}Controller {
                 .setFileToWrite(workspace.toString())
                 .setFileName("${controller.name}Controller")
                 .setFileExtension(Models.FileExtension.JAVA_EXT)
-                .setFullDirectoryLocation(StringUtilities.convertPackageToJavaFolderStructureServices(overallPackage, CommonTokens.RestName))
+                .setFullDirectoryLocation(StringUtilities.convertPackageToJavaFolderStructureServices(dependency.group, CommonTokens.RestName))
 
 
         return returnFile.build()

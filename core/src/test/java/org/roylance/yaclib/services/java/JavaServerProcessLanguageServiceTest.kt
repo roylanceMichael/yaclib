@@ -22,7 +22,7 @@ class JavaServerProcessLanguageServiceTest {
             .build()
 
         // act
-        val item = javaServiceLanguageProcess.buildInterface(controllers, "org.naru.park", "org.naru.park", dependency)
+        val item = javaServiceLanguageProcess.buildInterface(controllers, dependency)
 
         // assert
         item.filesList.forEach {

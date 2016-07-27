@@ -49,6 +49,6 @@ object StringUtilities {
     }
 
     fun buildUrl(url:String):String {
-        return url.replace("_", "-")
+        return url.replace("_", "-").toLowerCase()
     }
 }

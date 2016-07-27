@@ -20,6 +20,8 @@ enum FileExtension {
     GRADLE_EXT = 8;
     JSON_EXT = 9;
     TS_EXT = 10;
+    NONE_EXT = 11;
+    BAT_EXT = 12;
 }
 
 enum FileUpdateType {
@@ -42,6 +44,10 @@ message Dependency {
     optional string name = 3;
     optional string version = 4;
     optional Repository repository = 5;
+    optional string typescript_model_file = 6;
+    optional string user_name = 7;
+    optional string password = 8;
+    optional string node_alias_name = 9;
 }
 
 message File {
@@ -70,7 +76,6 @@ message Message {
     optional string message_package = 4;
     optional string message_class = 5;
 }
-
 
 message AllFiles {
     repeated File files = 1;

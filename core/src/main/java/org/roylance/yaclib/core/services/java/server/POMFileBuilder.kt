@@ -4,16 +4,16 @@ import org.roylance.yaclib.Models
 import org.roylance.yaclib.core.enums.CommonTokens
 import org.roylance.yaclib.core.services.IBuilder
 
-class POMFileBuilder(groupName: String, overallPackageName: String, dependency: Models.Dependency): IBuilder<Models.File> {
+class POMFileBuilder(dependency: Models.Dependency): IBuilder<Models.File> {
     private val initialTemplate = """<?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>$groupName</groupId>
+    <groupId>${dependency.group}</groupId>
     <artifactId>${CommonTokens.ServerApi}</artifactId>
-    <version>0.1-SNAPSHOT</version>
+    <version>${dependency.version}</version>
 
     <repositories>
         <repository>
@@ -270,7 +270,7 @@ class POMFileBuilder(groupName: String, overallPackageName: String, dependency: 
                 <version>1.0.3</version>
                 <configuration>
                     <jdkVersion>1.8</jdkVersion>
-                    <appName>$overallPackageName</appName>
+                    <appName>${dependency.group}.${dependency.name}</appName>
                     <processTypes>
                         <web>sh heroku_proc.sh</web>
                     </processTypes>

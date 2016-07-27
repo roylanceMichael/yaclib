@@ -157,6 +157,14 @@ public final class Models {
      * <code>TS_EXT = 10;</code>
      */
     TS_EXT(10, 10),
+    /**
+     * <code>NONE_EXT = 11;</code>
+     */
+    NONE_EXT(11, 11),
+    /**
+     * <code>BAT_EXT = 12;</code>
+     */
+    BAT_EXT(12, 12),
     ;
 
     /**
@@ -203,6 +211,14 @@ public final class Models {
      * <code>TS_EXT = 10;</code>
      */
     public static final int TS_EXT_VALUE = 10;
+    /**
+     * <code>NONE_EXT = 11;</code>
+     */
+    public static final int NONE_EXT_VALUE = 11;
+    /**
+     * <code>BAT_EXT = 12;</code>
+     */
+    public static final int BAT_EXT_VALUE = 12;
 
 
     public final int getNumber() { return value; }
@@ -220,6 +236,8 @@ public final class Models {
         case 8: return GRADLE_EXT;
         case 9: return JSON_EXT;
         case 10: return TS_EXT;
+        case 11: return NONE_EXT;
+        case 12: return BAT_EXT;
         default: return null;
       }
     }
@@ -1681,6 +1699,62 @@ public final class Models {
      * <code>optional .org.roylance.yaclib.Repository repository = 5;</code>
      */
     org.roylance.yaclib.Models.RepositoryOrBuilder getRepositoryOrBuilder();
+
+    /**
+     * <code>optional string typescript_model_file = 6;</code>
+     */
+    boolean hasTypescriptModelFile();
+    /**
+     * <code>optional string typescript_model_file = 6;</code>
+     */
+    java.lang.String getTypescriptModelFile();
+    /**
+     * <code>optional string typescript_model_file = 6;</code>
+     */
+    com.google.protobuf.ByteString
+        getTypescriptModelFileBytes();
+
+    /**
+     * <code>optional string user_name = 7;</code>
+     */
+    boolean hasUserName();
+    /**
+     * <code>optional string user_name = 7;</code>
+     */
+    java.lang.String getUserName();
+    /**
+     * <code>optional string user_name = 7;</code>
+     */
+    com.google.protobuf.ByteString
+        getUserNameBytes();
+
+    /**
+     * <code>optional string password = 8;</code>
+     */
+    boolean hasPassword();
+    /**
+     * <code>optional string password = 8;</code>
+     */
+    java.lang.String getPassword();
+    /**
+     * <code>optional string password = 8;</code>
+     */
+    com.google.protobuf.ByteString
+        getPasswordBytes();
+
+    /**
+     * <code>optional string node_alias_name = 9;</code>
+     */
+    boolean hasNodeAliasName();
+    /**
+     * <code>optional string node_alias_name = 9;</code>
+     */
+    java.lang.String getNodeAliasName();
+    /**
+     * <code>optional string node_alias_name = 9;</code>
+     */
+    com.google.protobuf.ByteString
+        getNodeAliasNameBytes();
   }
   /**
    * Protobuf type {@code org.roylance.yaclib.Dependency}
@@ -1774,6 +1848,30 @@ public final class Models {
                 repository_ = subBuilder.buildPartial();
               }
               bitField0_ |= 0x00000010;
+              break;
+            }
+            case 50: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00000020;
+              typescriptModelFile_ = bs;
+              break;
+            }
+            case 58: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00000040;
+              userName_ = bs;
+              break;
+            }
+            case 66: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00000080;
+              password_ = bs;
+              break;
+            }
+            case 74: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00000100;
+              nodeAliasName_ = bs;
               break;
             }
           }
@@ -1978,12 +2076,184 @@ public final class Models {
       return repository_;
     }
 
+    public static final int TYPESCRIPT_MODEL_FILE_FIELD_NUMBER = 6;
+    private java.lang.Object typescriptModelFile_;
+    /**
+     * <code>optional string typescript_model_file = 6;</code>
+     */
+    public boolean hasTypescriptModelFile() {
+      return ((bitField0_ & 0x00000020) == 0x00000020);
+    }
+    /**
+     * <code>optional string typescript_model_file = 6;</code>
+     */
+    public java.lang.String getTypescriptModelFile() {
+      java.lang.Object ref = typescriptModelFile_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          typescriptModelFile_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>optional string typescript_model_file = 6;</code>
+     */
+    public com.google.protobuf.ByteString
+        getTypescriptModelFileBytes() {
+      java.lang.Object ref = typescriptModelFile_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        typescriptModelFile_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int USER_NAME_FIELD_NUMBER = 7;
+    private java.lang.Object userName_;
+    /**
+     * <code>optional string user_name = 7;</code>
+     */
+    public boolean hasUserName() {
+      return ((bitField0_ & 0x00000040) == 0x00000040);
+    }
+    /**
+     * <code>optional string user_name = 7;</code>
+     */
+    public java.lang.String getUserName() {
+      java.lang.Object ref = userName_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          userName_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>optional string user_name = 7;</code>
+     */
+    public com.google.protobuf.ByteString
+        getUserNameBytes() {
+      java.lang.Object ref = userName_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        userName_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int PASSWORD_FIELD_NUMBER = 8;
+    private java.lang.Object password_;
+    /**
+     * <code>optional string password = 8;</code>
+     */
+    public boolean hasPassword() {
+      return ((bitField0_ & 0x00000080) == 0x00000080);
+    }
+    /**
+     * <code>optional string password = 8;</code>
+     */
+    public java.lang.String getPassword() {
+      java.lang.Object ref = password_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          password_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>optional string password = 8;</code>
+     */
+    public com.google.protobuf.ByteString
+        getPasswordBytes() {
+      java.lang.Object ref = password_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        password_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int NODE_ALIAS_NAME_FIELD_NUMBER = 9;
+    private java.lang.Object nodeAliasName_;
+    /**
+     * <code>optional string node_alias_name = 9;</code>
+     */
+    public boolean hasNodeAliasName() {
+      return ((bitField0_ & 0x00000100) == 0x00000100);
+    }
+    /**
+     * <code>optional string node_alias_name = 9;</code>
+     */
+    public java.lang.String getNodeAliasName() {
+      java.lang.Object ref = nodeAliasName_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          nodeAliasName_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>optional string node_alias_name = 9;</code>
+     */
+    public com.google.protobuf.ByteString
+        getNodeAliasNameBytes() {
+      java.lang.Object ref = nodeAliasName_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        nodeAliasName_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
     private void initFields() {
       type_ = org.roylance.yaclib.Models.DependencyType.JAVA;
       group_ = "";
       name_ = "";
       version_ = "";
       repository_ = org.roylance.yaclib.Models.Repository.getDefaultInstance();
+      typescriptModelFile_ = "";
+      userName_ = "";
+      password_ = "";
+      nodeAliasName_ = "";
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -2013,6 +2283,18 @@ public final class Models {
       if (((bitField0_ & 0x00000010) == 0x00000010)) {
         output.writeMessage(5, repository_);
       }
+      if (((bitField0_ & 0x00000020) == 0x00000020)) {
+        output.writeBytes(6, getTypescriptModelFileBytes());
+      }
+      if (((bitField0_ & 0x00000040) == 0x00000040)) {
+        output.writeBytes(7, getUserNameBytes());
+      }
+      if (((bitField0_ & 0x00000080) == 0x00000080)) {
+        output.writeBytes(8, getPasswordBytes());
+      }
+      if (((bitField0_ & 0x00000100) == 0x00000100)) {
+        output.writeBytes(9, getNodeAliasNameBytes());
+      }
       getUnknownFields().writeTo(output);
     }
 
@@ -2041,6 +2323,22 @@ public final class Models {
       if (((bitField0_ & 0x00000010) == 0x00000010)) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(5, repository_);
+      }
+      if (((bitField0_ & 0x00000020) == 0x00000020)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(6, getTypescriptModelFileBytes());
+      }
+      if (((bitField0_ & 0x00000040) == 0x00000040)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(7, getUserNameBytes());
+      }
+      if (((bitField0_ & 0x00000080) == 0x00000080)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(8, getPasswordBytes());
+      }
+      if (((bitField0_ & 0x00000100) == 0x00000100)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(9, getNodeAliasNameBytes());
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -2174,6 +2472,14 @@ public final class Models {
           repositoryBuilder_.clear();
         }
         bitField0_ = (bitField0_ & ~0x00000010);
+        typescriptModelFile_ = "";
+        bitField0_ = (bitField0_ & ~0x00000020);
+        userName_ = "";
+        bitField0_ = (bitField0_ & ~0x00000040);
+        password_ = "";
+        bitField0_ = (bitField0_ & ~0x00000080);
+        nodeAliasName_ = "";
+        bitField0_ = (bitField0_ & ~0x00000100);
         return this;
       }
 
@@ -2226,6 +2532,22 @@ public final class Models {
         } else {
           result.repository_ = repositoryBuilder_.build();
         }
+        if (((from_bitField0_ & 0x00000020) == 0x00000020)) {
+          to_bitField0_ |= 0x00000020;
+        }
+        result.typescriptModelFile_ = typescriptModelFile_;
+        if (((from_bitField0_ & 0x00000040) == 0x00000040)) {
+          to_bitField0_ |= 0x00000040;
+        }
+        result.userName_ = userName_;
+        if (((from_bitField0_ & 0x00000080) == 0x00000080)) {
+          to_bitField0_ |= 0x00000080;
+        }
+        result.password_ = password_;
+        if (((from_bitField0_ & 0x00000100) == 0x00000100)) {
+          to_bitField0_ |= 0x00000100;
+        }
+        result.nodeAliasName_ = nodeAliasName_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -2262,6 +2584,26 @@ public final class Models {
         }
         if (other.hasRepository()) {
           mergeRepository(other.getRepository());
+        }
+        if (other.hasTypescriptModelFile()) {
+          bitField0_ |= 0x00000020;
+          typescriptModelFile_ = other.typescriptModelFile_;
+          onChanged();
+        }
+        if (other.hasUserName()) {
+          bitField0_ |= 0x00000040;
+          userName_ = other.userName_;
+          onChanged();
+        }
+        if (other.hasPassword()) {
+          bitField0_ |= 0x00000080;
+          password_ = other.password_;
+          onChanged();
+        }
+        if (other.hasNodeAliasName()) {
+          bitField0_ |= 0x00000100;
+          nodeAliasName_ = other.nodeAliasName_;
+          onChanged();
         }
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
@@ -2667,6 +3009,310 @@ public final class Models {
           repository_ = null;
         }
         return repositoryBuilder_;
+      }
+
+      private java.lang.Object typescriptModelFile_ = "";
+      /**
+       * <code>optional string typescript_model_file = 6;</code>
+       */
+      public boolean hasTypescriptModelFile() {
+        return ((bitField0_ & 0x00000020) == 0x00000020);
+      }
+      /**
+       * <code>optional string typescript_model_file = 6;</code>
+       */
+      public java.lang.String getTypescriptModelFile() {
+        java.lang.Object ref = typescriptModelFile_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            typescriptModelFile_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string typescript_model_file = 6;</code>
+       */
+      public com.google.protobuf.ByteString
+          getTypescriptModelFileBytes() {
+        java.lang.Object ref = typescriptModelFile_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          typescriptModelFile_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string typescript_model_file = 6;</code>
+       */
+      public Builder setTypescriptModelFile(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000020;
+        typescriptModelFile_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string typescript_model_file = 6;</code>
+       */
+      public Builder clearTypescriptModelFile() {
+        bitField0_ = (bitField0_ & ~0x00000020);
+        typescriptModelFile_ = getDefaultInstance().getTypescriptModelFile();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string typescript_model_file = 6;</code>
+       */
+      public Builder setTypescriptModelFileBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000020;
+        typescriptModelFile_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object userName_ = "";
+      /**
+       * <code>optional string user_name = 7;</code>
+       */
+      public boolean hasUserName() {
+        return ((bitField0_ & 0x00000040) == 0x00000040);
+      }
+      /**
+       * <code>optional string user_name = 7;</code>
+       */
+      public java.lang.String getUserName() {
+        java.lang.Object ref = userName_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            userName_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string user_name = 7;</code>
+       */
+      public com.google.protobuf.ByteString
+          getUserNameBytes() {
+        java.lang.Object ref = userName_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          userName_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string user_name = 7;</code>
+       */
+      public Builder setUserName(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000040;
+        userName_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string user_name = 7;</code>
+       */
+      public Builder clearUserName() {
+        bitField0_ = (bitField0_ & ~0x00000040);
+        userName_ = getDefaultInstance().getUserName();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string user_name = 7;</code>
+       */
+      public Builder setUserNameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000040;
+        userName_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object password_ = "";
+      /**
+       * <code>optional string password = 8;</code>
+       */
+      public boolean hasPassword() {
+        return ((bitField0_ & 0x00000080) == 0x00000080);
+      }
+      /**
+       * <code>optional string password = 8;</code>
+       */
+      public java.lang.String getPassword() {
+        java.lang.Object ref = password_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            password_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string password = 8;</code>
+       */
+      public com.google.protobuf.ByteString
+          getPasswordBytes() {
+        java.lang.Object ref = password_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          password_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string password = 8;</code>
+       */
+      public Builder setPassword(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000080;
+        password_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string password = 8;</code>
+       */
+      public Builder clearPassword() {
+        bitField0_ = (bitField0_ & ~0x00000080);
+        password_ = getDefaultInstance().getPassword();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string password = 8;</code>
+       */
+      public Builder setPasswordBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000080;
+        password_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object nodeAliasName_ = "";
+      /**
+       * <code>optional string node_alias_name = 9;</code>
+       */
+      public boolean hasNodeAliasName() {
+        return ((bitField0_ & 0x00000100) == 0x00000100);
+      }
+      /**
+       * <code>optional string node_alias_name = 9;</code>
+       */
+      public java.lang.String getNodeAliasName() {
+        java.lang.Object ref = nodeAliasName_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            nodeAliasName_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string node_alias_name = 9;</code>
+       */
+      public com.google.protobuf.ByteString
+          getNodeAliasNameBytes() {
+        java.lang.Object ref = nodeAliasName_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          nodeAliasName_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string node_alias_name = 9;</code>
+       */
+      public Builder setNodeAliasName(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000100;
+        nodeAliasName_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string node_alias_name = 9;</code>
+       */
+      public Builder clearNodeAliasName() {
+        bitField0_ = (bitField0_ & ~0x00000100);
+        nodeAliasName_ = getDefaultInstance().getNodeAliasName();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string node_alias_name = 9;</code>
+       */
+      public Builder setNodeAliasNameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000100;
+        nodeAliasName_ = value;
+        onChanged();
+        return this;
       }
 
       // @@protoc_insertion_point(builder_scope:org.roylance.yaclib.Dependency)
@@ -8013,34 +8659,37 @@ public final class Models {
       "\n\014models.proto\022\023org.roylance.yaclib\"n\n\nR" +
       "epository\022\013\n\003url\030\001 \001(\t\022\020\n\010username\030\002 \001(\t" +
       "\022\020\n\010password\030\003 \001(\t\022\r\n\005extra\030\004 \001(\t\022\017\n\007ext" +
-      "ra_1\030\005 \001(\t\022\017\n\007extra_2\030\006 \001(\t\"\242\001\n\nDependen" +
+      "ra_1\030\005 \001(\t\022\017\n\007extra_2\030\006 \001(\t\"\377\001\n\nDependen" +
       "cy\0221\n\004type\030\001 \001(\0162#.org.roylance.yaclib.D" +
       "ependencyType\022\r\n\005group\030\002 \001(\t\022\014\n\004name\030\003 \001" +
       "(\t\022\017\n\007version\030\004 \001(\t\0223\n\nrepository\030\005 \001(\0132" +
-      "\037.org.roylance.yaclib.Repository\"\314\001\n\004Fil" +
-      "e\022\037\n\027full_directory_location\030\001 \001(\t\022\021\n\tfi" +
-      "le_name\030\002 \001(\t\022:\n\016file_extension\030\003 \001(\0162\".",
-      "org.roylance.yaclib.FileExtension\022\025\n\rfil" +
-      "e_to_write\030\004 \001(\t\022=\n\020file_update_type\030\005 \001" +
-      "(\0162#.org.roylance.yaclib.FileUpdateType\"" +
-      "H\n\nController\022\014\n\004name\030\001 \001(\t\022,\n\007actions\030\002" +
-      " \003(\0132\033.org.roylance.yaclib.Action\"r\n\006Act" +
-      "ion\022\014\n\004name\030\001 \001(\t\022,\n\006inputs\030\002 \003(\0132\034.org." +
-      "roylance.yaclib.Message\022,\n\006output\030\005 \001(\0132" +
-      "\034.org.roylance.yaclib.Message\"z\n\007Message" +
-      "\022\025\n\rargument_name\030\001 \001(\t\022\024\n\014file_package\030" +
-      "\002 \001(\t\022\022\n\nfile_class\030\003 \001(\t\022\027\n\017message_pac",
-      "kage\030\004 \001(\t\022\025\n\rmessage_class\030\005 \001(\t\"4\n\010All" +
-      "Files\022(\n\005files\030\001 \003(\0132\031.org.roylance.yacl" +
-      "ib.File\"F\n\016AllControllers\0224\n\013controllers" +
-      "\030\001 \003(\0132\037.org.roylance.yaclib.Controller*" +
-      "A\n\016DependencyType\022\010\n\004JAVA\020\000\022\016\n\nTYPESCRIP" +
-      "T\020\001\022\n\n\006CSHARP\020\002\022\t\n\005SWIFT\020\003*\262\001\n\rFileExten" +
-      "sion\022\n\n\006KT_EXT\020\000\022\014\n\010JAVA_EXT\020\001\022\022\n\016TYPESC" +
-      "RIPT_EXT\020\002\022\022\n\016JAVASCRIPT_EXT\020\003\022\r\n\tSWIFT_" +
-      "EXT\020\004\022\013\n\007POM_EXT\020\005\022\013\n\007XML_EXT\020\006\022\014\n\010HTML_" +
-      "EXT\020\007\022\016\n\nGRADLE_EXT\020\010\022\014\n\010JSON_EXT\020\t\022\n\n\006T",
-      "S_EXT\020\n*8\n\016FileUpdateType\022\r\n\tOVERWRITE\020\000" +
+      "\037.org.roylance.yaclib.Repository\022\035\n\025type" +
+      "script_model_file\030\006 \001(\t\022\021\n\tuser_name\030\007 \001" +
+      "(\t\022\020\n\010password\030\010 \001(\t\022\027\n\017node_alias_name\030",
+      "\t \001(\t\"\314\001\n\004File\022\037\n\027full_directory_locatio" +
+      "n\030\001 \001(\t\022\021\n\tfile_name\030\002 \001(\t\022:\n\016file_exten" +
+      "sion\030\003 \001(\0162\".org.roylance.yaclib.FileExt" +
+      "ension\022\025\n\rfile_to_write\030\004 \001(\t\022=\n\020file_up" +
+      "date_type\030\005 \001(\0162#.org.roylance.yaclib.Fi" +
+      "leUpdateType\"H\n\nController\022\014\n\004name\030\001 \001(\t" +
+      "\022,\n\007actions\030\002 \003(\0132\033.org.roylance.yaclib." +
+      "Action\"r\n\006Action\022\014\n\004name\030\001 \001(\t\022,\n\006inputs" +
+      "\030\002 \003(\0132\034.org.roylance.yaclib.Message\022,\n\006" +
+      "output\030\005 \001(\0132\034.org.roylance.yaclib.Messa",
+      "ge\"z\n\007Message\022\025\n\rargument_name\030\001 \001(\t\022\024\n\014" +
+      "file_package\030\002 \001(\t\022\022\n\nfile_class\030\003 \001(\t\022\027" +
+      "\n\017message_package\030\004 \001(\t\022\025\n\rmessage_class" +
+      "\030\005 \001(\t\"4\n\010AllFiles\022(\n\005files\030\001 \003(\0132\031.org." +
+      "roylance.yaclib.File\"F\n\016AllControllers\0224" +
+      "\n\013controllers\030\001 \003(\0132\037.org.roylance.yacli" +
+      "b.Controller*A\n\016DependencyType\022\010\n\004JAVA\020\000" +
+      "\022\016\n\nTYPESCRIPT\020\001\022\n\n\006CSHARP\020\002\022\t\n\005SWIFT\020\003*" +
+      "\315\001\n\rFileExtension\022\n\n\006KT_EXT\020\000\022\014\n\010JAVA_EX" +
+      "T\020\001\022\022\n\016TYPESCRIPT_EXT\020\002\022\022\n\016JAVASCRIPT_EX",
+      "T\020\003\022\r\n\tSWIFT_EXT\020\004\022\013\n\007POM_EXT\020\005\022\013\n\007XML_E" +
+      "XT\020\006\022\014\n\010HTML_EXT\020\007\022\016\n\nGRADLE_EXT\020\010\022\014\n\010JS" +
+      "ON_EXT\020\t\022\n\n\006TS_EXT\020\n\022\014\n\010NONE_EXT\020\013\022\013\n\007BA" +
+      "T_EXT\020\014*8\n\016FileUpdateType\022\r\n\tOVERWRITE\020\000" +
       "\022\027\n\023WRITE_IF_NOT_EXISTS\020\001"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
@@ -8066,7 +8715,7 @@ public final class Models {
     internal_static_org_roylance_yaclib_Dependency_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_org_roylance_yaclib_Dependency_descriptor,
-        new java.lang.String[] { "Type", "Group", "Name", "Version", "Repository", });
+        new java.lang.String[] { "Type", "Group", "Name", "Version", "Repository", "TypescriptModelFile", "UserName", "Password", "NodeAliasName", });
     internal_static_org_roylance_yaclib_File_descriptor =
       getDescriptor().getMessageTypes().get(2);
     internal_static_org_roylance_yaclib_File_fieldAccessorTable = new

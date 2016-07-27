@@ -3,12 +3,10 @@ package org.roylance.yaclib.core.services.typescript
 import org.roylance.yaclib.Models
 import org.roylance.yaclib.core.services.IBuilder
 
-class HttpExecuteServiceBuilder(overallPackage: String): IBuilder<Models.File> {
+class HttpExecuteServiceBuilder : IBuilder<Models.File> {
     private val InitialTemplate = """
-declare module $overallPackage.services {
-    export interface IHttpExecuteService {
-        performPost(url:string, data:any, onSuccess:(data) => void, onError:(data) => void)
-    }
+export interface IHttpExecuteService {
+    performPost(url:string, data:any, onSuccess:(data) => void, onError:(data) => void)
 }
 """
 

@@ -1,6 +1,7 @@
 package org.roylance.yaclib.core.services.java.server
 
 import org.roylance.yaclib.Models
+import org.roylance.yaclib.core.enums.CommonTokens
 import org.roylance.yaclib.core.services.IBuilder
 
 class IndexHTMLBuilder: IBuilder<Models.File> {
@@ -19,7 +20,7 @@ class IndexHTMLBuilder: IBuilder<Models.File> {
         private const val IndexHTMLFile = """<html lang="en">
 <head>
     <meta charset="utf-8" />
-    <title>web</title>
+    <title>${CommonTokens.ServerApi}</title>
     <meta name="viewport" content="width=device-width" />
 </head>
 <body>

@@ -7,9 +7,10 @@ import org.roylance.yaclib.core.services.FilePersistService
 import org.roylance.yaclib.core.services.ProcessFileDescriptorService
 import org.roylance.yaclib.core.services.java.client.JavaClientProcessLanguageService
 import org.roylance.yaclib.core.services.java.server.JavaServerProcessLanguageService
+import org.roylance.yaclib.core.services.typescript.TypeScriptProcessLanguageService
 
 class FilePersistServiceTest {
-    @Test
+//    @Test
     fun simplePassThroughTest() {
         // arrange
         val filePersistService = FilePersistService()
@@ -23,16 +24,16 @@ class FilePersistServiceTest {
                 .setVersion("0.14-SNAPSHOT")
                 .build()
 
-        val allFiles = javaServiceLanguageProcess.buildInterface(controllers, "com.roylance.cooltest", "com.roylance", dependency)
+        val allFiles = javaServiceLanguageProcess.buildInterface(controllers, dependency)
 
         // act
-        filePersistService.persistFiles("/Users/mikeroylance/test_persist", allFiles)
+        filePersistService.persistFiles("/home/mroylance/park/sapi", allFiles)
 
         // assert
         Assert.assertTrue(true)
     }
 
-    @Test
+//    @Test
     fun simplePassThroughClientTest() {
         // arrange
         val filePersistService = FilePersistService()
@@ -46,10 +47,34 @@ class FilePersistServiceTest {
                 .setVersion("0.14-SNAPSHOT")
                 .build()
 
-        val allFiles = javaServiceLanguageProcess.buildInterface(controllers, "com.roylance.cooltest", "com.roylance", dependency)
+        val allFiles = javaServiceLanguageProcess.buildInterface(controllers, dependency)
 
         // act
-        filePersistService.persistFiles("/Users/mikeroylance/test_persist", allFiles)
+        filePersistService.persistFiles("/home/mroylance/park/capi", allFiles)
+
+        // assert
+        Assert.assertTrue(true)
+    }
+
+//    @Test
+    fun simplePassThroughTypeScriptClientTest() {
+        // arrange
+        val filePersistService = FilePersistService()
+        val service = ProcessFileDescriptorService()
+        val controllers = service.processFile(org.naru.park.Controllers.getDescriptor())
+        val javaServiceLanguageProcess = TypeScriptProcessLanguageService()
+
+        val dependency = Models.Dependency.newBuilder()
+                .setGroup("@mroylance/park")
+                .setName("models")
+                .setVersion("0.0.14")
+                .setTypescriptModelFile("./model")
+                .build()
+
+        val allFiles = javaServiceLanguageProcess.buildInterface(controllers, dependency)
+
+        // act
+        filePersistService.persistFiles("/home/mroylance/park/api/javascript", allFiles)
 
         // assert
         Assert.assertTrue(true)

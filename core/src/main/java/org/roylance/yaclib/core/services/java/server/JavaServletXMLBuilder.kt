@@ -1,6 +1,7 @@
 package org.roylance.yaclib.core.services.java.server
 
 import org.roylance.yaclib.Models
+import org.roylance.yaclib.core.enums.CommonTokens
 import org.roylance.yaclib.core.services.IBuilder
 
 class JavaServletXMLBuilder(): IBuilder<Models.File> {
@@ -9,7 +10,7 @@ class JavaServletXMLBuilder(): IBuilder<Models.File> {
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
          version="3.1">
-    <display-name>Web</display-name>
+    <display-name>${CommonTokens.ServerApi}</display-name>
 
     <welcome-file-list>
         <welcome-file>index.html</welcome-file>
