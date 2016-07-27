@@ -1,0 +1,26 @@
+syntax = "proto2";
+package org.roylance.yaclib;
+
+import "test_models.proto";
+
+message PingAction {
+    optional org.roylance.yaclib.UITestRequest request = 1;
+    optional org.roylance.yaclib.UIRandomFiller filler = 2;
+    optional org.roylance.yaclib.UITestResponse response = 3;
+}
+
+message FirstAction {
+    optional org.roylance.yaclib.UITestRequest request = 1;
+    optional org.roylance.yaclib.UITestResponse response = 2;
+}
+
+message SecondAction {
+    optional org.roylance.yaclib.UITestRequest request = 1;
+    optional org.roylance.yaclib.UITestResponse response = 2;
+}
+
+message TestController {
+    optional PingAction ping = 1;
+    optional FirstAction first = 2;
+    optional SecondAction second = 3;
+}

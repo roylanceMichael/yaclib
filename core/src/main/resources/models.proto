@@ -1,0 +1,76 @@
+syntax = "proto2";
+package org.roylance.yaclib;
+
+enum DependencyType {
+    JAVA = 0;
+    TYPESCRIPT = 1;
+    CSHARP = 2;
+    SWIFT = 3;
+}
+
+enum FileExtension {
+    KT_EXT = 0;
+    JAVA_EXT = 1;
+    TYPESCRIPT_EXT = 2;
+    JAVASCRIPT_EXT = 3;
+    SWIFT_EXT = 4;
+    POM_EXT = 5;
+}
+
+enum FileUpdateType {
+    OVERWRITE = 0;
+    WRITE_IF_NOT_EXISTS = 1;
+}
+
+message Repository {
+    optional string url = 1;
+    optional string username = 2;
+    optional string password = 3;
+    optional string extra = 4;
+    optional string extra_1 = 5;
+    optional string extra_2 = 6;
+}
+
+message Dependency {
+    optional DependencyType type = 1;
+    optional string group = 2;
+    optional string name = 3;
+    optional string version = 4;
+    optional Repository repository = 5;
+}
+
+message File {
+    optional string full_directory_location = 1;
+    optional string file_name = 2;
+    optional FileExtension file_extension = 3;
+    optional string file_to_write = 4;
+    optional FileUpdateType file_update_type = 5;
+}
+
+message Controller {
+    optional string name = 1;
+    repeated Action actions = 2;
+}
+
+message Action {
+    optional string name = 1;
+    repeated Message inputs = 2;
+    optional Message output = 5;
+}
+
+message Message {
+    optional string argument_name = 1;
+    optional string file_package = 2;
+    optional string file_class = 3;
+    optional string message_package = 4;
+    optional string message_class = 5;
+}
+
+
+message AllFiles {
+    repeated File files = 1;
+}
+
+message AllControllers {
+    repeated Controller controllers = 1;
+}
