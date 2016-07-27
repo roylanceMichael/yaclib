@@ -16,6 +16,16 @@ object FileExtensionUtilities {
         if (Models.FileExtension.SWIFT_EXT.equals(extension)) {
             return ".swift"
         }
+        if (Models.FileExtension.XML_EXT.equals(extension)) {
+            return ".xml"
+        }
+        if (Models.FileExtension.HTML_EXT.equals(extension)) {
+            return ".html"
+        }
+        if (Models.FileExtension.GRADLE_EXT.equals(extension)) {
+            return ".gradle"
+        }
+
         return ".java"
     }
 }

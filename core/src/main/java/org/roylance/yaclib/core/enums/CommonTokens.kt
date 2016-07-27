@@ -7,6 +7,7 @@ object CommonTokens {
     const val ProtoMessageType = "MESSAGE"
 
     const val ServiceName = "Service"
+    const val UpperCaseRestName = "Rest"
 
     const val ServicesName = "services"
     const val RestName = "rest"
@@ -16,4 +17,6 @@ object CommonTokens {
 
     const val ServiceLocatorLocation = "$UtilitiesName.$ServiceLocatorSingletonName"
 
+    const val ClientApi = "capi"
+    const val ServerApi = "sapi"
 }

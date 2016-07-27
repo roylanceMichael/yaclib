@@ -58,7 +58,7 @@ public class ${controller.name}Controller {
                 colonSeparatedInputs = ", " + colonSeparatedInputs
             }
 
-            val lowercaseActionName = action.name.toLowerCase()
+            val lowercaseActionName = StringUtilities.buildUrl(action.name.toLowerCase())
 
             val actionVariableWorkspace = StringBuilder()
             val allActualArgumentNames = action.inputsList.map { input -> "${input.argumentName}Actual" }.joinToString()

@@ -5,6 +5,7 @@ import org.junit.Test
 import org.roylance.yaclib.Models
 import org.roylance.yaclib.core.services.FilePersistService
 import org.roylance.yaclib.core.services.ProcessFileDescriptorService
+import org.roylance.yaclib.core.services.java.client.JavaClientProcessLanguageService
 import org.roylance.yaclib.core.services.java.server.JavaServerProcessLanguageService
 
 class FilePersistServiceTest {
@@ -25,7 +26,30 @@ class FilePersistServiceTest {
         val allFiles = javaServiceLanguageProcess.buildInterface(controllers, "com.roylance.cooltest", "com.roylance", dependency)
 
         // act
-        filePersistService.persistFiles("/home/mroylance/test_persist", allFiles)
+        filePersistService.persistFiles("/Users/mikeroylance/test_persist", allFiles)
+
+        // assert
+        Assert.assertTrue(true)
+    }
+
+    @Test
+    fun simplePassThroughClientTest() {
+        // arrange
+        val filePersistService = FilePersistService()
+        val service = ProcessFileDescriptorService()
+        val controllers = service.processFile(org.naru.park.Controllers.getDescriptor())
+        val javaServiceLanguageProcess = JavaClientProcessLanguageService()
+
+        val dependency = Models.Dependency.newBuilder()
+                .setGroup("org.naru.park")
+                .setName("api")
+                .setVersion("0.14-SNAPSHOT")
+                .build()
+
+        val allFiles = javaServiceLanguageProcess.buildInterface(controllers, "com.roylance.cooltest", "com.roylance", dependency)
+
+        // act
+        filePersistService.persistFiles("/Users/mikeroylance/test_persist", allFiles)
 
         // assert
         Assert.assertTrue(true)

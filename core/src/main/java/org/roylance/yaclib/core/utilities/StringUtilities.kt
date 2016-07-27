@@ -47,4 +47,8 @@ object StringUtilities {
     fun convertServiceNameToJavaCall(controller: Models.Controller): String {
         return "get${controller.name[0].toUpperCase()}${controller.name.substring(1)}${CommonTokens.ServiceName}"
     }
+
+    fun buildUrl(url:String):String {
+        return url.replace("_", "-")
+    }
 }

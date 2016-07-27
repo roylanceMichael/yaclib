@@ -137,6 +137,18 @@ public final class Models {
      * <code>POM_EXT = 5;</code>
      */
     POM_EXT(5, 5),
+    /**
+     * <code>XML_EXT = 6;</code>
+     */
+    XML_EXT(6, 6),
+    /**
+     * <code>HTML_EXT = 7;</code>
+     */
+    HTML_EXT(7, 7),
+    /**
+     * <code>GRADLE_EXT = 8;</code>
+     */
+    GRADLE_EXT(8, 8),
     ;
 
     /**
@@ -163,6 +175,18 @@ public final class Models {
      * <code>POM_EXT = 5;</code>
      */
     public static final int POM_EXT_VALUE = 5;
+    /**
+     * <code>XML_EXT = 6;</code>
+     */
+    public static final int XML_EXT_VALUE = 6;
+    /**
+     * <code>HTML_EXT = 7;</code>
+     */
+    public static final int HTML_EXT_VALUE = 7;
+    /**
+     * <code>GRADLE_EXT = 8;</code>
+     */
+    public static final int GRADLE_EXT_VALUE = 8;
 
 
     public final int getNumber() { return value; }
@@ -175,6 +199,9 @@ public final class Models {
         case 3: return JAVASCRIPT_EXT;
         case 4: return SWIFT_EXT;
         case 5: return POM_EXT;
+        case 6: return XML_EXT;
+        case 7: return HTML_EXT;
+        case 8: return GRADLE_EXT;
         default: return null;
       }
     }
@@ -7990,11 +8017,12 @@ public final class Models {
       "ib.File\"F\n\016AllControllers\0224\n\013controllers" +
       "\030\001 \003(\0132\037.org.roylance.yaclib.Controller*" +
       "A\n\016DependencyType\022\010\n\004JAVA\020\000\022\016\n\nTYPESCRIP" +
-      "T\020\001\022\n\n\006CSHARP\020\002\022\t\n\005SWIFT\020\003*m\n\rFileExtens" +
-      "ion\022\n\n\006KT_EXT\020\000\022\014\n\010JAVA_EXT\020\001\022\022\n\016TYPESCR" +
-      "IPT_EXT\020\002\022\022\n\016JAVASCRIPT_EXT\020\003\022\r\n\tSWIFT_E" +
-      "XT\020\004\022\013\n\007POM_EXT\020\005*8\n\016FileUpdateType\022\r\n\tO" +
-      "VERWRITE\020\000\022\027\n\023WRITE_IF_NOT_EXISTS\020\001"
+      "T\020\001\022\n\n\006CSHARP\020\002\022\t\n\005SWIFT\020\003*\230\001\n\rFileExten" +
+      "sion\022\n\n\006KT_EXT\020\000\022\014\n\010JAVA_EXT\020\001\022\022\n\016TYPESC" +
+      "RIPT_EXT\020\002\022\022\n\016JAVASCRIPT_EXT\020\003\022\r\n\tSWIFT_" +
+      "EXT\020\004\022\013\n\007POM_EXT\020\005\022\013\n\007XML_EXT\020\006\022\014\n\010HTML_" +
+      "EXT\020\007\022\016\n\nGRADLE_EXT\020\010*8\n\016FileUpdateType\022",
+      "\r\n\tOVERWRITE\020\000\022\027\n\023WRITE_IF_NOT_EXISTS\020\001"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {

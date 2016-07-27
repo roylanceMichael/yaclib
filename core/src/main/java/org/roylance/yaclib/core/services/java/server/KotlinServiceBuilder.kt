@@ -11,7 +11,7 @@ class KotlinServiceBuilder(
     override fun build(): Models.File {
         val initialTemplate = """package $overallPackage.${CommonTokens.ServicesName}
 
-interface I${controller.name}Service {
+interface ${StringUtilities.convertServiceNameToInterfaceName(controller)} {
 """
         val workspace = StringBuilder(initialTemplate)
 

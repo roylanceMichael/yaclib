@@ -23,7 +23,6 @@ object ${CommonTokens.ServiceLocatorSingletonName}: ${CommonTokens.ServiceLocato
 $allControllerNames
 }
 """
-
         val returnFile = Models.File.newBuilder()
                 .setFileToWrite(template)
                 .setFileName(CommonTokens.ServiceLocatorSingletonName)

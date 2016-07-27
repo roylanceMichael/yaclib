@@ -1,7 +1,0 @@
-
-package com.roylance.cooltest.utilities
-
-
-interface IServiceLocator {
-    val testService: ITestService
-}

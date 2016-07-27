@@ -4,9 +4,16 @@ import org.roylance.yaclib.Models
 import org.roylance.yaclib.core.services.IProcessLanguageService
 
 class JavaServerProcessLanguageService: IProcessLanguageService {
-    override fun buildInterface(controllers: Models.AllControllers, overallPackage: String, groupName: String, dependency: Models.Dependency):Models.AllFiles {
+    override fun buildInterface(controllers: Models.AllControllers,
+                                overallPackage: String,
+                                groupName: String,
+                                dependency: Models.Dependency):Models.AllFiles {
         val returnList = Models.AllFiles.newBuilder()
 
+        returnList.addFiles(IndexHTMLBuilder().build())
+        returnList.addFiles(JavaLaunchBuilder().build())
+        returnList.addFiles(JavaServletXMLBuilder().build())
+        returnList.addFiles(Java8Base64ServiceBuilder(overallPackage).build())
         returnList.addFiles(POMFileBuilder(groupName, overallPackage, dependency).build())
         returnList.addFiles(KotlinIServiceLocatorBuilder(controllers, overallPackage).build())
         returnList.addFiles(KotlinServiceLocatorBuilder(controllers, overallPackage).build())

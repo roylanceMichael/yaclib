@@ -1,6 +1,7 @@
 package org.roylance.yaclib.core.services.java.server
 
 import org.roylance.yaclib.Models
+import org.roylance.yaclib.core.enums.CommonTokens
 import org.roylance.yaclib.core.services.IBuilder
 
 class POMFileBuilder(groupName: String, overallPackageName: String, dependency: Models.Dependency): IBuilder<Models.File> {
@@ -11,7 +12,7 @@ class POMFileBuilder(groupName: String, overallPackageName: String, dependency: 
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>$groupName</groupId>
-    <artifactId>web</artifactId>
+    <artifactId>${CommonTokens.ServerApi}</artifactId>
     <version>0.1-SNAPSHOT</version>
 
     <repositories>
@@ -296,11 +297,6 @@ class POMFileBuilder(groupName: String, overallPackageName: String, dependency: 
             .build()
 
         return returnFile
-    }
-
-    private fun buildDependency(): String {
-        return """
-"""
     }
 
     companion object {

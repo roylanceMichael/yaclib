@@ -15,6 +15,9 @@ enum FileExtension {
     JAVASCRIPT_EXT = 3;
     SWIFT_EXT = 4;
     POM_EXT = 5;
+    XML_EXT = 6;
+    HTML_EXT = 7;
+    GRADLE_EXT = 8;
 }
 
 enum FileUpdateType {
