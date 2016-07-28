@@ -27,8 +27,8 @@ artifactory {
     publish {
         repository {
             repoKey = 'libs-snapshot-local'
-            username = '${dependency.userName}'
-            password = '${dependency.password}'
+            username = System.getenv('ARTIFACTORY_USER')
+            password = System.getenv('ARTIFACTORY_PASSWORD')
         }
         defaults {
             publications('mavenJava')
@@ -80,7 +80,6 @@ dependencies {
                 .setFileToWrite(InitialTemplate)
                 .setFileName("build")
                 .setFileExtension(Models.FileExtension.GRADLE_EXT)
-                .setFileUpdateType(Models.FileUpdateType.WRITE_IF_NOT_EXISTS)
                 .setFullDirectoryLocation("")
 
         return returnFile.build()
@@ -88,5 +87,7 @@ dependencies {
 
     companion object {
         private const val kotlin_version = "1.0.3"
+        private const val ArtifactoryUser = "\$System.env.ARTIFACTORY_USER"
+        private const val ArtifactoryPassword = "\$System.env.ARTIFACTORY_PASSWORD"
     }
 }
