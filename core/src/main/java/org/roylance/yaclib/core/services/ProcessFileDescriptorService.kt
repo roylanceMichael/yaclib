@@ -1,13 +1,13 @@
 package org.roylance.yaclib.core.services
 
 import com.google.protobuf.Descriptors
-import org.roylance.yaclib.Models
+import org.roylance.yaclib.YaclibModel
 import org.roylance.yaclib.core.enums.CommonTokens
 import org.roylance.yaclib.core.utilities.StringUtilities
 
 class ProcessFileDescriptorService: IProcessFileDescriptorService {
-    override fun processFile(fileDescriptor: Descriptors.FileDescriptor): Models.AllControllers {
-        val returnItem = Models.AllControllers.newBuilder()
+    override fun processFile(fileDescriptor: Descriptors.FileDescriptor): YaclibModel.AllControllers {
+        val returnItem = YaclibModel.AllControllers.newBuilder()
 
         fileDescriptor.messageTypes.forEach { messageType ->
             if (messageType.name.endsWith(CommonTokens.ControllerSuffix)) {
@@ -20,9 +20,9 @@ class ProcessFileDescriptorService: IProcessFileDescriptorService {
         return returnItem.build()
     }
 
-    private fun processControllerMessageType(messageType: Descriptors.Descriptor): Models.Controller? {
+    private fun processControllerMessageType(messageType: Descriptors.Descriptor): YaclibModel.Controller? {
         val controllerName = messageType.name.substringBefore(CommonTokens.ControllerSuffix)
-        val returnController = Models.Controller.newBuilder().setName(controllerName)
+        val returnController = YaclibModel.Controller.newBuilder().setName(controllerName)
 
         messageType.fields.filter { field ->
                     CommonTokens.ProtoMessageType.equals(field.type.name) &&
@@ -38,7 +38,7 @@ class ProcessFileDescriptorService: IProcessFileDescriptorService {
         return null
     }
 
-    private fun processActionMessageType(messageType: Descriptors.Descriptor, fieldName: String): Models.Action? {
+    private fun processActionMessageType(messageType: Descriptors.Descriptor, fieldName: String): YaclibModel.Action? {
         val foundInputOutputTypes = messageType.fields.filter { field ->
             CommonTokens.ProtoMessageType.equals(field.type.name)
         }.sortedBy { it.number }
@@ -47,10 +47,10 @@ class ProcessFileDescriptorService: IProcessFileDescriptorService {
             return null
         }
 
-        val returnItem = Models.Action.newBuilder().setName(fieldName)
+        val returnItem = YaclibModel.Action.newBuilder().setName(fieldName)
         val returnType = foundInputOutputTypes[foundInputOutputTypes.size - 1]
 
-        val outputMessage = Models.Message.newBuilder()
+        val outputMessage = YaclibModel.Message.newBuilder()
             .setArgumentName(returnType.name)
             .setFilePackage(returnType.messageType.file.`package`)
             .setFileClass(StringUtilities.convertProtoFileNameToJavaClassName(returnType.messageType.file))
@@ -61,7 +61,7 @@ class ProcessFileDescriptorService: IProcessFileDescriptorService {
 
         foundInputOutputTypes.filter { !it.number.equals(returnType.number) }
             .forEach {
-                val inputMessage = Models.Message.newBuilder()
+                val inputMessage = YaclibModel.Message.newBuilder()
                     .setArgumentName(it.name)
                     .setFilePackage(it.messageType.file.`package`)
                     .setFileClass(StringUtilities.convertProtoFileNameToJavaClassName(it.messageType.file))

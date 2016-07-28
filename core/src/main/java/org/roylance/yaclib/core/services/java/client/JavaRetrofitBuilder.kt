@@ -1,13 +1,14 @@
 package org.roylance.yaclib.core.services.java.client
 
-import org.roylance.yaclib.Models
+import org.roylance.common.service.IBuilder
+import org.roylance.yaclib.YaclibModel
 import org.roylance.yaclib.core.enums.CommonTokens
-import org.roylance.yaclib.core.services.IBuilder
 import org.roylance.yaclib.core.utilities.StringUtilities
 
-class JavaRetrofitBuilder(private val controller: Models.Controller, private val dependency: Models.Dependency): IBuilder<Models.File> {
+class JavaRetrofitBuilder(private val controller: YaclibModel.Controller,
+                          private val dependency: YaclibModel.Dependency): IBuilder<YaclibModel.File> {
 
-    override fun build(): Models.File {
+    override fun build(): YaclibModel.File {
         val workspace = StringBuilder()
         val lowercaseName = controller.name.toLowerCase()
         val interfaceName = "I${controller.name}${CommonTokens.UpperCaseRestName}"
@@ -50,10 +51,10 @@ public interface $interfaceName {
 
         workspace.append("}")
 
-        val returnFile = Models.File.newBuilder()
+        val returnFile = YaclibModel.File.newBuilder()
                 .setFileToWrite(workspace.toString())
                 .setFileName(interfaceName)
-                .setFileExtension(Models.FileExtension.JAVA_EXT)
+                .setFileExtension(YaclibModel.FileExtension.JAVA_EXT)
                 .setFullDirectoryLocation(StringUtilities.convertPackageToJavaFolderStructureServices(dependency.group,
                         CommonTokens.ServicesName))
 

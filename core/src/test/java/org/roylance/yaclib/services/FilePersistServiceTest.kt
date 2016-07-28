@@ -2,7 +2,7 @@ package org.roylance.yaclib.services
 
 import org.junit.Assert
 import org.junit.Test
-import org.roylance.yaclib.Models
+import org.roylance.yaclib.YaclibModel
 import org.roylance.yaclib.core.services.FilePersistService
 import org.roylance.yaclib.core.services.ProcessFileDescriptorService
 import org.roylance.yaclib.core.services.java.client.JavaClientProcessLanguageService
@@ -18,7 +18,7 @@ class FilePersistServiceTest {
         val controllers = service.processFile(org.naru.park.Controllers.getDescriptor())
         val javaServiceLanguageProcess = JavaServerProcessLanguageService()
 
-        val dependency = Models.Dependency.newBuilder()
+        val dependency = YaclibModel.Dependency.newBuilder()
                 .setGroup("org.naru.park")
                 .setName("api")
                 .setVersion("0.14-SNAPSHOT")
@@ -41,7 +41,7 @@ class FilePersistServiceTest {
         val controllers = service.processFile(org.naru.park.Controllers.getDescriptor())
         val javaServiceLanguageProcess = JavaClientProcessLanguageService()
 
-        val dependency = Models.Dependency.newBuilder()
+        val dependency = YaclibModel.Dependency.newBuilder()
                 .setGroup("org.naru.park")
                 .setName("api")
                 .setVersion("0.14-SNAPSHOT")
@@ -64,7 +64,7 @@ class FilePersistServiceTest {
         val controllers = service.processFile(org.naru.park.Controllers.getDescriptor())
         val javaServiceLanguageProcess = TypeScriptProcessLanguageService()
 
-        val dependency = Models.Dependency.newBuilder()
+        val dependency = YaclibModel.Dependency.newBuilder()
                 .setGroup("@mroylance/park")
                 .setName("models")
                 .setVersion("0.0.14")

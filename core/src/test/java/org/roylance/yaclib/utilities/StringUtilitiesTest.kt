@@ -2,8 +2,8 @@ package org.roylance.yaclib.utilities
 
 import org.junit.Assert
 import org.junit.Test
-import org.roylance.yaclib.TestControllers
-import org.roylance.yaclib.TestModels
+import org.roylance.yaclib.TestController
+import org.roylance.yaclib.TestModel
 import org.roylance.yaclib.core.utilities.StringUtilities
 
 class StringUtilitiesTest {
@@ -12,11 +12,11 @@ class StringUtilitiesTest {
         // arrange
 
         // act
-        val testModelsResult = StringUtilities.convertProtoFileNameToJavaClassName(TestModels.getDescriptor())
-        val testControllersResult = StringUtilities.convertProtoFileNameToJavaClassName(TestControllers.getDescriptor())
+        val testModelsResult = StringUtilities.convertProtoFileNameToJavaClassName(TestModel.getDescriptor())
+        val testControllersResult = StringUtilities.convertProtoFileNameToJavaClassName(TestController.getDescriptor())
 
         // assert
-        Assert.assertTrue(TestModels::class.java.simpleName.equals(testModelsResult))
-        Assert.assertTrue(TestControllers::class.java.simpleName.equals(testControllersResult))
+        Assert.assertTrue(TestModel::class.java.simpleName.equals(testModelsResult))
+        Assert.assertTrue(TestController::class.java.simpleName.equals(testControllersResult))
     }
 }

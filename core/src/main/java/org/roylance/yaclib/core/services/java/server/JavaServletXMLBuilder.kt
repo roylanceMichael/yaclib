@@ -1,10 +1,10 @@
 package org.roylance.yaclib.core.services.java.server
 
-import org.roylance.yaclib.Models
+import org.roylance.common.service.IBuilder
+import org.roylance.yaclib.YaclibModel
 import org.roylance.yaclib.core.enums.CommonTokens
-import org.roylance.yaclib.core.services.IBuilder
 
-class JavaServletXMLBuilder(): IBuilder<Models.File> {
+class JavaServletXMLBuilder(): IBuilder<YaclibModel.File> {
     private val ActualXML = """<?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -28,12 +28,12 @@ class JavaServletXMLBuilder(): IBuilder<Models.File> {
     </servlet-mapping>
 </web-app>
 """
-    override fun build(): Models.File {
-        return Models.File.newBuilder()
+    override fun build(): YaclibModel.File {
+        return YaclibModel.File.newBuilder()
             .setFileToWrite(ActualXML)
             .setFileName("web")
-            .setFileUpdateType(Models.FileUpdateType.WRITE_IF_NOT_EXISTS)
-            .setFileExtension(Models.FileExtension.XML_EXT)
+            .setFileUpdateType(YaclibModel.FileUpdateType.WRITE_IF_NOT_EXISTS)
+            .setFileExtension(YaclibModel.FileExtension.XML_EXT)
             .setFullDirectoryLocation("src/main/webapp/WEB-INF")
             .build()
     }

@@ -1,13 +1,13 @@
 package org.roylance.yaclib.core.services.java.client
 
-import org.roylance.yaclib.Models
+import org.roylance.yaclib.YaclibModel
 import org.roylance.yaclib.core.services.IProcessLanguageService
 import org.roylance.yaclib.core.services.java.server.KotlinServiceBuilder
 
 class JavaClientProcessLanguageService: IProcessLanguageService {
-    override fun buildInterface(controllers: Models.AllControllers,
-                                dependency: Models.Dependency): Models.AllFiles {
-        val returnList = Models.AllFiles.newBuilder()
+    override fun buildInterface(controllers: YaclibModel.AllControllers,
+                                dependency: YaclibModel.Dependency): YaclibModel.AllFiles {
+        val returnList = YaclibModel.AllFiles.newBuilder()
 
         returnList.addFiles(GradleFileBuilder(dependency).build())
         returnList.addFiles(GradlewFileBuilder().build())

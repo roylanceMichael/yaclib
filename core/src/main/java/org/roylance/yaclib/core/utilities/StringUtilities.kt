@@ -1,7 +1,7 @@
 package org.roylance.yaclib.core.utilities
 
 import com.google.protobuf.Descriptors
-import org.roylance.yaclib.Models
+import org.roylance.yaclib.YaclibModel
 import org.roylance.yaclib.core.enums.CommonTokens
 
 object StringUtilities {
@@ -36,15 +36,15 @@ object StringUtilities {
         return workspace.toString()
     }
 
-    fun convertServiceNameToInterfaceName(controller: Models.Controller): String {
+    fun convertServiceNameToInterfaceName(controller: YaclibModel.Controller): String {
         return "I${controller.name[0].toUpperCase()}${controller.name.substring(1)}${CommonTokens.ServiceName}"
     }
 
-    fun convertServiceNameToVariableName(controller: Models.Controller): String {
+    fun convertServiceNameToVariableName(controller: YaclibModel.Controller): String {
         return "${controller.name[0].toLowerCase()}${controller.name.substring(1)}${CommonTokens.ServiceName}"
     }
 
-    fun convertServiceNameToJavaCall(controller: Models.Controller): String {
+    fun convertServiceNameToJavaCall(controller: YaclibModel.Controller): String {
         return "get${controller.name[0].toUpperCase()}${controller.name.substring(1)}${CommonTokens.ServiceName}"
     }
 

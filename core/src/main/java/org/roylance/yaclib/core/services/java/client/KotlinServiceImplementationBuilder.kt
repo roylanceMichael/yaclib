@@ -1,13 +1,13 @@
 package org.roylance.yaclib.core.services.java.client
 
-import org.roylance.yaclib.Models
+import org.roylance.common.service.IBuilder
+import org.roylance.yaclib.YaclibModel
 import org.roylance.yaclib.core.enums.CommonTokens
-import org.roylance.yaclib.core.services.IBuilder
 import org.roylance.yaclib.core.utilities.StringUtilities
 
-class KotlinServiceImplementationBuilder(private val controller: Models.Controller,
-                                         private val dependency: Models.Dependency): IBuilder<Models.File> {
-    override fun build(): Models.File {
+class KotlinServiceImplementationBuilder(private val controller: YaclibModel.Controller,
+                                         private val dependency: YaclibModel.Dependency): IBuilder<YaclibModel.File> {
+    override fun build(): YaclibModel.File {
         val workspace = StringBuilder()
 
         val restInterfaceName = "I${controller.name}${CommonTokens.UpperCaseRestName}"
@@ -50,10 +50,10 @@ class ${controller.name}${CommonTokens.ServiceName}(
 
         workspace.append("}")
 
-        val returnFile = Models.File.newBuilder()
+        val returnFile = YaclibModel.File.newBuilder()
                 .setFileToWrite(workspace.toString())
                 .setFileName("${controller.name}${CommonTokens.ServiceName}")
-                .setFileExtension(Models.FileExtension.KT_EXT)
+                .setFileExtension(YaclibModel.FileExtension.KT_EXT)
                 .setFullDirectoryLocation(StringUtilities.convertPackageToJavaFolderStructureServices(dependency.group,
                         CommonTokens.ServicesName))
 

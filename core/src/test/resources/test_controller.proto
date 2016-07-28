@@ -1,7 +1,7 @@
 syntax = "proto2";
 package org.roylance.yaclib;
 
-import "test_models.proto";
+import "test_model.proto";
 
 message PingAction {
     optional org.roylance.yaclib.UITestRequest request = 1;
@@ -19,7 +19,7 @@ message SecondAction {
     optional org.roylance.yaclib.UITestResponse response = 2;
 }
 
-message TestController {
+message SimpleTestController {
     optional PingAction ping = 1;
     optional FirstAction first = 2;
     optional SecondAction second = 3;

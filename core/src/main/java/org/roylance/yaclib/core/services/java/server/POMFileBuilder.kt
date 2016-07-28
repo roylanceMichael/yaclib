@@ -1,10 +1,10 @@
 package org.roylance.yaclib.core.services.java.server
 
-import org.roylance.yaclib.Models
+import org.roylance.common.service.IBuilder
+import org.roylance.yaclib.YaclibModel
 import org.roylance.yaclib.core.enums.CommonTokens
-import org.roylance.yaclib.core.services.IBuilder
 
-class POMFileBuilder(dependency: Models.Dependency): IBuilder<Models.File> {
+class POMFileBuilder(dependency: YaclibModel.Dependency): IBuilder<YaclibModel.File> {
     private val initialTemplate = """<?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -287,11 +287,11 @@ class POMFileBuilder(dependency: Models.Dependency): IBuilder<Models.File> {
 </project>
 """
 
-    override fun build(): Models.File {
-        val returnFile = Models.File.newBuilder()
+    override fun build(): YaclibModel.File {
+        val returnFile = YaclibModel.File.newBuilder()
             .setFileToWrite(initialTemplate.trim())
-            .setFileExtension(Models.FileExtension.POM_EXT)
-            .setFileUpdateType(Models.FileUpdateType.WRITE_IF_NOT_EXISTS)
+            .setFileExtension(YaclibModel.FileExtension.POM_EXT)
+            .setFileUpdateType(YaclibModel.FileUpdateType.WRITE_IF_NOT_EXISTS)
             .setFileName("pom")
             .setFullDirectoryLocation("")
             .build()

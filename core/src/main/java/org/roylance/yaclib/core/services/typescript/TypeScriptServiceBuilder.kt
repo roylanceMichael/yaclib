@@ -1,11 +1,11 @@
 package org.roylance.yaclib.core.services.typescript
 
-import org.roylance.yaclib.Models
-import org.roylance.yaclib.core.services.IBuilder
+import org.roylance.common.service.IBuilder
+import org.roylance.yaclib.YaclibModel
 import org.roylance.yaclib.core.utilities.StringUtilities
 
-class TypeScriptServiceBuilder(private val controller: Models.Controller): IBuilder<Models.File> {
-    override fun build(): Models.File {
+class TypeScriptServiceBuilder(private val controller: YaclibModel.Controller): IBuilder<YaclibModel.File> {
+    override fun build(): YaclibModel.File {
         val workspace = StringBuilder()
         val interfaceName = StringUtilities.convertServiceNameToInterfaceName(controller)
 
@@ -24,9 +24,9 @@ export interface $interfaceName {
 
         workspace.append("}")
 
-        val returnFile = Models.File.newBuilder()
+        val returnFile = YaclibModel.File.newBuilder()
                 .setFileToWrite(workspace.toString())
-                .setFileExtension(Models.FileExtension.TS_EXT)
+                .setFileExtension(YaclibModel.FileExtension.TS_EXT)
                 .setFileName(interfaceName)
                 .setFullDirectoryLocation("")
                 .build()

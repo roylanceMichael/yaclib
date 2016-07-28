@@ -1,8 +1,8 @@
 package org.roylance.yaclib.core.services
 
-import org.roylance.yaclib.Models
+import org.roylance.yaclib.YaclibModel
 
 interface IProcessLanguageService {
-    fun buildInterface(controllers: Models.AllControllers,
-                       dependency: Models.Dependency): Models.AllFiles
+    fun buildInterface(controllers: YaclibModel.AllControllers,
+                       dependency: YaclibModel.Dependency): YaclibModel.AllFiles
 }

@@ -1,14 +1,14 @@
 package org.roylance.yaclib.core.services.java.server
 
-import org.roylance.yaclib.Models
+import org.roylance.common.service.IBuilder
+import org.roylance.yaclib.YaclibModel
 import org.roylance.yaclib.core.enums.CommonTokens
-import org.roylance.yaclib.core.services.IBuilder
 import org.roylance.yaclib.core.utilities.StringUtilities
 
 class JavaRestBuilder(
-        private val controller: Models.Controller,
-        private val dependency: Models.Dependency): IBuilder<Models.File> {
-    override fun build(): Models.File {
+        private val controller: YaclibModel.Controller,
+        private val dependency: YaclibModel.Dependency): IBuilder<YaclibModel.File> {
+    override fun build(): YaclibModel.File {
         val workspace = StringBuilder()
         val lowercaseName = "${controller.name.toLowerCase()}"
         val serviceName = StringUtilities.convertServiceNameToVariableName(controller)
@@ -91,12 +91,11 @@ public class ${controller.name}Controller {
         }
 
         workspace.append("}")
-        val returnFile = Models.File.newBuilder()
+        val returnFile = YaclibModel.File.newBuilder()
                 .setFileToWrite(workspace.toString())
                 .setFileName("${controller.name}Controller")
-                .setFileExtension(Models.FileExtension.JAVA_EXT)
+                .setFileExtension(YaclibModel.FileExtension.JAVA_EXT)
                 .setFullDirectoryLocation(StringUtilities.convertPackageToJavaFolderStructureServices(dependency.group, CommonTokens.RestName))
-
 
         return returnFile.build()
     }

@@ -1,16 +1,16 @@
 package org.roylance.yaclib.core.services.java.server
 
-import org.roylance.yaclib.Models
+import org.roylance.common.service.IBuilder
+import org.roylance.yaclib.YaclibModel
 import org.roylance.yaclib.core.enums.CommonTokens
-import org.roylance.yaclib.core.services.IBuilder
 
-class IndexHTMLBuilder: IBuilder<Models.File> {
-    override fun build(): Models.File {
-        val returnFile = Models.File.newBuilder()
+class IndexHTMLBuilder: IBuilder<YaclibModel.File> {
+    override fun build(): YaclibModel.File {
+        val returnFile = YaclibModel.File.newBuilder()
                 .setFileToWrite(IndexHTMLFile)
                 .setFileName("index")
-                .setFileExtension(Models.FileExtension.HTML_EXT)
-                .setFileUpdateType(Models.FileUpdateType.WRITE_IF_NOT_EXISTS)
+                .setFileExtension(YaclibModel.FileExtension.HTML_EXT)
+                .setFileUpdateType(YaclibModel.FileUpdateType.WRITE_IF_NOT_EXISTS)
                 .setFullDirectoryLocation("src/main/webapp")
 
         return returnFile.build()

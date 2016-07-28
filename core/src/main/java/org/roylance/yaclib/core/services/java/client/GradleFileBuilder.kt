@@ -1,9 +1,9 @@
 package org.roylance.yaclib.core.services.java.client
 
-import org.roylance.yaclib.Models
-import org.roylance.yaclib.core.services.IBuilder
+import org.roylance.common.service.IBuilder
+import org.roylance.yaclib.YaclibModel
 
-class GradleFileBuilder(dependency: Models.Dependency): IBuilder<Models.File> {
+class GradleFileBuilder(dependency: YaclibModel.Dependency): IBuilder<YaclibModel.File> {
     private val InitialTemplate = """group '${dependency.group}'
 version '${dependency.version}'
 
@@ -75,11 +75,11 @@ dependencies {
 }
 """
 
-    override fun build(): Models.File {
-        val returnFile = Models.File.newBuilder()
+    override fun build(): YaclibModel.File {
+        val returnFile = YaclibModel.File.newBuilder()
                 .setFileToWrite(InitialTemplate)
                 .setFileName("build")
-                .setFileExtension(Models.FileExtension.GRADLE_EXT)
+                .setFileExtension(YaclibModel.FileExtension.GRADLE_EXT)
                 .setFullDirectoryLocation("")
 
         return returnFile.build()
@@ -87,7 +87,5 @@ dependencies {
 
     companion object {
         private const val kotlin_version = "1.0.3"
-        private const val ArtifactoryUser = "\$System.env.ARTIFACTORY_USER"
-        private const val ArtifactoryPassword = "\$System.env.ARTIFACTORY_PASSWORD"
     }
 }

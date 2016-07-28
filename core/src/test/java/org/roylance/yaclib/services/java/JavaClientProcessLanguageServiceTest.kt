@@ -3,7 +3,7 @@ package org.roylance.yaclib.services.java
 import org.junit.Assert
 import org.junit.Test
 import org.naru.park.Controllers
-import org.roylance.yaclib.Models
+import org.roylance.yaclib.YaclibModel
 import org.roylance.yaclib.core.services.ProcessFileDescriptorService
 import org.roylance.yaclib.core.services.java.client.JavaClientProcessLanguageService
 
@@ -15,7 +15,7 @@ class JavaClientProcessLanguageServiceTest {
         val controllers = service.processFile(Controllers.getDescriptor())
         val javaServiceLanguageProcess = JavaClientProcessLanguageService()
 
-        val dependency = Models.Dependency.newBuilder()
+        val dependency = YaclibModel.Dependency.newBuilder()
                 .setGroup("org.naru.park")
                 .setName("api")
                 .setVersion("0.14-SNAPSHOT")

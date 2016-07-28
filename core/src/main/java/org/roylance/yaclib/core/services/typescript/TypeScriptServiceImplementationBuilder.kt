@@ -1,13 +1,13 @@
 package org.roylance.yaclib.core.services.typescript
 
-import org.roylance.yaclib.Models
+import org.roylance.common.service.IBuilder
+import org.roylance.yaclib.YaclibModel
 import org.roylance.yaclib.core.enums.CommonTokens
-import org.roylance.yaclib.core.services.IBuilder
 import org.roylance.yaclib.core.utilities.StringUtilities
 
-class TypeScriptServiceImplementationBuilder(private val controller: Models.Controller,
-                                             private val dependency: Models.Dependency): IBuilder<Models.File> {
-    override fun build(): Models.File {
+class TypeScriptServiceImplementationBuilder(private val controller: YaclibModel.Controller,
+                                             private val dependency: YaclibModel.Dependency): IBuilder<YaclibModel.File> {
+    override fun build(): YaclibModel.File {
         val workspace = StringBuilder()
         val interfaceName = StringUtilities.convertServiceNameToInterfaceName(controller)
 
@@ -52,9 +52,9 @@ export class ${controller.name}${CommonTokens.ServiceName} implements $interface
         }
         workspace.append("}")
 
-        val returnFile = Models.File.newBuilder()
+        val returnFile = YaclibModel.File.newBuilder()
                 .setFileToWrite(workspace.toString())
-                .setFileExtension(Models.FileExtension.TS_EXT)
+                .setFileExtension(YaclibModel.FileExtension.TS_EXT)
                 .setFileName("${controller.name}${CommonTokens.ServiceName}")
                 .setFullDirectoryLocation("")
                 .build()

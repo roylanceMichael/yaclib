@@ -1,11 +1,11 @@
 package org.roylance.yaclib.core.services
 
-import org.roylance.yaclib.Models
+import org.roylance.yaclib.YaclibModel
 import org.roylance.yaclib.core.utilities.FileExtensionUtilities
 import java.io.File
 
 class FilePersistService: IFilePersistService {
-    override fun persistFiles(initialLocation: String, files: Models.AllFiles) {
+    override fun persistFiles(initialLocation: String, files: YaclibModel.AllFiles) {
         val initialLocationDir = File(initialLocation)
 
         if (!initialLocationDir.exists()) {
@@ -21,7 +21,7 @@ class FilePersistService: IFilePersistService {
 
             val existingFile = File(existingDir.absolutePath, file.fileName + FileExtensionUtilities.getExtension(file.fileExtension))
 
-            if (existingFile.exists() && file.fileUpdateType.equals(Models.FileUpdateType.WRITE_IF_NOT_EXISTS)) {
+            if (existingFile.exists() && file.fileUpdateType.equals(YaclibModel.FileUpdateType.WRITE_IF_NOT_EXISTS)) {
                 return@forEach
             }
 

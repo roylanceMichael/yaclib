@@ -1,12 +1,12 @@
 package org.roylance.yaclib.core.services.java.server
 
-import org.roylance.yaclib.Models
+import org.roylance.yaclib.YaclibModel
 import org.roylance.yaclib.core.services.IProcessLanguageService
 
 class JavaServerProcessLanguageService: IProcessLanguageService {
-    override fun buildInterface(controllers: Models.AllControllers,
-                                dependency: Models.Dependency):Models.AllFiles {
-        val returnList = Models.AllFiles.newBuilder()
+    override fun buildInterface(controllers: YaclibModel.AllControllers,
+                                dependency: YaclibModel.Dependency):YaclibModel.AllFiles {
+        val returnList = YaclibModel.AllFiles.newBuilder()
 
         returnList.addFiles(IndexHTMLBuilder().build())
         returnList.addFiles(JavaLaunchBuilder().build())

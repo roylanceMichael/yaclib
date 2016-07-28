@@ -1,15 +1,15 @@
 package org.roylance.yaclib.core.services.java.server
 
-import org.roylance.yaclib.Models
-import org.roylance.yaclib.core.services.IBuilder
+import org.roylance.common.service.IBuilder
+import org.roylance.yaclib.YaclibModel
 
-class JavaLaunchBuilder:IBuilder<Models.File> {
-    override fun build(): Models.File {
-        val returnFile = Models.File.newBuilder()
+class JavaLaunchBuilder: IBuilder<YaclibModel.File> {
+    override fun build(): YaclibModel.File {
+        val returnFile = YaclibModel.File.newBuilder()
                 .setFileToWrite(ActualJavaFile)
                 .setFileName("Main")
-                .setFileExtension(Models.FileExtension.JAVA_EXT)
-                .setFileUpdateType(Models.FileUpdateType.WRITE_IF_NOT_EXISTS)
+                .setFileExtension(YaclibModel.FileExtension.JAVA_EXT)
+                .setFileUpdateType(YaclibModel.FileUpdateType.WRITE_IF_NOT_EXISTS)
                 .setFullDirectoryLocation("src/main/java/launch")
 
         return returnFile.build()
