@@ -6,32 +6,42 @@ import org.roylance.yaclib.core.enums.CommonTokens
 import org.roylance.yaclib.core.utilities.StringUtilities
 
 class KotlinServiceLocatorBuilder(
-        private val controllers: YaclibModel.AllControllers,
-        private val dependency: YaclibModel.Dependency,
+        private val controllerDependencies: YaclibModel.AllControllerDependencies,
         private val mainDependency: YaclibModel.Dependency): IBuilder<YaclibModel.File> {
 
-    override fun build(): YaclibModel.File {
-        val allControllerNames = this.controllers.controllersList.map { controller ->
-            """    override val ${StringUtilities.convertServiceNameToVariableName(controller)}: ${dependency.group}.${CommonTokens.ServicesName}.${StringUtilities.convertServiceNameToInterfaceName(controller)}
-        get() = throw UnsupportedOperationException()
-""" }.joinToString("\n")
-
-        val template = """package ${dependency.group}.${CommonTokens.UtilitiesName}
+    private val initialTemplate = """package ${mainDependency.group}.${CommonTokens.UtilitiesName}
 
 object ${CommonTokens.ServiceLocatorSingletonName}: ${CommonTokens.ServiceLocatorName} {
     override val protobufSerializerService: org.roylance.common.service.IProtoSerializerService
         get() = org.roylance.common.service.ProtoSerializerService(${mainDependency.group}.${CommonTokens.ServicesName}.Base64Service())
-$allControllerNames
+${this.buildAllControllerServices()}
 }
 """
+
+    override fun build(): YaclibModel.File {
         val returnFile = YaclibModel.File.newBuilder()
-                .setFileToWrite(template)
+                .setFileToWrite(initialTemplate)
                 .setFileName(CommonTokens.ServiceLocatorSingletonName)
                 .setFileExtension(YaclibModel.FileExtension.KT_EXT)
                 .setFileUpdateType(YaclibModel.FileUpdateType.WRITE_IF_NOT_EXISTS)
-                .setFullDirectoryLocation(StringUtilities.convertPackageToJavaFolderStructureServices(dependency.group,
+                .setFullDirectoryLocation(StringUtilities.convertPackageToJavaFolderStructureServices(mainDependency.group,
                         CommonTokens.UtilitiesName))
 
         return returnFile.build()
+    }
+
+    private fun buildAllControllerServices():String {
+        val workspace = StringBuilder()
+
+        this.controllerDependencies.controllerDependenciesList.forEach { controllerDependencies ->
+            controllerDependencies.controllers.controllersList.forEach { controller ->
+                val item = """    override val ${StringUtilities.convertServiceNameToVariableName(controller)}: ${mainDependency.group}.${CommonTokens.ServicesName}.${StringUtilities.convertServiceNameToInterfaceName(controller)}
+        get() = throw UnsupportedOperationException()
+"""
+                workspace.append(item)
+            }
+        }
+
+        return workspace.toString()
     }
 }

@@ -6,13 +6,13 @@ import org.roylance.yaclib.core.enums.CommonTokens
 import org.roylance.yaclib.core.utilities.StringUtilities
 
 class KotlinServiceImplementationBuilder(private val controller: YaclibModel.Controller,
-                                         private val dependency: YaclibModel.Dependency): IBuilder<YaclibModel.File> {
+                                         private val mainDependency: YaclibModel.Dependency): IBuilder<YaclibModel.File> {
     override fun build(): YaclibModel.File {
         val workspace = StringBuilder()
 
         val restInterfaceName = "I${controller.name}${CommonTokens.UpperCaseRestName}"
         val restVariableName = "rest${controller.name}"
-        val initialTemplate = """package ${dependency.group}.${CommonTokens.ServicesName}
+        val initialTemplate = """package ${mainDependency.group}.${CommonTokens.ServicesName}
 
 import org.roylance.common.service.IProtoSerializerService
 
@@ -54,7 +54,7 @@ class ${controller.name}${CommonTokens.ServiceName}(
                 .setFileToWrite(workspace.toString())
                 .setFileName("${controller.name}${CommonTokens.ServiceName}")
                 .setFileExtension(YaclibModel.FileExtension.KT_EXT)
-                .setFullDirectoryLocation(StringUtilities.convertPackageToJavaFolderStructureServices(dependency.group,
+                .setFullDirectoryLocation(StringUtilities.convertPackageToJavaFolderStructureServices(mainDependency.group,
                         CommonTokens.ServicesName))
 
         return  returnFile.build()

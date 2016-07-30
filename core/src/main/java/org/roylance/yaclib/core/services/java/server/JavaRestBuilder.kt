@@ -7,19 +7,20 @@ import org.roylance.yaclib.core.utilities.StringUtilities
 
 class JavaRestBuilder(
         private val controller: YaclibModel.Controller,
-        private val dependency: YaclibModel.Dependency): IBuilder<YaclibModel.File> {
+        private val dependency: YaclibModel.Dependency,
+        private val mainDependency: YaclibModel.Dependency): IBuilder<YaclibModel.File> {
     override fun build(): YaclibModel.File {
         val workspace = StringBuilder()
         val lowercaseName = "${controller.name.toLowerCase()}"
         val serviceName = StringUtilities.convertServiceNameToVariableName(controller)
         val interfaceName = StringUtilities.convertServiceNameToInterfaceName(controller)
 
-        val initialTemplate = """package ${dependency.group}.${CommonTokens.RestName};
+        val initialTemplate = """package ${mainDependency.group}.${CommonTokens.RestName};
 
 import org.roylance.common.service.IProtoSerializerService;
 
-import ${dependency.group}.${CommonTokens.ServiceLocatorLocation};
-import ${dependency.group}.${CommonTokens.ServicesName}.${StringUtilities.convertServiceNameToInterfaceName(controller)};
+import ${mainDependency.group}.${CommonTokens.ServiceLocatorLocation};
+import ${mainDependency.group}.${CommonTokens.ServicesName}.${StringUtilities.convertServiceNameToInterfaceName(controller)};
 
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
@@ -95,7 +96,8 @@ public class ${controller.name}Controller {
                 .setFileToWrite(workspace.toString())
                 .setFileName("${controller.name}Controller")
                 .setFileExtension(YaclibModel.FileExtension.JAVA_EXT)
-                .setFullDirectoryLocation(StringUtilities.convertPackageToJavaFolderStructureServices(dependency.group, CommonTokens.RestName))
+                .setFullDirectoryLocation(StringUtilities.convertPackageToJavaFolderStructureServices(mainDependency.group,
+                        CommonTokens.RestName))
 
         return returnFile.build()
     }

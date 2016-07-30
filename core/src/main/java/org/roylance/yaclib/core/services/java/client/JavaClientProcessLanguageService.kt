@@ -17,9 +17,9 @@ class JavaClientProcessLanguageService: IProcessLanguageService {
 
         controllerDependencies.controllerDependenciesList.forEach { controllerDependency ->
             controllerDependency.controllers.controllersList.forEach { controller ->
-                returnList.addFiles(JavaRetrofitBuilder(controller, controllerDependency.dependency).build())
-                returnList.addFiles(KotlinServiceBuilder(controller, controllerDependency.dependency).build())
-                returnList.addFiles(KotlinServiceImplementationBuilder(controller, controllerDependency.dependency).build())
+                returnList.addFiles(JavaRetrofitBuilder(controller, mainDependency).build())
+                returnList.addFiles(KotlinServiceBuilder(controller, mainDependency).build())
+                returnList.addFiles(KotlinServiceImplementationBuilder(controller, mainDependency).build())
             }
         }
 

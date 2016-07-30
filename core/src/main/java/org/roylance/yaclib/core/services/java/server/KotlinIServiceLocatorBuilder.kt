@@ -6,28 +6,39 @@ import org.roylance.yaclib.core.enums.CommonTokens
 import org.roylance.yaclib.core.utilities.StringUtilities
 
 class KotlinIServiceLocatorBuilder(
-        private val controllers: YaclibModel.AllControllers,
-        private val dependency: YaclibModel.Dependency): IBuilder<YaclibModel.File> {
+        private val controllerDependencies: YaclibModel.AllControllerDependencies,
+        private val mainDependency: YaclibModel.Dependency): IBuilder<YaclibModel.File> {
 
-    override fun build(): YaclibModel.File {
-        val allControllerNames = this.controllers.controllersList.map { controller ->
-            "\tval ${StringUtilities.convertServiceNameToVariableName(controller)}: ${dependency.group}.${CommonTokens.ServicesName}.${StringUtilities.convertServiceNameToInterfaceName(controller)}"
-        }.joinToString("\n")
-
-        val template = """package ${dependency.group}.${CommonTokens.UtilitiesName}
+    private val initialTemplate = """package ${mainDependency.group}.${CommonTokens.UtilitiesName}
 
 interface ${CommonTokens.ServiceLocatorName} {
     val protobufSerializerService: org.roylance.common.service.IProtoSerializerService
-$allControllerNames
+${this.buildAllControllerServices()}
 }
 """
 
+    override fun build(): YaclibModel.File {
         val returnFile = YaclibModel.File.newBuilder()
-            .setFileToWrite(template)
+            .setFileToWrite(initialTemplate)
             .setFileName(CommonTokens.ServiceLocatorName)
             .setFileExtension(YaclibModel.FileExtension.KT_EXT)
-            .setFullDirectoryLocation(StringUtilities.convertPackageToJavaFolderStructureServices(dependency.group, CommonTokens.UtilitiesName))
+            .setFullDirectoryLocation(StringUtilities.convertPackageToJavaFolderStructureServices(mainDependency.group,
+                    CommonTokens.UtilitiesName))
 
         return returnFile.build()
+    }
+
+    private fun buildAllControllerServices():String {
+        val workspace = StringBuilder()
+
+        this.controllerDependencies.controllerDependenciesList.forEach { controllerDependencies ->
+            controllerDependencies.controllers.controllersList.forEach { controller ->
+                val item = """    val ${StringUtilities.convertServiceNameToVariableName(controller)}: ${mainDependency.group}.${CommonTokens.ServicesName}.${StringUtilities.convertServiceNameToInterfaceName(controller)}
+"""
+                workspace.append(item)
+            }
+        }
+
+        return workspace.toString()
     }
 }

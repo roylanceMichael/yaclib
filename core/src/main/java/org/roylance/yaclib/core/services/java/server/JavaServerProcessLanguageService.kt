@@ -25,13 +25,13 @@ class JavaServerProcessLanguageService: IProcessLanguageService {
         returnList.addFiles(JavaServletXMLBuilder().build())
         returnList.addFiles(Java8Base64ServiceBuilder(mainDependency).build())
 
-        controllerDependencies.controllerDependenciesList.forEach { controllerDependency ->
-            returnList.addFiles(KotlinIServiceLocatorBuilder(controllerDependency.controllers, controllerDependency.dependency).build())
-            returnList.addFiles(KotlinServiceLocatorBuilder(controllerDependency.controllers, controllerDependency.dependency, mainDependency).build())
+        returnList.addFiles(KotlinIServiceLocatorBuilder(controllerDependencies, mainDependency).build())
+        returnList.addFiles(KotlinServiceLocatorBuilder(controllerDependencies, mainDependency).build())
 
+        controllerDependencies.controllerDependenciesList.forEach { controllerDependency ->
             controllerDependency.controllers.controllersList.forEach { controller ->
-                returnList.addFiles(KotlinServiceBuilder(controller, controllerDependency.dependency).build())
-                returnList.addFiles(JavaRestBuilder(controller, controllerDependency.dependency).build())
+                returnList.addFiles(KotlinServiceBuilder(controller, mainDependency).build())
+                returnList.addFiles(JavaRestBuilder(controller, controllerDependency.dependency, mainDependency).build())
             }
         }
 

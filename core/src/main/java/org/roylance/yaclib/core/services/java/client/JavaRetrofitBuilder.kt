@@ -6,13 +6,13 @@ import org.roylance.yaclib.core.enums.CommonTokens
 import org.roylance.yaclib.core.utilities.StringUtilities
 
 class JavaRetrofitBuilder(private val controller: YaclibModel.Controller,
-                          private val dependency: YaclibModel.Dependency): IBuilder<YaclibModel.File> {
+                          private val mainDependency: YaclibModel.Dependency): IBuilder<YaclibModel.File> {
 
     override fun build(): YaclibModel.File {
         val workspace = StringBuilder()
         val lowercaseName = controller.name.toLowerCase()
         val interfaceName = "I${controller.name}${CommonTokens.UpperCaseRestName}"
-        val initialTemplate = """package ${dependency.group}.${CommonTokens.ServicesName};
+        val initialTemplate = """package ${mainDependency.group}.${CommonTokens.ServicesName};
 
 import retrofit2.Call;
 import retrofit2.http.Body;
@@ -55,7 +55,7 @@ public interface $interfaceName {
                 .setFileToWrite(workspace.toString())
                 .setFileName(interfaceName)
                 .setFileExtension(YaclibModel.FileExtension.JAVA_EXT)
-                .setFullDirectoryLocation(StringUtilities.convertPackageToJavaFolderStructureServices(dependency.group,
+                .setFullDirectoryLocation(StringUtilities.convertPackageToJavaFolderStructureServices(mainDependency.group,
                         CommonTokens.ServicesName))
 
         return  returnFile.build()
