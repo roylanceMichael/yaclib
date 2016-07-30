@@ -37,6 +37,9 @@ object FileExtensionUtilities {
         if (YaclibModel.FileExtension.BAT_EXT.equals(extension)) {
             return ".bat"
         }
+        if (YaclibModel.FileExtension.JS_EXT.equals(extension)) {
+            return ".js"
+        }
 
         return ".java"
     }

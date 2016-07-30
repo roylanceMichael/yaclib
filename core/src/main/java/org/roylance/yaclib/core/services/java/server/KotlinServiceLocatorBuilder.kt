@@ -7,7 +7,8 @@ import org.roylance.yaclib.core.utilities.StringUtilities
 
 class KotlinServiceLocatorBuilder(
         private val controllers: YaclibModel.AllControllers,
-        private val dependency: YaclibModel.Dependency): IBuilder<YaclibModel.File> {
+        private val dependency: YaclibModel.Dependency,
+        private val mainDependency: YaclibModel.Dependency): IBuilder<YaclibModel.File> {
 
     override fun build(): YaclibModel.File {
         val allControllerNames = this.controllers.controllersList.map { controller ->
@@ -19,7 +20,7 @@ class KotlinServiceLocatorBuilder(
 
 object ${CommonTokens.ServiceLocatorSingletonName}: ${CommonTokens.ServiceLocatorName} {
     override val protobufSerializerService: org.roylance.common.service.IProtoSerializerService
-        get() = throw UnsupportedOperationException()
+        get() = org.roylance.common.service.ProtoSerializerService(${mainDependency.group}.${CommonTokens.ServicesName}.Base64Service())
 $allControllerNames
 }
 """

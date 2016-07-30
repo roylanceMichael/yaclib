@@ -2,16 +2,26 @@ package org.roylance.yaclib.core.services.typescript
 
 import org.roylance.yaclib.YaclibModel
 import org.roylance.yaclib.core.services.IProcessLanguageService
+import org.roylance.yaclib.core.utilities.TypeScriptUtilities
 
 class TypeScriptProcessLanguageService: IProcessLanguageService {
-    override fun buildInterface(controllers: YaclibModel.AllControllers,
-                                dependency: YaclibModel.Dependency): YaclibModel.AllFiles {
+    override fun buildInterface(controllerDependencies: YaclibModel.AllControllerDependencies,
+                                mainDependency: YaclibModel.Dependency,
+                                thirdPartyDependencies: MutableList<YaclibModel.Dependency>): YaclibModel.AllFiles {
+        if (thirdPartyDependencies.size == 0) {
+            thirdPartyDependencies.addAll(TypeScriptUtilities.baseTypeScriptKit)
+        }
+
         val returnList = YaclibModel.AllFiles.newBuilder()
 
+        returnList.addFiles(NPMPackageBuilder(mainDependency, thirdPartyDependencies).build())
         returnList.addFiles(HttpExecuteServiceBuilder().build())
-        controllers.controllersList.forEach { controller ->
-            returnList.addFiles(TypeScriptServiceBuilder(controller).build())
-            returnList.addFiles(TypeScriptServiceImplementationBuilder(controller, dependency).build())
+        controllerDependencies.controllerDependenciesList.forEach { controllerDependency ->
+            controllerDependency.controllers.controllersList.forEach { controller ->
+                returnList.addFiles(TypeScriptServiceBuilder(controller, controllerDependency.dependency).build())
+                returnList.addFiles(TypeScriptServiceImplementationBuilder(controller, controllerDependency.dependency)
+                        .build())
+            }
         }
 
         return returnList.build()

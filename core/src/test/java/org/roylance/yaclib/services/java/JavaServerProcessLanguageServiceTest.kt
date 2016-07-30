@@ -6,6 +6,7 @@ import org.naru.park.Controllers
 import org.roylance.yaclib.YaclibModel
 import org.roylance.yaclib.core.services.ProcessFileDescriptorService
 import org.roylance.yaclib.core.services.java.server.JavaServerProcessLanguageService
+import org.roylance.yaclib.core.utilities.TypeScriptUtilities
 
 class JavaServerProcessLanguageServiceTest {
     @Test
@@ -18,11 +19,18 @@ class JavaServerProcessLanguageServiceTest {
         val dependency = YaclibModel.Dependency.newBuilder()
             .setGroup("org.naru.park")
             .setName("api")
-            .setVersion("0.14-SNAPSHOT")
+            .setVersion(14)
+            .setTypescriptModelFile("NaruPark")
             .build()
 
+        val controllerDependencies = YaclibModel.ControllerDependency.newBuilder().setDependency(dependency)
+                .setControllers(controllers)
+                .build()
+
+        val all = YaclibModel.AllControllerDependencies.newBuilder().addControllerDependencies(controllerDependencies).build()
+
         // act
-        val item = javaServiceLanguageProcess.buildInterface(controllers, dependency)
+        val item = javaServiceLanguageProcess.buildInterface(all, dependency, TypeScriptUtilities.baseServerTypeScriptKit)
 
         // assert
         item.filesList.forEach {

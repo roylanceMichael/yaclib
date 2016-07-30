@@ -4,16 +4,18 @@ import org.roylance.common.service.IBuilder
 import org.roylance.yaclib.YaclibModel
 import org.roylance.yaclib.core.enums.CommonTokens
 
-class POMFileBuilder(dependency: YaclibModel.Dependency): IBuilder<YaclibModel.File> {
+class POMFileBuilder(private val controllerDependencies: YaclibModel.AllControllerDependencies,
+                     mainDependency: YaclibModel.Dependency,
+                     private val thirdPartyDependencies: List<YaclibModel.Dependency>): IBuilder<YaclibModel.File> {
     private val initialTemplate = """<?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>${dependency.group}</groupId>
+    <groupId>${mainDependency.group}</groupId>
     <artifactId>${CommonTokens.ServerApi}</artifactId>
-    <version>${dependency.version}</version>
+    <version>0.${mainDependency.version}-SNAPSHOT</version>
 
     <repositories>
         <repository>
@@ -55,11 +57,7 @@ class POMFileBuilder(dependency: YaclibModel.Dependency): IBuilder<YaclibModel.F
     </pluginRepositories>
 
     <dependencies>
-        <dependency>
-            <groupId>${dependency.group}</groupId>
-            <artifactId>${dependency.name}</artifactId>
-            <version>${dependency.version}</version>
-        </dependency>
+        ${this.buildDependencies()}
 
         <dependency>
             <groupId>org.roylance</groupId>
@@ -270,7 +268,7 @@ class POMFileBuilder(dependency: YaclibModel.Dependency): IBuilder<YaclibModel.F
                 <version>1.0.3</version>
                 <configuration>
                     <jdkVersion>1.8</jdkVersion>
-                    <appName>${dependency.group}.${dependency.name}</appName>
+                    <appName>${mainDependency.group}.${mainDependency.name}</appName>
                     <processTypes>
                         <web>sh heroku_proc.sh</web>
                     </processTypes>
@@ -291,12 +289,39 @@ class POMFileBuilder(dependency: YaclibModel.Dependency): IBuilder<YaclibModel.F
         val returnFile = YaclibModel.File.newBuilder()
             .setFileToWrite(initialTemplate.trim())
             .setFileExtension(YaclibModel.FileExtension.POM_EXT)
-            .setFileUpdateType(YaclibModel.FileUpdateType.WRITE_IF_NOT_EXISTS)
             .setFileName("pom")
             .setFullDirectoryLocation("")
             .build()
 
         return returnFile
+    }
+
+    private fun buildDependencies():String {
+        val workspace = StringBuilder()
+
+        this.thirdPartyDependencies
+                .filter { it.type.equals(YaclibModel.DependencyType.JAVA) }
+                .forEach { dependency ->
+                    workspace.append("""
+        <dependency>
+            <groupId>${dependency.group}</groupId>
+            <artifactId>${dependency.name}</artifactId>
+            <version>${dependency.thirdPartyDependencyVersion}</version>
+        </dependency>
+            """)
+        }
+
+        this.controllerDependencies.controllerDependenciesList.forEach { controllerDependency ->
+            workspace.append("""
+        <dependency>
+            <groupId>${controllerDependency.dependency.group}</groupId>
+            <artifactId>${controllerDependency.dependency.name}</artifactId>
+            <version>0.${controllerDependency.dependency.version}-SNAPSHOT</version>
+        </dependency>
+            """)
+        }
+
+        return workspace.toString()
     }
 
     companion object {

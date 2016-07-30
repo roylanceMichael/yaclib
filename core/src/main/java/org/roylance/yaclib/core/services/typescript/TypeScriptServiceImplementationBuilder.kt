@@ -12,16 +12,16 @@ class TypeScriptServiceImplementationBuilder(private val controller: YaclibModel
         val interfaceName = StringUtilities.convertServiceNameToInterfaceName(controller)
 
         val initialTemplate = """import {$interfaceName} from "./$interfaceName";
-import {IHttpExecuteService} from "./${HttpExecuteServiceBuilder.FileName}";
+import {${HttpExecuteServiceBuilder.FileName}} from "./${HttpExecuteServiceBuilder.FileName}";
 import ProtoBufBuilder = ${dependency.group}.ProtoBufBuilder;
 
 export class ${controller.name}${CommonTokens.ServiceName} implements $interfaceName {
-    httpExecuteService:IHttpExecuteService;
+    ${HttpExecuteServiceBuilder.VariableName}:${HttpExecuteServiceBuilder.FileName};
     modelFactory:ProtoBufBuilder;
 
-    constructor(httpExecuteService:IHttpExecuteService,
+    constructor(${HttpExecuteServiceBuilder.VariableName}:${HttpExecuteServiceBuilder.FileName},
                 modelFactory:ProtoBufBuilder) {
-        this.httpExecuteService = httpExecuteService;
+        this.${HttpExecuteServiceBuilder.VariableName} = ${HttpExecuteServiceBuilder.VariableName};
         this.modelFactory = modelFactory;
     }
 """
@@ -38,7 +38,7 @@ export class ${controller.name}${CommonTokens.ServiceName} implements $interface
                 val fullUrl = StringUtilities.buildUrl("/rest/${controller.name}/${action.name}")
                 val functionTemplate = """
             const self = this;
-            this.httpExecuteService.performPost("$fullUrl",
+            this.${HttpExecuteServiceBuilder.VariableName}.performPost("$fullUrl",
                     ${action.inputsList.first().argumentName}.toBase64(),
                     function(result:string) {
                         onSuccess(self.modelFactory.${action.output.messageClass}.decode64(result));

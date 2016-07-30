@@ -3,9 +3,10 @@ package org.roylance.yaclib.core.services.java.client
 import org.roylance.common.service.IBuilder
 import org.roylance.yaclib.YaclibModel
 
-class GradleFileBuilder(dependency: YaclibModel.Dependency): IBuilder<YaclibModel.File> {
-    private val InitialTemplate = """group '${dependency.group}'
-version '${dependency.version}'
+class GradleFileBuilder(private val controllerDependencies: YaclibModel.AllControllerDependencies,
+                        mainDependency: YaclibModel.Dependency): IBuilder<YaclibModel.File> {
+    private val InitialTemplate = """group '${mainDependency.group}'
+version '0.${mainDependency.version}-SNAPSHOT'
 
 apply plugin: 'java'
 apply plugin: 'kotlin'
@@ -71,7 +72,7 @@ dependencies {
     compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
 
     compile 'org.roylance:common:0.3-SNAPSHOT'
-    compile '${dependency.group}:${dependency.name}:${dependency.version}'
+    ${this.buildDependencies()}
 }
 """
 
@@ -83,6 +84,17 @@ dependencies {
                 .setFullDirectoryLocation("")
 
         return returnFile.build()
+    }
+
+    private fun buildDependencies():String {
+        val workspace = StringBuilder()
+
+        this.controllerDependencies.controllerDependenciesList.forEach { controllerDependency ->
+        workspace.append("""compile '${controllerDependency.dependency.group}:${controllerDependency.dependency.name}:0.${controllerDependency.dependency.version}-SNAPSHOT'
+""")
+        }
+
+        return workspace.toString()
     }
 
     companion object {

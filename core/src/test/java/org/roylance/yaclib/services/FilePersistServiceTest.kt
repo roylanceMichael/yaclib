@@ -21,10 +21,17 @@ class FilePersistServiceTest {
         val dependency = YaclibModel.Dependency.newBuilder()
                 .setGroup("org.naru.park")
                 .setName("api")
-                .setVersion("0.14-SNAPSHOT")
+                .setVersion(14)
+                .setTypescriptModelFile("ParkModel")
                 .build()
 
-        val allFiles = javaServiceLanguageProcess.buildInterface(controllers, dependency)
+        val controllerDependencies = YaclibModel.ControllerDependency.newBuilder().setDependency(dependency)
+                .setControllers(controllers)
+                .build()
+
+        val all = YaclibModel.AllControllerDependencies.newBuilder().addControllerDependencies(controllerDependencies).build()
+
+        val allFiles = javaServiceLanguageProcess.buildInterface(all, dependency)
 
         // act
         filePersistService.persistFiles("/home/mroylance/park/sapi", allFiles)
@@ -44,10 +51,16 @@ class FilePersistServiceTest {
         val dependency = YaclibModel.Dependency.newBuilder()
                 .setGroup("org.naru.park")
                 .setName("api")
-                .setVersion("0.14-SNAPSHOT")
+                .setVersion(14)
                 .build()
 
-        val allFiles = javaServiceLanguageProcess.buildInterface(controllers, dependency)
+        val controllerDependencies = YaclibModel.ControllerDependency.newBuilder().setDependency(dependency)
+            .setControllers(controllers)
+            .build()
+
+        val all = YaclibModel.AllControllerDependencies.newBuilder().addControllerDependencies(controllerDependencies).build()
+
+        val allFiles = javaServiceLanguageProcess.buildInterface(all, dependency)
 
         // act
         filePersistService.persistFiles("/home/mroylance/park/capi", allFiles)
@@ -67,11 +80,17 @@ class FilePersistServiceTest {
         val dependency = YaclibModel.Dependency.newBuilder()
                 .setGroup("@mroylance/park")
                 .setName("models")
-                .setVersion("0.0.14")
-                .setTypescriptModelFile("./model")
+                .setVersion(14)
+                .setTypescriptModelFile("ParkModel")
                 .build()
 
-        val allFiles = javaServiceLanguageProcess.buildInterface(controllers, dependency)
+        val controllerDependencies = YaclibModel.ControllerDependency.newBuilder().setDependency(dependency)
+            .setControllers(controllers)
+            .build()
+
+        val all = YaclibModel.AllControllerDependencies.newBuilder().addControllerDependencies(controllerDependencies).build()
+
+        val allFiles = javaServiceLanguageProcess.buildInterface(all, dependency)
 
         // act
         filePersistService.persistFiles("/home/mroylance/park/api/javascript", allFiles)

@@ -18,11 +18,17 @@ class JavaClientProcessLanguageServiceTest {
         val dependency = YaclibModel.Dependency.newBuilder()
                 .setGroup("org.naru.park")
                 .setName("api")
-                .setVersion("0.14-SNAPSHOT")
+                .setVersion(14)
                 .build()
 
+        val controllerDependencies = YaclibModel.ControllerDependency.newBuilder().setDependency(dependency)
+                .setControllers(controllers)
+                .build()
+
+        val all = YaclibModel.AllControllerDependencies.newBuilder().addControllerDependencies(controllerDependencies).build()
+
         // act
-        val item = javaServiceLanguageProcess.buildInterface(controllers, dependency)
+        val item = javaServiceLanguageProcess.buildInterface(all, dependency)
 
         // assert
         item.filesList.forEach {

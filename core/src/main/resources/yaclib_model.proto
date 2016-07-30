@@ -2,10 +2,11 @@ syntax = "proto2";
 package org.roylance.yaclib;
 
 enum DependencyType {
-    JAVA = 0;
-    TYPESCRIPT = 1;
-    CSHARP = 2;
-    SWIFT = 3;
+    INTERNAL = 0;
+    JAVA = 1;
+    TYPESCRIPT = 2;
+    CSHARP = 3;
+    SWIFT = 4;
 }
 
 enum FileExtension {
@@ -22,6 +23,7 @@ enum FileExtension {
     TS_EXT = 10;
     NONE_EXT = 11;
     BAT_EXT = 12;
+    JS_EXT = 13;
 }
 
 enum FileUpdateType {
@@ -42,12 +44,14 @@ message Dependency {
     optional DependencyType type = 1;
     optional string group = 2;
     optional string name = 3;
-    optional string version = 4;
+    optional int32 version = 4;
     optional Repository repository = 5;
     optional string typescript_model_file = 6;
     optional string user_name = 7;
     optional string password = 8;
     optional string node_alias_name = 9;
+    optional bool is_private = 10;
+    optional string third_party_dependency_version = 11;
 }
 
 message File {
@@ -83,4 +87,13 @@ message AllFiles {
 
 message AllControllers {
     repeated Controller controllers = 1;
+}
+
+message ControllerDependency {
+    optional AllControllers controllers = 1;
+    optional Dependency dependency = 2;
+}
+
+message AllControllerDependencies {
+    repeated ControllerDependency controller_dependencies = 1;
 }

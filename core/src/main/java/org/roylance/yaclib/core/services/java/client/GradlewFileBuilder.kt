@@ -16,7 +16,8 @@ class GradlewFileBuilder: IBuilder<YaclibModel.File> {
                 .setFileUpdateType(YaclibModel.FileUpdateType.WRITE_IF_NOT_EXISTS)
                 .setFullDirectoryLocation("")
 
-        return returnFile.build()    }
+        return returnFile.build()
+    }
 
     companion object {
         private const val ActualFileLocation = "/gradlew"

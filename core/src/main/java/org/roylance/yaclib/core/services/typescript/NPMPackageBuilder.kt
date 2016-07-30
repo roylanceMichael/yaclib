@@ -1,0 +1,49 @@
+package org.roylance.yaclib.core.services.typescript
+
+import org.roylance.common.service.IBuilder
+import org.roylance.yaclib.YaclibModel
+import org.roylance.yaclib.core.utilities.TypeScriptUtilities
+
+class NPMPackageBuilder(private val dependency: YaclibModel.Dependency,
+                        private val thirdPartyDependencies: List<YaclibModel.Dependency>): IBuilder<YaclibModel.File> {
+
+    private val packageTemplate = """{
+  "name": "${this.buildPackageName()}",
+  "version": "0.0.${dependency.version}",
+  "description": "models to interface with the ${dependency.group}.${dependency.name} system",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "roylance.michael@gmail.com",
+  "license": "ISC",
+  "dependencies": {
+    ${this.buildDependencies()}
+  }
+}
+"""
+
+    private fun buildPackageName(): String {
+        if (this.dependency.hasNodeAliasName()) {
+            return "${this.dependency.nodeAliasName}/${this.dependency.group}.${this.dependency.name}"
+        }
+        return "${this.dependency.group}.${this.dependency.name}"
+    }
+
+    private fun buildDependencies(): String {
+        return this.thirdPartyDependencies.map {
+            TypeScriptUtilities.buildDependency(it)
+        }.joinToString()
+    }
+
+    override fun build(): YaclibModel.File {
+        val returnFile = YaclibModel.File.newBuilder()
+                .setFileToWrite(packageTemplate.trim())
+                .setFileExtension(YaclibModel.FileExtension.JSON_EXT)
+                .setFileName("package")
+                .setFullDirectoryLocation("")
+                .build()
+
+        return returnFile
+    }
+}

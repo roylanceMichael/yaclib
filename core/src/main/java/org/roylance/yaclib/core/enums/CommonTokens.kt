@@ -6,6 +6,7 @@ object CommonTokens {
 
     const val ProtoMessageType = "MESSAGE"
 
+    const val FactoryName = "Factory"
     const val ServiceName = "Service"
     const val UpperCaseRestName = "Rest"
 
@@ -19,4 +20,6 @@ object CommonTokens {
 
     const val ClientApi = "capi"
     const val ServerApi = "sapi"
+
+    const val NodeModules = "node_modules"
 }

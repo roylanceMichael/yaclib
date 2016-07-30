@@ -5,7 +5,7 @@ import org.roylance.yaclib.YaclibModel
 
 class HttpExecuteServiceBuilder : IBuilder<YaclibModel.File> {
     private val InitialTemplate = """
-export interface IHttpExecuteService {
+export interface $FileName {
     performPost(url:string, data:any, onSuccess:(data) => void, onError:(data) => void)
 }
 """
@@ -24,5 +24,6 @@ export interface IHttpExecuteService {
 
     companion object {
         const val FileName = "IHttpExecute"
+        const val VariableName = "httpExecute"
     }
 }
