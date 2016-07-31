@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
-export TYPESCRIPT_MODEL_FILE_NAME=YadelModel
-export YACLIB_VERSION=76
+export TYPESCRIPT_MODEL_FILE_NAME=HadesModel
+export YACLIB_VERSION=96
 
-# autogenerate location
+# auto-generate location
 pushd ..
 export YACLIB_LOCATION=$(pwd)
 popd
@@ -14,17 +14,17 @@ EOL
 protoc -I=src/main/resources --proto_path=src/main/resources --java_out=src/main/java src/main/resources/*.proto
 
 # remove javascript and capi folders, they'll be recreated
-rm -rf javascript
+rm -rf ../javascript
 rm -rf ../capi
 
 echo "building java client (capi), java server (sapi), and typescript services"
 ./gradlew clean
 ./gradlew build
 
-pushd javascript
+pushd ../javascript
 npm install
-node_modules/protobufjs/bin/pbjs ../src/main/resources/*.proto  > model.json
-node_modules/protobufjs/bin/pbjs ../src/main/resources/*.proto -t js > model.js
+node_modules/protobufjs/bin/pbjs ../api/src/main/resources/*.proto  > model.json
+node_modules/protobufjs/bin/pbjs ../api/src/main/resources/*.proto -t js > model.js
 node_modules/proto2typescript/bin/proto2typescript-bin.js --file model.json > ${TYPESCRIPT_MODEL_FILE_NAME}.d.ts
 node_modules/@mroylance/protobuftshelper/run.sh model.js ${TYPESCRIPT_MODEL_FILE_NAME}Factory.ts ./${TYPESCRIPT_MODEL_FILE_NAME}.d.ts ${TYPESCRIPT_MODEL_FILE_NAME}
 rm -rf model.json
@@ -32,11 +32,10 @@ rm -rf model.js
 popd
 
 echo "publishing typescript"
-pushd javascript
+pushd ../javascript
 ls *.ts > ts-files.txt
 tsc @ts-files.txt
 rm -rf ts-files.txt
-npm version 0.0.${YACLIB_VERSION}
 npm publish
 popd
 
@@ -51,8 +50,9 @@ popd
 
 echo "building sapi (no need to publish)"
 pushd ../sapi
-chmod -R 777 .
+mvn clean
 mvn compile
 mvn package
 pushd src/main/javascript
+npm install
 gulp

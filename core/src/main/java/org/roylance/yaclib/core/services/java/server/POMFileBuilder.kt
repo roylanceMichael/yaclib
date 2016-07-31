@@ -318,6 +318,11 @@ class POMFileBuilder(private val controllerDependencies: YaclibModel.AllControll
             <artifactId>${controllerDependency.dependency.name}</artifactId>
             <version>0.${controllerDependency.dependency.version}-SNAPSHOT</version>
         </dependency>
+        <dependency>
+            <groupId>${controllerDependency.dependency.group}</groupId>
+            <artifactId>c${controllerDependency.dependency.name}</artifactId>
+            <version>0.${controllerDependency.dependency.version}-SNAPSHOT</version>
+        </dependency>
             """)
         }
 

@@ -33,7 +33,7 @@ ${this.buildAllControllerServices()}
 
         this.controllerDependencies.controllerDependenciesList.forEach { controllerDependencies ->
             controllerDependencies.controllers.controllersList.forEach { controller ->
-                val item = """    val ${StringUtilities.convertServiceNameToVariableName(controller)}: ${mainDependency.group}.${CommonTokens.ServicesName}.${StringUtilities.convertServiceNameToInterfaceName(controller)}
+                val item = """    val ${StringUtilities.convertServiceNameToVariableName(controller)}: ${controllerDependencies.dependency.group}.${CommonTokens.ServicesName}.${StringUtilities.convertServiceNameToInterfaceName(controller)}
 """
                 workspace.append(item)
             }

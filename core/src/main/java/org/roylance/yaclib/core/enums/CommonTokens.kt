@@ -21,5 +21,7 @@ object CommonTokens {
     const val ClientApi = "capi"
     const val ServerApi = "sapi"
 
+    const val ApiName = "api"
+    const val JavaScriptName = "javascript"
     const val NodeModules = "node_modules"
 }

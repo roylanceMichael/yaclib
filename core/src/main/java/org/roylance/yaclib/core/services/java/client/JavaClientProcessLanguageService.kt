@@ -2,7 +2,6 @@ package org.roylance.yaclib.core.services.java.client
 
 import org.roylance.yaclib.YaclibModel
 import org.roylance.yaclib.core.services.IProcessLanguageService
-import org.roylance.yaclib.core.services.java.server.KotlinServiceBuilder
 
 class JavaClientProcessLanguageService: IProcessLanguageService {
     override fun buildInterface(controllerDependencies: YaclibModel.AllControllerDependencies,

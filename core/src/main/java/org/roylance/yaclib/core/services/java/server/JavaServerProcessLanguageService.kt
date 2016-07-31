@@ -30,7 +30,6 @@ class JavaServerProcessLanguageService: IProcessLanguageService {
 
         controllerDependencies.controllerDependenciesList.forEach { controllerDependency ->
             controllerDependency.controllers.controllersList.forEach { controller ->
-                returnList.addFiles(KotlinServiceBuilder(controller, mainDependency).build())
                 returnList.addFiles(JavaRestBuilder(controller, controllerDependency.dependency, mainDependency).build())
             }
         }

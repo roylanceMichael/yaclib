@@ -1,4 +1,4 @@
-package org.roylance.yaclib.core.services.java.server
+package org.roylance.yaclib.core.services.java.client
 
 import org.roylance.common.service.IBuilder
 import org.roylance.yaclib.YaclibModel
@@ -7,10 +7,10 @@ import org.roylance.yaclib.core.utilities.StringUtilities
 
 class KotlinServiceBuilder(
         private val controller: YaclibModel.Controller,
-        private val mainDependency: YaclibModel.Dependency): IBuilder<YaclibModel.File> {
+        private val dependency: YaclibModel.Dependency): IBuilder<YaclibModel.File> {
 
     override fun build(): YaclibModel.File {
-        val initialTemplate = """package ${mainDependency.group}.${CommonTokens.ServicesName}
+        val initialTemplate = """package ${dependency.group}.${CommonTokens.ServicesName}
 
 interface ${StringUtilities.convertServiceNameToInterfaceName(controller)} {
 """
@@ -28,7 +28,7 @@ interface ${StringUtilities.convertServiceNameToInterfaceName(controller)} {
                 .setFileName(StringUtilities.convertServiceNameToInterfaceName(controller))
                 .setFileExtension(YaclibModel.FileExtension.KT_EXT)
                 .setFileToWrite(workspace.toString())
-                .setFullDirectoryLocation(StringUtilities.convertPackageToJavaFolderStructureServices(mainDependency.group,
+                .setFullDirectoryLocation(StringUtilities.convertPackageToJavaFolderStructureServices(dependency.group,
                         CommonTokens.ServicesName))
 
         return returnFile.build()

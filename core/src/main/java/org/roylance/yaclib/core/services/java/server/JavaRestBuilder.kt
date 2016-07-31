@@ -20,7 +20,7 @@ class JavaRestBuilder(
 import org.roylance.common.service.IProtoSerializerService;
 
 import ${mainDependency.group}.${CommonTokens.ServiceLocatorLocation};
-import ${mainDependency.group}.${CommonTokens.ServicesName}.${StringUtilities.convertServiceNameToInterfaceName(controller)};
+import ${dependency.group}.${CommonTokens.ServicesName}.${StringUtilities.convertServiceNameToInterfaceName(controller)};
 
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
