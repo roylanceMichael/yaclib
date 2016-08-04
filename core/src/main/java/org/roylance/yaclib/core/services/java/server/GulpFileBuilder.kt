@@ -45,7 +45,7 @@ gulp.task('scripts:vendor', function() {
         './node_modules/bytebuffer/dist/bytebuffer.js',
         './node_modules/protobufjs/dist/protobuf.js',
         './js/*.js',
-        './node_modules/jquery/dist/js/jquery.js',
+        './node_modules/jquery/dist/jquery.js',
         './node_modules/bootstrap/dist/js/bootstrap.js',
         './node_modules/angular/angular.js',
         './node_modules/angular-route/angular-route.js',

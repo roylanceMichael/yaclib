@@ -139,6 +139,12 @@ class POMFileBuilder(private val controllerDependencies: YaclibModel.AllControll
         </dependency>
 
         <dependency>
+            <groupId>org.glassfish.jersey.media</groupId>
+            <artifactId>jersey-media-multipart</artifactId>
+            <version>2.22.2</version>
+        </dependency>
+
+        <dependency>
             <groupId>com.sun.jersey</groupId>
             <artifactId>jersey-json</artifactId>
             <version>1.19.1</version>
