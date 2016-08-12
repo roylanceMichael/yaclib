@@ -8,7 +8,7 @@ import java.nio.charset.Charset
 class GradlewFileBuilder: IBuilder<YaclibModel.File> {
     override fun build(): YaclibModel.File {
         val resource = GradlewFileBuilder::class.java.getResourceAsStream(ActualFileLocation)
-        val actualFile = IOUtils.toString(resource, Charset.defaultCharset())
+        val actualFile = IOUtils.toString(resource)
         val returnFile = YaclibModel.File.newBuilder()
                 .setFileToWrite(actualFile)
                 .setFileName("gradlew")

@@ -8,9 +8,7 @@ class TypeScriptProcessLanguageService: IProcessLanguageService {
     override fun buildInterface(controllerDependencies: YaclibModel.AllControllerDependencies,
                                 mainDependency: YaclibModel.Dependency,
                                 thirdPartyDependencies: MutableList<YaclibModel.Dependency>): YaclibModel.AllFiles {
-        if (thirdPartyDependencies.size == 0) {
-            thirdPartyDependencies.addAll(TypeScriptUtilities.baseTypeScriptKit)
-        }
+        thirdPartyDependencies.addAll(TypeScriptUtilities.baseTypeScriptKit)
 
         val returnList = YaclibModel.AllFiles.newBuilder()
 
