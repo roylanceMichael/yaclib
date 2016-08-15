@@ -29,13 +29,8 @@ node_modules/proto2typescript/bin/proto2typescript-bin.js --file model.json > ${
 node_modules/@mroylance/protobuftshelper/run.sh model.js ${TYPESCRIPT_MODEL_FILE_NAME}Factory.ts ./${TYPESCRIPT_MODEL_FILE_NAME}.d.ts ${TYPESCRIPT_MODEL_FILE_NAME}
 rm -rf model.json
 rm -rf model.js
-popd
-
 echo "publishing typescript"
-pushd ../javascript
-ls *.ts > ts-files.txt
-tsc @ts-files.txt
-rm -rf ts-files.txt
+tsc
 npm publish
 popd
 

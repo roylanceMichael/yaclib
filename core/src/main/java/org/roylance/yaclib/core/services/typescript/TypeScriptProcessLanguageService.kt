@@ -14,13 +14,18 @@ class TypeScriptProcessLanguageService: IProcessLanguageService {
 
         returnList.addFiles(NPMPackageBuilder(mainDependency, thirdPartyDependencies).build())
         returnList.addFiles(HttpExecuteServiceBuilder().build())
+
+        val allControllers = YaclibModel.AllControllers.newBuilder()
         controllerDependencies.controllerDependenciesList.forEach { controllerDependency ->
             controllerDependency.controllers.controllersList.forEach { controller ->
-                returnList.addFiles(TypeScriptServiceBuilder(controller, controllerDependency.dependency).build())
+                returnList.addFiles(TypeScriptServiceBuilder(controller).build())
                 returnList.addFiles(TypeScriptServiceImplementationBuilder(controller, controllerDependency.dependency)
                         .build())
+                allControllers.addControllers(controller)
             }
         }
+
+        returnList.addFiles(TSConfigBuilder(allControllers.build(), mainDependency).build())
 
         return returnList.build()
     }

@@ -11,14 +11,13 @@ class NPMPackageBuilder(private val dependency: YaclibModel.Dependency,
   "name": "${this.buildPackageName()}",
   "version": "0.0.${dependency.version}",
   "description": "models to interface with the ${dependency.group}.${dependency.name} system",
-  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "roylance.michael@gmail.com",
   "license": "ISC",
   "dependencies": {
-    ${this.buildDependencies()}
+${this.buildDependencies()}
   }
 }
 """
@@ -32,7 +31,7 @@ class NPMPackageBuilder(private val dependency: YaclibModel.Dependency,
 
     private fun buildDependencies(): String {
         return this.thirdPartyDependencies.map {
-            TypeScriptUtilities.buildDependency(it)
+            "\t${TypeScriptUtilities.buildDependency(it)}"
         }.joinToString()
     }
 
