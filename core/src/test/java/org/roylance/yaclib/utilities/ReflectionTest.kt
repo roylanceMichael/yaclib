@@ -16,7 +16,6 @@ class ReflectionTest {
         val getDescriptor = yaclibModel.getMethod("getDescriptor")
         System.out.println(getDescriptor)
 
-
         val fileDescriptor = getDescriptor.invoke(yaclibModel) as Descriptors.FileDescriptor
         System.out.println(fileDescriptor.name)
         Assert.assertTrue(true)

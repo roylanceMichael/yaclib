@@ -15,7 +15,8 @@ class PluginLogic(
         val nodeAliasName: String?,
         val version: Int,
         val location: String,
-        val mainDescriptor: Descriptors.FileDescriptor,
+        val mainModel: Descriptors.FileDescriptor,
+        val mainController: Descriptors.FileDescriptor,
         val dependencyDescriptors: List<DependencyDescriptor>,
         val thirdPartyServerDependencies: List<YaclibModel.Dependency>): IBuilder<Boolean> {
 
@@ -30,7 +31,8 @@ class PluginLogic(
                 this.nodeAliasName,
                 this.version,
                 this.location,
-                this.mainDescriptor,
+                this.mainModel,
+                this.mainController,
                 this.dependencyDescriptors,
                 this.thirdPartyServerDependencies).build()
 
@@ -106,7 +108,7 @@ class PluginLogic(
 
         val proto2TypeScriptProcess = ProcessBuilder()
                 .directory(javaScriptDirectory)
-                .command(FileProcessUtilities.buildCommand(Paths.get(javaScriptDirectory.toString(), NodeModules, "proto2typescript", Bin, "proto2typescript-bin.js").toString(), "--file $ModelJson > HadesModel.d.ts", false))
+                .command(FileProcessUtilities.buildCommand(Paths.get(javaScriptDirectory.toString(), NodeModules, "proto2typescript", Bin, "proto2typescript-bin.js").toString(), "--file $ModelJson > $typeScriptModelFile.d.ts", false))
         this.handleProcess(proto2TypeScriptProcess, "proto2TypeScriptProcess")
 
         val protoTypeScriptHelperProcess = ProcessBuilder()
@@ -117,17 +119,10 @@ class PluginLogic(
         Paths.get(javaScriptDirectory.toString(), ModelJson).toFile().delete()
         Paths.get(javaScriptDirectory.toString(), ModelJS).toFile().delete()
 
-        val createTSFileProcess = ProcessBuilder()
-                .directory(javaScriptDirectory)
-                .command(FileProcessUtilities.buildCommand("ls", "*.ts > ts-files.txt"))
-        this.handleProcess(createTSFileProcess, "createTSFileProcess")
-
         val tsCompileProcess = ProcessBuilder()
                 .directory(javaScriptDirectory)
-                .command(FileProcessUtilities.buildCommand("tsc", "@ts-files.txt"))
+                .command(FileProcessUtilities.buildCommand("tsc", ""))
         this.handleProcess(tsCompileProcess, "tsCompileProcess")
-
-        Paths.get(javaScriptDirectory.toString(), "ts-files.txt").toFile().delete()
 
         val npmPublishProcess = ProcessBuilder()
                 .directory(Paths.get(this.location, CommonTokens.JavaScriptName).toFile())

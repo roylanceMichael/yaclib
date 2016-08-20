@@ -1,5 +1,5 @@
 group 'org.roylance.yaclib'
-version '0.49-SNAPSHOT'
+version '0.53-SNAPSHOT'
 
 buildscript {
     ext.kotlin_version = '1.0.3'

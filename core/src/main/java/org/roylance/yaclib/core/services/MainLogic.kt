@@ -15,7 +15,8 @@ class MainLogic(
         private val nodeAliasName: String?,
         private val version: Int,
         private val location: String,
-        private val mainDescriptor: Descriptors.FileDescriptor,
+        private val mainModel: Descriptors.FileDescriptor,
+        private val mainController: Descriptors.FileDescriptor,
         private val dependencyDescriptors: List<DependencyDescriptor>,
         private val thirdPartyServerDependencies: List<YaclibModel.Dependency>): IBuilder<Boolean> {
     override fun build(): Boolean {
@@ -23,13 +24,13 @@ class MainLogic(
             .setName(CommonTokens.ApiName)
             .setVersion(this.version)
             .setTypescriptModelFile(this.typeScriptModelFile)
-            .setGroup(this.mainDescriptor.`package`)
+            .setGroup(this.mainModel.`package`)
 
         if (this.nodeAliasName != null) {
             mainDependency.nodeAliasName = this.nodeAliasName
         }
 
-        val mainDependencyDescriptor = DependencyDescriptor(mainDependency.build(), this.mainDescriptor)
+        val mainDependencyDescriptor = DependencyDescriptor(mainDependency.build(), this.mainController)
 
         val filePersistService = FilePersistService()
         val processFileDescriptorService = ProcessFileDescriptorService()

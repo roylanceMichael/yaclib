@@ -1,7 +1,6 @@
 package org.roylance.yaclib
 
 
-import com.google.protobuf.Descriptors
 import org.gradle.api.DefaultTask
 import org.gradle.api.tasks.TaskAction
 import org.roylance.yaclib.core.models.DependencyDescriptor
@@ -12,12 +11,14 @@ class YaclibPlugin extends DefaultTask {
     def String nodeAliasName
     def int version
     def String location
-    def Descriptors.FileDescriptor mainDescriptor
+    def String mainModel
+    def String mainController
     def ArrayList<DependencyDescriptor> dependencyDescriptors
     def ArrayList<YaclibModel.Dependency> thirdPartyServerDependencies
 
     @TaskAction
     def buildDefinitions() {
+        println("executing yaclib...")
         if (!nullChecker(typeScriptModelFile, "typeScriptModelFile")) {
             return false
         }
@@ -27,7 +28,10 @@ class YaclibPlugin extends DefaultTask {
         if (!nullChecker(location, "location")) {
             return false
         }
-        if (!nullChecker(mainDescriptor, "mainDescriptor")) {
+        if (!nullChecker(mainModel, "mainModel")) {
+            return false
+        }
+        if (!nullChecker(mainController, "mainController")) {
             return false
         }
         if (!nullChecker(dependencyDescriptors, "dependencyDescriptors")) {
@@ -42,7 +46,8 @@ class YaclibPlugin extends DefaultTask {
                 this.nodeAliasName,
                 version,
                 this.location,
-                this.mainDescriptor,
+                DependencyDescriptor.buildFileDescriptor(this.mainModel),
+                DependencyDescriptor.buildFileDescriptor(this.mainController),
                 this.dependencyDescriptors,
                 this.thirdPartyServerDependencies
         ).build()
