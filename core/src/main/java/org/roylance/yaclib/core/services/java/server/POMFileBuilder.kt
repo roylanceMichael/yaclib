@@ -165,7 +165,7 @@ class POMFileBuilder(private val controllerDependencies: YaclibModel.AllControll
         <dependency>
             <groupId>com.google.protobuf</groupId>
             <artifactId>protobuf-java</artifactId>
-            <version>3.0.0-beta-3</version>
+            <version>3.0.0</version>
         </dependency>
 
         <dependency>

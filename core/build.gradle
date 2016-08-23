@@ -1,5 +1,5 @@
 group 'org.roylance.yaclib'
-version '0.55-SNAPSHOT'
+version '0.56-SNAPSHOT'
 
 buildscript {
     ext.kotlin_version = '1.0.3'
@@ -64,8 +64,7 @@ dependencies {
 
     compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
 
-    compile 'com.google.protobuf:protobuf-java:3.0.0'
-    compile 'org.roylance:common:0.3-SNAPSHOT'
+    compile 'org.roylance:common:0.4-SNAPSHOT'
     compile group: 'commons-io', name: 'commons-io', version: '2.5'
 
     testCompile 'org.naru.park:api:0.14-SNAPSHOT'

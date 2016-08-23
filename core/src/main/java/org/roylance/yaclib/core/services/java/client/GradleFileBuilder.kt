@@ -68,10 +68,8 @@ dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.11'
     compile 'com.squareup.retrofit2:retrofit:2.1.0'
 
-    compile 'com.google.protobuf:protobuf-java:3.0.0-beta-3'
+    compile 'org.roylance:common:0.4-SNAPSHOT'
     compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-
-    compile 'org.roylance:common:0.3-SNAPSHOT'
     ${this.buildDependencies()}
 }
 """
