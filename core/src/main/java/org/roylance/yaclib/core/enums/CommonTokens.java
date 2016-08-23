@@ -22,6 +22,12 @@ public class CommonTokens {
     public static final String ServerApi = "sapi";
 
     public static final String ApiName = "api";
+    public static final String CSharpName = "csharp";
     public static final String JavaScriptName = "javascript";
     public static final String NodeModules = "node_modules";
+
+    public static final String PascalApiName = "Api";
+
+    public static final String HttpExecute = "IHttpExecute";
+    public static final String HttpExecuteVariableName = "httpExecute";
 }

@@ -5,6 +5,7 @@ import org.roylance.common.service.IBuilder
 import org.roylance.yaclib.YaclibModel
 import org.roylance.yaclib.core.enums.CommonTokens
 import org.roylance.yaclib.core.models.DependencyDescriptor
+import org.roylance.yaclib.core.services.csharp.CSharpProcessLanguageService
 import org.roylance.yaclib.core.services.java.client.JavaClientProcessLanguageService
 import org.roylance.yaclib.core.services.java.server.JavaServerProcessLanguageService
 import org.roylance.yaclib.core.services.typescript.TypeScriptProcessLanguageService
@@ -18,7 +19,8 @@ class MainLogic(
         private val mainModel: Descriptors.FileDescriptor,
         private val mainController: Descriptors.FileDescriptor,
         private val dependencyDescriptors: List<DependencyDescriptor>,
-        private val thirdPartyServerDependencies: List<YaclibModel.Dependency>): IBuilder<Boolean> {
+        private val thirdPartyServerDependencies: List<YaclibModel.Dependency>,
+        private val processCSharp: Boolean): IBuilder<Boolean> {
     override fun build(): Boolean {
         val mainDependency = YaclibModel.Dependency.newBuilder()
             .setName(CommonTokens.ApiName)
@@ -63,6 +65,11 @@ class MainLogic(
 
         val typeScriptFiles = TypeScriptProcessLanguageService().buildInterface(clientControllerDependencies.build(), mainDependencyDescriptor.dependency)
         filePersistService.persistFiles(Paths.get(location, CommonTokens.JavaScriptName).toString(), typeScriptFiles)
+
+        if (this.processCSharp) {
+            val csharpFiles = CSharpProcessLanguageService().buildInterface(clientControllerDependencies.build(), mainDependencyDescriptor.dependency)
+            filePersistService.persistFiles(Paths.get(location, CommonTokens.CSharpName).toString(), csharpFiles)
+        }
 
         return true
     }

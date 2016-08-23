@@ -100,7 +100,7 @@ furtherAngularSetup(app);
     }
 
     private fun buildFactoryNodeModulePath(dependency: YaclibModel.Dependency):String {
-        if (dependency.hasNodeAliasName()) {
+        if (dependency.nodeAliasName.length > 0) {
             return "../${CommonTokens.NodeModules}/${dependency.nodeAliasName}/${dependency.group}.${dependency.name}/${dependency.typescriptModelFile}${CommonTokens.FactoryName}"
         }
 
@@ -108,7 +108,7 @@ furtherAngularSetup(app);
     }
 
     private fun buildControllerServiceNodeModulePath(dependency: YaclibModel.Dependency, controller: YaclibModel.Controller):String {
-        if (dependency.hasNodeAliasName()) {
+        if (dependency.nodeAliasName.length > 0) {
             return "../${CommonTokens.NodeModules}/${dependency.nodeAliasName}/${dependency.group}.${dependency.name}/${controller.name}${CommonTokens.ServiceName}"
         }
 

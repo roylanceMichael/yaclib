@@ -40,6 +40,15 @@ object FileExtensionUtilities {
         if (YaclibModel.FileExtension.JS_EXT.equals(extension)) {
             return ".js"
         }
+        if (YaclibModel.FileExtension.SLN_EXT.equals(extension)) {
+            return ".sln"
+        }
+        if (YaclibModel.FileExtension.CS_EXT.equals(extension)) {
+            return ".cs"
+        }
+        if (YaclibModel.FileExtension.XPROJ_EXT.equals(extension)) {
+            return ".xproj"
+        }
 
         return ".java"
     }

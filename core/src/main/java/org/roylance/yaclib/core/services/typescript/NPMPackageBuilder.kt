@@ -23,7 +23,7 @@ ${this.buildDependencies()}
 """
 
     private fun buildPackageName(): String {
-        if (this.dependency.hasNodeAliasName()) {
+        if (this.dependency.nodeAliasName.length > 0) {
             return "${this.dependency.nodeAliasName}/${this.dependency.group}.${this.dependency.name}"
         }
         return "${this.dependency.group}.${this.dependency.name}"

@@ -2,6 +2,7 @@ package org.roylance.yaclib.core.services.typescript
 
 import org.roylance.common.service.IBuilder
 import org.roylance.yaclib.YaclibModel
+import org.roylance.yaclib.core.enums.CommonTokens
 
 class HttpExecuteServiceBuilder : IBuilder<YaclibModel.File> {
     private val InitialTemplate = """
@@ -23,7 +24,7 @@ export interface $FileName {
     }
 
     companion object {
-        const val FileName = "IHttpExecute"
-        const val VariableName = "httpExecute"
+        const val FileName = CommonTokens.HttpExecute
+        const val VariableName = CommonTokens.HttpExecuteVariableName
     }
 }

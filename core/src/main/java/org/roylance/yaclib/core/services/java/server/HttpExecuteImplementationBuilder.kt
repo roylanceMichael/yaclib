@@ -39,7 +39,7 @@ export class $FileName implements ${HttpExecuteServiceBuilder.FileName} {
     }
 
     private fun buildNodeModulePath():String {
-        if (mainDependency.hasNodeAliasName()) {
+        if (mainDependency.nodeAliasName.length > 0) {
             return "../node_modules/${this.mainDependency.nodeAliasName}/${this.mainDependency.group}.${this.mainDependency.name}/${HttpExecuteServiceBuilder.FileName}"
         }
 

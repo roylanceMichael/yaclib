@@ -5,9 +5,11 @@ import org.junit.Test
 import org.roylance.yaclib.YaclibModel
 import org.roylance.yaclib.core.services.FilePersistService
 import org.roylance.yaclib.core.services.ProcessFileDescriptorService
+import org.roylance.yaclib.core.services.csharp.CSharpProcessLanguageService
 import org.roylance.yaclib.core.services.java.client.JavaClientProcessLanguageService
 import org.roylance.yaclib.core.services.java.server.JavaServerProcessLanguageService
 import org.roylance.yaclib.core.services.typescript.TypeScriptProcessLanguageService
+import org.roylance.yaclib.core.utilities.CSharpUtilities
 
 class FilePersistServiceTest {
 //    @Test
@@ -94,6 +96,40 @@ class FilePersistServiceTest {
 
         // act
         filePersistService.persistFiles("/home/mroylance/park/api/javascript", allFiles)
+
+        // assert
+        Assert.assertTrue(true)
+    }
+
+//    @Test
+    fun simplePassThroughCSharpClientTest() {
+        // arrange
+        val filePersistService = FilePersistService()
+        val service = ProcessFileDescriptorService()
+        val controllers = service.processFile(org.naru.park.Controllers.getDescriptor())
+        val javaServiceLanguageProcess = CSharpProcessLanguageService()
+
+        val dependency = YaclibModel.Dependency.newBuilder()
+                .setGroup("park")
+                .setName("models")
+                .setVersion(14)
+                .setNodeAliasName("@mroylance")
+                .setTypescriptModelFile("ParkModel")
+                .build()
+
+        val controllerDependencies = YaclibModel.ControllerDependency.newBuilder()
+                .setDependency(dependency)
+                .setControllers(controllers)
+                .build()
+
+        val all = YaclibModel.AllControllerDependencies.newBuilder().addControllerDependencies(controllerDependencies).build()
+
+        val allFiles = javaServiceLanguageProcess.buildInterface(all, dependency)
+
+        // act
+        filePersistService.persistFiles("/Users/mikeroylance/park/csharp", allFiles)
+
+        CSharpUtilities.buildProtobufs("/Users/mikeroylance/park", dependency).start()
 
         // assert
         Assert.assertTrue(true)

@@ -1,4 +1,4 @@
-syntax = "proto2";
+syntax = "proto3";
 package org.roylance.yaclib;
 
 enum DependencyType {
@@ -24,6 +24,9 @@ enum FileExtension {
     NONE_EXT = 11;
     BAT_EXT = 12;
     JS_EXT = 13;
+    CS_EXT = 14;
+    SLN_EXT = 15;
+    XPROJ_EXT = 16;
 }
 
 enum FileUpdateType {
@@ -32,53 +35,53 @@ enum FileUpdateType {
 }
 
 message Repository {
-    optional string url = 1;
-    optional string username = 2;
-    optional string password = 3;
-    optional string extra = 4;
-    optional string extra_1 = 5;
-    optional string extra_2 = 6;
+    string url = 1;
+    string username = 2;
+    string password = 3;
+    string extra = 4;
+    string extra_1 = 5;
+    string extra_2 = 6;
 }
 
 message Dependency {
-    optional DependencyType type = 1;
-    optional string group = 2;
-    optional string name = 3;
-    optional int32 version = 4;
-    optional Repository repository = 5;
-    optional string typescript_model_file = 6;
-    optional string user_name = 7;
-    optional string password = 8;
-    optional string node_alias_name = 9;
-    optional bool is_private = 10;
-    optional string third_party_dependency_version = 11;
+    DependencyType type = 1;
+    string group = 2;
+    string name = 3;
+    int32 version = 4;
+    Repository repository = 5;
+    string typescript_model_file = 6;
+    string user_name = 7;
+    string password = 8;
+    string node_alias_name = 9;
+    bool is_private = 10;
+    string third_party_dependency_version = 11;
 }
 
 message File {
-    optional string full_directory_location = 1;
-    optional string file_name = 2;
-    optional FileExtension file_extension = 3;
-    optional string file_to_write = 4;
-    optional FileUpdateType file_update_type = 5;
+    string full_directory_location = 1;
+    string file_name = 2;
+    FileExtension file_extension = 3;
+    string file_to_write = 4;
+    FileUpdateType file_update_type = 5;
 }
 
 message Controller {
-    optional string name = 1;
+    string name = 1;
     repeated Action actions = 2;
 }
 
 message Action {
-    optional string name = 1;
+    string name = 1;
     repeated Message inputs = 2;
-    optional Message output = 5;
+    Message output = 5;
 }
 
 message Message {
-    optional string argument_name = 1;
-    optional string file_package = 2;
-    optional string file_class = 3;
-    optional string message_package = 4;
-    optional string message_class = 5;
+    string argument_name = 1;
+    string file_package = 2;
+    string file_class = 3;
+    string message_package = 4;
+    string message_class = 5;
 }
 
 message AllFiles {
@@ -90,8 +93,8 @@ message AllControllers {
 }
 
 message ControllerDependency {
-    optional AllControllers controllers = 1;
-    optional Dependency dependency = 2;
+    AllControllers controllers = 1;
+    Dependency dependency = 2;
 }
 
 message AllControllerDependencies {

@@ -6,7 +6,13 @@ package org.roylance.yaclib;
 public final class TestController {
   private TestController() {}
   public static void registerAllExtensions(
+      com.google.protobuf.ExtensionRegistryLite registry) {
+  }
+
+  public static void registerAllExtensions(
       com.google.protobuf.ExtensionRegistry registry) {
+    registerAllExtensions(
+        (com.google.protobuf.ExtensionRegistryLite) registry);
   }
   public interface PingActionOrBuilder extends
       // @@protoc_insertion_point(interface_extends:org.roylance.yaclib.PingAction)
@@ -54,40 +60,28 @@ public final class TestController {
   /**
    * Protobuf type {@code org.roylance.yaclib.PingAction}
    */
-  public static final class PingAction extends
-      com.google.protobuf.GeneratedMessage implements
+  public  static final class PingAction extends
+      com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:org.roylance.yaclib.PingAction)
       PingActionOrBuilder {
     // Use PingAction.newBuilder() to construct.
-    private PingAction(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+    private PingAction(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
-      this.unknownFields = builder.getUnknownFields();
     }
-    private PingAction(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
-
-    private static final PingAction defaultInstance;
-    public static PingAction getDefaultInstance() {
-      return defaultInstance;
+    private PingAction() {
     }
 
-    public PingAction getDefaultInstanceForType() {
-      return defaultInstance;
-    }
-
-    private final com.google.protobuf.UnknownFieldSet unknownFields;
     @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
-        getUnknownFields() {
-      return this.unknownFields;
+    getUnknownFields() {
+      return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
     }
     private PingAction(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      initFields();
+      this();
       int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
         boolean done = false;
         while (!done) {
@@ -97,49 +91,48 @@ public final class TestController {
               done = true;
               break;
             default: {
-              if (!parseUnknownField(input, unknownFields,
-                                     extensionRegistry, tag)) {
+              if (!input.skipField(tag)) {
                 done = true;
               }
               break;
             }
             case 10: {
               org.roylance.yaclib.TestModel.UITestRequest.Builder subBuilder = null;
-              if (((bitField0_ & 0x00000001) == 0x00000001)) {
+              if (request_ != null) {
                 subBuilder = request_.toBuilder();
               }
-              request_ = input.readMessage(org.roylance.yaclib.TestModel.UITestRequest.PARSER, extensionRegistry);
+              request_ = input.readMessage(org.roylance.yaclib.TestModel.UITestRequest.parser(), extensionRegistry);
               if (subBuilder != null) {
                 subBuilder.mergeFrom(request_);
                 request_ = subBuilder.buildPartial();
               }
-              bitField0_ |= 0x00000001;
+
               break;
             }
             case 18: {
               org.roylance.yaclib.TestModel.UIRandomFiller.Builder subBuilder = null;
-              if (((bitField0_ & 0x00000002) == 0x00000002)) {
+              if (filler_ != null) {
                 subBuilder = filler_.toBuilder();
               }
-              filler_ = input.readMessage(org.roylance.yaclib.TestModel.UIRandomFiller.PARSER, extensionRegistry);
+              filler_ = input.readMessage(org.roylance.yaclib.TestModel.UIRandomFiller.parser(), extensionRegistry);
               if (subBuilder != null) {
                 subBuilder.mergeFrom(filler_);
                 filler_ = subBuilder.buildPartial();
               }
-              bitField0_ |= 0x00000002;
+
               break;
             }
             case 26: {
               org.roylance.yaclib.TestModel.UITestResponse.Builder subBuilder = null;
-              if (((bitField0_ & 0x00000004) == 0x00000004)) {
+              if (response_ != null) {
                 subBuilder = response_.toBuilder();
               }
-              response_ = input.readMessage(org.roylance.yaclib.TestModel.UITestResponse.PARSER, extensionRegistry);
+              response_ = input.readMessage(org.roylance.yaclib.TestModel.UITestResponse.parser(), extensionRegistry);
               if (subBuilder != null) {
                 subBuilder.mergeFrom(response_);
                 response_ = subBuilder.buildPartial();
               }
-              bitField0_ |= 0x00000004;
+
               break;
             }
           }
@@ -148,9 +141,8 @@ public final class TestController {
         throw e.setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
         throw new com.google.protobuf.InvalidProtocolBufferException(
-            e.getMessage()).setUnfinishedMessage(this);
+            e).setUnfinishedMessage(this);
       } finally {
-        this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
     }
@@ -159,48 +151,32 @@ public final class TestController {
       return org.roylance.yaclib.TestController.internal_static_org_roylance_yaclib_PingAction_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return org.roylance.yaclib.TestController.internal_static_org_roylance_yaclib_PingAction_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               org.roylance.yaclib.TestController.PingAction.class, org.roylance.yaclib.TestController.PingAction.Builder.class);
     }
 
-    public static com.google.protobuf.Parser<PingAction> PARSER =
-        new com.google.protobuf.AbstractParser<PingAction>() {
-      public PingAction parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new PingAction(input, extensionRegistry);
-      }
-    };
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<PingAction> getParserForType() {
-      return PARSER;
-    }
-
-    private int bitField0_;
     public static final int REQUEST_FIELD_NUMBER = 1;
     private org.roylance.yaclib.TestModel.UITestRequest request_;
     /**
      * <code>optional .org.roylance.yaclib.UITestRequest request = 1;</code>
      */
     public boolean hasRequest() {
-      return ((bitField0_ & 0x00000001) == 0x00000001);
+      return request_ != null;
     }
     /**
      * <code>optional .org.roylance.yaclib.UITestRequest request = 1;</code>
      */
     public org.roylance.yaclib.TestModel.UITestRequest getRequest() {
-      return request_;
+      return request_ == null ? org.roylance.yaclib.TestModel.UITestRequest.getDefaultInstance() : request_;
     }
     /**
      * <code>optional .org.roylance.yaclib.UITestRequest request = 1;</code>
      */
     public org.roylance.yaclib.TestModel.UITestRequestOrBuilder getRequestOrBuilder() {
-      return request_;
+      return getRequest();
     }
 
     public static final int FILLER_FIELD_NUMBER = 2;
@@ -209,19 +185,19 @@ public final class TestController {
      * <code>optional .org.roylance.yaclib.UIRandomFiller filler = 2;</code>
      */
     public boolean hasFiller() {
-      return ((bitField0_ & 0x00000002) == 0x00000002);
+      return filler_ != null;
     }
     /**
      * <code>optional .org.roylance.yaclib.UIRandomFiller filler = 2;</code>
      */
     public org.roylance.yaclib.TestModel.UIRandomFiller getFiller() {
-      return filler_;
+      return filler_ == null ? org.roylance.yaclib.TestModel.UIRandomFiller.getDefaultInstance() : filler_;
     }
     /**
      * <code>optional .org.roylance.yaclib.UIRandomFiller filler = 2;</code>
      */
     public org.roylance.yaclib.TestModel.UIRandomFillerOrBuilder getFillerOrBuilder() {
-      return filler_;
+      return getFiller();
     }
 
     public static final int RESPONSE_FIELD_NUMBER = 3;
@@ -230,26 +206,21 @@ public final class TestController {
      * <code>optional .org.roylance.yaclib.UITestResponse response = 3;</code>
      */
     public boolean hasResponse() {
-      return ((bitField0_ & 0x00000004) == 0x00000004);
+      return response_ != null;
     }
     /**
      * <code>optional .org.roylance.yaclib.UITestResponse response = 3;</code>
      */
     public org.roylance.yaclib.TestModel.UITestResponse getResponse() {
-      return response_;
+      return response_ == null ? org.roylance.yaclib.TestModel.UITestResponse.getDefaultInstance() : response_;
     }
     /**
      * <code>optional .org.roylance.yaclib.UITestResponse response = 3;</code>
      */
     public org.roylance.yaclib.TestModel.UITestResponseOrBuilder getResponseOrBuilder() {
-      return response_;
+      return getResponse();
     }
 
-    private void initFields() {
-      request_ = org.roylance.yaclib.TestModel.UITestRequest.getDefaultInstance();
-      filler_ = org.roylance.yaclib.TestModel.UIRandomFiller.getDefaultInstance();
-      response_ = org.roylance.yaclib.TestModel.UITestResponse.getDefaultInstance();
-    }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
@@ -262,47 +233,90 @@ public final class TestController {
 
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      getSerializedSize();
-      if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        output.writeMessage(1, request_);
+      if (request_ != null) {
+        output.writeMessage(1, getRequest());
       }
-      if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        output.writeMessage(2, filler_);
+      if (filler_ != null) {
+        output.writeMessage(2, getFiller());
       }
-      if (((bitField0_ & 0x00000004) == 0x00000004)) {
-        output.writeMessage(3, response_);
+      if (response_ != null) {
+        output.writeMessage(3, getResponse());
       }
-      getUnknownFields().writeTo(output);
     }
 
-    private int memoizedSerializedSize = -1;
     public int getSerializedSize() {
-      int size = memoizedSerializedSize;
+      int size = memoizedSize;
       if (size != -1) return size;
 
       size = 0;
-      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+      if (request_ != null) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(1, request_);
+          .computeMessageSize(1, getRequest());
       }
-      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+      if (filler_ != null) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(2, filler_);
+          .computeMessageSize(2, getFiller());
       }
-      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+      if (response_ != null) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(3, response_);
+          .computeMessageSize(3, getResponse());
       }
-      size += getUnknownFields().getSerializedSize();
-      memoizedSerializedSize = size;
+      memoizedSize = size;
       return size;
     }
 
     private static final long serialVersionUID = 0L;
     @java.lang.Override
-    protected java.lang.Object writeReplace()
-        throws java.io.ObjectStreamException {
-      return super.writeReplace();
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof org.roylance.yaclib.TestController.PingAction)) {
+        return super.equals(obj);
+      }
+      org.roylance.yaclib.TestController.PingAction other = (org.roylance.yaclib.TestController.PingAction) obj;
+
+      boolean result = true;
+      result = result && (hasRequest() == other.hasRequest());
+      if (hasRequest()) {
+        result = result && getRequest()
+            .equals(other.getRequest());
+      }
+      result = result && (hasFiller() == other.hasFiller());
+      if (hasFiller()) {
+        result = result && getFiller()
+            .equals(other.getFiller());
+      }
+      result = result && (hasResponse() == other.hasResponse());
+      if (hasResponse()) {
+        result = result && getResponse()
+            .equals(other.getResponse());
+      }
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptorForType().hashCode();
+      if (hasRequest()) {
+        hash = (37 * hash) + REQUEST_FIELD_NUMBER;
+        hash = (53 * hash) + getRequest().hashCode();
+      }
+      if (hasFiller()) {
+        hash = (37 * hash) + FILLER_FIELD_NUMBER;
+        hash = (53 * hash) + getFiller().hashCode();
+      }
+      if (hasResponse()) {
+        hash = (37 * hash) + RESPONSE_FIELD_NUMBER;
+        hash = (53 * hash) + getResponse().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
     }
 
     public static org.roylance.yaclib.TestController.PingAction parseFrom(
@@ -328,46 +342,57 @@ public final class TestController {
     }
     public static org.roylance.yaclib.TestController.PingAction parseFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return PARSER.parseFrom(input);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
     }
     public static org.roylance.yaclib.TestController.PingAction parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
     }
     public static org.roylance.yaclib.TestController.PingAction parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
     }
     public static org.roylance.yaclib.TestController.PingAction parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
     public static org.roylance.yaclib.TestController.PingAction parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
-      return PARSER.parseFrom(input);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
     }
     public static org.roylance.yaclib.TestController.PingAction parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
-    public static Builder newBuilder() { return Builder.create(); }
     public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(org.roylance.yaclib.TestController.PingAction prototype) {
-      return newBuilder().mergeFrom(prototype);
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
     }
-    public Builder toBuilder() { return newBuilder(this); }
+    public static Builder newBuilder(org.roylance.yaclib.TestController.PingAction prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
 
     @java.lang.Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -375,7 +400,7 @@ public final class TestController {
      * Protobuf type {@code org.roylance.yaclib.PingAction}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:org.roylance.yaclib.PingAction)
         org.roylance.yaclib.TestController.PingActionOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
@@ -383,7 +408,7 @@ public final class TestController {
         return org.roylance.yaclib.TestController.internal_static_org_roylance_yaclib_PingAction_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return org.roylance.yaclib.TestController.internal_static_org_roylance_yaclib_PingAction_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
@@ -396,46 +421,36 @@ public final class TestController {
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
       private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
-          getRequestFieldBuilder();
-          getFillerFieldBuilder();
-          getResponseFieldBuilder();
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
         }
       }
-      private static Builder create() {
-        return new Builder();
-      }
-
       public Builder clear() {
         super.clear();
         if (requestBuilder_ == null) {
-          request_ = org.roylance.yaclib.TestModel.UITestRequest.getDefaultInstance();
+          request_ = null;
         } else {
-          requestBuilder_.clear();
+          request_ = null;
+          requestBuilder_ = null;
         }
-        bitField0_ = (bitField0_ & ~0x00000001);
         if (fillerBuilder_ == null) {
-          filler_ = org.roylance.yaclib.TestModel.UIRandomFiller.getDefaultInstance();
+          filler_ = null;
         } else {
-          fillerBuilder_.clear();
+          filler_ = null;
+          fillerBuilder_ = null;
         }
-        bitField0_ = (bitField0_ & ~0x00000002);
         if (responseBuilder_ == null) {
-          response_ = org.roylance.yaclib.TestModel.UITestResponse.getDefaultInstance();
+          response_ = null;
         } else {
-          responseBuilder_.clear();
+          response_ = null;
+          responseBuilder_ = null;
         }
-        bitField0_ = (bitField0_ & ~0x00000004);
         return this;
-      }
-
-      public Builder clone() {
-        return create().mergeFrom(buildPartial());
       }
 
       public com.google.protobuf.Descriptors.Descriptor
@@ -457,37 +472,51 @@ public final class TestController {
 
       public org.roylance.yaclib.TestController.PingAction buildPartial() {
         org.roylance.yaclib.TestController.PingAction result = new org.roylance.yaclib.TestController.PingAction(this);
-        int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
-        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
-          to_bitField0_ |= 0x00000001;
-        }
         if (requestBuilder_ == null) {
           result.request_ = request_;
         } else {
           result.request_ = requestBuilder_.build();
-        }
-        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
-          to_bitField0_ |= 0x00000002;
         }
         if (fillerBuilder_ == null) {
           result.filler_ = filler_;
         } else {
           result.filler_ = fillerBuilder_.build();
         }
-        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
-          to_bitField0_ |= 0x00000004;
-        }
         if (responseBuilder_ == null) {
           result.response_ = response_;
         } else {
           result.response_ = responseBuilder_.build();
         }
-        result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
       }
 
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof org.roylance.yaclib.TestController.PingAction) {
           return mergeFrom((org.roylance.yaclib.TestController.PingAction)other);
@@ -508,7 +537,7 @@ public final class TestController {
         if (other.hasResponse()) {
           mergeResponse(other.getResponse());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        onChanged();
         return this;
       }
 
@@ -525,7 +554,7 @@ public final class TestController {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
           parsedMessage = (org.roylance.yaclib.TestController.PingAction) e.getUnfinishedMessage();
-          throw e;
+          throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
             mergeFrom(parsedMessage);
@@ -533,23 +562,22 @@ public final class TestController {
         }
         return this;
       }
-      private int bitField0_;
 
-      private org.roylance.yaclib.TestModel.UITestRequest request_ = org.roylance.yaclib.TestModel.UITestRequest.getDefaultInstance();
-      private com.google.protobuf.SingleFieldBuilder<
+      private org.roylance.yaclib.TestModel.UITestRequest request_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
           org.roylance.yaclib.TestModel.UITestRequest, org.roylance.yaclib.TestModel.UITestRequest.Builder, org.roylance.yaclib.TestModel.UITestRequestOrBuilder> requestBuilder_;
       /**
        * <code>optional .org.roylance.yaclib.UITestRequest request = 1;</code>
        */
       public boolean hasRequest() {
-        return ((bitField0_ & 0x00000001) == 0x00000001);
+        return requestBuilder_ != null || request_ != null;
       }
       /**
        * <code>optional .org.roylance.yaclib.UITestRequest request = 1;</code>
        */
       public org.roylance.yaclib.TestModel.UITestRequest getRequest() {
         if (requestBuilder_ == null) {
-          return request_;
+          return request_ == null ? org.roylance.yaclib.TestModel.UITestRequest.getDefaultInstance() : request_;
         } else {
           return requestBuilder_.getMessage();
         }
@@ -567,7 +595,7 @@ public final class TestController {
         } else {
           requestBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00000001;
+
         return this;
       }
       /**
@@ -581,7 +609,7 @@ public final class TestController {
         } else {
           requestBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000001;
+
         return this;
       }
       /**
@@ -589,8 +617,7 @@ public final class TestController {
        */
       public Builder mergeRequest(org.roylance.yaclib.TestModel.UITestRequest value) {
         if (requestBuilder_ == null) {
-          if (((bitField0_ & 0x00000001) == 0x00000001) &&
-              request_ != org.roylance.yaclib.TestModel.UITestRequest.getDefaultInstance()) {
+          if (request_ != null) {
             request_ =
               org.roylance.yaclib.TestModel.UITestRequest.newBuilder(request_).mergeFrom(value).buildPartial();
           } else {
@@ -600,7 +627,7 @@ public final class TestController {
         } else {
           requestBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000001;
+
         return this;
       }
       /**
@@ -608,19 +635,20 @@ public final class TestController {
        */
       public Builder clearRequest() {
         if (requestBuilder_ == null) {
-          request_ = org.roylance.yaclib.TestModel.UITestRequest.getDefaultInstance();
+          request_ = null;
           onChanged();
         } else {
-          requestBuilder_.clear();
+          request_ = null;
+          requestBuilder_ = null;
         }
-        bitField0_ = (bitField0_ & ~0x00000001);
+
         return this;
       }
       /**
        * <code>optional .org.roylance.yaclib.UITestRequest request = 1;</code>
        */
       public org.roylance.yaclib.TestModel.UITestRequest.Builder getRequestBuilder() {
-        bitField0_ |= 0x00000001;
+        
         onChanged();
         return getRequestFieldBuilder().getBuilder();
       }
@@ -631,17 +659,18 @@ public final class TestController {
         if (requestBuilder_ != null) {
           return requestBuilder_.getMessageOrBuilder();
         } else {
-          return request_;
+          return request_ == null ?
+              org.roylance.yaclib.TestModel.UITestRequest.getDefaultInstance() : request_;
         }
       }
       /**
        * <code>optional .org.roylance.yaclib.UITestRequest request = 1;</code>
        */
-      private com.google.protobuf.SingleFieldBuilder<
+      private com.google.protobuf.SingleFieldBuilderV3<
           org.roylance.yaclib.TestModel.UITestRequest, org.roylance.yaclib.TestModel.UITestRequest.Builder, org.roylance.yaclib.TestModel.UITestRequestOrBuilder> 
           getRequestFieldBuilder() {
         if (requestBuilder_ == null) {
-          requestBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+          requestBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
               org.roylance.yaclib.TestModel.UITestRequest, org.roylance.yaclib.TestModel.UITestRequest.Builder, org.roylance.yaclib.TestModel.UITestRequestOrBuilder>(
                   getRequest(),
                   getParentForChildren(),
@@ -651,21 +680,21 @@ public final class TestController {
         return requestBuilder_;
       }
 
-      private org.roylance.yaclib.TestModel.UIRandomFiller filler_ = org.roylance.yaclib.TestModel.UIRandomFiller.getDefaultInstance();
-      private com.google.protobuf.SingleFieldBuilder<
+      private org.roylance.yaclib.TestModel.UIRandomFiller filler_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
           org.roylance.yaclib.TestModel.UIRandomFiller, org.roylance.yaclib.TestModel.UIRandomFiller.Builder, org.roylance.yaclib.TestModel.UIRandomFillerOrBuilder> fillerBuilder_;
       /**
        * <code>optional .org.roylance.yaclib.UIRandomFiller filler = 2;</code>
        */
       public boolean hasFiller() {
-        return ((bitField0_ & 0x00000002) == 0x00000002);
+        return fillerBuilder_ != null || filler_ != null;
       }
       /**
        * <code>optional .org.roylance.yaclib.UIRandomFiller filler = 2;</code>
        */
       public org.roylance.yaclib.TestModel.UIRandomFiller getFiller() {
         if (fillerBuilder_ == null) {
-          return filler_;
+          return filler_ == null ? org.roylance.yaclib.TestModel.UIRandomFiller.getDefaultInstance() : filler_;
         } else {
           return fillerBuilder_.getMessage();
         }
@@ -683,7 +712,7 @@ public final class TestController {
         } else {
           fillerBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00000002;
+
         return this;
       }
       /**
@@ -697,7 +726,7 @@ public final class TestController {
         } else {
           fillerBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000002;
+
         return this;
       }
       /**
@@ -705,8 +734,7 @@ public final class TestController {
        */
       public Builder mergeFiller(org.roylance.yaclib.TestModel.UIRandomFiller value) {
         if (fillerBuilder_ == null) {
-          if (((bitField0_ & 0x00000002) == 0x00000002) &&
-              filler_ != org.roylance.yaclib.TestModel.UIRandomFiller.getDefaultInstance()) {
+          if (filler_ != null) {
             filler_ =
               org.roylance.yaclib.TestModel.UIRandomFiller.newBuilder(filler_).mergeFrom(value).buildPartial();
           } else {
@@ -716,7 +744,7 @@ public final class TestController {
         } else {
           fillerBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000002;
+
         return this;
       }
       /**
@@ -724,19 +752,20 @@ public final class TestController {
        */
       public Builder clearFiller() {
         if (fillerBuilder_ == null) {
-          filler_ = org.roylance.yaclib.TestModel.UIRandomFiller.getDefaultInstance();
+          filler_ = null;
           onChanged();
         } else {
-          fillerBuilder_.clear();
+          filler_ = null;
+          fillerBuilder_ = null;
         }
-        bitField0_ = (bitField0_ & ~0x00000002);
+
         return this;
       }
       /**
        * <code>optional .org.roylance.yaclib.UIRandomFiller filler = 2;</code>
        */
       public org.roylance.yaclib.TestModel.UIRandomFiller.Builder getFillerBuilder() {
-        bitField0_ |= 0x00000002;
+        
         onChanged();
         return getFillerFieldBuilder().getBuilder();
       }
@@ -747,17 +776,18 @@ public final class TestController {
         if (fillerBuilder_ != null) {
           return fillerBuilder_.getMessageOrBuilder();
         } else {
-          return filler_;
+          return filler_ == null ?
+              org.roylance.yaclib.TestModel.UIRandomFiller.getDefaultInstance() : filler_;
         }
       }
       /**
        * <code>optional .org.roylance.yaclib.UIRandomFiller filler = 2;</code>
        */
-      private com.google.protobuf.SingleFieldBuilder<
+      private com.google.protobuf.SingleFieldBuilderV3<
           org.roylance.yaclib.TestModel.UIRandomFiller, org.roylance.yaclib.TestModel.UIRandomFiller.Builder, org.roylance.yaclib.TestModel.UIRandomFillerOrBuilder> 
           getFillerFieldBuilder() {
         if (fillerBuilder_ == null) {
-          fillerBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+          fillerBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
               org.roylance.yaclib.TestModel.UIRandomFiller, org.roylance.yaclib.TestModel.UIRandomFiller.Builder, org.roylance.yaclib.TestModel.UIRandomFillerOrBuilder>(
                   getFiller(),
                   getParentForChildren(),
@@ -767,21 +797,21 @@ public final class TestController {
         return fillerBuilder_;
       }
 
-      private org.roylance.yaclib.TestModel.UITestResponse response_ = org.roylance.yaclib.TestModel.UITestResponse.getDefaultInstance();
-      private com.google.protobuf.SingleFieldBuilder<
+      private org.roylance.yaclib.TestModel.UITestResponse response_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
           org.roylance.yaclib.TestModel.UITestResponse, org.roylance.yaclib.TestModel.UITestResponse.Builder, org.roylance.yaclib.TestModel.UITestResponseOrBuilder> responseBuilder_;
       /**
        * <code>optional .org.roylance.yaclib.UITestResponse response = 3;</code>
        */
       public boolean hasResponse() {
-        return ((bitField0_ & 0x00000004) == 0x00000004);
+        return responseBuilder_ != null || response_ != null;
       }
       /**
        * <code>optional .org.roylance.yaclib.UITestResponse response = 3;</code>
        */
       public org.roylance.yaclib.TestModel.UITestResponse getResponse() {
         if (responseBuilder_ == null) {
-          return response_;
+          return response_ == null ? org.roylance.yaclib.TestModel.UITestResponse.getDefaultInstance() : response_;
         } else {
           return responseBuilder_.getMessage();
         }
@@ -799,7 +829,7 @@ public final class TestController {
         } else {
           responseBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00000004;
+
         return this;
       }
       /**
@@ -813,7 +843,7 @@ public final class TestController {
         } else {
           responseBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000004;
+
         return this;
       }
       /**
@@ -821,8 +851,7 @@ public final class TestController {
        */
       public Builder mergeResponse(org.roylance.yaclib.TestModel.UITestResponse value) {
         if (responseBuilder_ == null) {
-          if (((bitField0_ & 0x00000004) == 0x00000004) &&
-              response_ != org.roylance.yaclib.TestModel.UITestResponse.getDefaultInstance()) {
+          if (response_ != null) {
             response_ =
               org.roylance.yaclib.TestModel.UITestResponse.newBuilder(response_).mergeFrom(value).buildPartial();
           } else {
@@ -832,7 +861,7 @@ public final class TestController {
         } else {
           responseBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000004;
+
         return this;
       }
       /**
@@ -840,19 +869,20 @@ public final class TestController {
        */
       public Builder clearResponse() {
         if (responseBuilder_ == null) {
-          response_ = org.roylance.yaclib.TestModel.UITestResponse.getDefaultInstance();
+          response_ = null;
           onChanged();
         } else {
-          responseBuilder_.clear();
+          response_ = null;
+          responseBuilder_ = null;
         }
-        bitField0_ = (bitField0_ & ~0x00000004);
+
         return this;
       }
       /**
        * <code>optional .org.roylance.yaclib.UITestResponse response = 3;</code>
        */
       public org.roylance.yaclib.TestModel.UITestResponse.Builder getResponseBuilder() {
-        bitField0_ |= 0x00000004;
+        
         onChanged();
         return getResponseFieldBuilder().getBuilder();
       }
@@ -863,17 +893,18 @@ public final class TestController {
         if (responseBuilder_ != null) {
           return responseBuilder_.getMessageOrBuilder();
         } else {
-          return response_;
+          return response_ == null ?
+              org.roylance.yaclib.TestModel.UITestResponse.getDefaultInstance() : response_;
         }
       }
       /**
        * <code>optional .org.roylance.yaclib.UITestResponse response = 3;</code>
        */
-      private com.google.protobuf.SingleFieldBuilder<
+      private com.google.protobuf.SingleFieldBuilderV3<
           org.roylance.yaclib.TestModel.UITestResponse, org.roylance.yaclib.TestModel.UITestResponse.Builder, org.roylance.yaclib.TestModel.UITestResponseOrBuilder> 
           getResponseFieldBuilder() {
         if (responseBuilder_ == null) {
-          responseBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+          responseBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
               org.roylance.yaclib.TestModel.UITestResponse, org.roylance.yaclib.TestModel.UITestResponse.Builder, org.roylance.yaclib.TestModel.UITestResponseOrBuilder>(
                   getResponse(),
                   getParentForChildren(),
@@ -882,16 +913,53 @@ public final class TestController {
         }
         return responseBuilder_;
       }
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return this;
+      }
+
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return this;
+      }
+
 
       // @@protoc_insertion_point(builder_scope:org.roylance.yaclib.PingAction)
     }
 
+    // @@protoc_insertion_point(class_scope:org.roylance.yaclib.PingAction)
+    private static final org.roylance.yaclib.TestController.PingAction DEFAULT_INSTANCE;
     static {
-      defaultInstance = new PingAction(true);
-      defaultInstance.initFields();
+      DEFAULT_INSTANCE = new org.roylance.yaclib.TestController.PingAction();
     }
 
-    // @@protoc_insertion_point(class_scope:org.roylance.yaclib.PingAction)
+    public static org.roylance.yaclib.TestController.PingAction getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<PingAction>
+        PARSER = new com.google.protobuf.AbstractParser<PingAction>() {
+      public PingAction parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+          return new PingAction(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<PingAction> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<PingAction> getParserForType() {
+      return PARSER;
+    }
+
+    public org.roylance.yaclib.TestController.PingAction getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
   }
 
   public interface FirstActionOrBuilder extends
@@ -927,40 +995,28 @@ public final class TestController {
   /**
    * Protobuf type {@code org.roylance.yaclib.FirstAction}
    */
-  public static final class FirstAction extends
-      com.google.protobuf.GeneratedMessage implements
+  public  static final class FirstAction extends
+      com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:org.roylance.yaclib.FirstAction)
       FirstActionOrBuilder {
     // Use FirstAction.newBuilder() to construct.
-    private FirstAction(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+    private FirstAction(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
-      this.unknownFields = builder.getUnknownFields();
     }
-    private FirstAction(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
-
-    private static final FirstAction defaultInstance;
-    public static FirstAction getDefaultInstance() {
-      return defaultInstance;
+    private FirstAction() {
     }
 
-    public FirstAction getDefaultInstanceForType() {
-      return defaultInstance;
-    }
-
-    private final com.google.protobuf.UnknownFieldSet unknownFields;
     @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
-        getUnknownFields() {
-      return this.unknownFields;
+    getUnknownFields() {
+      return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
     }
     private FirstAction(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      initFields();
+      this();
       int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
         boolean done = false;
         while (!done) {
@@ -970,36 +1026,35 @@ public final class TestController {
               done = true;
               break;
             default: {
-              if (!parseUnknownField(input, unknownFields,
-                                     extensionRegistry, tag)) {
+              if (!input.skipField(tag)) {
                 done = true;
               }
               break;
             }
             case 10: {
               org.roylance.yaclib.TestModel.UITestRequest.Builder subBuilder = null;
-              if (((bitField0_ & 0x00000001) == 0x00000001)) {
+              if (request_ != null) {
                 subBuilder = request_.toBuilder();
               }
-              request_ = input.readMessage(org.roylance.yaclib.TestModel.UITestRequest.PARSER, extensionRegistry);
+              request_ = input.readMessage(org.roylance.yaclib.TestModel.UITestRequest.parser(), extensionRegistry);
               if (subBuilder != null) {
                 subBuilder.mergeFrom(request_);
                 request_ = subBuilder.buildPartial();
               }
-              bitField0_ |= 0x00000001;
+
               break;
             }
             case 18: {
               org.roylance.yaclib.TestModel.UITestResponse.Builder subBuilder = null;
-              if (((bitField0_ & 0x00000002) == 0x00000002)) {
+              if (response_ != null) {
                 subBuilder = response_.toBuilder();
               }
-              response_ = input.readMessage(org.roylance.yaclib.TestModel.UITestResponse.PARSER, extensionRegistry);
+              response_ = input.readMessage(org.roylance.yaclib.TestModel.UITestResponse.parser(), extensionRegistry);
               if (subBuilder != null) {
                 subBuilder.mergeFrom(response_);
                 response_ = subBuilder.buildPartial();
               }
-              bitField0_ |= 0x00000002;
+
               break;
             }
           }
@@ -1008,9 +1063,8 @@ public final class TestController {
         throw e.setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
         throw new com.google.protobuf.InvalidProtocolBufferException(
-            e.getMessage()).setUnfinishedMessage(this);
+            e).setUnfinishedMessage(this);
       } finally {
-        this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
     }
@@ -1019,48 +1073,32 @@ public final class TestController {
       return org.roylance.yaclib.TestController.internal_static_org_roylance_yaclib_FirstAction_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return org.roylance.yaclib.TestController.internal_static_org_roylance_yaclib_FirstAction_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               org.roylance.yaclib.TestController.FirstAction.class, org.roylance.yaclib.TestController.FirstAction.Builder.class);
     }
 
-    public static com.google.protobuf.Parser<FirstAction> PARSER =
-        new com.google.protobuf.AbstractParser<FirstAction>() {
-      public FirstAction parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new FirstAction(input, extensionRegistry);
-      }
-    };
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<FirstAction> getParserForType() {
-      return PARSER;
-    }
-
-    private int bitField0_;
     public static final int REQUEST_FIELD_NUMBER = 1;
     private org.roylance.yaclib.TestModel.UITestRequest request_;
     /**
      * <code>optional .org.roylance.yaclib.UITestRequest request = 1;</code>
      */
     public boolean hasRequest() {
-      return ((bitField0_ & 0x00000001) == 0x00000001);
+      return request_ != null;
     }
     /**
      * <code>optional .org.roylance.yaclib.UITestRequest request = 1;</code>
      */
     public org.roylance.yaclib.TestModel.UITestRequest getRequest() {
-      return request_;
+      return request_ == null ? org.roylance.yaclib.TestModel.UITestRequest.getDefaultInstance() : request_;
     }
     /**
      * <code>optional .org.roylance.yaclib.UITestRequest request = 1;</code>
      */
     public org.roylance.yaclib.TestModel.UITestRequestOrBuilder getRequestOrBuilder() {
-      return request_;
+      return getRequest();
     }
 
     public static final int RESPONSE_FIELD_NUMBER = 2;
@@ -1069,25 +1107,21 @@ public final class TestController {
      * <code>optional .org.roylance.yaclib.UITestResponse response = 2;</code>
      */
     public boolean hasResponse() {
-      return ((bitField0_ & 0x00000002) == 0x00000002);
+      return response_ != null;
     }
     /**
      * <code>optional .org.roylance.yaclib.UITestResponse response = 2;</code>
      */
     public org.roylance.yaclib.TestModel.UITestResponse getResponse() {
-      return response_;
+      return response_ == null ? org.roylance.yaclib.TestModel.UITestResponse.getDefaultInstance() : response_;
     }
     /**
      * <code>optional .org.roylance.yaclib.UITestResponse response = 2;</code>
      */
     public org.roylance.yaclib.TestModel.UITestResponseOrBuilder getResponseOrBuilder() {
-      return response_;
+      return getResponse();
     }
 
-    private void initFields() {
-      request_ = org.roylance.yaclib.TestModel.UITestRequest.getDefaultInstance();
-      response_ = org.roylance.yaclib.TestModel.UITestResponse.getDefaultInstance();
-    }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
@@ -1100,40 +1134,74 @@ public final class TestController {
 
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      getSerializedSize();
-      if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        output.writeMessage(1, request_);
+      if (request_ != null) {
+        output.writeMessage(1, getRequest());
       }
-      if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        output.writeMessage(2, response_);
+      if (response_ != null) {
+        output.writeMessage(2, getResponse());
       }
-      getUnknownFields().writeTo(output);
     }
 
-    private int memoizedSerializedSize = -1;
     public int getSerializedSize() {
-      int size = memoizedSerializedSize;
+      int size = memoizedSize;
       if (size != -1) return size;
 
       size = 0;
-      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+      if (request_ != null) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(1, request_);
+          .computeMessageSize(1, getRequest());
       }
-      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+      if (response_ != null) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(2, response_);
+          .computeMessageSize(2, getResponse());
       }
-      size += getUnknownFields().getSerializedSize();
-      memoizedSerializedSize = size;
+      memoizedSize = size;
       return size;
     }
 
     private static final long serialVersionUID = 0L;
     @java.lang.Override
-    protected java.lang.Object writeReplace()
-        throws java.io.ObjectStreamException {
-      return super.writeReplace();
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof org.roylance.yaclib.TestController.FirstAction)) {
+        return super.equals(obj);
+      }
+      org.roylance.yaclib.TestController.FirstAction other = (org.roylance.yaclib.TestController.FirstAction) obj;
+
+      boolean result = true;
+      result = result && (hasRequest() == other.hasRequest());
+      if (hasRequest()) {
+        result = result && getRequest()
+            .equals(other.getRequest());
+      }
+      result = result && (hasResponse() == other.hasResponse());
+      if (hasResponse()) {
+        result = result && getResponse()
+            .equals(other.getResponse());
+      }
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptorForType().hashCode();
+      if (hasRequest()) {
+        hash = (37 * hash) + REQUEST_FIELD_NUMBER;
+        hash = (53 * hash) + getRequest().hashCode();
+      }
+      if (hasResponse()) {
+        hash = (37 * hash) + RESPONSE_FIELD_NUMBER;
+        hash = (53 * hash) + getResponse().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
     }
 
     public static org.roylance.yaclib.TestController.FirstAction parseFrom(
@@ -1159,46 +1227,57 @@ public final class TestController {
     }
     public static org.roylance.yaclib.TestController.FirstAction parseFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return PARSER.parseFrom(input);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
     }
     public static org.roylance.yaclib.TestController.FirstAction parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
     }
     public static org.roylance.yaclib.TestController.FirstAction parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
     }
     public static org.roylance.yaclib.TestController.FirstAction parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
     public static org.roylance.yaclib.TestController.FirstAction parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
-      return PARSER.parseFrom(input);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
     }
     public static org.roylance.yaclib.TestController.FirstAction parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
-    public static Builder newBuilder() { return Builder.create(); }
     public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(org.roylance.yaclib.TestController.FirstAction prototype) {
-      return newBuilder().mergeFrom(prototype);
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
     }
-    public Builder toBuilder() { return newBuilder(this); }
+    public static Builder newBuilder(org.roylance.yaclib.TestController.FirstAction prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
 
     @java.lang.Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -1206,7 +1285,7 @@ public final class TestController {
      * Protobuf type {@code org.roylance.yaclib.FirstAction}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:org.roylance.yaclib.FirstAction)
         org.roylance.yaclib.TestController.FirstActionOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
@@ -1214,7 +1293,7 @@ public final class TestController {
         return org.roylance.yaclib.TestController.internal_static_org_roylance_yaclib_FirstAction_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return org.roylance.yaclib.TestController.internal_static_org_roylance_yaclib_FirstAction_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
@@ -1227,39 +1306,30 @@ public final class TestController {
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
       private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
-          getRequestFieldBuilder();
-          getResponseFieldBuilder();
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
         }
       }
-      private static Builder create() {
-        return new Builder();
-      }
-
       public Builder clear() {
         super.clear();
         if (requestBuilder_ == null) {
-          request_ = org.roylance.yaclib.TestModel.UITestRequest.getDefaultInstance();
+          request_ = null;
         } else {
-          requestBuilder_.clear();
+          request_ = null;
+          requestBuilder_ = null;
         }
-        bitField0_ = (bitField0_ & ~0x00000001);
         if (responseBuilder_ == null) {
-          response_ = org.roylance.yaclib.TestModel.UITestResponse.getDefaultInstance();
+          response_ = null;
         } else {
-          responseBuilder_.clear();
+          response_ = null;
+          responseBuilder_ = null;
         }
-        bitField0_ = (bitField0_ & ~0x00000002);
         return this;
-      }
-
-      public Builder clone() {
-        return create().mergeFrom(buildPartial());
       }
 
       public com.google.protobuf.Descriptors.Descriptor
@@ -1281,29 +1351,46 @@ public final class TestController {
 
       public org.roylance.yaclib.TestController.FirstAction buildPartial() {
         org.roylance.yaclib.TestController.FirstAction result = new org.roylance.yaclib.TestController.FirstAction(this);
-        int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
-        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
-          to_bitField0_ |= 0x00000001;
-        }
         if (requestBuilder_ == null) {
           result.request_ = request_;
         } else {
           result.request_ = requestBuilder_.build();
-        }
-        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
-          to_bitField0_ |= 0x00000002;
         }
         if (responseBuilder_ == null) {
           result.response_ = response_;
         } else {
           result.response_ = responseBuilder_.build();
         }
-        result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
       }
 
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof org.roylance.yaclib.TestController.FirstAction) {
           return mergeFrom((org.roylance.yaclib.TestController.FirstAction)other);
@@ -1321,7 +1408,7 @@ public final class TestController {
         if (other.hasResponse()) {
           mergeResponse(other.getResponse());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        onChanged();
         return this;
       }
 
@@ -1338,7 +1425,7 @@ public final class TestController {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
           parsedMessage = (org.roylance.yaclib.TestController.FirstAction) e.getUnfinishedMessage();
-          throw e;
+          throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
             mergeFrom(parsedMessage);
@@ -1346,23 +1433,22 @@ public final class TestController {
         }
         return this;
       }
-      private int bitField0_;
 
-      private org.roylance.yaclib.TestModel.UITestRequest request_ = org.roylance.yaclib.TestModel.UITestRequest.getDefaultInstance();
-      private com.google.protobuf.SingleFieldBuilder<
+      private org.roylance.yaclib.TestModel.UITestRequest request_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
           org.roylance.yaclib.TestModel.UITestRequest, org.roylance.yaclib.TestModel.UITestRequest.Builder, org.roylance.yaclib.TestModel.UITestRequestOrBuilder> requestBuilder_;
       /**
        * <code>optional .org.roylance.yaclib.UITestRequest request = 1;</code>
        */
       public boolean hasRequest() {
-        return ((bitField0_ & 0x00000001) == 0x00000001);
+        return requestBuilder_ != null || request_ != null;
       }
       /**
        * <code>optional .org.roylance.yaclib.UITestRequest request = 1;</code>
        */
       public org.roylance.yaclib.TestModel.UITestRequest getRequest() {
         if (requestBuilder_ == null) {
-          return request_;
+          return request_ == null ? org.roylance.yaclib.TestModel.UITestRequest.getDefaultInstance() : request_;
         } else {
           return requestBuilder_.getMessage();
         }
@@ -1380,7 +1466,7 @@ public final class TestController {
         } else {
           requestBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00000001;
+
         return this;
       }
       /**
@@ -1394,7 +1480,7 @@ public final class TestController {
         } else {
           requestBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000001;
+
         return this;
       }
       /**
@@ -1402,8 +1488,7 @@ public final class TestController {
        */
       public Builder mergeRequest(org.roylance.yaclib.TestModel.UITestRequest value) {
         if (requestBuilder_ == null) {
-          if (((bitField0_ & 0x00000001) == 0x00000001) &&
-              request_ != org.roylance.yaclib.TestModel.UITestRequest.getDefaultInstance()) {
+          if (request_ != null) {
             request_ =
               org.roylance.yaclib.TestModel.UITestRequest.newBuilder(request_).mergeFrom(value).buildPartial();
           } else {
@@ -1413,7 +1498,7 @@ public final class TestController {
         } else {
           requestBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000001;
+
         return this;
       }
       /**
@@ -1421,19 +1506,20 @@ public final class TestController {
        */
       public Builder clearRequest() {
         if (requestBuilder_ == null) {
-          request_ = org.roylance.yaclib.TestModel.UITestRequest.getDefaultInstance();
+          request_ = null;
           onChanged();
         } else {
-          requestBuilder_.clear();
+          request_ = null;
+          requestBuilder_ = null;
         }
-        bitField0_ = (bitField0_ & ~0x00000001);
+
         return this;
       }
       /**
        * <code>optional .org.roylance.yaclib.UITestRequest request = 1;</code>
        */
       public org.roylance.yaclib.TestModel.UITestRequest.Builder getRequestBuilder() {
-        bitField0_ |= 0x00000001;
+        
         onChanged();
         return getRequestFieldBuilder().getBuilder();
       }
@@ -1444,17 +1530,18 @@ public final class TestController {
         if (requestBuilder_ != null) {
           return requestBuilder_.getMessageOrBuilder();
         } else {
-          return request_;
+          return request_ == null ?
+              org.roylance.yaclib.TestModel.UITestRequest.getDefaultInstance() : request_;
         }
       }
       /**
        * <code>optional .org.roylance.yaclib.UITestRequest request = 1;</code>
        */
-      private com.google.protobuf.SingleFieldBuilder<
+      private com.google.protobuf.SingleFieldBuilderV3<
           org.roylance.yaclib.TestModel.UITestRequest, org.roylance.yaclib.TestModel.UITestRequest.Builder, org.roylance.yaclib.TestModel.UITestRequestOrBuilder> 
           getRequestFieldBuilder() {
         if (requestBuilder_ == null) {
-          requestBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+          requestBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
               org.roylance.yaclib.TestModel.UITestRequest, org.roylance.yaclib.TestModel.UITestRequest.Builder, org.roylance.yaclib.TestModel.UITestRequestOrBuilder>(
                   getRequest(),
                   getParentForChildren(),
@@ -1464,21 +1551,21 @@ public final class TestController {
         return requestBuilder_;
       }
 
-      private org.roylance.yaclib.TestModel.UITestResponse response_ = org.roylance.yaclib.TestModel.UITestResponse.getDefaultInstance();
-      private com.google.protobuf.SingleFieldBuilder<
+      private org.roylance.yaclib.TestModel.UITestResponse response_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
           org.roylance.yaclib.TestModel.UITestResponse, org.roylance.yaclib.TestModel.UITestResponse.Builder, org.roylance.yaclib.TestModel.UITestResponseOrBuilder> responseBuilder_;
       /**
        * <code>optional .org.roylance.yaclib.UITestResponse response = 2;</code>
        */
       public boolean hasResponse() {
-        return ((bitField0_ & 0x00000002) == 0x00000002);
+        return responseBuilder_ != null || response_ != null;
       }
       /**
        * <code>optional .org.roylance.yaclib.UITestResponse response = 2;</code>
        */
       public org.roylance.yaclib.TestModel.UITestResponse getResponse() {
         if (responseBuilder_ == null) {
-          return response_;
+          return response_ == null ? org.roylance.yaclib.TestModel.UITestResponse.getDefaultInstance() : response_;
         } else {
           return responseBuilder_.getMessage();
         }
@@ -1496,7 +1583,7 @@ public final class TestController {
         } else {
           responseBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00000002;
+
         return this;
       }
       /**
@@ -1510,7 +1597,7 @@ public final class TestController {
         } else {
           responseBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000002;
+
         return this;
       }
       /**
@@ -1518,8 +1605,7 @@ public final class TestController {
        */
       public Builder mergeResponse(org.roylance.yaclib.TestModel.UITestResponse value) {
         if (responseBuilder_ == null) {
-          if (((bitField0_ & 0x00000002) == 0x00000002) &&
-              response_ != org.roylance.yaclib.TestModel.UITestResponse.getDefaultInstance()) {
+          if (response_ != null) {
             response_ =
               org.roylance.yaclib.TestModel.UITestResponse.newBuilder(response_).mergeFrom(value).buildPartial();
           } else {
@@ -1529,7 +1615,7 @@ public final class TestController {
         } else {
           responseBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000002;
+
         return this;
       }
       /**
@@ -1537,19 +1623,20 @@ public final class TestController {
        */
       public Builder clearResponse() {
         if (responseBuilder_ == null) {
-          response_ = org.roylance.yaclib.TestModel.UITestResponse.getDefaultInstance();
+          response_ = null;
           onChanged();
         } else {
-          responseBuilder_.clear();
+          response_ = null;
+          responseBuilder_ = null;
         }
-        bitField0_ = (bitField0_ & ~0x00000002);
+
         return this;
       }
       /**
        * <code>optional .org.roylance.yaclib.UITestResponse response = 2;</code>
        */
       public org.roylance.yaclib.TestModel.UITestResponse.Builder getResponseBuilder() {
-        bitField0_ |= 0x00000002;
+        
         onChanged();
         return getResponseFieldBuilder().getBuilder();
       }
@@ -1560,17 +1647,18 @@ public final class TestController {
         if (responseBuilder_ != null) {
           return responseBuilder_.getMessageOrBuilder();
         } else {
-          return response_;
+          return response_ == null ?
+              org.roylance.yaclib.TestModel.UITestResponse.getDefaultInstance() : response_;
         }
       }
       /**
        * <code>optional .org.roylance.yaclib.UITestResponse response = 2;</code>
        */
-      private com.google.protobuf.SingleFieldBuilder<
+      private com.google.protobuf.SingleFieldBuilderV3<
           org.roylance.yaclib.TestModel.UITestResponse, org.roylance.yaclib.TestModel.UITestResponse.Builder, org.roylance.yaclib.TestModel.UITestResponseOrBuilder> 
           getResponseFieldBuilder() {
         if (responseBuilder_ == null) {
-          responseBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+          responseBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
               org.roylance.yaclib.TestModel.UITestResponse, org.roylance.yaclib.TestModel.UITestResponse.Builder, org.roylance.yaclib.TestModel.UITestResponseOrBuilder>(
                   getResponse(),
                   getParentForChildren(),
@@ -1579,16 +1667,53 @@ public final class TestController {
         }
         return responseBuilder_;
       }
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return this;
+      }
+
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return this;
+      }
+
 
       // @@protoc_insertion_point(builder_scope:org.roylance.yaclib.FirstAction)
     }
 
+    // @@protoc_insertion_point(class_scope:org.roylance.yaclib.FirstAction)
+    private static final org.roylance.yaclib.TestController.FirstAction DEFAULT_INSTANCE;
     static {
-      defaultInstance = new FirstAction(true);
-      defaultInstance.initFields();
+      DEFAULT_INSTANCE = new org.roylance.yaclib.TestController.FirstAction();
     }
 
-    // @@protoc_insertion_point(class_scope:org.roylance.yaclib.FirstAction)
+    public static org.roylance.yaclib.TestController.FirstAction getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<FirstAction>
+        PARSER = new com.google.protobuf.AbstractParser<FirstAction>() {
+      public FirstAction parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+          return new FirstAction(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<FirstAction> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<FirstAction> getParserForType() {
+      return PARSER;
+    }
+
+    public org.roylance.yaclib.TestController.FirstAction getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
   }
 
   public interface SecondActionOrBuilder extends
@@ -1624,40 +1749,28 @@ public final class TestController {
   /**
    * Protobuf type {@code org.roylance.yaclib.SecondAction}
    */
-  public static final class SecondAction extends
-      com.google.protobuf.GeneratedMessage implements
+  public  static final class SecondAction extends
+      com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:org.roylance.yaclib.SecondAction)
       SecondActionOrBuilder {
     // Use SecondAction.newBuilder() to construct.
-    private SecondAction(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+    private SecondAction(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
-      this.unknownFields = builder.getUnknownFields();
     }
-    private SecondAction(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
-
-    private static final SecondAction defaultInstance;
-    public static SecondAction getDefaultInstance() {
-      return defaultInstance;
+    private SecondAction() {
     }
 
-    public SecondAction getDefaultInstanceForType() {
-      return defaultInstance;
-    }
-
-    private final com.google.protobuf.UnknownFieldSet unknownFields;
     @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
-        getUnknownFields() {
-      return this.unknownFields;
+    getUnknownFields() {
+      return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
     }
     private SecondAction(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      initFields();
+      this();
       int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
         boolean done = false;
         while (!done) {
@@ -1667,36 +1780,35 @@ public final class TestController {
               done = true;
               break;
             default: {
-              if (!parseUnknownField(input, unknownFields,
-                                     extensionRegistry, tag)) {
+              if (!input.skipField(tag)) {
                 done = true;
               }
               break;
             }
             case 10: {
               org.roylance.yaclib.TestModel.UITestRequest.Builder subBuilder = null;
-              if (((bitField0_ & 0x00000001) == 0x00000001)) {
+              if (request_ != null) {
                 subBuilder = request_.toBuilder();
               }
-              request_ = input.readMessage(org.roylance.yaclib.TestModel.UITestRequest.PARSER, extensionRegistry);
+              request_ = input.readMessage(org.roylance.yaclib.TestModel.UITestRequest.parser(), extensionRegistry);
               if (subBuilder != null) {
                 subBuilder.mergeFrom(request_);
                 request_ = subBuilder.buildPartial();
               }
-              bitField0_ |= 0x00000001;
+
               break;
             }
             case 18: {
               org.roylance.yaclib.TestModel.UITestResponse.Builder subBuilder = null;
-              if (((bitField0_ & 0x00000002) == 0x00000002)) {
+              if (response_ != null) {
                 subBuilder = response_.toBuilder();
               }
-              response_ = input.readMessage(org.roylance.yaclib.TestModel.UITestResponse.PARSER, extensionRegistry);
+              response_ = input.readMessage(org.roylance.yaclib.TestModel.UITestResponse.parser(), extensionRegistry);
               if (subBuilder != null) {
                 subBuilder.mergeFrom(response_);
                 response_ = subBuilder.buildPartial();
               }
-              bitField0_ |= 0x00000002;
+
               break;
             }
           }
@@ -1705,9 +1817,8 @@ public final class TestController {
         throw e.setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
         throw new com.google.protobuf.InvalidProtocolBufferException(
-            e.getMessage()).setUnfinishedMessage(this);
+            e).setUnfinishedMessage(this);
       } finally {
-        this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
     }
@@ -1716,48 +1827,32 @@ public final class TestController {
       return org.roylance.yaclib.TestController.internal_static_org_roylance_yaclib_SecondAction_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return org.roylance.yaclib.TestController.internal_static_org_roylance_yaclib_SecondAction_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               org.roylance.yaclib.TestController.SecondAction.class, org.roylance.yaclib.TestController.SecondAction.Builder.class);
     }
 
-    public static com.google.protobuf.Parser<SecondAction> PARSER =
-        new com.google.protobuf.AbstractParser<SecondAction>() {
-      public SecondAction parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new SecondAction(input, extensionRegistry);
-      }
-    };
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<SecondAction> getParserForType() {
-      return PARSER;
-    }
-
-    private int bitField0_;
     public static final int REQUEST_FIELD_NUMBER = 1;
     private org.roylance.yaclib.TestModel.UITestRequest request_;
     /**
      * <code>optional .org.roylance.yaclib.UITestRequest request = 1;</code>
      */
     public boolean hasRequest() {
-      return ((bitField0_ & 0x00000001) == 0x00000001);
+      return request_ != null;
     }
     /**
      * <code>optional .org.roylance.yaclib.UITestRequest request = 1;</code>
      */
     public org.roylance.yaclib.TestModel.UITestRequest getRequest() {
-      return request_;
+      return request_ == null ? org.roylance.yaclib.TestModel.UITestRequest.getDefaultInstance() : request_;
     }
     /**
      * <code>optional .org.roylance.yaclib.UITestRequest request = 1;</code>
      */
     public org.roylance.yaclib.TestModel.UITestRequestOrBuilder getRequestOrBuilder() {
-      return request_;
+      return getRequest();
     }
 
     public static final int RESPONSE_FIELD_NUMBER = 2;
@@ -1766,25 +1861,21 @@ public final class TestController {
      * <code>optional .org.roylance.yaclib.UITestResponse response = 2;</code>
      */
     public boolean hasResponse() {
-      return ((bitField0_ & 0x00000002) == 0x00000002);
+      return response_ != null;
     }
     /**
      * <code>optional .org.roylance.yaclib.UITestResponse response = 2;</code>
      */
     public org.roylance.yaclib.TestModel.UITestResponse getResponse() {
-      return response_;
+      return response_ == null ? org.roylance.yaclib.TestModel.UITestResponse.getDefaultInstance() : response_;
     }
     /**
      * <code>optional .org.roylance.yaclib.UITestResponse response = 2;</code>
      */
     public org.roylance.yaclib.TestModel.UITestResponseOrBuilder getResponseOrBuilder() {
-      return response_;
+      return getResponse();
     }
 
-    private void initFields() {
-      request_ = org.roylance.yaclib.TestModel.UITestRequest.getDefaultInstance();
-      response_ = org.roylance.yaclib.TestModel.UITestResponse.getDefaultInstance();
-    }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
@@ -1797,40 +1888,74 @@ public final class TestController {
 
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      getSerializedSize();
-      if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        output.writeMessage(1, request_);
+      if (request_ != null) {
+        output.writeMessage(1, getRequest());
       }
-      if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        output.writeMessage(2, response_);
+      if (response_ != null) {
+        output.writeMessage(2, getResponse());
       }
-      getUnknownFields().writeTo(output);
     }
 
-    private int memoizedSerializedSize = -1;
     public int getSerializedSize() {
-      int size = memoizedSerializedSize;
+      int size = memoizedSize;
       if (size != -1) return size;
 
       size = 0;
-      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+      if (request_ != null) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(1, request_);
+          .computeMessageSize(1, getRequest());
       }
-      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+      if (response_ != null) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(2, response_);
+          .computeMessageSize(2, getResponse());
       }
-      size += getUnknownFields().getSerializedSize();
-      memoizedSerializedSize = size;
+      memoizedSize = size;
       return size;
     }
 
     private static final long serialVersionUID = 0L;
     @java.lang.Override
-    protected java.lang.Object writeReplace()
-        throws java.io.ObjectStreamException {
-      return super.writeReplace();
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof org.roylance.yaclib.TestController.SecondAction)) {
+        return super.equals(obj);
+      }
+      org.roylance.yaclib.TestController.SecondAction other = (org.roylance.yaclib.TestController.SecondAction) obj;
+
+      boolean result = true;
+      result = result && (hasRequest() == other.hasRequest());
+      if (hasRequest()) {
+        result = result && getRequest()
+            .equals(other.getRequest());
+      }
+      result = result && (hasResponse() == other.hasResponse());
+      if (hasResponse()) {
+        result = result && getResponse()
+            .equals(other.getResponse());
+      }
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptorForType().hashCode();
+      if (hasRequest()) {
+        hash = (37 * hash) + REQUEST_FIELD_NUMBER;
+        hash = (53 * hash) + getRequest().hashCode();
+      }
+      if (hasResponse()) {
+        hash = (37 * hash) + RESPONSE_FIELD_NUMBER;
+        hash = (53 * hash) + getResponse().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
     }
 
     public static org.roylance.yaclib.TestController.SecondAction parseFrom(
@@ -1856,46 +1981,57 @@ public final class TestController {
     }
     public static org.roylance.yaclib.TestController.SecondAction parseFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return PARSER.parseFrom(input);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
     }
     public static org.roylance.yaclib.TestController.SecondAction parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
     }
     public static org.roylance.yaclib.TestController.SecondAction parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
     }
     public static org.roylance.yaclib.TestController.SecondAction parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
     public static org.roylance.yaclib.TestController.SecondAction parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
-      return PARSER.parseFrom(input);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
     }
     public static org.roylance.yaclib.TestController.SecondAction parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
-    public static Builder newBuilder() { return Builder.create(); }
     public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(org.roylance.yaclib.TestController.SecondAction prototype) {
-      return newBuilder().mergeFrom(prototype);
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
     }
-    public Builder toBuilder() { return newBuilder(this); }
+    public static Builder newBuilder(org.roylance.yaclib.TestController.SecondAction prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
 
     @java.lang.Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -1903,7 +2039,7 @@ public final class TestController {
      * Protobuf type {@code org.roylance.yaclib.SecondAction}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:org.roylance.yaclib.SecondAction)
         org.roylance.yaclib.TestController.SecondActionOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
@@ -1911,7 +2047,7 @@ public final class TestController {
         return org.roylance.yaclib.TestController.internal_static_org_roylance_yaclib_SecondAction_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return org.roylance.yaclib.TestController.internal_static_org_roylance_yaclib_SecondAction_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
@@ -1924,39 +2060,30 @@ public final class TestController {
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
       private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
-          getRequestFieldBuilder();
-          getResponseFieldBuilder();
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
         }
       }
-      private static Builder create() {
-        return new Builder();
-      }
-
       public Builder clear() {
         super.clear();
         if (requestBuilder_ == null) {
-          request_ = org.roylance.yaclib.TestModel.UITestRequest.getDefaultInstance();
+          request_ = null;
         } else {
-          requestBuilder_.clear();
+          request_ = null;
+          requestBuilder_ = null;
         }
-        bitField0_ = (bitField0_ & ~0x00000001);
         if (responseBuilder_ == null) {
-          response_ = org.roylance.yaclib.TestModel.UITestResponse.getDefaultInstance();
+          response_ = null;
         } else {
-          responseBuilder_.clear();
+          response_ = null;
+          responseBuilder_ = null;
         }
-        bitField0_ = (bitField0_ & ~0x00000002);
         return this;
-      }
-
-      public Builder clone() {
-        return create().mergeFrom(buildPartial());
       }
 
       public com.google.protobuf.Descriptors.Descriptor
@@ -1978,29 +2105,46 @@ public final class TestController {
 
       public org.roylance.yaclib.TestController.SecondAction buildPartial() {
         org.roylance.yaclib.TestController.SecondAction result = new org.roylance.yaclib.TestController.SecondAction(this);
-        int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
-        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
-          to_bitField0_ |= 0x00000001;
-        }
         if (requestBuilder_ == null) {
           result.request_ = request_;
         } else {
           result.request_ = requestBuilder_.build();
-        }
-        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
-          to_bitField0_ |= 0x00000002;
         }
         if (responseBuilder_ == null) {
           result.response_ = response_;
         } else {
           result.response_ = responseBuilder_.build();
         }
-        result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
       }
 
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof org.roylance.yaclib.TestController.SecondAction) {
           return mergeFrom((org.roylance.yaclib.TestController.SecondAction)other);
@@ -2018,7 +2162,7 @@ public final class TestController {
         if (other.hasResponse()) {
           mergeResponse(other.getResponse());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        onChanged();
         return this;
       }
 
@@ -2035,7 +2179,7 @@ public final class TestController {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
           parsedMessage = (org.roylance.yaclib.TestController.SecondAction) e.getUnfinishedMessage();
-          throw e;
+          throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
             mergeFrom(parsedMessage);
@@ -2043,23 +2187,22 @@ public final class TestController {
         }
         return this;
       }
-      private int bitField0_;
 
-      private org.roylance.yaclib.TestModel.UITestRequest request_ = org.roylance.yaclib.TestModel.UITestRequest.getDefaultInstance();
-      private com.google.protobuf.SingleFieldBuilder<
+      private org.roylance.yaclib.TestModel.UITestRequest request_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
           org.roylance.yaclib.TestModel.UITestRequest, org.roylance.yaclib.TestModel.UITestRequest.Builder, org.roylance.yaclib.TestModel.UITestRequestOrBuilder> requestBuilder_;
       /**
        * <code>optional .org.roylance.yaclib.UITestRequest request = 1;</code>
        */
       public boolean hasRequest() {
-        return ((bitField0_ & 0x00000001) == 0x00000001);
+        return requestBuilder_ != null || request_ != null;
       }
       /**
        * <code>optional .org.roylance.yaclib.UITestRequest request = 1;</code>
        */
       public org.roylance.yaclib.TestModel.UITestRequest getRequest() {
         if (requestBuilder_ == null) {
-          return request_;
+          return request_ == null ? org.roylance.yaclib.TestModel.UITestRequest.getDefaultInstance() : request_;
         } else {
           return requestBuilder_.getMessage();
         }
@@ -2077,7 +2220,7 @@ public final class TestController {
         } else {
           requestBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00000001;
+
         return this;
       }
       /**
@@ -2091,7 +2234,7 @@ public final class TestController {
         } else {
           requestBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000001;
+
         return this;
       }
       /**
@@ -2099,8 +2242,7 @@ public final class TestController {
        */
       public Builder mergeRequest(org.roylance.yaclib.TestModel.UITestRequest value) {
         if (requestBuilder_ == null) {
-          if (((bitField0_ & 0x00000001) == 0x00000001) &&
-              request_ != org.roylance.yaclib.TestModel.UITestRequest.getDefaultInstance()) {
+          if (request_ != null) {
             request_ =
               org.roylance.yaclib.TestModel.UITestRequest.newBuilder(request_).mergeFrom(value).buildPartial();
           } else {
@@ -2110,7 +2252,7 @@ public final class TestController {
         } else {
           requestBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000001;
+
         return this;
       }
       /**
@@ -2118,19 +2260,20 @@ public final class TestController {
        */
       public Builder clearRequest() {
         if (requestBuilder_ == null) {
-          request_ = org.roylance.yaclib.TestModel.UITestRequest.getDefaultInstance();
+          request_ = null;
           onChanged();
         } else {
-          requestBuilder_.clear();
+          request_ = null;
+          requestBuilder_ = null;
         }
-        bitField0_ = (bitField0_ & ~0x00000001);
+
         return this;
       }
       /**
        * <code>optional .org.roylance.yaclib.UITestRequest request = 1;</code>
        */
       public org.roylance.yaclib.TestModel.UITestRequest.Builder getRequestBuilder() {
-        bitField0_ |= 0x00000001;
+        
         onChanged();
         return getRequestFieldBuilder().getBuilder();
       }
@@ -2141,17 +2284,18 @@ public final class TestController {
         if (requestBuilder_ != null) {
           return requestBuilder_.getMessageOrBuilder();
         } else {
-          return request_;
+          return request_ == null ?
+              org.roylance.yaclib.TestModel.UITestRequest.getDefaultInstance() : request_;
         }
       }
       /**
        * <code>optional .org.roylance.yaclib.UITestRequest request = 1;</code>
        */
-      private com.google.protobuf.SingleFieldBuilder<
+      private com.google.protobuf.SingleFieldBuilderV3<
           org.roylance.yaclib.TestModel.UITestRequest, org.roylance.yaclib.TestModel.UITestRequest.Builder, org.roylance.yaclib.TestModel.UITestRequestOrBuilder> 
           getRequestFieldBuilder() {
         if (requestBuilder_ == null) {
-          requestBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+          requestBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
               org.roylance.yaclib.TestModel.UITestRequest, org.roylance.yaclib.TestModel.UITestRequest.Builder, org.roylance.yaclib.TestModel.UITestRequestOrBuilder>(
                   getRequest(),
                   getParentForChildren(),
@@ -2161,21 +2305,21 @@ public final class TestController {
         return requestBuilder_;
       }
 
-      private org.roylance.yaclib.TestModel.UITestResponse response_ = org.roylance.yaclib.TestModel.UITestResponse.getDefaultInstance();
-      private com.google.protobuf.SingleFieldBuilder<
+      private org.roylance.yaclib.TestModel.UITestResponse response_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
           org.roylance.yaclib.TestModel.UITestResponse, org.roylance.yaclib.TestModel.UITestResponse.Builder, org.roylance.yaclib.TestModel.UITestResponseOrBuilder> responseBuilder_;
       /**
        * <code>optional .org.roylance.yaclib.UITestResponse response = 2;</code>
        */
       public boolean hasResponse() {
-        return ((bitField0_ & 0x00000002) == 0x00000002);
+        return responseBuilder_ != null || response_ != null;
       }
       /**
        * <code>optional .org.roylance.yaclib.UITestResponse response = 2;</code>
        */
       public org.roylance.yaclib.TestModel.UITestResponse getResponse() {
         if (responseBuilder_ == null) {
-          return response_;
+          return response_ == null ? org.roylance.yaclib.TestModel.UITestResponse.getDefaultInstance() : response_;
         } else {
           return responseBuilder_.getMessage();
         }
@@ -2193,7 +2337,7 @@ public final class TestController {
         } else {
           responseBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00000002;
+
         return this;
       }
       /**
@@ -2207,7 +2351,7 @@ public final class TestController {
         } else {
           responseBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000002;
+
         return this;
       }
       /**
@@ -2215,8 +2359,7 @@ public final class TestController {
        */
       public Builder mergeResponse(org.roylance.yaclib.TestModel.UITestResponse value) {
         if (responseBuilder_ == null) {
-          if (((bitField0_ & 0x00000002) == 0x00000002) &&
-              response_ != org.roylance.yaclib.TestModel.UITestResponse.getDefaultInstance()) {
+          if (response_ != null) {
             response_ =
               org.roylance.yaclib.TestModel.UITestResponse.newBuilder(response_).mergeFrom(value).buildPartial();
           } else {
@@ -2226,7 +2369,7 @@ public final class TestController {
         } else {
           responseBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000002;
+
         return this;
       }
       /**
@@ -2234,19 +2377,20 @@ public final class TestController {
        */
       public Builder clearResponse() {
         if (responseBuilder_ == null) {
-          response_ = org.roylance.yaclib.TestModel.UITestResponse.getDefaultInstance();
+          response_ = null;
           onChanged();
         } else {
-          responseBuilder_.clear();
+          response_ = null;
+          responseBuilder_ = null;
         }
-        bitField0_ = (bitField0_ & ~0x00000002);
+
         return this;
       }
       /**
        * <code>optional .org.roylance.yaclib.UITestResponse response = 2;</code>
        */
       public org.roylance.yaclib.TestModel.UITestResponse.Builder getResponseBuilder() {
-        bitField0_ |= 0x00000002;
+        
         onChanged();
         return getResponseFieldBuilder().getBuilder();
       }
@@ -2257,17 +2401,18 @@ public final class TestController {
         if (responseBuilder_ != null) {
           return responseBuilder_.getMessageOrBuilder();
         } else {
-          return response_;
+          return response_ == null ?
+              org.roylance.yaclib.TestModel.UITestResponse.getDefaultInstance() : response_;
         }
       }
       /**
        * <code>optional .org.roylance.yaclib.UITestResponse response = 2;</code>
        */
-      private com.google.protobuf.SingleFieldBuilder<
+      private com.google.protobuf.SingleFieldBuilderV3<
           org.roylance.yaclib.TestModel.UITestResponse, org.roylance.yaclib.TestModel.UITestResponse.Builder, org.roylance.yaclib.TestModel.UITestResponseOrBuilder> 
           getResponseFieldBuilder() {
         if (responseBuilder_ == null) {
-          responseBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+          responseBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
               org.roylance.yaclib.TestModel.UITestResponse, org.roylance.yaclib.TestModel.UITestResponse.Builder, org.roylance.yaclib.TestModel.UITestResponseOrBuilder>(
                   getResponse(),
                   getParentForChildren(),
@@ -2276,16 +2421,53 @@ public final class TestController {
         }
         return responseBuilder_;
       }
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return this;
+      }
+
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return this;
+      }
+
 
       // @@protoc_insertion_point(builder_scope:org.roylance.yaclib.SecondAction)
     }
 
+    // @@protoc_insertion_point(class_scope:org.roylance.yaclib.SecondAction)
+    private static final org.roylance.yaclib.TestController.SecondAction DEFAULT_INSTANCE;
     static {
-      defaultInstance = new SecondAction(true);
-      defaultInstance.initFields();
+      DEFAULT_INSTANCE = new org.roylance.yaclib.TestController.SecondAction();
     }
 
-    // @@protoc_insertion_point(class_scope:org.roylance.yaclib.SecondAction)
+    public static org.roylance.yaclib.TestController.SecondAction getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<SecondAction>
+        PARSER = new com.google.protobuf.AbstractParser<SecondAction>() {
+      public SecondAction parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+          return new SecondAction(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<SecondAction> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<SecondAction> getParserForType() {
+      return PARSER;
+    }
+
+    public org.roylance.yaclib.TestController.SecondAction getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
   }
 
   public interface SimpleTestControllerOrBuilder extends
@@ -2334,40 +2516,28 @@ public final class TestController {
   /**
    * Protobuf type {@code org.roylance.yaclib.SimpleTestController}
    */
-  public static final class SimpleTestController extends
-      com.google.protobuf.GeneratedMessage implements
+  public  static final class SimpleTestController extends
+      com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:org.roylance.yaclib.SimpleTestController)
       SimpleTestControllerOrBuilder {
     // Use SimpleTestController.newBuilder() to construct.
-    private SimpleTestController(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+    private SimpleTestController(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
-      this.unknownFields = builder.getUnknownFields();
     }
-    private SimpleTestController(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
-
-    private static final SimpleTestController defaultInstance;
-    public static SimpleTestController getDefaultInstance() {
-      return defaultInstance;
+    private SimpleTestController() {
     }
 
-    public SimpleTestController getDefaultInstanceForType() {
-      return defaultInstance;
-    }
-
-    private final com.google.protobuf.UnknownFieldSet unknownFields;
     @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
-        getUnknownFields() {
-      return this.unknownFields;
+    getUnknownFields() {
+      return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
     }
     private SimpleTestController(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      initFields();
+      this();
       int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
         boolean done = false;
         while (!done) {
@@ -2377,49 +2547,48 @@ public final class TestController {
               done = true;
               break;
             default: {
-              if (!parseUnknownField(input, unknownFields,
-                                     extensionRegistry, tag)) {
+              if (!input.skipField(tag)) {
                 done = true;
               }
               break;
             }
             case 10: {
               org.roylance.yaclib.TestController.PingAction.Builder subBuilder = null;
-              if (((bitField0_ & 0x00000001) == 0x00000001)) {
+              if (ping_ != null) {
                 subBuilder = ping_.toBuilder();
               }
-              ping_ = input.readMessage(org.roylance.yaclib.TestController.PingAction.PARSER, extensionRegistry);
+              ping_ = input.readMessage(org.roylance.yaclib.TestController.PingAction.parser(), extensionRegistry);
               if (subBuilder != null) {
                 subBuilder.mergeFrom(ping_);
                 ping_ = subBuilder.buildPartial();
               }
-              bitField0_ |= 0x00000001;
+
               break;
             }
             case 18: {
               org.roylance.yaclib.TestController.FirstAction.Builder subBuilder = null;
-              if (((bitField0_ & 0x00000002) == 0x00000002)) {
+              if (first_ != null) {
                 subBuilder = first_.toBuilder();
               }
-              first_ = input.readMessage(org.roylance.yaclib.TestController.FirstAction.PARSER, extensionRegistry);
+              first_ = input.readMessage(org.roylance.yaclib.TestController.FirstAction.parser(), extensionRegistry);
               if (subBuilder != null) {
                 subBuilder.mergeFrom(first_);
                 first_ = subBuilder.buildPartial();
               }
-              bitField0_ |= 0x00000002;
+
               break;
             }
             case 26: {
               org.roylance.yaclib.TestController.SecondAction.Builder subBuilder = null;
-              if (((bitField0_ & 0x00000004) == 0x00000004)) {
+              if (second_ != null) {
                 subBuilder = second_.toBuilder();
               }
-              second_ = input.readMessage(org.roylance.yaclib.TestController.SecondAction.PARSER, extensionRegistry);
+              second_ = input.readMessage(org.roylance.yaclib.TestController.SecondAction.parser(), extensionRegistry);
               if (subBuilder != null) {
                 subBuilder.mergeFrom(second_);
                 second_ = subBuilder.buildPartial();
               }
-              bitField0_ |= 0x00000004;
+
               break;
             }
           }
@@ -2428,9 +2597,8 @@ public final class TestController {
         throw e.setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
         throw new com.google.protobuf.InvalidProtocolBufferException(
-            e.getMessage()).setUnfinishedMessage(this);
+            e).setUnfinishedMessage(this);
       } finally {
-        this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
     }
@@ -2439,48 +2607,32 @@ public final class TestController {
       return org.roylance.yaclib.TestController.internal_static_org_roylance_yaclib_SimpleTestController_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return org.roylance.yaclib.TestController.internal_static_org_roylance_yaclib_SimpleTestController_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               org.roylance.yaclib.TestController.SimpleTestController.class, org.roylance.yaclib.TestController.SimpleTestController.Builder.class);
     }
 
-    public static com.google.protobuf.Parser<SimpleTestController> PARSER =
-        new com.google.protobuf.AbstractParser<SimpleTestController>() {
-      public SimpleTestController parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new SimpleTestController(input, extensionRegistry);
-      }
-    };
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<SimpleTestController> getParserForType() {
-      return PARSER;
-    }
-
-    private int bitField0_;
     public static final int PING_FIELD_NUMBER = 1;
     private org.roylance.yaclib.TestController.PingAction ping_;
     /**
      * <code>optional .org.roylance.yaclib.PingAction ping = 1;</code>
      */
     public boolean hasPing() {
-      return ((bitField0_ & 0x00000001) == 0x00000001);
+      return ping_ != null;
     }
     /**
      * <code>optional .org.roylance.yaclib.PingAction ping = 1;</code>
      */
     public org.roylance.yaclib.TestController.PingAction getPing() {
-      return ping_;
+      return ping_ == null ? org.roylance.yaclib.TestController.PingAction.getDefaultInstance() : ping_;
     }
     /**
      * <code>optional .org.roylance.yaclib.PingAction ping = 1;</code>
      */
     public org.roylance.yaclib.TestController.PingActionOrBuilder getPingOrBuilder() {
-      return ping_;
+      return getPing();
     }
 
     public static final int FIRST_FIELD_NUMBER = 2;
@@ -2489,19 +2641,19 @@ public final class TestController {
      * <code>optional .org.roylance.yaclib.FirstAction first = 2;</code>
      */
     public boolean hasFirst() {
-      return ((bitField0_ & 0x00000002) == 0x00000002);
+      return first_ != null;
     }
     /**
      * <code>optional .org.roylance.yaclib.FirstAction first = 2;</code>
      */
     public org.roylance.yaclib.TestController.FirstAction getFirst() {
-      return first_;
+      return first_ == null ? org.roylance.yaclib.TestController.FirstAction.getDefaultInstance() : first_;
     }
     /**
      * <code>optional .org.roylance.yaclib.FirstAction first = 2;</code>
      */
     public org.roylance.yaclib.TestController.FirstActionOrBuilder getFirstOrBuilder() {
-      return first_;
+      return getFirst();
     }
 
     public static final int SECOND_FIELD_NUMBER = 3;
@@ -2510,26 +2662,21 @@ public final class TestController {
      * <code>optional .org.roylance.yaclib.SecondAction second = 3;</code>
      */
     public boolean hasSecond() {
-      return ((bitField0_ & 0x00000004) == 0x00000004);
+      return second_ != null;
     }
     /**
      * <code>optional .org.roylance.yaclib.SecondAction second = 3;</code>
      */
     public org.roylance.yaclib.TestController.SecondAction getSecond() {
-      return second_;
+      return second_ == null ? org.roylance.yaclib.TestController.SecondAction.getDefaultInstance() : second_;
     }
     /**
      * <code>optional .org.roylance.yaclib.SecondAction second = 3;</code>
      */
     public org.roylance.yaclib.TestController.SecondActionOrBuilder getSecondOrBuilder() {
-      return second_;
+      return getSecond();
     }
 
-    private void initFields() {
-      ping_ = org.roylance.yaclib.TestController.PingAction.getDefaultInstance();
-      first_ = org.roylance.yaclib.TestController.FirstAction.getDefaultInstance();
-      second_ = org.roylance.yaclib.TestController.SecondAction.getDefaultInstance();
-    }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
@@ -2542,47 +2689,90 @@ public final class TestController {
 
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      getSerializedSize();
-      if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        output.writeMessage(1, ping_);
+      if (ping_ != null) {
+        output.writeMessage(1, getPing());
       }
-      if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        output.writeMessage(2, first_);
+      if (first_ != null) {
+        output.writeMessage(2, getFirst());
       }
-      if (((bitField0_ & 0x00000004) == 0x00000004)) {
-        output.writeMessage(3, second_);
+      if (second_ != null) {
+        output.writeMessage(3, getSecond());
       }
-      getUnknownFields().writeTo(output);
     }
 
-    private int memoizedSerializedSize = -1;
     public int getSerializedSize() {
-      int size = memoizedSerializedSize;
+      int size = memoizedSize;
       if (size != -1) return size;
 
       size = 0;
-      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+      if (ping_ != null) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(1, ping_);
+          .computeMessageSize(1, getPing());
       }
-      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+      if (first_ != null) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(2, first_);
+          .computeMessageSize(2, getFirst());
       }
-      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+      if (second_ != null) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(3, second_);
+          .computeMessageSize(3, getSecond());
       }
-      size += getUnknownFields().getSerializedSize();
-      memoizedSerializedSize = size;
+      memoizedSize = size;
       return size;
     }
 
     private static final long serialVersionUID = 0L;
     @java.lang.Override
-    protected java.lang.Object writeReplace()
-        throws java.io.ObjectStreamException {
-      return super.writeReplace();
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof org.roylance.yaclib.TestController.SimpleTestController)) {
+        return super.equals(obj);
+      }
+      org.roylance.yaclib.TestController.SimpleTestController other = (org.roylance.yaclib.TestController.SimpleTestController) obj;
+
+      boolean result = true;
+      result = result && (hasPing() == other.hasPing());
+      if (hasPing()) {
+        result = result && getPing()
+            .equals(other.getPing());
+      }
+      result = result && (hasFirst() == other.hasFirst());
+      if (hasFirst()) {
+        result = result && getFirst()
+            .equals(other.getFirst());
+      }
+      result = result && (hasSecond() == other.hasSecond());
+      if (hasSecond()) {
+        result = result && getSecond()
+            .equals(other.getSecond());
+      }
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptorForType().hashCode();
+      if (hasPing()) {
+        hash = (37 * hash) + PING_FIELD_NUMBER;
+        hash = (53 * hash) + getPing().hashCode();
+      }
+      if (hasFirst()) {
+        hash = (37 * hash) + FIRST_FIELD_NUMBER;
+        hash = (53 * hash) + getFirst().hashCode();
+      }
+      if (hasSecond()) {
+        hash = (37 * hash) + SECOND_FIELD_NUMBER;
+        hash = (53 * hash) + getSecond().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
     }
 
     public static org.roylance.yaclib.TestController.SimpleTestController parseFrom(
@@ -2608,46 +2798,57 @@ public final class TestController {
     }
     public static org.roylance.yaclib.TestController.SimpleTestController parseFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return PARSER.parseFrom(input);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
     }
     public static org.roylance.yaclib.TestController.SimpleTestController parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
     }
     public static org.roylance.yaclib.TestController.SimpleTestController parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
     }
     public static org.roylance.yaclib.TestController.SimpleTestController parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
     public static org.roylance.yaclib.TestController.SimpleTestController parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
-      return PARSER.parseFrom(input);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
     }
     public static org.roylance.yaclib.TestController.SimpleTestController parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
-    public static Builder newBuilder() { return Builder.create(); }
     public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(org.roylance.yaclib.TestController.SimpleTestController prototype) {
-      return newBuilder().mergeFrom(prototype);
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
     }
-    public Builder toBuilder() { return newBuilder(this); }
+    public static Builder newBuilder(org.roylance.yaclib.TestController.SimpleTestController prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
 
     @java.lang.Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -2655,7 +2856,7 @@ public final class TestController {
      * Protobuf type {@code org.roylance.yaclib.SimpleTestController}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:org.roylance.yaclib.SimpleTestController)
         org.roylance.yaclib.TestController.SimpleTestControllerOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
@@ -2663,7 +2864,7 @@ public final class TestController {
         return org.roylance.yaclib.TestController.internal_static_org_roylance_yaclib_SimpleTestController_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return org.roylance.yaclib.TestController.internal_static_org_roylance_yaclib_SimpleTestController_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
@@ -2676,46 +2877,36 @@ public final class TestController {
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
       private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
-          getPingFieldBuilder();
-          getFirstFieldBuilder();
-          getSecondFieldBuilder();
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
         }
       }
-      private static Builder create() {
-        return new Builder();
-      }
-
       public Builder clear() {
         super.clear();
         if (pingBuilder_ == null) {
-          ping_ = org.roylance.yaclib.TestController.PingAction.getDefaultInstance();
+          ping_ = null;
         } else {
-          pingBuilder_.clear();
+          ping_ = null;
+          pingBuilder_ = null;
         }
-        bitField0_ = (bitField0_ & ~0x00000001);
         if (firstBuilder_ == null) {
-          first_ = org.roylance.yaclib.TestController.FirstAction.getDefaultInstance();
+          first_ = null;
         } else {
-          firstBuilder_.clear();
+          first_ = null;
+          firstBuilder_ = null;
         }
-        bitField0_ = (bitField0_ & ~0x00000002);
         if (secondBuilder_ == null) {
-          second_ = org.roylance.yaclib.TestController.SecondAction.getDefaultInstance();
+          second_ = null;
         } else {
-          secondBuilder_.clear();
+          second_ = null;
+          secondBuilder_ = null;
         }
-        bitField0_ = (bitField0_ & ~0x00000004);
         return this;
-      }
-
-      public Builder clone() {
-        return create().mergeFrom(buildPartial());
       }
 
       public com.google.protobuf.Descriptors.Descriptor
@@ -2737,37 +2928,51 @@ public final class TestController {
 
       public org.roylance.yaclib.TestController.SimpleTestController buildPartial() {
         org.roylance.yaclib.TestController.SimpleTestController result = new org.roylance.yaclib.TestController.SimpleTestController(this);
-        int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
-        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
-          to_bitField0_ |= 0x00000001;
-        }
         if (pingBuilder_ == null) {
           result.ping_ = ping_;
         } else {
           result.ping_ = pingBuilder_.build();
-        }
-        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
-          to_bitField0_ |= 0x00000002;
         }
         if (firstBuilder_ == null) {
           result.first_ = first_;
         } else {
           result.first_ = firstBuilder_.build();
         }
-        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
-          to_bitField0_ |= 0x00000004;
-        }
         if (secondBuilder_ == null) {
           result.second_ = second_;
         } else {
           result.second_ = secondBuilder_.build();
         }
-        result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
       }
 
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof org.roylance.yaclib.TestController.SimpleTestController) {
           return mergeFrom((org.roylance.yaclib.TestController.SimpleTestController)other);
@@ -2788,7 +2993,7 @@ public final class TestController {
         if (other.hasSecond()) {
           mergeSecond(other.getSecond());
         }
-        this.mergeUnknownFields(other.getUnknownFields());
+        onChanged();
         return this;
       }
 
@@ -2805,7 +3010,7 @@ public final class TestController {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
           parsedMessage = (org.roylance.yaclib.TestController.SimpleTestController) e.getUnfinishedMessage();
-          throw e;
+          throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
             mergeFrom(parsedMessage);
@@ -2813,23 +3018,22 @@ public final class TestController {
         }
         return this;
       }
-      private int bitField0_;
 
-      private org.roylance.yaclib.TestController.PingAction ping_ = org.roylance.yaclib.TestController.PingAction.getDefaultInstance();
-      private com.google.protobuf.SingleFieldBuilder<
+      private org.roylance.yaclib.TestController.PingAction ping_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
           org.roylance.yaclib.TestController.PingAction, org.roylance.yaclib.TestController.PingAction.Builder, org.roylance.yaclib.TestController.PingActionOrBuilder> pingBuilder_;
       /**
        * <code>optional .org.roylance.yaclib.PingAction ping = 1;</code>
        */
       public boolean hasPing() {
-        return ((bitField0_ & 0x00000001) == 0x00000001);
+        return pingBuilder_ != null || ping_ != null;
       }
       /**
        * <code>optional .org.roylance.yaclib.PingAction ping = 1;</code>
        */
       public org.roylance.yaclib.TestController.PingAction getPing() {
         if (pingBuilder_ == null) {
-          return ping_;
+          return ping_ == null ? org.roylance.yaclib.TestController.PingAction.getDefaultInstance() : ping_;
         } else {
           return pingBuilder_.getMessage();
         }
@@ -2847,7 +3051,7 @@ public final class TestController {
         } else {
           pingBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00000001;
+
         return this;
       }
       /**
@@ -2861,7 +3065,7 @@ public final class TestController {
         } else {
           pingBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000001;
+
         return this;
       }
       /**
@@ -2869,8 +3073,7 @@ public final class TestController {
        */
       public Builder mergePing(org.roylance.yaclib.TestController.PingAction value) {
         if (pingBuilder_ == null) {
-          if (((bitField0_ & 0x00000001) == 0x00000001) &&
-              ping_ != org.roylance.yaclib.TestController.PingAction.getDefaultInstance()) {
+          if (ping_ != null) {
             ping_ =
               org.roylance.yaclib.TestController.PingAction.newBuilder(ping_).mergeFrom(value).buildPartial();
           } else {
@@ -2880,7 +3083,7 @@ public final class TestController {
         } else {
           pingBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000001;
+
         return this;
       }
       /**
@@ -2888,19 +3091,20 @@ public final class TestController {
        */
       public Builder clearPing() {
         if (pingBuilder_ == null) {
-          ping_ = org.roylance.yaclib.TestController.PingAction.getDefaultInstance();
+          ping_ = null;
           onChanged();
         } else {
-          pingBuilder_.clear();
+          ping_ = null;
+          pingBuilder_ = null;
         }
-        bitField0_ = (bitField0_ & ~0x00000001);
+
         return this;
       }
       /**
        * <code>optional .org.roylance.yaclib.PingAction ping = 1;</code>
        */
       public org.roylance.yaclib.TestController.PingAction.Builder getPingBuilder() {
-        bitField0_ |= 0x00000001;
+        
         onChanged();
         return getPingFieldBuilder().getBuilder();
       }
@@ -2911,17 +3115,18 @@ public final class TestController {
         if (pingBuilder_ != null) {
           return pingBuilder_.getMessageOrBuilder();
         } else {
-          return ping_;
+          return ping_ == null ?
+              org.roylance.yaclib.TestController.PingAction.getDefaultInstance() : ping_;
         }
       }
       /**
        * <code>optional .org.roylance.yaclib.PingAction ping = 1;</code>
        */
-      private com.google.protobuf.SingleFieldBuilder<
+      private com.google.protobuf.SingleFieldBuilderV3<
           org.roylance.yaclib.TestController.PingAction, org.roylance.yaclib.TestController.PingAction.Builder, org.roylance.yaclib.TestController.PingActionOrBuilder> 
           getPingFieldBuilder() {
         if (pingBuilder_ == null) {
-          pingBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+          pingBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
               org.roylance.yaclib.TestController.PingAction, org.roylance.yaclib.TestController.PingAction.Builder, org.roylance.yaclib.TestController.PingActionOrBuilder>(
                   getPing(),
                   getParentForChildren(),
@@ -2931,21 +3136,21 @@ public final class TestController {
         return pingBuilder_;
       }
 
-      private org.roylance.yaclib.TestController.FirstAction first_ = org.roylance.yaclib.TestController.FirstAction.getDefaultInstance();
-      private com.google.protobuf.SingleFieldBuilder<
+      private org.roylance.yaclib.TestController.FirstAction first_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
           org.roylance.yaclib.TestController.FirstAction, org.roylance.yaclib.TestController.FirstAction.Builder, org.roylance.yaclib.TestController.FirstActionOrBuilder> firstBuilder_;
       /**
        * <code>optional .org.roylance.yaclib.FirstAction first = 2;</code>
        */
       public boolean hasFirst() {
-        return ((bitField0_ & 0x00000002) == 0x00000002);
+        return firstBuilder_ != null || first_ != null;
       }
       /**
        * <code>optional .org.roylance.yaclib.FirstAction first = 2;</code>
        */
       public org.roylance.yaclib.TestController.FirstAction getFirst() {
         if (firstBuilder_ == null) {
-          return first_;
+          return first_ == null ? org.roylance.yaclib.TestController.FirstAction.getDefaultInstance() : first_;
         } else {
           return firstBuilder_.getMessage();
         }
@@ -2963,7 +3168,7 @@ public final class TestController {
         } else {
           firstBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00000002;
+
         return this;
       }
       /**
@@ -2977,7 +3182,7 @@ public final class TestController {
         } else {
           firstBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000002;
+
         return this;
       }
       /**
@@ -2985,8 +3190,7 @@ public final class TestController {
        */
       public Builder mergeFirst(org.roylance.yaclib.TestController.FirstAction value) {
         if (firstBuilder_ == null) {
-          if (((bitField0_ & 0x00000002) == 0x00000002) &&
-              first_ != org.roylance.yaclib.TestController.FirstAction.getDefaultInstance()) {
+          if (first_ != null) {
             first_ =
               org.roylance.yaclib.TestController.FirstAction.newBuilder(first_).mergeFrom(value).buildPartial();
           } else {
@@ -2996,7 +3200,7 @@ public final class TestController {
         } else {
           firstBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000002;
+
         return this;
       }
       /**
@@ -3004,19 +3208,20 @@ public final class TestController {
        */
       public Builder clearFirst() {
         if (firstBuilder_ == null) {
-          first_ = org.roylance.yaclib.TestController.FirstAction.getDefaultInstance();
+          first_ = null;
           onChanged();
         } else {
-          firstBuilder_.clear();
+          first_ = null;
+          firstBuilder_ = null;
         }
-        bitField0_ = (bitField0_ & ~0x00000002);
+
         return this;
       }
       /**
        * <code>optional .org.roylance.yaclib.FirstAction first = 2;</code>
        */
       public org.roylance.yaclib.TestController.FirstAction.Builder getFirstBuilder() {
-        bitField0_ |= 0x00000002;
+        
         onChanged();
         return getFirstFieldBuilder().getBuilder();
       }
@@ -3027,17 +3232,18 @@ public final class TestController {
         if (firstBuilder_ != null) {
           return firstBuilder_.getMessageOrBuilder();
         } else {
-          return first_;
+          return first_ == null ?
+              org.roylance.yaclib.TestController.FirstAction.getDefaultInstance() : first_;
         }
       }
       /**
        * <code>optional .org.roylance.yaclib.FirstAction first = 2;</code>
        */
-      private com.google.protobuf.SingleFieldBuilder<
+      private com.google.protobuf.SingleFieldBuilderV3<
           org.roylance.yaclib.TestController.FirstAction, org.roylance.yaclib.TestController.FirstAction.Builder, org.roylance.yaclib.TestController.FirstActionOrBuilder> 
           getFirstFieldBuilder() {
         if (firstBuilder_ == null) {
-          firstBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+          firstBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
               org.roylance.yaclib.TestController.FirstAction, org.roylance.yaclib.TestController.FirstAction.Builder, org.roylance.yaclib.TestController.FirstActionOrBuilder>(
                   getFirst(),
                   getParentForChildren(),
@@ -3047,21 +3253,21 @@ public final class TestController {
         return firstBuilder_;
       }
 
-      private org.roylance.yaclib.TestController.SecondAction second_ = org.roylance.yaclib.TestController.SecondAction.getDefaultInstance();
-      private com.google.protobuf.SingleFieldBuilder<
+      private org.roylance.yaclib.TestController.SecondAction second_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
           org.roylance.yaclib.TestController.SecondAction, org.roylance.yaclib.TestController.SecondAction.Builder, org.roylance.yaclib.TestController.SecondActionOrBuilder> secondBuilder_;
       /**
        * <code>optional .org.roylance.yaclib.SecondAction second = 3;</code>
        */
       public boolean hasSecond() {
-        return ((bitField0_ & 0x00000004) == 0x00000004);
+        return secondBuilder_ != null || second_ != null;
       }
       /**
        * <code>optional .org.roylance.yaclib.SecondAction second = 3;</code>
        */
       public org.roylance.yaclib.TestController.SecondAction getSecond() {
         if (secondBuilder_ == null) {
-          return second_;
+          return second_ == null ? org.roylance.yaclib.TestController.SecondAction.getDefaultInstance() : second_;
         } else {
           return secondBuilder_.getMessage();
         }
@@ -3079,7 +3285,7 @@ public final class TestController {
         } else {
           secondBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00000004;
+
         return this;
       }
       /**
@@ -3093,7 +3299,7 @@ public final class TestController {
         } else {
           secondBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000004;
+
         return this;
       }
       /**
@@ -3101,8 +3307,7 @@ public final class TestController {
        */
       public Builder mergeSecond(org.roylance.yaclib.TestController.SecondAction value) {
         if (secondBuilder_ == null) {
-          if (((bitField0_ & 0x00000004) == 0x00000004) &&
-              second_ != org.roylance.yaclib.TestController.SecondAction.getDefaultInstance()) {
+          if (second_ != null) {
             second_ =
               org.roylance.yaclib.TestController.SecondAction.newBuilder(second_).mergeFrom(value).buildPartial();
           } else {
@@ -3112,7 +3317,7 @@ public final class TestController {
         } else {
           secondBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000004;
+
         return this;
       }
       /**
@@ -3120,19 +3325,20 @@ public final class TestController {
        */
       public Builder clearSecond() {
         if (secondBuilder_ == null) {
-          second_ = org.roylance.yaclib.TestController.SecondAction.getDefaultInstance();
+          second_ = null;
           onChanged();
         } else {
-          secondBuilder_.clear();
+          second_ = null;
+          secondBuilder_ = null;
         }
-        bitField0_ = (bitField0_ & ~0x00000004);
+
         return this;
       }
       /**
        * <code>optional .org.roylance.yaclib.SecondAction second = 3;</code>
        */
       public org.roylance.yaclib.TestController.SecondAction.Builder getSecondBuilder() {
-        bitField0_ |= 0x00000004;
+        
         onChanged();
         return getSecondFieldBuilder().getBuilder();
       }
@@ -3143,17 +3349,18 @@ public final class TestController {
         if (secondBuilder_ != null) {
           return secondBuilder_.getMessageOrBuilder();
         } else {
-          return second_;
+          return second_ == null ?
+              org.roylance.yaclib.TestController.SecondAction.getDefaultInstance() : second_;
         }
       }
       /**
        * <code>optional .org.roylance.yaclib.SecondAction second = 3;</code>
        */
-      private com.google.protobuf.SingleFieldBuilder<
+      private com.google.protobuf.SingleFieldBuilderV3<
           org.roylance.yaclib.TestController.SecondAction, org.roylance.yaclib.TestController.SecondAction.Builder, org.roylance.yaclib.TestController.SecondActionOrBuilder> 
           getSecondFieldBuilder() {
         if (secondBuilder_ == null) {
-          secondBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+          secondBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
               org.roylance.yaclib.TestController.SecondAction, org.roylance.yaclib.TestController.SecondAction.Builder, org.roylance.yaclib.TestController.SecondActionOrBuilder>(
                   getSecond(),
                   getParentForChildren(),
@@ -3162,44 +3369,81 @@ public final class TestController {
         }
         return secondBuilder_;
       }
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return this;
+      }
+
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return this;
+      }
+
 
       // @@protoc_insertion_point(builder_scope:org.roylance.yaclib.SimpleTestController)
     }
 
+    // @@protoc_insertion_point(class_scope:org.roylance.yaclib.SimpleTestController)
+    private static final org.roylance.yaclib.TestController.SimpleTestController DEFAULT_INSTANCE;
     static {
-      defaultInstance = new SimpleTestController(true);
-      defaultInstance.initFields();
+      DEFAULT_INSTANCE = new org.roylance.yaclib.TestController.SimpleTestController();
     }
 
-    // @@protoc_insertion_point(class_scope:org.roylance.yaclib.SimpleTestController)
+    public static org.roylance.yaclib.TestController.SimpleTestController getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<SimpleTestController>
+        PARSER = new com.google.protobuf.AbstractParser<SimpleTestController>() {
+      public SimpleTestController parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+          return new SimpleTestController(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<SimpleTestController> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<SimpleTestController> getParserForType() {
+      return PARSER;
+    }
+
+    public org.roylance.yaclib.TestController.SimpleTestController getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
   }
 
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_org_roylance_yaclib_PingAction_descriptor;
-  private static
-    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_org_roylance_yaclib_PingAction_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_org_roylance_yaclib_FirstAction_descriptor;
-  private static
-    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_org_roylance_yaclib_FirstAction_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_org_roylance_yaclib_SecondAction_descriptor;
-  private static
-    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_org_roylance_yaclib_SecondAction_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_org_roylance_yaclib_SimpleTestController_descriptor;
-  private static
-    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_org_roylance_yaclib_SimpleTestController_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
     return descriptor;
   }
-  private static com.google.protobuf.Descriptors.FileDescriptor
+  private static  com.google.protobuf.Descriptors.FileDescriptor
       descriptor;
   static {
     java.lang.String[] descriptorData = {
@@ -3219,7 +3463,7 @@ public final class TestController {
       " \001(\0132\037.org.roylance.yaclib.PingAction\022/\n" +
       "\005first\030\002 \001(\0132 .org.roylance.yaclib.First" +
       "Action\0221\n\006second\030\003 \001(\0132!.org.roylance.ya" +
-      "clib.SecondAction"
+      "clib.SecondActionb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -3237,25 +3481,25 @@ public final class TestController {
     internal_static_org_roylance_yaclib_PingAction_descriptor =
       getDescriptor().getMessageTypes().get(0);
     internal_static_org_roylance_yaclib_PingAction_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_org_roylance_yaclib_PingAction_descriptor,
         new java.lang.String[] { "Request", "Filler", "Response", });
     internal_static_org_roylance_yaclib_FirstAction_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_org_roylance_yaclib_FirstAction_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_org_roylance_yaclib_FirstAction_descriptor,
         new java.lang.String[] { "Request", "Response", });
     internal_static_org_roylance_yaclib_SecondAction_descriptor =
       getDescriptor().getMessageTypes().get(2);
     internal_static_org_roylance_yaclib_SecondAction_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_org_roylance_yaclib_SecondAction_descriptor,
         new java.lang.String[] { "Request", "Response", });
     internal_static_org_roylance_yaclib_SimpleTestController_descriptor =
       getDescriptor().getMessageTypes().get(3);
     internal_static_org_roylance_yaclib_SimpleTestController_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_org_roylance_yaclib_SimpleTestController_descriptor,
         new java.lang.String[] { "Ping", "First", "Second", });
     org.roylance.yaclib.TestModel.getDescriptor();

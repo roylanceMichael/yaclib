@@ -15,6 +15,7 @@ class YaclibPlugin extends DefaultTask {
     def String mainController
     def ArrayList<DependencyDescriptor> dependencyDescriptors
     def ArrayList<YaclibModel.Dependency> thirdPartyServerDependencies
+    def String nugetKey
 
     @TaskAction
     def buildDefinitions() {
@@ -49,7 +50,8 @@ class YaclibPlugin extends DefaultTask {
                 DependencyDescriptor.buildFileDescriptor(this.mainModel),
                 DependencyDescriptor.buildFileDescriptor(this.mainController),
                 this.dependencyDescriptors,
-                this.thirdPartyServerDependencies
+                this.thirdPartyServerDependencies,
+                this.nugetKey
         ).build()
     }
 

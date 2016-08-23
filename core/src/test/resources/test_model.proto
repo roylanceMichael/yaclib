@@ -1,18 +1,18 @@
-syntax = "proto2";
+syntax = "proto3";
 package org.roylance.yaclib;
 
 message UIRandomFiller {
-    optional string test = 1;
-    optional string test_2 = 2;
-    optional string test_3 = 3;
+    string test = 1;
+    string test_2 = 2;
+    string test_3 = 3;
 }
 
 message UITestRequest {
-    optional string token = 1;
-    optional string context = 2;
+    string token = 1;
+    string context = 2;
 }
 
 message UITestResponse {
-    optional string info = 1;
-    optional string something_else = 2;
+    string info = 1;
+    string something_else = 2;
 }

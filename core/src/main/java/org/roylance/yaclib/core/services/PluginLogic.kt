@@ -6,6 +6,7 @@ import org.roylance.common.service.IBuilder
 import org.roylance.yaclib.YaclibModel
 import org.roylance.yaclib.core.enums.CommonTokens
 import org.roylance.yaclib.core.models.DependencyDescriptor
+import org.roylance.yaclib.core.utilities.CSharpUtilities
 import org.roylance.yaclib.core.utilities.FileProcessUtilities
 import java.io.IOException
 import java.nio.file.Paths
@@ -18,13 +19,17 @@ class PluginLogic(
         val mainModel: Descriptors.FileDescriptor,
         val mainController: Descriptors.FileDescriptor,
         val dependencyDescriptors: List<DependencyDescriptor>,
-        val thirdPartyServerDependencies: List<YaclibModel.Dependency>): IBuilder<Boolean> {
+        val thirdPartyServerDependencies: List<YaclibModel.Dependency>,
+        val nugetKey: String?): IBuilder<Boolean> {
 
     override fun build(): Boolean {
         println("deleting ${Paths.get(location, CommonTokens.JavaScriptName).toFile()}")
         FileUtils.deleteDirectory(Paths.get(location, CommonTokens.JavaScriptName).toFile())
         println("deleting ${Paths.get(location, CommonTokens.ClientApi).toFile()}")
         FileUtils.deleteDirectory(Paths.get(location, CommonTokens.ClientApi).toFile())
+        println("deleting ${Paths.get(location, CommonTokens.CSharpName)}")
+        FileUtils.deleteDirectory(Paths.get(location, CommonTokens.CSharpName).toFile())
+
         println("running main logic now")
         MainLogic(
                 this.typeScriptModelFile,
@@ -34,9 +39,13 @@ class PluginLogic(
                 this.mainModel,
                 this.mainController,
                 this.dependencyDescriptors,
-                this.thirdPartyServerDependencies).build()
+                this.thirdPartyServerDependencies,
+                this.nugetKey != null).build()
 
         println("now doing final cleanup")
+        if (this.nugetKey != null) {
+            this.handleCSharp()
+        }
         this.handleJavaClient()
         this.handleJavaScript()
         this.handleServer()
@@ -130,6 +139,42 @@ class PluginLogic(
         this.handleProcess(npmPublishProcess, "npmPublishProcess")
     }
 
+    private fun handleCSharp() {
+        val mainDependency = YaclibModel.Dependency.newBuilder()
+                .setName(CommonTokens.ApiName)
+                .setVersion(this.version)
+                .setTypescriptModelFile(this.typeScriptModelFile)
+                .setGroup(this.mainModel.`package`)
+                .build()
+
+        val csharpDirectory = Paths.get(this.location, CommonTokens.CSharpName, CSharpUtilities.buildFullName(mainDependency)).toFile()
+
+        val generateProtoProcess = CSharpUtilities.buildProtobufs(this.location, mainDependency)
+        this.handleProcess(generateProtoProcess, "generateProtoProcess")
+
+        val dotnetRestoreProcess = ProcessBuilder()
+                .directory(csharpDirectory)
+                .command(FileProcessUtilities.buildCommand(DotNet, "restore"))
+        this.handleProcess(dotnetRestoreProcess, "dotnetRestoreProcess")
+
+        val dotnetBuildProcess = ProcessBuilder()
+                .directory(csharpDirectory)
+                .command(FileProcessUtilities.buildCommand(DotNet, "build"))
+        this.handleProcess(dotnetBuildProcess, "dotnetBuildProcess")
+
+        val dotnetPackProcess = ProcessBuilder()
+                .directory(csharpDirectory)
+                .command(FileProcessUtilities.buildCommand(DotNet, "pack"))
+        this.handleProcess(dotnetPackProcess, "dotnetPackProcess")
+
+        val nugetDirectoryLocation = Paths.get(csharpDirectory.toString(), "bin", "Debug").toFile()
+        val nugetPackageName = "${CSharpUtilities.buildFullName(mainDependency)}.0.0.${this.version}.nupkg"
+        val dotnetPublishProcess = ProcessBuilder()
+                .directory(nugetDirectoryLocation)
+                .command(FileProcessUtilities.buildCommand(Nuget, "push $nugetPackageName ${this.nugetKey}"))
+        this.handleProcess(dotnetPublishProcess, "dotnetPublishProcess")
+    }
+
     private fun handleProcess(process: ProcessBuilder, name: String) {
         try {
             process.redirectError(ProcessBuilder.Redirect.INHERIT)
@@ -149,5 +194,7 @@ class PluginLogic(
         private const val NodeModules = "node_modules"
         private const val ModelJson = "model.json"
         private const val ModelJS = "model.js"
+        private const val Nuget = "nuget"
+        private const val DotNet = "dotnet"
     }
 }

@@ -51,4 +51,19 @@ object StringUtilities {
     fun buildUrl(url:String):String {
         return url.replace("_", "-").toLowerCase()
     }
+
+    fun convertToPascalCase(name: String): String {
+        val splitItems = name.split(Period)
+
+        return splitItems.map {
+            if (it.length > 1) {
+                "${it[0].toUpperCase()}${it.substring(1)}"
+            }
+            else {
+                "${it.toUpperCase()}"
+            }
+        }.joinToString(Period)
+    }
+
+    private const val Period = "."
 }

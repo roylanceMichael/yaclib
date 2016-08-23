@@ -59,5 +59,6 @@ export class ${controller.name}${CommonTokens.ServiceName} implements $interface
                 .setFullDirectoryLocation("")
                 .build()
 
-        return returnFile    }
+        return returnFile
+    }
 }
