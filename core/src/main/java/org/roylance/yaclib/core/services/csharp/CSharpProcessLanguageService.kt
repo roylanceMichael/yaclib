@@ -13,7 +13,6 @@ class CSharpProcessLanguageService: IProcessLanguageService {
         val solutionGuid = UUID.randomUUID().toString().toUpperCase()
         val projectGuid = UUID.randomUUID().toString().toUpperCase()
 
-        returnList.addFiles(AssemblyInfoBuilder(projectGuid, mainDependency).build())
         returnList.addFiles(XProjBuilder(projectGuid, mainDependency).build())
         returnList.addFiles(IHttpClientBuilder(mainDependency).build())
         returnList.addFiles(SolutionBuilder(solutionGuid, projectGuid, mainDependency).build())

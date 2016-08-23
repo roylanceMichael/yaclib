@@ -10,8 +10,6 @@ class JavaClientProcessLanguageService: IProcessLanguageService {
         val returnList = YaclibModel.AllFiles.newBuilder()
 
         returnList.addFiles(GradleFileBuilder(controllerDependencies, mainDependency).build())
-        returnList.addFiles(GradlewFileBuilder().build())
-        returnList.addFiles(GradlewBatFileBuilder().build())
         returnList.addFiles(GradleSettingsBuilder().build())
 
         controllerDependencies.controllerDependenciesList.forEach { controllerDependency ->

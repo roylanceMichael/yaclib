@@ -3,6 +3,7 @@ package org.roylance.yaclib.core.services.java.server
 import org.roylance.common.service.IBuilder
 import org.roylance.yaclib.YaclibModel
 import org.roylance.yaclib.core.enums.CommonTokens
+import org.roylance.yaclib.core.utilities.JavaUtilities
 
 class POMFileBuilder(private val controllerDependencies: YaclibModel.AllControllerDependencies,
                      mainDependency: YaclibModel.Dependency,
@@ -57,123 +58,107 @@ class POMFileBuilder(private val controllerDependencies: YaclibModel.AllControll
     </pluginRepositories>
 
     <dependencies>
-        ${this.buildDependencies()}
-
         <dependency>
             <groupId>org.roylance</groupId>
             <artifactId>common</artifactId>
             <version>LATEST</version>
         </dependency>
-
+        ${this.buildDependencies()}
         <dependency>
             <groupId>com.squareup.retrofit2</groupId>
             <artifactId>retrofit</artifactId>
             <version>2.1.0</version>
         </dependency>
-
         <dependency>
             <groupId>org.apache.tomcat.embed</groupId>
             <artifactId>tomcat-embed-core</artifactId>
-            <version>$tomcatVersion</version>
+            <version>${JavaUtilities.TomcatVersion}</version>
         </dependency>
         <dependency>
             <groupId>org.apache.tomcat.embed</groupId>
             <artifactId>tomcat-embed-logging-juli</artifactId>
-            <version>$tomcatVersion</version>
+            <version>${JavaUtilities.TomcatVersion}</version>
         </dependency>
         <dependency>
             <groupId>org.apache.tomcat.embed</groupId>
             <artifactId>tomcat-embed-jasper</artifactId>
-            <version>$tomcatVersion</version>
+            <version>${JavaUtilities.TomcatVersion}</version>
         </dependency>
         <dependency>
             <groupId>org.apache.tomcat</groupId>
             <artifactId>tomcat-jasper</artifactId>
-            <version>$tomcatVersion</version>
+            <version>${JavaUtilities.TomcatVersion}</version>
         </dependency>
         <dependency>
             <groupId>org.apache.tomcat</groupId>
             <artifactId>tomcat-jasper-el</artifactId>
-            <version>$tomcatVersion</version>
+            <version>${JavaUtilities.TomcatVersion}</version>
         </dependency>
         <dependency>
             <groupId>org.apache.tomcat</groupId>
             <artifactId>tomcat-jsp-api</artifactId>
-            <version>$tomcatVersion</version>
+            <version>${JavaUtilities.TomcatVersion}</version>
         </dependency>
-
         <dependency>
             <groupId>com.google.code.gson</groupId>
             <artifactId>gson</artifactId>
             <version>2.6.2</version>
         </dependency>
-
         <dependency>
             <groupId>org.jetbrains.kotlin</groupId>
             <artifactId>kotlin-stdlib</artifactId>
-            <version>$kotlinVersion</version>
+            <version>${JavaUtilities.KotlinVersion}</version>
         </dependency>
-
         <dependency>
             <groupId>org.quartz-scheduler</groupId>
             <artifactId>quartz</artifactId>
             <version>2.2.1</version>
         </dependency>
-
         <dependency>
             <groupId>org.quartz-scheduler</groupId>
             <artifactId>quartz-jobs</artifactId>
             <version>2.2.1</version>
         </dependency>
-
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>4.12</version>
         </dependency>
-
         <dependency>
             <groupId>org.glassfish.jersey.containers</groupId>
             <artifactId>jersey-container-servlet</artifactId>
             <version>2.22.2</version>
         </dependency>
-
         <dependency>
             <groupId>org.glassfish.jersey.media</groupId>
             <artifactId>jersey-media-multipart</artifactId>
             <version>2.22.2</version>
         </dependency>
-
         <dependency>
             <groupId>com.sun.jersey</groupId>
             <artifactId>jersey-json</artifactId>
             <version>1.19.1</version>
         </dependency>
-
         <dependency>
             <groupId>com.intellij</groupId>
             <artifactId>annotations</artifactId>
             <version>12.0</version>
         </dependency>
-
         <dependency>
             <groupId>org.apache.httpcomponents</groupId>
             <artifactId>httpclient</artifactId>
             <version>4.5.1</version>
         </dependency>
-
         <dependency>
             <groupId>com.google.protobuf</groupId>
             <artifactId>protobuf-java</artifactId>
             <version>3.0.0</version>
         </dependency>
-
         <dependency>
             <groupId>commons-io</groupId>
             <artifactId>commons-io</artifactId>
             <version>2.5</version>
         </dependency>
-
     </dependencies>
 
     <build>
@@ -251,7 +236,7 @@ class POMFileBuilder(private val controllerDependencies: YaclibModel.AllControll
             <plugin>
                 <artifactId>kotlin-maven-plugin</artifactId>
                 <groupId>org.jetbrains.kotlin</groupId>
-                <version>$kotlinVersion</version>
+                <version>${JavaUtilities.KotlinVersion}</version>
 
                 <executions>
                     <execution>
@@ -329,14 +314,9 @@ class POMFileBuilder(private val controllerDependencies: YaclibModel.AllControll
             <artifactId>c${controllerDependency.dependency.name}</artifactId>
             <version>0.${controllerDependency.dependency.version}-SNAPSHOT</version>
         </dependency>
-            """)
+""")
         }
 
         return workspace.toString()
-    }
-
-    companion object {
-        private const val tomcatVersion = "8.0.28"
-        private const val kotlinVersion = "1.0.3"
     }
 }

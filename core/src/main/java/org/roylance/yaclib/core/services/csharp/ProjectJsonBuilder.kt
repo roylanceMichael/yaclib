@@ -9,18 +9,30 @@ class ProjectJsonBuilder(private val dependency: YaclibModel.Dependency): IBuild
   "version": "0.0.${dependency.version}-*",
 
   "dependencies": {
-    "NETStandard.Library": "1.6.0",
-    "Google.Protobuf.Tools": "3.0.0",
     "Google.Protobuf": "3.0.0"
   },
-
+  "buildOptions": {
+    "debugType": "portable"
+  },
   "frameworks": {
-    "netstandard1.2": {
-      "imports": [
-      "dotnet5.6",
-      "dnxcore50",
-      "portable-net45+win8"
-      ]
+    "net45": {},
+    "netstandard1.0": {
+      "dependencies": {
+        "System.Collections": "4.0.11",
+        "System.Diagnostics.Debug": "4.0.11",
+        "System.Globalization": "4.0.11",
+        "System.IO": "4.1.0",
+        "System.Linq": "4.1.0",
+        "System.Linq.Expressions": "4.1.0",
+        "System.ObjectModel": "4.0.12",
+        "System.Reflection": "4.1.0",
+        "System.Reflection.Extensions": "4.0.1",
+        "System.Runtime": "4.1.0",
+        "System.Runtime.Extensions": "4.1.0",
+        "System.Text.Encoding": "4.0.11",
+        "System.Text.RegularExpressions": "4.1.0",
+        "System.Threading": "4.0.11"
+      }
     }
   }
 }

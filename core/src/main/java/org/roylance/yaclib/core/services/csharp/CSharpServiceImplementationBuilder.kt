@@ -34,8 +34,6 @@ namespace ${CSharpUtilities.buildFullName(dependency)}
                 "${StringUtilities.convertToPascalCase(input.filePackage)}.${input.messageClass} ${input.argumentName}"
             }.joinToString()
 
-
-
             val base64Variables = action.inputsList.map { input ->
                 "var base64${input.argumentName} = System.Convert.ToBase64String(${input.argumentName}.ToByteArray());"
             }.joinToString("\n")

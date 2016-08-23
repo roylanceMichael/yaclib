@@ -2,6 +2,7 @@ package org.roylance.yaclib.core.services.java.client
 
 import org.roylance.common.service.IBuilder
 import org.roylance.yaclib.YaclibModel
+import org.roylance.yaclib.core.utilities.JavaUtilities
 
 class GradleFileBuilder(private val controllerDependencies: YaclibModel.AllControllerDependencies,
                         mainDependency: YaclibModel.Dependency): IBuilder<YaclibModel.File> {
@@ -47,14 +48,14 @@ artifactory {
 }
 
 buildscript {
-    ext.kotlin_version = '$kotlin_version'
+    ext.kotlin_version = '${JavaUtilities.KotlinVersion}'
     repositories {
         jcenter()
         mavenCentral()
     }
     dependencies {
         classpath "org.jfrog.buildinfo:build-info-extractor-gradle:3.1.1"
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:${JavaUtilities.KotlinVersion}"
     }
 }
 
@@ -68,8 +69,8 @@ dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.11'
     compile 'com.squareup.retrofit2:retrofit:2.1.0'
 
-    compile 'org.roylance:common:0.4-SNAPSHOT'
-    compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    compile 'org.roylance:common:0.${JavaUtilities.RoylanceCommonVersion}-SNAPSHOT'
+    compile "org.jetbrains.kotlin:kotlin-stdlib:${JavaUtilities.KotlinVersion}"
     ${this.buildDependencies()}
 }
 """
@@ -93,9 +94,5 @@ dependencies {
         }
 
         return workspace.toString()
-    }
-
-    companion object {
-        private const val kotlin_version = "1.0.3"
     }
 }
