@@ -9,7 +9,8 @@ class KotlinIServiceLocatorBuilder(
         private val controllerDependencies: YaclibModel.AllControllerDependencies,
         private val mainDependency: YaclibModel.Dependency): IBuilder<YaclibModel.File> {
 
-    private val initialTemplate = """package ${mainDependency.group}.${CommonTokens.UtilitiesName}
+    private val initialTemplate = """${CommonTokens.DoNotAlterMessage}
+package ${mainDependency.group}.${CommonTokens.UtilitiesName}
 
 interface ${CommonTokens.ServiceLocatorName} {
     val protobufSerializerService: org.roylance.common.service.IProtoSerializerService

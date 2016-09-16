@@ -8,7 +8,8 @@ import org.roylance.yaclib.core.utilities.CSharpUtilities
 class IHttpClientBuilder(
         private val dependency: YaclibModel.Dependency): IBuilder<YaclibModel.File> {
 
-    private val InitialTemplate = """using System.Threading.Tasks;
+    private val InitialTemplate = """${CommonTokens.DoNotAlterMessage}
+using System.Threading.Tasks;
 namespace ${CSharpUtilities.buildFullName(dependency)}
 {
 	public interface ${CommonTokens.HttpExecute}

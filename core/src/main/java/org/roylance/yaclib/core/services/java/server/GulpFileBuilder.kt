@@ -2,10 +2,11 @@ package org.roylance.yaclib.core.services.java.server
 
 import org.roylance.common.service.IBuilder
 import org.roylance.yaclib.YaclibModel
+import org.roylance.yaclib.core.enums.CommonTokens
 
 // todo: better handle dependencies for this
 class GulpFileBuilder(private val dependencies: YaclibModel.AllControllerDependencies): IBuilder<YaclibModel.File> {
-    private val initialTemplate = """
+    private val initialTemplate = """${CommonTokens.DoNotAlterMessage}
 var gulp = require('gulp');
 var gulpsync = require('gulp-sync')(gulp);
 var sass = require('gulp-sass');

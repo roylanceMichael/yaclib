@@ -4,9 +4,10 @@ import org.roylance.common.service.IBuilder
 import org.roylance.yaclib.YaclibModel
 import org.roylance.yaclib.core.enums.CommonTokens
 import org.roylance.yaclib.core.utilities.JavaUtilities
+import java.util.*
 
 class POMFileBuilder(private val controllerDependencies: YaclibModel.AllControllerDependencies,
-                     mainDependency: YaclibModel.Dependency,
+                     private val mainDependency: YaclibModel.Dependency,
                      private val thirdPartyDependencies: List<YaclibModel.Dependency>): IBuilder<YaclibModel.File> {
     private val initialTemplate = """<?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
@@ -19,14 +20,7 @@ class POMFileBuilder(private val controllerDependencies: YaclibModel.AllControll
     <version>${mainDependency.majorVersion}.${mainDependency.minorVersion}</version>
 
     <repositories>
-        <repository>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
-            <id>bintray-roylancemichael-maven</id>
-            <name>bintray</name>
-            <url>http://dl.bintray.com/roylancemichael/maven</url>
-        </repository>
+${this.buildRepositories()}
         <repository>
             <id>sonatype.oss.snapshots</id>
             <name>Sonatype OSS Snapshot Repository</name>
@@ -55,12 +49,12 @@ class POMFileBuilder(private val controllerDependencies: YaclibModel.AllControll
     </pluginRepositories>
 
     <dependencies>
+        ${this.buildDependencies()}
         <dependency>
             <groupId>org.roylance</groupId>
             <artifactId>common</artifactId>
-            <version>LATEST</version>
+            <version>${JavaUtilities.RoylanceCommonVersion}</version>
         </dependency>
-        ${this.buildDependencies()}
         <dependency>
             <groupId>com.squareup.retrofit2</groupId>
             <artifactId>retrofit</artifactId>
@@ -315,5 +309,35 @@ class POMFileBuilder(private val controllerDependencies: YaclibModel.AllControll
         }
 
         return workspace.toString()
+    }
+
+    private fun buildRepositories():String {
+        val workspace = StringBuilder()
+
+        val uniqueRepositories = HashMap<String, String>()
+        uniqueRepositories[this.mainDependency.repository.url] = this.buildRepository(this.mainDependency.repository)
+
+        this.controllerDependencies.controllerDependenciesList.forEach {
+            uniqueRepositories[it.dependency.repository.url] = this.buildRepository(it.dependency.repository)
+        }
+
+        uniqueRepositories.values.forEach {
+            workspace.appendln(it)
+        }
+
+        return workspace.toString()
+    }
+
+    private fun buildRepository(repository: YaclibModel.Repository): String {
+        return """
+        <repository>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+            <id>bintray-${repository.username}-${repository.name}</id>
+            <name>bintray</name>
+            <url>${repository.url}</url>
+        </repository>
+"""
     }
 }

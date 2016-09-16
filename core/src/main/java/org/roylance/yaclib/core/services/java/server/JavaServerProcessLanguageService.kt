@@ -13,6 +13,7 @@ class JavaServerProcessLanguageService: IProcessLanguageService {
         val returnList = YaclibModel.AllFiles.newBuilder()
 
         returnList.addFiles(POMFileBuilder(controllerDependencies, mainDependency, thirdPartyDependencies).build())
+        returnList.addFiles(SettingsXMLBuilder(controllerDependencies, mainDependency).build())
         returnList.addFiles(GulpFileBuilder(controllerDependencies).build())
         returnList.addFiles(NPMPackageBuilder(controllerDependencies, mainDependency, thirdPartyDependencies).build())
         returnList.addFiles(HttpExecuteImplementationBuilder(mainDependency).build())

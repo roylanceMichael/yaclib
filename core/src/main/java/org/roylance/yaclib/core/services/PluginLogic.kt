@@ -21,7 +21,13 @@ class PluginLogic(
         val mainController: Descriptors.FileDescriptor,
         val dependencyDescriptors: List<DependencyDescriptor>,
         val thirdPartyServerDependencies: List<YaclibModel.Dependency>,
-        val nugetKey: String?): IBuilder<Boolean> {
+        val nugetKey: String?,
+        val githubRepo: String,
+        val repoUrl: String,
+        val repoName: String,
+        val repoUser: String,
+        val license: String,
+        val author: String): IBuilder<Boolean> {
 
     override fun build(): Boolean {
         println("deleting ${Paths.get(location, CommonTokens.JavaScriptName).toFile()}")
@@ -42,7 +48,13 @@ class PluginLogic(
                 this.mainController,
                 this.dependencyDescriptors,
                 this.thirdPartyServerDependencies,
-                this.nugetKey != null).build()
+                this.nugetKey != null,
+                this.githubRepo,
+                this.repoUrl,
+                this.repoName,
+                this.repoUser,
+                this.license,
+                this.author).build()
 
         println("now doing final cleanup")
         if (this.nugetKey != null) {
@@ -186,9 +198,9 @@ class PluginLogic(
             println("finished $name")
         }
         catch (e: IOException) {
-            e.printStackTrace();
+            e.printStackTrace()
         } catch (e: InterruptedException) {
-            e.printStackTrace();
+            e.printStackTrace()
         }
     }
 

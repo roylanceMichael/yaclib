@@ -10,7 +10,8 @@ class KotlinServiceBuilder(
         private val dependency: YaclibModel.Dependency): IBuilder<YaclibModel.File> {
 
     override fun build(): YaclibModel.File {
-        val initialTemplate = """package ${dependency.group}.${CommonTokens.ServicesName}
+        val initialTemplate = """${CommonTokens.DoNotAlterMessage}
+package ${dependency.group}.${CommonTokens.ServicesName}
 
 interface ${StringUtilities.convertServiceNameToInterfaceName(controller)} {
 """

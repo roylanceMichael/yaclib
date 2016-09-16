@@ -11,11 +11,8 @@ class NPMPackageBuilder(private val dependency: YaclibModel.Dependency,
   "name": "${this.buildPackageName()}",
   "version": "${dependency.majorVersion}.${dependency.minorVersion}.0",
   "description": "models to interface with the ${dependency.group}.${dependency.name} system",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "roylance.michael@gmail.com",
-  "license": "ISC",
+  "author": "${dependency.authorName}",
+  "license": "${dependency.license}",
   "dependencies": {
 ${this.buildDependencies()}
   }

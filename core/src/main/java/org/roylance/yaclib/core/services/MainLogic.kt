@@ -21,7 +21,13 @@ class MainLogic(
         private val mainController: Descriptors.FileDescriptor,
         private val dependencyDescriptors: List<DependencyDescriptor>,
         private val thirdPartyServerDependencies: List<YaclibModel.Dependency>,
-        private val processCSharp: Boolean): IBuilder<Boolean> {
+        private val processCSharp: Boolean,
+        private val githubRepo: String,
+        private val repoUrl: String,
+        private val repoName: String,
+        private val repoUserName: String,
+        private val license: String,
+        private val author: String): IBuilder<Boolean> {
     override fun build(): Boolean {
         val mainDependency = YaclibModel.Dependency.newBuilder()
             .setName(CommonTokens.ApiName)
@@ -29,6 +35,15 @@ class MainLogic(
             .setMinorVersion(this.minorVersion)
             .setTypescriptModelFile(this.typeScriptModelFile)
             .setGroup(this.mainModel.`package`)
+            .setGithubRepo(githubRepo)
+            .setLicense(license)
+            .setAuthorName(author)
+            .setRepository(
+                    YaclibModel.Repository.newBuilder()
+                .setUrl(repoUrl)
+                .setUsername(repoUserName)
+                .setName(repoName)
+                .setIsPrivate(repoUserName.length > 0))
 
         if (this.nodeAliasName != null) {
             mainDependency.nodeAliasName = this.nodeAliasName

@@ -14,7 +14,8 @@ class CSharpServiceImplementationBuilder(
         val workspace = StringBuilder()
         val interfaceName = StringUtilities.convertServiceNameToInterfaceName(controller)
 
-        val initialTemplate = """using System.Threading.Tasks;
+        val initialTemplate = """${CommonTokens.DoNotAlterMessage}
+using System.Threading.Tasks;
 using Google.Protobuf;
 
 namespace ${CSharpUtilities.buildFullName(dependency)}

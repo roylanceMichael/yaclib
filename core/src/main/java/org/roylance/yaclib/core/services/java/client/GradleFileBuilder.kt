@@ -7,7 +7,7 @@ import org.roylance.yaclib.core.utilities.JavaUtilities
 
 class GradleFileBuilder(private val controllerDependencies: YaclibModel.AllControllerDependencies,
                         private val mainDependency: YaclibModel.Dependency): IBuilder<YaclibModel.File> {
-    private val InitialTemplate = """
+    private val InitialTemplate = """${CommonTokens.DoNotAlterMessage}
 buildscript {
     ext.kotlin_version = '${JavaUtilities.KotlinVersion}'
     repositories {
@@ -15,7 +15,7 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.7'
+        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:${JavaUtilities.BintrayVersion}'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:${JavaUtilities.KotlinVersion}"
     }
 }
@@ -45,10 +45,10 @@ bintray {
     publications = ['mavenJava']
     publish = true
     pkg {
-        repo = 'maven'
+        repo = '${mainDependency.repository.name}'
         name = "${mainDependency.group}.${CommonTokens.ClientApi}"
         userOrg = user
-        licenses = ['Apache-2.0']
+        licenses = ['${mainDependency.license}']
         labels = [rootProject.name]
         publicDownloadNumbers = true
         vcsUrl = '${buildGithubRepo()}'
@@ -60,7 +60,8 @@ bintray {
 
 repositories {
     mavenCentral()
-    maven { url 'http://dl.bintray.com/roylancemichael/maven' }
+    maven { url '${JavaUtilities.DefaultRepository}'}
+    ${this.buildRepository()}
 }
 
 dependencies {
@@ -94,10 +95,28 @@ dependencies {
     }
 
     private fun buildGithubRepo(): String {
-        if (this.mainDependency.githubRepo.length > 0) {
-            return this.mainDependency.githubRepo
+        return this.mainDependency.githubRepo
+    }
+
+    private fun buildRepository(): String {
+        if (this.mainDependency.hasRepository() &&
+            this.mainDependency.repository.isPrivate) {
+            return """maven {
+    url "${this.mainDependency.repository.url}"
+    credentials {
+        username System.getenv('BINTRAY_USER')
+        password System.getenv('BINTRAY_KEY')
+    }
+}
+"""
+        }
+        else if (this.mainDependency.hasRepository()) {
+            return """maven {
+    url "${this.mainDependency.repository.url}"
+}
+"""
         }
 
-        return "https://github.com/roylanceMichael/Roylance.Common.git"
+        return ""
     }
 }

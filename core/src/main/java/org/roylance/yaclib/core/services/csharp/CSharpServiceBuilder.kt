@@ -2,6 +2,7 @@ package org.roylance.yaclib.core.services.csharp
 
 import org.roylance.common.service.IBuilder
 import org.roylance.yaclib.YaclibModel
+import org.roylance.yaclib.core.enums.CommonTokens
 import org.roylance.yaclib.core.utilities.CSharpUtilities
 import org.roylance.yaclib.core.utilities.StringUtilities
 
@@ -11,7 +12,8 @@ class CSharpServiceBuilder(private val dependency: YaclibModel.Dependency,
         val workspace = StringBuilder()
         val interfaceName = StringUtilities.convertServiceNameToInterfaceName(controller)
 
-        val initialTemplate = """using System.Threading.Tasks;
+        val initialTemplate = """${CommonTokens.DoNotAlterMessage}
+using System.Threading.Tasks;
 
 namespace ${CSharpUtilities.buildFullName(dependency)}
 {

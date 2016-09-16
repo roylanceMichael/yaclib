@@ -15,7 +15,8 @@ class JavaRestBuilder(
         val serviceName = StringUtilities.convertServiceNameToVariableName(controller)
         val interfaceName = StringUtilities.convertServiceNameToInterfaceName(controller)
 
-        val initialTemplate = """package ${mainDependency.group}.${CommonTokens.RestName};
+        val initialTemplate = """${CommonTokens.DoNotAlterMessage}
+package ${mainDependency.group}.${CommonTokens.RestName};
 
 import org.roylance.common.service.IProtoSerializerService;
 

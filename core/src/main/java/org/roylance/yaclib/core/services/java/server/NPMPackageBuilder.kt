@@ -11,11 +11,7 @@ class NPMPackageBuilder(private val dependencies: YaclibModel.AllControllerDepen
   "name": "webapp",
   "version": "${mainDependency.majorVersion}.${mainDependency.minorVersion}.0",
   "description": "${mainDependency.group}.${mainDependency.name}",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "mike roylance",
+  "author": "${mainDependency.authorName}",
   "license": "ISC",
   "devDependencies": {
     "del": "^2.2.0",

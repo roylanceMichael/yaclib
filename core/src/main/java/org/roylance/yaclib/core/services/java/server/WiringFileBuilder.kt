@@ -8,7 +8,8 @@ class WiringFileBuilder(private val allControllerDependencies: YaclibModel.AllCo
     private val window = "\$window"
     private val http = "\$http"
 
-    private val initialTemplate = """${this.importFactories()}
+    private val initialTemplate = """${CommonTokens.DoNotAlterMessage}
+${this.importFactories()}
 ${this.importDependencies()}
 import {${HttpExecuteImplementationBuilder.FileName}} from "./${HttpExecuteImplementationBuilder.FileName}"
 import {furtherAngularSetup} from "./FurtherAngularSetup"
@@ -35,9 +36,8 @@ furtherAngularSetup(app);
                 .setFileExtension(YaclibModel.FileExtension.TS_EXT)
                 .setFullDirectoryLocation("src/main/javascript/app")
 
-        return returnFile.build()    }
-
-
+        return returnFile.build()
+    }
 
     private fun importFactories():String {
         val workspace = StringBuilder()

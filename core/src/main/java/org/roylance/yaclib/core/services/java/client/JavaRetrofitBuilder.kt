@@ -12,7 +12,8 @@ class JavaRetrofitBuilder(private val controller: YaclibModel.Controller,
         val workspace = StringBuilder()
         val lowercaseName = controller.name.toLowerCase()
         val interfaceName = "I${controller.name}${CommonTokens.UpperCaseRestName}"
-        val initialTemplate = """package ${mainDependency.group}.${CommonTokens.ServicesName};
+        val initialTemplate = """${CommonTokens.DoNotAlterMessage}
+package ${mainDependency.group}.${CommonTokens.ServicesName};
 
 import retrofit2.Call;
 import retrofit2.http.Body;

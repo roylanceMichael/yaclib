@@ -37,10 +37,8 @@ enum FileUpdateType {
 message Repository {
     string url = 1;
     string username = 2;
-    string password = 3;
-    string extra = 4;
-    string extra_1 = 5;
-    string extra_2 = 6;
+    bool is_private = 7;
+    string name = 8;
 }
 
 message Dependency {
@@ -49,14 +47,13 @@ message Dependency {
     string name = 3;
     Repository repository = 5;
     string typescript_model_file = 6;
-    string user_name = 7;
-    string password = 8;
     string node_alias_name = 9;
-    bool is_private = 10;
     string third_party_dependency_version = 11;
     int32 major_version = 12;
     int32 minor_version = 13;
     string github_repo = 14;
+    string author_name = 15;
+    string license = 16;
 }
 
 message File {

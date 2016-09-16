@@ -12,7 +12,8 @@ class KotlinServiceImplementationBuilder(private val controller: YaclibModel.Con
 
         val restInterfaceName = "I${controller.name}${CommonTokens.UpperCaseRestName}"
         val restVariableName = "rest${controller.name}"
-        val initialTemplate = """package ${mainDependency.group}.${CommonTokens.ServicesName}
+        val initialTemplate = """${CommonTokens.DoNotAlterMessage}
+package ${mainDependency.group}.${CommonTokens.ServicesName}
 
 import org.roylance.common.service.IProtoSerializerService
 

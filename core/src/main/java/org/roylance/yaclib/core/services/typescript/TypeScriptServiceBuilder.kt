@@ -2,6 +2,7 @@ package org.roylance.yaclib.core.services.typescript
 
 import org.roylance.common.service.IBuilder
 import org.roylance.yaclib.YaclibModel
+import org.roylance.yaclib.core.enums.CommonTokens
 import org.roylance.yaclib.core.utilities.StringUtilities
 
 class TypeScriptServiceBuilder(private val controller: YaclibModel.Controller): IBuilder<YaclibModel.File> {
@@ -9,7 +10,8 @@ class TypeScriptServiceBuilder(private val controller: YaclibModel.Controller): 
         val workspace = StringBuilder()
         val interfaceName = StringUtilities.convertServiceNameToInterfaceName(controller)
 
-        val initialTemplate = """export interface $interfaceName {
+        val initialTemplate = """${CommonTokens.DoNotAlterMessage}
+export interface $interfaceName {
 """
         workspace.append(initialTemplate)
         controller.actionsList.forEach { action ->
