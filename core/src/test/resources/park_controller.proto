@@ -1,0 +1,25 @@
+syntax = "proto3";
+package org.naru.park;
+
+import "park_model.proto";
+
+message CommonAction {
+    org.naru.park.UIParkRequest request = 1;
+    org.naru.park.UIParkResponse response = 2;
+}
+
+message SensorController {
+    CommonAction send_reading = 1;
+    CommonAction all = 2;
+    CommonAction save_sensor = 3;
+    CommonAction delete_sensor = 4;
+    CommonAction get_latest_reading = 5;
+    CommonAction get_user_history = 6;
+    CommonAction get_latest_sensor_reading_for_user = 7;
+}
+
+message BeaconController {
+    CommonAction all = 1;
+    CommonAction save_beacon = 2;
+    CommonAction delete_beacon = 3;
+}

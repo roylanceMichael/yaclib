@@ -17,13 +17,13 @@ class FilePersistServiceTest {
         // arrange
         val filePersistService = FilePersistService()
         val service = ProcessFileDescriptorService()
-        val controllers = service.processFile(org.naru.park.Controllers.getDescriptor())
+        val controllers = service.processFile(org.naru.park.ParkController.getDescriptor())
         val javaServiceLanguageProcess = JavaServerProcessLanguageService()
 
         val dependency = YaclibModel.Dependency.newBuilder()
                 .setGroup("org.naru.park")
                 .setName("api")
-                .setVersion(14)
+                .setMinorVersion(14)
                 .setTypescriptModelFile("ParkModel")
                 .build()
 
@@ -47,13 +47,13 @@ class FilePersistServiceTest {
         // arrange
         val filePersistService = FilePersistService()
         val service = ProcessFileDescriptorService()
-        val controllers = service.processFile(org.naru.park.Controllers.getDescriptor())
+        val controllers = service.processFile(org.naru.park.ParkController.getDescriptor())
         val javaServiceLanguageProcess = JavaClientProcessLanguageService()
 
         val dependency = YaclibModel.Dependency.newBuilder()
                 .setGroup("org.naru.park")
                 .setName("api")
-                .setVersion(14)
+                .setMinorVersion(14)
                 .build()
 
         val controllerDependencies = YaclibModel.ControllerDependency.newBuilder().setDependency(dependency)
@@ -76,13 +76,13 @@ class FilePersistServiceTest {
         // arrange
         val filePersistService = FilePersistService()
         val service = ProcessFileDescriptorService()
-        val controllers = service.processFile(org.naru.park.Controllers.getDescriptor())
+        val controllers = service.processFile(org.naru.park.ParkController.getDescriptor())
         val javaServiceLanguageProcess = TypeScriptProcessLanguageService()
 
         val dependency = YaclibModel.Dependency.newBuilder()
                 .setGroup("@mroylance/park")
                 .setName("models")
-                .setVersion(14)
+                .setMinorVersion(14)
                 .setTypescriptModelFile("ParkModel")
                 .build()
 
@@ -106,13 +106,13 @@ class FilePersistServiceTest {
         // arrange
         val filePersistService = FilePersistService()
         val service = ProcessFileDescriptorService()
-        val controllers = service.processFile(org.naru.park.Controllers.getDescriptor())
+        val controllers = service.processFile(org.naru.park.ParkController.getDescriptor())
         val javaServiceLanguageProcess = CSharpProcessLanguageService()
 
         val dependency = YaclibModel.Dependency.newBuilder()
                 .setGroup("park")
                 .setName("models")
-                .setVersion(14)
+                .setMinorVersion(14)
                 .setNodeAliasName("@mroylance")
                 .setTypescriptModelFile("ParkModel")
                 .build()

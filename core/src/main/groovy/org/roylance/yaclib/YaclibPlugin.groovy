@@ -9,7 +9,8 @@ import org.roylance.yaclib.core.services.PluginLogic
 class YaclibPlugin extends DefaultTask {
     def String typeScriptModelFile
     def String nodeAliasName
-    def int version
+    def int majorVersion
+    def int minorVersion
     def String location
     def String mainModel
     def String mainController
@@ -23,7 +24,10 @@ class YaclibPlugin extends DefaultTask {
         if (!nullChecker(typeScriptModelFile, "typeScriptModelFile")) {
             return false
         }
-        if (!nullChecker(version, "version")) {
+        if (!nullChecker(majorVersion, "majorVersion")) {
+            return false
+        }
+        if (!nullChecker(minorVersion, "minorVersion")) {
             return false
         }
         if (!nullChecker(location, "location")) {
@@ -45,7 +49,8 @@ class YaclibPlugin extends DefaultTask {
         return new PluginLogic(
                 this.typeScriptModelFile,
                 this.nodeAliasName,
-                version,
+                majorVersion,
+                minorVersion,
                 this.location,
                 DependencyDescriptor.buildFileDescriptor(this.mainModel),
                 DependencyDescriptor.buildFileDescriptor(this.mainController),

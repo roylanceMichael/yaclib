@@ -9,7 +9,7 @@ class NPMPackageBuilder(private val dependencies: YaclibModel.AllControllerDepen
                         private val thirdPartyDependencies: List<YaclibModel.Dependency>): IBuilder<YaclibModel.File> {
     private val initialTemplate = """{
   "name": "webapp",
-  "version": "0.0.${mainDependency.version}",
+  "version": "${mainDependency.majorVersion}.${mainDependency.minorVersion}.0",
   "description": "${mainDependency.group}.${mainDependency.name}",
   "main": "index.js",
   "scripts": {

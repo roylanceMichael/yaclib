@@ -2,7 +2,7 @@ package org.roylance.yaclib.services.typescript
 
 import org.junit.Assert
 import org.junit.Test
-import org.naru.park.Controllers
+import org.naru.park.ParkController
 import org.roylance.yaclib.YaclibModel
 import org.roylance.yaclib.core.services.ProcessFileDescriptorService
 import org.roylance.yaclib.core.services.typescript.TypeScriptProcessLanguageService
@@ -13,13 +13,13 @@ class TypeScriptProcessLanguageServiceTest {
     fun simpleTest() {
         // arrange
         val service = ProcessFileDescriptorService()
-        val controllers = service.processFile(Controllers.getDescriptor())
+        val controllers = service.processFile(ParkController.getDescriptor())
         val processLanguageService = TypeScriptProcessLanguageService()
 
         val dependency = YaclibModel.Dependency.newBuilder()
                 .setGroup("@mroylance/park")
                 .setName("models")
-                .setVersion(14)
+                .setMinorVersion(14)
                 .setTypescriptModelFile("ParkModel")
                 .build()
 

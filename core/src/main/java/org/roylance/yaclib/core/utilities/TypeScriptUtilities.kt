@@ -67,7 +67,7 @@ object TypeScriptUtilities {
 
     private fun buildVersion(dependency: YaclibModel.Dependency): String {
         if (dependency.type.equals(YaclibModel.DependencyType.INTERNAL)) {
-            return "0.0.${dependency.version}"
+            return "${dependency.majorVersion}.${dependency.minorVersion}.0"
         }
         else {
             return dependency.thirdPartyDependencyVersion

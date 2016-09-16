@@ -1,0 +1,80 @@
+syntax = "proto3";
+package org.naru.park;
+
+enum BeaconType {
+    TICKET = 0;
+    SYSTEM = 1;
+}
+
+message Beacon {
+    string id = 1;
+    string id1 = 2;
+    string id2 = 3;
+    string id3 = 4;
+    string description = 5;
+    BeaconType beacon_type = 6;
+    double annotated_lat = 7;
+    double annotated_long = 8;
+    string beacon_search = 9;
+}
+
+message RecordedUserTicket {
+    string id = 1;
+    int64 recorded_date = 2;
+    string id1 = 3;
+    string id2 = 4;
+    string id3 = 5;
+    string sensor_id = 6;
+    string sensor_name = 7;
+    string sensor_description = 8;
+    double distance_from_sensor = 9;
+    double sensor_lat = 10;
+    double sensor_long = 11;
+    string sensor_connected_wifi = 12;
+    int32 connected_wifi_rssi = 13;
+    string beacon_search = 14;
+}
+
+message UserTicket {
+    string id = 1;
+    string user_id = 2;
+    Beacon beacon = 3;
+    int64 issue_date = 4;
+    int64 expiration_date = 5;
+    string display = 6;
+}
+
+message Sensor {
+    string id = 1;
+    string device_name = 2;
+    string description = 3;
+}
+
+message SensorReport {
+    string id = 1;
+    repeated RecordedUserTicket beacons = 2;
+    Sensor sensor = 3;
+    double lat = 4;
+    double long = 5;
+    string connected_wifi = 6;
+    int32 connected_wifi_rssi = 7;
+    int64 recorded_date = 8;
+}
+
+message UIParkRequest {
+    string token = 1;
+    SensorReport sensor_report = 2;
+    Sensor sensor = 3;
+    UserTicket ticket = 4;
+    Beacon beacon = 5;
+    int64 start_time = 6;
+    int64 end_time = 7;
+}
+
+message UIParkResponse {
+    string token = 1;
+    repeated SensorReport reports = 2;
+    repeated UserTicket tickets = 3;
+    repeated Beacon beacons = 4;
+    repeated Sensor sensors = 5;
+}

@@ -2,7 +2,7 @@ package org.roylance.yaclib.services.java
 
 import org.junit.Assert
 import org.junit.Test
-import org.naru.park.Controllers
+import org.naru.park.ParkController
 import org.roylance.yaclib.YaclibModel
 import org.roylance.yaclib.core.services.ProcessFileDescriptorService
 import org.roylance.yaclib.core.services.java.server.JavaServerProcessLanguageService
@@ -13,13 +13,13 @@ class JavaServerProcessLanguageServiceTest {
     fun simplePassThroughTest() {
         // arrange
         val service = ProcessFileDescriptorService()
-        val controllers = service.processFile(Controllers.getDescriptor())
+        val controllers = service.processFile(ParkController.getDescriptor())
         val javaServiceLanguageProcess = JavaServerProcessLanguageService()
 
         val dependency = YaclibModel.Dependency.newBuilder()
             .setGroup("org.naru.park")
             .setName("api")
-            .setVersion(14)
+            .setMinorVersion(14)
             .setTypescriptModelFile("NaruPark")
             .build()
 

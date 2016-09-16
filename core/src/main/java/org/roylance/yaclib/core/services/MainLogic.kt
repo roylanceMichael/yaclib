@@ -14,7 +14,8 @@ import java.nio.file.Paths
 class MainLogic(
         private val typeScriptModelFile: String,
         private val nodeAliasName: String?,
-        private val version: Int,
+        private val majorVersion: Int,
+        private val minorVersion: Int,
         private val location: String,
         private val mainModel: Descriptors.FileDescriptor,
         private val mainController: Descriptors.FileDescriptor,
@@ -24,7 +25,8 @@ class MainLogic(
     override fun build(): Boolean {
         val mainDependency = YaclibModel.Dependency.newBuilder()
             .setName(CommonTokens.ApiName)
-            .setVersion(this.version)
+            .setMajorVersion(this.majorVersion)
+            .setMinorVersion(this.minorVersion)
             .setTypescriptModelFile(this.typeScriptModelFile)
             .setGroup(this.mainModel.`package`)
 

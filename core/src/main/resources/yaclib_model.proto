@@ -47,7 +47,6 @@ message Dependency {
     DependencyType type = 1;
     string group = 2;
     string name = 3;
-    int32 version = 4;
     Repository repository = 5;
     string typescript_model_file = 6;
     string user_name = 7;
@@ -55,6 +54,9 @@ message Dependency {
     string node_alias_name = 9;
     bool is_private = 10;
     string third_party_dependency_version = 11;
+    int32 major_version = 12;
+    int32 minor_version = 13;
+    string github_repo = 14;
 }
 
 message File {

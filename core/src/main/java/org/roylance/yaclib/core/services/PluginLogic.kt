@@ -14,7 +14,8 @@ import java.nio.file.Paths
 class PluginLogic(
         val typeScriptModelFile: String,
         val nodeAliasName: String?,
-        val version: Int,
+        val majorVersion: Int,
+        val minorVersion: Int,
         val location: String,
         val mainModel: Descriptors.FileDescriptor,
         val mainController: Descriptors.FileDescriptor,
@@ -34,7 +35,8 @@ class PluginLogic(
         MainLogic(
                 this.typeScriptModelFile,
                 this.nodeAliasName,
-                this.version,
+                this.majorVersion,
+                this.minorVersion,
                 this.location,
                 this.mainModel,
                 this.mainController,
@@ -90,10 +92,10 @@ class PluginLogic(
                 .command(FileProcessUtilities.buildCommand("gradle", "build"))
         this.handleProcess(gradleBuildProcess, "gradleBuildProcess")
 
-        val artifactoryPublishProcess = ProcessBuilder()
+        val bintrayUpload = ProcessBuilder()
                 .directory(javaClientDirectory)
-                .command(FileProcessUtilities.buildCommand("gradle", "artifactoryPublish"))
-        this.handleProcess(artifactoryPublishProcess, "artifactoryPublishProcess")
+                .command(FileProcessUtilities.buildCommand("gradle", "bintrayUpload"))
+        this.handleProcess(bintrayUpload, "bintrayUploadProcess")
     }
 
     private fun handleJavaScript() {
@@ -142,7 +144,8 @@ class PluginLogic(
     private fun handleCSharp() {
         val mainDependency = YaclibModel.Dependency.newBuilder()
                 .setName(CommonTokens.ApiName)
-                .setVersion(this.version)
+                .setMajorVersion(this.majorVersion)
+                .setMinorVersion(this.minorVersion)
                 .setTypescriptModelFile(this.typeScriptModelFile)
                 .setGroup(this.mainModel.`package`)
                 .build()
@@ -168,7 +171,7 @@ class PluginLogic(
         this.handleProcess(dotnetPackProcess, "dotnetPackProcess")
 
         val nugetDirectoryLocation = Paths.get(csharpDirectory.toString(), "bin", "Debug").toFile()
-        val nugetPackageName = "${CSharpUtilities.buildFullName(mainDependency)}.0.0.${this.version}.nupkg"
+        val nugetPackageName = "${CSharpUtilities.buildFullName(mainDependency)}.${this.majorVersion}.${this.minorVersion}.0.nupkg"
         val dotnetPublishProcess = ProcessBuilder()
                 .directory(nugetDirectoryLocation)
                 .command(FileProcessUtilities.buildCommand(Nuget, "push $nugetPackageName ${this.nugetKey}"))

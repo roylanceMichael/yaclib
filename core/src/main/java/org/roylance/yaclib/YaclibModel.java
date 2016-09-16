@@ -1692,11 +1692,6 @@ public final class YaclibModel {
         getNameBytes();
 
     /**
-     * <code>optional int32 version = 4;</code>
-     */
-    int getVersion();
-
-    /**
      * <code>optional .org.roylance.yaclib.Repository repository = 5;</code>
      */
     boolean hasRepository();
@@ -1763,6 +1758,26 @@ public final class YaclibModel {
      */
     com.google.protobuf.ByteString
         getThirdPartyDependencyVersionBytes();
+
+    /**
+     * <code>optional int32 major_version = 12;</code>
+     */
+    int getMajorVersion();
+
+    /**
+     * <code>optional int32 minor_version = 13;</code>
+     */
+    int getMinorVersion();
+
+    /**
+     * <code>optional string github_repo = 14;</code>
+     */
+    java.lang.String getGithubRepo();
+    /**
+     * <code>optional string github_repo = 14;</code>
+     */
+    com.google.protobuf.ByteString
+        getGithubRepoBytes();
   }
   /**
    * Protobuf type {@code org.roylance.yaclib.Dependency}
@@ -1779,13 +1794,15 @@ public final class YaclibModel {
       type_ = 0;
       group_ = "";
       name_ = "";
-      version_ = 0;
       typescriptModelFile_ = "";
       userName_ = "";
       password_ = "";
       nodeAliasName_ = "";
       isPrivate_ = false;
       thirdPartyDependencyVersion_ = "";
+      majorVersion_ = 0;
+      minorVersion_ = 0;
+      githubRepo_ = "";
     }
 
     @java.lang.Override
@@ -1829,11 +1846,6 @@ public final class YaclibModel {
               java.lang.String s = input.readStringRequireUtf8();
 
               name_ = s;
-              break;
-            }
-            case 32: {
-
-              version_ = input.readInt32();
               break;
             }
             case 42: {
@@ -1882,6 +1894,22 @@ public final class YaclibModel {
               java.lang.String s = input.readStringRequireUtf8();
 
               thirdPartyDependencyVersion_ = s;
+              break;
+            }
+            case 96: {
+
+              majorVersion_ = input.readInt32();
+              break;
+            }
+            case 104: {
+
+              minorVersion_ = input.readInt32();
+              break;
+            }
+            case 114: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              githubRepo_ = s;
               break;
             }
           }
@@ -1989,15 +2017,6 @@ public final class YaclibModel {
       } else {
         return (com.google.protobuf.ByteString) ref;
       }
-    }
-
-    public static final int VERSION_FIELD_NUMBER = 4;
-    private int version_;
-    /**
-     * <code>optional int32 version = 4;</code>
-     */
-    public int getVersion() {
-      return version_;
     }
 
     public static final int REPOSITORY_FIELD_NUMBER = 5;
@@ -2200,6 +2219,58 @@ public final class YaclibModel {
       }
     }
 
+    public static final int MAJOR_VERSION_FIELD_NUMBER = 12;
+    private int majorVersion_;
+    /**
+     * <code>optional int32 major_version = 12;</code>
+     */
+    public int getMajorVersion() {
+      return majorVersion_;
+    }
+
+    public static final int MINOR_VERSION_FIELD_NUMBER = 13;
+    private int minorVersion_;
+    /**
+     * <code>optional int32 minor_version = 13;</code>
+     */
+    public int getMinorVersion() {
+      return minorVersion_;
+    }
+
+    public static final int GITHUB_REPO_FIELD_NUMBER = 14;
+    private volatile java.lang.Object githubRepo_;
+    /**
+     * <code>optional string github_repo = 14;</code>
+     */
+    public java.lang.String getGithubRepo() {
+      java.lang.Object ref = githubRepo_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        githubRepo_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>optional string github_repo = 14;</code>
+     */
+    public com.google.protobuf.ByteString
+        getGithubRepoBytes() {
+      java.lang.Object ref = githubRepo_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        githubRepo_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
@@ -2220,9 +2291,6 @@ public final class YaclibModel {
       }
       if (!getNameBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 3, name_);
-      }
-      if (version_ != 0) {
-        output.writeInt32(4, version_);
       }
       if (repository_ != null) {
         output.writeMessage(5, getRepository());
@@ -2245,6 +2313,15 @@ public final class YaclibModel {
       if (!getThirdPartyDependencyVersionBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 11, thirdPartyDependencyVersion_);
       }
+      if (majorVersion_ != 0) {
+        output.writeInt32(12, majorVersion_);
+      }
+      if (minorVersion_ != 0) {
+        output.writeInt32(13, minorVersion_);
+      }
+      if (!getGithubRepoBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 14, githubRepo_);
+      }
     }
 
     public int getSerializedSize() {
@@ -2261,10 +2338,6 @@ public final class YaclibModel {
       }
       if (!getNameBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, name_);
-      }
-      if (version_ != 0) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(4, version_);
       }
       if (repository_ != null) {
         size += com.google.protobuf.CodedOutputStream
@@ -2289,6 +2362,17 @@ public final class YaclibModel {
       if (!getThirdPartyDependencyVersionBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(11, thirdPartyDependencyVersion_);
       }
+      if (majorVersion_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(12, majorVersion_);
+      }
+      if (minorVersion_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(13, minorVersion_);
+      }
+      if (!getGithubRepoBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(14, githubRepo_);
+      }
       memoizedSize = size;
       return size;
     }
@@ -2310,8 +2394,6 @@ public final class YaclibModel {
           .equals(other.getGroup());
       result = result && getName()
           .equals(other.getName());
-      result = result && (getVersion()
-          == other.getVersion());
       result = result && (hasRepository() == other.hasRepository());
       if (hasRepository()) {
         result = result && getRepository()
@@ -2329,6 +2411,12 @@ public final class YaclibModel {
           == other.getIsPrivate());
       result = result && getThirdPartyDependencyVersion()
           .equals(other.getThirdPartyDependencyVersion());
+      result = result && (getMajorVersion()
+          == other.getMajorVersion());
+      result = result && (getMinorVersion()
+          == other.getMinorVersion());
+      result = result && getGithubRepo()
+          .equals(other.getGithubRepo());
       return result;
     }
 
@@ -2345,8 +2433,6 @@ public final class YaclibModel {
       hash = (53 * hash) + getGroup().hashCode();
       hash = (37 * hash) + NAME_FIELD_NUMBER;
       hash = (53 * hash) + getName().hashCode();
-      hash = (37 * hash) + VERSION_FIELD_NUMBER;
-      hash = (53 * hash) + getVersion();
       if (hasRepository()) {
         hash = (37 * hash) + REPOSITORY_FIELD_NUMBER;
         hash = (53 * hash) + getRepository().hashCode();
@@ -2364,6 +2450,12 @@ public final class YaclibModel {
           getIsPrivate());
       hash = (37 * hash) + THIRD_PARTY_DEPENDENCY_VERSION_FIELD_NUMBER;
       hash = (53 * hash) + getThirdPartyDependencyVersion().hashCode();
+      hash = (37 * hash) + MAJOR_VERSION_FIELD_NUMBER;
+      hash = (53 * hash) + getMajorVersion();
+      hash = (37 * hash) + MINOR_VERSION_FIELD_NUMBER;
+      hash = (53 * hash) + getMinorVersion();
+      hash = (37 * hash) + GITHUB_REPO_FIELD_NUMBER;
+      hash = (53 * hash) + getGithubRepo().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -2488,8 +2580,6 @@ public final class YaclibModel {
 
         name_ = "";
 
-        version_ = 0;
-
         if (repositoryBuilder_ == null) {
           repository_ = null;
         } else {
@@ -2507,6 +2597,12 @@ public final class YaclibModel {
         isPrivate_ = false;
 
         thirdPartyDependencyVersion_ = "";
+
+        majorVersion_ = 0;
+
+        minorVersion_ = 0;
+
+        githubRepo_ = "";
 
         return this;
       }
@@ -2533,7 +2629,6 @@ public final class YaclibModel {
         result.type_ = type_;
         result.group_ = group_;
         result.name_ = name_;
-        result.version_ = version_;
         if (repositoryBuilder_ == null) {
           result.repository_ = repository_;
         } else {
@@ -2545,6 +2640,9 @@ public final class YaclibModel {
         result.nodeAliasName_ = nodeAliasName_;
         result.isPrivate_ = isPrivate_;
         result.thirdPartyDependencyVersion_ = thirdPartyDependencyVersion_;
+        result.majorVersion_ = majorVersion_;
+        result.minorVersion_ = minorVersion_;
+        result.githubRepo_ = githubRepo_;
         onBuilt();
         return result;
       }
@@ -2597,9 +2695,6 @@ public final class YaclibModel {
           name_ = other.name_;
           onChanged();
         }
-        if (other.getVersion() != 0) {
-          setVersion(other.getVersion());
-        }
         if (other.hasRepository()) {
           mergeRepository(other.getRepository());
         }
@@ -2624,6 +2719,16 @@ public final class YaclibModel {
         }
         if (!other.getThirdPartyDependencyVersion().isEmpty()) {
           thirdPartyDependencyVersion_ = other.thirdPartyDependencyVersion_;
+          onChanged();
+        }
+        if (other.getMajorVersion() != 0) {
+          setMajorVersion(other.getMajorVersion());
+        }
+        if (other.getMinorVersion() != 0) {
+          setMinorVersion(other.getMinorVersion());
+        }
+        if (!other.getGithubRepo().isEmpty()) {
+          githubRepo_ = other.githubRepo_;
           onChanged();
         }
         onChanged();
@@ -2830,32 +2935,6 @@ public final class YaclibModel {
   checkByteStringIsUtf8(value);
         
         name_ = value;
-        onChanged();
-        return this;
-      }
-
-      private int version_ ;
-      /**
-       * <code>optional int32 version = 4;</code>
-       */
-      public int getVersion() {
-        return version_;
-      }
-      /**
-       * <code>optional int32 version = 4;</code>
-       */
-      public Builder setVersion(int value) {
-        
-        version_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>optional int32 version = 4;</code>
-       */
-      public Builder clearVersion() {
-        
-        version_ = 0;
         onChanged();
         return this;
       }
@@ -3344,6 +3423,127 @@ public final class YaclibModel {
   checkByteStringIsUtf8(value);
         
         thirdPartyDependencyVersion_ = value;
+        onChanged();
+        return this;
+      }
+
+      private int majorVersion_ ;
+      /**
+       * <code>optional int32 major_version = 12;</code>
+       */
+      public int getMajorVersion() {
+        return majorVersion_;
+      }
+      /**
+       * <code>optional int32 major_version = 12;</code>
+       */
+      public Builder setMajorVersion(int value) {
+        
+        majorVersion_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int32 major_version = 12;</code>
+       */
+      public Builder clearMajorVersion() {
+        
+        majorVersion_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int minorVersion_ ;
+      /**
+       * <code>optional int32 minor_version = 13;</code>
+       */
+      public int getMinorVersion() {
+        return minorVersion_;
+      }
+      /**
+       * <code>optional int32 minor_version = 13;</code>
+       */
+      public Builder setMinorVersion(int value) {
+        
+        minorVersion_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int32 minor_version = 13;</code>
+       */
+      public Builder clearMinorVersion() {
+        
+        minorVersion_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object githubRepo_ = "";
+      /**
+       * <code>optional string github_repo = 14;</code>
+       */
+      public java.lang.String getGithubRepo() {
+        java.lang.Object ref = githubRepo_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          githubRepo_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string github_repo = 14;</code>
+       */
+      public com.google.protobuf.ByteString
+          getGithubRepoBytes() {
+        java.lang.Object ref = githubRepo_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          githubRepo_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string github_repo = 14;</code>
+       */
+      public Builder setGithubRepo(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        githubRepo_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string github_repo = 14;</code>
+       */
+      public Builder clearGithubRepo() {
+        
+        githubRepo_ = getDefaultInstance().getGithubRepo();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string github_repo = 14;</code>
+       */
+      public Builder setGithubRepoBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        githubRepo_ = value;
         onChanged();
         return this;
       }
@@ -10373,48 +10573,49 @@ public final class YaclibModel {
       "\n\022yaclib_model.proto\022\023org.roylance.yacli" +
       "b\"n\n\nRepository\022\013\n\003url\030\001 \001(\t\022\020\n\010username" +
       "\030\002 \001(\t\022\020\n\010password\030\003 \001(\t\022\r\n\005extra\030\004 \001(\t\022" +
-      "\017\n\007extra_1\030\005 \001(\t\022\017\n\007extra_2\030\006 \001(\t\"\273\002\n\nDe" +
+      "\017\n\007extra_1\030\005 \001(\t\022\017\n\007extra_2\030\006 \001(\t\"\355\002\n\nDe" +
       "pendency\0221\n\004type\030\001 \001(\0162#.org.roylance.ya" +
       "clib.DependencyType\022\r\n\005group\030\002 \001(\t\022\014\n\004na" +
-      "me\030\003 \001(\t\022\017\n\007version\030\004 \001(\005\0223\n\nrepository\030" +
-      "\005 \001(\0132\037.org.roylance.yaclib.Repository\022\035" +
-      "\n\025typescript_model_file\030\006 \001(\t\022\021\n\tuser_na" +
-      "me\030\007 \001(\t\022\020\n\010password\030\010 \001(\t\022\027\n\017node_alias",
-      "_name\030\t \001(\t\022\022\n\nis_private\030\n \001(\010\022&\n\036third" +
-      "_party_dependency_version\030\013 \001(\t\"\314\001\n\004File" +
-      "\022\037\n\027full_directory_location\030\001 \001(\t\022\021\n\tfil" +
-      "e_name\030\002 \001(\t\022:\n\016file_extension\030\003 \001(\0162\".o" +
-      "rg.roylance.yaclib.FileExtension\022\025\n\rfile" +
-      "_to_write\030\004 \001(\t\022=\n\020file_update_type\030\005 \001(" +
-      "\0162#.org.roylance.yaclib.FileUpdateType\"H" +
-      "\n\nController\022\014\n\004name\030\001 \001(\t\022,\n\007actions\030\002 " +
-      "\003(\0132\033.org.roylance.yaclib.Action\"r\n\006Acti" +
-      "on\022\014\n\004name\030\001 \001(\t\022,\n\006inputs\030\002 \003(\0132\034.org.r",
-      "oylance.yaclib.Message\022,\n\006output\030\005 \001(\0132\034" +
-      ".org.roylance.yaclib.Message\"z\n\007Message\022" +
-      "\025\n\rargument_name\030\001 \001(\t\022\024\n\014file_package\030\002" +
-      " \001(\t\022\022\n\nfile_class\030\003 \001(\t\022\027\n\017message_pack" +
-      "age\030\004 \001(\t\022\025\n\rmessage_class\030\005 \001(\t\"4\n\010AllF" +
-      "iles\022(\n\005files\030\001 \003(\0132\031.org.roylance.yacli" +
-      "b.File\"F\n\016AllControllers\0224\n\013controllers\030" +
-      "\001 \003(\0132\037.org.roylance.yaclib.Controller\"\205" +
-      "\001\n\024ControllerDependency\0228\n\013controllers\030\001" +
-      " \001(\0132#.org.roylance.yaclib.AllController",
-      "s\0223\n\ndependency\030\002 \001(\0132\037.org.roylance.yac" +
-      "lib.Dependency\"g\n\031AllControllerDependenc" +
-      "ies\022J\n\027controller_dependencies\030\001 \003(\0132).o" +
-      "rg.roylance.yaclib.ControllerDependency*" +
-      "O\n\016DependencyType\022\014\n\010INTERNAL\020\000\022\010\n\004JAVA\020" +
-      "\001\022\016\n\nTYPESCRIPT\020\002\022\n\n\006CSHARP\020\003\022\t\n\005SWIFT\020\004" +
-      "*\201\002\n\rFileExtension\022\n\n\006KT_EXT\020\000\022\014\n\010JAVA_E" +
-      "XT\020\001\022\022\n\016TYPESCRIPT_EXT\020\002\022\022\n\016JAVASCRIPT_E" +
-      "XT\020\003\022\r\n\tSWIFT_EXT\020\004\022\013\n\007POM_EXT\020\005\022\013\n\007XML_" +
-      "EXT\020\006\022\014\n\010HTML_EXT\020\007\022\016\n\nGRADLE_EXT\020\010\022\014\n\010J",
-      "SON_EXT\020\t\022\n\n\006TS_EXT\020\n\022\014\n\010NONE_EXT\020\013\022\013\n\007B" +
-      "AT_EXT\020\014\022\n\n\006JS_EXT\020\r\022\n\n\006CS_EXT\020\016\022\013\n\007SLN_" +
-      "EXT\020\017\022\r\n\tXPROJ_EXT\020\020*8\n\016FileUpdateType\022\r" +
-      "\n\tOVERWRITE\020\000\022\027\n\023WRITE_IF_NOT_EXISTS\020\001b\006" +
-      "proto3"
+      "me\030\003 \001(\t\0223\n\nrepository\030\005 \001(\0132\037.org.royla" +
+      "nce.yaclib.Repository\022\035\n\025typescript_mode" +
+      "l_file\030\006 \001(\t\022\021\n\tuser_name\030\007 \001(\t\022\020\n\010passw" +
+      "ord\030\010 \001(\t\022\027\n\017node_alias_name\030\t \001(\t\022\022\n\nis",
+      "_private\030\n \001(\010\022&\n\036third_party_dependency" +
+      "_version\030\013 \001(\t\022\025\n\rmajor_version\030\014 \001(\005\022\025\n" +
+      "\rminor_version\030\r \001(\005\022\023\n\013github_repo\030\016 \001(" +
+      "\t\"\314\001\n\004File\022\037\n\027full_directory_location\030\001 " +
+      "\001(\t\022\021\n\tfile_name\030\002 \001(\t\022:\n\016file_extension" +
+      "\030\003 \001(\0162\".org.roylance.yaclib.FileExtensi" +
+      "on\022\025\n\rfile_to_write\030\004 \001(\t\022=\n\020file_update" +
+      "_type\030\005 \001(\0162#.org.roylance.yaclib.FileUp" +
+      "dateType\"H\n\nController\022\014\n\004name\030\001 \001(\t\022,\n\007" +
+      "actions\030\002 \003(\0132\033.org.roylance.yaclib.Acti",
+      "on\"r\n\006Action\022\014\n\004name\030\001 \001(\t\022,\n\006inputs\030\002 \003" +
+      "(\0132\034.org.roylance.yaclib.Message\022,\n\006outp" +
+      "ut\030\005 \001(\0132\034.org.roylance.yaclib.Message\"z" +
+      "\n\007Message\022\025\n\rargument_name\030\001 \001(\t\022\024\n\014file" +
+      "_package\030\002 \001(\t\022\022\n\nfile_class\030\003 \001(\t\022\027\n\017me" +
+      "ssage_package\030\004 \001(\t\022\025\n\rmessage_class\030\005 \001" +
+      "(\t\"4\n\010AllFiles\022(\n\005files\030\001 \003(\0132\031.org.royl" +
+      "ance.yaclib.File\"F\n\016AllControllers\0224\n\013co" +
+      "ntrollers\030\001 \003(\0132\037.org.roylance.yaclib.Co" +
+      "ntroller\"\205\001\n\024ControllerDependency\0228\n\013con",
+      "trollers\030\001 \001(\0132#.org.roylance.yaclib.All" +
+      "Controllers\0223\n\ndependency\030\002 \001(\0132\037.org.ro" +
+      "ylance.yaclib.Dependency\"g\n\031AllControlle" +
+      "rDependencies\022J\n\027controller_dependencies" +
+      "\030\001 \003(\0132).org.roylance.yaclib.ControllerD" +
+      "ependency*O\n\016DependencyType\022\014\n\010INTERNAL\020" +
+      "\000\022\010\n\004JAVA\020\001\022\016\n\nTYPESCRIPT\020\002\022\n\n\006CSHARP\020\003\022" +
+      "\t\n\005SWIFT\020\004*\201\002\n\rFileExtension\022\n\n\006KT_EXT\020\000" +
+      "\022\014\n\010JAVA_EXT\020\001\022\022\n\016TYPESCRIPT_EXT\020\002\022\022\n\016JA" +
+      "VASCRIPT_EXT\020\003\022\r\n\tSWIFT_EXT\020\004\022\013\n\007POM_EXT",
+      "\020\005\022\013\n\007XML_EXT\020\006\022\014\n\010HTML_EXT\020\007\022\016\n\nGRADLE_" +
+      "EXT\020\010\022\014\n\010JSON_EXT\020\t\022\n\n\006TS_EXT\020\n\022\014\n\010NONE_" +
+      "EXT\020\013\022\013\n\007BAT_EXT\020\014\022\n\n\006JS_EXT\020\r\022\n\n\006CS_EXT" +
+      "\020\016\022\013\n\007SLN_EXT\020\017\022\r\n\tXPROJ_EXT\020\020*8\n\016FileUp" +
+      "dateType\022\r\n\tOVERWRITE\020\000\022\027\n\023WRITE_IF_NOT_" +
+      "EXISTS\020\001b\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -10439,7 +10640,7 @@ public final class YaclibModel {
     internal_static_org_roylance_yaclib_Dependency_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_org_roylance_yaclib_Dependency_descriptor,
-        new java.lang.String[] { "Type", "Group", "Name", "Version", "Repository", "TypescriptModelFile", "UserName", "Password", "NodeAliasName", "IsPrivate", "ThirdPartyDependencyVersion", });
+        new java.lang.String[] { "Type", "Group", "Name", "Repository", "TypescriptModelFile", "UserName", "Password", "NodeAliasName", "IsPrivate", "ThirdPartyDependencyVersion", "MajorVersion", "MinorVersion", "GithubRepo", });
     internal_static_org_roylance_yaclib_File_descriptor =
       getDescriptor().getMessageTypes().get(2);
     internal_static_org_roylance_yaclib_File_fieldAccessorTable = new

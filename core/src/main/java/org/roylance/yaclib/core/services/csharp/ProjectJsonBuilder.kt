@@ -6,7 +6,7 @@ import org.roylance.yaclib.core.utilities.CSharpUtilities
 
 class ProjectJsonBuilder(private val dependency: YaclibModel.Dependency): IBuilder<YaclibModel.File> {
     private val InitialTemplate = """{
-  "version": "0.0.${dependency.version}-*",
+  "version": "${dependency.majorVersion}.${dependency.minorVersion}.0-*",
 
   "dependencies": {
     "Google.Protobuf": "3.0.0"

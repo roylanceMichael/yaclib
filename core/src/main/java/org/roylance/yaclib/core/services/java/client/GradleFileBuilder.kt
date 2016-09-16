@@ -2,16 +2,31 @@ package org.roylance.yaclib.core.services.java.client
 
 import org.roylance.common.service.IBuilder
 import org.roylance.yaclib.YaclibModel
+import org.roylance.yaclib.core.enums.CommonTokens
 import org.roylance.yaclib.core.utilities.JavaUtilities
 
 class GradleFileBuilder(private val controllerDependencies: YaclibModel.AllControllerDependencies,
-                        mainDependency: YaclibModel.Dependency): IBuilder<YaclibModel.File> {
-    private val InitialTemplate = """group '${mainDependency.group}'
-version '0.${mainDependency.version}-SNAPSHOT'
+                        private val mainDependency: YaclibModel.Dependency): IBuilder<YaclibModel.File> {
+    private val InitialTemplate = """
+buildscript {
+    ext.kotlin_version = '${JavaUtilities.KotlinVersion}'
+    repositories {
+        jcenter()
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.7'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:${JavaUtilities.KotlinVersion}"
+    }
+}
+
+group '${mainDependency.group}'
+version '${mainDependency.majorVersion}.${mainDependency.minorVersion}'
 
 apply plugin: 'java'
 apply plugin: 'kotlin'
-apply plugin: 'com.jfrog.artifactory'
+apply plugin: 'com.jfrog.bintray'
+apply plugin: 'maven'
 apply plugin: 'maven-publish'
 
 sourceCompatibility = 1.7
@@ -24,53 +39,35 @@ publishing {
     }
 }
 
-artifactory {
-    contextUrl = 'http://chaperapp.dyndns-server.com:8081/artifactory'
-    publish {
-        repository {
-            repoKey = 'libs-snapshot-local'
-            username = System.getenv('ARTIFACTORY_USER')
-            password = System.getenv('ARTIFACTORY_PASSWORD')
+bintray {
+    user = System.getenv('BINTRAY_USER')
+    key = System.getenv('BINTRAY_KEY')
+    publications = ['mavenJava']
+    publish = true
+    pkg {
+        repo = 'maven'
+        name = "${mainDependency.group}.${CommonTokens.ClientApi}"
+        userOrg = user
+        licenses = ['Apache-2.0']
+        labels = [rootProject.name]
+        publicDownloadNumbers = true
+        vcsUrl = '${buildGithubRepo()}'
+        version {
+            name = "${mainDependency.majorVersion}.${mainDependency.minorVersion}"
         }
-        defaults {
-            publications('mavenJava')
-            publishBuildInfo = true
-            publishArtifacts = true
-            properties = ['qa.level': 'basic', 'dev.team' : 'core']
-            publishPom = true
-        }
-    }
-    resolve {
-        repository {
-            repoKey = 'repo'
-        }
-    }
-}
-
-buildscript {
-    ext.kotlin_version = '${JavaUtilities.KotlinVersion}'
-    repositories {
-        jcenter()
-        mavenCentral()
-    }
-    dependencies {
-        classpath "org.jfrog.buildinfo:build-info-extractor-gradle:3.1.1"
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:${JavaUtilities.KotlinVersion}"
     }
 }
 
 repositories {
     mavenCentral()
-    maven { url 'http://mikeapps.org:8081/artifactory/ext-release-local' }
-    maven { url 'http://chaperapp.dyndns-server.com:8081/artifactory/libs-snapshot-local' }
+    maven { url 'http://dl.bintray.com/roylancemichael/maven' }
 }
 
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.11'
     compile 'com.squareup.retrofit2:retrofit:2.1.0'
 
-    compile 'org.roylance:common:0.${JavaUtilities.RoylanceCommonVersion}-SNAPSHOT'
-    compile "org.jetbrains.kotlin:kotlin-stdlib:${JavaUtilities.KotlinVersion}"
+    compile 'org.roylance:common:${JavaUtilities.RoylanceCommonVersion}'
     ${this.buildDependencies()}
 }
 """
@@ -89,10 +86,18 @@ dependencies {
         val workspace = StringBuilder()
 
         this.controllerDependencies.controllerDependenciesList.forEach { controllerDependency ->
-        workspace.append("""compile '${controllerDependency.dependency.group}:${controllerDependency.dependency.name}:0.${controllerDependency.dependency.version}-SNAPSHOT'
+        workspace.append("""compile '${controllerDependency.dependency.group}:${controllerDependency.dependency.name}:${controllerDependency.dependency.majorVersion}.${controllerDependency.dependency.minorVersion}'
 """)
         }
 
         return workspace.toString()
+    }
+
+    private fun buildGithubRepo(): String {
+        if (this.mainDependency.githubRepo.length > 0) {
+            return this.mainDependency.githubRepo
+        }
+
+        return "https://github.com/roylanceMichael/Roylance.Common.git"
     }
 }

@@ -16,19 +16,16 @@ class POMFileBuilder(private val controllerDependencies: YaclibModel.AllControll
 
     <groupId>${mainDependency.group}</groupId>
     <artifactId>${CommonTokens.ServerApi}</artifactId>
-    <version>0.${mainDependency.version}-SNAPSHOT</version>
+    <version>${mainDependency.majorVersion}.${mainDependency.minorVersion}</version>
 
     <repositories>
         <repository>
-            <id>mike-MacBook</id>
-            <name>mike-MacBook-snapshots</name>
-            <url>http://chaperapp.dyndns-server.com:8081/artifactory/libs-snapshot-local</url>
-            <releases>
-                <enabled>false</enabled>
-            </releases>
             <snapshots>
-                <enabled>true</enabled>
+                <enabled>false</enabled>
             </snapshots>
+            <id>bintray-roylancemichael-maven</id>
+            <name>bintray</name>
+            <url>http://dl.bintray.com/roylancemichael/maven</url>
         </repository>
         <repository>
             <id>sonatype.oss.snapshots</id>
@@ -307,12 +304,12 @@ class POMFileBuilder(private val controllerDependencies: YaclibModel.AllControll
         <dependency>
             <groupId>${controllerDependency.dependency.group}</groupId>
             <artifactId>${controllerDependency.dependency.name}</artifactId>
-            <version>0.${controllerDependency.dependency.version}-SNAPSHOT</version>
+            <version>${controllerDependency.dependency.majorVersion}.${controllerDependency.dependency.minorVersion}</version>
         </dependency>
         <dependency>
             <groupId>${controllerDependency.dependency.group}</groupId>
             <artifactId>c${controllerDependency.dependency.name}</artifactId>
-            <version>0.${controllerDependency.dependency.version}-SNAPSHOT</version>
+            <version>${controllerDependency.dependency.majorVersion}.${controllerDependency.dependency.minorVersion}</version>
         </dependency>
 """)
         }

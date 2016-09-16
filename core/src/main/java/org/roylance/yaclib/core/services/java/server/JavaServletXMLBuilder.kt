@@ -4,7 +4,7 @@ import org.roylance.common.service.IBuilder
 import org.roylance.yaclib.YaclibModel
 import org.roylance.yaclib.core.enums.CommonTokens
 
-class JavaServletXMLBuilder(): IBuilder<YaclibModel.File> {
+class JavaServletXMLBuilder(mainDependency: YaclibModel.Dependency): IBuilder<YaclibModel.File> {
     private val ActualXML = """<?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -20,6 +20,14 @@ class JavaServletXMLBuilder(): IBuilder<YaclibModel.File> {
         <servlet-name>javax.ws.rs.core.Application</servlet-name>
         <servlet-class>org.glassfish.jersey.servlet.ServletContainer</servlet-class>
         <async-supported>true</async-supported>
+        <init-param>
+            <param-name>jersey.config.server.provider.packages</param-name>
+            <param-value>${mainDependency.group}.rest</param-value>
+        </init-param>
+        <init-param>
+            <param-name>jersey.config.server.provider.classnames</param-name>
+            <param-value>org.glassfish.jersey.media.multipart.MultiPartFeature</param-value>
+        </init-param>
     </servlet>
 
     <servlet-mapping>

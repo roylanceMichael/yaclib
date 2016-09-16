@@ -20,7 +20,7 @@ class JavaServerProcessLanguageService: IProcessLanguageService {
         returnList.addFiles(IndexHTMLBuilder().build())
         returnList.addFiles(WiringFileBuilder(controllerDependencies).build())
         returnList.addFiles(JavaLaunchBuilder().build())
-        returnList.addFiles(JavaServletXMLBuilder().build())
+        returnList.addFiles(JavaServletXMLBuilder(mainDependency).build())
         returnList.addFiles(Java8Base64ServiceBuilder(mainDependency).build())
 
         returnList.addFiles(KotlinIServiceLocatorBuilder(controllerDependencies, mainDependency).build())

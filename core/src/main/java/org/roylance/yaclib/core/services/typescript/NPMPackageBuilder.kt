@@ -9,7 +9,7 @@ class NPMPackageBuilder(private val dependency: YaclibModel.Dependency,
 
     private val packageTemplate = """{
   "name": "${this.buildPackageName()}",
-  "version": "0.0.${dependency.version}",
+  "version": "${dependency.majorVersion}.${dependency.minorVersion}.0",
   "description": "models to interface with the ${dependency.group}.${dependency.name} system",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

@@ -9,6 +9,17 @@ class FurtherAngularSetupBuilder: IBuilder<YaclibModel.File> {
 // this file won't be overwritten, add more dependencies for angular as needed
 export function furtherAngularSetup(app:any) {
 
+    // including show-tab in there, I find this useful for angular
+    app.directive('showTab', function () {
+            return {
+                link: function (scope, element, attrs) {
+                    element.click(function (e) {
+                        e.preventDefault();
+                        $(element).tab('show');
+                    });
+                }
+            };
+        });
 }
 """
         val returnFile = YaclibModel.File.newBuilder()
