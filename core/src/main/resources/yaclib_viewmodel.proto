@@ -1,0 +1,32 @@
+syntax = "proto3";
+package org.roylance.yaclib;
+
+enum BindingType {
+    BINDING_INPUT = 0;
+    BINDING_LABEL = 1;
+    BINDING_SINGLE_SELECTION = 2;
+    BINDING_MULTI_SELECTION = 3;
+    BINDING_CHECKBOX = 4;
+    BINDING_BUTTON = 5;
+    BINDING_IMAGE = 6;
+    BINDING_STATIC_TEXT = 7;
+}
+
+message Validation {
+    string regex = 1;
+}
+
+message BindingDefinition {
+    BindingType binding_type = 1;
+    Validation validation = 2;
+    string model_path = 3;
+}
+
+message ServiceDefinition {
+    string full_name = 1;
+    string view_model_property_name = 2;
+}
+
+message ViewModel {
+    string name = 1;
+}

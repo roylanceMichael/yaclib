@@ -5,6 +5,7 @@ import org.roylance.yaclib.core.enums.CommonTokens
 import java.nio.file.Paths
 
 object CSharpUtilities {
+    const val ProtobufVersion = "3.0.0"
     fun buildFullName(dependency: YaclibModel.Dependency):String {
         return StringUtilities.convertToPascalCase("${dependency.group}.${dependency.name}")
     }

@@ -9,7 +9,7 @@ class ProjectJsonBuilder(private val dependency: YaclibModel.Dependency): IBuild
   "version": "${dependency.majorVersion}.${dependency.minorVersion}.0-*",
 
   "dependencies": {
-    "Google.Protobuf": "3.0.0"
+    "Google.Protobuf": "${CSharpUtilities.ProtobufVersion}"
   },
   "buildOptions": {
     "debugType": "portable"
