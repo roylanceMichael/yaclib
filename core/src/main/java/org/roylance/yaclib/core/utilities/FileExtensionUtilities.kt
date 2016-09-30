@@ -49,6 +49,9 @@ object FileExtensionUtilities {
         if (YaclibModel.FileExtension.XPROJ_EXT == extension) {
             return ".xproj"
         }
+        if (YaclibModel.FileExtension.SH_EXT == extension) {
+            return ".sh"
+        }
 
         return ".java"
     }

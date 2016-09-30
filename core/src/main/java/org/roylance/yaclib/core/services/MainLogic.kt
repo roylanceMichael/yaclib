@@ -17,6 +17,7 @@ class MainLogic(
         private val majorVersion: Int,
         private val minorVersion: Int,
         private val location: String,
+        private val repositoryType: YaclibModel.RepositoryType,
         private val mainModel: Descriptors.FileDescriptor,
         private val mainController: Descriptors.FileDescriptor,
         private val dependencyDescriptors: List<DependencyDescriptor>,
@@ -40,6 +41,7 @@ class MainLogic(
             .setAuthorName(author)
             .setRepository(
                     YaclibModel.Repository.newBuilder()
+                .setRepositoryType(repositoryType)
                 .setUrl(repoUrl)
                 .setUsername(repoUserName)
                 .setName(repoName)

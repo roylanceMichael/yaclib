@@ -20,33 +20,11 @@ class POMFileBuilder(private val controllerDependencies: YaclibModel.AllControll
     <version>${mainDependency.majorVersion}.${mainDependency.minorVersion}</version>
 
     <repositories>
-${this.buildRepositories()}
-        <repository>
-            <id>sonatype.oss.snapshots</id>
-            <name>Sonatype OSS Snapshot Repository</name>
-            <url>http://oss.sonatype.org/content/repositories/snapshots</url>
-            <releases>
-                <enabled>false</enabled>
-            </releases>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-        </repository>
+        ${buildRepositories()}
+        $DefaultSonaTypeOSSRepo
     </repositories>
 
-    <pluginRepositories>
-        <pluginRepository>
-            <id>sonatype.oss.snapshots</id>
-            <name>Sonatype OSS Snapshot Repository</name>
-            <url>http://oss.sonatype.org/content/repositories/snapshots</url>
-            <releases>
-                <enabled>false</enabled>
-            </releases>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-        </pluginRepository>
-    </pluginRepositories>
+    $DefaultSonaTypeOSSPlugin
 
     <dependencies>
         ${this.buildDependencies()}
@@ -58,7 +36,7 @@ ${this.buildRepositories()}
         <dependency>
             <groupId>com.squareup.retrofit2</groupId>
             <artifactId>retrofit</artifactId>
-            <version>2.1.0</version>
+            <version>${JavaUtilities.RetrofitVersion}</version>
         </dependency>
         <dependency>
             <groupId>org.apache.tomcat.embed</groupId>
@@ -93,7 +71,7 @@ ${this.buildRepositories()}
         <dependency>
             <groupId>com.google.code.gson</groupId>
             <artifactId>gson</artifactId>
-            <version>2.6.2</version>
+            <version>${JavaUtilities.GsonVersion}</version>
         </dependency>
         <dependency>
             <groupId>org.jetbrains.kotlin</groupId>
@@ -103,52 +81,52 @@ ${this.buildRepositories()}
         <dependency>
             <groupId>org.quartz-scheduler</groupId>
             <artifactId>quartz</artifactId>
-            <version>2.2.1</version>
+            <version>${JavaUtilities.QuartzVersion}</version>
         </dependency>
         <dependency>
             <groupId>org.quartz-scheduler</groupId>
             <artifactId>quartz-jobs</artifactId>
-            <version>2.2.1</version>
+            <version>${JavaUtilities.QuartzVersion}</version>
         </dependency>
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>4.12</version>
+            <version>${JavaUtilities.JUnitVersion}</version>
         </dependency>
         <dependency>
             <groupId>org.glassfish.jersey.containers</groupId>
             <artifactId>jersey-container-servlet</artifactId>
-            <version>2.22.2</version>
+            <version>${JavaUtilities.JerseyMediaVersion}</version>
         </dependency>
         <dependency>
             <groupId>org.glassfish.jersey.media</groupId>
             <artifactId>jersey-media-multipart</artifactId>
-            <version>2.22.2</version>
+            <version>${JavaUtilities.JerseyMediaVersion}</version>
         </dependency>
         <dependency>
             <groupId>com.sun.jersey</groupId>
             <artifactId>jersey-json</artifactId>
-            <version>1.19.1</version>
+            <version>${JavaUtilities.JerseyJsonVersion}</version>
         </dependency>
         <dependency>
             <groupId>com.intellij</groupId>
             <artifactId>annotations</artifactId>
-            <version>12.0</version>
+            <version>${JavaUtilities.IntellijAnnotationsVersion}</version>
         </dependency>
         <dependency>
             <groupId>org.apache.httpcomponents</groupId>
             <artifactId>httpclient</artifactId>
-            <version>4.5.1</version>
+            <version>${JavaUtilities.HttpComponentsVersion}</version>
         </dependency>
         <dependency>
             <groupId>com.google.protobuf</groupId>
             <artifactId>protobuf-java</artifactId>
-            <version>3.0.0</version>
+            <version>${JavaUtilities.ProtobufVersion}</version>
         </dependency>
         <dependency>
             <groupId>commons-io</groupId>
             <artifactId>commons-io</artifactId>
-            <version>2.5</version>
+            <version>${JavaUtilities.CommonsIOVersion}</version>
         </dependency>
     </dependencies>
 
@@ -169,13 +147,13 @@ ${this.buildRepositories()}
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>2.3.2</version>
+                <version>${JavaUtilities.MavenCompilerPluginVersion}</version>
                 <configuration>
                     <verbose>true</verbose>
                     <fork>true</fork>
-                    <compilerVersion>1.8</compilerVersion>
-                    <source>1.8</source>
-                    <target>1.8</target>
+                    <compilerVersion>${JavaUtilities.JavaServerJdkVersion}</compilerVersion>
+                    <source>${JavaUtilities.JavaServerJdkVersion}</source>
+                    <target>${JavaUtilities.JavaServerJdkVersion}</target>
                     <encoding>UTF-8</encoding>
                 </configuration>
             </plugin>
@@ -183,7 +161,7 @@ ${this.buildRepositories()}
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-war-plugin</artifactId>
-                <version>2.1.1</version>
+                <version>${JavaUtilities.MavenWarPluginVersion}</version>
                 <configuration>
                     <warName>ROOT</warName>
                     <archive>
@@ -198,7 +176,7 @@ ${this.buildRepositories()}
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>appassembler-maven-plugin</artifactId>
-                <version>1.1.1</version>
+                <version>${JavaUtilities.CodeHausAppPluginVersion}</version>
                 <configuration>
                     <assembleDirectory>target</assembleDirectory>
                     <programs>
@@ -221,7 +199,7 @@ ${this.buildRepositories()}
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
-                <version>2.18.1</version>
+                <version>${JavaUtilities.MavenSurefirePluginVersion}</version>
             </plugin>
 
             <plugin>
@@ -247,16 +225,16 @@ ${this.buildRepositories()}
             <plugin>
                 <groupId>com.heroku.sdk</groupId>
                 <artifactId>heroku-maven-plugin</artifactId>
-                <version>1.0.3</version>
+                <version>${JavaUtilities.HerokuPluginVersion}</version>
                 <configuration>
-                    <jdkVersion>1.8</jdkVersion>
+                    <jdkVersion>${JavaUtilities.JavaServerJdkVersion}</jdkVersion>
                     <appName>${mainDependency.group}.${mainDependency.name}</appName>
                     <processTypes>
-                        <web>sh heroku_proc.sh</web>
+                        <web>sh proc.sh</web>
                     </processTypes>
                     <includes>
                         <include>src/main/webapp</include>
-                        <include>heroku_proc.sh</include>
+                        <include>proc.sh</include>
                     </includes>
                 </configuration>
             </plugin>
@@ -282,7 +260,7 @@ ${this.buildRepositories()}
         val workspace = StringBuilder()
 
         this.thirdPartyDependencies
-                .filter { it.type.equals(YaclibModel.DependencyType.JAVA) }
+                .filter { it.type == YaclibModel.DependencyType.JAVA }
                 .forEach { dependency ->
                     workspace.append("""
         <dependency>
@@ -329,15 +307,43 @@ ${this.buildRepositories()}
     }
 
     private fun buildRepository(repository: YaclibModel.Repository): String {
-        return """
-        <repository>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
-            <id>bintray-${repository.username}-${repository.name}</id>
-            <name>bintray</name>
-            <url>${repository.url}</url>
-        </repository>
+        return """<repository>
+  <snapshots>
+    <enabled>false</enabled>
+  </snapshots>
+  <id>${repository.name}</id>
+  <name>${repository.name}</name>
+  <url>${JavaUtilities.buildArtifactoryRepositoryUrl(repository)}</url>
+</repository>
+"""
+    }
+
+    companion object {
+        const val DefaultSonaTypeOSSRepo = """<repository>
+                    <id>sonatype.oss.snapshots</id>
+                    <name>Sonatype OSS Snapshot Repository</name>
+                    <url>http://oss.sonatype.org/content/repositories/snapshots</url>
+                    <releases>
+                        <enabled>false</enabled>
+                    </releases>
+                    <snapshots>
+                        <enabled>true</enabled>
+                    </snapshots>
+                </repository>"""
+
+        const val DefaultSonaTypeOSSPlugin = """<pluginRepositories>
+                <pluginRepository>
+                    <id>sonatype.oss.snapshots</id>
+                    <name>Sonatype OSS Snapshot Repository</name>
+                    <url>http://oss.sonatype.org/content/repositories/snapshots</url>
+                    <releases>
+                        <enabled>false</enabled>
+                    </releases>
+                    <snapshots>
+                        <enabled>true</enabled>
+                    </snapshots>
+                </pluginRepository>
+            </pluginRepositories>
 """
     }
 }

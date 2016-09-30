@@ -15,6 +15,7 @@ buildscript {
         mavenCentral()
     }
     dependencies {
+        classpath "org.jfrog.buildinfo:build-info-extractor-gradle:${JavaUtilities.ArtifactoryVersion}"
         classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:${JavaUtilities.BintrayVersion}'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:${JavaUtilities.KotlinVersion}"
     }
@@ -26,6 +27,7 @@ version '${mainDependency.majorVersion}.${mainDependency.minorVersion}'
 apply plugin: 'java'
 apply plugin: 'kotlin'
 apply plugin: 'com.jfrog.bintray'
+apply plugin: "com.jfrog.artifactory"
 apply plugin: 'maven'
 apply plugin: 'maven-publish'
 
@@ -39,24 +41,7 @@ publishing {
     }
 }
 
-bintray {
-    user = System.getenv('BINTRAY_USER')
-    key = System.getenv('BINTRAY_KEY')
-    publications = ['mavenJava']
-    publish = true
-    pkg {
-        repo = '${mainDependency.repository.name}'
-        name = "${mainDependency.group}.${CommonTokens.ClientApi}"
-        userOrg = user
-        licenses = ['${mainDependency.license}']
-        labels = [rootProject.name]
-        publicDownloadNumbers = true
-        vcsUrl = '${buildGithubRepo()}'
-        version {
-            name = "${mainDependency.majorVersion}.${mainDependency.minorVersion}"
-        }
-    }
-}
+${if (mainDependency.repository.repositoryType == YaclibModel.RepositoryType.ARTIFACTORY) buildArtifactory() else buildBintray()}
 
 repositories {
     mavenCentral()
@@ -101,6 +86,16 @@ dependencies {
     private fun buildRepository(): String {
         if (this.mainDependency.hasRepository() &&
             this.mainDependency.repository.isPrivate) {
+            if (mainDependency.repository.repositoryType == YaclibModel.RepositoryType.ARTIFACTORY) {
+                return """maven {
+    url "${JavaUtilities.buildArtifactoryRepositoryUrl(mainDependency.repository)}"
+    credentials {
+        username System.getenv('ARTIFACTORY_USER')
+        password System.getenv('ARTIFACTORY_PASSWORD')
+    }
+}
+"""
+            }
             return """maven {
     url "${this.mainDependency.repository.url}"
     credentials {
@@ -111,6 +106,12 @@ dependencies {
 """
         }
         else if (this.mainDependency.hasRepository()) {
+            if (mainDependency.repository.repositoryType == YaclibModel.RepositoryType.ARTIFACTORY) {
+                return """maven {
+    url "${JavaUtilities.buildArtifactoryRepositoryUrl(mainDependency.repository)}"
+}
+"""
+            }
             return """maven {
     url "${this.mainDependency.repository.url}"
 }
@@ -118,5 +119,55 @@ dependencies {
         }
 
         return ""
+    }
+
+    private fun buildBintray(): String {
+        return """
+bintray {
+    user = System.getenv('BINTRAY_USER')
+    key = System.getenv('BINTRAY_KEY')
+    publications = ['mavenJava']
+    publish = true
+    pkg {
+        repo = '${mainDependency.repository.name}'
+        name = "${mainDependency.group}.${CommonTokens.ClientApi}"
+        userOrg = user
+        licenses = ['${mainDependency.license}']
+        labels = [rootProject.name]
+        publicDownloadNumbers = true
+        vcsUrl = '${buildGithubRepo()}'
+        version {
+            name = "${mainDependency.majorVersion}.${mainDependency.minorVersion}"
+        }
+    }
+}"""
+    }
+
+    private fun buildArtifactory(): String {
+        return """artifactory {
+    contextUrl = "${mainDependency.repository.url}"   //The base Artifactory URL if not overridden by the publisher/resolver
+    publish {
+        repository {
+            repoKey = '${mainDependency.repository.name}'
+            username = System.getenv('ARTIFACTORY_USER')
+            password = System.getenv('ARTIFACTORY_PASSWORD')
+            maven = true
+
+        }
+        defaults {
+            publications('mavenJava')
+            publishBuildInfo = true
+            publishArtifacts = true
+            properties = ['qa.level': 'basic', 'dev.team' : 'core']
+            publishPom = true
+        }
+    }
+    resolve {
+        repository {
+            repoKey = 'repo'
+        }
+    }
+}
+"""
     }
 }

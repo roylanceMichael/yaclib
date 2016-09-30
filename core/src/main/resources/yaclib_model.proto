@@ -1,6 +1,17 @@
 syntax = "proto3";
 package org.roylance.yaclib;
 
+enum RepositoryType {
+    BINTRAY = 0;
+    ARTIFACTORY = 1;
+    NPMJS = 2;
+    PRIVATE_NPM = 3;
+    NUGET = 4;
+    PRIVATE_NUGET = 5;
+    PIP = 6;
+    PRIVATE_PIP = 7;
+}
+
 enum DependencyType {
     INTERNAL = 0;
     JAVA = 1;
@@ -27,6 +38,7 @@ enum FileExtension {
     CS_EXT = 14;
     SLN_EXT = 15;
     XPROJ_EXT = 16;
+    SH_EXT = 17;
 }
 
 enum FileUpdateType {
@@ -39,6 +51,7 @@ message Repository {
     string username = 2;
     bool is_private = 7;
     string name = 8;
+    RepositoryType repository_type = 9;
 }
 
 message Dependency {

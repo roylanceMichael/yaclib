@@ -4,7 +4,7 @@ import org.roylance.yaclib.YaclibModel
 import java.util.*
 
 object TypeScriptUtilities {
-    val protobufHelperDependencyBuilder = YaclibModel.Dependency.newBuilder().setThirdPartyDependencyVersion("0.0.8").setGroup("protobuftshelper").setNodeAliasName("@mroylance").setType(YaclibModel.DependencyType.TYPESCRIPT)!!
+    val protobufHelperDependencyBuilder = YaclibModel.Dependency.newBuilder().setThirdPartyDependencyVersion("0.0.8").setGroup("protobuftshelper").setType(YaclibModel.DependencyType.TYPESCRIPT)!!
     val protobufJsDependencyBuilder = YaclibModel.Dependency.newBuilder().setThirdPartyDependencyVersion("^5.0.1").setGroup("protobufjs").setType(YaclibModel.DependencyType.TYPESCRIPT)!!
     val proto2TypeScriptDependencyBuilder = YaclibModel.Dependency.newBuilder().setThirdPartyDependencyVersion("^2.2.0").setGroup("proto2typescript").setType(YaclibModel.DependencyType.TYPESCRIPT)!!
 
@@ -44,7 +44,7 @@ object TypeScriptUtilities {
     }
 
     fun buildDependency(dependency: YaclibModel.Dependency): String {
-        if (dependency.type.equals(YaclibModel.DependencyType.INTERNAL)) {
+        if (dependency.type == YaclibModel.DependencyType.INTERNAL) {
             if (dependency.nodeAliasName.length > 0) {
                 return """"${dependency.nodeAliasName}/${dependency.group}.${dependency.name}": "${buildVersion(dependency)}"
 """
@@ -66,7 +66,7 @@ object TypeScriptUtilities {
     }
 
     private fun buildVersion(dependency: YaclibModel.Dependency): String {
-        if (dependency.type.equals(YaclibModel.DependencyType.INTERNAL)) {
+        if (dependency.type == YaclibModel.DependencyType.INTERNAL) {
             return "${dependency.majorVersion}.${dependency.minorVersion}.0"
         }
         else {

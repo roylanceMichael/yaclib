@@ -17,6 +17,7 @@ class PluginLogic(
         val majorVersion: Int,
         val minorVersion: Int,
         val location: String,
+        val repositoryType: YaclibModel.RepositoryType,
         val mainModel: Descriptors.FileDescriptor,
         val mainController: Descriptors.FileDescriptor,
         val dependencyDescriptors: List<DependencyDescriptor>,
@@ -44,6 +45,7 @@ class PluginLogic(
                 this.majorVersion,
                 this.minorVersion,
                 this.location,
+                this.repositoryType,
                 this.mainModel,
                 this.mainController,
                 this.dependencyDescriptors,
@@ -104,10 +106,18 @@ class PluginLogic(
                 .command(FileProcessUtilities.buildCommand("gradle", "build"))
         this.handleProcess(gradleBuildProcess, "gradleBuildProcess")
 
-        val bintrayUpload = ProcessBuilder()
-                .directory(javaClientDirectory)
-                .command(FileProcessUtilities.buildCommand("gradle", "bintrayUpload"))
-        this.handleProcess(bintrayUpload, "bintrayUploadProcess")
+        if (this.repositoryType == YaclibModel.RepositoryType.ARTIFACTORY) {
+            val artifactoryPublish = ProcessBuilder()
+                    .directory(javaClientDirectory)
+                    .command(FileProcessUtilities.buildCommand("gradle", "artifactoryPublish"))
+            this.handleProcess(artifactoryPublish, "artifactoryPublish")
+        }
+        else {
+            val bintrayUpload = ProcessBuilder()
+                    .directory(javaClientDirectory)
+                    .command(FileProcessUtilities.buildCommand("gradle", "bintrayUpload"))
+            this.handleProcess(bintrayUpload, "bintrayUploadProcess")
+        }
     }
 
     private fun handleJavaScript() {
@@ -136,7 +146,7 @@ class PluginLogic(
 
         val protoTypeScriptHelperProcess = ProcessBuilder()
                 .directory(javaScriptDirectory)
-                .command(FileProcessUtilities.buildCommand(Paths.get(javaScriptDirectory.toString(), NodeModules, "@mroylance", "protobuftshelper", "run.sh").toString(), "$ModelJS ${typeScriptModelFile}Factory.ts ./$typeScriptModelFile.d.ts $typeScriptModelFile", false))
+                .command(FileProcessUtilities.buildCommand(Paths.get(javaScriptDirectory.toString(), NodeModules, "protobuftshelper", "run.sh").toString(), "$ModelJS ${typeScriptModelFile}Factory.ts ./$typeScriptModelFile.d.ts $typeScriptModelFile", false))
         this.handleProcess(protoTypeScriptHelperProcess, "protoTypeScriptHelperProcess")
 
         Paths.get(javaScriptDirectory.toString(), ModelJson).toFile().delete()

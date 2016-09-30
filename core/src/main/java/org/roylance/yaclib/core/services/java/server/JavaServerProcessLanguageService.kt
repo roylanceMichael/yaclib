@@ -23,6 +23,7 @@ class JavaServerProcessLanguageService: IProcessLanguageService {
         returnList.addFiles(JavaLaunchBuilder().build())
         returnList.addFiles(JavaServletXMLBuilder(mainDependency).build())
         returnList.addFiles(Java8Base64ServiceBuilder(mainDependency).build())
+        returnList.addFiles(ProcBuilder().build())
 
         returnList.addFiles(KotlinIServiceLocatorBuilder(controllerDependencies, mainDependency).build())
         returnList.addFiles(KotlinServiceLocatorBuilder(controllerDependencies, mainDependency).build())

@@ -44,7 +44,7 @@ class NPMPackageBuilder(private val dependencies: YaclibModel.AllControllerDepen
     private fun buildDependencies(): String {
         val workspace = StringBuilder()
         val thirdPartyDependenciesStr = this.thirdPartyDependencies
-                .filter { it.type.equals(YaclibModel.DependencyType.TYPESCRIPT) }.map {
+                .filter { it.type == YaclibModel.DependencyType.TYPESCRIPT }.map {
             TypeScriptUtilities.buildDependency(it)
         }.joinToString()
 
