@@ -88,7 +88,7 @@ dependencies {
             this.mainDependency.repository.isPrivate) {
             if (mainDependency.repository.repositoryType == YaclibModel.RepositoryType.ARTIFACTORY) {
                 return """maven {
-    url "${JavaUtilities.buildArtifactoryRepositoryUrl(mainDependency.repository)}"
+    url "${JavaUtilities.buildRepositoryUrl(mainDependency.repository)}"
     credentials {
         username System.getenv('ARTIFACTORY_USER')
         password System.getenv('ARTIFACTORY_PASSWORD')
@@ -97,7 +97,7 @@ dependencies {
 """
             }
             return """maven {
-    url "${this.mainDependency.repository.url}"
+    url "${JavaUtilities.buildRepositoryUrl(mainDependency.repository)}"
     credentials {
         username System.getenv('BINTRAY_USER')
         password System.getenv('BINTRAY_KEY')
@@ -108,12 +108,12 @@ dependencies {
         else if (this.mainDependency.hasRepository()) {
             if (mainDependency.repository.repositoryType == YaclibModel.RepositoryType.ARTIFACTORY) {
                 return """maven {
-    url "${JavaUtilities.buildArtifactoryRepositoryUrl(mainDependency.repository)}"
+    url "${JavaUtilities.buildRepositoryUrl(mainDependency.repository)}"
 }
 """
             }
             return """maven {
-    url "${this.mainDependency.repository.url}"
+    url "${JavaUtilities.buildRepositoryUrl(mainDependency.repository)}"
 }
 """
         }

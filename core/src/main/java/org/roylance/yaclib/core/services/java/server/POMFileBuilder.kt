@@ -313,7 +313,7 @@ class POMFileBuilder(private val controllerDependencies: YaclibModel.AllControll
   </snapshots>
   <id>${repository.name}</id>
   <name>${repository.name}</name>
-  <url>${JavaUtilities.buildArtifactoryRepositoryUrl(repository)}</url>
+  <url>${JavaUtilities.buildRepositoryUrl(repository)}</url>
 </repository>
 """
     }

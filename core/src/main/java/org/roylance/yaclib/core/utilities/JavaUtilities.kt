@@ -31,10 +31,13 @@ object JavaUtilities {
     const val HerokuPluginVersion = "1.0.3"
     const val JavaServerJdkVersion = "1.8"
 
-    fun buildArtifactoryRepositoryUrl(repository: YaclibModel.Repository): String {
-        if (repository.url.length > 0 && repository.url[repository.url.length - 1] == '/') {
-            return "${repository.url}${repository.name}"
+    fun buildRepositoryUrl(repository: YaclibModel.Repository): String {
+        if (repository.repositoryType == YaclibModel.RepositoryType.ARTIFACTORY) {
+            if (repository.url.length > 0 && repository.url[repository.url.length - 1] == '/') {
+                return "${repository.url}${repository.name}"
+            }
+            return "${repository.url}/${repository.name}"
         }
-        return "${repository.url}/${repository.name}"
+        return repository.url
     }
 }
