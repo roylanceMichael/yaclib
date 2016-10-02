@@ -41,7 +41,7 @@ publishing {
     }
 }
 
-${if (mainDependency.repository.repositoryType == YaclibModel.RepositoryType.ARTIFACTORY) buildArtifactory() else buildBintray()}
+${if (mainDependency.mavenRepository.repositoryType == YaclibModel.RepositoryType.ARTIFACTORY) buildArtifactory() else buildBintray()}
 
 repositories {
     mavenCentral()
@@ -84,52 +84,32 @@ dependencies {
     }
 
     private fun buildRepository(): String {
-        if (this.mainDependency.hasRepository() &&
-            this.mainDependency.repository.isPrivate) {
-            if (mainDependency.repository.repositoryType == YaclibModel.RepositoryType.ARTIFACTORY) {
-                return """maven {
-    url "${JavaUtilities.buildRepositoryUrl(mainDependency.repository)}"
-    credentials {
-        username System.getenv('ARTIFACTORY_USER')
-        password System.getenv('ARTIFACTORY_PASSWORD')
-    }
-}
-"""
-            }
+       if (mainDependency.mavenRepository.repositoryType == YaclibModel.RepositoryType.PRIVATE_BINTRAY) {
             return """maven {
-    url "${JavaUtilities.buildRepositoryUrl(mainDependency.repository)}"
+    url "${JavaUtilities.buildRepositoryUrl(mainDependency.mavenRepository)}"
     credentials {
-        username System.getenv('BINTRAY_USER')
-        password System.getenv('BINTRAY_KEY')
+        username System.getenv('${JavaUtilities.BintrayUserName}')
+        password System.getenv('${JavaUtilities.BintrayKeyName}')
     }
-}
-"""
+}"""
         }
-        else if (this.mainDependency.hasRepository()) {
-            if (mainDependency.repository.repositoryType == YaclibModel.RepositoryType.ARTIFACTORY) {
-                return """maven {
-    url "${JavaUtilities.buildRepositoryUrl(mainDependency.repository)}"
-}
-"""
-            }
-            return """maven {
-    url "${JavaUtilities.buildRepositoryUrl(mainDependency.repository)}"
-}
-"""
-        }
-
+        else if (mainDependency.hasMavenRepository() && mainDependency.mavenRepository.url.length > 0) {
+           return """maven {
+    url "${JavaUtilities.buildRepositoryUrl(mainDependency.mavenRepository)}"
+}"""
+       }
         return ""
     }
 
     private fun buildBintray(): String {
         return """
 bintray {
-    user = System.getenv('BINTRAY_USER')
-    key = System.getenv('BINTRAY_KEY')
+    user = System.getenv('${JavaUtilities.BintrayUserName}')
+    key = System.getenv('${JavaUtilities.BintrayKeyName}')
     publications = ['mavenJava']
     publish = true
     pkg {
-        repo = '${mainDependency.repository.name}'
+        repo = '${mainDependency.mavenRepository.name}'
         name = "${mainDependency.group}.${CommonTokens.ClientApi}"
         userOrg = user
         licenses = ['${mainDependency.license}']
@@ -145,12 +125,12 @@ bintray {
 
     private fun buildArtifactory(): String {
         return """artifactory {
-    contextUrl = "${mainDependency.repository.url}"   //The base Artifactory URL if not overridden by the publisher/resolver
+    contextUrl = "${mainDependency.mavenRepository.url}"   //The base Artifactory URL if not overridden by the publisher/resolver
     publish {
         repository {
-            repoKey = '${mainDependency.repository.name}'
-            username = System.getenv('ARTIFACTORY_USER')
-            password = System.getenv('ARTIFACTORY_PASSWORD')
+            repoKey = '${mainDependency.mavenRepository.name}'
+            username = System.getenv('${JavaUtilities.ArtifactoryUserName}')
+            password = System.getenv('${JavaUtilities.ArtifactoryPasswordName}')
             maven = true
 
         }

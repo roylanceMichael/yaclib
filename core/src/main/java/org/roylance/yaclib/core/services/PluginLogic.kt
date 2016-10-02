@@ -8,27 +8,17 @@ import org.roylance.yaclib.core.enums.CommonTokens
 import org.roylance.yaclib.core.models.DependencyDescriptor
 import org.roylance.yaclib.core.utilities.CSharpUtilities
 import org.roylance.yaclib.core.utilities.FileProcessUtilities
+import org.roylance.yaclib.core.utilities.TypeScriptUtilities
 import java.io.IOException
 import java.nio.file.Paths
 
 class PluginLogic(
-        val typeScriptModelFile: String,
-        val nodeAliasName: String?,
-        val majorVersion: Int,
-        val minorVersion: Int,
         val location: String,
-        val repositoryType: YaclibModel.RepositoryType,
-        val mainModel: Descriptors.FileDescriptor,
+        val mainDependency: YaclibModel.Dependency,
         val mainController: Descriptors.FileDescriptor,
         val dependencyDescriptors: List<DependencyDescriptor>,
         val thirdPartyServerDependencies: List<YaclibModel.Dependency>,
-        val nugetKey: String?,
-        val githubRepo: String,
-        val repoUrl: String,
-        val repoName: String,
-        val repoUser: String,
-        val license: String,
-        val author: String): IBuilder<Boolean> {
+        val nugetKey: String?): IBuilder<Boolean> {
 
     override fun build(): Boolean {
         println("deleting ${Paths.get(location, CommonTokens.JavaScriptName).toFile()}")
@@ -40,28 +30,18 @@ class PluginLogic(
 
         println("running main logic now")
         MainLogic(
-                this.typeScriptModelFile,
-                this.nodeAliasName,
-                this.majorVersion,
-                this.minorVersion,
-                this.location,
-                this.repositoryType,
-                this.mainModel,
-                this.mainController,
-                this.dependencyDescriptors,
-                this.thirdPartyServerDependencies,
-                this.nugetKey != null,
-                this.githubRepo,
-                this.repoUrl,
-                this.repoName,
-                this.repoUser,
-                this.license,
-                this.author).build()
+                location,
+                mainDependency,
+                mainController,
+                dependencyDescriptors,
+                thirdPartyServerDependencies,
+                nugetKey != null).build()
 
         println("now doing final cleanup")
         if (this.nugetKey != null) {
             this.handleCSharp()
         }
+
         this.handleJavaClient()
         this.handleJavaScript()
         this.handleServer()
@@ -106,7 +86,7 @@ class PluginLogic(
                 .command(FileProcessUtilities.buildCommand("gradle", "build"))
         this.handleProcess(gradleBuildProcess, "gradleBuildProcess")
 
-        if (this.repositoryType == YaclibModel.RepositoryType.ARTIFACTORY) {
+        if (this.mainDependency.mavenRepository.repositoryType == YaclibModel.RepositoryType.ARTIFACTORY) {
             val artifactoryPublish = ProcessBuilder()
                     .directory(javaClientDirectory)
                     .command(FileProcessUtilities.buildCommand("gradle", "artifactoryPublish"))
@@ -141,13 +121,17 @@ class PluginLogic(
 
         val proto2TypeScriptProcess = ProcessBuilder()
                 .directory(javaScriptDirectory)
-                .command(FileProcessUtilities.buildCommand(Paths.get(javaScriptDirectory.toString(), NodeModules, "proto2typescript", Bin, "proto2typescript-bin.js").toString(), "--file $ModelJson > $typeScriptModelFile.d.ts", false))
+                .command(FileProcessUtilities.buildCommand(Paths.get(javaScriptDirectory.toString(), NodeModules, "proto2typescript", Bin, "proto2typescript-bin.js").toString(), "--file $ModelJson > ${mainDependency.typescriptModelFile}.d.ts", false))
         this.handleProcess(proto2TypeScriptProcess, "proto2TypeScriptProcess")
 
-        val protoTypeScriptHelperProcess = ProcessBuilder()
-                .directory(javaScriptDirectory)
-                .command(FileProcessUtilities.buildCommand(Paths.get(javaScriptDirectory.toString(), NodeModules, "protobuftshelper", "run.sh").toString(), "$ModelJS ${typeScriptModelFile}Factory.ts ./$typeScriptModelFile.d.ts $typeScriptModelFile", false))
-        this.handleProcess(protoTypeScriptHelperProcess, "protoTypeScriptHelperProcess")
+        // protobuf ts helper
+        val typeScriptDefinitionPath = "./${mainDependency.typescriptModelFile}.d.ts"
+        val inputFileString = FileProcessUtilities.readFile(Paths.get(javaScriptDirectory.toString(), ModelJS).toString())
+        val outputTypeScript = TypeScriptUtilities.buildTypeScriptOutput(
+                typeScriptDefinitionPath,
+                mainDependency.typescriptModelFile,
+                inputFileString)
+        FileProcessUtilities.writeFile(outputTypeScript, Paths.get(javaScriptDirectory.toString(), "${mainDependency.typescriptModelFile}Factory.ts").toString())
 
         Paths.get(javaScriptDirectory.toString(), ModelJson).toFile().delete()
         Paths.get(javaScriptDirectory.toString(), ModelJS).toFile().delete()
@@ -164,14 +148,6 @@ class PluginLogic(
     }
 
     private fun handleCSharp() {
-        val mainDependency = YaclibModel.Dependency.newBuilder()
-                .setName(CommonTokens.ApiName)
-                .setMajorVersion(this.majorVersion)
-                .setMinorVersion(this.minorVersion)
-                .setTypescriptModelFile(this.typeScriptModelFile)
-                .setGroup(this.mainModel.`package`)
-                .build()
-
         val csharpDirectory = Paths.get(this.location, CommonTokens.CSharpName, CSharpUtilities.buildFullName(mainDependency)).toFile()
 
         val generateProtoProcess = CSharpUtilities.buildProtobufs(this.location, mainDependency)
@@ -193,7 +169,7 @@ class PluginLogic(
         this.handleProcess(dotnetPackProcess, "dotnetPackProcess")
 
         val nugetDirectoryLocation = Paths.get(csharpDirectory.toString(), "bin", "Debug").toFile()
-        val nugetPackageName = "${CSharpUtilities.buildFullName(mainDependency)}.${this.majorVersion}.${this.minorVersion}.0.nupkg"
+        val nugetPackageName = "${CSharpUtilities.buildFullName(mainDependency)}.${mainDependency.majorVersion}.${mainDependency.minorVersion}.0.nupkg"
         val dotnetPublishProcess = ProcessBuilder()
                 .directory(nugetDirectoryLocation)
                 .command(FileProcessUtilities.buildCommand(Nuget, "push $nugetPackageName ${this.nugetKey}"))

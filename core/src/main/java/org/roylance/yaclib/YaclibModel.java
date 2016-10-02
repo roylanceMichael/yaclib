@@ -51,6 +51,10 @@ public final class YaclibModel {
      * <code>PRIVATE_PIP = 7;</code>
      */
     PRIVATE_PIP(7),
+    /**
+     * <code>PRIVATE_BINTRAY = 8;</code>
+     */
+    PRIVATE_BINTRAY(8),
     UNRECOGNIZED(-1),
     ;
 
@@ -86,6 +90,10 @@ public final class YaclibModel {
      * <code>PRIVATE_PIP = 7;</code>
      */
     public static final int PRIVATE_PIP_VALUE = 7;
+    /**
+     * <code>PRIVATE_BINTRAY = 8;</code>
+     */
+    public static final int PRIVATE_BINTRAY_VALUE = 8;
 
 
     public final int getNumber() {
@@ -114,6 +122,7 @@ public final class YaclibModel {
         case 5: return PRIVATE_NUGET;
         case 6: return PIP;
         case 7: return PRIVATE_PIP;
+        case 8: return PRIVATE_BINTRAY;
         default: return null;
       }
     }
@@ -368,6 +377,10 @@ public final class YaclibModel {
      * <code>SH_EXT = 17;</code>
      */
     SH_EXT(17),
+    /**
+     * <code>MD_EXT = 18;</code>
+     */
+    MD_EXT(18),
     UNRECOGNIZED(-1),
     ;
 
@@ -443,6 +456,10 @@ public final class YaclibModel {
      * <code>SH_EXT = 17;</code>
      */
     public static final int SH_EXT_VALUE = 17;
+    /**
+     * <code>MD_EXT = 18;</code>
+     */
+    public static final int MD_EXT_VALUE = 18;
 
 
     public final int getNumber() {
@@ -481,6 +498,7 @@ public final class YaclibModel {
         case 15: return SLN_EXT;
         case 16: return XPROJ_EXT;
         case 17: return SH_EXT;
+        case 18: return MD_EXT;
         default: return null;
       }
     }
@@ -656,11 +674,6 @@ public final class YaclibModel {
         getUsernameBytes();
 
     /**
-     * <code>optional bool is_private = 7;</code>
-     */
-    boolean getIsPrivate();
-
-    /**
      * <code>optional string name = 8;</code>
      */
     java.lang.String getName();
@@ -678,6 +691,26 @@ public final class YaclibModel {
      * <code>optional .org.roylance.yaclib.RepositoryType repository_type = 9;</code>
      */
     org.roylance.yaclib.YaclibModel.RepositoryType getRepositoryType();
+
+    /**
+     * <code>optional string registry = 10;</code>
+     */
+    java.lang.String getRegistry();
+    /**
+     * <code>optional string registry = 10;</code>
+     */
+    com.google.protobuf.ByteString
+        getRegistryBytes();
+
+    /**
+     * <code>optional string npm_scope = 11;</code>
+     */
+    java.lang.String getNpmScope();
+    /**
+     * <code>optional string npm_scope = 11;</code>
+     */
+    com.google.protobuf.ByteString
+        getNpmScopeBytes();
   }
   /**
    * Protobuf type {@code org.roylance.yaclib.Repository}
@@ -693,9 +726,10 @@ public final class YaclibModel {
     private Repository() {
       url_ = "";
       username_ = "";
-      isPrivate_ = false;
       name_ = "";
       repositoryType_ = 0;
+      registry_ = "";
+      npmScope_ = "";
     }
 
     @java.lang.Override
@@ -735,11 +769,6 @@ public final class YaclibModel {
               username_ = s;
               break;
             }
-            case 56: {
-
-              isPrivate_ = input.readBool();
-              break;
-            }
             case 66: {
               java.lang.String s = input.readStringRequireUtf8();
 
@@ -750,6 +779,18 @@ public final class YaclibModel {
               int rawValue = input.readEnum();
 
               repositoryType_ = rawValue;
+              break;
+            }
+            case 82: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              registry_ = s;
+              break;
+            }
+            case 90: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              npmScope_ = s;
               break;
             }
           }
@@ -843,15 +884,6 @@ public final class YaclibModel {
       }
     }
 
-    public static final int IS_PRIVATE_FIELD_NUMBER = 7;
-    private boolean isPrivate_;
-    /**
-     * <code>optional bool is_private = 7;</code>
-     */
-    public boolean getIsPrivate() {
-      return isPrivate_;
-    }
-
     public static final int NAME_FIELD_NUMBER = 8;
     private volatile java.lang.Object name_;
     /**
@@ -902,6 +934,74 @@ public final class YaclibModel {
       return result == null ? org.roylance.yaclib.YaclibModel.RepositoryType.UNRECOGNIZED : result;
     }
 
+    public static final int REGISTRY_FIELD_NUMBER = 10;
+    private volatile java.lang.Object registry_;
+    /**
+     * <code>optional string registry = 10;</code>
+     */
+    public java.lang.String getRegistry() {
+      java.lang.Object ref = registry_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        registry_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>optional string registry = 10;</code>
+     */
+    public com.google.protobuf.ByteString
+        getRegistryBytes() {
+      java.lang.Object ref = registry_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        registry_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int NPM_SCOPE_FIELD_NUMBER = 11;
+    private volatile java.lang.Object npmScope_;
+    /**
+     * <code>optional string npm_scope = 11;</code>
+     */
+    public java.lang.String getNpmScope() {
+      java.lang.Object ref = npmScope_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        npmScope_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>optional string npm_scope = 11;</code>
+     */
+    public com.google.protobuf.ByteString
+        getNpmScopeBytes() {
+      java.lang.Object ref = npmScope_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        npmScope_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
@@ -920,14 +1020,17 @@ public final class YaclibModel {
       if (!getUsernameBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, username_);
       }
-      if (isPrivate_ != false) {
-        output.writeBool(7, isPrivate_);
-      }
       if (!getNameBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 8, name_);
       }
       if (repositoryType_ != org.roylance.yaclib.YaclibModel.RepositoryType.BINTRAY.getNumber()) {
         output.writeEnum(9, repositoryType_);
+      }
+      if (!getRegistryBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 10, registry_);
+      }
+      if (!getNpmScopeBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 11, npmScope_);
       }
     }
 
@@ -942,16 +1045,18 @@ public final class YaclibModel {
       if (!getUsernameBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, username_);
       }
-      if (isPrivate_ != false) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBoolSize(7, isPrivate_);
-      }
       if (!getNameBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(8, name_);
       }
       if (repositoryType_ != org.roylance.yaclib.YaclibModel.RepositoryType.BINTRAY.getNumber()) {
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(9, repositoryType_);
+      }
+      if (!getRegistryBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(10, registry_);
+      }
+      if (!getNpmScopeBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(11, npmScope_);
       }
       memoizedSize = size;
       return size;
@@ -973,11 +1078,13 @@ public final class YaclibModel {
           .equals(other.getUrl());
       result = result && getUsername()
           .equals(other.getUsername());
-      result = result && (getIsPrivate()
-          == other.getIsPrivate());
       result = result && getName()
           .equals(other.getName());
       result = result && repositoryType_ == other.repositoryType_;
+      result = result && getRegistry()
+          .equals(other.getRegistry());
+      result = result && getNpmScope()
+          .equals(other.getNpmScope());
       return result;
     }
 
@@ -992,13 +1099,14 @@ public final class YaclibModel {
       hash = (53 * hash) + getUrl().hashCode();
       hash = (37 * hash) + USERNAME_FIELD_NUMBER;
       hash = (53 * hash) + getUsername().hashCode();
-      hash = (37 * hash) + IS_PRIVATE_FIELD_NUMBER;
-      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
-          getIsPrivate());
       hash = (37 * hash) + NAME_FIELD_NUMBER;
       hash = (53 * hash) + getName().hashCode();
       hash = (37 * hash) + REPOSITORY_TYPE_FIELD_NUMBER;
       hash = (53 * hash) + repositoryType_;
+      hash = (37 * hash) + REGISTRY_FIELD_NUMBER;
+      hash = (53 * hash) + getRegistry().hashCode();
+      hash = (37 * hash) + NPM_SCOPE_FIELD_NUMBER;
+      hash = (53 * hash) + getNpmScope().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -1121,11 +1229,13 @@ public final class YaclibModel {
 
         username_ = "";
 
-        isPrivate_ = false;
-
         name_ = "";
 
         repositoryType_ = 0;
+
+        registry_ = "";
+
+        npmScope_ = "";
 
         return this;
       }
@@ -1151,9 +1261,10 @@ public final class YaclibModel {
         org.roylance.yaclib.YaclibModel.Repository result = new org.roylance.yaclib.YaclibModel.Repository(this);
         result.url_ = url_;
         result.username_ = username_;
-        result.isPrivate_ = isPrivate_;
         result.name_ = name_;
         result.repositoryType_ = repositoryType_;
+        result.registry_ = registry_;
+        result.npmScope_ = npmScope_;
         onBuilt();
         return result;
       }
@@ -1203,15 +1314,20 @@ public final class YaclibModel {
           username_ = other.username_;
           onChanged();
         }
-        if (other.getIsPrivate() != false) {
-          setIsPrivate(other.getIsPrivate());
-        }
         if (!other.getName().isEmpty()) {
           name_ = other.name_;
           onChanged();
         }
         if (other.repositoryType_ != 0) {
           setRepositoryTypeValue(other.getRepositoryTypeValue());
+        }
+        if (!other.getRegistry().isEmpty()) {
+          registry_ = other.registry_;
+          onChanged();
+        }
+        if (!other.getNpmScope().isEmpty()) {
+          npmScope_ = other.npmScope_;
+          onChanged();
         }
         onChanged();
         return this;
@@ -1377,32 +1493,6 @@ public final class YaclibModel {
         return this;
       }
 
-      private boolean isPrivate_ ;
-      /**
-       * <code>optional bool is_private = 7;</code>
-       */
-      public boolean getIsPrivate() {
-        return isPrivate_;
-      }
-      /**
-       * <code>optional bool is_private = 7;</code>
-       */
-      public Builder setIsPrivate(boolean value) {
-        
-        isPrivate_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>optional bool is_private = 7;</code>
-       */
-      public Builder clearIsPrivate() {
-        
-        isPrivate_ = false;
-        onChanged();
-        return this;
-      }
-
       private java.lang.Object name_ = "";
       /**
        * <code>optional string name = 8;</code>
@@ -1515,6 +1605,144 @@ public final class YaclibModel {
         onChanged();
         return this;
       }
+
+      private java.lang.Object registry_ = "";
+      /**
+       * <code>optional string registry = 10;</code>
+       */
+      public java.lang.String getRegistry() {
+        java.lang.Object ref = registry_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          registry_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string registry = 10;</code>
+       */
+      public com.google.protobuf.ByteString
+          getRegistryBytes() {
+        java.lang.Object ref = registry_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          registry_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string registry = 10;</code>
+       */
+      public Builder setRegistry(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        registry_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string registry = 10;</code>
+       */
+      public Builder clearRegistry() {
+        
+        registry_ = getDefaultInstance().getRegistry();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string registry = 10;</code>
+       */
+      public Builder setRegistryBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        registry_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object npmScope_ = "";
+      /**
+       * <code>optional string npm_scope = 11;</code>
+       */
+      public java.lang.String getNpmScope() {
+        java.lang.Object ref = npmScope_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          npmScope_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string npm_scope = 11;</code>
+       */
+      public com.google.protobuf.ByteString
+          getNpmScopeBytes() {
+        java.lang.Object ref = npmScope_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          npmScope_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string npm_scope = 11;</code>
+       */
+      public Builder setNpmScope(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        npmScope_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string npm_scope = 11;</code>
+       */
+      public Builder clearNpmScope() {
+        
+        npmScope_ = getDefaultInstance().getNpmScope();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string npm_scope = 11;</code>
+       */
+      public Builder setNpmScopeBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        npmScope_ = value;
+        onChanged();
+        return this;
+      }
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return this;
@@ -1598,19 +1826,6 @@ public final class YaclibModel {
         getNameBytes();
 
     /**
-     * <code>optional .org.roylance.yaclib.Repository repository = 5;</code>
-     */
-    boolean hasRepository();
-    /**
-     * <code>optional .org.roylance.yaclib.Repository repository = 5;</code>
-     */
-    org.roylance.yaclib.YaclibModel.Repository getRepository();
-    /**
-     * <code>optional .org.roylance.yaclib.Repository repository = 5;</code>
-     */
-    org.roylance.yaclib.YaclibModel.RepositoryOrBuilder getRepositoryOrBuilder();
-
-    /**
      * <code>optional string typescript_model_file = 6;</code>
      */
     java.lang.String getTypescriptModelFile();
@@ -1619,16 +1834,6 @@ public final class YaclibModel {
      */
     com.google.protobuf.ByteString
         getTypescriptModelFileBytes();
-
-    /**
-     * <code>optional string node_alias_name = 9;</code>
-     */
-    java.lang.String getNodeAliasName();
-    /**
-     * <code>optional string node_alias_name = 9;</code>
-     */
-    com.google.protobuf.ByteString
-        getNodeAliasNameBytes();
 
     /**
      * <code>optional string third_party_dependency_version = 11;</code>
@@ -1679,6 +1884,58 @@ public final class YaclibModel {
      */
     com.google.protobuf.ByteString
         getLicenseBytes();
+
+    /**
+     * <code>optional .org.roylance.yaclib.Repository maven_repository = 17;</code>
+     */
+    boolean hasMavenRepository();
+    /**
+     * <code>optional .org.roylance.yaclib.Repository maven_repository = 17;</code>
+     */
+    org.roylance.yaclib.YaclibModel.Repository getMavenRepository();
+    /**
+     * <code>optional .org.roylance.yaclib.Repository maven_repository = 17;</code>
+     */
+    org.roylance.yaclib.YaclibModel.RepositoryOrBuilder getMavenRepositoryOrBuilder();
+
+    /**
+     * <code>optional .org.roylance.yaclib.Repository npm_repository = 18;</code>
+     */
+    boolean hasNpmRepository();
+    /**
+     * <code>optional .org.roylance.yaclib.Repository npm_repository = 18;</code>
+     */
+    org.roylance.yaclib.YaclibModel.Repository getNpmRepository();
+    /**
+     * <code>optional .org.roylance.yaclib.Repository npm_repository = 18;</code>
+     */
+    org.roylance.yaclib.YaclibModel.RepositoryOrBuilder getNpmRepositoryOrBuilder();
+
+    /**
+     * <code>optional .org.roylance.yaclib.Repository nuget_repository = 19;</code>
+     */
+    boolean hasNugetRepository();
+    /**
+     * <code>optional .org.roylance.yaclib.Repository nuget_repository = 19;</code>
+     */
+    org.roylance.yaclib.YaclibModel.Repository getNugetRepository();
+    /**
+     * <code>optional .org.roylance.yaclib.Repository nuget_repository = 19;</code>
+     */
+    org.roylance.yaclib.YaclibModel.RepositoryOrBuilder getNugetRepositoryOrBuilder();
+
+    /**
+     * <code>optional .org.roylance.yaclib.Repository pip_repository = 20;</code>
+     */
+    boolean hasPipRepository();
+    /**
+     * <code>optional .org.roylance.yaclib.Repository pip_repository = 20;</code>
+     */
+    org.roylance.yaclib.YaclibModel.Repository getPipRepository();
+    /**
+     * <code>optional .org.roylance.yaclib.Repository pip_repository = 20;</code>
+     */
+    org.roylance.yaclib.YaclibModel.RepositoryOrBuilder getPipRepositoryOrBuilder();
   }
   /**
    * Protobuf type {@code org.roylance.yaclib.Dependency}
@@ -1696,7 +1953,6 @@ public final class YaclibModel {
       group_ = "";
       name_ = "";
       typescriptModelFile_ = "";
-      nodeAliasName_ = "";
       thirdPartyDependencyVersion_ = "";
       majorVersion_ = 0;
       minorVersion_ = 0;
@@ -1748,29 +2004,10 @@ public final class YaclibModel {
               name_ = s;
               break;
             }
-            case 42: {
-              org.roylance.yaclib.YaclibModel.Repository.Builder subBuilder = null;
-              if (repository_ != null) {
-                subBuilder = repository_.toBuilder();
-              }
-              repository_ = input.readMessage(org.roylance.yaclib.YaclibModel.Repository.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(repository_);
-                repository_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
             case 50: {
               java.lang.String s = input.readStringRequireUtf8();
 
               typescriptModelFile_ = s;
-              break;
-            }
-            case 74: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              nodeAliasName_ = s;
               break;
             }
             case 90: {
@@ -1805,6 +2042,58 @@ public final class YaclibModel {
               java.lang.String s = input.readStringRequireUtf8();
 
               license_ = s;
+              break;
+            }
+            case 138: {
+              org.roylance.yaclib.YaclibModel.Repository.Builder subBuilder = null;
+              if (mavenRepository_ != null) {
+                subBuilder = mavenRepository_.toBuilder();
+              }
+              mavenRepository_ = input.readMessage(org.roylance.yaclib.YaclibModel.Repository.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(mavenRepository_);
+                mavenRepository_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 146: {
+              org.roylance.yaclib.YaclibModel.Repository.Builder subBuilder = null;
+              if (npmRepository_ != null) {
+                subBuilder = npmRepository_.toBuilder();
+              }
+              npmRepository_ = input.readMessage(org.roylance.yaclib.YaclibModel.Repository.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(npmRepository_);
+                npmRepository_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 154: {
+              org.roylance.yaclib.YaclibModel.Repository.Builder subBuilder = null;
+              if (nugetRepository_ != null) {
+                subBuilder = nugetRepository_.toBuilder();
+              }
+              nugetRepository_ = input.readMessage(org.roylance.yaclib.YaclibModel.Repository.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(nugetRepository_);
+                nugetRepository_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 162: {
+              org.roylance.yaclib.YaclibModel.Repository.Builder subBuilder = null;
+              if (pipRepository_ != null) {
+                subBuilder = pipRepository_.toBuilder();
+              }
+              pipRepository_ = input.readMessage(org.roylance.yaclib.YaclibModel.Repository.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(pipRepository_);
+                pipRepository_ = subBuilder.buildPartial();
+              }
+
               break;
             }
           }
@@ -1914,27 +2203,6 @@ public final class YaclibModel {
       }
     }
 
-    public static final int REPOSITORY_FIELD_NUMBER = 5;
-    private org.roylance.yaclib.YaclibModel.Repository repository_;
-    /**
-     * <code>optional .org.roylance.yaclib.Repository repository = 5;</code>
-     */
-    public boolean hasRepository() {
-      return repository_ != null;
-    }
-    /**
-     * <code>optional .org.roylance.yaclib.Repository repository = 5;</code>
-     */
-    public org.roylance.yaclib.YaclibModel.Repository getRepository() {
-      return repository_ == null ? org.roylance.yaclib.YaclibModel.Repository.getDefaultInstance() : repository_;
-    }
-    /**
-     * <code>optional .org.roylance.yaclib.Repository repository = 5;</code>
-     */
-    public org.roylance.yaclib.YaclibModel.RepositoryOrBuilder getRepositoryOrBuilder() {
-      return getRepository();
-    }
-
     public static final int TYPESCRIPT_MODEL_FILE_FIELD_NUMBER = 6;
     private volatile java.lang.Object typescriptModelFile_;
     /**
@@ -1963,40 +2231,6 @@ public final class YaclibModel {
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
         typescriptModelFile_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    public static final int NODE_ALIAS_NAME_FIELD_NUMBER = 9;
-    private volatile java.lang.Object nodeAliasName_;
-    /**
-     * <code>optional string node_alias_name = 9;</code>
-     */
-    public java.lang.String getNodeAliasName() {
-      java.lang.Object ref = nodeAliasName_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        nodeAliasName_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>optional string node_alias_name = 9;</code>
-     */
-    public com.google.protobuf.ByteString
-        getNodeAliasNameBytes() {
-      java.lang.Object ref = nodeAliasName_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        nodeAliasName_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
@@ -2157,6 +2391,90 @@ public final class YaclibModel {
       }
     }
 
+    public static final int MAVEN_REPOSITORY_FIELD_NUMBER = 17;
+    private org.roylance.yaclib.YaclibModel.Repository mavenRepository_;
+    /**
+     * <code>optional .org.roylance.yaclib.Repository maven_repository = 17;</code>
+     */
+    public boolean hasMavenRepository() {
+      return mavenRepository_ != null;
+    }
+    /**
+     * <code>optional .org.roylance.yaclib.Repository maven_repository = 17;</code>
+     */
+    public org.roylance.yaclib.YaclibModel.Repository getMavenRepository() {
+      return mavenRepository_ == null ? org.roylance.yaclib.YaclibModel.Repository.getDefaultInstance() : mavenRepository_;
+    }
+    /**
+     * <code>optional .org.roylance.yaclib.Repository maven_repository = 17;</code>
+     */
+    public org.roylance.yaclib.YaclibModel.RepositoryOrBuilder getMavenRepositoryOrBuilder() {
+      return getMavenRepository();
+    }
+
+    public static final int NPM_REPOSITORY_FIELD_NUMBER = 18;
+    private org.roylance.yaclib.YaclibModel.Repository npmRepository_;
+    /**
+     * <code>optional .org.roylance.yaclib.Repository npm_repository = 18;</code>
+     */
+    public boolean hasNpmRepository() {
+      return npmRepository_ != null;
+    }
+    /**
+     * <code>optional .org.roylance.yaclib.Repository npm_repository = 18;</code>
+     */
+    public org.roylance.yaclib.YaclibModel.Repository getNpmRepository() {
+      return npmRepository_ == null ? org.roylance.yaclib.YaclibModel.Repository.getDefaultInstance() : npmRepository_;
+    }
+    /**
+     * <code>optional .org.roylance.yaclib.Repository npm_repository = 18;</code>
+     */
+    public org.roylance.yaclib.YaclibModel.RepositoryOrBuilder getNpmRepositoryOrBuilder() {
+      return getNpmRepository();
+    }
+
+    public static final int NUGET_REPOSITORY_FIELD_NUMBER = 19;
+    private org.roylance.yaclib.YaclibModel.Repository nugetRepository_;
+    /**
+     * <code>optional .org.roylance.yaclib.Repository nuget_repository = 19;</code>
+     */
+    public boolean hasNugetRepository() {
+      return nugetRepository_ != null;
+    }
+    /**
+     * <code>optional .org.roylance.yaclib.Repository nuget_repository = 19;</code>
+     */
+    public org.roylance.yaclib.YaclibModel.Repository getNugetRepository() {
+      return nugetRepository_ == null ? org.roylance.yaclib.YaclibModel.Repository.getDefaultInstance() : nugetRepository_;
+    }
+    /**
+     * <code>optional .org.roylance.yaclib.Repository nuget_repository = 19;</code>
+     */
+    public org.roylance.yaclib.YaclibModel.RepositoryOrBuilder getNugetRepositoryOrBuilder() {
+      return getNugetRepository();
+    }
+
+    public static final int PIP_REPOSITORY_FIELD_NUMBER = 20;
+    private org.roylance.yaclib.YaclibModel.Repository pipRepository_;
+    /**
+     * <code>optional .org.roylance.yaclib.Repository pip_repository = 20;</code>
+     */
+    public boolean hasPipRepository() {
+      return pipRepository_ != null;
+    }
+    /**
+     * <code>optional .org.roylance.yaclib.Repository pip_repository = 20;</code>
+     */
+    public org.roylance.yaclib.YaclibModel.Repository getPipRepository() {
+      return pipRepository_ == null ? org.roylance.yaclib.YaclibModel.Repository.getDefaultInstance() : pipRepository_;
+    }
+    /**
+     * <code>optional .org.roylance.yaclib.Repository pip_repository = 20;</code>
+     */
+    public org.roylance.yaclib.YaclibModel.RepositoryOrBuilder getPipRepositoryOrBuilder() {
+      return getPipRepository();
+    }
+
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
@@ -2178,14 +2496,8 @@ public final class YaclibModel {
       if (!getNameBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 3, name_);
       }
-      if (repository_ != null) {
-        output.writeMessage(5, getRepository());
-      }
       if (!getTypescriptModelFileBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 6, typescriptModelFile_);
-      }
-      if (!getNodeAliasNameBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 9, nodeAliasName_);
       }
       if (!getThirdPartyDependencyVersionBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 11, thirdPartyDependencyVersion_);
@@ -2205,6 +2517,18 @@ public final class YaclibModel {
       if (!getLicenseBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 16, license_);
       }
+      if (mavenRepository_ != null) {
+        output.writeMessage(17, getMavenRepository());
+      }
+      if (npmRepository_ != null) {
+        output.writeMessage(18, getNpmRepository());
+      }
+      if (nugetRepository_ != null) {
+        output.writeMessage(19, getNugetRepository());
+      }
+      if (pipRepository_ != null) {
+        output.writeMessage(20, getPipRepository());
+      }
     }
 
     public int getSerializedSize() {
@@ -2222,15 +2546,8 @@ public final class YaclibModel {
       if (!getNameBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, name_);
       }
-      if (repository_ != null) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(5, getRepository());
-      }
       if (!getTypescriptModelFileBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, typescriptModelFile_);
-      }
-      if (!getNodeAliasNameBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(9, nodeAliasName_);
       }
       if (!getThirdPartyDependencyVersionBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(11, thirdPartyDependencyVersion_);
@@ -2251,6 +2568,22 @@ public final class YaclibModel {
       }
       if (!getLicenseBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(16, license_);
+      }
+      if (mavenRepository_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(17, getMavenRepository());
+      }
+      if (npmRepository_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(18, getNpmRepository());
+      }
+      if (nugetRepository_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(19, getNugetRepository());
+      }
+      if (pipRepository_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(20, getPipRepository());
       }
       memoizedSize = size;
       return size;
@@ -2273,15 +2606,8 @@ public final class YaclibModel {
           .equals(other.getGroup());
       result = result && getName()
           .equals(other.getName());
-      result = result && (hasRepository() == other.hasRepository());
-      if (hasRepository()) {
-        result = result && getRepository()
-            .equals(other.getRepository());
-      }
       result = result && getTypescriptModelFile()
           .equals(other.getTypescriptModelFile());
-      result = result && getNodeAliasName()
-          .equals(other.getNodeAliasName());
       result = result && getThirdPartyDependencyVersion()
           .equals(other.getThirdPartyDependencyVersion());
       result = result && (getMajorVersion()
@@ -2294,6 +2620,26 @@ public final class YaclibModel {
           .equals(other.getAuthorName());
       result = result && getLicense()
           .equals(other.getLicense());
+      result = result && (hasMavenRepository() == other.hasMavenRepository());
+      if (hasMavenRepository()) {
+        result = result && getMavenRepository()
+            .equals(other.getMavenRepository());
+      }
+      result = result && (hasNpmRepository() == other.hasNpmRepository());
+      if (hasNpmRepository()) {
+        result = result && getNpmRepository()
+            .equals(other.getNpmRepository());
+      }
+      result = result && (hasNugetRepository() == other.hasNugetRepository());
+      if (hasNugetRepository()) {
+        result = result && getNugetRepository()
+            .equals(other.getNugetRepository());
+      }
+      result = result && (hasPipRepository() == other.hasPipRepository());
+      if (hasPipRepository()) {
+        result = result && getPipRepository()
+            .equals(other.getPipRepository());
+      }
       return result;
     }
 
@@ -2310,14 +2656,8 @@ public final class YaclibModel {
       hash = (53 * hash) + getGroup().hashCode();
       hash = (37 * hash) + NAME_FIELD_NUMBER;
       hash = (53 * hash) + getName().hashCode();
-      if (hasRepository()) {
-        hash = (37 * hash) + REPOSITORY_FIELD_NUMBER;
-        hash = (53 * hash) + getRepository().hashCode();
-      }
       hash = (37 * hash) + TYPESCRIPT_MODEL_FILE_FIELD_NUMBER;
       hash = (53 * hash) + getTypescriptModelFile().hashCode();
-      hash = (37 * hash) + NODE_ALIAS_NAME_FIELD_NUMBER;
-      hash = (53 * hash) + getNodeAliasName().hashCode();
       hash = (37 * hash) + THIRD_PARTY_DEPENDENCY_VERSION_FIELD_NUMBER;
       hash = (53 * hash) + getThirdPartyDependencyVersion().hashCode();
       hash = (37 * hash) + MAJOR_VERSION_FIELD_NUMBER;
@@ -2330,6 +2670,22 @@ public final class YaclibModel {
       hash = (53 * hash) + getAuthorName().hashCode();
       hash = (37 * hash) + LICENSE_FIELD_NUMBER;
       hash = (53 * hash) + getLicense().hashCode();
+      if (hasMavenRepository()) {
+        hash = (37 * hash) + MAVEN_REPOSITORY_FIELD_NUMBER;
+        hash = (53 * hash) + getMavenRepository().hashCode();
+      }
+      if (hasNpmRepository()) {
+        hash = (37 * hash) + NPM_REPOSITORY_FIELD_NUMBER;
+        hash = (53 * hash) + getNpmRepository().hashCode();
+      }
+      if (hasNugetRepository()) {
+        hash = (37 * hash) + NUGET_REPOSITORY_FIELD_NUMBER;
+        hash = (53 * hash) + getNugetRepository().hashCode();
+      }
+      if (hasPipRepository()) {
+        hash = (37 * hash) + PIP_REPOSITORY_FIELD_NUMBER;
+        hash = (53 * hash) + getPipRepository().hashCode();
+      }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -2454,15 +2810,7 @@ public final class YaclibModel {
 
         name_ = "";
 
-        if (repositoryBuilder_ == null) {
-          repository_ = null;
-        } else {
-          repository_ = null;
-          repositoryBuilder_ = null;
-        }
         typescriptModelFile_ = "";
-
-        nodeAliasName_ = "";
 
         thirdPartyDependencyVersion_ = "";
 
@@ -2476,6 +2824,30 @@ public final class YaclibModel {
 
         license_ = "";
 
+        if (mavenRepositoryBuilder_ == null) {
+          mavenRepository_ = null;
+        } else {
+          mavenRepository_ = null;
+          mavenRepositoryBuilder_ = null;
+        }
+        if (npmRepositoryBuilder_ == null) {
+          npmRepository_ = null;
+        } else {
+          npmRepository_ = null;
+          npmRepositoryBuilder_ = null;
+        }
+        if (nugetRepositoryBuilder_ == null) {
+          nugetRepository_ = null;
+        } else {
+          nugetRepository_ = null;
+          nugetRepositoryBuilder_ = null;
+        }
+        if (pipRepositoryBuilder_ == null) {
+          pipRepository_ = null;
+        } else {
+          pipRepository_ = null;
+          pipRepositoryBuilder_ = null;
+        }
         return this;
       }
 
@@ -2501,19 +2873,33 @@ public final class YaclibModel {
         result.type_ = type_;
         result.group_ = group_;
         result.name_ = name_;
-        if (repositoryBuilder_ == null) {
-          result.repository_ = repository_;
-        } else {
-          result.repository_ = repositoryBuilder_.build();
-        }
         result.typescriptModelFile_ = typescriptModelFile_;
-        result.nodeAliasName_ = nodeAliasName_;
         result.thirdPartyDependencyVersion_ = thirdPartyDependencyVersion_;
         result.majorVersion_ = majorVersion_;
         result.minorVersion_ = minorVersion_;
         result.githubRepo_ = githubRepo_;
         result.authorName_ = authorName_;
         result.license_ = license_;
+        if (mavenRepositoryBuilder_ == null) {
+          result.mavenRepository_ = mavenRepository_;
+        } else {
+          result.mavenRepository_ = mavenRepositoryBuilder_.build();
+        }
+        if (npmRepositoryBuilder_ == null) {
+          result.npmRepository_ = npmRepository_;
+        } else {
+          result.npmRepository_ = npmRepositoryBuilder_.build();
+        }
+        if (nugetRepositoryBuilder_ == null) {
+          result.nugetRepository_ = nugetRepository_;
+        } else {
+          result.nugetRepository_ = nugetRepositoryBuilder_.build();
+        }
+        if (pipRepositoryBuilder_ == null) {
+          result.pipRepository_ = pipRepository_;
+        } else {
+          result.pipRepository_ = pipRepositoryBuilder_.build();
+        }
         onBuilt();
         return result;
       }
@@ -2566,15 +2952,8 @@ public final class YaclibModel {
           name_ = other.name_;
           onChanged();
         }
-        if (other.hasRepository()) {
-          mergeRepository(other.getRepository());
-        }
         if (!other.getTypescriptModelFile().isEmpty()) {
           typescriptModelFile_ = other.typescriptModelFile_;
-          onChanged();
-        }
-        if (!other.getNodeAliasName().isEmpty()) {
-          nodeAliasName_ = other.nodeAliasName_;
           onChanged();
         }
         if (!other.getThirdPartyDependencyVersion().isEmpty()) {
@@ -2598,6 +2977,18 @@ public final class YaclibModel {
         if (!other.getLicense().isEmpty()) {
           license_ = other.license_;
           onChanged();
+        }
+        if (other.hasMavenRepository()) {
+          mergeMavenRepository(other.getMavenRepository());
+        }
+        if (other.hasNpmRepository()) {
+          mergeNpmRepository(other.getNpmRepository());
+        }
+        if (other.hasNugetRepository()) {
+          mergeNugetRepository(other.getNugetRepository());
+        }
+        if (other.hasPipRepository()) {
+          mergePipRepository(other.getPipRepository());
         }
         onChanged();
         return this;
@@ -2807,123 +3198,6 @@ public final class YaclibModel {
         return this;
       }
 
-      private org.roylance.yaclib.YaclibModel.Repository repository_ = null;
-      private com.google.protobuf.SingleFieldBuilderV3<
-          org.roylance.yaclib.YaclibModel.Repository, org.roylance.yaclib.YaclibModel.Repository.Builder, org.roylance.yaclib.YaclibModel.RepositoryOrBuilder> repositoryBuilder_;
-      /**
-       * <code>optional .org.roylance.yaclib.Repository repository = 5;</code>
-       */
-      public boolean hasRepository() {
-        return repositoryBuilder_ != null || repository_ != null;
-      }
-      /**
-       * <code>optional .org.roylance.yaclib.Repository repository = 5;</code>
-       */
-      public org.roylance.yaclib.YaclibModel.Repository getRepository() {
-        if (repositoryBuilder_ == null) {
-          return repository_ == null ? org.roylance.yaclib.YaclibModel.Repository.getDefaultInstance() : repository_;
-        } else {
-          return repositoryBuilder_.getMessage();
-        }
-      }
-      /**
-       * <code>optional .org.roylance.yaclib.Repository repository = 5;</code>
-       */
-      public Builder setRepository(org.roylance.yaclib.YaclibModel.Repository value) {
-        if (repositoryBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          repository_ = value;
-          onChanged();
-        } else {
-          repositoryBuilder_.setMessage(value);
-        }
-
-        return this;
-      }
-      /**
-       * <code>optional .org.roylance.yaclib.Repository repository = 5;</code>
-       */
-      public Builder setRepository(
-          org.roylance.yaclib.YaclibModel.Repository.Builder builderForValue) {
-        if (repositoryBuilder_ == null) {
-          repository_ = builderForValue.build();
-          onChanged();
-        } else {
-          repositoryBuilder_.setMessage(builderForValue.build());
-        }
-
-        return this;
-      }
-      /**
-       * <code>optional .org.roylance.yaclib.Repository repository = 5;</code>
-       */
-      public Builder mergeRepository(org.roylance.yaclib.YaclibModel.Repository value) {
-        if (repositoryBuilder_ == null) {
-          if (repository_ != null) {
-            repository_ =
-              org.roylance.yaclib.YaclibModel.Repository.newBuilder(repository_).mergeFrom(value).buildPartial();
-          } else {
-            repository_ = value;
-          }
-          onChanged();
-        } else {
-          repositoryBuilder_.mergeFrom(value);
-        }
-
-        return this;
-      }
-      /**
-       * <code>optional .org.roylance.yaclib.Repository repository = 5;</code>
-       */
-      public Builder clearRepository() {
-        if (repositoryBuilder_ == null) {
-          repository_ = null;
-          onChanged();
-        } else {
-          repository_ = null;
-          repositoryBuilder_ = null;
-        }
-
-        return this;
-      }
-      /**
-       * <code>optional .org.roylance.yaclib.Repository repository = 5;</code>
-       */
-      public org.roylance.yaclib.YaclibModel.Repository.Builder getRepositoryBuilder() {
-        
-        onChanged();
-        return getRepositoryFieldBuilder().getBuilder();
-      }
-      /**
-       * <code>optional .org.roylance.yaclib.Repository repository = 5;</code>
-       */
-      public org.roylance.yaclib.YaclibModel.RepositoryOrBuilder getRepositoryOrBuilder() {
-        if (repositoryBuilder_ != null) {
-          return repositoryBuilder_.getMessageOrBuilder();
-        } else {
-          return repository_ == null ?
-              org.roylance.yaclib.YaclibModel.Repository.getDefaultInstance() : repository_;
-        }
-      }
-      /**
-       * <code>optional .org.roylance.yaclib.Repository repository = 5;</code>
-       */
-      private com.google.protobuf.SingleFieldBuilderV3<
-          org.roylance.yaclib.YaclibModel.Repository, org.roylance.yaclib.YaclibModel.Repository.Builder, org.roylance.yaclib.YaclibModel.RepositoryOrBuilder> 
-          getRepositoryFieldBuilder() {
-        if (repositoryBuilder_ == null) {
-          repositoryBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              org.roylance.yaclib.YaclibModel.Repository, org.roylance.yaclib.YaclibModel.Repository.Builder, org.roylance.yaclib.YaclibModel.RepositoryOrBuilder>(
-                  getRepository(),
-                  getParentForChildren(),
-                  isClean());
-          repository_ = null;
-        }
-        return repositoryBuilder_;
-      }
-
       private java.lang.Object typescriptModelFile_ = "";
       /**
        * <code>optional string typescript_model_file = 6;</code>
@@ -2989,75 +3263,6 @@ public final class YaclibModel {
   checkByteStringIsUtf8(value);
         
         typescriptModelFile_ = value;
-        onChanged();
-        return this;
-      }
-
-      private java.lang.Object nodeAliasName_ = "";
-      /**
-       * <code>optional string node_alias_name = 9;</code>
-       */
-      public java.lang.String getNodeAliasName() {
-        java.lang.Object ref = nodeAliasName_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          nodeAliasName_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <code>optional string node_alias_name = 9;</code>
-       */
-      public com.google.protobuf.ByteString
-          getNodeAliasNameBytes() {
-        java.lang.Object ref = nodeAliasName_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          nodeAliasName_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>optional string node_alias_name = 9;</code>
-       */
-      public Builder setNodeAliasName(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        nodeAliasName_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>optional string node_alias_name = 9;</code>
-       */
-      public Builder clearNodeAliasName() {
-        
-        nodeAliasName_ = getDefaultInstance().getNodeAliasName();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>optional string node_alias_name = 9;</code>
-       */
-      public Builder setNodeAliasNameBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        nodeAliasName_ = value;
         onChanged();
         return this;
       }
@@ -3388,6 +3593,474 @@ public final class YaclibModel {
         license_ = value;
         onChanged();
         return this;
+      }
+
+      private org.roylance.yaclib.YaclibModel.Repository mavenRepository_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          org.roylance.yaclib.YaclibModel.Repository, org.roylance.yaclib.YaclibModel.Repository.Builder, org.roylance.yaclib.YaclibModel.RepositoryOrBuilder> mavenRepositoryBuilder_;
+      /**
+       * <code>optional .org.roylance.yaclib.Repository maven_repository = 17;</code>
+       */
+      public boolean hasMavenRepository() {
+        return mavenRepositoryBuilder_ != null || mavenRepository_ != null;
+      }
+      /**
+       * <code>optional .org.roylance.yaclib.Repository maven_repository = 17;</code>
+       */
+      public org.roylance.yaclib.YaclibModel.Repository getMavenRepository() {
+        if (mavenRepositoryBuilder_ == null) {
+          return mavenRepository_ == null ? org.roylance.yaclib.YaclibModel.Repository.getDefaultInstance() : mavenRepository_;
+        } else {
+          return mavenRepositoryBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>optional .org.roylance.yaclib.Repository maven_repository = 17;</code>
+       */
+      public Builder setMavenRepository(org.roylance.yaclib.YaclibModel.Repository value) {
+        if (mavenRepositoryBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          mavenRepository_ = value;
+          onChanged();
+        } else {
+          mavenRepositoryBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>optional .org.roylance.yaclib.Repository maven_repository = 17;</code>
+       */
+      public Builder setMavenRepository(
+          org.roylance.yaclib.YaclibModel.Repository.Builder builderForValue) {
+        if (mavenRepositoryBuilder_ == null) {
+          mavenRepository_ = builderForValue.build();
+          onChanged();
+        } else {
+          mavenRepositoryBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>optional .org.roylance.yaclib.Repository maven_repository = 17;</code>
+       */
+      public Builder mergeMavenRepository(org.roylance.yaclib.YaclibModel.Repository value) {
+        if (mavenRepositoryBuilder_ == null) {
+          if (mavenRepository_ != null) {
+            mavenRepository_ =
+              org.roylance.yaclib.YaclibModel.Repository.newBuilder(mavenRepository_).mergeFrom(value).buildPartial();
+          } else {
+            mavenRepository_ = value;
+          }
+          onChanged();
+        } else {
+          mavenRepositoryBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>optional .org.roylance.yaclib.Repository maven_repository = 17;</code>
+       */
+      public Builder clearMavenRepository() {
+        if (mavenRepositoryBuilder_ == null) {
+          mavenRepository_ = null;
+          onChanged();
+        } else {
+          mavenRepository_ = null;
+          mavenRepositoryBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>optional .org.roylance.yaclib.Repository maven_repository = 17;</code>
+       */
+      public org.roylance.yaclib.YaclibModel.Repository.Builder getMavenRepositoryBuilder() {
+        
+        onChanged();
+        return getMavenRepositoryFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>optional .org.roylance.yaclib.Repository maven_repository = 17;</code>
+       */
+      public org.roylance.yaclib.YaclibModel.RepositoryOrBuilder getMavenRepositoryOrBuilder() {
+        if (mavenRepositoryBuilder_ != null) {
+          return mavenRepositoryBuilder_.getMessageOrBuilder();
+        } else {
+          return mavenRepository_ == null ?
+              org.roylance.yaclib.YaclibModel.Repository.getDefaultInstance() : mavenRepository_;
+        }
+      }
+      /**
+       * <code>optional .org.roylance.yaclib.Repository maven_repository = 17;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          org.roylance.yaclib.YaclibModel.Repository, org.roylance.yaclib.YaclibModel.Repository.Builder, org.roylance.yaclib.YaclibModel.RepositoryOrBuilder> 
+          getMavenRepositoryFieldBuilder() {
+        if (mavenRepositoryBuilder_ == null) {
+          mavenRepositoryBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              org.roylance.yaclib.YaclibModel.Repository, org.roylance.yaclib.YaclibModel.Repository.Builder, org.roylance.yaclib.YaclibModel.RepositoryOrBuilder>(
+                  getMavenRepository(),
+                  getParentForChildren(),
+                  isClean());
+          mavenRepository_ = null;
+        }
+        return mavenRepositoryBuilder_;
+      }
+
+      private org.roylance.yaclib.YaclibModel.Repository npmRepository_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          org.roylance.yaclib.YaclibModel.Repository, org.roylance.yaclib.YaclibModel.Repository.Builder, org.roylance.yaclib.YaclibModel.RepositoryOrBuilder> npmRepositoryBuilder_;
+      /**
+       * <code>optional .org.roylance.yaclib.Repository npm_repository = 18;</code>
+       */
+      public boolean hasNpmRepository() {
+        return npmRepositoryBuilder_ != null || npmRepository_ != null;
+      }
+      /**
+       * <code>optional .org.roylance.yaclib.Repository npm_repository = 18;</code>
+       */
+      public org.roylance.yaclib.YaclibModel.Repository getNpmRepository() {
+        if (npmRepositoryBuilder_ == null) {
+          return npmRepository_ == null ? org.roylance.yaclib.YaclibModel.Repository.getDefaultInstance() : npmRepository_;
+        } else {
+          return npmRepositoryBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>optional .org.roylance.yaclib.Repository npm_repository = 18;</code>
+       */
+      public Builder setNpmRepository(org.roylance.yaclib.YaclibModel.Repository value) {
+        if (npmRepositoryBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          npmRepository_ = value;
+          onChanged();
+        } else {
+          npmRepositoryBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>optional .org.roylance.yaclib.Repository npm_repository = 18;</code>
+       */
+      public Builder setNpmRepository(
+          org.roylance.yaclib.YaclibModel.Repository.Builder builderForValue) {
+        if (npmRepositoryBuilder_ == null) {
+          npmRepository_ = builderForValue.build();
+          onChanged();
+        } else {
+          npmRepositoryBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>optional .org.roylance.yaclib.Repository npm_repository = 18;</code>
+       */
+      public Builder mergeNpmRepository(org.roylance.yaclib.YaclibModel.Repository value) {
+        if (npmRepositoryBuilder_ == null) {
+          if (npmRepository_ != null) {
+            npmRepository_ =
+              org.roylance.yaclib.YaclibModel.Repository.newBuilder(npmRepository_).mergeFrom(value).buildPartial();
+          } else {
+            npmRepository_ = value;
+          }
+          onChanged();
+        } else {
+          npmRepositoryBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>optional .org.roylance.yaclib.Repository npm_repository = 18;</code>
+       */
+      public Builder clearNpmRepository() {
+        if (npmRepositoryBuilder_ == null) {
+          npmRepository_ = null;
+          onChanged();
+        } else {
+          npmRepository_ = null;
+          npmRepositoryBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>optional .org.roylance.yaclib.Repository npm_repository = 18;</code>
+       */
+      public org.roylance.yaclib.YaclibModel.Repository.Builder getNpmRepositoryBuilder() {
+        
+        onChanged();
+        return getNpmRepositoryFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>optional .org.roylance.yaclib.Repository npm_repository = 18;</code>
+       */
+      public org.roylance.yaclib.YaclibModel.RepositoryOrBuilder getNpmRepositoryOrBuilder() {
+        if (npmRepositoryBuilder_ != null) {
+          return npmRepositoryBuilder_.getMessageOrBuilder();
+        } else {
+          return npmRepository_ == null ?
+              org.roylance.yaclib.YaclibModel.Repository.getDefaultInstance() : npmRepository_;
+        }
+      }
+      /**
+       * <code>optional .org.roylance.yaclib.Repository npm_repository = 18;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          org.roylance.yaclib.YaclibModel.Repository, org.roylance.yaclib.YaclibModel.Repository.Builder, org.roylance.yaclib.YaclibModel.RepositoryOrBuilder> 
+          getNpmRepositoryFieldBuilder() {
+        if (npmRepositoryBuilder_ == null) {
+          npmRepositoryBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              org.roylance.yaclib.YaclibModel.Repository, org.roylance.yaclib.YaclibModel.Repository.Builder, org.roylance.yaclib.YaclibModel.RepositoryOrBuilder>(
+                  getNpmRepository(),
+                  getParentForChildren(),
+                  isClean());
+          npmRepository_ = null;
+        }
+        return npmRepositoryBuilder_;
+      }
+
+      private org.roylance.yaclib.YaclibModel.Repository nugetRepository_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          org.roylance.yaclib.YaclibModel.Repository, org.roylance.yaclib.YaclibModel.Repository.Builder, org.roylance.yaclib.YaclibModel.RepositoryOrBuilder> nugetRepositoryBuilder_;
+      /**
+       * <code>optional .org.roylance.yaclib.Repository nuget_repository = 19;</code>
+       */
+      public boolean hasNugetRepository() {
+        return nugetRepositoryBuilder_ != null || nugetRepository_ != null;
+      }
+      /**
+       * <code>optional .org.roylance.yaclib.Repository nuget_repository = 19;</code>
+       */
+      public org.roylance.yaclib.YaclibModel.Repository getNugetRepository() {
+        if (nugetRepositoryBuilder_ == null) {
+          return nugetRepository_ == null ? org.roylance.yaclib.YaclibModel.Repository.getDefaultInstance() : nugetRepository_;
+        } else {
+          return nugetRepositoryBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>optional .org.roylance.yaclib.Repository nuget_repository = 19;</code>
+       */
+      public Builder setNugetRepository(org.roylance.yaclib.YaclibModel.Repository value) {
+        if (nugetRepositoryBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          nugetRepository_ = value;
+          onChanged();
+        } else {
+          nugetRepositoryBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>optional .org.roylance.yaclib.Repository nuget_repository = 19;</code>
+       */
+      public Builder setNugetRepository(
+          org.roylance.yaclib.YaclibModel.Repository.Builder builderForValue) {
+        if (nugetRepositoryBuilder_ == null) {
+          nugetRepository_ = builderForValue.build();
+          onChanged();
+        } else {
+          nugetRepositoryBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>optional .org.roylance.yaclib.Repository nuget_repository = 19;</code>
+       */
+      public Builder mergeNugetRepository(org.roylance.yaclib.YaclibModel.Repository value) {
+        if (nugetRepositoryBuilder_ == null) {
+          if (nugetRepository_ != null) {
+            nugetRepository_ =
+              org.roylance.yaclib.YaclibModel.Repository.newBuilder(nugetRepository_).mergeFrom(value).buildPartial();
+          } else {
+            nugetRepository_ = value;
+          }
+          onChanged();
+        } else {
+          nugetRepositoryBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>optional .org.roylance.yaclib.Repository nuget_repository = 19;</code>
+       */
+      public Builder clearNugetRepository() {
+        if (nugetRepositoryBuilder_ == null) {
+          nugetRepository_ = null;
+          onChanged();
+        } else {
+          nugetRepository_ = null;
+          nugetRepositoryBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>optional .org.roylance.yaclib.Repository nuget_repository = 19;</code>
+       */
+      public org.roylance.yaclib.YaclibModel.Repository.Builder getNugetRepositoryBuilder() {
+        
+        onChanged();
+        return getNugetRepositoryFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>optional .org.roylance.yaclib.Repository nuget_repository = 19;</code>
+       */
+      public org.roylance.yaclib.YaclibModel.RepositoryOrBuilder getNugetRepositoryOrBuilder() {
+        if (nugetRepositoryBuilder_ != null) {
+          return nugetRepositoryBuilder_.getMessageOrBuilder();
+        } else {
+          return nugetRepository_ == null ?
+              org.roylance.yaclib.YaclibModel.Repository.getDefaultInstance() : nugetRepository_;
+        }
+      }
+      /**
+       * <code>optional .org.roylance.yaclib.Repository nuget_repository = 19;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          org.roylance.yaclib.YaclibModel.Repository, org.roylance.yaclib.YaclibModel.Repository.Builder, org.roylance.yaclib.YaclibModel.RepositoryOrBuilder> 
+          getNugetRepositoryFieldBuilder() {
+        if (nugetRepositoryBuilder_ == null) {
+          nugetRepositoryBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              org.roylance.yaclib.YaclibModel.Repository, org.roylance.yaclib.YaclibModel.Repository.Builder, org.roylance.yaclib.YaclibModel.RepositoryOrBuilder>(
+                  getNugetRepository(),
+                  getParentForChildren(),
+                  isClean());
+          nugetRepository_ = null;
+        }
+        return nugetRepositoryBuilder_;
+      }
+
+      private org.roylance.yaclib.YaclibModel.Repository pipRepository_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          org.roylance.yaclib.YaclibModel.Repository, org.roylance.yaclib.YaclibModel.Repository.Builder, org.roylance.yaclib.YaclibModel.RepositoryOrBuilder> pipRepositoryBuilder_;
+      /**
+       * <code>optional .org.roylance.yaclib.Repository pip_repository = 20;</code>
+       */
+      public boolean hasPipRepository() {
+        return pipRepositoryBuilder_ != null || pipRepository_ != null;
+      }
+      /**
+       * <code>optional .org.roylance.yaclib.Repository pip_repository = 20;</code>
+       */
+      public org.roylance.yaclib.YaclibModel.Repository getPipRepository() {
+        if (pipRepositoryBuilder_ == null) {
+          return pipRepository_ == null ? org.roylance.yaclib.YaclibModel.Repository.getDefaultInstance() : pipRepository_;
+        } else {
+          return pipRepositoryBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>optional .org.roylance.yaclib.Repository pip_repository = 20;</code>
+       */
+      public Builder setPipRepository(org.roylance.yaclib.YaclibModel.Repository value) {
+        if (pipRepositoryBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          pipRepository_ = value;
+          onChanged();
+        } else {
+          pipRepositoryBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>optional .org.roylance.yaclib.Repository pip_repository = 20;</code>
+       */
+      public Builder setPipRepository(
+          org.roylance.yaclib.YaclibModel.Repository.Builder builderForValue) {
+        if (pipRepositoryBuilder_ == null) {
+          pipRepository_ = builderForValue.build();
+          onChanged();
+        } else {
+          pipRepositoryBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>optional .org.roylance.yaclib.Repository pip_repository = 20;</code>
+       */
+      public Builder mergePipRepository(org.roylance.yaclib.YaclibModel.Repository value) {
+        if (pipRepositoryBuilder_ == null) {
+          if (pipRepository_ != null) {
+            pipRepository_ =
+              org.roylance.yaclib.YaclibModel.Repository.newBuilder(pipRepository_).mergeFrom(value).buildPartial();
+          } else {
+            pipRepository_ = value;
+          }
+          onChanged();
+        } else {
+          pipRepositoryBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>optional .org.roylance.yaclib.Repository pip_repository = 20;</code>
+       */
+      public Builder clearPipRepository() {
+        if (pipRepositoryBuilder_ == null) {
+          pipRepository_ = null;
+          onChanged();
+        } else {
+          pipRepository_ = null;
+          pipRepositoryBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>optional .org.roylance.yaclib.Repository pip_repository = 20;</code>
+       */
+      public org.roylance.yaclib.YaclibModel.Repository.Builder getPipRepositoryBuilder() {
+        
+        onChanged();
+        return getPipRepositoryFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>optional .org.roylance.yaclib.Repository pip_repository = 20;</code>
+       */
+      public org.roylance.yaclib.YaclibModel.RepositoryOrBuilder getPipRepositoryOrBuilder() {
+        if (pipRepositoryBuilder_ != null) {
+          return pipRepositoryBuilder_.getMessageOrBuilder();
+        } else {
+          return pipRepository_ == null ?
+              org.roylance.yaclib.YaclibModel.Repository.getDefaultInstance() : pipRepository_;
+        }
+      }
+      /**
+       * <code>optional .org.roylance.yaclib.Repository pip_repository = 20;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          org.roylance.yaclib.YaclibModel.Repository, org.roylance.yaclib.YaclibModel.Repository.Builder, org.roylance.yaclib.YaclibModel.RepositoryOrBuilder> 
+          getPipRepositoryFieldBuilder() {
+        if (pipRepositoryBuilder_ == null) {
+          pipRepositoryBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              org.roylance.yaclib.YaclibModel.Repository, org.roylance.yaclib.YaclibModel.Repository.Builder, org.roylance.yaclib.YaclibModel.RepositoryOrBuilder>(
+                  getPipRepository(),
+                  getParentForChildren(),
+                  isClean());
+          pipRepository_ = null;
+        }
+        return pipRepositoryBuilder_;
       }
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -10413,55 +11086,60 @@ public final class YaclibModel {
   static {
     java.lang.String[] descriptorData = {
       "\n\022yaclib_model.proto\022\023org.roylance.yacli" +
-      "b\"\213\001\n\nRepository\022\013\n\003url\030\001 \001(\t\022\020\n\010usernam" +
-      "e\030\002 \001(\t\022\022\n\nis_private\030\007 \001(\010\022\014\n\004name\030\010 \001(" +
-      "\t\022<\n\017repository_type\030\t \001(\0162#.org.roylanc" +
-      "e.yaclib.RepositoryType\"\332\002\n\nDependency\0221" +
-      "\n\004type\030\001 \001(\0162#.org.roylance.yaclib.Depen" +
-      "dencyType\022\r\n\005group\030\002 \001(\t\022\014\n\004name\030\003 \001(\t\0223" +
-      "\n\nrepository\030\005 \001(\0132\037.org.roylance.yaclib" +
-      ".Repository\022\035\n\025typescript_model_file\030\006 \001" +
-      "(\t\022\027\n\017node_alias_name\030\t \001(\t\022&\n\036third_par",
-      "ty_dependency_version\030\013 \001(\t\022\025\n\rmajor_ver" +
-      "sion\030\014 \001(\005\022\025\n\rminor_version\030\r \001(\005\022\023\n\013git" +
-      "hub_repo\030\016 \001(\t\022\023\n\013author_name\030\017 \001(\t\022\017\n\007l" +
-      "icense\030\020 \001(\t\"\314\001\n\004File\022\037\n\027full_directory_" +
-      "location\030\001 \001(\t\022\021\n\tfile_name\030\002 \001(\t\022:\n\016fil" +
-      "e_extension\030\003 \001(\0162\".org.roylance.yaclib." +
-      "FileExtension\022\025\n\rfile_to_write\030\004 \001(\t\022=\n\020" +
-      "file_update_type\030\005 \001(\0162#.org.roylance.ya" +
-      "clib.FileUpdateType\"H\n\nController\022\014\n\004nam" +
-      "e\030\001 \001(\t\022,\n\007actions\030\002 \003(\0132\033.org.roylance.",
-      "yaclib.Action\"r\n\006Action\022\014\n\004name\030\001 \001(\t\022,\n" +
-      "\006inputs\030\002 \003(\0132\034.org.roylance.yaclib.Mess" +
-      "age\022,\n\006output\030\005 \001(\0132\034.org.roylance.yacli" +
-      "b.Message\"z\n\007Message\022\025\n\rargument_name\030\001 " +
-      "\001(\t\022\024\n\014file_package\030\002 \001(\t\022\022\n\nfile_class\030" +
-      "\003 \001(\t\022\027\n\017message_package\030\004 \001(\t\022\025\n\rmessag" +
-      "e_class\030\005 \001(\t\"4\n\010AllFiles\022(\n\005files\030\001 \003(\013" +
-      "2\031.org.roylance.yaclib.File\"F\n\016AllContro" +
-      "llers\0224\n\013controllers\030\001 \003(\0132\037.org.roylanc" +
-      "e.yaclib.Controller\"\205\001\n\024ControllerDepend",
-      "ency\0228\n\013controllers\030\001 \001(\0132#.org.roylance" +
-      ".yaclib.AllControllers\0223\n\ndependency\030\002 \001" +
-      "(\0132\037.org.roylance.yaclib.Dependency\"g\n\031A" +
-      "llControllerDependencies\022J\n\027controller_d" +
-      "ependencies\030\001 \003(\0132).org.roylance.yaclib." +
-      "ControllerDependency*\202\001\n\016RepositoryType\022" +
-      "\013\n\007BINTRAY\020\000\022\017\n\013ARTIFACTORY\020\001\022\t\n\005NPMJS\020\002" +
-      "\022\017\n\013PRIVATE_NPM\020\003\022\t\n\005NUGET\020\004\022\021\n\rPRIVATE_" +
-      "NUGET\020\005\022\007\n\003PIP\020\006\022\017\n\013PRIVATE_PIP\020\007*O\n\016Dep" +
-      "endencyType\022\014\n\010INTERNAL\020\000\022\010\n\004JAVA\020\001\022\016\n\nT",
-      "YPESCRIPT\020\002\022\n\n\006CSHARP\020\003\022\t\n\005SWIFT\020\004*\215\002\n\rF" +
-      "ileExtension\022\n\n\006KT_EXT\020\000\022\014\n\010JAVA_EXT\020\001\022\022" +
-      "\n\016TYPESCRIPT_EXT\020\002\022\022\n\016JAVASCRIPT_EXT\020\003\022\r" +
-      "\n\tSWIFT_EXT\020\004\022\013\n\007POM_EXT\020\005\022\013\n\007XML_EXT\020\006\022" +
-      "\014\n\010HTML_EXT\020\007\022\016\n\nGRADLE_EXT\020\010\022\014\n\010JSON_EX" +
-      "T\020\t\022\n\n\006TS_EXT\020\n\022\014\n\010NONE_EXT\020\013\022\013\n\007BAT_EXT" +
-      "\020\014\022\n\n\006JS_EXT\020\r\022\n\n\006CS_EXT\020\016\022\013\n\007SLN_EXT\020\017\022" +
-      "\r\n\tXPROJ_EXT\020\020\022\n\n\006SH_EXT\020\021*8\n\016FileUpdate" +
-      "Type\022\r\n\tOVERWRITE\020\000\022\027\n\023WRITE_IF_NOT_EXIS" +
-      "TS\020\001b\006proto3"
+      "b\"\234\001\n\nRepository\022\013\n\003url\030\001 \001(\t\022\020\n\010usernam" +
+      "e\030\002 \001(\t\022\014\n\004name\030\010 \001(\t\022<\n\017repository_type" +
+      "\030\t \001(\0162#.org.roylance.yaclib.RepositoryT" +
+      "ype\022\020\n\010registry\030\n \001(\t\022\021\n\tnpm_scope\030\013 \001(\t" +
+      "\"\364\003\n\nDependency\0221\n\004type\030\001 \001(\0162#.org.royl" +
+      "ance.yaclib.DependencyType\022\r\n\005group\030\002 \001(" +
+      "\t\022\014\n\004name\030\003 \001(\t\022\035\n\025typescript_model_file" +
+      "\030\006 \001(\t\022&\n\036third_party_dependency_version" +
+      "\030\013 \001(\t\022\025\n\rmajor_version\030\014 \001(\005\022\025\n\rminor_v",
+      "ersion\030\r \001(\005\022\023\n\013github_repo\030\016 \001(\t\022\023\n\013aut" +
+      "hor_name\030\017 \001(\t\022\017\n\007license\030\020 \001(\t\0229\n\020maven" +
+      "_repository\030\021 \001(\0132\037.org.roylance.yaclib." +
+      "Repository\0227\n\016npm_repository\030\022 \001(\0132\037.org" +
+      ".roylance.yaclib.Repository\0229\n\020nuget_rep" +
+      "ository\030\023 \001(\0132\037.org.roylance.yaclib.Repo" +
+      "sitory\0227\n\016pip_repository\030\024 \001(\0132\037.org.roy" +
+      "lance.yaclib.Repository\"\314\001\n\004File\022\037\n\027full" +
+      "_directory_location\030\001 \001(\t\022\021\n\tfile_name\030\002" +
+      " \001(\t\022:\n\016file_extension\030\003 \001(\0162\".org.royla",
+      "nce.yaclib.FileExtension\022\025\n\rfile_to_writ" +
+      "e\030\004 \001(\t\022=\n\020file_update_type\030\005 \001(\0162#.org." +
+      "roylance.yaclib.FileUpdateType\"H\n\nContro" +
+      "ller\022\014\n\004name\030\001 \001(\t\022,\n\007actions\030\002 \003(\0132\033.or" +
+      "g.roylance.yaclib.Action\"r\n\006Action\022\014\n\004na" +
+      "me\030\001 \001(\t\022,\n\006inputs\030\002 \003(\0132\034.org.roylance." +
+      "yaclib.Message\022,\n\006output\030\005 \001(\0132\034.org.roy" +
+      "lance.yaclib.Message\"z\n\007Message\022\025\n\rargum" +
+      "ent_name\030\001 \001(\t\022\024\n\014file_package\030\002 \001(\t\022\022\n\n" +
+      "file_class\030\003 \001(\t\022\027\n\017message_package\030\004 \001(",
+      "\t\022\025\n\rmessage_class\030\005 \001(\t\"4\n\010AllFiles\022(\n\005" +
+      "files\030\001 \003(\0132\031.org.roylance.yaclib.File\"F" +
+      "\n\016AllControllers\0224\n\013controllers\030\001 \003(\0132\037." +
+      "org.roylance.yaclib.Controller\"\205\001\n\024Contr" +
+      "ollerDependency\0228\n\013controllers\030\001 \001(\0132#.o" +
+      "rg.roylance.yaclib.AllControllers\0223\n\ndep" +
+      "endency\030\002 \001(\0132\037.org.roylance.yaclib.Depe" +
+      "ndency\"g\n\031AllControllerDependencies\022J\n\027c" +
+      "ontroller_dependencies\030\001 \003(\0132).org.royla" +
+      "nce.yaclib.ControllerDependency*\227\001\n\016Repo",
+      "sitoryType\022\013\n\007BINTRAY\020\000\022\017\n\013ARTIFACTORY\020\001" +
+      "\022\t\n\005NPMJS\020\002\022\017\n\013PRIVATE_NPM\020\003\022\t\n\005NUGET\020\004\022" +
+      "\021\n\rPRIVATE_NUGET\020\005\022\007\n\003PIP\020\006\022\017\n\013PRIVATE_P" +
+      "IP\020\007\022\023\n\017PRIVATE_BINTRAY\020\010*O\n\016DependencyT" +
+      "ype\022\014\n\010INTERNAL\020\000\022\010\n\004JAVA\020\001\022\016\n\nTYPESCRIP" +
+      "T\020\002\022\n\n\006CSHARP\020\003\022\t\n\005SWIFT\020\004*\231\002\n\rFileExten" +
+      "sion\022\n\n\006KT_EXT\020\000\022\014\n\010JAVA_EXT\020\001\022\022\n\016TYPESC" +
+      "RIPT_EXT\020\002\022\022\n\016JAVASCRIPT_EXT\020\003\022\r\n\tSWIFT_" +
+      "EXT\020\004\022\013\n\007POM_EXT\020\005\022\013\n\007XML_EXT\020\006\022\014\n\010HTML_" +
+      "EXT\020\007\022\016\n\nGRADLE_EXT\020\010\022\014\n\010JSON_EXT\020\t\022\n\n\006T",
+      "S_EXT\020\n\022\014\n\010NONE_EXT\020\013\022\013\n\007BAT_EXT\020\014\022\n\n\006JS" +
+      "_EXT\020\r\022\n\n\006CS_EXT\020\016\022\013\n\007SLN_EXT\020\017\022\r\n\tXPROJ" +
+      "_EXT\020\020\022\n\n\006SH_EXT\020\021\022\n\n\006MD_EXT\020\022*8\n\016FileUp" +
+      "dateType\022\r\n\tOVERWRITE\020\000\022\027\n\023WRITE_IF_NOT_" +
+      "EXISTS\020\001b\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -10480,13 +11158,13 @@ public final class YaclibModel {
     internal_static_org_roylance_yaclib_Repository_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_org_roylance_yaclib_Repository_descriptor,
-        new java.lang.String[] { "Url", "Username", "IsPrivate", "Name", "RepositoryType", });
+        new java.lang.String[] { "Url", "Username", "Name", "RepositoryType", "Registry", "NpmScope", });
     internal_static_org_roylance_yaclib_Dependency_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_org_roylance_yaclib_Dependency_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_org_roylance_yaclib_Dependency_descriptor,
-        new java.lang.String[] { "Type", "Group", "Name", "Repository", "TypescriptModelFile", "NodeAliasName", "ThirdPartyDependencyVersion", "MajorVersion", "MinorVersion", "GithubRepo", "AuthorName", "License", });
+        new java.lang.String[] { "Type", "Group", "Name", "TypescriptModelFile", "ThirdPartyDependencyVersion", "MajorVersion", "MinorVersion", "GithubRepo", "AuthorName", "License", "MavenRepository", "NpmRepository", "NugetRepository", "PipRepository", });
     internal_static_org_roylance_yaclib_File_descriptor =
       getDescriptor().getMessageTypes().get(2);
     internal_static_org_roylance_yaclib_File_fieldAccessorTable = new

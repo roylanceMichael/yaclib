@@ -25,7 +25,7 @@ class ProcessFileDescriptorService: IProcessFileDescriptorService {
         val returnController = YaclibModel.Controller.newBuilder().setName(controllerName)
 
         messageType.fields.filter { field ->
-                    CommonTokens.ProtoMessageType.equals(field.type.name) &&
+                    CommonTokens.ProtoMessageType == field.type.name &&
                             field.messageType.name.endsWith(CommonTokens.ActionSuffix)
         }.forEach { actionField ->
             val foundAction = this.processActionMessageType(actionField.messageType, actionField.name) ?: return@forEach
@@ -40,7 +40,7 @@ class ProcessFileDescriptorService: IProcessFileDescriptorService {
 
     private fun processActionMessageType(messageType: Descriptors.Descriptor, fieldName: String): YaclibModel.Action? {
         val foundInputOutputTypes = messageType.fields.filter { field ->
-            CommonTokens.ProtoMessageType.equals(field.type.name)
+            CommonTokens.ProtoMessageType == field.type.name
         }.sortedBy { it.number }
 
         if (foundInputOutputTypes.size == 0) {
@@ -59,7 +59,7 @@ class ProcessFileDescriptorService: IProcessFileDescriptorService {
 
         returnItem.output = outputMessage.build()
 
-        foundInputOutputTypes.filter { !it.number.equals(returnType.number) }
+        foundInputOutputTypes.filter { it.number != returnType.number }
             .forEach {
                 val inputMessage = YaclibModel.Message.newBuilder()
                     .setArgumentName(it.name)

@@ -4,13 +4,11 @@ import org.roylance.yaclib.YaclibModel
 import java.util.*
 
 object TypeScriptUtilities {
-    val protobufHelperDependencyBuilder = YaclibModel.Dependency.newBuilder().setThirdPartyDependencyVersion("0.0.8").setGroup("protobuftshelper").setType(YaclibModel.DependencyType.TYPESCRIPT)!!
     val protobufJsDependencyBuilder = YaclibModel.Dependency.newBuilder().setThirdPartyDependencyVersion("^5.0.1").setGroup("protobufjs").setType(YaclibModel.DependencyType.TYPESCRIPT)!!
     val proto2TypeScriptDependencyBuilder = YaclibModel.Dependency.newBuilder().setThirdPartyDependencyVersion("^2.2.0").setGroup("proto2typescript").setType(YaclibModel.DependencyType.TYPESCRIPT)!!
 
     val baseTypeScriptKit = object: ArrayList<YaclibModel.Dependency>(){
         init {
-            add(protobufHelperDependencyBuilder.build())
             add(protobufJsDependencyBuilder.build())
             add(proto2TypeScriptDependencyBuilder.build())
         }
@@ -44,9 +42,9 @@ object TypeScriptUtilities {
     }
 
     fun buildDependency(dependency: YaclibModel.Dependency): String {
-        if (dependency.type == YaclibModel.DependencyType.INTERNAL) {
-            if (dependency.nodeAliasName.length > 0) {
-                return """"${dependency.nodeAliasName}/${dependency.group}.${dependency.name}": "${buildVersion(dependency)}"
+        if (dependency.type == YaclibModel.DependencyType.INTERNAL && dependency.hasNpmRepository()) {
+            if (dependency.npmRepository.npmScope.length > 0) {
+                return """"${dependency.npmRepository.npmScope}/${dependency.group}.${dependency.name}": "${buildVersion(dependency)}"
 """
             }
             else {
@@ -55,14 +53,25 @@ object TypeScriptUtilities {
             }
         }
 
-        if (dependency.nodeAliasName.length > 0) {
-            return """"${dependency.nodeAliasName}/${dependency.group}": "${buildVersion(dependency)}"
+        if (dependency.hasNpmRepository() && dependency.npmRepository.npmScope.length > 0) {
+            return """"${dependency.npmRepository.npmScope}/${dependency.group}": "${buildVersion(dependency)}"
 """
         }
         else {
             return """"${dependency.group}": "${buildVersion(dependency)}"
 """
         }
+    }
+
+    fun buildTypeScriptOutput(referencePath: String,
+                              exportFactoryName: String,
+                              exportedJS: String): String {
+        return """
+/// <reference path="$referencePath" />
+declare var dcodeIO:any;
+$exportedJS
+export var $exportFactoryName = _root;
+"""
     }
 
     private fun buildVersion(dependency: YaclibModel.Dependency): String {

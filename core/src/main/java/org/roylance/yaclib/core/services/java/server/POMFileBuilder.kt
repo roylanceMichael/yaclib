@@ -293,10 +293,10 @@ class POMFileBuilder(private val controllerDependencies: YaclibModel.AllControll
         val workspace = StringBuilder()
 
         val uniqueRepositories = HashMap<String, String>()
-        uniqueRepositories[this.mainDependency.repository.url] = this.buildRepository(this.mainDependency.repository)
+        uniqueRepositories[this.mainDependency.mavenRepository.url] = this.buildRepository(this.mainDependency.mavenRepository)
 
         this.controllerDependencies.controllerDependenciesList.forEach {
-            uniqueRepositories[it.dependency.repository.url] = this.buildRepository(it.dependency.repository)
+            uniqueRepositories[it.dependency.mavenRepository.url] = this.buildRepository(it.dependency.mavenRepository)
         }
 
         uniqueRepositories.values.forEach {

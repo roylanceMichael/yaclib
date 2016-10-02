@@ -13,6 +13,7 @@ class NPMPackageBuilder(private val dependency: YaclibModel.Dependency,
   "description": "models to interface with the ${dependency.group}.${dependency.name} system",
   "author": "${dependency.authorName}",
   "license": "${dependency.license}",
+  ${buildPrivateRegistry()}
   "dependencies": {
 ${this.buildDependencies()}
   }
@@ -20,10 +21,11 @@ ${this.buildDependencies()}
 """
 
     private fun buildPackageName(): String {
-        if (this.dependency.nodeAliasName.length > 0) {
-            return "${this.dependency.nodeAliasName}/${this.dependency.group}.${this.dependency.name}"
+        if (dependency.hasNpmRepository() &&
+                dependency.npmRepository.npmScope.length > 0) {
+            return "${dependency.npmRepository.npmScope}/${dependency.group}.${dependency.name}"
         }
-        return "${this.dependency.group}.${this.dependency.name}"
+        return "${dependency.group}.${dependency.name}"
     }
 
     private fun buildDependencies(): String {
@@ -41,5 +43,14 @@ ${this.buildDependencies()}
                 .build()
 
         return returnFile
+    }
+
+    private fun buildPrivateRegistry(): String {
+        if (dependency.hasNpmRepository() &&
+                dependency.npmRepository.repositoryType == YaclibModel.RepositoryType.PRIVATE_NPM &&
+                dependency.npmRepository.registry.length > 0) {
+            return """"publishConfig":{"registry":"${dependency.npmRepository.registry}"},"""
+        }
+        return ""
     }
 }

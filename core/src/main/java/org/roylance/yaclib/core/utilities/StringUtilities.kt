@@ -60,7 +60,7 @@ object StringUtilities {
                 "${it[0].toUpperCase()}${it.substring(1)}"
             }
             else {
-                "${it.toUpperCase()}"
+                it.toUpperCase()
             }
         }.joinToString(Period)
     }

@@ -100,16 +100,18 @@ furtherAngularSetup(app);
     }
 
     private fun buildFactoryNodeModulePath(dependency: YaclibModel.Dependency):String {
-        if (dependency.nodeAliasName.length > 0) {
-            return "../${CommonTokens.NodeModules}/${dependency.nodeAliasName}/${dependency.group}.${dependency.name}/${dependency.typescriptModelFile}${CommonTokens.FactoryName}"
+        if (dependency.hasNpmRepository() &&
+                dependency.npmRepository.npmScope.length > 0) {
+            return "../${CommonTokens.NodeModules}/${dependency.npmRepository.npmScope}/${dependency.group}.${dependency.name}/${dependency.typescriptModelFile}${CommonTokens.FactoryName}"
         }
 
         return "../${CommonTokens.NodeModules}/${dependency.group}.${dependency.name}/${dependency.typescriptModelFile}${CommonTokens.FactoryName}"
     }
 
     private fun buildControllerServiceNodeModulePath(dependency: YaclibModel.Dependency, controller: YaclibModel.Controller):String {
-        if (dependency.nodeAliasName.length > 0) {
-            return "../${CommonTokens.NodeModules}/${dependency.nodeAliasName}/${dependency.group}.${dependency.name}/${controller.name}${CommonTokens.ServiceName}"
+        if (dependency.hasNpmRepository() &&
+                dependency.npmRepository.npmScope.length > 0) {
+            return "../${CommonTokens.NodeModules}/${dependency.npmRepository.npmScope}/${dependency.group}.${dependency.name}/${controller.name}${CommonTokens.ServiceName}"
         }
 
         return "../${CommonTokens.NodeModules}/${dependency.group}.${dependency.name}/${controller.name}${CommonTokens.ServiceName}"

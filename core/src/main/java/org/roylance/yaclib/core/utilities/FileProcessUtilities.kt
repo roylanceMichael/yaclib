@@ -1,5 +1,6 @@
 package org.roylance.yaclib.core.utilities
 
+import java.io.File
 import java.util.*
 
 object FileProcessUtilities {
@@ -28,5 +29,15 @@ object FileProcessUtilities {
         }
 
         return returnList
+    }
+
+    fun readFile(path: String): String {
+        val foundFile = File(path)
+        return foundFile.readText()
+    }
+
+    fun writeFile(file: String, path: String) {
+        val newFile = File(path)
+        newFile.writeText(file)
     }
 }

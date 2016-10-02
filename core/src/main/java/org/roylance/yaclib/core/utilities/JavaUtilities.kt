@@ -3,6 +3,12 @@ package org.roylance.yaclib.core.utilities
 import org.roylance.yaclib.YaclibModel
 
 object JavaUtilities {
+    const val ArtifactoryUserName = "ARTIFACTORY_USER"
+    const val ArtifactoryPasswordName = "ARTIFACTORY_PASSWORD"
+
+    const val BintrayUserName = "BINTRAY_USER"
+    const val BintrayKeyName = "BINTRAY_KEY"
+
     const val DefaultRepository = "http://dl.bintray.com/roylancemichael/maven"
 
     const val MainMavenProfileName = "main-profile"

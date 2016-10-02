@@ -14,6 +14,7 @@ class TypeScriptProcessLanguageService: IProcessLanguageService {
 
         returnList.addFiles(NPMPackageBuilder(mainDependency, thirdPartyDependencies).build())
         returnList.addFiles(HttpExecuteServiceBuilder().build())
+        returnList.addFiles(ReadmeBuilder(mainDependency).build())
 
         val allControllers = YaclibModel.AllControllers.newBuilder()
         controllerDependencies.controllerDependenciesList.forEach { controllerDependency ->
@@ -26,7 +27,6 @@ class TypeScriptProcessLanguageService: IProcessLanguageService {
         }
 
         returnList.addFiles(TSConfigBuilder(allControllers.build(), mainDependency).build())
-
         return returnList.build()
     }
 }

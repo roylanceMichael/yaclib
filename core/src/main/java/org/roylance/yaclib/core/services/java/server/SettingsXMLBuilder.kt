@@ -2,7 +2,6 @@ package org.roylance.yaclib.core.services.java.server
 
 import org.roylance.common.service.IBuilder
 import org.roylance.yaclib.YaclibModel
-import org.roylance.yaclib.core.utilities.JavaUtilities
 import java.util.*
 
 class SettingsXMLBuilder(private val controllerDependencies: YaclibModel.AllControllerDependencies,
@@ -30,15 +29,10 @@ class SettingsXMLBuilder(private val controllerDependencies: YaclibModel.AllCont
         val workspace = StringBuilder()
 
         val uniqueRepositories = HashMap<String, String>()
-
-        if (this.mainDependency.repository.isPrivate) {
-            uniqueRepositories[mainDependency.repository.url] = buildServer(mainDependency.repository)
-        }
+        uniqueRepositories[mainDependency.mavenRepository.url] = buildServer(mainDependency.mavenRepository)
 
         this.controllerDependencies.controllerDependenciesList.forEach {
-            if (it.dependency.repository.isPrivate) {
-                uniqueRepositories[it.dependency.repository.url] = buildServer(it.dependency.repository)
-            }
+            uniqueRepositories[it.dependency.mavenRepository.url] = buildServer(it.dependency.mavenRepository)
         }
 
         uniqueRepositories.values.forEach {
@@ -48,7 +42,7 @@ class SettingsXMLBuilder(private val controllerDependencies: YaclibModel.AllCont
         if (workspace.length > 0) {
             return """
         <servers>
-                ${workspace.toString()}
+                $workspace
         </servers>
 """
         }

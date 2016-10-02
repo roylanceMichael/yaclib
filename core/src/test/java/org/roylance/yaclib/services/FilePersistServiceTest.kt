@@ -113,7 +113,7 @@ class FilePersistServiceTest {
                 .setGroup("park")
                 .setName("models")
                 .setMinorVersion(14)
-                .setNodeAliasName("@mroylance")
+                .setNpmRepository(YaclibModel.Repository.newBuilder().setRepositoryType(YaclibModel.RepositoryType.PRIVATE_NPM).setNpmScope("@mroylance"))
                 .setTypescriptModelFile("ParkModel")
                 .build()
 

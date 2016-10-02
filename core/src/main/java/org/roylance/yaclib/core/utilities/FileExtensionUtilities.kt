@@ -52,6 +52,9 @@ object FileExtensionUtilities {
         if (YaclibModel.FileExtension.SH_EXT == extension) {
             return ".sh"
         }
+        if (YaclibModel.FileExtension.MD_EXT == extension) {
+            return ".md"
+        }
 
         return ".java"
     }

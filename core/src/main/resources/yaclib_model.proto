@@ -10,6 +10,7 @@ enum RepositoryType {
     PRIVATE_NUGET = 5;
     PIP = 6;
     PRIVATE_PIP = 7;
+    PRIVATE_BINTRAY = 8;
 }
 
 enum DependencyType {
@@ -39,6 +40,7 @@ enum FileExtension {
     SLN_EXT = 15;
     XPROJ_EXT = 16;
     SH_EXT = 17;
+    MD_EXT = 18;
 }
 
 enum FileUpdateType {
@@ -49,24 +51,27 @@ enum FileUpdateType {
 message Repository {
     string url = 1;
     string username = 2;
-    bool is_private = 7;
     string name = 8;
     RepositoryType repository_type = 9;
+    string registry = 10;
+    string npm_scope = 11;
 }
 
 message Dependency {
     DependencyType type = 1;
     string group = 2;
     string name = 3;
-    Repository repository = 5;
     string typescript_model_file = 6;
-    string node_alias_name = 9;
     string third_party_dependency_version = 11;
     int32 major_version = 12;
     int32 minor_version = 13;
     string github_repo = 14;
     string author_name = 15;
     string license = 16;
+    Repository maven_repository = 17;
+    Repository npm_repository = 18;
+    Repository nuget_repository = 19;
+    Repository pip_repository = 20;
 }
 
 message File {
