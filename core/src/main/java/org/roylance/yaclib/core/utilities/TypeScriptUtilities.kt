@@ -42,8 +42,8 @@ object TypeScriptUtilities {
     }
 
     fun buildDependency(dependency: YaclibModel.Dependency): String {
-        if (dependency.type == YaclibModel.DependencyType.INTERNAL && dependency.hasNpmRepository()) {
-            if (dependency.npmRepository.npmScope.length > 0) {
+        if (dependency.type == YaclibModel.DependencyType.INTERNAL) {
+            if (dependency.hasNpmRepository() && dependency.npmRepository.npmScope.length > 0) {
                 return """"${dependency.npmRepository.npmScope}/${dependency.group}.${dependency.name}": "${buildVersion(dependency)}"
 """
             }
