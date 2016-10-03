@@ -47,6 +47,12 @@ object TypeScriptUtilities {
                 return """"${dependency.npmRepository.npmScope}/${dependency.group}.${dependency.name}": "${buildVersion(dependency)}"
 """
             }
+            else if (dependency.hasNpmRepository() && dependency.npmRepository.repositoryType == YaclibModel.RepositoryType.ARTIFACTORY_NPM) {
+                val dependencyUrl = JavaUtilities.buildRepositoryUrl(dependency.npmRepository)
+                val fileName = ArtifactoryUtilities.buildTarUrl(dependency)
+                return """"${dependency.group}.${dependency.name}": "$dependencyUrl/$fileName"
+"""
+            }
             else {
                 return """"${dependency.group}.${dependency.name}": "${buildVersion(dependency)}"
 """
@@ -55,6 +61,10 @@ object TypeScriptUtilities {
 
         if (dependency.hasNpmRepository() && dependency.npmRepository.npmScope.length > 0) {
             return """"${dependency.npmRepository.npmScope}/${dependency.group}": "${buildVersion(dependency)}"
+"""
+        }
+        else if (dependency.npmRepository.repositoryType == YaclibModel.RepositoryType.ARTIFACTORY_NPM) {
+            return """"${dependency.group}": "${dependency.npmRepository.url}"
 """
         }
         else {

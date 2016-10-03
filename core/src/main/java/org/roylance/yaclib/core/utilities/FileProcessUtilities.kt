@@ -1,6 +1,7 @@
 package org.roylance.yaclib.core.utilities
 
 import java.io.File
+import java.io.IOException
 import java.util.*
 
 object FileProcessUtilities {
@@ -39,5 +40,19 @@ object FileProcessUtilities {
     fun writeFile(file: String, path: String) {
         val newFile = File(path)
         newFile.writeText(file)
+    }
+
+    fun handleProcess(process: ProcessBuilder, name: String) {
+        try {
+            process.redirectError(ProcessBuilder.Redirect.INHERIT)
+            process.redirectOutput(ProcessBuilder.Redirect.INHERIT)
+            process.start().waitFor()
+            println("finished $name")
+        }
+        catch (e: IOException) {
+            e.printStackTrace()
+        } catch (e: InterruptedException) {
+            e.printStackTrace()
+        }
     }
 }

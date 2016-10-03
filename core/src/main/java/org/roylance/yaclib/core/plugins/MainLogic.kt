@@ -1,13 +1,16 @@
-package org.roylance.yaclib.core.services
+package org.roylance.yaclib.core.plugins
 
 import com.google.protobuf.Descriptors
 import org.roylance.common.service.IBuilder
 import org.roylance.yaclib.YaclibModel
 import org.roylance.yaclib.core.enums.CommonTokens
 import org.roylance.yaclib.core.models.DependencyDescriptor
+import org.roylance.yaclib.core.services.FilePersistService
+import org.roylance.yaclib.core.services.ProcessFileDescriptorService
 import org.roylance.yaclib.core.services.csharp.CSharpProcessLanguageService
 import org.roylance.yaclib.core.services.java.client.JavaClientProcessLanguageService
 import org.roylance.yaclib.core.services.java.server.JavaServerProcessLanguageService
+import org.roylance.yaclib.core.services.python.PythonProcessLanguageService
 import org.roylance.yaclib.core.services.typescript.TypeScriptProcessLanguageService
 import java.nio.file.Paths
 
@@ -16,8 +19,7 @@ class MainLogic(
         private val mainDependency: YaclibModel.Dependency,
         private val mainController: Descriptors.FileDescriptor,
         private val dependencyDescriptors: List<DependencyDescriptor>,
-        private val thirdPartyServerDependencies: List<YaclibModel.Dependency>,
-        private val processCSharp: Boolean): IBuilder<Boolean> {
+        private val thirdPartyServerDependencies: List<YaclibModel.Dependency>): IBuilder<Boolean> {
     override fun build(): Boolean {
         val mainDependencyDescriptor = DependencyDescriptor(mainDependency, this.mainController)
 
@@ -53,10 +55,11 @@ class MainLogic(
         val typeScriptFiles = TypeScriptProcessLanguageService().buildInterface(clientControllerDependencies.build(), mainDependencyDescriptor.dependency)
         filePersistService.persistFiles(Paths.get(location, CommonTokens.JavaScriptName).toString(), typeScriptFiles)
 
-        if (this.processCSharp) {
-            val csharpFiles = CSharpProcessLanguageService().buildInterface(clientControllerDependencies.build(), mainDependencyDescriptor.dependency)
-            filePersistService.persistFiles(Paths.get(location, CommonTokens.CSharpName).toString(), csharpFiles)
-        }
+        val csharpFiles = CSharpProcessLanguageService().buildInterface(clientControllerDependencies.build(), mainDependencyDescriptor.dependency)
+        filePersistService.persistFiles(Paths.get(location, CommonTokens.CSharpName).toString(), csharpFiles)
+
+        val pythonFiles = PythonProcessLanguageService().buildInterface(clientControllerDependencies.build(), mainDependencyDescriptor.dependency)
+        filePersistService.persistFiles(Paths.get(location, CommonTokens.PythonName).toString(), pythonFiles)
 
         return true
     }

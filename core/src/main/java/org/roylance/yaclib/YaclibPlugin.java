@@ -5,7 +5,7 @@ import org.gradle.api.DefaultTask;
 import org.gradle.api.tasks.TaskAction;
 import org.roylance.yaclib.core.enums.CommonTokens;
 import org.roylance.yaclib.core.models.DependencyDescriptor;
-import org.roylance.yaclib.core.services.PluginLogic;
+import org.roylance.yaclib.core.plugins.PluginLogic;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.List;
@@ -37,18 +37,18 @@ public class YaclibPlugin extends DefaultTask {
             return false;
         }
 
-        final Descriptors.FileDescriptor controllerDescriptor = DependencyDescriptor.buildFileDescriptor(this.mainController);
+        final Descriptors.FileDescriptor controllerDescriptor = DependencyDescriptor.buildFileDescriptor(mainController);
 
         return new PluginLogic(
-                this.location,
+                location,
                 mainDependency.toBuilder()
                         .setName(CommonTokens.ApiName)
                         .setGroup(controllerDescriptor.getPackage())
                         .build(),
                 controllerDescriptor,
-                this.dependencyDescriptors,
-                this.thirdPartyServerDependencies,
-                this.nugetKey).build();
+                dependencyDescriptors,
+                thirdPartyServerDependencies,
+                nugetKey).build();
     }
 
     private static boolean nullChecker(Object item, String name) {

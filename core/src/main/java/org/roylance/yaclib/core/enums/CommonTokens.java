@@ -26,6 +26,7 @@ public class CommonTokens {
 
     public static final String ApiName = "api";
     public static final String CSharpName = "csharp";
+    public static final String PythonName = "python";
     public static final String JavaScriptName = "javascript";
     public static final String NodeModules = "node_modules";
 

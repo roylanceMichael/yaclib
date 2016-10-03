@@ -11,6 +11,9 @@ enum RepositoryType {
     PIP = 6;
     PRIVATE_PIP = 7;
     PRIVATE_BINTRAY = 8;
+    ARTIFACTORY_NPM = 9;
+    PYPI = 10;
+    ARTIFACTORY_PYTHON = 11;
 }
 
 enum DependencyType {
@@ -19,6 +22,7 @@ enum DependencyType {
     TYPESCRIPT = 2;
     CSHARP = 3;
     SWIFT = 4;
+    PYTHON = 5;
 }
 
 enum FileExtension {
@@ -41,6 +45,8 @@ enum FileExtension {
     XPROJ_EXT = 16;
     SH_EXT = 17;
     MD_EXT = 18;
+    PY_EXT = 19;
+    CFG_EXT = 20;
 }
 
 enum FileUpdateType {
@@ -55,6 +61,8 @@ message Repository {
     RepositoryType repository_type = 9;
     string registry = 10;
     string npm_scope = 11;
+    string upload_url = 12;
+    string password = 13;
 }
 
 message Dependency {
@@ -99,6 +107,7 @@ message Message {
     string file_class = 3;
     string message_package = 4;
     string message_class = 5;
+    string file_name = 6;
 }
 
 message AllFiles {

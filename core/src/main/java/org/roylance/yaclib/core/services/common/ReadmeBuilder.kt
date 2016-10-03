@@ -1,4 +1,4 @@
-package org.roylance.yaclib.core.services.typescript
+package org.roylance.yaclib.core.services.common
 
 import org.roylance.common.service.IBuilder
 import org.roylance.yaclib.YaclibModel

@@ -38,7 +38,9 @@ object JavaUtilities {
     const val JavaServerJdkVersion = "1.8"
 
     fun buildRepositoryUrl(repository: YaclibModel.Repository): String {
-        if (repository.repositoryType == YaclibModel.RepositoryType.ARTIFACTORY) {
+        if (repository.repositoryType == YaclibModel.RepositoryType.ARTIFACTORY ||
+            repository.repositoryType == YaclibModel.RepositoryType.ARTIFACTORY_NPM ||
+            repository.repositoryType == YaclibModel.RepositoryType.ARTIFACTORY_PYTHON) {
             if (repository.url.length > 0 && repository.url[repository.url.length - 1] == '/') {
                 return "${repository.url}${repository.name}"
             }

@@ -55,6 +55,12 @@ object FileExtensionUtilities {
         if (YaclibModel.FileExtension.MD_EXT == extension) {
             return ".md"
         }
+        if (YaclibModel.FileExtension.PY_EXT == extension) {
+            return ".py"
+        }
+        if (YaclibModel.FileExtension.CFG_EXT == extension) {
+            return ".cfg"
+        }
 
         return ".java"
     }

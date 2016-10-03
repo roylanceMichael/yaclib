@@ -8,6 +8,7 @@ import org.roylance.yaclib.core.services.ProcessFileDescriptorService
 import org.roylance.yaclib.core.services.csharp.CSharpProcessLanguageService
 import org.roylance.yaclib.core.services.java.client.JavaClientProcessLanguageService
 import org.roylance.yaclib.core.services.java.server.JavaServerProcessLanguageService
+import org.roylance.yaclib.core.services.python.PythonProcessLanguageService
 import org.roylance.yaclib.core.services.typescript.TypeScriptProcessLanguageService
 import org.roylance.yaclib.core.utilities.CSharpUtilities
 
@@ -37,6 +38,36 @@ class FilePersistServiceTest {
 
         // act
         filePersistService.persistFiles("/home/mroylance/park/sapi", allFiles)
+
+        // assert
+        Assert.assertTrue(true)
+    }
+
+//    @Test
+    fun simplePassThroughPythonTest() {
+        // arrange
+        val filePersistService = FilePersistService()
+        val service = ProcessFileDescriptorService()
+        val controllers = service.processFile(org.naru.park.ParkController.getDescriptor())
+        val javaServiceLanguageProcess = PythonProcessLanguageService()
+
+        val dependency = YaclibModel.Dependency.newBuilder()
+                .setGroup("org.naru.park")
+                .setName("api")
+                .setMinorVersion(14)
+                .setTypescriptModelFile("ParkModel")
+                .build()
+
+        val controllerDependencies = YaclibModel.ControllerDependency.newBuilder().setDependency(dependency)
+                .setControllers(controllers)
+                .build()
+
+        val all = YaclibModel.AllControllerDependencies.newBuilder().addControllerDependencies(controllerDependencies).build()
+
+        val allFiles = javaServiceLanguageProcess.buildInterface(all, dependency)
+
+        // act
+        filePersistService.persistFiles("/Users/mikeroylance/park/python", allFiles)
 
         // assert
         Assert.assertTrue(true)

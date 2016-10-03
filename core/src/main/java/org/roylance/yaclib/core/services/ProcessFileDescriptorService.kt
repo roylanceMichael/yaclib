@@ -56,6 +56,7 @@ class ProcessFileDescriptorService: IProcessFileDescriptorService {
             .setFileClass(StringUtilities.convertProtoFileNameToJavaClassName(returnType.messageType.file))
             .setMessagePackage(returnType.messageType.file.`package`)
             .setMessageClass(returnType.messageType.name)
+            .setFileName(returnType.messageType.file.name)
 
         returnItem.output = outputMessage.build()
 
@@ -67,6 +68,7 @@ class ProcessFileDescriptorService: IProcessFileDescriptorService {
                     .setFileClass(StringUtilities.convertProtoFileNameToJavaClassName(it.messageType.file))
                     .setMessagePackage(it.messageType.file.`package`)
                     .setMessageClass(it.messageType.name)
+                    .setFileName(it.messageType.file.name)
 
                 returnItem.addInputs(inputMessage)
             }

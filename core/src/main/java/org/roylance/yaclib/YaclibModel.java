@@ -55,6 +55,18 @@ public final class YaclibModel {
      * <code>PRIVATE_BINTRAY = 8;</code>
      */
     PRIVATE_BINTRAY(8),
+    /**
+     * <code>ARTIFACTORY_NPM = 9;</code>
+     */
+    ARTIFACTORY_NPM(9),
+    /**
+     * <code>PYPI = 10;</code>
+     */
+    PYPI(10),
+    /**
+     * <code>ARTIFACTORY_PYTHON = 11;</code>
+     */
+    ARTIFACTORY_PYTHON(11),
     UNRECOGNIZED(-1),
     ;
 
@@ -94,6 +106,18 @@ public final class YaclibModel {
      * <code>PRIVATE_BINTRAY = 8;</code>
      */
     public static final int PRIVATE_BINTRAY_VALUE = 8;
+    /**
+     * <code>ARTIFACTORY_NPM = 9;</code>
+     */
+    public static final int ARTIFACTORY_NPM_VALUE = 9;
+    /**
+     * <code>PYPI = 10;</code>
+     */
+    public static final int PYPI_VALUE = 10;
+    /**
+     * <code>ARTIFACTORY_PYTHON = 11;</code>
+     */
+    public static final int ARTIFACTORY_PYTHON_VALUE = 11;
 
 
     public final int getNumber() {
@@ -123,6 +147,9 @@ public final class YaclibModel {
         case 6: return PIP;
         case 7: return PRIVATE_PIP;
         case 8: return PRIVATE_BINTRAY;
+        case 9: return ARTIFACTORY_NPM;
+        case 10: return PYPI;
+        case 11: return ARTIFACTORY_PYTHON;
         default: return null;
       }
     }
@@ -200,6 +227,10 @@ public final class YaclibModel {
      * <code>SWIFT = 4;</code>
      */
     SWIFT(4),
+    /**
+     * <code>PYTHON = 5;</code>
+     */
+    PYTHON(5),
     UNRECOGNIZED(-1),
     ;
 
@@ -223,6 +254,10 @@ public final class YaclibModel {
      * <code>SWIFT = 4;</code>
      */
     public static final int SWIFT_VALUE = 4;
+    /**
+     * <code>PYTHON = 5;</code>
+     */
+    public static final int PYTHON_VALUE = 5;
 
 
     public final int getNumber() {
@@ -248,6 +283,7 @@ public final class YaclibModel {
         case 2: return TYPESCRIPT;
         case 3: return CSHARP;
         case 4: return SWIFT;
+        case 5: return PYTHON;
         default: return null;
       }
     }
@@ -381,6 +417,14 @@ public final class YaclibModel {
      * <code>MD_EXT = 18;</code>
      */
     MD_EXT(18),
+    /**
+     * <code>PY_EXT = 19;</code>
+     */
+    PY_EXT(19),
+    /**
+     * <code>CFG_EXT = 20;</code>
+     */
+    CFG_EXT(20),
     UNRECOGNIZED(-1),
     ;
 
@@ -460,6 +504,14 @@ public final class YaclibModel {
      * <code>MD_EXT = 18;</code>
      */
     public static final int MD_EXT_VALUE = 18;
+    /**
+     * <code>PY_EXT = 19;</code>
+     */
+    public static final int PY_EXT_VALUE = 19;
+    /**
+     * <code>CFG_EXT = 20;</code>
+     */
+    public static final int CFG_EXT_VALUE = 20;
 
 
     public final int getNumber() {
@@ -499,6 +551,8 @@ public final class YaclibModel {
         case 16: return XPROJ_EXT;
         case 17: return SH_EXT;
         case 18: return MD_EXT;
+        case 19: return PY_EXT;
+        case 20: return CFG_EXT;
         default: return null;
       }
     }
@@ -711,6 +765,26 @@ public final class YaclibModel {
      */
     com.google.protobuf.ByteString
         getNpmScopeBytes();
+
+    /**
+     * <code>optional string upload_url = 12;</code>
+     */
+    java.lang.String getUploadUrl();
+    /**
+     * <code>optional string upload_url = 12;</code>
+     */
+    com.google.protobuf.ByteString
+        getUploadUrlBytes();
+
+    /**
+     * <code>optional string password = 13;</code>
+     */
+    java.lang.String getPassword();
+    /**
+     * <code>optional string password = 13;</code>
+     */
+    com.google.protobuf.ByteString
+        getPasswordBytes();
   }
   /**
    * Protobuf type {@code org.roylance.yaclib.Repository}
@@ -730,6 +804,8 @@ public final class YaclibModel {
       repositoryType_ = 0;
       registry_ = "";
       npmScope_ = "";
+      uploadUrl_ = "";
+      password_ = "";
     }
 
     @java.lang.Override
@@ -791,6 +867,18 @@ public final class YaclibModel {
               java.lang.String s = input.readStringRequireUtf8();
 
               npmScope_ = s;
+              break;
+            }
+            case 98: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              uploadUrl_ = s;
+              break;
+            }
+            case 106: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              password_ = s;
               break;
             }
           }
@@ -1002,6 +1090,74 @@ public final class YaclibModel {
       }
     }
 
+    public static final int UPLOAD_URL_FIELD_NUMBER = 12;
+    private volatile java.lang.Object uploadUrl_;
+    /**
+     * <code>optional string upload_url = 12;</code>
+     */
+    public java.lang.String getUploadUrl() {
+      java.lang.Object ref = uploadUrl_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        uploadUrl_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>optional string upload_url = 12;</code>
+     */
+    public com.google.protobuf.ByteString
+        getUploadUrlBytes() {
+      java.lang.Object ref = uploadUrl_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        uploadUrl_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int PASSWORD_FIELD_NUMBER = 13;
+    private volatile java.lang.Object password_;
+    /**
+     * <code>optional string password = 13;</code>
+     */
+    public java.lang.String getPassword() {
+      java.lang.Object ref = password_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        password_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>optional string password = 13;</code>
+     */
+    public com.google.protobuf.ByteString
+        getPasswordBytes() {
+      java.lang.Object ref = password_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        password_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
@@ -1032,6 +1188,12 @@ public final class YaclibModel {
       if (!getNpmScopeBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 11, npmScope_);
       }
+      if (!getUploadUrlBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 12, uploadUrl_);
+      }
+      if (!getPasswordBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 13, password_);
+      }
     }
 
     public int getSerializedSize() {
@@ -1057,6 +1219,12 @@ public final class YaclibModel {
       }
       if (!getNpmScopeBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(11, npmScope_);
+      }
+      if (!getUploadUrlBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(12, uploadUrl_);
+      }
+      if (!getPasswordBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(13, password_);
       }
       memoizedSize = size;
       return size;
@@ -1085,6 +1253,10 @@ public final class YaclibModel {
           .equals(other.getRegistry());
       result = result && getNpmScope()
           .equals(other.getNpmScope());
+      result = result && getUploadUrl()
+          .equals(other.getUploadUrl());
+      result = result && getPassword()
+          .equals(other.getPassword());
       return result;
     }
 
@@ -1107,6 +1279,10 @@ public final class YaclibModel {
       hash = (53 * hash) + getRegistry().hashCode();
       hash = (37 * hash) + NPM_SCOPE_FIELD_NUMBER;
       hash = (53 * hash) + getNpmScope().hashCode();
+      hash = (37 * hash) + UPLOAD_URL_FIELD_NUMBER;
+      hash = (53 * hash) + getUploadUrl().hashCode();
+      hash = (37 * hash) + PASSWORD_FIELD_NUMBER;
+      hash = (53 * hash) + getPassword().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -1237,6 +1413,10 @@ public final class YaclibModel {
 
         npmScope_ = "";
 
+        uploadUrl_ = "";
+
+        password_ = "";
+
         return this;
       }
 
@@ -1265,6 +1445,8 @@ public final class YaclibModel {
         result.repositoryType_ = repositoryType_;
         result.registry_ = registry_;
         result.npmScope_ = npmScope_;
+        result.uploadUrl_ = uploadUrl_;
+        result.password_ = password_;
         onBuilt();
         return result;
       }
@@ -1327,6 +1509,14 @@ public final class YaclibModel {
         }
         if (!other.getNpmScope().isEmpty()) {
           npmScope_ = other.npmScope_;
+          onChanged();
+        }
+        if (!other.getUploadUrl().isEmpty()) {
+          uploadUrl_ = other.uploadUrl_;
+          onChanged();
+        }
+        if (!other.getPassword().isEmpty()) {
+          password_ = other.password_;
           onChanged();
         }
         onChanged();
@@ -1740,6 +1930,144 @@ public final class YaclibModel {
   checkByteStringIsUtf8(value);
         
         npmScope_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object uploadUrl_ = "";
+      /**
+       * <code>optional string upload_url = 12;</code>
+       */
+      public java.lang.String getUploadUrl() {
+        java.lang.Object ref = uploadUrl_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          uploadUrl_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string upload_url = 12;</code>
+       */
+      public com.google.protobuf.ByteString
+          getUploadUrlBytes() {
+        java.lang.Object ref = uploadUrl_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          uploadUrl_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string upload_url = 12;</code>
+       */
+      public Builder setUploadUrl(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        uploadUrl_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string upload_url = 12;</code>
+       */
+      public Builder clearUploadUrl() {
+        
+        uploadUrl_ = getDefaultInstance().getUploadUrl();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string upload_url = 12;</code>
+       */
+      public Builder setUploadUrlBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        uploadUrl_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object password_ = "";
+      /**
+       * <code>optional string password = 13;</code>
+       */
+      public java.lang.String getPassword() {
+        java.lang.Object ref = password_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          password_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string password = 13;</code>
+       */
+      public com.google.protobuf.ByteString
+          getPasswordBytes() {
+        java.lang.Object ref = password_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          password_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string password = 13;</code>
+       */
+      public Builder setPassword(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        password_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string password = 13;</code>
+       */
+      public Builder clearPassword() {
+        
+        password_ = getDefaultInstance().getPassword();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string password = 13;</code>
+       */
+      public Builder setPasswordBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        password_ = value;
         onChanged();
         return this;
       }
@@ -7069,6 +7397,16 @@ public final class YaclibModel {
      */
     com.google.protobuf.ByteString
         getMessageClassBytes();
+
+    /**
+     * <code>optional string file_name = 6;</code>
+     */
+    java.lang.String getFileName();
+    /**
+     * <code>optional string file_name = 6;</code>
+     */
+    com.google.protobuf.ByteString
+        getFileNameBytes();
   }
   /**
    * Protobuf type {@code org.roylance.yaclib.Message}
@@ -7087,6 +7425,7 @@ public final class YaclibModel {
       fileClass_ = "";
       messagePackage_ = "";
       messageClass_ = "";
+      fileName_ = "";
     }
 
     @java.lang.Override
@@ -7142,6 +7481,12 @@ public final class YaclibModel {
               java.lang.String s = input.readStringRequireUtf8();
 
               messageClass_ = s;
+              break;
+            }
+            case 50: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              fileName_ = s;
               break;
             }
           }
@@ -7337,6 +7682,40 @@ public final class YaclibModel {
       }
     }
 
+    public static final int FILE_NAME_FIELD_NUMBER = 6;
+    private volatile java.lang.Object fileName_;
+    /**
+     * <code>optional string file_name = 6;</code>
+     */
+    public java.lang.String getFileName() {
+      java.lang.Object ref = fileName_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        fileName_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>optional string file_name = 6;</code>
+     */
+    public com.google.protobuf.ByteString
+        getFileNameBytes() {
+      java.lang.Object ref = fileName_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        fileName_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
@@ -7364,6 +7743,9 @@ public final class YaclibModel {
       if (!getMessageClassBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 5, messageClass_);
       }
+      if (!getFileNameBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 6, fileName_);
+      }
     }
 
     public int getSerializedSize() {
@@ -7385,6 +7767,9 @@ public final class YaclibModel {
       }
       if (!getMessageClassBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, messageClass_);
+      }
+      if (!getFileNameBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, fileName_);
       }
       memoizedSize = size;
       return size;
@@ -7412,6 +7797,8 @@ public final class YaclibModel {
           .equals(other.getMessagePackage());
       result = result && getMessageClass()
           .equals(other.getMessageClass());
+      result = result && getFileName()
+          .equals(other.getFileName());
       return result;
     }
 
@@ -7432,6 +7819,8 @@ public final class YaclibModel {
       hash = (53 * hash) + getMessagePackage().hashCode();
       hash = (37 * hash) + MESSAGE_CLASS_FIELD_NUMBER;
       hash = (53 * hash) + getMessageClass().hashCode();
+      hash = (37 * hash) + FILE_NAME_FIELD_NUMBER;
+      hash = (53 * hash) + getFileName().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -7560,6 +7949,8 @@ public final class YaclibModel {
 
         messageClass_ = "";
 
+        fileName_ = "";
+
         return this;
       }
 
@@ -7587,6 +7978,7 @@ public final class YaclibModel {
         result.fileClass_ = fileClass_;
         result.messagePackage_ = messagePackage_;
         result.messageClass_ = messageClass_;
+        result.fileName_ = fileName_;
         onBuilt();
         return result;
       }
@@ -7646,6 +8038,10 @@ public final class YaclibModel {
         }
         if (!other.getMessageClass().isEmpty()) {
           messageClass_ = other.messageClass_;
+          onChanged();
+        }
+        if (!other.getFileName().isEmpty()) {
+          fileName_ = other.fileName_;
           onChanged();
         }
         onChanged();
@@ -8015,6 +8411,75 @@ public final class YaclibModel {
   checkByteStringIsUtf8(value);
         
         messageClass_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object fileName_ = "";
+      /**
+       * <code>optional string file_name = 6;</code>
+       */
+      public java.lang.String getFileName() {
+        java.lang.Object ref = fileName_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          fileName_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string file_name = 6;</code>
+       */
+      public com.google.protobuf.ByteString
+          getFileNameBytes() {
+        java.lang.Object ref = fileName_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          fileName_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string file_name = 6;</code>
+       */
+      public Builder setFileName(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        fileName_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string file_name = 6;</code>
+       */
+      public Builder clearFileName() {
+        
+        fileName_ = getDefaultInstance().getFileName();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string file_name = 6;</code>
+       */
+      public Builder setFileNameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        fileName_ = value;
         onChanged();
         return this;
       }
@@ -11086,60 +11551,64 @@ public final class YaclibModel {
   static {
     java.lang.String[] descriptorData = {
       "\n\022yaclib_model.proto\022\023org.roylance.yacli" +
-      "b\"\234\001\n\nRepository\022\013\n\003url\030\001 \001(\t\022\020\n\010usernam" +
+      "b\"\302\001\n\nRepository\022\013\n\003url\030\001 \001(\t\022\020\n\010usernam" +
       "e\030\002 \001(\t\022\014\n\004name\030\010 \001(\t\022<\n\017repository_type" +
       "\030\t \001(\0162#.org.roylance.yaclib.RepositoryT" +
       "ype\022\020\n\010registry\030\n \001(\t\022\021\n\tnpm_scope\030\013 \001(\t" +
-      "\"\364\003\n\nDependency\0221\n\004type\030\001 \001(\0162#.org.royl" +
-      "ance.yaclib.DependencyType\022\r\n\005group\030\002 \001(" +
-      "\t\022\014\n\004name\030\003 \001(\t\022\035\n\025typescript_model_file" +
-      "\030\006 \001(\t\022&\n\036third_party_dependency_version" +
-      "\030\013 \001(\t\022\025\n\rmajor_version\030\014 \001(\005\022\025\n\rminor_v",
-      "ersion\030\r \001(\005\022\023\n\013github_repo\030\016 \001(\t\022\023\n\013aut" +
-      "hor_name\030\017 \001(\t\022\017\n\007license\030\020 \001(\t\0229\n\020maven" +
-      "_repository\030\021 \001(\0132\037.org.roylance.yaclib." +
-      "Repository\0227\n\016npm_repository\030\022 \001(\0132\037.org" +
-      ".roylance.yaclib.Repository\0229\n\020nuget_rep" +
-      "ository\030\023 \001(\0132\037.org.roylance.yaclib.Repo" +
-      "sitory\0227\n\016pip_repository\030\024 \001(\0132\037.org.roy" +
-      "lance.yaclib.Repository\"\314\001\n\004File\022\037\n\027full" +
-      "_directory_location\030\001 \001(\t\022\021\n\tfile_name\030\002" +
-      " \001(\t\022:\n\016file_extension\030\003 \001(\0162\".org.royla",
-      "nce.yaclib.FileExtension\022\025\n\rfile_to_writ" +
-      "e\030\004 \001(\t\022=\n\020file_update_type\030\005 \001(\0162#.org." +
-      "roylance.yaclib.FileUpdateType\"H\n\nContro" +
-      "ller\022\014\n\004name\030\001 \001(\t\022,\n\007actions\030\002 \003(\0132\033.or" +
-      "g.roylance.yaclib.Action\"r\n\006Action\022\014\n\004na" +
-      "me\030\001 \001(\t\022,\n\006inputs\030\002 \003(\0132\034.org.roylance." +
-      "yaclib.Message\022,\n\006output\030\005 \001(\0132\034.org.roy" +
-      "lance.yaclib.Message\"z\n\007Message\022\025\n\rargum" +
-      "ent_name\030\001 \001(\t\022\024\n\014file_package\030\002 \001(\t\022\022\n\n" +
-      "file_class\030\003 \001(\t\022\027\n\017message_package\030\004 \001(",
-      "\t\022\025\n\rmessage_class\030\005 \001(\t\"4\n\010AllFiles\022(\n\005" +
-      "files\030\001 \003(\0132\031.org.roylance.yaclib.File\"F" +
-      "\n\016AllControllers\0224\n\013controllers\030\001 \003(\0132\037." +
-      "org.roylance.yaclib.Controller\"\205\001\n\024Contr" +
-      "ollerDependency\0228\n\013controllers\030\001 \001(\0132#.o" +
-      "rg.roylance.yaclib.AllControllers\0223\n\ndep" +
-      "endency\030\002 \001(\0132\037.org.roylance.yaclib.Depe" +
-      "ndency\"g\n\031AllControllerDependencies\022J\n\027c" +
-      "ontroller_dependencies\030\001 \003(\0132).org.royla" +
-      "nce.yaclib.ControllerDependency*\227\001\n\016Repo",
-      "sitoryType\022\013\n\007BINTRAY\020\000\022\017\n\013ARTIFACTORY\020\001" +
-      "\022\t\n\005NPMJS\020\002\022\017\n\013PRIVATE_NPM\020\003\022\t\n\005NUGET\020\004\022" +
-      "\021\n\rPRIVATE_NUGET\020\005\022\007\n\003PIP\020\006\022\017\n\013PRIVATE_P" +
-      "IP\020\007\022\023\n\017PRIVATE_BINTRAY\020\010*O\n\016DependencyT" +
-      "ype\022\014\n\010INTERNAL\020\000\022\010\n\004JAVA\020\001\022\016\n\nTYPESCRIP" +
-      "T\020\002\022\n\n\006CSHARP\020\003\022\t\n\005SWIFT\020\004*\231\002\n\rFileExten" +
-      "sion\022\n\n\006KT_EXT\020\000\022\014\n\010JAVA_EXT\020\001\022\022\n\016TYPESC" +
-      "RIPT_EXT\020\002\022\022\n\016JAVASCRIPT_EXT\020\003\022\r\n\tSWIFT_" +
-      "EXT\020\004\022\013\n\007POM_EXT\020\005\022\013\n\007XML_EXT\020\006\022\014\n\010HTML_" +
-      "EXT\020\007\022\016\n\nGRADLE_EXT\020\010\022\014\n\010JSON_EXT\020\t\022\n\n\006T",
-      "S_EXT\020\n\022\014\n\010NONE_EXT\020\013\022\013\n\007BAT_EXT\020\014\022\n\n\006JS" +
-      "_EXT\020\r\022\n\n\006CS_EXT\020\016\022\013\n\007SLN_EXT\020\017\022\r\n\tXPROJ" +
-      "_EXT\020\020\022\n\n\006SH_EXT\020\021\022\n\n\006MD_EXT\020\022*8\n\016FileUp" +
-      "dateType\022\r\n\tOVERWRITE\020\000\022\027\n\023WRITE_IF_NOT_" +
-      "EXISTS\020\001b\006proto3"
+      "\022\022\n\nupload_url\030\014 \001(\t\022\020\n\010password\030\r \001(\t\"\364" +
+      "\003\n\nDependency\0221\n\004type\030\001 \001(\0162#.org.roylan" +
+      "ce.yaclib.DependencyType\022\r\n\005group\030\002 \001(\t\022" +
+      "\014\n\004name\030\003 \001(\t\022\035\n\025typescript_model_file\030\006" +
+      " \001(\t\022&\n\036third_party_dependency_version\030\013",
+      " \001(\t\022\025\n\rmajor_version\030\014 \001(\005\022\025\n\rminor_ver" +
+      "sion\030\r \001(\005\022\023\n\013github_repo\030\016 \001(\t\022\023\n\013autho" +
+      "r_name\030\017 \001(\t\022\017\n\007license\030\020 \001(\t\0229\n\020maven_r" +
+      "epository\030\021 \001(\0132\037.org.roylance.yaclib.Re" +
+      "pository\0227\n\016npm_repository\030\022 \001(\0132\037.org.r" +
+      "oylance.yaclib.Repository\0229\n\020nuget_repos" +
+      "itory\030\023 \001(\0132\037.org.roylance.yaclib.Reposi" +
+      "tory\0227\n\016pip_repository\030\024 \001(\0132\037.org.royla" +
+      "nce.yaclib.Repository\"\314\001\n\004File\022\037\n\027full_d" +
+      "irectory_location\030\001 \001(\t\022\021\n\tfile_name\030\002 \001",
+      "(\t\022:\n\016file_extension\030\003 \001(\0162\".org.roylanc" +
+      "e.yaclib.FileExtension\022\025\n\rfile_to_write\030" +
+      "\004 \001(\t\022=\n\020file_update_type\030\005 \001(\0162#.org.ro" +
+      "ylance.yaclib.FileUpdateType\"H\n\nControll" +
+      "er\022\014\n\004name\030\001 \001(\t\022,\n\007actions\030\002 \003(\0132\033.org." +
+      "roylance.yaclib.Action\"r\n\006Action\022\014\n\004name" +
+      "\030\001 \001(\t\022,\n\006inputs\030\002 \003(\0132\034.org.roylance.ya" +
+      "clib.Message\022,\n\006output\030\005 \001(\0132\034.org.royla" +
+      "nce.yaclib.Message\"\215\001\n\007Message\022\025\n\rargume" +
+      "nt_name\030\001 \001(\t\022\024\n\014file_package\030\002 \001(\t\022\022\n\nf",
+      "ile_class\030\003 \001(\t\022\027\n\017message_package\030\004 \001(\t" +
+      "\022\025\n\rmessage_class\030\005 \001(\t\022\021\n\tfile_name\030\006 \001" +
+      "(\t\"4\n\010AllFiles\022(\n\005files\030\001 \003(\0132\031.org.royl" +
+      "ance.yaclib.File\"F\n\016AllControllers\0224\n\013co" +
+      "ntrollers\030\001 \003(\0132\037.org.roylance.yaclib.Co" +
+      "ntroller\"\205\001\n\024ControllerDependency\0228\n\013con" +
+      "trollers\030\001 \001(\0132#.org.roylance.yaclib.All" +
+      "Controllers\0223\n\ndependency\030\002 \001(\0132\037.org.ro" +
+      "ylance.yaclib.Dependency\"g\n\031AllControlle" +
+      "rDependencies\022J\n\027controller_dependencies",
+      "\030\001 \003(\0132).org.roylance.yaclib.ControllerD" +
+      "ependency*\316\001\n\016RepositoryType\022\013\n\007BINTRAY\020" +
+      "\000\022\017\n\013ARTIFACTORY\020\001\022\t\n\005NPMJS\020\002\022\017\n\013PRIVATE" +
+      "_NPM\020\003\022\t\n\005NUGET\020\004\022\021\n\rPRIVATE_NUGET\020\005\022\007\n\003" +
+      "PIP\020\006\022\017\n\013PRIVATE_PIP\020\007\022\023\n\017PRIVATE_BINTRA" +
+      "Y\020\010\022\023\n\017ARTIFACTORY_NPM\020\t\022\010\n\004PYPI\020\n\022\026\n\022AR" +
+      "TIFACTORY_PYTHON\020\013*[\n\016DependencyType\022\014\n\010" +
+      "INTERNAL\020\000\022\010\n\004JAVA\020\001\022\016\n\nTYPESCRIPT\020\002\022\n\n\006" +
+      "CSHARP\020\003\022\t\n\005SWIFT\020\004\022\n\n\006PYTHON\020\005*\262\002\n\rFile" +
+      "Extension\022\n\n\006KT_EXT\020\000\022\014\n\010JAVA_EXT\020\001\022\022\n\016T",
+      "YPESCRIPT_EXT\020\002\022\022\n\016JAVASCRIPT_EXT\020\003\022\r\n\tS" +
+      "WIFT_EXT\020\004\022\013\n\007POM_EXT\020\005\022\013\n\007XML_EXT\020\006\022\014\n\010" +
+      "HTML_EXT\020\007\022\016\n\nGRADLE_EXT\020\010\022\014\n\010JSON_EXT\020\t" +
+      "\022\n\n\006TS_EXT\020\n\022\014\n\010NONE_EXT\020\013\022\013\n\007BAT_EXT\020\014\022" +
+      "\n\n\006JS_EXT\020\r\022\n\n\006CS_EXT\020\016\022\013\n\007SLN_EXT\020\017\022\r\n\t" +
+      "XPROJ_EXT\020\020\022\n\n\006SH_EXT\020\021\022\n\n\006MD_EXT\020\022\022\n\n\006P" +
+      "Y_EXT\020\023\022\013\n\007CFG_EXT\020\024*8\n\016FileUpdateType\022\r" +
+      "\n\tOVERWRITE\020\000\022\027\n\023WRITE_IF_NOT_EXISTS\020\001b\006" +
+      "proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -11158,7 +11627,7 @@ public final class YaclibModel {
     internal_static_org_roylance_yaclib_Repository_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_org_roylance_yaclib_Repository_descriptor,
-        new java.lang.String[] { "Url", "Username", "Name", "RepositoryType", "Registry", "NpmScope", });
+        new java.lang.String[] { "Url", "Username", "Name", "RepositoryType", "Registry", "NpmScope", "UploadUrl", "Password", });
     internal_static_org_roylance_yaclib_Dependency_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_org_roylance_yaclib_Dependency_fieldAccessorTable = new
@@ -11188,7 +11657,7 @@ public final class YaclibModel {
     internal_static_org_roylance_yaclib_Message_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_org_roylance_yaclib_Message_descriptor,
-        new java.lang.String[] { "ArgumentName", "FilePackage", "FileClass", "MessagePackage", "MessageClass", });
+        new java.lang.String[] { "ArgumentName", "FilePackage", "FileClass", "MessagePackage", "MessageClass", "FileName", });
     internal_static_org_roylance_yaclib_AllFiles_descriptor =
       getDescriptor().getMessageTypes().get(6);
     internal_static_org_roylance_yaclib_AllFiles_fieldAccessorTable = new

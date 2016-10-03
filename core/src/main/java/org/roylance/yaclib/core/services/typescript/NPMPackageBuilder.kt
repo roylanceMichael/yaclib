@@ -30,7 +30,7 @@ ${this.buildDependencies()}
 
     private fun buildDependencies(): String {
         return this.thirdPartyDependencies.map {
-            "\t${TypeScriptUtilities.buildDependency(it)}"
+            "\t${TypeScriptUtilities.buildDependency(it)}\n"
         }.joinToString()
     }
 

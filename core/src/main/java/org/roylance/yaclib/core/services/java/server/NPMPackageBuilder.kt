@@ -12,7 +12,7 @@ class NPMPackageBuilder(private val dependencies: YaclibModel.AllControllerDepen
   "version": "${mainDependency.majorVersion}.${mainDependency.minorVersion}.0",
   "description": "${mainDependency.group}.${mainDependency.name}",
   "author": "${mainDependency.authorName}",
-  "license": "ISC",
+  "license": "${mainDependency.license}",
   "devDependencies": {
     "del": "^2.2.0",
     "gulp": "^3.9.1",

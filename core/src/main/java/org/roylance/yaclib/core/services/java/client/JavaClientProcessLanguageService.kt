@@ -2,6 +2,7 @@ package org.roylance.yaclib.core.services.java.client
 
 import org.roylance.yaclib.YaclibModel
 import org.roylance.yaclib.core.services.IProcessLanguageService
+import org.roylance.yaclib.core.services.common.ReadmeBuilder
 
 class JavaClientProcessLanguageService: IProcessLanguageService {
     override fun buildInterface(controllerDependencies: YaclibModel.AllControllerDependencies,
@@ -9,6 +10,7 @@ class JavaClientProcessLanguageService: IProcessLanguageService {
                                 thirdPartyDependencies: MutableList<YaclibModel.Dependency>): YaclibModel.AllFiles {
         val returnList = YaclibModel.AllFiles.newBuilder()
 
+        returnList.addFiles(ReadmeBuilder(mainDependency).build())
         returnList.addFiles(GradleFileBuilder(controllerDependencies, mainDependency).build())
         returnList.addFiles(GradleSettingsBuilder().build())
 
