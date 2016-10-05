@@ -3,6 +3,8 @@ package org.roylance.yaclib.core.utilities
 import org.roylance.yaclib.YaclibModel
 
 object JavaUtilities {
+    private val AlphaRegex = Regex("[^A-Za-z]+")
+
     const val GroupName = "group"
     const val NameName = "name"
     const val MajorName = "major"
@@ -80,8 +82,8 @@ object JavaUtilities {
     }
 
     fun buildPackageVariableName(dependency: YaclibModel.Dependency): String {
-        val underscoreReplace = dependency.group.replace(".", "_")
-        val underscoreReplaceName = dependency.name.replace(".", "_")
+        val underscoreReplace = dependency.group.replace(AlphaRegex, "_")
+        val underscoreReplaceName = dependency.name.replace(AlphaRegex, "_")
         return "${underscoreReplace}_$underscoreReplaceName"
     }
 

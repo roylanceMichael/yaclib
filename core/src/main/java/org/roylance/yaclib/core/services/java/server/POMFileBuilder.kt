@@ -239,25 +239,6 @@ class POMFileBuilder(private val projectInformation: YaclibModel.ProjectInformat
                     </includes>
                 </configuration>
             </plugin>
-
-            <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>properties-maven-plugin</artifactId>
-                <version>${JavaUtilities.PropertiesMavenPlugin}</version>
-                <executions>
-                    <execution>
-                        <phase>initialize</phase>
-                        <goals>
-                            <goal>read-project-properties</goal>
-                        </goals>
-                        <configuration>
-                            <files>
-                                <file>${JavaUtilities.PropertiesFileName}</file>
-                            </files>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
         </plugins>
 
     </build>
@@ -286,7 +267,7 @@ class POMFileBuilder(private val projectInformation: YaclibModel.ProjectInformat
         <dependency>
             <groupId>${dependency.group}</groupId>
             <artifactId>${dependency.name}</artifactId>
-            <version>${buildMavenPropertyReference(JavaUtilities.buildFullPackageName(dependency))}</version>
+            <version>${buildMavenPropertyReference(JavaUtilities.buildPackageVariableName(dependency))}</version>
         </dependency>
             """)
         }
