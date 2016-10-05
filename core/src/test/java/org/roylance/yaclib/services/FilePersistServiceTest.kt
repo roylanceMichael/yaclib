@@ -33,8 +33,9 @@ class FilePersistServiceTest {
                 .build()
 
         val all = YaclibModel.AllControllerDependencies.newBuilder().addControllerDependencies(controllerDependencies).build()
+        val projectInformation = YaclibModel.ProjectInformation.newBuilder().setControllers(all).setMainDependency(dependency).build()
 
-        val allFiles = javaServiceLanguageProcess.buildInterface(all, dependency)
+        val allFiles = javaServiceLanguageProcess.buildInterface(projectInformation)
 
         // act
         filePersistService.persistFiles("/home/mroylance/park/sapi", allFiles)
@@ -63,8 +64,9 @@ class FilePersistServiceTest {
                 .build()
 
         val all = YaclibModel.AllControllerDependencies.newBuilder().addControllerDependencies(controllerDependencies).build()
+        val projectInformation = YaclibModel.ProjectInformation.newBuilder().setControllers(all).setMainDependency(dependency).build()
 
-        val allFiles = javaServiceLanguageProcess.buildInterface(all, dependency)
+        val allFiles = javaServiceLanguageProcess.buildInterface(projectInformation)
 
         // act
         filePersistService.persistFiles("/Users/mikeroylance/park/python", allFiles)
@@ -92,8 +94,9 @@ class FilePersistServiceTest {
             .build()
 
         val all = YaclibModel.AllControllerDependencies.newBuilder().addControllerDependencies(controllerDependencies).build()
+        val projectInformation = YaclibModel.ProjectInformation.newBuilder().setControllers(all).setMainDependency(dependency).build()
 
-        val allFiles = javaServiceLanguageProcess.buildInterface(all, dependency)
+        val allFiles = javaServiceLanguageProcess.buildInterface(projectInformation)
 
         // act
         filePersistService.persistFiles("/home/mroylance/park/capi", allFiles)
@@ -122,8 +125,9 @@ class FilePersistServiceTest {
             .build()
 
         val all = YaclibModel.AllControllerDependencies.newBuilder().addControllerDependencies(controllerDependencies).build()
+        val projectInformation = YaclibModel.ProjectInformation.newBuilder().setControllers(all).setMainDependency(dependency).build()
 
-        val allFiles = javaServiceLanguageProcess.buildInterface(all, dependency)
+        val allFiles = javaServiceLanguageProcess.buildInterface(projectInformation)
 
         // act
         filePersistService.persistFiles("/home/mroylance/park/api/javascript", allFiles)
@@ -154,8 +158,9 @@ class FilePersistServiceTest {
                 .build()
 
         val all = YaclibModel.AllControllerDependencies.newBuilder().addControllerDependencies(controllerDependencies).build()
+        val projectInformation = YaclibModel.ProjectInformation.newBuilder().setControllers(all).setMainDependency(dependency).build()
 
-        val allFiles = javaServiceLanguageProcess.buildInterface(all, dependency)
+        val allFiles = javaServiceLanguageProcess.buildInterface(projectInformation)
 
         // act
         filePersistService.persistFiles("/Users/mikeroylance/park/csharp", allFiles)

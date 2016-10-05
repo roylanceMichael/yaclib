@@ -44,21 +44,25 @@ class MainLogic(
             serverControllerDependencies.addControllerDependencies(controllerDependencies)
         }
 
-        val serverFiles = JavaServerProcessLanguageService().buildInterface(serverControllerDependencies.build(),
-                mainDependencyDescriptor.dependency,
-                this.thirdPartyServerDependencies.toMutableList())
+        val projectInformation = YaclibModel.ProjectInformation.newBuilder()
+            .addAllThirdPartyDependencies(thirdPartyServerDependencies)
+            .setMainDependency(mainDependencyDescriptor.dependency)
+            .setControllers(serverControllerDependencies.build())
+            .build()
+
+        val serverFiles = JavaServerProcessLanguageService().buildInterface(projectInformation)
         filePersistService.persistFiles(Paths.get(this.location, CommonTokens.ServerApi).toString(), serverFiles)
 
-        val javaClientFiles = JavaClientProcessLanguageService().buildInterface(clientControllerDependencies.build(), mainDependencyDescriptor.dependency)
+        val javaClientFiles = JavaClientProcessLanguageService().buildInterface(projectInformation)
         filePersistService.persistFiles(Paths.get(this.location, CommonTokens.ClientApi).toString(), javaClientFiles)
 
-        val typeScriptFiles = TypeScriptProcessLanguageService().buildInterface(clientControllerDependencies.build(), mainDependencyDescriptor.dependency)
+        val typeScriptFiles = TypeScriptProcessLanguageService().buildInterface(projectInformation)
         filePersistService.persistFiles(Paths.get(location, CommonTokens.JavaScriptName).toString(), typeScriptFiles)
 
-        val csharpFiles = CSharpProcessLanguageService().buildInterface(clientControllerDependencies.build(), mainDependencyDescriptor.dependency)
+        val csharpFiles = CSharpProcessLanguageService().buildInterface(projectInformation)
         filePersistService.persistFiles(Paths.get(location, CommonTokens.CSharpName).toString(), csharpFiles)
 
-        val pythonFiles = PythonProcessLanguageService().buildInterface(clientControllerDependencies.build(), mainDependencyDescriptor.dependency)
+        val pythonFiles = PythonProcessLanguageService().buildInterface(projectInformation)
         filePersistService.persistFiles(Paths.get(location, CommonTokens.PythonName).toString(), pythonFiles)
 
         return true

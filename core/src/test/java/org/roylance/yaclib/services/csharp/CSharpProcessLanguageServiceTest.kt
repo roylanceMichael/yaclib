@@ -33,7 +33,8 @@ class CSharpProcessLanguageServiceTest {
                 .build()
 
         // act
-        val item = processLanguageService.buildInterface(all, dependency, ArrayList())
+        val projectInformation = YaclibModel.ProjectInformation.newBuilder().setControllers(all).setMainDependency(dependency).build()
+        val item = processLanguageService.buildInterface(projectInformation)
 
         // assert
         item.filesList.forEach {

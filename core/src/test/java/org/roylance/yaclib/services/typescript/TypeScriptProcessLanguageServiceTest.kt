@@ -32,7 +32,8 @@ class TypeScriptProcessLanguageServiceTest {
                 .build()
 
         // act
-        val item = processLanguageService.buildInterface(all, dependency, TypeScriptUtilities.baseTypeScriptKit)
+        val projectInformation = YaclibModel.ProjectInformation.newBuilder().setControllers(all).setMainDependency(dependency).build()
+        val item = processLanguageService.buildInterface(projectInformation)
 
         // assert
         item.filesList.forEach {

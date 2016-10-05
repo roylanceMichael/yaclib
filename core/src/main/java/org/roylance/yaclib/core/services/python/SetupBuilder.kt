@@ -5,20 +5,22 @@ import org.roylance.yaclib.YaclibModel
 import org.roylance.yaclib.core.utilities.JavaUtilities
 import org.roylance.yaclib.core.utilities.PythonUtilities
 
-class SetupBuilder(private val mainDependency: YaclibModel.Dependency): IBuilder<YaclibModel.File> {
+class SetupBuilder: IBuilder<YaclibModel.File> {
     override fun build(): YaclibModel.File {
         val initialTemplate = """from setuptools import setup, find_packages
+import ${PythonUtilities.PropertiesNameWithoutExtension}
+
 
 setup(
-    name="${PythonUtilities.buildPackageName(mainDependency)}",
-    version="${mainDependency.majorVersion}.${mainDependency.minorVersion}",
-    author="${mainDependency.authorName}",
-    license='${mainDependency.license}',
+    name=${PythonUtilities.PropertiesNameWithoutExtension}.${JavaUtilities.FullPackageName},
+    version=${PythonUtilities.PropertiesNameWithoutExtension}.${JavaUtilities.FullVersionName},
+    author=${PythonUtilities.PropertiesNameWithoutExtension}.${JavaUtilities.AuthorName},
+    license=${PythonUtilities.PropertiesNameWithoutExtension}.${JavaUtilities.LicenseName},
     include_package_data=True,
     install_requires=['${PythonUtilities.ProtobufName}==${JavaUtilities.ProtobufVersion}'],
-    description="models to interface with the ${mainDependency.group}.${mainDependency.name} system",
-    author_email="${mainDependency.authorName}",
-    url="${mainDependency.githubRepo}",
+    description=${PythonUtilities.PropertiesNameWithoutExtension}.${JavaUtilities.DescriptionName},
+    author_email=${PythonUtilities.PropertiesNameWithoutExtension}.${JavaUtilities.AuthorName},
+    url=properties.${JavaUtilities.GithubUrlName},
     packages=find_packages(exclude=['tests']))
 """
         val returnFile = YaclibModel.File.newBuilder()

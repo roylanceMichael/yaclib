@@ -13,38 +13,33 @@ class CSharpBuilder(private val location: String,
     override fun build(): Boolean {
         val csharpDirectory = Paths.get(this.location, CommonTokens.CSharpName, CSharpUtilities.buildFullName(mainDependency)).toFile()
 
+        // custom to yaclib process
+        println("building protobufs for nuget")
         val generateProtoProcess = CSharpUtilities.buildProtobufs(this.location, mainDependency)
         FileProcessUtilities.handleProcess(generateProtoProcess, "generateProtoProcess")
 
-        val dotnetRestoreProcess = ProcessBuilder()
-                .directory(csharpDirectory)
-                .command(FileProcessUtilities.buildCommand(DotNet, "restore"))
-        FileProcessUtilities.handleProcess(dotnetRestoreProcess, "dotnetRestoreProcess")
+        println("restoring nuget")
+        val restoreReport = CSharpUtilities.restoreDependencies(csharpDirectory.toString())
+        println(restoreReport.normalOutput)
+        println(restoreReport.errorOutput)
 
-        val dotnetBuildProcess = ProcessBuilder()
-                .directory(csharpDirectory)
-                .command(FileProcessUtilities.buildCommand(DotNet, "build"))
-        FileProcessUtilities.handleProcess(dotnetBuildProcess, "dotnetBuildProcess")
+        println("building nuget")
+        val buildReport = CSharpUtilities.build(csharpDirectory.toString())
+        println(buildReport.normalOutput)
+        println(buildReport.errorOutput)
 
-        val dotnetPackProcess = ProcessBuilder()
-                .directory(csharpDirectory)
-                .command(FileProcessUtilities.buildCommand(DotNet, "pack"))
-        FileProcessUtilities.handleProcess(dotnetPackProcess, "dotnetPackProcess")
+        println("packing nuget")
+        val packReport = CSharpUtilities.buildPackage(csharpDirectory.toString(), mainDependency)
+        println(packReport.normalOutput)
+        println(packReport.errorOutput)
 
         if (nugetKey != null) {
-            val nugetDirectoryLocation = Paths.get(csharpDirectory.toString(), "bin", "Debug").toFile()
-            val nugetPackageName = "${CSharpUtilities.buildFullName(mainDependency)}.${mainDependency.majorVersion}.${mainDependency.minorVersion}.0.nupkg"
-            val dotnetPublishProcess = ProcessBuilder()
-                    .directory(nugetDirectoryLocation)
-                    .command(FileProcessUtilities.buildCommand(Nuget, "push $nugetPackageName ${this.nugetKey}"))
-            FileProcessUtilities.handleProcess(dotnetPublishProcess, "dotnetPublishProcess")
+            println("publishing nuget")
+            val publishReport = CSharpUtilities.buildPublish(csharpDirectory.toString(), mainDependency, nugetKey)
+            println(publishReport.normalOutput)
+            println(publishReport.errorOutput)
         }
 
         return true
-    }
-
-    companion object {
-        private const val Nuget = "nuget"
-        private const val DotNet = "dotnet"
     }
 }

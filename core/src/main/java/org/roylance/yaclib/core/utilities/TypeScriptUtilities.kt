@@ -1,9 +1,15 @@
 package org.roylance.yaclib.core.utilities
 
+import com.google.gson.GsonBuilder
 import org.roylance.yaclib.YaclibModel
+import org.roylance.yaclib.core.models.NPMPackage
+import org.roylance.yaclib.core.services.IProjectBuilderServices
+import java.io.File
 import java.util.*
 
-object TypeScriptUtilities {
+object TypeScriptUtilities: IProjectBuilderServices {
+    private val gson = GsonBuilder().setPrettyPrinting().create()
+
     val protobufJsDependencyBuilder = YaclibModel.Dependency.newBuilder().setThirdPartyDependencyVersion("^5.0.1").setGroup("protobufjs").setType(YaclibModel.DependencyType.TYPESCRIPT)!!
     val proto2TypeScriptDependencyBuilder = YaclibModel.Dependency.newBuilder().setThirdPartyDependencyVersion("^2.2.0").setGroup("proto2typescript").setType(YaclibModel.DependencyType.TYPESCRIPT)!!
 
@@ -44,31 +50,31 @@ object TypeScriptUtilities {
     fun buildDependency(dependency: YaclibModel.Dependency): String {
         if (dependency.type == YaclibModel.DependencyType.INTERNAL) {
             if (dependency.hasNpmRepository() && dependency.npmRepository.npmScope.length > 0) {
-                return """"${dependency.npmRepository.npmScope}/${dependency.group}.${dependency.name}": "${buildVersion(dependency)}"
+                return """"${buildFullName(dependency)}": "${buildVersion(dependency)}"
 """
             }
             else if (dependency.hasNpmRepository() && dependency.npmRepository.repositoryType == YaclibModel.RepositoryType.ARTIFACTORY_NPM) {
                 val dependencyUrl = JavaUtilities.buildRepositoryUrl(dependency.npmRepository)
                 val fileName = ArtifactoryUtilities.buildTarUrl(dependency)
-                return """"${dependency.group}.${dependency.name}": "$dependencyUrl/$fileName"
+                return """"${buildFullName(dependency)}": "$dependencyUrl/$fileName"
 """
             }
             else {
-                return """"${dependency.group}.${dependency.name}": "${buildVersion(dependency)}"
+                return """"${buildFullName(dependency)}": "${buildVersion(dependency)}"
 """
             }
         }
 
         if (dependency.hasNpmRepository() && dependency.npmRepository.npmScope.length > 0) {
-            return """"${dependency.npmRepository.npmScope}/${dependency.group}": "${buildVersion(dependency)}"
+            return """"${buildFullName(dependency)}": "${buildVersion(dependency)}"
 """
         }
         else if (dependency.npmRepository.repositoryType == YaclibModel.RepositoryType.ARTIFACTORY_NPM) {
-            return """"${dependency.group}": "${dependency.npmRepository.url}"
+            return """"${buildFullName(dependency)}": "${dependency.npmRepository.url}"
 """
         }
         else {
-            return """"${dependency.group}": "${buildVersion(dependency)}"
+            return """"${buildFullName(dependency)}": "${buildVersion(dependency)}"
 """
         }
     }
@@ -84,12 +90,165 @@ export var $exportFactoryName = _root;
 """
     }
 
+    override fun incrementVersion(location: String, dependency: YaclibModel.Dependency): YaclibModel.ProcessReport {
+        val actualFile = File(location, NPMUtilities.PackageNameJson)
+        if (!actualFile.exists()) {
+            return YaclibModel.ProcessReport.getDefaultInstance()
+        }
+
+        val projectModel = gson.fromJson(actualFile.readText(), NPMPackage::class.java)
+
+        val splitVersion = projectModel.version!!.split(".")
+        if (splitVersion.size < 3) {
+            return YaclibModel.ProcessReport.getDefaultInstance()
+        }
+
+        val majorVersion = splitVersion[0].toInt()
+        val newMinorVersion = splitVersion[1].toInt() + 1
+
+        projectModel.version = "$majorVersion.$newMinorVersion.0"
+        File(location, NPMUtilities.PackageNameJson).writeText(gson.toJson(projectModel))
+
+        return YaclibModel.ProcessReport.newBuilder()
+                .setNewMajor(majorVersion)
+                .setNewMinor(newMinorVersion)
+                .setContent(projectModel.version)
+                .build()
+    }
+
+    override fun updateDependencyVersion(location: String, otherDependency: YaclibModel.Dependency): YaclibModel.ProcessReport {
+        val actualFile = File(location, NPMUtilities.PackageNameJson)
+        if (!actualFile.exists()) {
+            return YaclibModel.ProcessReport.getDefaultInstance()
+        }
+
+        val projectModel = gson.fromJson(actualFile.readText(), NPMPackage::class.java)
+
+        val currentKey = buildFullName(otherDependency).trim()
+
+        if (projectModel.dependencies.containsKey(currentKey)) {
+            projectModel.dependencies[currentKey] = buildVersion(otherDependency)
+        }
+
+        File(location, NPMUtilities.PackageNameJson).writeText(gson.toJson(projectModel))
+
+        return YaclibModel.ProcessReport
+            .newBuilder()
+            .build()
+    }
+
+    override fun getVersion(location: String): YaclibModel.ProcessReport {
+        val actualFile = File(location, NPMUtilities.PackageNameJson)
+        if (!actualFile.exists()) {
+            return YaclibModel.ProcessReport.getDefaultInstance()
+        }
+
+        val projectModel = gson.fromJson(actualFile.readText(), NPMPackage::class.java)
+
+        val splitVersion = projectModel.version!!.split(".")
+        if (splitVersion.size < 3) {
+            return YaclibModel.ProcessReport.getDefaultInstance()
+        }
+
+        val majorVersion = splitVersion[0].toInt()
+        val minorVersion = splitVersion[1].toInt()
+
+        return YaclibModel.ProcessReport.newBuilder()
+                .setNewMinor(minorVersion)
+                .setNewMajor(majorVersion)
+                .setContent(projectModel.version).build()
+    }
+
+    override fun setVersion(location: String, dependency: YaclibModel.Dependency): YaclibModel.ProcessReport {
+        val actualFile = File(location, NPMUtilities.PackageNameJson)
+        if (!actualFile.exists()) {
+            return YaclibModel.ProcessReport.getDefaultInstance()
+        }
+
+        val projectModel = gson.fromJson(actualFile.readText(), NPMPackage::class.java)
+        projectModel.version = buildVersion(dependency)
+
+        File(location, NPMUtilities.PackageNameJson).writeText(gson.toJson(projectModel))
+
+        return YaclibModel.ProcessReport.newBuilder()
+                .setNewMajor(dependency.majorVersion)
+                .setNewMinor(dependency.minorVersion)
+                .setContent(projectModel.version)
+                .build()
+    }
+
+    override fun clean(location: String): YaclibModel.ProcessReport {
+        return YaclibModel.ProcessReport.getDefaultInstance()
+    }
+
+    override fun build(location: String): YaclibModel.ProcessReport {
+        return FileProcessUtilities.executeProcess(location, "tsc", "")
+    }
+
+    override fun buildPackage(location: String,
+                              dependency: YaclibModel.Dependency): YaclibModel.ProcessReport {
+        return YaclibModel.ProcessReport.getDefaultInstance()
+    }
+
+    override fun buildPublish(location: String,
+                              dependency: YaclibModel.Dependency,
+                              apiKey: String): YaclibModel.ProcessReport {
+        val normalLogs = StringBuilder()
+        val errorLogs = StringBuilder()
+
+        if (dependency.hasNpmRepository() &&
+                dependency.npmRepository.repositoryType == YaclibModel.RepositoryType.ARTIFACTORY_NPM &&
+                dependency.npmRepository.url.length > 0) {
+            val scriptToRun = ArtifactoryUtilities.buildUploadTarGzScript(location, dependency)
+
+            val actualScriptFile = File(location, ArtifactoryUtilities.UploadScriptName)
+            actualScriptFile.writeText(scriptToRun)
+
+            val scriptPermissionReport = FileProcessUtilities.executeProcess(location, "chmod", "755 $actualScriptFile")
+            normalLogs.appendln(scriptPermissionReport.normalOutput)
+            errorLogs.appendln(errorLogs)
+
+            val deployReport = FileProcessUtilities.executeProcess(location, "bash", actualScriptFile.toString())
+            normalLogs.appendln(deployReport.normalOutput)
+            errorLogs.appendln(deployReport.errorOutput)
+        }
+        else {
+            val publishReport = FileProcessUtilities.executeProcess(location, "npm", "publish")
+            normalLogs.appendln(publishReport.normalOutput)
+            errorLogs.appendln(publishReport.errorOutput)
+        }
+
+        return YaclibModel.ProcessReport.newBuilder().setNormalOutput(normalLogs.toString()).setErrorOutput(errorLogs.toString()).build()
+    }
+
+    override fun restoreDependencies(location: String): YaclibModel.ProcessReport {
+        return FileProcessUtilities.executeProcess(location, "npm", "install")
+    }
+
     private fun buildVersion(dependency: YaclibModel.Dependency): String {
         if (dependency.type == YaclibModel.DependencyType.INTERNAL) {
             return "${dependency.majorVersion}.${dependency.minorVersion}.0"
         }
         else {
             return dependency.thirdPartyDependencyVersion
+        }
+    }
+
+    private fun buildFullName(dependency: YaclibModel.Dependency): String {
+        if (dependency.type == YaclibModel.DependencyType.INTERNAL) {
+            if (dependency.hasNpmRepository() && dependency.npmRepository.npmScope.length > 0) {
+                return "${dependency.npmRepository.npmScope}/${dependency.group}.${dependency.name}"
+            }
+            else {
+                return "${dependency.group}.${dependency.name}"
+            }
+        }
+
+        if (dependency.hasNpmRepository() && dependency.npmRepository.npmScope.length > 0) {
+            return "${dependency.npmRepository.npmScope}/${dependency.group}"
+        }
+        else {
+            return dependency.group
         }
     }
 }

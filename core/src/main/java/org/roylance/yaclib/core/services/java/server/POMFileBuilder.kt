@@ -4,20 +4,21 @@ import org.roylance.common.service.IBuilder
 import org.roylance.yaclib.YaclibModel
 import org.roylance.yaclib.core.enums.CommonTokens
 import org.roylance.yaclib.core.utilities.JavaUtilities
+import org.roylance.yaclib.core.utilities.MavenUtilities
 import java.util.*
 
-class POMFileBuilder(private val controllerDependencies: YaclibModel.AllControllerDependencies,
-                     private val mainDependency: YaclibModel.Dependency,
-                     private val thirdPartyDependencies: List<YaclibModel.Dependency>): IBuilder<YaclibModel.File> {
+class POMFileBuilder(private val projectInformation: YaclibModel.ProjectInformation): IBuilder<YaclibModel.File> {
     private val initialTemplate = """<?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>${mainDependency.group}</groupId>
+    ${buildProperties()}
+
+    <groupId>${projectInformation.mainDependency.group}</groupId>
     <artifactId>${CommonTokens.ServerApi}</artifactId>
-    <version>${mainDependency.majorVersion}.${mainDependency.minorVersion}</version>
+    <version>${buildMavenPropertyReference(JavaUtilities.FullVersionName)}</version>
 
     <repositories>
         ${buildRepositories()}
@@ -228,7 +229,7 @@ class POMFileBuilder(private val controllerDependencies: YaclibModel.AllControll
                 <version>${JavaUtilities.HerokuPluginVersion}</version>
                 <configuration>
                     <jdkVersion>${JavaUtilities.JavaServerJdkVersion}</jdkVersion>
-                    <appName>${mainDependency.group}.${mainDependency.name}</appName>
+                    <appName>$${JavaUtilities.FullPackageName}</appName>
                     <processTypes>
                         <web>sh proc.sh</web>
                     </processTypes>
@@ -237,6 +238,25 @@ class POMFileBuilder(private val controllerDependencies: YaclibModel.AllControll
                         <include>proc.sh</include>
                     </includes>
                 </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>properties-maven-plugin</artifactId>
+                <version>${JavaUtilities.PropertiesMavenPlugin}</version>
+                <executions>
+                    <execution>
+                        <phase>initialize</phase>
+                        <goals>
+                            <goal>read-project-properties</goal>
+                        </goals>
+                        <configuration>
+                            <files>
+                                <file>${JavaUtilities.PropertiesFileName}</file>
+                            </files>
+                        </configuration>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
 
@@ -249,7 +269,7 @@ class POMFileBuilder(private val controllerDependencies: YaclibModel.AllControll
         val returnFile = YaclibModel.File.newBuilder()
             .setFileToWrite(initialTemplate.trim())
             .setFileExtension(YaclibModel.FileExtension.POM_EXT)
-            .setFileName("pom")
+            .setFileName(MavenUtilities.PomName)
             .setFullDirectoryLocation("")
             .build()
 
@@ -259,29 +279,29 @@ class POMFileBuilder(private val controllerDependencies: YaclibModel.AllControll
     private fun buildDependencies():String {
         val workspace = StringBuilder()
 
-        this.thirdPartyDependencies
+        projectInformation.thirdPartyDependenciesList
                 .filter { it.type == YaclibModel.DependencyType.JAVA }
                 .forEach { dependency ->
                     workspace.append("""
         <dependency>
             <groupId>${dependency.group}</groupId>
             <artifactId>${dependency.name}</artifactId>
-            <version>${dependency.thirdPartyDependencyVersion}</version>
+            <version>${buildMavenPropertyReference(JavaUtilities.buildFullPackageName(dependency))}</version>
         </dependency>
             """)
         }
 
-        this.controllerDependencies.controllerDependenciesList.forEach { controllerDependency ->
+        projectInformation.controllers.controllerDependenciesList.forEach { controllerDependency ->
             workspace.append("""
         <dependency>
             <groupId>${controllerDependency.dependency.group}</groupId>
             <artifactId>${controllerDependency.dependency.name}</artifactId>
-            <version>${controllerDependency.dependency.majorVersion}.${controllerDependency.dependency.minorVersion}</version>
+            <version>${buildMavenPropertyReference(JavaUtilities.buildPackageVariableName(controllerDependency.dependency))}</version>
         </dependency>
         <dependency>
             <groupId>${controllerDependency.dependency.group}</groupId>
             <artifactId>c${controllerDependency.dependency.name}</artifactId>
-            <version>${controllerDependency.dependency.majorVersion}.${controllerDependency.dependency.minorVersion}</version>
+            <version>${buildMavenPropertyReference(JavaUtilities.buildPackageVariableName(controllerDependency.dependency))}</version>
         </dependency>
 """)
         }
@@ -293,9 +313,9 @@ class POMFileBuilder(private val controllerDependencies: YaclibModel.AllControll
         val workspace = StringBuilder()
 
         val uniqueRepositories = HashMap<String, String>()
-        uniqueRepositories[this.mainDependency.mavenRepository.url] = this.buildRepository(this.mainDependency.mavenRepository)
+        uniqueRepositories[projectInformation.mainDependency.mavenRepository.url] = this.buildRepository(projectInformation.mainDependency.mavenRepository)
 
-        this.controllerDependencies.controllerDependenciesList.forEach {
+        projectInformation.controllers.controllerDependenciesList.forEach {
             uniqueRepositories[it.dependency.mavenRepository.url] = this.buildRepository(it.dependency.mavenRepository)
         }
 
@@ -316,6 +336,43 @@ class POMFileBuilder(private val controllerDependencies: YaclibModel.AllControll
   <url>${JavaUtilities.buildRepositoryUrl(repository)}</url>
 </repository>
 """
+    }
+
+    private fun buildProperties(): String {
+        val workspace = StringBuilder("<properties>")
+
+        workspace.appendln(buildProperty(JavaUtilities.GroupName, projectInformation.mainDependency.group))
+        workspace.appendln(buildProperty(JavaUtilities.NameName, projectInformation.mainDependency.name))
+        workspace.appendln(buildProperty(JavaUtilities.FullPackageName, JavaUtilities.buildFullPackageName(projectInformation.mainDependency)))
+        workspace.appendln(buildProperty(JavaUtilities.MinorName, projectInformation.mainDependency.minorVersion.toString()))
+        workspace.appendln(buildProperty(JavaUtilities.MajorName, projectInformation.mainDependency.majorVersion.toString()))
+        workspace.appendln(buildProperty(JavaUtilities.FullVersionName, "${projectInformation.mainDependency.majorVersion}.${projectInformation.mainDependency.minorVersion}"))
+
+        val uniqueDependencies = HashMap<String, String>()
+        projectInformation.controllers.controllerDependenciesList.forEach {
+            uniqueDependencies[JavaUtilities.buildPackageVariableName(it.dependency)] = "${it.dependency.majorVersion}.${it.dependency.minorVersion}"
+        }
+
+        projectInformation.thirdPartyDependenciesList
+                .filter { it.type == YaclibModel.DependencyType.JAVA }
+                .forEach {
+            uniqueDependencies[JavaUtilities.buildPackageVariableName(it)] = it.thirdPartyDependencyVersion
+        }
+
+        uniqueDependencies.keys.forEach {
+            workspace.appendln(buildProperty(it, uniqueDependencies[it]!!))
+        }
+
+        workspace.appendln("\t</properties>")
+        return workspace.toString()
+    }
+
+    private fun buildProperty(key:String, value: String): String {
+        return "\t\t<$key>$value</$key>"
+    }
+
+    private fun buildMavenPropertyReference(item: String): String {
+        return "$" + "{" + item + "}"
     }
 
     companion object {

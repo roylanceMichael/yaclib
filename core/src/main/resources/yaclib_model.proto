@@ -1,6 +1,36 @@
 syntax = "proto3";
 package org.roylance.yaclib;
 
+enum ProjectType {
+    GRADLE_PROJECT_TYPE = 0;
+    MAVEN_PROJECT_TYPE = 1;
+    NPM_PROJECT_TYPE = 2;
+    GULP_PROJECT_TYPE = 3;
+    DOTNET_PROJECT_TYPE = 4;
+    PIP_PROJECT_TYPE = 5;
+}
+
+enum ExecutionPhase {
+    DELETE_DIRECTORIES = 0;
+    GENERATE_CODE_FROM_PROTOBUFS = 1;
+    BUILD_PUBLISH_CSHARP = 2;
+    BUILD_PUBLISH_PYTHON = 3;
+    BUILD_PUBLISH_JAVA_CLIENT = 4;
+    BUILD_PUBLISH_TYPESCRIPT = 5;
+    BUILD_TYPESCRIPT_SERVER = 6;
+    BUILD_PACKAGE_JAVA_SERVER = 7;
+}
+
+enum CustomExecutionType {
+    CUSTOM_BUILD = 0;
+    CUSTOM_PACKAGE = 1;
+    CUSTOM_PUBLISH = 2;
+    CUSTOM_INCREMENT_VERSION = 3;
+    CUSTOM_UPDATE_DEPENDENCIES = 4;
+    CUSTOM_SET_VERSION = 5;
+    CUSTOM_CLEAN = 6;
+}
+
 enum RepositoryType {
     BINTRAY = 0;
     ARTIFACTORY = 1;
@@ -47,6 +77,8 @@ enum FileExtension {
     MD_EXT = 18;
     PY_EXT = 19;
     CFG_EXT = 20;
+    PROPERTIES_EXT = 21;
+    BLOB_EXT = 22;
 }
 
 enum FileUpdateType {
@@ -125,4 +157,34 @@ message ControllerDependency {
 
 message AllControllerDependencies {
     repeated ControllerDependency controller_dependencies = 1;
+}
+
+message ProcessReport {
+    string normal_output = 1;
+    string error_output = 2;
+    bool is_error = 3;
+    int32 exit_value = 4;
+    string content = 5;
+    int32 new_major = 6;
+    int32 new_minor = 7;
+}
+
+message ProjectInformation {
+    AllControllerDependencies controllers = 1;
+    Dependency main_dependency = 2;
+    repeated Dependency third_party_dependencies = 3;
+    bool is_server = 4;
+}
+
+message AuxiliaryProject {
+    ExecutionPhase handle_before = 1;
+    repeated CustomExecutionType executions = 2;
+    repeated Dependency from_dependencies = 3;
+    Dependency target_dependency = 4;
+    repeated Dependency to_dependencies = 5;
+    ProjectType project_type = 6;
+}
+
+message AuxiliaryProjects {
+    repeated AuxiliaryProject projects = 1;
 }

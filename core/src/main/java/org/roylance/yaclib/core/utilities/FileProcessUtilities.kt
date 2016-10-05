@@ -1,7 +1,11 @@
 package org.roylance.yaclib.core.utilities
 
+import org.apache.commons.io.IOUtils
+import org.roylance.yaclib.YaclibModel
 import java.io.File
 import java.io.IOException
+import java.io.StringWriter
+import java.nio.charset.Charset
 import java.util.*
 
 object FileProcessUtilities {
@@ -54,5 +58,30 @@ object FileProcessUtilities {
         } catch (e: InterruptedException) {
             e.printStackTrace()
         }
+    }
+
+    fun buildReport(process: Process): YaclibModel.ProcessReport {
+        val returnReport = YaclibModel.ProcessReport.newBuilder()
+
+        val inputWriter = StringWriter()
+        val errorWriter = StringWriter()
+
+        IOUtils.copy(process.inputStream, inputWriter, Charset.defaultCharset())
+        IOUtils.copy(process.errorStream, errorWriter, Charset.defaultCharset())
+
+        return returnReport.setErrorOutput(errorWriter.toString()).setNormalOutput(inputWriter.toString()).build()
+    }
+
+    fun executeProcess(location: String, application: String, allArguments: String, resolveWithWhich: Boolean = true): YaclibModel.ProcessReport {
+        val command = buildCommand(application, allArguments, resolveWithWhich)
+
+        val process = ProcessBuilder()
+            .command(command)
+            .directory(File(location))
+            .start()
+
+        process.waitFor()
+
+        return buildReport(process)
     }
 }

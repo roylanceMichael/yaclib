@@ -5,8 +5,7 @@ import org.roylance.yaclib.YaclibModel
 import org.roylance.yaclib.core.enums.CommonTokens
 import org.roylance.yaclib.core.utilities.JavaUtilities
 
-class GradleFileBuilder(private val controllerDependencies: YaclibModel.AllControllerDependencies,
-                        private val mainDependency: YaclibModel.Dependency): IBuilder<YaclibModel.File> {
+class GradleFileBuilder(private val projectInformation: YaclibModel.ProjectInformation): IBuilder<YaclibModel.File> {
     private val InitialTemplate = """${CommonTokens.DoNotAlterMessage}
 buildscript {
     ext.kotlin_version = '${JavaUtilities.KotlinVersion}'
@@ -21,8 +20,8 @@ buildscript {
     }
 }
 
-group '${mainDependency.group}'
-version '${mainDependency.majorVersion}.${mainDependency.minorVersion}'
+group "$${JavaUtilities.GroupName}"
+version "$${JavaUtilities.FullVersionName}"
 
 apply plugin: 'java'
 apply plugin: 'kotlin'
@@ -41,7 +40,7 @@ publishing {
     }
 }
 
-${if (mainDependency.mavenRepository.repositoryType == YaclibModel.RepositoryType.ARTIFACTORY) buildArtifactory() else buildBintray()}
+${if (projectInformation.mainDependency.mavenRepository.repositoryType == YaclibModel.RepositoryType.ARTIFACTORY) buildArtifactory() else buildBintray()}
 
 repositories {
     mavenCentral()
@@ -50,8 +49,8 @@ repositories {
 }
 
 dependencies {
-    testCompile group: 'junit', name: 'junit', version: '4.11'
-    compile 'com.squareup.retrofit2:retrofit:2.1.0'
+    testCompile group: 'junit', name: 'junit', version: '${JavaUtilities.JUnitVersion}'
+    compile 'com.squareup.retrofit2:retrofit:${JavaUtilities.RetrofitVersion}'
 
     compile 'org.roylance:common:${JavaUtilities.RoylanceCommonVersion}'
     ${this.buildDependencies()}
@@ -71,8 +70,8 @@ dependencies {
     private fun buildDependencies():String {
         val workspace = StringBuilder()
 
-        this.controllerDependencies.controllerDependenciesList.forEach { controllerDependency ->
-        workspace.append("""compile '${controllerDependency.dependency.group}:${controllerDependency.dependency.name}:${controllerDependency.dependency.majorVersion}.${controllerDependency.dependency.minorVersion}'
+        projectInformation.controllers.controllerDependenciesList.forEach { controllerDependency ->
+        workspace.append("""compile "${controllerDependency.dependency.group}:${controllerDependency.dependency.name}:$${JavaUtilities.buildPackageVariableName(controllerDependency.dependency)}"
 """)
         }
 
@@ -80,22 +79,22 @@ dependencies {
     }
 
     private fun buildGithubRepo(): String {
-        return this.mainDependency.githubRepo
+        return projectInformation.mainDependency.githubRepo
     }
 
     private fun buildRepository(): String {
-       if (mainDependency.mavenRepository.repositoryType == YaclibModel.RepositoryType.PRIVATE_BINTRAY) {
+       if (projectInformation.mainDependency.mavenRepository.repositoryType == YaclibModel.RepositoryType.PRIVATE_BINTRAY) {
             return """maven {
-    url "${JavaUtilities.buildRepositoryUrl(mainDependency.mavenRepository)}"
+    url "${JavaUtilities.buildRepositoryUrl(projectInformation.mainDependency.mavenRepository)}"
     credentials {
         username System.getenv('${JavaUtilities.BintrayUserName}')
         password System.getenv('${JavaUtilities.BintrayKeyName}')
     }
 }"""
         }
-        else if (mainDependency.hasMavenRepository() && mainDependency.mavenRepository.url.length > 0) {
+        else if (projectInformation.mainDependency.hasMavenRepository() && projectInformation.mainDependency.mavenRepository.url.length > 0) {
            return """maven {
-    url "${JavaUtilities.buildRepositoryUrl(mainDependency.mavenRepository)}"
+    url "${JavaUtilities.buildRepositoryUrl(projectInformation.mainDependency.mavenRepository)}"
 }"""
        }
         return ""
@@ -109,15 +108,15 @@ bintray {
     publications = ['mavenJava']
     publish = true
     pkg {
-        repo = '${mainDependency.mavenRepository.name}'
-        name = "${mainDependency.group}.${CommonTokens.ClientApi}"
+        repo = "${projectInformation.mainDependency.mavenRepository.name}"
+        name = "${projectInformation.mainDependency.group}.${CommonTokens.ClientApi}"
         userOrg = user
-        licenses = ['${mainDependency.license}']
+        licenses = ['${projectInformation.mainDependency.license}']
         labels = [rootProject.name]
         publicDownloadNumbers = true
         vcsUrl = '${buildGithubRepo()}'
         version {
-            name = "${mainDependency.majorVersion}.${mainDependency.minorVersion}"
+            name = "$${JavaUtilities.FullVersionName}"
         }
     }
 }"""
@@ -125,10 +124,10 @@ bintray {
 
     private fun buildArtifactory(): String {
         return """artifactory {
-    contextUrl = "${mainDependency.mavenRepository.url}"   //The base Artifactory URL if not overridden by the publisher/resolver
+    contextUrl = "${projectInformation.mainDependency.mavenRepository.url}"   //The base Artifactory URL if not overridden by the publisher/resolver
     publish {
         repository {
-            repoKey = '${mainDependency.mavenRepository.name}'
+            repoKey = '${projectInformation.mainDependency.mavenRepository.name}'
             username = System.getenv('${JavaUtilities.ArtifactoryUserName}')
             password = System.getenv('${JavaUtilities.ArtifactoryPasswordName}')
             maven = true

@@ -18,6 +18,7 @@ public class YaclibPlugin extends DefaultTask {
     public List<DependencyDescriptor> dependencyDescriptors;
     public List<YaclibModel.Dependency> thirdPartyServerDependencies;
     public String nugetKey;
+    public YaclibModel.AuxiliaryProjects auxiliaryProjects;
 
     @TaskAction
     public Boolean buildDefinitions() throws ClassNotFoundException, NoSuchMethodException, IllegalAccessException, InvocationTargetException {
@@ -36,9 +37,14 @@ public class YaclibPlugin extends DefaultTask {
         if (!nullChecker(thirdPartyServerDependencies, "thirdPartyServerDependencies")) {
             return false;
         }
+        final YaclibModel.AuxiliaryProjects.Builder projectsToUse = YaclibModel.AuxiliaryProjects.newBuilder();
+        if (auxiliaryProjects != null) {
+            projectsToUse.addAllProjects(auxiliaryProjects.getProjectsList());
+        }
 
         final Descriptors.FileDescriptor controllerDescriptor = DependencyDescriptor.buildFileDescriptor(mainController);
 
+        System.out.println("executing plugin now!");
         return new PluginLogic(
                 location,
                 mainDependency.toBuilder()
@@ -48,7 +54,8 @@ public class YaclibPlugin extends DefaultTask {
                 controllerDescriptor,
                 dependencyDescriptors,
                 thirdPartyServerDependencies,
-                nugetKey).build();
+                nugetKey,
+                projectsToUse.build()).build();
     }
 
     private static boolean nullChecker(Object item, String name) {

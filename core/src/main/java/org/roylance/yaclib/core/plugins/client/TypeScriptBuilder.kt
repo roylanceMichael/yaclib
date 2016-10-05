@@ -15,25 +15,32 @@ class TypeScriptBuilder(private val location: String,
         // run node stuff
         val javaScriptDirectory = Paths.get(location, CommonTokens.JavaScriptName).toFile()
 
-        val npmInstallProcess = ProcessBuilder()
-                .directory(javaScriptDirectory)
-                .command(FileProcessUtilities.buildCommand("npm", "install"))
-        FileProcessUtilities.handleProcess(npmInstallProcess, "npmInstallProcess")
+        println("building protobufs for npm")
+        val restoreDependenciesReport = TypeScriptUtilities.restoreDependencies(javaScriptDirectory.toString())
+        println(restoreDependenciesReport.normalOutput)
+        println(restoreDependenciesReport.errorOutput)
 
-        val createModelJsonProcess = ProcessBuilder()
-                .directory(javaScriptDirectory)
-                .command(FileProcessUtilities.buildCommand(Paths.get(javaScriptDirectory.toString(), NodeModules, "protobufjs", Bin, "pbjs").toString(), "../api/src/main/resources/*.proto > ${ModelJson}", false))
-        FileProcessUtilities.handleProcess(createModelJsonProcess, "createModelJsonProcess")
+        // this is custom
+        val createJsonModelProcess = FileProcessUtilities.executeProcess(javaScriptDirectory.toString(),
+                Paths.get(javaScriptDirectory.toString(), NodeModules, "protobufjs", Bin, "pbjs").toString(),
+                "../api/src/main/resources/*.proto > $ModelJson",
+                false)
+        println(createJsonModelProcess.normalOutput)
+        println(createJsonModelProcess.errorOutput)
 
-        val createModelJSProcess = ProcessBuilder()
-                .directory(javaScriptDirectory)
-                .command(FileProcessUtilities.buildCommand(Paths.get(javaScriptDirectory.toString(), NodeModules, "protobufjs", Bin, "pbjs").toString(), "../api/src/main/resources/*.proto -t js > ${ModelJS}", false))
-        FileProcessUtilities.handleProcess(createModelJSProcess, "createModelJSProcess")
+        val createModelJsReport = FileProcessUtilities.executeProcess(javaScriptDirectory.toString(),
+                Paths.get(javaScriptDirectory.toString(), NodeModules, "protobufjs", Bin, "pbjs").toString(),
+                "../api/src/main/resources/*.proto -t js > $ModelJS",
+                false)
+        println(createModelJsReport.normalOutput)
+        println(createModelJsReport.errorOutput)
 
-        val proto2TypeScriptProcess = ProcessBuilder()
-                .directory(javaScriptDirectory)
-                .command(FileProcessUtilities.buildCommand(Paths.get(javaScriptDirectory.toString(), NodeModules, "proto2typescript", Bin, "proto2typescript-bin.js").toString(), "--file ${ModelJson} > ${mainDependency.typescriptModelFile}.d.ts", false))
-        FileProcessUtilities.handleProcess(proto2TypeScriptProcess, "proto2TypeScriptProcess")
+        val proto2TypeScriptReport = FileProcessUtilities.executeProcess(javaScriptDirectory.toString(),
+                Paths.get(javaScriptDirectory.toString(), NodeModules, "proto2typescript", Bin, "proto2typescript-bin.js").toString(),
+                "--file $ModelJson > ${mainDependency.typescriptModelFile}.d.ts",
+                false)
+        println(proto2TypeScriptReport.normalOutput)
+        println(proto2TypeScriptReport.errorOutput)
 
         // protobuf ts helper
         val typeScriptDefinitionPath = "./${mainDependency.typescriptModelFile}.d.ts"
@@ -47,37 +54,16 @@ class TypeScriptBuilder(private val location: String,
         Paths.get(javaScriptDirectory.toString(), ModelJson).toFile().delete()
         Paths.get(javaScriptDirectory.toString(), ModelJS).toFile().delete()
 
-        val tsCompileProcess = ProcessBuilder()
-                .directory(javaScriptDirectory)
-                .command(FileProcessUtilities.buildCommand("tsc", ""))
-        FileProcessUtilities.handleProcess(tsCompileProcess, "tsCompileProcess")
+        println("compiling npm")
+        val compileReport = TypeScriptUtilities.build(javaScriptDirectory.toString())
+        println(compileReport.normalOutput)
+        println(compileReport.errorOutput)
 
-        if (mainDependency.hasNpmRepository() &&
-                mainDependency.npmRepository.repositoryType == YaclibModel.RepositoryType.ARTIFACTORY_NPM &&
-                mainDependency.npmRepository.url.length > 0) {
-            val scriptToRun = ArtifactoryUtilities.buildUploadTarGzScript(javaScriptDirectory.toString(),
-                    mainDependency)
+        println("publishing npm")
+        val publishReport = TypeScriptUtilities.buildPublish(javaScriptDirectory.toString(), mainDependency)
+        println(publishReport.normalOutput)
+        println(publishReport.errorOutput)
 
-            val actualScriptFile = File(javaScriptDirectory, ArtifactoryUtilities.UploadScriptName)
-            actualScriptFile.writeText(scriptToRun)
-
-            val scriptPermissionProcess = ProcessBuilder()
-                    .directory(javaScriptDirectory)
-                    .command(FileProcessUtilities.buildCommand("chmod", "755 $actualScriptFile"))
-            FileProcessUtilities.handleProcess(scriptPermissionProcess, "scriptPermissionProcess")
-
-            val deployProcess = ProcessBuilder()
-                    .directory(javaScriptDirectory)
-                    .command(FileProcessUtilities.buildCommand("bash", actualScriptFile.toString()))
-
-            FileProcessUtilities.handleProcess(deployProcess, "deployProcess")
-        }
-        else {
-            val npmPublishProcess = ProcessBuilder()
-                    .directory(Paths.get(this.location, CommonTokens.JavaScriptName).toFile())
-                    .command(FileProcessUtilities.buildCommand("npm", "publish"))
-            FileProcessUtilities.handleProcess(npmPublishProcess, "npmPublishProcess")
-        }
         return true
     }
 

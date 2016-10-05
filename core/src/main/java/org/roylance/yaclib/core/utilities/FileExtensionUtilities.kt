@@ -61,6 +61,12 @@ object FileExtensionUtilities {
         if (YaclibModel.FileExtension.CFG_EXT == extension) {
             return ".cfg"
         }
+        if (YaclibModel.FileExtension.PROPERTIES_EXT == extension) {
+            return ".properties"
+        }
+        if (YaclibModel.FileExtension.BLOB_EXT == extension) {
+            return ".blob"
+        }
 
         return ".java"
     }

@@ -15,6 +15,435 @@ public final class YaclibModel {
         (com.google.protobuf.ExtensionRegistryLite) registry);
   }
   /**
+   * Protobuf enum {@code org.roylance.yaclib.ProjectType}
+   */
+  public enum ProjectType
+      implements com.google.protobuf.ProtocolMessageEnum {
+    /**
+     * <code>GRADLE_PROJECT_TYPE = 0;</code>
+     */
+    GRADLE_PROJECT_TYPE(0),
+    /**
+     * <code>MAVEN_PROJECT_TYPE = 1;</code>
+     */
+    MAVEN_PROJECT_TYPE(1),
+    /**
+     * <code>NPM_PROJECT_TYPE = 2;</code>
+     */
+    NPM_PROJECT_TYPE(2),
+    /**
+     * <code>GULP_PROJECT_TYPE = 3;</code>
+     */
+    GULP_PROJECT_TYPE(3),
+    /**
+     * <code>DOTNET_PROJECT_TYPE = 4;</code>
+     */
+    DOTNET_PROJECT_TYPE(4),
+    /**
+     * <code>PIP_PROJECT_TYPE = 5;</code>
+     */
+    PIP_PROJECT_TYPE(5),
+    UNRECOGNIZED(-1),
+    ;
+
+    /**
+     * <code>GRADLE_PROJECT_TYPE = 0;</code>
+     */
+    public static final int GRADLE_PROJECT_TYPE_VALUE = 0;
+    /**
+     * <code>MAVEN_PROJECT_TYPE = 1;</code>
+     */
+    public static final int MAVEN_PROJECT_TYPE_VALUE = 1;
+    /**
+     * <code>NPM_PROJECT_TYPE = 2;</code>
+     */
+    public static final int NPM_PROJECT_TYPE_VALUE = 2;
+    /**
+     * <code>GULP_PROJECT_TYPE = 3;</code>
+     */
+    public static final int GULP_PROJECT_TYPE_VALUE = 3;
+    /**
+     * <code>DOTNET_PROJECT_TYPE = 4;</code>
+     */
+    public static final int DOTNET_PROJECT_TYPE_VALUE = 4;
+    /**
+     * <code>PIP_PROJECT_TYPE = 5;</code>
+     */
+    public static final int PIP_PROJECT_TYPE_VALUE = 5;
+
+
+    public final int getNumber() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalArgumentException(
+            "Can't get the number of an unknown enum value.");
+      }
+      return value;
+    }
+
+    /**
+     * @deprecated Use {@link #forNumber(int)} instead.
+     */
+    @java.lang.Deprecated
+    public static ProjectType valueOf(int value) {
+      return forNumber(value);
+    }
+
+    public static ProjectType forNumber(int value) {
+      switch (value) {
+        case 0: return GRADLE_PROJECT_TYPE;
+        case 1: return MAVEN_PROJECT_TYPE;
+        case 2: return NPM_PROJECT_TYPE;
+        case 3: return GULP_PROJECT_TYPE;
+        case 4: return DOTNET_PROJECT_TYPE;
+        case 5: return PIP_PROJECT_TYPE;
+        default: return null;
+      }
+    }
+
+    public static com.google.protobuf.Internal.EnumLiteMap<ProjectType>
+        internalGetValueMap() {
+      return internalValueMap;
+    }
+    private static final com.google.protobuf.Internal.EnumLiteMap<
+        ProjectType> internalValueMap =
+          new com.google.protobuf.Internal.EnumLiteMap<ProjectType>() {
+            public ProjectType findValueByNumber(int number) {
+              return ProjectType.forNumber(number);
+            }
+          };
+
+    public final com.google.protobuf.Descriptors.EnumValueDescriptor
+        getValueDescriptor() {
+      return getDescriptor().getValues().get(ordinal());
+    }
+    public final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptorForType() {
+      return getDescriptor();
+    }
+    public static final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptor() {
+      return org.roylance.yaclib.YaclibModel.getDescriptor().getEnumTypes().get(0);
+    }
+
+    private static final ProjectType[] VALUES = values();
+
+    public static ProjectType valueOf(
+        com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+      if (desc.getType() != getDescriptor()) {
+        throw new java.lang.IllegalArgumentException(
+          "EnumValueDescriptor is not for this type.");
+      }
+      if (desc.getIndex() == -1) {
+        return UNRECOGNIZED;
+      }
+      return VALUES[desc.getIndex()];
+    }
+
+    private final int value;
+
+    private ProjectType(int value) {
+      this.value = value;
+    }
+
+    // @@protoc_insertion_point(enum_scope:org.roylance.yaclib.ProjectType)
+  }
+
+  /**
+   * Protobuf enum {@code org.roylance.yaclib.ExecutionPhase}
+   */
+  public enum ExecutionPhase
+      implements com.google.protobuf.ProtocolMessageEnum {
+    /**
+     * <code>DELETE_DIRECTORIES = 0;</code>
+     */
+    DELETE_DIRECTORIES(0),
+    /**
+     * <code>GENERATE_CODE_FROM_PROTOBUFS = 1;</code>
+     */
+    GENERATE_CODE_FROM_PROTOBUFS(1),
+    /**
+     * <code>BUILD_PUBLISH_CSHARP = 2;</code>
+     */
+    BUILD_PUBLISH_CSHARP(2),
+    /**
+     * <code>BUILD_PUBLISH_PYTHON = 3;</code>
+     */
+    BUILD_PUBLISH_PYTHON(3),
+    /**
+     * <code>BUILD_PUBLISH_JAVA_CLIENT = 4;</code>
+     */
+    BUILD_PUBLISH_JAVA_CLIENT(4),
+    /**
+     * <code>BUILD_PUBLISH_TYPESCRIPT = 5;</code>
+     */
+    BUILD_PUBLISH_TYPESCRIPT(5),
+    /**
+     * <code>BUILD_TYPESCRIPT_SERVER = 6;</code>
+     */
+    BUILD_TYPESCRIPT_SERVER(6),
+    /**
+     * <code>BUILD_PACKAGE_JAVA_SERVER = 7;</code>
+     */
+    BUILD_PACKAGE_JAVA_SERVER(7),
+    UNRECOGNIZED(-1),
+    ;
+
+    /**
+     * <code>DELETE_DIRECTORIES = 0;</code>
+     */
+    public static final int DELETE_DIRECTORIES_VALUE = 0;
+    /**
+     * <code>GENERATE_CODE_FROM_PROTOBUFS = 1;</code>
+     */
+    public static final int GENERATE_CODE_FROM_PROTOBUFS_VALUE = 1;
+    /**
+     * <code>BUILD_PUBLISH_CSHARP = 2;</code>
+     */
+    public static final int BUILD_PUBLISH_CSHARP_VALUE = 2;
+    /**
+     * <code>BUILD_PUBLISH_PYTHON = 3;</code>
+     */
+    public static final int BUILD_PUBLISH_PYTHON_VALUE = 3;
+    /**
+     * <code>BUILD_PUBLISH_JAVA_CLIENT = 4;</code>
+     */
+    public static final int BUILD_PUBLISH_JAVA_CLIENT_VALUE = 4;
+    /**
+     * <code>BUILD_PUBLISH_TYPESCRIPT = 5;</code>
+     */
+    public static final int BUILD_PUBLISH_TYPESCRIPT_VALUE = 5;
+    /**
+     * <code>BUILD_TYPESCRIPT_SERVER = 6;</code>
+     */
+    public static final int BUILD_TYPESCRIPT_SERVER_VALUE = 6;
+    /**
+     * <code>BUILD_PACKAGE_JAVA_SERVER = 7;</code>
+     */
+    public static final int BUILD_PACKAGE_JAVA_SERVER_VALUE = 7;
+
+
+    public final int getNumber() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalArgumentException(
+            "Can't get the number of an unknown enum value.");
+      }
+      return value;
+    }
+
+    /**
+     * @deprecated Use {@link #forNumber(int)} instead.
+     */
+    @java.lang.Deprecated
+    public static ExecutionPhase valueOf(int value) {
+      return forNumber(value);
+    }
+
+    public static ExecutionPhase forNumber(int value) {
+      switch (value) {
+        case 0: return DELETE_DIRECTORIES;
+        case 1: return GENERATE_CODE_FROM_PROTOBUFS;
+        case 2: return BUILD_PUBLISH_CSHARP;
+        case 3: return BUILD_PUBLISH_PYTHON;
+        case 4: return BUILD_PUBLISH_JAVA_CLIENT;
+        case 5: return BUILD_PUBLISH_TYPESCRIPT;
+        case 6: return BUILD_TYPESCRIPT_SERVER;
+        case 7: return BUILD_PACKAGE_JAVA_SERVER;
+        default: return null;
+      }
+    }
+
+    public static com.google.protobuf.Internal.EnumLiteMap<ExecutionPhase>
+        internalGetValueMap() {
+      return internalValueMap;
+    }
+    private static final com.google.protobuf.Internal.EnumLiteMap<
+        ExecutionPhase> internalValueMap =
+          new com.google.protobuf.Internal.EnumLiteMap<ExecutionPhase>() {
+            public ExecutionPhase findValueByNumber(int number) {
+              return ExecutionPhase.forNumber(number);
+            }
+          };
+
+    public final com.google.protobuf.Descriptors.EnumValueDescriptor
+        getValueDescriptor() {
+      return getDescriptor().getValues().get(ordinal());
+    }
+    public final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptorForType() {
+      return getDescriptor();
+    }
+    public static final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptor() {
+      return org.roylance.yaclib.YaclibModel.getDescriptor().getEnumTypes().get(1);
+    }
+
+    private static final ExecutionPhase[] VALUES = values();
+
+    public static ExecutionPhase valueOf(
+        com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+      if (desc.getType() != getDescriptor()) {
+        throw new java.lang.IllegalArgumentException(
+          "EnumValueDescriptor is not for this type.");
+      }
+      if (desc.getIndex() == -1) {
+        return UNRECOGNIZED;
+      }
+      return VALUES[desc.getIndex()];
+    }
+
+    private final int value;
+
+    private ExecutionPhase(int value) {
+      this.value = value;
+    }
+
+    // @@protoc_insertion_point(enum_scope:org.roylance.yaclib.ExecutionPhase)
+  }
+
+  /**
+   * Protobuf enum {@code org.roylance.yaclib.CustomExecutionType}
+   */
+  public enum CustomExecutionType
+      implements com.google.protobuf.ProtocolMessageEnum {
+    /**
+     * <code>CUSTOM_BUILD = 0;</code>
+     */
+    CUSTOM_BUILD(0),
+    /**
+     * <code>CUSTOM_PACKAGE = 1;</code>
+     */
+    CUSTOM_PACKAGE(1),
+    /**
+     * <code>CUSTOM_PUBLISH = 2;</code>
+     */
+    CUSTOM_PUBLISH(2),
+    /**
+     * <code>CUSTOM_INCREMENT_VERSION = 3;</code>
+     */
+    CUSTOM_INCREMENT_VERSION(3),
+    /**
+     * <code>CUSTOM_UPDATE_DEPENDENCIES = 4;</code>
+     */
+    CUSTOM_UPDATE_DEPENDENCIES(4),
+    /**
+     * <code>CUSTOM_SET_VERSION = 5;</code>
+     */
+    CUSTOM_SET_VERSION(5),
+    /**
+     * <code>CUSTOM_CLEAN = 6;</code>
+     */
+    CUSTOM_CLEAN(6),
+    UNRECOGNIZED(-1),
+    ;
+
+    /**
+     * <code>CUSTOM_BUILD = 0;</code>
+     */
+    public static final int CUSTOM_BUILD_VALUE = 0;
+    /**
+     * <code>CUSTOM_PACKAGE = 1;</code>
+     */
+    public static final int CUSTOM_PACKAGE_VALUE = 1;
+    /**
+     * <code>CUSTOM_PUBLISH = 2;</code>
+     */
+    public static final int CUSTOM_PUBLISH_VALUE = 2;
+    /**
+     * <code>CUSTOM_INCREMENT_VERSION = 3;</code>
+     */
+    public static final int CUSTOM_INCREMENT_VERSION_VALUE = 3;
+    /**
+     * <code>CUSTOM_UPDATE_DEPENDENCIES = 4;</code>
+     */
+    public static final int CUSTOM_UPDATE_DEPENDENCIES_VALUE = 4;
+    /**
+     * <code>CUSTOM_SET_VERSION = 5;</code>
+     */
+    public static final int CUSTOM_SET_VERSION_VALUE = 5;
+    /**
+     * <code>CUSTOM_CLEAN = 6;</code>
+     */
+    public static final int CUSTOM_CLEAN_VALUE = 6;
+
+
+    public final int getNumber() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalArgumentException(
+            "Can't get the number of an unknown enum value.");
+      }
+      return value;
+    }
+
+    /**
+     * @deprecated Use {@link #forNumber(int)} instead.
+     */
+    @java.lang.Deprecated
+    public static CustomExecutionType valueOf(int value) {
+      return forNumber(value);
+    }
+
+    public static CustomExecutionType forNumber(int value) {
+      switch (value) {
+        case 0: return CUSTOM_BUILD;
+        case 1: return CUSTOM_PACKAGE;
+        case 2: return CUSTOM_PUBLISH;
+        case 3: return CUSTOM_INCREMENT_VERSION;
+        case 4: return CUSTOM_UPDATE_DEPENDENCIES;
+        case 5: return CUSTOM_SET_VERSION;
+        case 6: return CUSTOM_CLEAN;
+        default: return null;
+      }
+    }
+
+    public static com.google.protobuf.Internal.EnumLiteMap<CustomExecutionType>
+        internalGetValueMap() {
+      return internalValueMap;
+    }
+    private static final com.google.protobuf.Internal.EnumLiteMap<
+        CustomExecutionType> internalValueMap =
+          new com.google.protobuf.Internal.EnumLiteMap<CustomExecutionType>() {
+            public CustomExecutionType findValueByNumber(int number) {
+              return CustomExecutionType.forNumber(number);
+            }
+          };
+
+    public final com.google.protobuf.Descriptors.EnumValueDescriptor
+        getValueDescriptor() {
+      return getDescriptor().getValues().get(ordinal());
+    }
+    public final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptorForType() {
+      return getDescriptor();
+    }
+    public static final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptor() {
+      return org.roylance.yaclib.YaclibModel.getDescriptor().getEnumTypes().get(2);
+    }
+
+    private static final CustomExecutionType[] VALUES = values();
+
+    public static CustomExecutionType valueOf(
+        com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+      if (desc.getType() != getDescriptor()) {
+        throw new java.lang.IllegalArgumentException(
+          "EnumValueDescriptor is not for this type.");
+      }
+      if (desc.getIndex() == -1) {
+        return UNRECOGNIZED;
+      }
+      return VALUES[desc.getIndex()];
+    }
+
+    private final int value;
+
+    private CustomExecutionType(int value) {
+      this.value = value;
+    }
+
+    // @@protoc_insertion_point(enum_scope:org.roylance.yaclib.CustomExecutionType)
+  }
+
+  /**
    * Protobuf enum {@code org.roylance.yaclib.RepositoryType}
    */
   public enum RepositoryType
@@ -176,7 +605,7 @@ public final class YaclibModel {
     }
     public static final com.google.protobuf.Descriptors.EnumDescriptor
         getDescriptor() {
-      return org.roylance.yaclib.YaclibModel.getDescriptor().getEnumTypes().get(0);
+      return org.roylance.yaclib.YaclibModel.getDescriptor().getEnumTypes().get(3);
     }
 
     private static final RepositoryType[] VALUES = values();
@@ -310,7 +739,7 @@ public final class YaclibModel {
     }
     public static final com.google.protobuf.Descriptors.EnumDescriptor
         getDescriptor() {
-      return org.roylance.yaclib.YaclibModel.getDescriptor().getEnumTypes().get(1);
+      return org.roylance.yaclib.YaclibModel.getDescriptor().getEnumTypes().get(4);
     }
 
     private static final DependencyType[] VALUES = values();
@@ -425,6 +854,14 @@ public final class YaclibModel {
      * <code>CFG_EXT = 20;</code>
      */
     CFG_EXT(20),
+    /**
+     * <code>PROPERTIES_EXT = 21;</code>
+     */
+    PROPERTIES_EXT(21),
+    /**
+     * <code>BLOB_EXT = 22;</code>
+     */
+    BLOB_EXT(22),
     UNRECOGNIZED(-1),
     ;
 
@@ -512,6 +949,14 @@ public final class YaclibModel {
      * <code>CFG_EXT = 20;</code>
      */
     public static final int CFG_EXT_VALUE = 20;
+    /**
+     * <code>PROPERTIES_EXT = 21;</code>
+     */
+    public static final int PROPERTIES_EXT_VALUE = 21;
+    /**
+     * <code>BLOB_EXT = 22;</code>
+     */
+    public static final int BLOB_EXT_VALUE = 22;
 
 
     public final int getNumber() {
@@ -553,6 +998,8 @@ public final class YaclibModel {
         case 18: return MD_EXT;
         case 19: return PY_EXT;
         case 20: return CFG_EXT;
+        case 21: return PROPERTIES_EXT;
+        case 22: return BLOB_EXT;
         default: return null;
       }
     }
@@ -579,7 +1026,7 @@ public final class YaclibModel {
     }
     public static final com.google.protobuf.Descriptors.EnumDescriptor
         getDescriptor() {
-      return org.roylance.yaclib.YaclibModel.getDescriptor().getEnumTypes().get(2);
+      return org.roylance.yaclib.YaclibModel.getDescriptor().getEnumTypes().get(5);
     }
 
     private static final FileExtension[] VALUES = values();
@@ -677,7 +1124,7 @@ public final class YaclibModel {
     }
     public static final com.google.protobuf.Descriptors.EnumDescriptor
         getDescriptor() {
-      return org.roylance.yaclib.YaclibModel.getDescriptor().getEnumTypes().get(3);
+      return org.roylance.yaclib.YaclibModel.getDescriptor().getEnumTypes().get(6);
     }
 
     private static final FileUpdateType[] VALUES = values();
@@ -11491,6 +11938,4698 @@ public final class YaclibModel {
 
   }
 
+  public interface ProcessReportOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:org.roylance.yaclib.ProcessReport)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>optional string normal_output = 1;</code>
+     */
+    java.lang.String getNormalOutput();
+    /**
+     * <code>optional string normal_output = 1;</code>
+     */
+    com.google.protobuf.ByteString
+        getNormalOutputBytes();
+
+    /**
+     * <code>optional string error_output = 2;</code>
+     */
+    java.lang.String getErrorOutput();
+    /**
+     * <code>optional string error_output = 2;</code>
+     */
+    com.google.protobuf.ByteString
+        getErrorOutputBytes();
+
+    /**
+     * <code>optional bool is_error = 3;</code>
+     */
+    boolean getIsError();
+
+    /**
+     * <code>optional int32 exit_value = 4;</code>
+     */
+    int getExitValue();
+
+    /**
+     * <code>optional string content = 5;</code>
+     */
+    java.lang.String getContent();
+    /**
+     * <code>optional string content = 5;</code>
+     */
+    com.google.protobuf.ByteString
+        getContentBytes();
+
+    /**
+     * <code>optional int32 new_major = 6;</code>
+     */
+    int getNewMajor();
+
+    /**
+     * <code>optional int32 new_minor = 7;</code>
+     */
+    int getNewMinor();
+  }
+  /**
+   * Protobuf type {@code org.roylance.yaclib.ProcessReport}
+   */
+  public  static final class ProcessReport extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:org.roylance.yaclib.ProcessReport)
+      ProcessReportOrBuilder {
+    // Use ProcessReport.newBuilder() to construct.
+    private ProcessReport(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private ProcessReport() {
+      normalOutput_ = "";
+      errorOutput_ = "";
+      isError_ = false;
+      exitValue_ = 0;
+      content_ = "";
+      newMajor_ = 0;
+      newMinor_ = 0;
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
+    }
+    private ProcessReport(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      int mutable_bitField0_ = 0;
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!input.skipField(tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              normalOutput_ = s;
+              break;
+            }
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              errorOutput_ = s;
+              break;
+            }
+            case 24: {
+
+              isError_ = input.readBool();
+              break;
+            }
+            case 32: {
+
+              exitValue_ = input.readInt32();
+              break;
+            }
+            case 42: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              content_ = s;
+              break;
+            }
+            case 48: {
+
+              newMajor_ = input.readInt32();
+              break;
+            }
+            case 56: {
+
+              newMinor_ = input.readInt32();
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return org.roylance.yaclib.YaclibModel.internal_static_org_roylance_yaclib_ProcessReport_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return org.roylance.yaclib.YaclibModel.internal_static_org_roylance_yaclib_ProcessReport_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              org.roylance.yaclib.YaclibModel.ProcessReport.class, org.roylance.yaclib.YaclibModel.ProcessReport.Builder.class);
+    }
+
+    public static final int NORMAL_OUTPUT_FIELD_NUMBER = 1;
+    private volatile java.lang.Object normalOutput_;
+    /**
+     * <code>optional string normal_output = 1;</code>
+     */
+    public java.lang.String getNormalOutput() {
+      java.lang.Object ref = normalOutput_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        normalOutput_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>optional string normal_output = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getNormalOutputBytes() {
+      java.lang.Object ref = normalOutput_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        normalOutput_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int ERROR_OUTPUT_FIELD_NUMBER = 2;
+    private volatile java.lang.Object errorOutput_;
+    /**
+     * <code>optional string error_output = 2;</code>
+     */
+    public java.lang.String getErrorOutput() {
+      java.lang.Object ref = errorOutput_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        errorOutput_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>optional string error_output = 2;</code>
+     */
+    public com.google.protobuf.ByteString
+        getErrorOutputBytes() {
+      java.lang.Object ref = errorOutput_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        errorOutput_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int IS_ERROR_FIELD_NUMBER = 3;
+    private boolean isError_;
+    /**
+     * <code>optional bool is_error = 3;</code>
+     */
+    public boolean getIsError() {
+      return isError_;
+    }
+
+    public static final int EXIT_VALUE_FIELD_NUMBER = 4;
+    private int exitValue_;
+    /**
+     * <code>optional int32 exit_value = 4;</code>
+     */
+    public int getExitValue() {
+      return exitValue_;
+    }
+
+    public static final int CONTENT_FIELD_NUMBER = 5;
+    private volatile java.lang.Object content_;
+    /**
+     * <code>optional string content = 5;</code>
+     */
+    public java.lang.String getContent() {
+      java.lang.Object ref = content_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        content_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>optional string content = 5;</code>
+     */
+    public com.google.protobuf.ByteString
+        getContentBytes() {
+      java.lang.Object ref = content_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        content_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int NEW_MAJOR_FIELD_NUMBER = 6;
+    private int newMajor_;
+    /**
+     * <code>optional int32 new_major = 6;</code>
+     */
+    public int getNewMajor() {
+      return newMajor_;
+    }
+
+    public static final int NEW_MINOR_FIELD_NUMBER = 7;
+    private int newMinor_;
+    /**
+     * <code>optional int32 new_minor = 7;</code>
+     */
+    public int getNewMinor() {
+      return newMinor_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!getNormalOutputBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, normalOutput_);
+      }
+      if (!getErrorOutputBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, errorOutput_);
+      }
+      if (isError_ != false) {
+        output.writeBool(3, isError_);
+      }
+      if (exitValue_ != 0) {
+        output.writeInt32(4, exitValue_);
+      }
+      if (!getContentBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 5, content_);
+      }
+      if (newMajor_ != 0) {
+        output.writeInt32(6, newMajor_);
+      }
+      if (newMinor_ != 0) {
+        output.writeInt32(7, newMinor_);
+      }
+    }
+
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!getNormalOutputBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, normalOutput_);
+      }
+      if (!getErrorOutputBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, errorOutput_);
+      }
+      if (isError_ != false) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(3, isError_);
+      }
+      if (exitValue_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(4, exitValue_);
+      }
+      if (!getContentBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, content_);
+      }
+      if (newMajor_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(6, newMajor_);
+      }
+      if (newMinor_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(7, newMinor_);
+      }
+      memoizedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof org.roylance.yaclib.YaclibModel.ProcessReport)) {
+        return super.equals(obj);
+      }
+      org.roylance.yaclib.YaclibModel.ProcessReport other = (org.roylance.yaclib.YaclibModel.ProcessReport) obj;
+
+      boolean result = true;
+      result = result && getNormalOutput()
+          .equals(other.getNormalOutput());
+      result = result && getErrorOutput()
+          .equals(other.getErrorOutput());
+      result = result && (getIsError()
+          == other.getIsError());
+      result = result && (getExitValue()
+          == other.getExitValue());
+      result = result && getContent()
+          .equals(other.getContent());
+      result = result && (getNewMajor()
+          == other.getNewMajor());
+      result = result && (getNewMinor()
+          == other.getNewMinor());
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptorForType().hashCode();
+      hash = (37 * hash) + NORMAL_OUTPUT_FIELD_NUMBER;
+      hash = (53 * hash) + getNormalOutput().hashCode();
+      hash = (37 * hash) + ERROR_OUTPUT_FIELD_NUMBER;
+      hash = (53 * hash) + getErrorOutput().hashCode();
+      hash = (37 * hash) + IS_ERROR_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+          getIsError());
+      hash = (37 * hash) + EXIT_VALUE_FIELD_NUMBER;
+      hash = (53 * hash) + getExitValue();
+      hash = (37 * hash) + CONTENT_FIELD_NUMBER;
+      hash = (53 * hash) + getContent().hashCode();
+      hash = (37 * hash) + NEW_MAJOR_FIELD_NUMBER;
+      hash = (53 * hash) + getNewMajor();
+      hash = (37 * hash) + NEW_MINOR_FIELD_NUMBER;
+      hash = (53 * hash) + getNewMinor();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static org.roylance.yaclib.YaclibModel.ProcessReport parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static org.roylance.yaclib.YaclibModel.ProcessReport parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static org.roylance.yaclib.YaclibModel.ProcessReport parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static org.roylance.yaclib.YaclibModel.ProcessReport parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static org.roylance.yaclib.YaclibModel.ProcessReport parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static org.roylance.yaclib.YaclibModel.ProcessReport parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static org.roylance.yaclib.YaclibModel.ProcessReport parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static org.roylance.yaclib.YaclibModel.ProcessReport parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static org.roylance.yaclib.YaclibModel.ProcessReport parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static org.roylance.yaclib.YaclibModel.ProcessReport parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(org.roylance.yaclib.YaclibModel.ProcessReport prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code org.roylance.yaclib.ProcessReport}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:org.roylance.yaclib.ProcessReport)
+        org.roylance.yaclib.YaclibModel.ProcessReportOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return org.roylance.yaclib.YaclibModel.internal_static_org_roylance_yaclib_ProcessReport_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return org.roylance.yaclib.YaclibModel.internal_static_org_roylance_yaclib_ProcessReport_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                org.roylance.yaclib.YaclibModel.ProcessReport.class, org.roylance.yaclib.YaclibModel.ProcessReport.Builder.class);
+      }
+
+      // Construct using org.roylance.yaclib.YaclibModel.ProcessReport.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      public Builder clear() {
+        super.clear();
+        normalOutput_ = "";
+
+        errorOutput_ = "";
+
+        isError_ = false;
+
+        exitValue_ = 0;
+
+        content_ = "";
+
+        newMajor_ = 0;
+
+        newMinor_ = 0;
+
+        return this;
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return org.roylance.yaclib.YaclibModel.internal_static_org_roylance_yaclib_ProcessReport_descriptor;
+      }
+
+      public org.roylance.yaclib.YaclibModel.ProcessReport getDefaultInstanceForType() {
+        return org.roylance.yaclib.YaclibModel.ProcessReport.getDefaultInstance();
+      }
+
+      public org.roylance.yaclib.YaclibModel.ProcessReport build() {
+        org.roylance.yaclib.YaclibModel.ProcessReport result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public org.roylance.yaclib.YaclibModel.ProcessReport buildPartial() {
+        org.roylance.yaclib.YaclibModel.ProcessReport result = new org.roylance.yaclib.YaclibModel.ProcessReport(this);
+        result.normalOutput_ = normalOutput_;
+        result.errorOutput_ = errorOutput_;
+        result.isError_ = isError_;
+        result.exitValue_ = exitValue_;
+        result.content_ = content_;
+        result.newMajor_ = newMajor_;
+        result.newMinor_ = newMinor_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof org.roylance.yaclib.YaclibModel.ProcessReport) {
+          return mergeFrom((org.roylance.yaclib.YaclibModel.ProcessReport)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(org.roylance.yaclib.YaclibModel.ProcessReport other) {
+        if (other == org.roylance.yaclib.YaclibModel.ProcessReport.getDefaultInstance()) return this;
+        if (!other.getNormalOutput().isEmpty()) {
+          normalOutput_ = other.normalOutput_;
+          onChanged();
+        }
+        if (!other.getErrorOutput().isEmpty()) {
+          errorOutput_ = other.errorOutput_;
+          onChanged();
+        }
+        if (other.getIsError() != false) {
+          setIsError(other.getIsError());
+        }
+        if (other.getExitValue() != 0) {
+          setExitValue(other.getExitValue());
+        }
+        if (!other.getContent().isEmpty()) {
+          content_ = other.content_;
+          onChanged();
+        }
+        if (other.getNewMajor() != 0) {
+          setNewMajor(other.getNewMajor());
+        }
+        if (other.getNewMinor() != 0) {
+          setNewMinor(other.getNewMinor());
+        }
+        onChanged();
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        org.roylance.yaclib.YaclibModel.ProcessReport parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (org.roylance.yaclib.YaclibModel.ProcessReport) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private java.lang.Object normalOutput_ = "";
+      /**
+       * <code>optional string normal_output = 1;</code>
+       */
+      public java.lang.String getNormalOutput() {
+        java.lang.Object ref = normalOutput_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          normalOutput_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string normal_output = 1;</code>
+       */
+      public com.google.protobuf.ByteString
+          getNormalOutputBytes() {
+        java.lang.Object ref = normalOutput_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          normalOutput_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string normal_output = 1;</code>
+       */
+      public Builder setNormalOutput(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        normalOutput_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string normal_output = 1;</code>
+       */
+      public Builder clearNormalOutput() {
+        
+        normalOutput_ = getDefaultInstance().getNormalOutput();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string normal_output = 1;</code>
+       */
+      public Builder setNormalOutputBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        normalOutput_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object errorOutput_ = "";
+      /**
+       * <code>optional string error_output = 2;</code>
+       */
+      public java.lang.String getErrorOutput() {
+        java.lang.Object ref = errorOutput_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          errorOutput_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string error_output = 2;</code>
+       */
+      public com.google.protobuf.ByteString
+          getErrorOutputBytes() {
+        java.lang.Object ref = errorOutput_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          errorOutput_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string error_output = 2;</code>
+       */
+      public Builder setErrorOutput(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        errorOutput_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string error_output = 2;</code>
+       */
+      public Builder clearErrorOutput() {
+        
+        errorOutput_ = getDefaultInstance().getErrorOutput();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string error_output = 2;</code>
+       */
+      public Builder setErrorOutputBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        errorOutput_ = value;
+        onChanged();
+        return this;
+      }
+
+      private boolean isError_ ;
+      /**
+       * <code>optional bool is_error = 3;</code>
+       */
+      public boolean getIsError() {
+        return isError_;
+      }
+      /**
+       * <code>optional bool is_error = 3;</code>
+       */
+      public Builder setIsError(boolean value) {
+        
+        isError_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional bool is_error = 3;</code>
+       */
+      public Builder clearIsError() {
+        
+        isError_ = false;
+        onChanged();
+        return this;
+      }
+
+      private int exitValue_ ;
+      /**
+       * <code>optional int32 exit_value = 4;</code>
+       */
+      public int getExitValue() {
+        return exitValue_;
+      }
+      /**
+       * <code>optional int32 exit_value = 4;</code>
+       */
+      public Builder setExitValue(int value) {
+        
+        exitValue_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int32 exit_value = 4;</code>
+       */
+      public Builder clearExitValue() {
+        
+        exitValue_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object content_ = "";
+      /**
+       * <code>optional string content = 5;</code>
+       */
+      public java.lang.String getContent() {
+        java.lang.Object ref = content_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          content_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string content = 5;</code>
+       */
+      public com.google.protobuf.ByteString
+          getContentBytes() {
+        java.lang.Object ref = content_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          content_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string content = 5;</code>
+       */
+      public Builder setContent(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        content_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string content = 5;</code>
+       */
+      public Builder clearContent() {
+        
+        content_ = getDefaultInstance().getContent();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string content = 5;</code>
+       */
+      public Builder setContentBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        content_ = value;
+        onChanged();
+        return this;
+      }
+
+      private int newMajor_ ;
+      /**
+       * <code>optional int32 new_major = 6;</code>
+       */
+      public int getNewMajor() {
+        return newMajor_;
+      }
+      /**
+       * <code>optional int32 new_major = 6;</code>
+       */
+      public Builder setNewMajor(int value) {
+        
+        newMajor_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int32 new_major = 6;</code>
+       */
+      public Builder clearNewMajor() {
+        
+        newMajor_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int newMinor_ ;
+      /**
+       * <code>optional int32 new_minor = 7;</code>
+       */
+      public int getNewMinor() {
+        return newMinor_;
+      }
+      /**
+       * <code>optional int32 new_minor = 7;</code>
+       */
+      public Builder setNewMinor(int value) {
+        
+        newMinor_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int32 new_minor = 7;</code>
+       */
+      public Builder clearNewMinor() {
+        
+        newMinor_ = 0;
+        onChanged();
+        return this;
+      }
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return this;
+      }
+
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return this;
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:org.roylance.yaclib.ProcessReport)
+    }
+
+    // @@protoc_insertion_point(class_scope:org.roylance.yaclib.ProcessReport)
+    private static final org.roylance.yaclib.YaclibModel.ProcessReport DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new org.roylance.yaclib.YaclibModel.ProcessReport();
+    }
+
+    public static org.roylance.yaclib.YaclibModel.ProcessReport getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<ProcessReport>
+        PARSER = new com.google.protobuf.AbstractParser<ProcessReport>() {
+      public ProcessReport parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+          return new ProcessReport(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<ProcessReport> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<ProcessReport> getParserForType() {
+      return PARSER;
+    }
+
+    public org.roylance.yaclib.YaclibModel.ProcessReport getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface ProjectInformationOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:org.roylance.yaclib.ProjectInformation)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>optional .org.roylance.yaclib.AllControllerDependencies controllers = 1;</code>
+     */
+    boolean hasControllers();
+    /**
+     * <code>optional .org.roylance.yaclib.AllControllerDependencies controllers = 1;</code>
+     */
+    org.roylance.yaclib.YaclibModel.AllControllerDependencies getControllers();
+    /**
+     * <code>optional .org.roylance.yaclib.AllControllerDependencies controllers = 1;</code>
+     */
+    org.roylance.yaclib.YaclibModel.AllControllerDependenciesOrBuilder getControllersOrBuilder();
+
+    /**
+     * <code>optional .org.roylance.yaclib.Dependency main_dependency = 2;</code>
+     */
+    boolean hasMainDependency();
+    /**
+     * <code>optional .org.roylance.yaclib.Dependency main_dependency = 2;</code>
+     */
+    org.roylance.yaclib.YaclibModel.Dependency getMainDependency();
+    /**
+     * <code>optional .org.roylance.yaclib.Dependency main_dependency = 2;</code>
+     */
+    org.roylance.yaclib.YaclibModel.DependencyOrBuilder getMainDependencyOrBuilder();
+
+    /**
+     * <code>repeated .org.roylance.yaclib.Dependency third_party_dependencies = 3;</code>
+     */
+    java.util.List<org.roylance.yaclib.YaclibModel.Dependency> 
+        getThirdPartyDependenciesList();
+    /**
+     * <code>repeated .org.roylance.yaclib.Dependency third_party_dependencies = 3;</code>
+     */
+    org.roylance.yaclib.YaclibModel.Dependency getThirdPartyDependencies(int index);
+    /**
+     * <code>repeated .org.roylance.yaclib.Dependency third_party_dependencies = 3;</code>
+     */
+    int getThirdPartyDependenciesCount();
+    /**
+     * <code>repeated .org.roylance.yaclib.Dependency third_party_dependencies = 3;</code>
+     */
+    java.util.List<? extends org.roylance.yaclib.YaclibModel.DependencyOrBuilder> 
+        getThirdPartyDependenciesOrBuilderList();
+    /**
+     * <code>repeated .org.roylance.yaclib.Dependency third_party_dependencies = 3;</code>
+     */
+    org.roylance.yaclib.YaclibModel.DependencyOrBuilder getThirdPartyDependenciesOrBuilder(
+        int index);
+
+    /**
+     * <code>optional bool is_server = 4;</code>
+     */
+    boolean getIsServer();
+  }
+  /**
+   * Protobuf type {@code org.roylance.yaclib.ProjectInformation}
+   */
+  public  static final class ProjectInformation extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:org.roylance.yaclib.ProjectInformation)
+      ProjectInformationOrBuilder {
+    // Use ProjectInformation.newBuilder() to construct.
+    private ProjectInformation(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private ProjectInformation() {
+      thirdPartyDependencies_ = java.util.Collections.emptyList();
+      isServer_ = false;
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
+    }
+    private ProjectInformation(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      int mutable_bitField0_ = 0;
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!input.skipField(tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              org.roylance.yaclib.YaclibModel.AllControllerDependencies.Builder subBuilder = null;
+              if (controllers_ != null) {
+                subBuilder = controllers_.toBuilder();
+              }
+              controllers_ = input.readMessage(org.roylance.yaclib.YaclibModel.AllControllerDependencies.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(controllers_);
+                controllers_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 18: {
+              org.roylance.yaclib.YaclibModel.Dependency.Builder subBuilder = null;
+              if (mainDependency_ != null) {
+                subBuilder = mainDependency_.toBuilder();
+              }
+              mainDependency_ = input.readMessage(org.roylance.yaclib.YaclibModel.Dependency.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(mainDependency_);
+                mainDependency_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 26: {
+              if (!((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
+                thirdPartyDependencies_ = new java.util.ArrayList<org.roylance.yaclib.YaclibModel.Dependency>();
+                mutable_bitField0_ |= 0x00000004;
+              }
+              thirdPartyDependencies_.add(
+                  input.readMessage(org.roylance.yaclib.YaclibModel.Dependency.parser(), extensionRegistry));
+              break;
+            }
+            case 32: {
+
+              isServer_ = input.readBool();
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
+          thirdPartyDependencies_ = java.util.Collections.unmodifiableList(thirdPartyDependencies_);
+        }
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return org.roylance.yaclib.YaclibModel.internal_static_org_roylance_yaclib_ProjectInformation_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return org.roylance.yaclib.YaclibModel.internal_static_org_roylance_yaclib_ProjectInformation_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              org.roylance.yaclib.YaclibModel.ProjectInformation.class, org.roylance.yaclib.YaclibModel.ProjectInformation.Builder.class);
+    }
+
+    private int bitField0_;
+    public static final int CONTROLLERS_FIELD_NUMBER = 1;
+    private org.roylance.yaclib.YaclibModel.AllControllerDependencies controllers_;
+    /**
+     * <code>optional .org.roylance.yaclib.AllControllerDependencies controllers = 1;</code>
+     */
+    public boolean hasControllers() {
+      return controllers_ != null;
+    }
+    /**
+     * <code>optional .org.roylance.yaclib.AllControllerDependencies controllers = 1;</code>
+     */
+    public org.roylance.yaclib.YaclibModel.AllControllerDependencies getControllers() {
+      return controllers_ == null ? org.roylance.yaclib.YaclibModel.AllControllerDependencies.getDefaultInstance() : controllers_;
+    }
+    /**
+     * <code>optional .org.roylance.yaclib.AllControllerDependencies controllers = 1;</code>
+     */
+    public org.roylance.yaclib.YaclibModel.AllControllerDependenciesOrBuilder getControllersOrBuilder() {
+      return getControllers();
+    }
+
+    public static final int MAIN_DEPENDENCY_FIELD_NUMBER = 2;
+    private org.roylance.yaclib.YaclibModel.Dependency mainDependency_;
+    /**
+     * <code>optional .org.roylance.yaclib.Dependency main_dependency = 2;</code>
+     */
+    public boolean hasMainDependency() {
+      return mainDependency_ != null;
+    }
+    /**
+     * <code>optional .org.roylance.yaclib.Dependency main_dependency = 2;</code>
+     */
+    public org.roylance.yaclib.YaclibModel.Dependency getMainDependency() {
+      return mainDependency_ == null ? org.roylance.yaclib.YaclibModel.Dependency.getDefaultInstance() : mainDependency_;
+    }
+    /**
+     * <code>optional .org.roylance.yaclib.Dependency main_dependency = 2;</code>
+     */
+    public org.roylance.yaclib.YaclibModel.DependencyOrBuilder getMainDependencyOrBuilder() {
+      return getMainDependency();
+    }
+
+    public static final int THIRD_PARTY_DEPENDENCIES_FIELD_NUMBER = 3;
+    private java.util.List<org.roylance.yaclib.YaclibModel.Dependency> thirdPartyDependencies_;
+    /**
+     * <code>repeated .org.roylance.yaclib.Dependency third_party_dependencies = 3;</code>
+     */
+    public java.util.List<org.roylance.yaclib.YaclibModel.Dependency> getThirdPartyDependenciesList() {
+      return thirdPartyDependencies_;
+    }
+    /**
+     * <code>repeated .org.roylance.yaclib.Dependency third_party_dependencies = 3;</code>
+     */
+    public java.util.List<? extends org.roylance.yaclib.YaclibModel.DependencyOrBuilder> 
+        getThirdPartyDependenciesOrBuilderList() {
+      return thirdPartyDependencies_;
+    }
+    /**
+     * <code>repeated .org.roylance.yaclib.Dependency third_party_dependencies = 3;</code>
+     */
+    public int getThirdPartyDependenciesCount() {
+      return thirdPartyDependencies_.size();
+    }
+    /**
+     * <code>repeated .org.roylance.yaclib.Dependency third_party_dependencies = 3;</code>
+     */
+    public org.roylance.yaclib.YaclibModel.Dependency getThirdPartyDependencies(int index) {
+      return thirdPartyDependencies_.get(index);
+    }
+    /**
+     * <code>repeated .org.roylance.yaclib.Dependency third_party_dependencies = 3;</code>
+     */
+    public org.roylance.yaclib.YaclibModel.DependencyOrBuilder getThirdPartyDependenciesOrBuilder(
+        int index) {
+      return thirdPartyDependencies_.get(index);
+    }
+
+    public static final int IS_SERVER_FIELD_NUMBER = 4;
+    private boolean isServer_;
+    /**
+     * <code>optional bool is_server = 4;</code>
+     */
+    public boolean getIsServer() {
+      return isServer_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (controllers_ != null) {
+        output.writeMessage(1, getControllers());
+      }
+      if (mainDependency_ != null) {
+        output.writeMessage(2, getMainDependency());
+      }
+      for (int i = 0; i < thirdPartyDependencies_.size(); i++) {
+        output.writeMessage(3, thirdPartyDependencies_.get(i));
+      }
+      if (isServer_ != false) {
+        output.writeBool(4, isServer_);
+      }
+    }
+
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (controllers_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(1, getControllers());
+      }
+      if (mainDependency_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(2, getMainDependency());
+      }
+      for (int i = 0; i < thirdPartyDependencies_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(3, thirdPartyDependencies_.get(i));
+      }
+      if (isServer_ != false) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(4, isServer_);
+      }
+      memoizedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof org.roylance.yaclib.YaclibModel.ProjectInformation)) {
+        return super.equals(obj);
+      }
+      org.roylance.yaclib.YaclibModel.ProjectInformation other = (org.roylance.yaclib.YaclibModel.ProjectInformation) obj;
+
+      boolean result = true;
+      result = result && (hasControllers() == other.hasControllers());
+      if (hasControllers()) {
+        result = result && getControllers()
+            .equals(other.getControllers());
+      }
+      result = result && (hasMainDependency() == other.hasMainDependency());
+      if (hasMainDependency()) {
+        result = result && getMainDependency()
+            .equals(other.getMainDependency());
+      }
+      result = result && getThirdPartyDependenciesList()
+          .equals(other.getThirdPartyDependenciesList());
+      result = result && (getIsServer()
+          == other.getIsServer());
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptorForType().hashCode();
+      if (hasControllers()) {
+        hash = (37 * hash) + CONTROLLERS_FIELD_NUMBER;
+        hash = (53 * hash) + getControllers().hashCode();
+      }
+      if (hasMainDependency()) {
+        hash = (37 * hash) + MAIN_DEPENDENCY_FIELD_NUMBER;
+        hash = (53 * hash) + getMainDependency().hashCode();
+      }
+      if (getThirdPartyDependenciesCount() > 0) {
+        hash = (37 * hash) + THIRD_PARTY_DEPENDENCIES_FIELD_NUMBER;
+        hash = (53 * hash) + getThirdPartyDependenciesList().hashCode();
+      }
+      hash = (37 * hash) + IS_SERVER_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+          getIsServer());
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static org.roylance.yaclib.YaclibModel.ProjectInformation parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static org.roylance.yaclib.YaclibModel.ProjectInformation parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static org.roylance.yaclib.YaclibModel.ProjectInformation parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static org.roylance.yaclib.YaclibModel.ProjectInformation parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static org.roylance.yaclib.YaclibModel.ProjectInformation parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static org.roylance.yaclib.YaclibModel.ProjectInformation parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static org.roylance.yaclib.YaclibModel.ProjectInformation parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static org.roylance.yaclib.YaclibModel.ProjectInformation parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static org.roylance.yaclib.YaclibModel.ProjectInformation parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static org.roylance.yaclib.YaclibModel.ProjectInformation parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(org.roylance.yaclib.YaclibModel.ProjectInformation prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code org.roylance.yaclib.ProjectInformation}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:org.roylance.yaclib.ProjectInformation)
+        org.roylance.yaclib.YaclibModel.ProjectInformationOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return org.roylance.yaclib.YaclibModel.internal_static_org_roylance_yaclib_ProjectInformation_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return org.roylance.yaclib.YaclibModel.internal_static_org_roylance_yaclib_ProjectInformation_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                org.roylance.yaclib.YaclibModel.ProjectInformation.class, org.roylance.yaclib.YaclibModel.ProjectInformation.Builder.class);
+      }
+
+      // Construct using org.roylance.yaclib.YaclibModel.ProjectInformation.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getThirdPartyDependenciesFieldBuilder();
+        }
+      }
+      public Builder clear() {
+        super.clear();
+        if (controllersBuilder_ == null) {
+          controllers_ = null;
+        } else {
+          controllers_ = null;
+          controllersBuilder_ = null;
+        }
+        if (mainDependencyBuilder_ == null) {
+          mainDependency_ = null;
+        } else {
+          mainDependency_ = null;
+          mainDependencyBuilder_ = null;
+        }
+        if (thirdPartyDependenciesBuilder_ == null) {
+          thirdPartyDependencies_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000004);
+        } else {
+          thirdPartyDependenciesBuilder_.clear();
+        }
+        isServer_ = false;
+
+        return this;
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return org.roylance.yaclib.YaclibModel.internal_static_org_roylance_yaclib_ProjectInformation_descriptor;
+      }
+
+      public org.roylance.yaclib.YaclibModel.ProjectInformation getDefaultInstanceForType() {
+        return org.roylance.yaclib.YaclibModel.ProjectInformation.getDefaultInstance();
+      }
+
+      public org.roylance.yaclib.YaclibModel.ProjectInformation build() {
+        org.roylance.yaclib.YaclibModel.ProjectInformation result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public org.roylance.yaclib.YaclibModel.ProjectInformation buildPartial() {
+        org.roylance.yaclib.YaclibModel.ProjectInformation result = new org.roylance.yaclib.YaclibModel.ProjectInformation(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (controllersBuilder_ == null) {
+          result.controllers_ = controllers_;
+        } else {
+          result.controllers_ = controllersBuilder_.build();
+        }
+        if (mainDependencyBuilder_ == null) {
+          result.mainDependency_ = mainDependency_;
+        } else {
+          result.mainDependency_ = mainDependencyBuilder_.build();
+        }
+        if (thirdPartyDependenciesBuilder_ == null) {
+          if (((bitField0_ & 0x00000004) == 0x00000004)) {
+            thirdPartyDependencies_ = java.util.Collections.unmodifiableList(thirdPartyDependencies_);
+            bitField0_ = (bitField0_ & ~0x00000004);
+          }
+          result.thirdPartyDependencies_ = thirdPartyDependencies_;
+        } else {
+          result.thirdPartyDependencies_ = thirdPartyDependenciesBuilder_.build();
+        }
+        result.isServer_ = isServer_;
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof org.roylance.yaclib.YaclibModel.ProjectInformation) {
+          return mergeFrom((org.roylance.yaclib.YaclibModel.ProjectInformation)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(org.roylance.yaclib.YaclibModel.ProjectInformation other) {
+        if (other == org.roylance.yaclib.YaclibModel.ProjectInformation.getDefaultInstance()) return this;
+        if (other.hasControllers()) {
+          mergeControllers(other.getControllers());
+        }
+        if (other.hasMainDependency()) {
+          mergeMainDependency(other.getMainDependency());
+        }
+        if (thirdPartyDependenciesBuilder_ == null) {
+          if (!other.thirdPartyDependencies_.isEmpty()) {
+            if (thirdPartyDependencies_.isEmpty()) {
+              thirdPartyDependencies_ = other.thirdPartyDependencies_;
+              bitField0_ = (bitField0_ & ~0x00000004);
+            } else {
+              ensureThirdPartyDependenciesIsMutable();
+              thirdPartyDependencies_.addAll(other.thirdPartyDependencies_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.thirdPartyDependencies_.isEmpty()) {
+            if (thirdPartyDependenciesBuilder_.isEmpty()) {
+              thirdPartyDependenciesBuilder_.dispose();
+              thirdPartyDependenciesBuilder_ = null;
+              thirdPartyDependencies_ = other.thirdPartyDependencies_;
+              bitField0_ = (bitField0_ & ~0x00000004);
+              thirdPartyDependenciesBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getThirdPartyDependenciesFieldBuilder() : null;
+            } else {
+              thirdPartyDependenciesBuilder_.addAllMessages(other.thirdPartyDependencies_);
+            }
+          }
+        }
+        if (other.getIsServer() != false) {
+          setIsServer(other.getIsServer());
+        }
+        onChanged();
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        org.roylance.yaclib.YaclibModel.ProjectInformation parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (org.roylance.yaclib.YaclibModel.ProjectInformation) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private org.roylance.yaclib.YaclibModel.AllControllerDependencies controllers_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          org.roylance.yaclib.YaclibModel.AllControllerDependencies, org.roylance.yaclib.YaclibModel.AllControllerDependencies.Builder, org.roylance.yaclib.YaclibModel.AllControllerDependenciesOrBuilder> controllersBuilder_;
+      /**
+       * <code>optional .org.roylance.yaclib.AllControllerDependencies controllers = 1;</code>
+       */
+      public boolean hasControllers() {
+        return controllersBuilder_ != null || controllers_ != null;
+      }
+      /**
+       * <code>optional .org.roylance.yaclib.AllControllerDependencies controllers = 1;</code>
+       */
+      public org.roylance.yaclib.YaclibModel.AllControllerDependencies getControllers() {
+        if (controllersBuilder_ == null) {
+          return controllers_ == null ? org.roylance.yaclib.YaclibModel.AllControllerDependencies.getDefaultInstance() : controllers_;
+        } else {
+          return controllersBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>optional .org.roylance.yaclib.AllControllerDependencies controllers = 1;</code>
+       */
+      public Builder setControllers(org.roylance.yaclib.YaclibModel.AllControllerDependencies value) {
+        if (controllersBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          controllers_ = value;
+          onChanged();
+        } else {
+          controllersBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>optional .org.roylance.yaclib.AllControllerDependencies controllers = 1;</code>
+       */
+      public Builder setControllers(
+          org.roylance.yaclib.YaclibModel.AllControllerDependencies.Builder builderForValue) {
+        if (controllersBuilder_ == null) {
+          controllers_ = builderForValue.build();
+          onChanged();
+        } else {
+          controllersBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>optional .org.roylance.yaclib.AllControllerDependencies controllers = 1;</code>
+       */
+      public Builder mergeControllers(org.roylance.yaclib.YaclibModel.AllControllerDependencies value) {
+        if (controllersBuilder_ == null) {
+          if (controllers_ != null) {
+            controllers_ =
+              org.roylance.yaclib.YaclibModel.AllControllerDependencies.newBuilder(controllers_).mergeFrom(value).buildPartial();
+          } else {
+            controllers_ = value;
+          }
+          onChanged();
+        } else {
+          controllersBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>optional .org.roylance.yaclib.AllControllerDependencies controllers = 1;</code>
+       */
+      public Builder clearControllers() {
+        if (controllersBuilder_ == null) {
+          controllers_ = null;
+          onChanged();
+        } else {
+          controllers_ = null;
+          controllersBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>optional .org.roylance.yaclib.AllControllerDependencies controllers = 1;</code>
+       */
+      public org.roylance.yaclib.YaclibModel.AllControllerDependencies.Builder getControllersBuilder() {
+        
+        onChanged();
+        return getControllersFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>optional .org.roylance.yaclib.AllControllerDependencies controllers = 1;</code>
+       */
+      public org.roylance.yaclib.YaclibModel.AllControllerDependenciesOrBuilder getControllersOrBuilder() {
+        if (controllersBuilder_ != null) {
+          return controllersBuilder_.getMessageOrBuilder();
+        } else {
+          return controllers_ == null ?
+              org.roylance.yaclib.YaclibModel.AllControllerDependencies.getDefaultInstance() : controllers_;
+        }
+      }
+      /**
+       * <code>optional .org.roylance.yaclib.AllControllerDependencies controllers = 1;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          org.roylance.yaclib.YaclibModel.AllControllerDependencies, org.roylance.yaclib.YaclibModel.AllControllerDependencies.Builder, org.roylance.yaclib.YaclibModel.AllControllerDependenciesOrBuilder> 
+          getControllersFieldBuilder() {
+        if (controllersBuilder_ == null) {
+          controllersBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              org.roylance.yaclib.YaclibModel.AllControllerDependencies, org.roylance.yaclib.YaclibModel.AllControllerDependencies.Builder, org.roylance.yaclib.YaclibModel.AllControllerDependenciesOrBuilder>(
+                  getControllers(),
+                  getParentForChildren(),
+                  isClean());
+          controllers_ = null;
+        }
+        return controllersBuilder_;
+      }
+
+      private org.roylance.yaclib.YaclibModel.Dependency mainDependency_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          org.roylance.yaclib.YaclibModel.Dependency, org.roylance.yaclib.YaclibModel.Dependency.Builder, org.roylance.yaclib.YaclibModel.DependencyOrBuilder> mainDependencyBuilder_;
+      /**
+       * <code>optional .org.roylance.yaclib.Dependency main_dependency = 2;</code>
+       */
+      public boolean hasMainDependency() {
+        return mainDependencyBuilder_ != null || mainDependency_ != null;
+      }
+      /**
+       * <code>optional .org.roylance.yaclib.Dependency main_dependency = 2;</code>
+       */
+      public org.roylance.yaclib.YaclibModel.Dependency getMainDependency() {
+        if (mainDependencyBuilder_ == null) {
+          return mainDependency_ == null ? org.roylance.yaclib.YaclibModel.Dependency.getDefaultInstance() : mainDependency_;
+        } else {
+          return mainDependencyBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>optional .org.roylance.yaclib.Dependency main_dependency = 2;</code>
+       */
+      public Builder setMainDependency(org.roylance.yaclib.YaclibModel.Dependency value) {
+        if (mainDependencyBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          mainDependency_ = value;
+          onChanged();
+        } else {
+          mainDependencyBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>optional .org.roylance.yaclib.Dependency main_dependency = 2;</code>
+       */
+      public Builder setMainDependency(
+          org.roylance.yaclib.YaclibModel.Dependency.Builder builderForValue) {
+        if (mainDependencyBuilder_ == null) {
+          mainDependency_ = builderForValue.build();
+          onChanged();
+        } else {
+          mainDependencyBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>optional .org.roylance.yaclib.Dependency main_dependency = 2;</code>
+       */
+      public Builder mergeMainDependency(org.roylance.yaclib.YaclibModel.Dependency value) {
+        if (mainDependencyBuilder_ == null) {
+          if (mainDependency_ != null) {
+            mainDependency_ =
+              org.roylance.yaclib.YaclibModel.Dependency.newBuilder(mainDependency_).mergeFrom(value).buildPartial();
+          } else {
+            mainDependency_ = value;
+          }
+          onChanged();
+        } else {
+          mainDependencyBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>optional .org.roylance.yaclib.Dependency main_dependency = 2;</code>
+       */
+      public Builder clearMainDependency() {
+        if (mainDependencyBuilder_ == null) {
+          mainDependency_ = null;
+          onChanged();
+        } else {
+          mainDependency_ = null;
+          mainDependencyBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>optional .org.roylance.yaclib.Dependency main_dependency = 2;</code>
+       */
+      public org.roylance.yaclib.YaclibModel.Dependency.Builder getMainDependencyBuilder() {
+        
+        onChanged();
+        return getMainDependencyFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>optional .org.roylance.yaclib.Dependency main_dependency = 2;</code>
+       */
+      public org.roylance.yaclib.YaclibModel.DependencyOrBuilder getMainDependencyOrBuilder() {
+        if (mainDependencyBuilder_ != null) {
+          return mainDependencyBuilder_.getMessageOrBuilder();
+        } else {
+          return mainDependency_ == null ?
+              org.roylance.yaclib.YaclibModel.Dependency.getDefaultInstance() : mainDependency_;
+        }
+      }
+      /**
+       * <code>optional .org.roylance.yaclib.Dependency main_dependency = 2;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          org.roylance.yaclib.YaclibModel.Dependency, org.roylance.yaclib.YaclibModel.Dependency.Builder, org.roylance.yaclib.YaclibModel.DependencyOrBuilder> 
+          getMainDependencyFieldBuilder() {
+        if (mainDependencyBuilder_ == null) {
+          mainDependencyBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              org.roylance.yaclib.YaclibModel.Dependency, org.roylance.yaclib.YaclibModel.Dependency.Builder, org.roylance.yaclib.YaclibModel.DependencyOrBuilder>(
+                  getMainDependency(),
+                  getParentForChildren(),
+                  isClean());
+          mainDependency_ = null;
+        }
+        return mainDependencyBuilder_;
+      }
+
+      private java.util.List<org.roylance.yaclib.YaclibModel.Dependency> thirdPartyDependencies_ =
+        java.util.Collections.emptyList();
+      private void ensureThirdPartyDependenciesIsMutable() {
+        if (!((bitField0_ & 0x00000004) == 0x00000004)) {
+          thirdPartyDependencies_ = new java.util.ArrayList<org.roylance.yaclib.YaclibModel.Dependency>(thirdPartyDependencies_);
+          bitField0_ |= 0x00000004;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          org.roylance.yaclib.YaclibModel.Dependency, org.roylance.yaclib.YaclibModel.Dependency.Builder, org.roylance.yaclib.YaclibModel.DependencyOrBuilder> thirdPartyDependenciesBuilder_;
+
+      /**
+       * <code>repeated .org.roylance.yaclib.Dependency third_party_dependencies = 3;</code>
+       */
+      public java.util.List<org.roylance.yaclib.YaclibModel.Dependency> getThirdPartyDependenciesList() {
+        if (thirdPartyDependenciesBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(thirdPartyDependencies_);
+        } else {
+          return thirdPartyDependenciesBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <code>repeated .org.roylance.yaclib.Dependency third_party_dependencies = 3;</code>
+       */
+      public int getThirdPartyDependenciesCount() {
+        if (thirdPartyDependenciesBuilder_ == null) {
+          return thirdPartyDependencies_.size();
+        } else {
+          return thirdPartyDependenciesBuilder_.getCount();
+        }
+      }
+      /**
+       * <code>repeated .org.roylance.yaclib.Dependency third_party_dependencies = 3;</code>
+       */
+      public org.roylance.yaclib.YaclibModel.Dependency getThirdPartyDependencies(int index) {
+        if (thirdPartyDependenciesBuilder_ == null) {
+          return thirdPartyDependencies_.get(index);
+        } else {
+          return thirdPartyDependenciesBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <code>repeated .org.roylance.yaclib.Dependency third_party_dependencies = 3;</code>
+       */
+      public Builder setThirdPartyDependencies(
+          int index, org.roylance.yaclib.YaclibModel.Dependency value) {
+        if (thirdPartyDependenciesBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureThirdPartyDependenciesIsMutable();
+          thirdPartyDependencies_.set(index, value);
+          onChanged();
+        } else {
+          thirdPartyDependenciesBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .org.roylance.yaclib.Dependency third_party_dependencies = 3;</code>
+       */
+      public Builder setThirdPartyDependencies(
+          int index, org.roylance.yaclib.YaclibModel.Dependency.Builder builderForValue) {
+        if (thirdPartyDependenciesBuilder_ == null) {
+          ensureThirdPartyDependenciesIsMutable();
+          thirdPartyDependencies_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          thirdPartyDependenciesBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .org.roylance.yaclib.Dependency third_party_dependencies = 3;</code>
+       */
+      public Builder addThirdPartyDependencies(org.roylance.yaclib.YaclibModel.Dependency value) {
+        if (thirdPartyDependenciesBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureThirdPartyDependenciesIsMutable();
+          thirdPartyDependencies_.add(value);
+          onChanged();
+        } else {
+          thirdPartyDependenciesBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .org.roylance.yaclib.Dependency third_party_dependencies = 3;</code>
+       */
+      public Builder addThirdPartyDependencies(
+          int index, org.roylance.yaclib.YaclibModel.Dependency value) {
+        if (thirdPartyDependenciesBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureThirdPartyDependenciesIsMutable();
+          thirdPartyDependencies_.add(index, value);
+          onChanged();
+        } else {
+          thirdPartyDependenciesBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .org.roylance.yaclib.Dependency third_party_dependencies = 3;</code>
+       */
+      public Builder addThirdPartyDependencies(
+          org.roylance.yaclib.YaclibModel.Dependency.Builder builderForValue) {
+        if (thirdPartyDependenciesBuilder_ == null) {
+          ensureThirdPartyDependenciesIsMutable();
+          thirdPartyDependencies_.add(builderForValue.build());
+          onChanged();
+        } else {
+          thirdPartyDependenciesBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .org.roylance.yaclib.Dependency third_party_dependencies = 3;</code>
+       */
+      public Builder addThirdPartyDependencies(
+          int index, org.roylance.yaclib.YaclibModel.Dependency.Builder builderForValue) {
+        if (thirdPartyDependenciesBuilder_ == null) {
+          ensureThirdPartyDependenciesIsMutable();
+          thirdPartyDependencies_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          thirdPartyDependenciesBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .org.roylance.yaclib.Dependency third_party_dependencies = 3;</code>
+       */
+      public Builder addAllThirdPartyDependencies(
+          java.lang.Iterable<? extends org.roylance.yaclib.YaclibModel.Dependency> values) {
+        if (thirdPartyDependenciesBuilder_ == null) {
+          ensureThirdPartyDependenciesIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, thirdPartyDependencies_);
+          onChanged();
+        } else {
+          thirdPartyDependenciesBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .org.roylance.yaclib.Dependency third_party_dependencies = 3;</code>
+       */
+      public Builder clearThirdPartyDependencies() {
+        if (thirdPartyDependenciesBuilder_ == null) {
+          thirdPartyDependencies_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000004);
+          onChanged();
+        } else {
+          thirdPartyDependenciesBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .org.roylance.yaclib.Dependency third_party_dependencies = 3;</code>
+       */
+      public Builder removeThirdPartyDependencies(int index) {
+        if (thirdPartyDependenciesBuilder_ == null) {
+          ensureThirdPartyDependenciesIsMutable();
+          thirdPartyDependencies_.remove(index);
+          onChanged();
+        } else {
+          thirdPartyDependenciesBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .org.roylance.yaclib.Dependency third_party_dependencies = 3;</code>
+       */
+      public org.roylance.yaclib.YaclibModel.Dependency.Builder getThirdPartyDependenciesBuilder(
+          int index) {
+        return getThirdPartyDependenciesFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <code>repeated .org.roylance.yaclib.Dependency third_party_dependencies = 3;</code>
+       */
+      public org.roylance.yaclib.YaclibModel.DependencyOrBuilder getThirdPartyDependenciesOrBuilder(
+          int index) {
+        if (thirdPartyDependenciesBuilder_ == null) {
+          return thirdPartyDependencies_.get(index);  } else {
+          return thirdPartyDependenciesBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <code>repeated .org.roylance.yaclib.Dependency third_party_dependencies = 3;</code>
+       */
+      public java.util.List<? extends org.roylance.yaclib.YaclibModel.DependencyOrBuilder> 
+           getThirdPartyDependenciesOrBuilderList() {
+        if (thirdPartyDependenciesBuilder_ != null) {
+          return thirdPartyDependenciesBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(thirdPartyDependencies_);
+        }
+      }
+      /**
+       * <code>repeated .org.roylance.yaclib.Dependency third_party_dependencies = 3;</code>
+       */
+      public org.roylance.yaclib.YaclibModel.Dependency.Builder addThirdPartyDependenciesBuilder() {
+        return getThirdPartyDependenciesFieldBuilder().addBuilder(
+            org.roylance.yaclib.YaclibModel.Dependency.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .org.roylance.yaclib.Dependency third_party_dependencies = 3;</code>
+       */
+      public org.roylance.yaclib.YaclibModel.Dependency.Builder addThirdPartyDependenciesBuilder(
+          int index) {
+        return getThirdPartyDependenciesFieldBuilder().addBuilder(
+            index, org.roylance.yaclib.YaclibModel.Dependency.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .org.roylance.yaclib.Dependency third_party_dependencies = 3;</code>
+       */
+      public java.util.List<org.roylance.yaclib.YaclibModel.Dependency.Builder> 
+           getThirdPartyDependenciesBuilderList() {
+        return getThirdPartyDependenciesFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          org.roylance.yaclib.YaclibModel.Dependency, org.roylance.yaclib.YaclibModel.Dependency.Builder, org.roylance.yaclib.YaclibModel.DependencyOrBuilder> 
+          getThirdPartyDependenciesFieldBuilder() {
+        if (thirdPartyDependenciesBuilder_ == null) {
+          thirdPartyDependenciesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              org.roylance.yaclib.YaclibModel.Dependency, org.roylance.yaclib.YaclibModel.Dependency.Builder, org.roylance.yaclib.YaclibModel.DependencyOrBuilder>(
+                  thirdPartyDependencies_,
+                  ((bitField0_ & 0x00000004) == 0x00000004),
+                  getParentForChildren(),
+                  isClean());
+          thirdPartyDependencies_ = null;
+        }
+        return thirdPartyDependenciesBuilder_;
+      }
+
+      private boolean isServer_ ;
+      /**
+       * <code>optional bool is_server = 4;</code>
+       */
+      public boolean getIsServer() {
+        return isServer_;
+      }
+      /**
+       * <code>optional bool is_server = 4;</code>
+       */
+      public Builder setIsServer(boolean value) {
+        
+        isServer_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional bool is_server = 4;</code>
+       */
+      public Builder clearIsServer() {
+        
+        isServer_ = false;
+        onChanged();
+        return this;
+      }
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return this;
+      }
+
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return this;
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:org.roylance.yaclib.ProjectInformation)
+    }
+
+    // @@protoc_insertion_point(class_scope:org.roylance.yaclib.ProjectInformation)
+    private static final org.roylance.yaclib.YaclibModel.ProjectInformation DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new org.roylance.yaclib.YaclibModel.ProjectInformation();
+    }
+
+    public static org.roylance.yaclib.YaclibModel.ProjectInformation getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<ProjectInformation>
+        PARSER = new com.google.protobuf.AbstractParser<ProjectInformation>() {
+      public ProjectInformation parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+          return new ProjectInformation(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<ProjectInformation> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<ProjectInformation> getParserForType() {
+      return PARSER;
+    }
+
+    public org.roylance.yaclib.YaclibModel.ProjectInformation getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface AuxiliaryProjectOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:org.roylance.yaclib.AuxiliaryProject)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>optional .org.roylance.yaclib.ExecutionPhase handle_before = 1;</code>
+     */
+    int getHandleBeforeValue();
+    /**
+     * <code>optional .org.roylance.yaclib.ExecutionPhase handle_before = 1;</code>
+     */
+    org.roylance.yaclib.YaclibModel.ExecutionPhase getHandleBefore();
+
+    /**
+     * <code>repeated .org.roylance.yaclib.CustomExecutionType executions = 2;</code>
+     */
+    java.util.List<org.roylance.yaclib.YaclibModel.CustomExecutionType> getExecutionsList();
+    /**
+     * <code>repeated .org.roylance.yaclib.CustomExecutionType executions = 2;</code>
+     */
+    int getExecutionsCount();
+    /**
+     * <code>repeated .org.roylance.yaclib.CustomExecutionType executions = 2;</code>
+     */
+    org.roylance.yaclib.YaclibModel.CustomExecutionType getExecutions(int index);
+    /**
+     * <code>repeated .org.roylance.yaclib.CustomExecutionType executions = 2;</code>
+     */
+    java.util.List<java.lang.Integer>
+    getExecutionsValueList();
+    /**
+     * <code>repeated .org.roylance.yaclib.CustomExecutionType executions = 2;</code>
+     */
+    int getExecutionsValue(int index);
+
+    /**
+     * <code>repeated .org.roylance.yaclib.Dependency from_dependencies = 3;</code>
+     */
+    java.util.List<org.roylance.yaclib.YaclibModel.Dependency> 
+        getFromDependenciesList();
+    /**
+     * <code>repeated .org.roylance.yaclib.Dependency from_dependencies = 3;</code>
+     */
+    org.roylance.yaclib.YaclibModel.Dependency getFromDependencies(int index);
+    /**
+     * <code>repeated .org.roylance.yaclib.Dependency from_dependencies = 3;</code>
+     */
+    int getFromDependenciesCount();
+    /**
+     * <code>repeated .org.roylance.yaclib.Dependency from_dependencies = 3;</code>
+     */
+    java.util.List<? extends org.roylance.yaclib.YaclibModel.DependencyOrBuilder> 
+        getFromDependenciesOrBuilderList();
+    /**
+     * <code>repeated .org.roylance.yaclib.Dependency from_dependencies = 3;</code>
+     */
+    org.roylance.yaclib.YaclibModel.DependencyOrBuilder getFromDependenciesOrBuilder(
+        int index);
+
+    /**
+     * <code>optional .org.roylance.yaclib.Dependency target_dependency = 4;</code>
+     */
+    boolean hasTargetDependency();
+    /**
+     * <code>optional .org.roylance.yaclib.Dependency target_dependency = 4;</code>
+     */
+    org.roylance.yaclib.YaclibModel.Dependency getTargetDependency();
+    /**
+     * <code>optional .org.roylance.yaclib.Dependency target_dependency = 4;</code>
+     */
+    org.roylance.yaclib.YaclibModel.DependencyOrBuilder getTargetDependencyOrBuilder();
+
+    /**
+     * <code>repeated .org.roylance.yaclib.Dependency to_dependencies = 5;</code>
+     */
+    java.util.List<org.roylance.yaclib.YaclibModel.Dependency> 
+        getToDependenciesList();
+    /**
+     * <code>repeated .org.roylance.yaclib.Dependency to_dependencies = 5;</code>
+     */
+    org.roylance.yaclib.YaclibModel.Dependency getToDependencies(int index);
+    /**
+     * <code>repeated .org.roylance.yaclib.Dependency to_dependencies = 5;</code>
+     */
+    int getToDependenciesCount();
+    /**
+     * <code>repeated .org.roylance.yaclib.Dependency to_dependencies = 5;</code>
+     */
+    java.util.List<? extends org.roylance.yaclib.YaclibModel.DependencyOrBuilder> 
+        getToDependenciesOrBuilderList();
+    /**
+     * <code>repeated .org.roylance.yaclib.Dependency to_dependencies = 5;</code>
+     */
+    org.roylance.yaclib.YaclibModel.DependencyOrBuilder getToDependenciesOrBuilder(
+        int index);
+
+    /**
+     * <code>optional .org.roylance.yaclib.ProjectType project_type = 6;</code>
+     */
+    int getProjectTypeValue();
+    /**
+     * <code>optional .org.roylance.yaclib.ProjectType project_type = 6;</code>
+     */
+    org.roylance.yaclib.YaclibModel.ProjectType getProjectType();
+  }
+  /**
+   * Protobuf type {@code org.roylance.yaclib.AuxiliaryProject}
+   */
+  public  static final class AuxiliaryProject extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:org.roylance.yaclib.AuxiliaryProject)
+      AuxiliaryProjectOrBuilder {
+    // Use AuxiliaryProject.newBuilder() to construct.
+    private AuxiliaryProject(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private AuxiliaryProject() {
+      handleBefore_ = 0;
+      executions_ = java.util.Collections.emptyList();
+      fromDependencies_ = java.util.Collections.emptyList();
+      toDependencies_ = java.util.Collections.emptyList();
+      projectType_ = 0;
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
+    }
+    private AuxiliaryProject(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      int mutable_bitField0_ = 0;
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!input.skipField(tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 8: {
+              int rawValue = input.readEnum();
+
+              handleBefore_ = rawValue;
+              break;
+            }
+            case 16: {
+              int rawValue = input.readEnum();
+              if (!((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
+                executions_ = new java.util.ArrayList<java.lang.Integer>();
+                mutable_bitField0_ |= 0x00000002;
+              }
+              executions_.add(rawValue);
+              break;
+            }
+            case 18: {
+              int length = input.readRawVarint32();
+              int oldLimit = input.pushLimit(length);
+              while(input.getBytesUntilLimit() > 0) {
+                int rawValue = input.readEnum();
+                if (!((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
+                  executions_ = new java.util.ArrayList<java.lang.Integer>();
+                  mutable_bitField0_ |= 0x00000002;
+                }
+                executions_.add(rawValue);
+              }
+              input.popLimit(oldLimit);
+              break;
+            }
+            case 26: {
+              if (!((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
+                fromDependencies_ = new java.util.ArrayList<org.roylance.yaclib.YaclibModel.Dependency>();
+                mutable_bitField0_ |= 0x00000004;
+              }
+              fromDependencies_.add(
+                  input.readMessage(org.roylance.yaclib.YaclibModel.Dependency.parser(), extensionRegistry));
+              break;
+            }
+            case 34: {
+              org.roylance.yaclib.YaclibModel.Dependency.Builder subBuilder = null;
+              if (targetDependency_ != null) {
+                subBuilder = targetDependency_.toBuilder();
+              }
+              targetDependency_ = input.readMessage(org.roylance.yaclib.YaclibModel.Dependency.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(targetDependency_);
+                targetDependency_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 42: {
+              if (!((mutable_bitField0_ & 0x00000010) == 0x00000010)) {
+                toDependencies_ = new java.util.ArrayList<org.roylance.yaclib.YaclibModel.Dependency>();
+                mutable_bitField0_ |= 0x00000010;
+              }
+              toDependencies_.add(
+                  input.readMessage(org.roylance.yaclib.YaclibModel.Dependency.parser(), extensionRegistry));
+              break;
+            }
+            case 48: {
+              int rawValue = input.readEnum();
+
+              projectType_ = rawValue;
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
+          executions_ = java.util.Collections.unmodifiableList(executions_);
+        }
+        if (((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
+          fromDependencies_ = java.util.Collections.unmodifiableList(fromDependencies_);
+        }
+        if (((mutable_bitField0_ & 0x00000010) == 0x00000010)) {
+          toDependencies_ = java.util.Collections.unmodifiableList(toDependencies_);
+        }
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return org.roylance.yaclib.YaclibModel.internal_static_org_roylance_yaclib_AuxiliaryProject_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return org.roylance.yaclib.YaclibModel.internal_static_org_roylance_yaclib_AuxiliaryProject_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              org.roylance.yaclib.YaclibModel.AuxiliaryProject.class, org.roylance.yaclib.YaclibModel.AuxiliaryProject.Builder.class);
+    }
+
+    private int bitField0_;
+    public static final int HANDLE_BEFORE_FIELD_NUMBER = 1;
+    private int handleBefore_;
+    /**
+     * <code>optional .org.roylance.yaclib.ExecutionPhase handle_before = 1;</code>
+     */
+    public int getHandleBeforeValue() {
+      return handleBefore_;
+    }
+    /**
+     * <code>optional .org.roylance.yaclib.ExecutionPhase handle_before = 1;</code>
+     */
+    public org.roylance.yaclib.YaclibModel.ExecutionPhase getHandleBefore() {
+      org.roylance.yaclib.YaclibModel.ExecutionPhase result = org.roylance.yaclib.YaclibModel.ExecutionPhase.valueOf(handleBefore_);
+      return result == null ? org.roylance.yaclib.YaclibModel.ExecutionPhase.UNRECOGNIZED : result;
+    }
+
+    public static final int EXECUTIONS_FIELD_NUMBER = 2;
+    private java.util.List<java.lang.Integer> executions_;
+    private static final com.google.protobuf.Internal.ListAdapter.Converter<
+        java.lang.Integer, org.roylance.yaclib.YaclibModel.CustomExecutionType> executions_converter_ =
+            new com.google.protobuf.Internal.ListAdapter.Converter<
+                java.lang.Integer, org.roylance.yaclib.YaclibModel.CustomExecutionType>() {
+              public org.roylance.yaclib.YaclibModel.CustomExecutionType convert(java.lang.Integer from) {
+                org.roylance.yaclib.YaclibModel.CustomExecutionType result = org.roylance.yaclib.YaclibModel.CustomExecutionType.valueOf(from);
+                return result == null ? org.roylance.yaclib.YaclibModel.CustomExecutionType.UNRECOGNIZED : result;
+              }
+            };
+    /**
+     * <code>repeated .org.roylance.yaclib.CustomExecutionType executions = 2;</code>
+     */
+    public java.util.List<org.roylance.yaclib.YaclibModel.CustomExecutionType> getExecutionsList() {
+      return new com.google.protobuf.Internal.ListAdapter<
+          java.lang.Integer, org.roylance.yaclib.YaclibModel.CustomExecutionType>(executions_, executions_converter_);
+    }
+    /**
+     * <code>repeated .org.roylance.yaclib.CustomExecutionType executions = 2;</code>
+     */
+    public int getExecutionsCount() {
+      return executions_.size();
+    }
+    /**
+     * <code>repeated .org.roylance.yaclib.CustomExecutionType executions = 2;</code>
+     */
+    public org.roylance.yaclib.YaclibModel.CustomExecutionType getExecutions(int index) {
+      return executions_converter_.convert(executions_.get(index));
+    }
+    /**
+     * <code>repeated .org.roylance.yaclib.CustomExecutionType executions = 2;</code>
+     */
+    public java.util.List<java.lang.Integer>
+    getExecutionsValueList() {
+      return executions_;
+    }
+    /**
+     * <code>repeated .org.roylance.yaclib.CustomExecutionType executions = 2;</code>
+     */
+    public int getExecutionsValue(int index) {
+      return executions_.get(index);
+    }
+    private int executionsMemoizedSerializedSize;
+
+    public static final int FROM_DEPENDENCIES_FIELD_NUMBER = 3;
+    private java.util.List<org.roylance.yaclib.YaclibModel.Dependency> fromDependencies_;
+    /**
+     * <code>repeated .org.roylance.yaclib.Dependency from_dependencies = 3;</code>
+     */
+    public java.util.List<org.roylance.yaclib.YaclibModel.Dependency> getFromDependenciesList() {
+      return fromDependencies_;
+    }
+    /**
+     * <code>repeated .org.roylance.yaclib.Dependency from_dependencies = 3;</code>
+     */
+    public java.util.List<? extends org.roylance.yaclib.YaclibModel.DependencyOrBuilder> 
+        getFromDependenciesOrBuilderList() {
+      return fromDependencies_;
+    }
+    /**
+     * <code>repeated .org.roylance.yaclib.Dependency from_dependencies = 3;</code>
+     */
+    public int getFromDependenciesCount() {
+      return fromDependencies_.size();
+    }
+    /**
+     * <code>repeated .org.roylance.yaclib.Dependency from_dependencies = 3;</code>
+     */
+    public org.roylance.yaclib.YaclibModel.Dependency getFromDependencies(int index) {
+      return fromDependencies_.get(index);
+    }
+    /**
+     * <code>repeated .org.roylance.yaclib.Dependency from_dependencies = 3;</code>
+     */
+    public org.roylance.yaclib.YaclibModel.DependencyOrBuilder getFromDependenciesOrBuilder(
+        int index) {
+      return fromDependencies_.get(index);
+    }
+
+    public static final int TARGET_DEPENDENCY_FIELD_NUMBER = 4;
+    private org.roylance.yaclib.YaclibModel.Dependency targetDependency_;
+    /**
+     * <code>optional .org.roylance.yaclib.Dependency target_dependency = 4;</code>
+     */
+    public boolean hasTargetDependency() {
+      return targetDependency_ != null;
+    }
+    /**
+     * <code>optional .org.roylance.yaclib.Dependency target_dependency = 4;</code>
+     */
+    public org.roylance.yaclib.YaclibModel.Dependency getTargetDependency() {
+      return targetDependency_ == null ? org.roylance.yaclib.YaclibModel.Dependency.getDefaultInstance() : targetDependency_;
+    }
+    /**
+     * <code>optional .org.roylance.yaclib.Dependency target_dependency = 4;</code>
+     */
+    public org.roylance.yaclib.YaclibModel.DependencyOrBuilder getTargetDependencyOrBuilder() {
+      return getTargetDependency();
+    }
+
+    public static final int TO_DEPENDENCIES_FIELD_NUMBER = 5;
+    private java.util.List<org.roylance.yaclib.YaclibModel.Dependency> toDependencies_;
+    /**
+     * <code>repeated .org.roylance.yaclib.Dependency to_dependencies = 5;</code>
+     */
+    public java.util.List<org.roylance.yaclib.YaclibModel.Dependency> getToDependenciesList() {
+      return toDependencies_;
+    }
+    /**
+     * <code>repeated .org.roylance.yaclib.Dependency to_dependencies = 5;</code>
+     */
+    public java.util.List<? extends org.roylance.yaclib.YaclibModel.DependencyOrBuilder> 
+        getToDependenciesOrBuilderList() {
+      return toDependencies_;
+    }
+    /**
+     * <code>repeated .org.roylance.yaclib.Dependency to_dependencies = 5;</code>
+     */
+    public int getToDependenciesCount() {
+      return toDependencies_.size();
+    }
+    /**
+     * <code>repeated .org.roylance.yaclib.Dependency to_dependencies = 5;</code>
+     */
+    public org.roylance.yaclib.YaclibModel.Dependency getToDependencies(int index) {
+      return toDependencies_.get(index);
+    }
+    /**
+     * <code>repeated .org.roylance.yaclib.Dependency to_dependencies = 5;</code>
+     */
+    public org.roylance.yaclib.YaclibModel.DependencyOrBuilder getToDependenciesOrBuilder(
+        int index) {
+      return toDependencies_.get(index);
+    }
+
+    public static final int PROJECT_TYPE_FIELD_NUMBER = 6;
+    private int projectType_;
+    /**
+     * <code>optional .org.roylance.yaclib.ProjectType project_type = 6;</code>
+     */
+    public int getProjectTypeValue() {
+      return projectType_;
+    }
+    /**
+     * <code>optional .org.roylance.yaclib.ProjectType project_type = 6;</code>
+     */
+    public org.roylance.yaclib.YaclibModel.ProjectType getProjectType() {
+      org.roylance.yaclib.YaclibModel.ProjectType result = org.roylance.yaclib.YaclibModel.ProjectType.valueOf(projectType_);
+      return result == null ? org.roylance.yaclib.YaclibModel.ProjectType.UNRECOGNIZED : result;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      if (handleBefore_ != org.roylance.yaclib.YaclibModel.ExecutionPhase.DELETE_DIRECTORIES.getNumber()) {
+        output.writeEnum(1, handleBefore_);
+      }
+      if (getExecutionsList().size() > 0) {
+        output.writeUInt32NoTag(18);
+        output.writeUInt32NoTag(executionsMemoizedSerializedSize);
+      }
+      for (int i = 0; i < executions_.size(); i++) {
+        output.writeEnumNoTag(executions_.get(i));
+      }
+      for (int i = 0; i < fromDependencies_.size(); i++) {
+        output.writeMessage(3, fromDependencies_.get(i));
+      }
+      if (targetDependency_ != null) {
+        output.writeMessage(4, getTargetDependency());
+      }
+      for (int i = 0; i < toDependencies_.size(); i++) {
+        output.writeMessage(5, toDependencies_.get(i));
+      }
+      if (projectType_ != org.roylance.yaclib.YaclibModel.ProjectType.GRADLE_PROJECT_TYPE.getNumber()) {
+        output.writeEnum(6, projectType_);
+      }
+    }
+
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (handleBefore_ != org.roylance.yaclib.YaclibModel.ExecutionPhase.DELETE_DIRECTORIES.getNumber()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeEnumSize(1, handleBefore_);
+      }
+      {
+        int dataSize = 0;
+        for (int i = 0; i < executions_.size(); i++) {
+          dataSize += com.google.protobuf.CodedOutputStream
+            .computeEnumSizeNoTag(executions_.get(i));
+        }
+        size += dataSize;
+        if (!getExecutionsList().isEmpty()) {  size += 1;
+          size += com.google.protobuf.CodedOutputStream
+            .computeUInt32SizeNoTag(dataSize);
+        }executionsMemoizedSerializedSize = dataSize;
+      }
+      for (int i = 0; i < fromDependencies_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(3, fromDependencies_.get(i));
+      }
+      if (targetDependency_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(4, getTargetDependency());
+      }
+      for (int i = 0; i < toDependencies_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(5, toDependencies_.get(i));
+      }
+      if (projectType_ != org.roylance.yaclib.YaclibModel.ProjectType.GRADLE_PROJECT_TYPE.getNumber()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeEnumSize(6, projectType_);
+      }
+      memoizedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof org.roylance.yaclib.YaclibModel.AuxiliaryProject)) {
+        return super.equals(obj);
+      }
+      org.roylance.yaclib.YaclibModel.AuxiliaryProject other = (org.roylance.yaclib.YaclibModel.AuxiliaryProject) obj;
+
+      boolean result = true;
+      result = result && handleBefore_ == other.handleBefore_;
+      result = result && executions_.equals(other.executions_);
+      result = result && getFromDependenciesList()
+          .equals(other.getFromDependenciesList());
+      result = result && (hasTargetDependency() == other.hasTargetDependency());
+      if (hasTargetDependency()) {
+        result = result && getTargetDependency()
+            .equals(other.getTargetDependency());
+      }
+      result = result && getToDependenciesList()
+          .equals(other.getToDependenciesList());
+      result = result && projectType_ == other.projectType_;
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptorForType().hashCode();
+      hash = (37 * hash) + HANDLE_BEFORE_FIELD_NUMBER;
+      hash = (53 * hash) + handleBefore_;
+      if (getExecutionsCount() > 0) {
+        hash = (37 * hash) + EXECUTIONS_FIELD_NUMBER;
+        hash = (53 * hash) + executions_.hashCode();
+      }
+      if (getFromDependenciesCount() > 0) {
+        hash = (37 * hash) + FROM_DEPENDENCIES_FIELD_NUMBER;
+        hash = (53 * hash) + getFromDependenciesList().hashCode();
+      }
+      if (hasTargetDependency()) {
+        hash = (37 * hash) + TARGET_DEPENDENCY_FIELD_NUMBER;
+        hash = (53 * hash) + getTargetDependency().hashCode();
+      }
+      if (getToDependenciesCount() > 0) {
+        hash = (37 * hash) + TO_DEPENDENCIES_FIELD_NUMBER;
+        hash = (53 * hash) + getToDependenciesList().hashCode();
+      }
+      hash = (37 * hash) + PROJECT_TYPE_FIELD_NUMBER;
+      hash = (53 * hash) + projectType_;
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static org.roylance.yaclib.YaclibModel.AuxiliaryProject parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static org.roylance.yaclib.YaclibModel.AuxiliaryProject parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static org.roylance.yaclib.YaclibModel.AuxiliaryProject parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static org.roylance.yaclib.YaclibModel.AuxiliaryProject parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static org.roylance.yaclib.YaclibModel.AuxiliaryProject parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static org.roylance.yaclib.YaclibModel.AuxiliaryProject parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static org.roylance.yaclib.YaclibModel.AuxiliaryProject parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static org.roylance.yaclib.YaclibModel.AuxiliaryProject parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static org.roylance.yaclib.YaclibModel.AuxiliaryProject parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static org.roylance.yaclib.YaclibModel.AuxiliaryProject parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(org.roylance.yaclib.YaclibModel.AuxiliaryProject prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code org.roylance.yaclib.AuxiliaryProject}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:org.roylance.yaclib.AuxiliaryProject)
+        org.roylance.yaclib.YaclibModel.AuxiliaryProjectOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return org.roylance.yaclib.YaclibModel.internal_static_org_roylance_yaclib_AuxiliaryProject_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return org.roylance.yaclib.YaclibModel.internal_static_org_roylance_yaclib_AuxiliaryProject_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                org.roylance.yaclib.YaclibModel.AuxiliaryProject.class, org.roylance.yaclib.YaclibModel.AuxiliaryProject.Builder.class);
+      }
+
+      // Construct using org.roylance.yaclib.YaclibModel.AuxiliaryProject.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getFromDependenciesFieldBuilder();
+          getToDependenciesFieldBuilder();
+        }
+      }
+      public Builder clear() {
+        super.clear();
+        handleBefore_ = 0;
+
+        executions_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000002);
+        if (fromDependenciesBuilder_ == null) {
+          fromDependencies_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000004);
+        } else {
+          fromDependenciesBuilder_.clear();
+        }
+        if (targetDependencyBuilder_ == null) {
+          targetDependency_ = null;
+        } else {
+          targetDependency_ = null;
+          targetDependencyBuilder_ = null;
+        }
+        if (toDependenciesBuilder_ == null) {
+          toDependencies_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000010);
+        } else {
+          toDependenciesBuilder_.clear();
+        }
+        projectType_ = 0;
+
+        return this;
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return org.roylance.yaclib.YaclibModel.internal_static_org_roylance_yaclib_AuxiliaryProject_descriptor;
+      }
+
+      public org.roylance.yaclib.YaclibModel.AuxiliaryProject getDefaultInstanceForType() {
+        return org.roylance.yaclib.YaclibModel.AuxiliaryProject.getDefaultInstance();
+      }
+
+      public org.roylance.yaclib.YaclibModel.AuxiliaryProject build() {
+        org.roylance.yaclib.YaclibModel.AuxiliaryProject result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public org.roylance.yaclib.YaclibModel.AuxiliaryProject buildPartial() {
+        org.roylance.yaclib.YaclibModel.AuxiliaryProject result = new org.roylance.yaclib.YaclibModel.AuxiliaryProject(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        result.handleBefore_ = handleBefore_;
+        if (((bitField0_ & 0x00000002) == 0x00000002)) {
+          executions_ = java.util.Collections.unmodifiableList(executions_);
+          bitField0_ = (bitField0_ & ~0x00000002);
+        }
+        result.executions_ = executions_;
+        if (fromDependenciesBuilder_ == null) {
+          if (((bitField0_ & 0x00000004) == 0x00000004)) {
+            fromDependencies_ = java.util.Collections.unmodifiableList(fromDependencies_);
+            bitField0_ = (bitField0_ & ~0x00000004);
+          }
+          result.fromDependencies_ = fromDependencies_;
+        } else {
+          result.fromDependencies_ = fromDependenciesBuilder_.build();
+        }
+        if (targetDependencyBuilder_ == null) {
+          result.targetDependency_ = targetDependency_;
+        } else {
+          result.targetDependency_ = targetDependencyBuilder_.build();
+        }
+        if (toDependenciesBuilder_ == null) {
+          if (((bitField0_ & 0x00000010) == 0x00000010)) {
+            toDependencies_ = java.util.Collections.unmodifiableList(toDependencies_);
+            bitField0_ = (bitField0_ & ~0x00000010);
+          }
+          result.toDependencies_ = toDependencies_;
+        } else {
+          result.toDependencies_ = toDependenciesBuilder_.build();
+        }
+        result.projectType_ = projectType_;
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof org.roylance.yaclib.YaclibModel.AuxiliaryProject) {
+          return mergeFrom((org.roylance.yaclib.YaclibModel.AuxiliaryProject)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(org.roylance.yaclib.YaclibModel.AuxiliaryProject other) {
+        if (other == org.roylance.yaclib.YaclibModel.AuxiliaryProject.getDefaultInstance()) return this;
+        if (other.handleBefore_ != 0) {
+          setHandleBeforeValue(other.getHandleBeforeValue());
+        }
+        if (!other.executions_.isEmpty()) {
+          if (executions_.isEmpty()) {
+            executions_ = other.executions_;
+            bitField0_ = (bitField0_ & ~0x00000002);
+          } else {
+            ensureExecutionsIsMutable();
+            executions_.addAll(other.executions_);
+          }
+          onChanged();
+        }
+        if (fromDependenciesBuilder_ == null) {
+          if (!other.fromDependencies_.isEmpty()) {
+            if (fromDependencies_.isEmpty()) {
+              fromDependencies_ = other.fromDependencies_;
+              bitField0_ = (bitField0_ & ~0x00000004);
+            } else {
+              ensureFromDependenciesIsMutable();
+              fromDependencies_.addAll(other.fromDependencies_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.fromDependencies_.isEmpty()) {
+            if (fromDependenciesBuilder_.isEmpty()) {
+              fromDependenciesBuilder_.dispose();
+              fromDependenciesBuilder_ = null;
+              fromDependencies_ = other.fromDependencies_;
+              bitField0_ = (bitField0_ & ~0x00000004);
+              fromDependenciesBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getFromDependenciesFieldBuilder() : null;
+            } else {
+              fromDependenciesBuilder_.addAllMessages(other.fromDependencies_);
+            }
+          }
+        }
+        if (other.hasTargetDependency()) {
+          mergeTargetDependency(other.getTargetDependency());
+        }
+        if (toDependenciesBuilder_ == null) {
+          if (!other.toDependencies_.isEmpty()) {
+            if (toDependencies_.isEmpty()) {
+              toDependencies_ = other.toDependencies_;
+              bitField0_ = (bitField0_ & ~0x00000010);
+            } else {
+              ensureToDependenciesIsMutable();
+              toDependencies_.addAll(other.toDependencies_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.toDependencies_.isEmpty()) {
+            if (toDependenciesBuilder_.isEmpty()) {
+              toDependenciesBuilder_.dispose();
+              toDependenciesBuilder_ = null;
+              toDependencies_ = other.toDependencies_;
+              bitField0_ = (bitField0_ & ~0x00000010);
+              toDependenciesBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getToDependenciesFieldBuilder() : null;
+            } else {
+              toDependenciesBuilder_.addAllMessages(other.toDependencies_);
+            }
+          }
+        }
+        if (other.projectType_ != 0) {
+          setProjectTypeValue(other.getProjectTypeValue());
+        }
+        onChanged();
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        org.roylance.yaclib.YaclibModel.AuxiliaryProject parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (org.roylance.yaclib.YaclibModel.AuxiliaryProject) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private int handleBefore_ = 0;
+      /**
+       * <code>optional .org.roylance.yaclib.ExecutionPhase handle_before = 1;</code>
+       */
+      public int getHandleBeforeValue() {
+        return handleBefore_;
+      }
+      /**
+       * <code>optional .org.roylance.yaclib.ExecutionPhase handle_before = 1;</code>
+       */
+      public Builder setHandleBeforeValue(int value) {
+        handleBefore_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional .org.roylance.yaclib.ExecutionPhase handle_before = 1;</code>
+       */
+      public org.roylance.yaclib.YaclibModel.ExecutionPhase getHandleBefore() {
+        org.roylance.yaclib.YaclibModel.ExecutionPhase result = org.roylance.yaclib.YaclibModel.ExecutionPhase.valueOf(handleBefore_);
+        return result == null ? org.roylance.yaclib.YaclibModel.ExecutionPhase.UNRECOGNIZED : result;
+      }
+      /**
+       * <code>optional .org.roylance.yaclib.ExecutionPhase handle_before = 1;</code>
+       */
+      public Builder setHandleBefore(org.roylance.yaclib.YaclibModel.ExecutionPhase value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        
+        handleBefore_ = value.getNumber();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional .org.roylance.yaclib.ExecutionPhase handle_before = 1;</code>
+       */
+      public Builder clearHandleBefore() {
+        
+        handleBefore_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private java.util.List<java.lang.Integer> executions_ =
+        java.util.Collections.emptyList();
+      private void ensureExecutionsIsMutable() {
+        if (!((bitField0_ & 0x00000002) == 0x00000002)) {
+          executions_ = new java.util.ArrayList<java.lang.Integer>(executions_);
+          bitField0_ |= 0x00000002;
+        }
+      }
+      /**
+       * <code>repeated .org.roylance.yaclib.CustomExecutionType executions = 2;</code>
+       */
+      public java.util.List<org.roylance.yaclib.YaclibModel.CustomExecutionType> getExecutionsList() {
+        return new com.google.protobuf.Internal.ListAdapter<
+            java.lang.Integer, org.roylance.yaclib.YaclibModel.CustomExecutionType>(executions_, executions_converter_);
+      }
+      /**
+       * <code>repeated .org.roylance.yaclib.CustomExecutionType executions = 2;</code>
+       */
+      public int getExecutionsCount() {
+        return executions_.size();
+      }
+      /**
+       * <code>repeated .org.roylance.yaclib.CustomExecutionType executions = 2;</code>
+       */
+      public org.roylance.yaclib.YaclibModel.CustomExecutionType getExecutions(int index) {
+        return executions_converter_.convert(executions_.get(index));
+      }
+      /**
+       * <code>repeated .org.roylance.yaclib.CustomExecutionType executions = 2;</code>
+       */
+      public Builder setExecutions(
+          int index, org.roylance.yaclib.YaclibModel.CustomExecutionType value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureExecutionsIsMutable();
+        executions_.set(index, value.getNumber());
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated .org.roylance.yaclib.CustomExecutionType executions = 2;</code>
+       */
+      public Builder addExecutions(org.roylance.yaclib.YaclibModel.CustomExecutionType value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureExecutionsIsMutable();
+        executions_.add(value.getNumber());
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated .org.roylance.yaclib.CustomExecutionType executions = 2;</code>
+       */
+      public Builder addAllExecutions(
+          java.lang.Iterable<? extends org.roylance.yaclib.YaclibModel.CustomExecutionType> values) {
+        ensureExecutionsIsMutable();
+        for (org.roylance.yaclib.YaclibModel.CustomExecutionType value : values) {
+          executions_.add(value.getNumber());
+        }
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated .org.roylance.yaclib.CustomExecutionType executions = 2;</code>
+       */
+      public Builder clearExecutions() {
+        executions_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000002);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated .org.roylance.yaclib.CustomExecutionType executions = 2;</code>
+       */
+      public java.util.List<java.lang.Integer>
+      getExecutionsValueList() {
+        return java.util.Collections.unmodifiableList(executions_);
+      }
+      /**
+       * <code>repeated .org.roylance.yaclib.CustomExecutionType executions = 2;</code>
+       */
+      public int getExecutionsValue(int index) {
+        return executions_.get(index);
+      }
+      /**
+       * <code>repeated .org.roylance.yaclib.CustomExecutionType executions = 2;</code>
+       */
+      public Builder setExecutionsValue(
+          int index, int value) {
+        ensureExecutionsIsMutable();
+        executions_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated .org.roylance.yaclib.CustomExecutionType executions = 2;</code>
+       */
+      public Builder addExecutionsValue(int value) {
+        ensureExecutionsIsMutable();
+        executions_.add(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated .org.roylance.yaclib.CustomExecutionType executions = 2;</code>
+       */
+      public Builder addAllExecutionsValue(
+          java.lang.Iterable<java.lang.Integer> values) {
+        ensureExecutionsIsMutable();
+        for (int value : values) {
+          executions_.add(value);
+        }
+        onChanged();
+        return this;
+      }
+
+      private java.util.List<org.roylance.yaclib.YaclibModel.Dependency> fromDependencies_ =
+        java.util.Collections.emptyList();
+      private void ensureFromDependenciesIsMutable() {
+        if (!((bitField0_ & 0x00000004) == 0x00000004)) {
+          fromDependencies_ = new java.util.ArrayList<org.roylance.yaclib.YaclibModel.Dependency>(fromDependencies_);
+          bitField0_ |= 0x00000004;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          org.roylance.yaclib.YaclibModel.Dependency, org.roylance.yaclib.YaclibModel.Dependency.Builder, org.roylance.yaclib.YaclibModel.DependencyOrBuilder> fromDependenciesBuilder_;
+
+      /**
+       * <code>repeated .org.roylance.yaclib.Dependency from_dependencies = 3;</code>
+       */
+      public java.util.List<org.roylance.yaclib.YaclibModel.Dependency> getFromDependenciesList() {
+        if (fromDependenciesBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(fromDependencies_);
+        } else {
+          return fromDependenciesBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <code>repeated .org.roylance.yaclib.Dependency from_dependencies = 3;</code>
+       */
+      public int getFromDependenciesCount() {
+        if (fromDependenciesBuilder_ == null) {
+          return fromDependencies_.size();
+        } else {
+          return fromDependenciesBuilder_.getCount();
+        }
+      }
+      /**
+       * <code>repeated .org.roylance.yaclib.Dependency from_dependencies = 3;</code>
+       */
+      public org.roylance.yaclib.YaclibModel.Dependency getFromDependencies(int index) {
+        if (fromDependenciesBuilder_ == null) {
+          return fromDependencies_.get(index);
+        } else {
+          return fromDependenciesBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <code>repeated .org.roylance.yaclib.Dependency from_dependencies = 3;</code>
+       */
+      public Builder setFromDependencies(
+          int index, org.roylance.yaclib.YaclibModel.Dependency value) {
+        if (fromDependenciesBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureFromDependenciesIsMutable();
+          fromDependencies_.set(index, value);
+          onChanged();
+        } else {
+          fromDependenciesBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .org.roylance.yaclib.Dependency from_dependencies = 3;</code>
+       */
+      public Builder setFromDependencies(
+          int index, org.roylance.yaclib.YaclibModel.Dependency.Builder builderForValue) {
+        if (fromDependenciesBuilder_ == null) {
+          ensureFromDependenciesIsMutable();
+          fromDependencies_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          fromDependenciesBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .org.roylance.yaclib.Dependency from_dependencies = 3;</code>
+       */
+      public Builder addFromDependencies(org.roylance.yaclib.YaclibModel.Dependency value) {
+        if (fromDependenciesBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureFromDependenciesIsMutable();
+          fromDependencies_.add(value);
+          onChanged();
+        } else {
+          fromDependenciesBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .org.roylance.yaclib.Dependency from_dependencies = 3;</code>
+       */
+      public Builder addFromDependencies(
+          int index, org.roylance.yaclib.YaclibModel.Dependency value) {
+        if (fromDependenciesBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureFromDependenciesIsMutable();
+          fromDependencies_.add(index, value);
+          onChanged();
+        } else {
+          fromDependenciesBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .org.roylance.yaclib.Dependency from_dependencies = 3;</code>
+       */
+      public Builder addFromDependencies(
+          org.roylance.yaclib.YaclibModel.Dependency.Builder builderForValue) {
+        if (fromDependenciesBuilder_ == null) {
+          ensureFromDependenciesIsMutable();
+          fromDependencies_.add(builderForValue.build());
+          onChanged();
+        } else {
+          fromDependenciesBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .org.roylance.yaclib.Dependency from_dependencies = 3;</code>
+       */
+      public Builder addFromDependencies(
+          int index, org.roylance.yaclib.YaclibModel.Dependency.Builder builderForValue) {
+        if (fromDependenciesBuilder_ == null) {
+          ensureFromDependenciesIsMutable();
+          fromDependencies_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          fromDependenciesBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .org.roylance.yaclib.Dependency from_dependencies = 3;</code>
+       */
+      public Builder addAllFromDependencies(
+          java.lang.Iterable<? extends org.roylance.yaclib.YaclibModel.Dependency> values) {
+        if (fromDependenciesBuilder_ == null) {
+          ensureFromDependenciesIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, fromDependencies_);
+          onChanged();
+        } else {
+          fromDependenciesBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .org.roylance.yaclib.Dependency from_dependencies = 3;</code>
+       */
+      public Builder clearFromDependencies() {
+        if (fromDependenciesBuilder_ == null) {
+          fromDependencies_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000004);
+          onChanged();
+        } else {
+          fromDependenciesBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .org.roylance.yaclib.Dependency from_dependencies = 3;</code>
+       */
+      public Builder removeFromDependencies(int index) {
+        if (fromDependenciesBuilder_ == null) {
+          ensureFromDependenciesIsMutable();
+          fromDependencies_.remove(index);
+          onChanged();
+        } else {
+          fromDependenciesBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .org.roylance.yaclib.Dependency from_dependencies = 3;</code>
+       */
+      public org.roylance.yaclib.YaclibModel.Dependency.Builder getFromDependenciesBuilder(
+          int index) {
+        return getFromDependenciesFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <code>repeated .org.roylance.yaclib.Dependency from_dependencies = 3;</code>
+       */
+      public org.roylance.yaclib.YaclibModel.DependencyOrBuilder getFromDependenciesOrBuilder(
+          int index) {
+        if (fromDependenciesBuilder_ == null) {
+          return fromDependencies_.get(index);  } else {
+          return fromDependenciesBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <code>repeated .org.roylance.yaclib.Dependency from_dependencies = 3;</code>
+       */
+      public java.util.List<? extends org.roylance.yaclib.YaclibModel.DependencyOrBuilder> 
+           getFromDependenciesOrBuilderList() {
+        if (fromDependenciesBuilder_ != null) {
+          return fromDependenciesBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(fromDependencies_);
+        }
+      }
+      /**
+       * <code>repeated .org.roylance.yaclib.Dependency from_dependencies = 3;</code>
+       */
+      public org.roylance.yaclib.YaclibModel.Dependency.Builder addFromDependenciesBuilder() {
+        return getFromDependenciesFieldBuilder().addBuilder(
+            org.roylance.yaclib.YaclibModel.Dependency.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .org.roylance.yaclib.Dependency from_dependencies = 3;</code>
+       */
+      public org.roylance.yaclib.YaclibModel.Dependency.Builder addFromDependenciesBuilder(
+          int index) {
+        return getFromDependenciesFieldBuilder().addBuilder(
+            index, org.roylance.yaclib.YaclibModel.Dependency.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .org.roylance.yaclib.Dependency from_dependencies = 3;</code>
+       */
+      public java.util.List<org.roylance.yaclib.YaclibModel.Dependency.Builder> 
+           getFromDependenciesBuilderList() {
+        return getFromDependenciesFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          org.roylance.yaclib.YaclibModel.Dependency, org.roylance.yaclib.YaclibModel.Dependency.Builder, org.roylance.yaclib.YaclibModel.DependencyOrBuilder> 
+          getFromDependenciesFieldBuilder() {
+        if (fromDependenciesBuilder_ == null) {
+          fromDependenciesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              org.roylance.yaclib.YaclibModel.Dependency, org.roylance.yaclib.YaclibModel.Dependency.Builder, org.roylance.yaclib.YaclibModel.DependencyOrBuilder>(
+                  fromDependencies_,
+                  ((bitField0_ & 0x00000004) == 0x00000004),
+                  getParentForChildren(),
+                  isClean());
+          fromDependencies_ = null;
+        }
+        return fromDependenciesBuilder_;
+      }
+
+      private org.roylance.yaclib.YaclibModel.Dependency targetDependency_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          org.roylance.yaclib.YaclibModel.Dependency, org.roylance.yaclib.YaclibModel.Dependency.Builder, org.roylance.yaclib.YaclibModel.DependencyOrBuilder> targetDependencyBuilder_;
+      /**
+       * <code>optional .org.roylance.yaclib.Dependency target_dependency = 4;</code>
+       */
+      public boolean hasTargetDependency() {
+        return targetDependencyBuilder_ != null || targetDependency_ != null;
+      }
+      /**
+       * <code>optional .org.roylance.yaclib.Dependency target_dependency = 4;</code>
+       */
+      public org.roylance.yaclib.YaclibModel.Dependency getTargetDependency() {
+        if (targetDependencyBuilder_ == null) {
+          return targetDependency_ == null ? org.roylance.yaclib.YaclibModel.Dependency.getDefaultInstance() : targetDependency_;
+        } else {
+          return targetDependencyBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>optional .org.roylance.yaclib.Dependency target_dependency = 4;</code>
+       */
+      public Builder setTargetDependency(org.roylance.yaclib.YaclibModel.Dependency value) {
+        if (targetDependencyBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          targetDependency_ = value;
+          onChanged();
+        } else {
+          targetDependencyBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>optional .org.roylance.yaclib.Dependency target_dependency = 4;</code>
+       */
+      public Builder setTargetDependency(
+          org.roylance.yaclib.YaclibModel.Dependency.Builder builderForValue) {
+        if (targetDependencyBuilder_ == null) {
+          targetDependency_ = builderForValue.build();
+          onChanged();
+        } else {
+          targetDependencyBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>optional .org.roylance.yaclib.Dependency target_dependency = 4;</code>
+       */
+      public Builder mergeTargetDependency(org.roylance.yaclib.YaclibModel.Dependency value) {
+        if (targetDependencyBuilder_ == null) {
+          if (targetDependency_ != null) {
+            targetDependency_ =
+              org.roylance.yaclib.YaclibModel.Dependency.newBuilder(targetDependency_).mergeFrom(value).buildPartial();
+          } else {
+            targetDependency_ = value;
+          }
+          onChanged();
+        } else {
+          targetDependencyBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>optional .org.roylance.yaclib.Dependency target_dependency = 4;</code>
+       */
+      public Builder clearTargetDependency() {
+        if (targetDependencyBuilder_ == null) {
+          targetDependency_ = null;
+          onChanged();
+        } else {
+          targetDependency_ = null;
+          targetDependencyBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>optional .org.roylance.yaclib.Dependency target_dependency = 4;</code>
+       */
+      public org.roylance.yaclib.YaclibModel.Dependency.Builder getTargetDependencyBuilder() {
+        
+        onChanged();
+        return getTargetDependencyFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>optional .org.roylance.yaclib.Dependency target_dependency = 4;</code>
+       */
+      public org.roylance.yaclib.YaclibModel.DependencyOrBuilder getTargetDependencyOrBuilder() {
+        if (targetDependencyBuilder_ != null) {
+          return targetDependencyBuilder_.getMessageOrBuilder();
+        } else {
+          return targetDependency_ == null ?
+              org.roylance.yaclib.YaclibModel.Dependency.getDefaultInstance() : targetDependency_;
+        }
+      }
+      /**
+       * <code>optional .org.roylance.yaclib.Dependency target_dependency = 4;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          org.roylance.yaclib.YaclibModel.Dependency, org.roylance.yaclib.YaclibModel.Dependency.Builder, org.roylance.yaclib.YaclibModel.DependencyOrBuilder> 
+          getTargetDependencyFieldBuilder() {
+        if (targetDependencyBuilder_ == null) {
+          targetDependencyBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              org.roylance.yaclib.YaclibModel.Dependency, org.roylance.yaclib.YaclibModel.Dependency.Builder, org.roylance.yaclib.YaclibModel.DependencyOrBuilder>(
+                  getTargetDependency(),
+                  getParentForChildren(),
+                  isClean());
+          targetDependency_ = null;
+        }
+        return targetDependencyBuilder_;
+      }
+
+      private java.util.List<org.roylance.yaclib.YaclibModel.Dependency> toDependencies_ =
+        java.util.Collections.emptyList();
+      private void ensureToDependenciesIsMutable() {
+        if (!((bitField0_ & 0x00000010) == 0x00000010)) {
+          toDependencies_ = new java.util.ArrayList<org.roylance.yaclib.YaclibModel.Dependency>(toDependencies_);
+          bitField0_ |= 0x00000010;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          org.roylance.yaclib.YaclibModel.Dependency, org.roylance.yaclib.YaclibModel.Dependency.Builder, org.roylance.yaclib.YaclibModel.DependencyOrBuilder> toDependenciesBuilder_;
+
+      /**
+       * <code>repeated .org.roylance.yaclib.Dependency to_dependencies = 5;</code>
+       */
+      public java.util.List<org.roylance.yaclib.YaclibModel.Dependency> getToDependenciesList() {
+        if (toDependenciesBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(toDependencies_);
+        } else {
+          return toDependenciesBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <code>repeated .org.roylance.yaclib.Dependency to_dependencies = 5;</code>
+       */
+      public int getToDependenciesCount() {
+        if (toDependenciesBuilder_ == null) {
+          return toDependencies_.size();
+        } else {
+          return toDependenciesBuilder_.getCount();
+        }
+      }
+      /**
+       * <code>repeated .org.roylance.yaclib.Dependency to_dependencies = 5;</code>
+       */
+      public org.roylance.yaclib.YaclibModel.Dependency getToDependencies(int index) {
+        if (toDependenciesBuilder_ == null) {
+          return toDependencies_.get(index);
+        } else {
+          return toDependenciesBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <code>repeated .org.roylance.yaclib.Dependency to_dependencies = 5;</code>
+       */
+      public Builder setToDependencies(
+          int index, org.roylance.yaclib.YaclibModel.Dependency value) {
+        if (toDependenciesBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureToDependenciesIsMutable();
+          toDependencies_.set(index, value);
+          onChanged();
+        } else {
+          toDependenciesBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .org.roylance.yaclib.Dependency to_dependencies = 5;</code>
+       */
+      public Builder setToDependencies(
+          int index, org.roylance.yaclib.YaclibModel.Dependency.Builder builderForValue) {
+        if (toDependenciesBuilder_ == null) {
+          ensureToDependenciesIsMutable();
+          toDependencies_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          toDependenciesBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .org.roylance.yaclib.Dependency to_dependencies = 5;</code>
+       */
+      public Builder addToDependencies(org.roylance.yaclib.YaclibModel.Dependency value) {
+        if (toDependenciesBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureToDependenciesIsMutable();
+          toDependencies_.add(value);
+          onChanged();
+        } else {
+          toDependenciesBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .org.roylance.yaclib.Dependency to_dependencies = 5;</code>
+       */
+      public Builder addToDependencies(
+          int index, org.roylance.yaclib.YaclibModel.Dependency value) {
+        if (toDependenciesBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureToDependenciesIsMutable();
+          toDependencies_.add(index, value);
+          onChanged();
+        } else {
+          toDependenciesBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .org.roylance.yaclib.Dependency to_dependencies = 5;</code>
+       */
+      public Builder addToDependencies(
+          org.roylance.yaclib.YaclibModel.Dependency.Builder builderForValue) {
+        if (toDependenciesBuilder_ == null) {
+          ensureToDependenciesIsMutable();
+          toDependencies_.add(builderForValue.build());
+          onChanged();
+        } else {
+          toDependenciesBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .org.roylance.yaclib.Dependency to_dependencies = 5;</code>
+       */
+      public Builder addToDependencies(
+          int index, org.roylance.yaclib.YaclibModel.Dependency.Builder builderForValue) {
+        if (toDependenciesBuilder_ == null) {
+          ensureToDependenciesIsMutable();
+          toDependencies_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          toDependenciesBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .org.roylance.yaclib.Dependency to_dependencies = 5;</code>
+       */
+      public Builder addAllToDependencies(
+          java.lang.Iterable<? extends org.roylance.yaclib.YaclibModel.Dependency> values) {
+        if (toDependenciesBuilder_ == null) {
+          ensureToDependenciesIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, toDependencies_);
+          onChanged();
+        } else {
+          toDependenciesBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .org.roylance.yaclib.Dependency to_dependencies = 5;</code>
+       */
+      public Builder clearToDependencies() {
+        if (toDependenciesBuilder_ == null) {
+          toDependencies_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000010);
+          onChanged();
+        } else {
+          toDependenciesBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .org.roylance.yaclib.Dependency to_dependencies = 5;</code>
+       */
+      public Builder removeToDependencies(int index) {
+        if (toDependenciesBuilder_ == null) {
+          ensureToDependenciesIsMutable();
+          toDependencies_.remove(index);
+          onChanged();
+        } else {
+          toDependenciesBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .org.roylance.yaclib.Dependency to_dependencies = 5;</code>
+       */
+      public org.roylance.yaclib.YaclibModel.Dependency.Builder getToDependenciesBuilder(
+          int index) {
+        return getToDependenciesFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <code>repeated .org.roylance.yaclib.Dependency to_dependencies = 5;</code>
+       */
+      public org.roylance.yaclib.YaclibModel.DependencyOrBuilder getToDependenciesOrBuilder(
+          int index) {
+        if (toDependenciesBuilder_ == null) {
+          return toDependencies_.get(index);  } else {
+          return toDependenciesBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <code>repeated .org.roylance.yaclib.Dependency to_dependencies = 5;</code>
+       */
+      public java.util.List<? extends org.roylance.yaclib.YaclibModel.DependencyOrBuilder> 
+           getToDependenciesOrBuilderList() {
+        if (toDependenciesBuilder_ != null) {
+          return toDependenciesBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(toDependencies_);
+        }
+      }
+      /**
+       * <code>repeated .org.roylance.yaclib.Dependency to_dependencies = 5;</code>
+       */
+      public org.roylance.yaclib.YaclibModel.Dependency.Builder addToDependenciesBuilder() {
+        return getToDependenciesFieldBuilder().addBuilder(
+            org.roylance.yaclib.YaclibModel.Dependency.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .org.roylance.yaclib.Dependency to_dependencies = 5;</code>
+       */
+      public org.roylance.yaclib.YaclibModel.Dependency.Builder addToDependenciesBuilder(
+          int index) {
+        return getToDependenciesFieldBuilder().addBuilder(
+            index, org.roylance.yaclib.YaclibModel.Dependency.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .org.roylance.yaclib.Dependency to_dependencies = 5;</code>
+       */
+      public java.util.List<org.roylance.yaclib.YaclibModel.Dependency.Builder> 
+           getToDependenciesBuilderList() {
+        return getToDependenciesFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          org.roylance.yaclib.YaclibModel.Dependency, org.roylance.yaclib.YaclibModel.Dependency.Builder, org.roylance.yaclib.YaclibModel.DependencyOrBuilder> 
+          getToDependenciesFieldBuilder() {
+        if (toDependenciesBuilder_ == null) {
+          toDependenciesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              org.roylance.yaclib.YaclibModel.Dependency, org.roylance.yaclib.YaclibModel.Dependency.Builder, org.roylance.yaclib.YaclibModel.DependencyOrBuilder>(
+                  toDependencies_,
+                  ((bitField0_ & 0x00000010) == 0x00000010),
+                  getParentForChildren(),
+                  isClean());
+          toDependencies_ = null;
+        }
+        return toDependenciesBuilder_;
+      }
+
+      private int projectType_ = 0;
+      /**
+       * <code>optional .org.roylance.yaclib.ProjectType project_type = 6;</code>
+       */
+      public int getProjectTypeValue() {
+        return projectType_;
+      }
+      /**
+       * <code>optional .org.roylance.yaclib.ProjectType project_type = 6;</code>
+       */
+      public Builder setProjectTypeValue(int value) {
+        projectType_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional .org.roylance.yaclib.ProjectType project_type = 6;</code>
+       */
+      public org.roylance.yaclib.YaclibModel.ProjectType getProjectType() {
+        org.roylance.yaclib.YaclibModel.ProjectType result = org.roylance.yaclib.YaclibModel.ProjectType.valueOf(projectType_);
+        return result == null ? org.roylance.yaclib.YaclibModel.ProjectType.UNRECOGNIZED : result;
+      }
+      /**
+       * <code>optional .org.roylance.yaclib.ProjectType project_type = 6;</code>
+       */
+      public Builder setProjectType(org.roylance.yaclib.YaclibModel.ProjectType value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        
+        projectType_ = value.getNumber();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional .org.roylance.yaclib.ProjectType project_type = 6;</code>
+       */
+      public Builder clearProjectType() {
+        
+        projectType_ = 0;
+        onChanged();
+        return this;
+      }
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return this;
+      }
+
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return this;
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:org.roylance.yaclib.AuxiliaryProject)
+    }
+
+    // @@protoc_insertion_point(class_scope:org.roylance.yaclib.AuxiliaryProject)
+    private static final org.roylance.yaclib.YaclibModel.AuxiliaryProject DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new org.roylance.yaclib.YaclibModel.AuxiliaryProject();
+    }
+
+    public static org.roylance.yaclib.YaclibModel.AuxiliaryProject getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<AuxiliaryProject>
+        PARSER = new com.google.protobuf.AbstractParser<AuxiliaryProject>() {
+      public AuxiliaryProject parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+          return new AuxiliaryProject(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<AuxiliaryProject> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<AuxiliaryProject> getParserForType() {
+      return PARSER;
+    }
+
+    public org.roylance.yaclib.YaclibModel.AuxiliaryProject getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface AuxiliaryProjectsOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:org.roylance.yaclib.AuxiliaryProjects)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>repeated .org.roylance.yaclib.AuxiliaryProject projects = 1;</code>
+     */
+    java.util.List<org.roylance.yaclib.YaclibModel.AuxiliaryProject> 
+        getProjectsList();
+    /**
+     * <code>repeated .org.roylance.yaclib.AuxiliaryProject projects = 1;</code>
+     */
+    org.roylance.yaclib.YaclibModel.AuxiliaryProject getProjects(int index);
+    /**
+     * <code>repeated .org.roylance.yaclib.AuxiliaryProject projects = 1;</code>
+     */
+    int getProjectsCount();
+    /**
+     * <code>repeated .org.roylance.yaclib.AuxiliaryProject projects = 1;</code>
+     */
+    java.util.List<? extends org.roylance.yaclib.YaclibModel.AuxiliaryProjectOrBuilder> 
+        getProjectsOrBuilderList();
+    /**
+     * <code>repeated .org.roylance.yaclib.AuxiliaryProject projects = 1;</code>
+     */
+    org.roylance.yaclib.YaclibModel.AuxiliaryProjectOrBuilder getProjectsOrBuilder(
+        int index);
+  }
+  /**
+   * Protobuf type {@code org.roylance.yaclib.AuxiliaryProjects}
+   */
+  public  static final class AuxiliaryProjects extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:org.roylance.yaclib.AuxiliaryProjects)
+      AuxiliaryProjectsOrBuilder {
+    // Use AuxiliaryProjects.newBuilder() to construct.
+    private AuxiliaryProjects(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private AuxiliaryProjects() {
+      projects_ = java.util.Collections.emptyList();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
+    }
+    private AuxiliaryProjects(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      int mutable_bitField0_ = 0;
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!input.skipField(tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+                projects_ = new java.util.ArrayList<org.roylance.yaclib.YaclibModel.AuxiliaryProject>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              projects_.add(
+                  input.readMessage(org.roylance.yaclib.YaclibModel.AuxiliaryProject.parser(), extensionRegistry));
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+          projects_ = java.util.Collections.unmodifiableList(projects_);
+        }
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return org.roylance.yaclib.YaclibModel.internal_static_org_roylance_yaclib_AuxiliaryProjects_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return org.roylance.yaclib.YaclibModel.internal_static_org_roylance_yaclib_AuxiliaryProjects_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              org.roylance.yaclib.YaclibModel.AuxiliaryProjects.class, org.roylance.yaclib.YaclibModel.AuxiliaryProjects.Builder.class);
+    }
+
+    public static final int PROJECTS_FIELD_NUMBER = 1;
+    private java.util.List<org.roylance.yaclib.YaclibModel.AuxiliaryProject> projects_;
+    /**
+     * <code>repeated .org.roylance.yaclib.AuxiliaryProject projects = 1;</code>
+     */
+    public java.util.List<org.roylance.yaclib.YaclibModel.AuxiliaryProject> getProjectsList() {
+      return projects_;
+    }
+    /**
+     * <code>repeated .org.roylance.yaclib.AuxiliaryProject projects = 1;</code>
+     */
+    public java.util.List<? extends org.roylance.yaclib.YaclibModel.AuxiliaryProjectOrBuilder> 
+        getProjectsOrBuilderList() {
+      return projects_;
+    }
+    /**
+     * <code>repeated .org.roylance.yaclib.AuxiliaryProject projects = 1;</code>
+     */
+    public int getProjectsCount() {
+      return projects_.size();
+    }
+    /**
+     * <code>repeated .org.roylance.yaclib.AuxiliaryProject projects = 1;</code>
+     */
+    public org.roylance.yaclib.YaclibModel.AuxiliaryProject getProjects(int index) {
+      return projects_.get(index);
+    }
+    /**
+     * <code>repeated .org.roylance.yaclib.AuxiliaryProject projects = 1;</code>
+     */
+    public org.roylance.yaclib.YaclibModel.AuxiliaryProjectOrBuilder getProjectsOrBuilder(
+        int index) {
+      return projects_.get(index);
+    }
+
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      for (int i = 0; i < projects_.size(); i++) {
+        output.writeMessage(1, projects_.get(i));
+      }
+    }
+
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      for (int i = 0; i < projects_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(1, projects_.get(i));
+      }
+      memoizedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof org.roylance.yaclib.YaclibModel.AuxiliaryProjects)) {
+        return super.equals(obj);
+      }
+      org.roylance.yaclib.YaclibModel.AuxiliaryProjects other = (org.roylance.yaclib.YaclibModel.AuxiliaryProjects) obj;
+
+      boolean result = true;
+      result = result && getProjectsList()
+          .equals(other.getProjectsList());
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptorForType().hashCode();
+      if (getProjectsCount() > 0) {
+        hash = (37 * hash) + PROJECTS_FIELD_NUMBER;
+        hash = (53 * hash) + getProjectsList().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static org.roylance.yaclib.YaclibModel.AuxiliaryProjects parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static org.roylance.yaclib.YaclibModel.AuxiliaryProjects parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static org.roylance.yaclib.YaclibModel.AuxiliaryProjects parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static org.roylance.yaclib.YaclibModel.AuxiliaryProjects parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static org.roylance.yaclib.YaclibModel.AuxiliaryProjects parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static org.roylance.yaclib.YaclibModel.AuxiliaryProjects parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static org.roylance.yaclib.YaclibModel.AuxiliaryProjects parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static org.roylance.yaclib.YaclibModel.AuxiliaryProjects parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static org.roylance.yaclib.YaclibModel.AuxiliaryProjects parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static org.roylance.yaclib.YaclibModel.AuxiliaryProjects parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(org.roylance.yaclib.YaclibModel.AuxiliaryProjects prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code org.roylance.yaclib.AuxiliaryProjects}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:org.roylance.yaclib.AuxiliaryProjects)
+        org.roylance.yaclib.YaclibModel.AuxiliaryProjectsOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return org.roylance.yaclib.YaclibModel.internal_static_org_roylance_yaclib_AuxiliaryProjects_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return org.roylance.yaclib.YaclibModel.internal_static_org_roylance_yaclib_AuxiliaryProjects_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                org.roylance.yaclib.YaclibModel.AuxiliaryProjects.class, org.roylance.yaclib.YaclibModel.AuxiliaryProjects.Builder.class);
+      }
+
+      // Construct using org.roylance.yaclib.YaclibModel.AuxiliaryProjects.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getProjectsFieldBuilder();
+        }
+      }
+      public Builder clear() {
+        super.clear();
+        if (projectsBuilder_ == null) {
+          projects_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+        } else {
+          projectsBuilder_.clear();
+        }
+        return this;
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return org.roylance.yaclib.YaclibModel.internal_static_org_roylance_yaclib_AuxiliaryProjects_descriptor;
+      }
+
+      public org.roylance.yaclib.YaclibModel.AuxiliaryProjects getDefaultInstanceForType() {
+        return org.roylance.yaclib.YaclibModel.AuxiliaryProjects.getDefaultInstance();
+      }
+
+      public org.roylance.yaclib.YaclibModel.AuxiliaryProjects build() {
+        org.roylance.yaclib.YaclibModel.AuxiliaryProjects result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public org.roylance.yaclib.YaclibModel.AuxiliaryProjects buildPartial() {
+        org.roylance.yaclib.YaclibModel.AuxiliaryProjects result = new org.roylance.yaclib.YaclibModel.AuxiliaryProjects(this);
+        int from_bitField0_ = bitField0_;
+        if (projectsBuilder_ == null) {
+          if (((bitField0_ & 0x00000001) == 0x00000001)) {
+            projects_ = java.util.Collections.unmodifiableList(projects_);
+            bitField0_ = (bitField0_ & ~0x00000001);
+          }
+          result.projects_ = projects_;
+        } else {
+          result.projects_ = projectsBuilder_.build();
+        }
+        onBuilt();
+        return result;
+      }
+
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof org.roylance.yaclib.YaclibModel.AuxiliaryProjects) {
+          return mergeFrom((org.roylance.yaclib.YaclibModel.AuxiliaryProjects)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(org.roylance.yaclib.YaclibModel.AuxiliaryProjects other) {
+        if (other == org.roylance.yaclib.YaclibModel.AuxiliaryProjects.getDefaultInstance()) return this;
+        if (projectsBuilder_ == null) {
+          if (!other.projects_.isEmpty()) {
+            if (projects_.isEmpty()) {
+              projects_ = other.projects_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+            } else {
+              ensureProjectsIsMutable();
+              projects_.addAll(other.projects_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.projects_.isEmpty()) {
+            if (projectsBuilder_.isEmpty()) {
+              projectsBuilder_.dispose();
+              projectsBuilder_ = null;
+              projects_ = other.projects_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+              projectsBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getProjectsFieldBuilder() : null;
+            } else {
+              projectsBuilder_.addAllMessages(other.projects_);
+            }
+          }
+        }
+        onChanged();
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        org.roylance.yaclib.YaclibModel.AuxiliaryProjects parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (org.roylance.yaclib.YaclibModel.AuxiliaryProjects) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private java.util.List<org.roylance.yaclib.YaclibModel.AuxiliaryProject> projects_ =
+        java.util.Collections.emptyList();
+      private void ensureProjectsIsMutable() {
+        if (!((bitField0_ & 0x00000001) == 0x00000001)) {
+          projects_ = new java.util.ArrayList<org.roylance.yaclib.YaclibModel.AuxiliaryProject>(projects_);
+          bitField0_ |= 0x00000001;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          org.roylance.yaclib.YaclibModel.AuxiliaryProject, org.roylance.yaclib.YaclibModel.AuxiliaryProject.Builder, org.roylance.yaclib.YaclibModel.AuxiliaryProjectOrBuilder> projectsBuilder_;
+
+      /**
+       * <code>repeated .org.roylance.yaclib.AuxiliaryProject projects = 1;</code>
+       */
+      public java.util.List<org.roylance.yaclib.YaclibModel.AuxiliaryProject> getProjectsList() {
+        if (projectsBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(projects_);
+        } else {
+          return projectsBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <code>repeated .org.roylance.yaclib.AuxiliaryProject projects = 1;</code>
+       */
+      public int getProjectsCount() {
+        if (projectsBuilder_ == null) {
+          return projects_.size();
+        } else {
+          return projectsBuilder_.getCount();
+        }
+      }
+      /**
+       * <code>repeated .org.roylance.yaclib.AuxiliaryProject projects = 1;</code>
+       */
+      public org.roylance.yaclib.YaclibModel.AuxiliaryProject getProjects(int index) {
+        if (projectsBuilder_ == null) {
+          return projects_.get(index);
+        } else {
+          return projectsBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <code>repeated .org.roylance.yaclib.AuxiliaryProject projects = 1;</code>
+       */
+      public Builder setProjects(
+          int index, org.roylance.yaclib.YaclibModel.AuxiliaryProject value) {
+        if (projectsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureProjectsIsMutable();
+          projects_.set(index, value);
+          onChanged();
+        } else {
+          projectsBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .org.roylance.yaclib.AuxiliaryProject projects = 1;</code>
+       */
+      public Builder setProjects(
+          int index, org.roylance.yaclib.YaclibModel.AuxiliaryProject.Builder builderForValue) {
+        if (projectsBuilder_ == null) {
+          ensureProjectsIsMutable();
+          projects_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          projectsBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .org.roylance.yaclib.AuxiliaryProject projects = 1;</code>
+       */
+      public Builder addProjects(org.roylance.yaclib.YaclibModel.AuxiliaryProject value) {
+        if (projectsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureProjectsIsMutable();
+          projects_.add(value);
+          onChanged();
+        } else {
+          projectsBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .org.roylance.yaclib.AuxiliaryProject projects = 1;</code>
+       */
+      public Builder addProjects(
+          int index, org.roylance.yaclib.YaclibModel.AuxiliaryProject value) {
+        if (projectsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureProjectsIsMutable();
+          projects_.add(index, value);
+          onChanged();
+        } else {
+          projectsBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .org.roylance.yaclib.AuxiliaryProject projects = 1;</code>
+       */
+      public Builder addProjects(
+          org.roylance.yaclib.YaclibModel.AuxiliaryProject.Builder builderForValue) {
+        if (projectsBuilder_ == null) {
+          ensureProjectsIsMutable();
+          projects_.add(builderForValue.build());
+          onChanged();
+        } else {
+          projectsBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .org.roylance.yaclib.AuxiliaryProject projects = 1;</code>
+       */
+      public Builder addProjects(
+          int index, org.roylance.yaclib.YaclibModel.AuxiliaryProject.Builder builderForValue) {
+        if (projectsBuilder_ == null) {
+          ensureProjectsIsMutable();
+          projects_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          projectsBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .org.roylance.yaclib.AuxiliaryProject projects = 1;</code>
+       */
+      public Builder addAllProjects(
+          java.lang.Iterable<? extends org.roylance.yaclib.YaclibModel.AuxiliaryProject> values) {
+        if (projectsBuilder_ == null) {
+          ensureProjectsIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, projects_);
+          onChanged();
+        } else {
+          projectsBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .org.roylance.yaclib.AuxiliaryProject projects = 1;</code>
+       */
+      public Builder clearProjects() {
+        if (projectsBuilder_ == null) {
+          projects_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+          onChanged();
+        } else {
+          projectsBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .org.roylance.yaclib.AuxiliaryProject projects = 1;</code>
+       */
+      public Builder removeProjects(int index) {
+        if (projectsBuilder_ == null) {
+          ensureProjectsIsMutable();
+          projects_.remove(index);
+          onChanged();
+        } else {
+          projectsBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .org.roylance.yaclib.AuxiliaryProject projects = 1;</code>
+       */
+      public org.roylance.yaclib.YaclibModel.AuxiliaryProject.Builder getProjectsBuilder(
+          int index) {
+        return getProjectsFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <code>repeated .org.roylance.yaclib.AuxiliaryProject projects = 1;</code>
+       */
+      public org.roylance.yaclib.YaclibModel.AuxiliaryProjectOrBuilder getProjectsOrBuilder(
+          int index) {
+        if (projectsBuilder_ == null) {
+          return projects_.get(index);  } else {
+          return projectsBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <code>repeated .org.roylance.yaclib.AuxiliaryProject projects = 1;</code>
+       */
+      public java.util.List<? extends org.roylance.yaclib.YaclibModel.AuxiliaryProjectOrBuilder> 
+           getProjectsOrBuilderList() {
+        if (projectsBuilder_ != null) {
+          return projectsBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(projects_);
+        }
+      }
+      /**
+       * <code>repeated .org.roylance.yaclib.AuxiliaryProject projects = 1;</code>
+       */
+      public org.roylance.yaclib.YaclibModel.AuxiliaryProject.Builder addProjectsBuilder() {
+        return getProjectsFieldBuilder().addBuilder(
+            org.roylance.yaclib.YaclibModel.AuxiliaryProject.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .org.roylance.yaclib.AuxiliaryProject projects = 1;</code>
+       */
+      public org.roylance.yaclib.YaclibModel.AuxiliaryProject.Builder addProjectsBuilder(
+          int index) {
+        return getProjectsFieldBuilder().addBuilder(
+            index, org.roylance.yaclib.YaclibModel.AuxiliaryProject.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .org.roylance.yaclib.AuxiliaryProject projects = 1;</code>
+       */
+      public java.util.List<org.roylance.yaclib.YaclibModel.AuxiliaryProject.Builder> 
+           getProjectsBuilderList() {
+        return getProjectsFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          org.roylance.yaclib.YaclibModel.AuxiliaryProject, org.roylance.yaclib.YaclibModel.AuxiliaryProject.Builder, org.roylance.yaclib.YaclibModel.AuxiliaryProjectOrBuilder> 
+          getProjectsFieldBuilder() {
+        if (projectsBuilder_ == null) {
+          projectsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              org.roylance.yaclib.YaclibModel.AuxiliaryProject, org.roylance.yaclib.YaclibModel.AuxiliaryProject.Builder, org.roylance.yaclib.YaclibModel.AuxiliaryProjectOrBuilder>(
+                  projects_,
+                  ((bitField0_ & 0x00000001) == 0x00000001),
+                  getParentForChildren(),
+                  isClean());
+          projects_ = null;
+        }
+        return projectsBuilder_;
+      }
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return this;
+      }
+
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return this;
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:org.roylance.yaclib.AuxiliaryProjects)
+    }
+
+    // @@protoc_insertion_point(class_scope:org.roylance.yaclib.AuxiliaryProjects)
+    private static final org.roylance.yaclib.YaclibModel.AuxiliaryProjects DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new org.roylance.yaclib.YaclibModel.AuxiliaryProjects();
+    }
+
+    public static org.roylance.yaclib.YaclibModel.AuxiliaryProjects getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<AuxiliaryProjects>
+        PARSER = new com.google.protobuf.AbstractParser<AuxiliaryProjects>() {
+      public AuxiliaryProjects parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+          return new AuxiliaryProjects(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<AuxiliaryProjects> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<AuxiliaryProjects> getParserForType() {
+      return PARSER;
+    }
+
+    public org.roylance.yaclib.YaclibModel.AuxiliaryProjects getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_org_roylance_yaclib_Repository_descriptor;
   private static final 
@@ -11541,6 +16680,26 @@ public final class YaclibModel {
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_org_roylance_yaclib_AllControllerDependencies_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_org_roylance_yaclib_ProcessReport_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_org_roylance_yaclib_ProcessReport_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_org_roylance_yaclib_ProjectInformation_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_org_roylance_yaclib_ProjectInformation_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_org_roylance_yaclib_AuxiliaryProject_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_org_roylance_yaclib_AuxiliaryProject_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_org_roylance_yaclib_AuxiliaryProjects_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_org_roylance_yaclib_AuxiliaryProjects_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -11591,24 +16750,60 @@ public final class YaclibModel {
       "ylance.yaclib.Dependency\"g\n\031AllControlle" +
       "rDependencies\022J\n\027controller_dependencies",
       "\030\001 \003(\0132).org.roylance.yaclib.ControllerD" +
-      "ependency*\316\001\n\016RepositoryType\022\013\n\007BINTRAY\020" +
+      "ependency\"\231\001\n\rProcessReport\022\025\n\rnormal_ou" +
+      "tput\030\001 \001(\t\022\024\n\014error_output\030\002 \001(\t\022\020\n\010is_e" +
+      "rror\030\003 \001(\010\022\022\n\nexit_value\030\004 \001(\005\022\017\n\007conten" +
+      "t\030\005 \001(\t\022\021\n\tnew_major\030\006 \001(\005\022\021\n\tnew_minor\030" +
+      "\007 \001(\005\"\351\001\n\022ProjectInformation\022C\n\013controll" +
+      "ers\030\001 \001(\0132..org.roylance.yaclib.AllContr" +
+      "ollerDependencies\0228\n\017main_dependency\030\002 \001" +
+      "(\0132\037.org.roylance.yaclib.Dependency\022A\n\030t" +
+      "hird_party_dependencies\030\003 \003(\0132\037.org.royl",
+      "ance.yaclib.Dependency\022\021\n\tis_server\030\004 \001(" +
+      "\010\"\366\002\n\020AuxiliaryProject\022:\n\rhandle_before\030" +
+      "\001 \001(\0162#.org.roylance.yaclib.ExecutionPha" +
+      "se\022<\n\nexecutions\030\002 \003(\0162(.org.roylance.ya" +
+      "clib.CustomExecutionType\022:\n\021from_depende" +
+      "ncies\030\003 \003(\0132\037.org.roylance.yaclib.Depend" +
+      "ency\022:\n\021target_dependency\030\004 \001(\0132\037.org.ro" +
+      "ylance.yaclib.Dependency\0228\n\017to_dependenc" +
+      "ies\030\005 \003(\0132\037.org.roylance.yaclib.Dependen" +
+      "cy\0226\n\014project_type\030\006 \001(\0162 .org.roylance.",
+      "yaclib.ProjectType\"L\n\021AuxiliaryProjects\022" +
+      "7\n\010projects\030\001 \003(\0132%.org.roylance.yaclib." +
+      "AuxiliaryProject*\232\001\n\013ProjectType\022\027\n\023GRAD" +
+      "LE_PROJECT_TYPE\020\000\022\026\n\022MAVEN_PROJECT_TYPE\020" +
+      "\001\022\024\n\020NPM_PROJECT_TYPE\020\002\022\025\n\021GULP_PROJECT_" +
+      "TYPE\020\003\022\027\n\023DOTNET_PROJECT_TYPE\020\004\022\024\n\020PIP_P" +
+      "ROJECT_TYPE\020\005*\367\001\n\016ExecutionPhase\022\026\n\022DELE" +
+      "TE_DIRECTORIES\020\000\022 \n\034GENERATE_CODE_FROM_P" +
+      "ROTOBUFS\020\001\022\030\n\024BUILD_PUBLISH_CSHARP\020\002\022\030\n\024" +
+      "BUILD_PUBLISH_PYTHON\020\003\022\035\n\031BUILD_PUBLISH_",
+      "JAVA_CLIENT\020\004\022\034\n\030BUILD_PUBLISH_TYPESCRIP" +
+      "T\020\005\022\033\n\027BUILD_TYPESCRIPT_SERVER\020\006\022\035\n\031BUIL" +
+      "D_PACKAGE_JAVA_SERVER\020\007*\267\001\n\023CustomExecut" +
+      "ionType\022\020\n\014CUSTOM_BUILD\020\000\022\022\n\016CUSTOM_PACK" +
+      "AGE\020\001\022\022\n\016CUSTOM_PUBLISH\020\002\022\034\n\030CUSTOM_INCR" +
+      "EMENT_VERSION\020\003\022\036\n\032CUSTOM_UPDATE_DEPENDE" +
+      "NCIES\020\004\022\026\n\022CUSTOM_SET_VERSION\020\005\022\020\n\014CUSTO" +
+      "M_CLEAN\020\006*\316\001\n\016RepositoryType\022\013\n\007BINTRAY\020" +
       "\000\022\017\n\013ARTIFACTORY\020\001\022\t\n\005NPMJS\020\002\022\017\n\013PRIVATE" +
-      "_NPM\020\003\022\t\n\005NUGET\020\004\022\021\n\rPRIVATE_NUGET\020\005\022\007\n\003" +
+      "_NPM\020\003\022\t\n\005NUGET\020\004\022\021\n\rPRIVATE_NUGET\020\005\022\007\n\003",
       "PIP\020\006\022\017\n\013PRIVATE_PIP\020\007\022\023\n\017PRIVATE_BINTRA" +
       "Y\020\010\022\023\n\017ARTIFACTORY_NPM\020\t\022\010\n\004PYPI\020\n\022\026\n\022AR" +
       "TIFACTORY_PYTHON\020\013*[\n\016DependencyType\022\014\n\010" +
       "INTERNAL\020\000\022\010\n\004JAVA\020\001\022\016\n\nTYPESCRIPT\020\002\022\n\n\006" +
-      "CSHARP\020\003\022\t\n\005SWIFT\020\004\022\n\n\006PYTHON\020\005*\262\002\n\rFile" +
-      "Extension\022\n\n\006KT_EXT\020\000\022\014\n\010JAVA_EXT\020\001\022\022\n\016T",
+      "CSHARP\020\003\022\t\n\005SWIFT\020\004\022\n\n\006PYTHON\020\005*\324\002\n\rFile" +
+      "Extension\022\n\n\006KT_EXT\020\000\022\014\n\010JAVA_EXT\020\001\022\022\n\016T" +
       "YPESCRIPT_EXT\020\002\022\022\n\016JAVASCRIPT_EXT\020\003\022\r\n\tS" +
       "WIFT_EXT\020\004\022\013\n\007POM_EXT\020\005\022\013\n\007XML_EXT\020\006\022\014\n\010" +
       "HTML_EXT\020\007\022\016\n\nGRADLE_EXT\020\010\022\014\n\010JSON_EXT\020\t" +
-      "\022\n\n\006TS_EXT\020\n\022\014\n\010NONE_EXT\020\013\022\013\n\007BAT_EXT\020\014\022" +
+      "\022\n\n\006TS_EXT\020\n\022\014\n\010NONE_EXT\020\013\022\013\n\007BAT_EXT\020\014\022",
       "\n\n\006JS_EXT\020\r\022\n\n\006CS_EXT\020\016\022\013\n\007SLN_EXT\020\017\022\r\n\t" +
       "XPROJ_EXT\020\020\022\n\n\006SH_EXT\020\021\022\n\n\006MD_EXT\020\022\022\n\n\006P" +
-      "Y_EXT\020\023\022\013\n\007CFG_EXT\020\024*8\n\016FileUpdateType\022\r" +
-      "\n\tOVERWRITE\020\000\022\027\n\023WRITE_IF_NOT_EXISTS\020\001b\006" +
-      "proto3"
+      "Y_EXT\020\023\022\013\n\007CFG_EXT\020\024\022\022\n\016PROPERTIES_EXT\020\025" +
+      "\022\014\n\010BLOB_EXT\020\026*8\n\016FileUpdateType\022\r\n\tOVER" +
+      "WRITE\020\000\022\027\n\023WRITE_IF_NOT_EXISTS\020\001b\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -11682,6 +16877,30 @@ public final class YaclibModel {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_org_roylance_yaclib_AllControllerDependencies_descriptor,
         new java.lang.String[] { "ControllerDependencies", });
+    internal_static_org_roylance_yaclib_ProcessReport_descriptor =
+      getDescriptor().getMessageTypes().get(10);
+    internal_static_org_roylance_yaclib_ProcessReport_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_org_roylance_yaclib_ProcessReport_descriptor,
+        new java.lang.String[] { "NormalOutput", "ErrorOutput", "IsError", "ExitValue", "Content", "NewMajor", "NewMinor", });
+    internal_static_org_roylance_yaclib_ProjectInformation_descriptor =
+      getDescriptor().getMessageTypes().get(11);
+    internal_static_org_roylance_yaclib_ProjectInformation_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_org_roylance_yaclib_ProjectInformation_descriptor,
+        new java.lang.String[] { "Controllers", "MainDependency", "ThirdPartyDependencies", "IsServer", });
+    internal_static_org_roylance_yaclib_AuxiliaryProject_descriptor =
+      getDescriptor().getMessageTypes().get(12);
+    internal_static_org_roylance_yaclib_AuxiliaryProject_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_org_roylance_yaclib_AuxiliaryProject_descriptor,
+        new java.lang.String[] { "HandleBefore", "Executions", "FromDependencies", "TargetDependency", "ToDependencies", "ProjectType", });
+    internal_static_org_roylance_yaclib_AuxiliaryProjects_descriptor =
+      getDescriptor().getMessageTypes().get(13);
+    internal_static_org_roylance_yaclib_AuxiliaryProjects_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_org_roylance_yaclib_AuxiliaryProjects_descriptor,
+        new java.lang.String[] { "Projects", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)
