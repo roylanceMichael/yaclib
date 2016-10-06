@@ -160,9 +160,9 @@ object PythonUtilities: IProjectBuilderServices {
         return YaclibModel.ProcessReport.newBuilder().setNormalOutput(normalLogs.toString()).setErrorOutput(errorLogs.toString()).build()
     }
 
-    override fun buildPublish(location: String,
-                              dependency: YaclibModel.Dependency,
-                              apiKey: String): YaclibModel.ProcessReport {
+    override fun publish(location: String,
+                         dependency: YaclibModel.Dependency,
+                         apiKey: String): YaclibModel.ProcessReport {
         if (dependency.hasPipRepository() &&
                 dependency.pipRepository.repositoryType == YaclibModel.RepositoryType.ARTIFACTORY_PYTHON &&
                 dependency.pipRepository.url.length > 0) {
@@ -179,7 +179,7 @@ object PythonUtilities: IProjectBuilderServices {
         return YaclibModel.ProcessReport.getDefaultInstance()
     }
 
-    override fun restoreDependencies(location: String): YaclibModel.ProcessReport {
+    override fun restoreDependencies(location: String, doAnonymously: Boolean): YaclibModel.ProcessReport {
         return YaclibModel.ProcessReport.getDefaultInstance()
     }
 }

@@ -26,9 +26,6 @@ fi
         val tarFileName = buildTarFileName(dependency)
 
         val initialTemplate = """#!/usr/bin/env bash
-tar -cvzf $tarFileName ./*
-chmod -R 775 $tarFileName
-
 if [ -z "$${JavaUtilities.ArtifactoryUserName}" ]; then
     curl -u -X PUT "$actualUrl/${buildTarUrl(dependency)}" -T $directory/$tarFileName
 else

@@ -23,7 +23,7 @@ class PythonBuilder(private val location: String,
         println(packageReport.errorOutput)
 
         println("deploying pip")
-        val deployReport = PythonUtilities.buildPublish(pythonDirectory.toString(), mainDependency)
+        val deployReport = PythonUtilities.publish(pythonDirectory.toString(), mainDependency)
         println(deployReport.normalOutput)
         println(deployReport.errorOutput)
 

@@ -14,7 +14,9 @@ class JavaClientProcessLanguageService: IProcessLanguageService {
         returnList.addFiles(GradleFileBuilder(projectInformation).build())
         returnList.addFiles(GradleSettingsBuilder().build())
 
-        projectInformation.controllers.controllerDependenciesList.forEach { controllerDependency ->
+        projectInformation.controllers.controllerDependenciesList
+                .filter { it.dependency.group == projectInformation.mainDependency.group && it.dependency.name == projectInformation.mainDependency.name }
+                .forEach { controllerDependency ->
             controllerDependency.controllers.controllersList.forEach { controller ->
                 returnList.addFiles(JavaRetrofitBuilder(controller, projectInformation.mainDependency).build())
                 returnList.addFiles(KotlinServiceBuilder(controller, projectInformation.mainDependency).build())

@@ -35,7 +35,7 @@ class CSharpBuilder(private val location: String,
 
         if (nugetKey != null) {
             println("publishing nuget")
-            val publishReport = CSharpUtilities.buildPublish(csharpDirectory.toString(), mainDependency, nugetKey)
+            val publishReport = CSharpUtilities.publish(csharpDirectory.toString(), mainDependency, nugetKey)
             println(publishReport.normalOutput)
             println(publishReport.errorOutput)
         }

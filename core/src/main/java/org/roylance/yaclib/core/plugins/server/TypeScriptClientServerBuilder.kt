@@ -9,8 +9,12 @@ import java.nio.file.Paths
 class TypeScriptClientServerBuilder(private val location: String): IBuilder<Boolean> {
     override fun build(): Boolean {
         val javascriptDirectory = Paths.get(location, CommonTokens.ServerApi, "src", "main", "javascript").toFile()
-        println("restoring server npm")
-        val restoreDependenciesReport = TypeScriptUtilities.restoreDependencies(javascriptDirectory.toString())
+
+        val projectModel = TypeScriptUtilities.buildNpmModel(javascriptDirectory.toString()) ?: return false
+        val shouldInstallAnon = projectModel.dependencies.values.any { it.startsWith("https:") && it.endsWith(".tar.gz") }
+
+        println("restoring server npm (installing anon: $shouldInstallAnon)")
+        val restoreDependenciesReport = TypeScriptUtilities.restoreDependencies(javascriptDirectory.toString(), shouldInstallAnon)
         println(restoreDependenciesReport.normalOutput)
         println(restoreDependenciesReport.errorOutput)
 

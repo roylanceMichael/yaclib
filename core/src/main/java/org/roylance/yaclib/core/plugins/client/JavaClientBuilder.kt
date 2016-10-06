@@ -18,7 +18,7 @@ class JavaClientBuilder(private val location: String,
         println(buildReport.errorOutput)
 
         println("publishing gradle")
-        val publishReport = GradleUtilities.buildPublish(javaClientDirectory.toString(), mainDependency)
+        val publishReport = GradleUtilities.publish(javaClientDirectory.toString(), mainDependency)
         println(publishReport.normalOutput)
         println(publishReport.errorOutput)
 

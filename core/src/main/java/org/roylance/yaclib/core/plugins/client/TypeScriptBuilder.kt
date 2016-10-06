@@ -16,27 +16,30 @@ class TypeScriptBuilder(private val location: String,
         val javaScriptDirectory = Paths.get(location, CommonTokens.JavaScriptName).toFile()
 
         println("building protobufs for npm")
+        FileProcessUtilities.executeProcess(location, "npm", "install -g protobufjs")
+        FileProcessUtilities.executeProcess(location, "npm", "install -g proto2typescript")
+
         val restoreDependenciesReport = TypeScriptUtilities.restoreDependencies(javaScriptDirectory.toString())
         println(restoreDependenciesReport.normalOutput)
         println(restoreDependenciesReport.errorOutput)
 
         // this is custom
         val createJsonModelProcess = FileProcessUtilities.executeProcess(javaScriptDirectory.toString(),
-                Paths.get(javaScriptDirectory.toString(), NodeModules, "protobufjs", Bin, "pbjs").toString(),
+                "pbjs",
                 "../api/src/main/resources/*.proto > $ModelJson",
                 false)
         println(createJsonModelProcess.normalOutput)
         println(createJsonModelProcess.errorOutput)
 
         val createModelJsReport = FileProcessUtilities.executeProcess(javaScriptDirectory.toString(),
-                Paths.get(javaScriptDirectory.toString(), NodeModules, "protobufjs", Bin, "pbjs").toString(),
+                "pbjs",
                 "../api/src/main/resources/*.proto -t js > $ModelJS",
                 false)
         println(createModelJsReport.normalOutput)
         println(createModelJsReport.errorOutput)
 
         val proto2TypeScriptReport = FileProcessUtilities.executeProcess(javaScriptDirectory.toString(),
-                Paths.get(javaScriptDirectory.toString(), NodeModules, "proto2typescript", Bin, "proto2typescript-bin.js").toString(),
+                "proto2typescript",
                 "--file $ModelJson > ${mainDependency.typescriptModelFile}.d.ts",
                 false)
         println(proto2TypeScriptReport.normalOutput)
@@ -60,7 +63,7 @@ class TypeScriptBuilder(private val location: String,
         println(compileReport.errorOutput)
 
         println("publishing npm")
-        val publishReport = TypeScriptUtilities.buildPublish(javaScriptDirectory.toString(), mainDependency)
+        val publishReport = TypeScriptUtilities.publish(javaScriptDirectory.toString(), mainDependency)
         println(publishReport.normalOutput)
         println(publishReport.errorOutput)
 

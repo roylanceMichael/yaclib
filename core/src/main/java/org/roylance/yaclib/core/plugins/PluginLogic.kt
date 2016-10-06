@@ -129,7 +129,7 @@ class PluginLogic(
             }
             this[YaclibModel.CustomExecutionType.CUSTOM_PUBLISH] = { project, service ->
                 val projectLocation = Paths.get(location, project.targetDependency.name)
-                printReportToConsole(service.buildPublish(projectLocation.toString(), project.targetDependency))
+                printReportToConsole(service.publish(projectLocation.toString(), project.targetDependency))
             }
             this[YaclibModel.CustomExecutionType.CUSTOM_INCREMENT_VERSION] = { project, service ->
                 val projectLocation = Paths.get(location, project.targetDependency.name).toString()

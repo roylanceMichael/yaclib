@@ -21,7 +21,9 @@ class TypeScriptProcessLanguageService: IProcessLanguageService {
         returnList.addFiles(ReadmeBuilder(actualProjectInformation.mainDependency).build())
 
         val allControllers = YaclibModel.AllControllers.newBuilder()
-        actualProjectInformation.controllers.controllerDependenciesList.forEach { controllerDependency ->
+        actualProjectInformation.controllers.controllerDependenciesList
+                .filter { it.dependency.group == projectInformation.mainDependency.group && it.dependency.name == projectInformation.mainDependency.name }
+                .forEach { controllerDependency ->
             controllerDependency.controllers.controllersList.forEach { controller ->
                 returnList.addFiles(TypeScriptServiceBuilder(controller).build())
                 returnList.addFiles(TypeScriptServiceImplementationBuilder(controller, controllerDependency.dependency)

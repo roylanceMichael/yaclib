@@ -50,13 +50,13 @@ object CSharpUtilities: IProjectBuilderServices {
         return FileProcessUtilities.executeProcess(location, DotNet, "pack")
     }
 
-    override fun buildPublish(location: String, dependency: YaclibModel.Dependency, apiKey: String): YaclibModel.ProcessReport {
+    override fun publish(location: String, dependency: YaclibModel.Dependency, apiKey: String): YaclibModel.ProcessReport {
         val nugetDirectoryLocation = Paths.get(location, "bin", "Debug").toString()
         val nugetPackage = buildNugetPackageName(dependency)
         return FileProcessUtilities.executeProcess(nugetDirectoryLocation, Nuget, "push $nugetPackage $apiKey")
     }
 
-    override fun restoreDependencies(location: String): YaclibModel.ProcessReport {
+    override fun restoreDependencies(location: String, doAnonymously: Boolean): YaclibModel.ProcessReport {
         return FileProcessUtilities.executeProcess(location, DotNet, "restore")
     }
 

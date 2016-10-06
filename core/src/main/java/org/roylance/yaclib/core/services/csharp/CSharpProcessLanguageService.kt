@@ -18,7 +18,9 @@ class CSharpProcessLanguageService: IProcessLanguageService {
         returnList.addFiles(SolutionBuilder(solutionGuid, projectGuid, projectInformation.mainDependency).build())
         returnList.addFiles(ProjectJsonBuilder(projectInformation.mainDependency).build())
 
-        projectInformation.controllers.controllerDependenciesList.forEach { controllerDependency ->
+        projectInformation.controllers.controllerDependenciesList
+                .filter { it.dependency.group == projectInformation.mainDependency.group && it.dependency.name == projectInformation.mainDependency.name }
+                .forEach { controllerDependency ->
             controllerDependency.controllers.controllersList.forEach { controller ->
                 returnList.addFiles(CSharpServiceBuilder(projectInformation.mainDependency, controller).build())
                 returnList.addFiles(CSharpServiceImplementationBuilder(controllerDependency.dependency, controller).build())

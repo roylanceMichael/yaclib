@@ -10,6 +10,6 @@ interface IProjectBuilderServices {
     fun clean(location: String): YaclibModel.ProcessReport
     fun build(location: String): YaclibModel.ProcessReport
     fun buildPackage(location: String, dependency: YaclibModel.Dependency): YaclibModel.ProcessReport
-    fun buildPublish(location: String, dependency: YaclibModel.Dependency, apiKey: String = ""): YaclibModel.ProcessReport
-    fun restoreDependencies(location: String): YaclibModel.ProcessReport
+    fun publish(location: String, dependency: YaclibModel.Dependency, apiKey: String = ""): YaclibModel.ProcessReport
+    fun restoreDependencies(location: String, doAnonymously: Boolean = false): YaclibModel.ProcessReport
 }

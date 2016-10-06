@@ -1,12 +1,15 @@
 package org.roylance.yaclib.core.utilities
 
+import org.apache.commons.compress.archivers.tar.TarArchiveEntry
+import org.apache.commons.compress.archivers.tar.TarArchiveOutputStream
+import org.apache.commons.compress.compressors.gzip.GzipCompressorOutputStream
 import org.apache.commons.io.IOUtils
+import org.gradle.internal.impldep.org.apache.tools.tar.TarArchiveSparseEntry
 import org.roylance.yaclib.YaclibModel
-import java.io.File
-import java.io.IOException
-import java.io.StringWriter
+import java.io.*
 import java.nio.charset.Charset
 import java.util.*
+import java.util.zip.GZIPOutputStream
 
 object FileProcessUtilities {
     fun buildCommand(application: String, allArguments: String, resolveWithWhich: Boolean = true):List<String> {
@@ -83,5 +86,64 @@ object FileProcessUtilities {
         process.waitFor()
 
         return buildReport(process)
+    }
+
+    fun createTarFromDirectory(inputDirectory: String, outputFile: String, directoriesToExclude: HashSet<String>): Boolean {
+        val directory = File(inputDirectory)
+
+        if (!directory.exists()) {
+            return false
+        }
+
+        val outputStream = FileOutputStream(File(outputFile))
+        val bufferedOutputStream = BufferedOutputStream(outputStream)
+        val gzipOutputStream = GzipCompressorOutputStream(bufferedOutputStream)
+        val tarOutputStream = TarArchiveOutputStream(gzipOutputStream)
+        try {
+            addFileToTarGz(tarOutputStream, inputDirectory, "", directoriesToExclude)
+        }
+        finally {
+            tarOutputStream.finish()
+            tarOutputStream.close()
+            gzipOutputStream.close()
+            bufferedOutputStream.close()
+            outputStream.close()
+        }
+
+        return true
+    }
+
+    private fun addFileToTarGz(tarOutputStream: TarArchiveOutputStream, path: String, base: String, directoriesToExclude: HashSet<String>) {
+        val fileOrDirectory = File(path)
+        if (directoriesToExclude.contains(fileOrDirectory.name)) {
+            return
+        }
+
+        val entryName: String
+        if (base.length == 0) {
+            entryName = "."
+        }
+        else {
+            entryName = base + fileOrDirectory.name
+        }
+
+        val tarEntry = TarArchiveEntry(fileOrDirectory, entryName)
+        tarOutputStream.putArchiveEntry(tarEntry)
+
+        if (fileOrDirectory.isDirectory) {
+            fileOrDirectory.listFiles()?.forEach { file ->
+                addFileToTarGz(tarOutputStream, file.absolutePath, "$entryName/", directoriesToExclude)
+            }
+        }
+        else {
+            val inputStream = FileInputStream(fileOrDirectory)
+            try {
+                IOUtils.copy(inputStream, tarOutputStream)
+            }
+            finally {
+                inputStream.close()
+                tarOutputStream.closeArchiveEntry()
+            }
+        }
     }
 }

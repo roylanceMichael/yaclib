@@ -14,7 +14,9 @@ class PythonProcessLanguageService: IProcessLanguageService {
         returnList.addFiles(SetupBuilder().build())
         returnList.addFiles(SetupCFGBuilder().build())
 
-        projectInformation.controllers.controllerDependenciesList.forEach { controllerDependency ->
+        projectInformation.controllers.controllerDependenciesList
+                .filter { it.dependency.group == projectInformation.mainDependency.group && it.dependency.name == projectInformation.mainDependency.name }
+                .forEach { controllerDependency ->
             controllerDependency.controllers.controllersList.forEach { controller ->
                 returnList.addFiles(PythonServiceImplementationBuilder(projectInformation.mainDependency, controller).build())
             }

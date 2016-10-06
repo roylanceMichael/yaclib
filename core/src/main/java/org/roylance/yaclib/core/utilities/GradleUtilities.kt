@@ -30,7 +30,7 @@ object GradleUtilities: IProjectBuilderServices {
 
         val outputStream = FileOutputStream(propertiesFile)
         try {
-            properties.store(FileOutputStream(propertiesFile), "")
+            properties.store(FileOutputStream(propertiesFile), "incrementVersion: ${dependency.majorVersion}.${dependency.minorVersion}")
         }
         finally {
             outputStream.close()
@@ -63,11 +63,13 @@ object GradleUtilities: IProjectBuilderServices {
                     .setName(CommonTokens.ClientApi).build()), "${otherDependency.majorVersion}.${otherDependency.minorVersion}")
         }
 
-        properties.setProperty(JavaUtilities.buildPackageVariableName(otherDependency), "${otherDependency.majorVersion}.${otherDependency.minorVersion}")
+        val variableName = JavaUtilities.buildPackageVariableName(otherDependency)
+        val version = "${otherDependency.majorVersion}.${otherDependency.minorVersion}"
+        properties.setProperty(variableName, version)
 
         val outputStream = FileOutputStream(propertiesFile)
         try {
-            properties.store(FileOutputStream(propertiesFile), "")
+            properties.store(FileOutputStream(propertiesFile), "update dependency: $variableName $version")
         }
         finally {
             outputStream.close()
@@ -116,7 +118,7 @@ object GradleUtilities: IProjectBuilderServices {
 
         val outputStream = FileOutputStream(propertiesFile)
         try {
-            properties.store(FileOutputStream(propertiesFile), "")
+            properties.store(FileOutputStream(propertiesFile), "set version: ${dependency.majorVersion}.${dependency.minorVersion}")
         }
         finally {
             outputStream.close()
@@ -137,9 +139,9 @@ object GradleUtilities: IProjectBuilderServices {
         return YaclibModel.ProcessReport.getDefaultInstance()
     }
 
-    override fun buildPublish(location: String,
-                              dependency: YaclibModel.Dependency,
-                              apiKey: String): YaclibModel.ProcessReport {
+    override fun publish(location: String,
+                         dependency: YaclibModel.Dependency,
+                         apiKey: String): YaclibModel.ProcessReport {
         if (dependency.mavenRepository.repositoryType == YaclibModel.RepositoryType.ARTIFACTORY) {
             return FileProcessUtilities.executeProcess(location, "gradle", "artifactoryPublish")
         }
@@ -148,7 +150,7 @@ object GradleUtilities: IProjectBuilderServices {
         }
     }
 
-    override fun restoreDependencies(location: String): YaclibModel.ProcessReport {
+    override fun restoreDependencies(location: String, doAnonymously: Boolean): YaclibModel.ProcessReport {
         return YaclibModel.ProcessReport.getDefaultInstance()
     }
 }

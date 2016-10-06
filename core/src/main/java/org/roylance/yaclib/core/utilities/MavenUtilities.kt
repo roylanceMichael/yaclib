@@ -96,11 +96,11 @@ object MavenUtilities: IProjectBuilderServices {
         return FileProcessUtilities.executeProcess(location, "mvn", "package")
     }
 
-    override fun buildPublish(location: String, dependency: YaclibModel.Dependency, apiKey: String): YaclibModel.ProcessReport {
+    override fun publish(location: String, dependency: YaclibModel.Dependency, apiKey: String): YaclibModel.ProcessReport {
         return YaclibModel.ProcessReport.getDefaultInstance()
     }
 
-    override fun restoreDependencies(location: String): YaclibModel.ProcessReport {
+    override fun restoreDependencies(location: String, doAnonymously: Boolean): YaclibModel.ProcessReport {
         return YaclibModel.ProcessReport.getDefaultInstance()
     }
 }
