@@ -176,7 +176,7 @@ export var $exportFactoryName = _root;
     }
 
     override fun build(location: String): YaclibModel.ProcessReport {
-        return FileProcessUtilities.executeProcess(location, "tsc", "")
+        return FileProcessUtilities.executeProcess(location, InitUtilities.TypeScriptCompiler, "")
     }
 
     override fun buildPackage(location: String,
@@ -206,8 +206,8 @@ export var $exportFactoryName = _root;
             val actualScriptFile = File(location, ArtifactoryUtilities.UploadScriptName)
             actualScriptFile.writeText(scriptToRun)
 
-            FileProcessUtilities.executeProcess(location, "chmod", "755 $tarFileName")
-            FileProcessUtilities.executeProcess(location, "chmod", "755 $actualScriptFile")
+            FileProcessUtilities.executeProcess(location, InitUtilities.Chmod, "${InitUtilities.ChmodExecutable} $tarFileName")
+            FileProcessUtilities.executeProcess(location, InitUtilities.Chmod, "${InitUtilities.ChmodExecutable} $actualScriptFile")
 
             println("running upload")
             val deployReport = FileProcessUtilities.executeProcess(location, actualScriptFile.toString(), "")
@@ -216,7 +216,7 @@ export var $exportFactoryName = _root;
             println("ran upload upload")
         }
         else {
-            val publishReport = FileProcessUtilities.executeProcess(location, "npm", "publish")
+            val publishReport = FileProcessUtilities.executeProcess(location, InitUtilities.NPM, "publish")
             normalLogs.appendln(publishReport.normalOutput)
             errorLogs.appendln(publishReport.errorOutput)
         }
@@ -226,14 +226,13 @@ export var $exportFactoryName = _root;
 
     override fun restoreDependencies(location: String, doAnonymously: Boolean): YaclibModel.ProcessReport {
         if (doAnonymously) {
-            FileProcessUtilities.executeProcess(location, "mv", "~/.npmrc ~/.npmrctmp")
-
+            FileProcessUtilities.executeProcess(location, InitUtilities.Move, "~/.npmrc ~/.npmrctmp")
         }
 
-        val result = FileProcessUtilities.executeProcess(location, "npm", "install")
+        val result = FileProcessUtilities.executeProcess(location, InitUtilities.NPM, "install")
 
         if (doAnonymously) {
-            FileProcessUtilities.executeProcess(location, "mv", "~/.npmrctmp ~/.npmrc")
+            FileProcessUtilities.executeProcess(location, InitUtilities.Move, "~/.npmrctmp ~/.npmrc")
         }
 
         return result

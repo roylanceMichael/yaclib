@@ -6,6 +6,8 @@ import org.gradle.api.tasks.TaskAction;
 import org.roylance.yaclib.core.enums.CommonTokens;
 import org.roylance.yaclib.core.models.DependencyDescriptor;
 import org.roylance.yaclib.core.plugins.PluginLogic;
+import org.roylance.yaclib.core.utilities.FileProcessUtilities;
+import org.roylance.yaclib.core.utilities.InitUtilities;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.List;
@@ -22,6 +24,21 @@ public class YaclibPlugin extends DefaultTask {
 
     @TaskAction
     public Boolean buildDefinitions() throws ClassNotFoundException, NoSuchMethodException, IllegalAccessException, InvocationTargetException {
+        System.out.println("gradle: " + FileProcessUtilities.INSTANCE.getActualLocation(InitUtilities.Gradle));
+        System.out.println("maven: " + FileProcessUtilities.INSTANCE.getActualLocation(InitUtilities.Maven));
+        System.out.println("npm: " + FileProcessUtilities.INSTANCE.getActualLocation(InitUtilities.NPM));
+        System.out.println("tsc: " + FileProcessUtilities.INSTANCE.getActualLocation(InitUtilities.TypeScriptCompiler));
+        System.out.println("python: " + FileProcessUtilities.INSTANCE.getActualLocation(InitUtilities.Python));
+        System.out.println("protoc: " + FileProcessUtilities.INSTANCE.getActualLocation(InitUtilities.Protoc));
+        System.out.println("nuget: " + FileProcessUtilities.INSTANCE.getActualLocation(InitUtilities.Nuget));
+        System.out.println("dotnet: " + FileProcessUtilities.INSTANCE.getActualLocation(InitUtilities.DotNet));
+        System.out.println(InitUtilities.INSTANCE.isNotWindows());
+
+        if (!InitUtilities.INSTANCE.hasMinimumRequired()) {
+            System.out.println(InitUtilities.MinimumRequiredErrorMessage);
+            return false;
+        }
+
         if (!nullChecker(location, "location")) {
             return false;
         }

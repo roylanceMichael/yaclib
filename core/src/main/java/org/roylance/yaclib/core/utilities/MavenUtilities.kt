@@ -85,15 +85,15 @@ object MavenUtilities: IProjectBuilderServices {
     }
 
     override fun clean(location: String): YaclibModel.ProcessReport {
-        return FileProcessUtilities.executeProcess(location, "mvn", "clean")
+        return FileProcessUtilities.executeProcess(location, InitUtilities.Maven, "clean")
     }
 
     override fun build(location: String): YaclibModel.ProcessReport {
-        return FileProcessUtilities.executeProcess(location, "mvn", "compile")
+        return FileProcessUtilities.executeProcess(location, InitUtilities.Maven, "compile")
     }
 
     override fun buildPackage(location: String, dependency: YaclibModel.Dependency): YaclibModel.ProcessReport {
-        return FileProcessUtilities.executeProcess(location, "mvn", "package")
+        return FileProcessUtilities.executeProcess(location, InitUtilities.Maven, "package")
     }
 
     override fun publish(location: String, dependency: YaclibModel.Dependency, apiKey: String): YaclibModel.ProcessReport {

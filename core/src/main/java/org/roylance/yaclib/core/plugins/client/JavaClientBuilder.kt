@@ -5,6 +5,7 @@ import org.roylance.yaclib.YaclibModel
 import org.roylance.yaclib.core.enums.CommonTokens
 import org.roylance.yaclib.core.utilities.FileProcessUtilities
 import org.roylance.yaclib.core.utilities.GradleUtilities
+import org.roylance.yaclib.core.utilities.InitUtilities
 import java.nio.file.Paths
 
 class JavaClientBuilder(private val location: String,
@@ -12,15 +13,19 @@ class JavaClientBuilder(private val location: String,
     override fun build(): Boolean {
         val javaClientDirectory = Paths.get(this.location, CommonTokens.ClientApi).toFile()
 
-        println("building gradle")
+        println(InitUtilities.buildPhaseMessage("java client begin"))
+
+        println(InitUtilities.buildPhaseMessage("building gradle"))
         val buildReport = GradleUtilities.build(javaClientDirectory.toString())
         println(buildReport.normalOutput)
         println(buildReport.errorOutput)
 
-        println("publishing gradle")
+        println(InitUtilities.buildPhaseMessage("publishing gradle"))
         val publishReport = GradleUtilities.publish(javaClientDirectory.toString(), mainDependency)
         println(publishReport.normalOutput)
         println(publishReport.errorOutput)
+
+        println(InitUtilities.buildPhaseMessage("java client end"))
 
         return true
     }

@@ -165,7 +165,7 @@ class FilePersistServiceTest {
         // act
         filePersistService.persistFiles("/Users/mikeroylance/park/csharp", allFiles)
 
-        CSharpUtilities.buildProtobufs("/Users/mikeroylance/park", dependency).start()
+        CSharpUtilities.buildProtobufs("/Users/mikeroylance/park", dependency)
 
         // assert
         Assert.assertTrue(true)

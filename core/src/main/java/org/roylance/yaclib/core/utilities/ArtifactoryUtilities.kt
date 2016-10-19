@@ -12,9 +12,9 @@ object ArtifactoryUtilities {
 
         val initialTemplate = """#!/usr/bin/env bash
 if [ -z "$${JavaUtilities.ArtifactoryUserName}" ]; then
-    curl -u -X PUT "$actualUrl/${PythonUtilities.buildWheelUrl(dependency)}" -T $directory/$wheelName
+    ${InitUtilities.Curl} -u -X PUT "$actualUrl/${PythonUtilities.buildWheelUrl(dependency)}" -T $directory/$wheelName
 else
-    curl -u $${JavaUtilities.ArtifactoryUserName}:$${JavaUtilities.ArtifactoryPasswordName} -X PUT "$actualUrl/${PythonUtilities.buildWheelUrl(dependency)}" -T $directory/$wheelName
+    ${InitUtilities.Curl} -u $${JavaUtilities.ArtifactoryUserName}:$${JavaUtilities.ArtifactoryPasswordName} -X PUT "$actualUrl/${PythonUtilities.buildWheelUrl(dependency)}" -T $directory/$wheelName
 fi
 """
         return initialTemplate
@@ -27,9 +27,9 @@ fi
 
         val initialTemplate = """#!/usr/bin/env bash
 if [ -z "$${JavaUtilities.ArtifactoryUserName}" ]; then
-    curl -u -X PUT "$actualUrl/${buildTarUrl(dependency)}" -T $directory/$tarFileName
+    ${InitUtilities.Curl} -u -X PUT "$actualUrl/${buildTarUrl(dependency)}" -T $directory/$tarFileName
 else
-    curl -u $${JavaUtilities.ArtifactoryUserName}:$${JavaUtilities.ArtifactoryPasswordName} -X PUT "$actualUrl/${buildTarUrl(dependency)}" -T $directory/$tarFileName
+    ${InitUtilities.Curl} -u $${JavaUtilities.ArtifactoryUserName}:$${JavaUtilities.ArtifactoryPasswordName} -X PUT "$actualUrl/${buildTarUrl(dependency)}" -T $directory/$tarFileName
 fi
 """
         return initialTemplate

@@ -2,7 +2,6 @@ package org.roylance.yaclib.core.utilities
 
 import org.roylance.yaclib.YaclibModel
 import org.roylance.yaclib.core.enums.CommonTokens
-import org.roylance.yaclib.core.plugins.client.PythonBuilder
 import org.roylance.yaclib.core.services.IProjectBuilderServices
 import java.io.File
 import java.io.FileInputStream
@@ -29,10 +28,6 @@ object PythonUtilities: IProjectBuilderServices {
         return Paths.get(CommonTokens.PythonName, buildPackageName(mainDependency)).toString()
     }
 
-    fun buildPythonRootDirectory(): String {
-        return CommonTokens.PythonName
-    }
-
     fun buildWheelUrl(dependency: YaclibModel.Dependency): String {
         val newGroup = ArtifactoryUtilities.replacePeriodWithForwardSlash(dependency.group)
         return "$newGroup/${dependency.name}/${replacePeriodWithUnderscore(dependency.group)}_${dependency.name}-${dependency.majorVersion}-${dependency.minorVersion}-py2.py3-none-any.whl"
@@ -46,17 +41,13 @@ object PythonUtilities: IProjectBuilderServices {
         return item.replace(".", "_")
     }
 
-    fun buildProtobufs(location: String, mainDependency: YaclibModel.Dependency): ProcessBuilder {
+    fun buildProtobufs(location: String, mainDependency: YaclibModel.Dependency): YaclibModel.ProcessReport {
         val pythonDirectory = Paths.get(location, buildPythonSourceDirectory(mainDependency)).toFile()
         pythonDirectory.mkdirs()
 
         val protobufLocation = Paths.get(location, CommonTokens.ApiName, "src", "main", "resources").toString()
         val arguments = "-I=$protobufLocation --proto_path=$protobufLocation --python_out=$pythonDirectory $protobufLocation/*.proto"
-        val generateProtoProcess = ProcessBuilder()
-                .directory(pythonDirectory)
-                .command(FileProcessUtilities.buildCommand("protoc", arguments))
-
-        return generateProtoProcess
+        return FileProcessUtilities.executeProcess(pythonDirectory.toString(), InitUtilities.Protoc, arguments)
     }
 
     fun surroundWithDoubleQuotes(item: Any): String {
@@ -142,20 +133,20 @@ object PythonUtilities: IProjectBuilderServices {
         val normalLogs = StringBuilder()
         val errorLogs = StringBuilder()
         // cleanup, no need to
-        FileProcessUtilities.executeProcess(location, "find", ". -name '*pyc' -delete")
-        FileProcessUtilities.executeProcess(location, "find", ". -name '*DS_Store' -delete")
+        FileProcessUtilities.executeProcess(location, InitUtilities.Find, ". -name '*pyc' -delete")
+        FileProcessUtilities.executeProcess(location, InitUtilities.Find, ". -name '*DS_Store' -delete")
 
-        val buildWheelReport = FileProcessUtilities.executeProcess(location, "python", "setup.py bdist_wheel --universal")
+        val buildWheelReport = FileProcessUtilities.executeProcess(location, InitUtilities.Python, "setup.py bdist_wheel --universal")
         normalLogs.appendln(buildWheelReport.normalOutput)
         errorLogs.appendln(buildWheelReport.errorOutput)
 
-        val moveWheelReport = FileProcessUtilities.executeProcess(location, "mv", "${Paths.get(location, "dist")}/*.whl  $location/${PythonUtilities.buildWheelFileName(dependency)}")
+        val moveWheelReport = FileProcessUtilities.executeProcess(location, InitUtilities.Move, "${Paths.get(location, "dist")}/*.whl  $location/${PythonUtilities.buildWheelFileName(dependency)}")
         normalLogs.appendln(moveWheelReport.normalOutput)
         normalLogs.appendln(moveWheelReport.errorOutput)
 
-        FileProcessUtilities.executeProcess(location, "rm", "-rf dist")
-        FileProcessUtilities.executeProcess(location, "rm", "-rf build")
-        FileProcessUtilities.executeProcess(location, "rm", "-rf *egg-info")
+        FileProcessUtilities.executeProcess(location, InitUtilities.RemoveDirectory, "-rf dist")
+        FileProcessUtilities.executeProcess(location, InitUtilities.RemoveDirectory, "-rf build")
+        FileProcessUtilities.executeProcess(location, InitUtilities.RemoveDirectory, "-rf *egg-info")
 
         return YaclibModel.ProcessReport.newBuilder().setNormalOutput(normalLogs.toString()).setErrorOutput(errorLogs.toString()).build()
     }
@@ -171,9 +162,9 @@ object PythonUtilities: IProjectBuilderServices {
             val actualScriptFile = File(location, ArtifactoryUtilities.UploadWheelScriptName)
             actualScriptFile.writeText(scriptToRun)
 
-            FileProcessUtilities.executeProcess(location, "chmod", "755 $actualScriptFile")
+            FileProcessUtilities.executeProcess(location, InitUtilities.Chmod, "${InitUtilities.ChmodExecutable} $actualScriptFile")
 
-            return FileProcessUtilities.executeProcess(location, "bash", actualScriptFile.toString())
+            return FileProcessUtilities.executeProcess(location, InitUtilities.Bash, actualScriptFile.toString())
         }
 
         return YaclibModel.ProcessReport.getDefaultInstance()

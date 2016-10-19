@@ -4,37 +4,30 @@ import org.apache.commons.compress.archivers.tar.TarArchiveEntry
 import org.apache.commons.compress.archivers.tar.TarArchiveOutputStream
 import org.apache.commons.compress.compressors.gzip.GzipCompressorOutputStream
 import org.apache.commons.io.IOUtils
-import org.gradle.internal.impldep.org.apache.tools.tar.TarArchiveSparseEntry
 import org.roylance.yaclib.YaclibModel
 import java.io.*
 import java.nio.charset.Charset
 import java.util.*
-import java.util.zip.GZIPOutputStream
 
 object FileProcessUtilities {
-    fun buildCommand(application: String, allArguments: String, resolveWithWhich: Boolean = true):List<String> {
+    private const val Space = " "
+    private const val TempDirectory = "java.io.tmpdir"
+
+    private val knownApplicationLocations = HashMap<String, String>()
+    private val whitespaceRegex = Regex("\\s+")
+
+    fun buildCommand(application: String, allArguments: String):List<String> {
         val returnList = ArrayList<String>()
-
-        returnList.add("/bin/bash")
-        returnList.add("-l")
-        returnList.add("-c")
-
-        if (resolveWithWhich) {
-            if (allArguments.length == 0) {
-                returnList.add("\"$(which $application)\"")
-            }
-            else {
-                returnList.add("\"$($(which $application) $allArguments)\"")
-            }
+        val actualApplicationLocation = getActualLocation(application)
+        if (actualApplicationLocation.length == 0) {
+            returnList.add(application)
         }
         else {
-            if (allArguments.length == 0) {
-                returnList.add("\"application\"")
-            }
-            else {
-                returnList.add("\"$($application $allArguments)\"")
-            }
+            returnList.add(actualApplicationLocation)
         }
+
+        val splitArguments = allArguments.split(whitespaceRegex)
+        returnList.addAll(splitArguments)
 
         return returnList
     }
@@ -75,17 +68,24 @@ object FileProcessUtilities {
         return returnReport.setErrorOutput(errorWriter.toString()).setNormalOutput(inputWriter.toString()).build()
     }
 
-    fun executeProcess(location: String, application: String, allArguments: String, resolveWithWhich: Boolean = true): YaclibModel.ProcessReport {
-        val command = buildCommand(application, allArguments, resolveWithWhich)
+    fun executeProcess(location: String, application: String, allArguments: String): YaclibModel.ProcessReport {
+        val tempFile = File(getTempDirectory(), UUID.randomUUID().toString())
+        val actualCommand = buildCommand(application, allArguments).joinToString(Space)
+        val tempScript = buildTempScript(location, actualCommand)
+        tempFile.writeText(tempScript)
 
-        val process = ProcessBuilder()
-            .command(command)
-            .directory(File(location))
-            .start()
+        try {
+            Runtime.getRuntime().exec("${InitUtilities.Chmod} ${InitUtilities.ChmodExecutable} ${tempFile.absolutePath}")
+            val process = Runtime.getRuntime().exec(tempFile.absolutePath)
+            process.waitFor()
 
-        process.waitFor()
-
-        return buildReport(process)
+            val report = buildReport(process).toBuilder()
+            report.normalOutput = report.normalOutput + "\n" + tempScript
+            return report.build()
+        }
+        finally {
+            tempFile.delete()
+        }
     }
 
     fun createTarFromDirectory(inputDirectory: String, outputFile: String, directoriesToExclude: HashSet<String>): Boolean {
@@ -111,6 +111,32 @@ object FileProcessUtilities {
         }
 
         return true
+    }
+
+    fun getActualLocation(application: String): String {
+        if (knownApplicationLocations.containsKey(application)) {
+            return knownApplicationLocations[application]!!
+        }
+
+        val tempFile = File(getTempDirectory(), UUID.randomUUID().toString())
+        tempFile.writeText("""#!/usr/bin/env bash
+. ~/.bash_profile
+. ~/.bashrc
+which $application""")
+
+        val inputWriter = StringWriter()
+        try {
+            Runtime.getRuntime().exec("${InitUtilities.Chmod} ${InitUtilities.ChmodExecutable} ${tempFile.absolutePath}")
+            val process = Runtime.getRuntime().exec(tempFile.absolutePath)
+            process.waitFor()
+
+            IOUtils.copy(process.inputStream, inputWriter, Charset.defaultCharset())
+            return inputWriter.toString().trim()
+        }
+        finally {
+            inputWriter.close()
+            tempFile.delete()
+        }
     }
 
     private fun addFileToTarGz(tarOutputStream: TarArchiveOutputStream, path: String, base: String, directoriesToExclude: HashSet<String>) {
@@ -145,5 +171,18 @@ object FileProcessUtilities {
                 tarOutputStream.closeArchiveEntry()
             }
         }
+    }
+
+    private fun getTempDirectory(): String {
+        return System.getProperty(TempDirectory)
+    }
+
+    private fun buildTempScript(location: String, actualCommand: String): String {
+        return """#!/usr/bin/env bash
+. ~/.bash_profile
+. ~/.bashrc
+pushd $location
+$actualCommand
+"""
     }
 }

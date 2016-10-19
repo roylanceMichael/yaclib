@@ -26,11 +26,11 @@ class PluginLogic(
         val nugetKey: String?,
         auxiliaryProjects: YaclibModel.AuxiliaryProjects): IBuilder<Boolean> {
 
-    private val auxiliaryProjectsMap = HashMap<String, YaclibModel.AuxiliaryProject>()
+    private val auxiliaryProjectsMap = HashMap<String, YaclibModel.AuxiliaryProject.Builder>()
 
     init {
         auxiliaryProjects.projectsList.forEach {
-            auxiliaryProjectsMap[JavaUtilities.buildFullPackageName(it.targetDependency)] = it
+            auxiliaryProjectsMap[JavaUtilities.buildFullPackageName(it.targetDependency)] = it.toBuilder()
         }
     }
 
@@ -47,8 +47,8 @@ class PluginLogic(
         println("deleting ${Paths.get(location, CommonTokens.PythonName)}")
         FileUtils.deleteDirectory(Paths.get(location, CommonTokens.PythonName).toFile())
 
+        println(InitUtilities.buildPhaseMessage(YaclibModel.ExecutionPhase.GENERATE_CODE_FROM_PROTOBUFS.name))
         processPhase(YaclibModel.ExecutionPhase.GENERATE_CODE_FROM_PROTOBUFS)
-        println("running main logic now")
         MainLogic(
                 location,
                 mainDependency,
@@ -56,26 +56,28 @@ class PluginLogic(
                 dependencyDescriptors,
                 thirdPartyServerDependencies).build()
 
+        println(InitUtilities.buildPhaseMessage(YaclibModel.ExecutionPhase.BUILD_PUBLISH_CSHARP.name))
         processPhase(YaclibModel.ExecutionPhase.BUILD_PUBLISH_CSHARP)
-        println("now doing final cleanup for csharp")
         CSharpBuilder(location, mainDependency, nugetKey).build()
+        println(InitUtilities.buildPhaseMessage(YaclibModel.ExecutionPhase.BUILD_PUBLISH_PYTHON.name))
         processPhase(YaclibModel.ExecutionPhase.BUILD_PUBLISH_PYTHON)
-        println("now doing final cleanup for python")
         PythonBuilder(location, mainDependency).build()
 
+        println(InitUtilities.buildPhaseMessage(YaclibModel.ExecutionPhase.BUILD_PUBLISH_JAVA_CLIENT.name))
         processPhase(YaclibModel.ExecutionPhase.BUILD_PUBLISH_JAVA_CLIENT)
-        println("now doing final cleanup for java")
+
         JavaClientBuilder(location, mainDependency).build()
+        println(InitUtilities.buildPhaseMessage(YaclibModel.ExecutionPhase.BUILD_PUBLISH_TYPESCRIPT.name))
         processPhase(YaclibModel.ExecutionPhase.BUILD_PUBLISH_TYPESCRIPT)
-        println("now doing final cleanup for typescript")
         TypeScriptBuilder(location, mainDependency).build()
 
         // java server has dependencies on both java client and typescript client
         processPhase(YaclibModel.ExecutionPhase.BUILD_TYPESCRIPT_SERVER)
-        println("now doing final cleanup for server")
+        println(InitUtilities.buildPhaseMessage(YaclibModel.ExecutionPhase.BUILD_TYPESCRIPT_SERVER.name))
         TypeScriptClientServerBuilder(location).build()
 
         processPhase(YaclibModel.ExecutionPhase.BUILD_PACKAGE_JAVA_SERVER)
+        println(InitUtilities.buildPhaseMessage(YaclibModel.ExecutionPhase.BUILD_PACKAGE_JAVA_SERVER.name))
         JavaServerBuilder(location).build()
 
         return true
@@ -89,7 +91,7 @@ class PluginLogic(
         }
     }
 
-    private fun processAuxiliaryProject(project: YaclibModel.AuxiliaryProject) {
+    private fun processAuxiliaryProject(project: YaclibModel.AuxiliaryProject.Builder) {
         if (!projectBuilderServices.containsKey(project.projectType)) {
             return
         }
@@ -117,31 +119,35 @@ class PluginLogic(
         }
     }
 
-    private val executionTypes = object: HashMap<YaclibModel.CustomExecutionType, (project: YaclibModel.AuxiliaryProject, service: IProjectBuilderServices) -> Unit>() {
+    private val executionTypes = object: HashMap<YaclibModel.CustomExecutionType, (project: YaclibModel.AuxiliaryProject.Builder, service: IProjectBuilderServices) -> Unit>() {
         init {
             this[YaclibModel.CustomExecutionType.CUSTOM_BUILD] = { project, service ->
                 val projectLocation = Paths.get(location, project.targetDependency.name)
+                println(InitUtilities.buildPhaseMessage(YaclibModel.CustomExecutionType.CUSTOM_BUILD.name))
                 printReportToConsole(service.build(projectLocation.toString()))
             }
             this[YaclibModel.CustomExecutionType.CUSTOM_PACKAGE] = { project, service ->
                 val projectLocation = Paths.get(location, project.targetDependency.name)
+                println(InitUtilities.buildPhaseMessage(YaclibModel.CustomExecutionType.CUSTOM_PACKAGE.name))
                 printReportToConsole(service.buildPackage(projectLocation.toString(), project.targetDependency))
             }
             this[YaclibModel.CustomExecutionType.CUSTOM_PUBLISH] = { project, service ->
                 val projectLocation = Paths.get(location, project.targetDependency.name)
+                println(InitUtilities.buildPhaseMessage(YaclibModel.CustomExecutionType.CUSTOM_PUBLISH.name))
                 printReportToConsole(service.publish(projectLocation.toString(), project.targetDependency))
             }
             this[YaclibModel.CustomExecutionType.CUSTOM_INCREMENT_VERSION] = { project, service ->
+                println(InitUtilities.buildPhaseMessage(YaclibModel.CustomExecutionType.CUSTOM_INCREMENT_VERSION.name))
                 val projectLocation = Paths.get(location, project.targetDependency.name).toString()
                 val report = service.incrementVersion(projectLocation, project.targetDependency)
                 printReportToConsole(report)
 
-                val targetDependency = project.toBuilder().targetDependencyBuilder.setMajorVersion(report.newMajor).setMinorVersion(report.newMinor).build()
-                val newProject = project.toBuilder().setTargetDependency(targetDependency).build()
-
-                auxiliaryProjectsMap[JavaUtilities.buildFullPackageName(project.targetDependency)] = newProject
+                project.targetDependencyBuilder
+                    .setMajorVersion(report.newMajor)
+                    .setMinorVersion(report.newMinor)
             }
             this[YaclibModel.CustomExecutionType.CUSTOM_UPDATE_DEPENDENCIES] = { project, service ->
+                println(InitUtilities.buildPhaseMessage(YaclibModel.CustomExecutionType.CUSTOM_UPDATE_DEPENDENCIES.name))
                 val projectLocation = Paths.get(location, project.targetDependency.name).toString()
                 project.fromDependenciesList.forEach { fromDependency ->
                     printReportToConsole(service.updateDependencyVersion(projectLocation, fromDependency))
@@ -152,10 +158,12 @@ class PluginLogic(
                 }
             }
             this[YaclibModel.CustomExecutionType.CUSTOM_SET_VERSION] = { project, service ->
+                println(InitUtilities.buildPhaseMessage(YaclibModel.CustomExecutionType.CUSTOM_SET_VERSION.name))
                 val projectLocation = Paths.get(location, project.targetDependency.name).toString()
                 printReportToConsole(service.setVersion(projectLocation, project.targetDependency))
             }
             this[YaclibModel.CustomExecutionType.CUSTOM_CLEAN] = { project, service ->
+                println(InitUtilities.buildPhaseMessage(YaclibModel.CustomExecutionType.CUSTOM_CLEAN.name))
                 val projectLocation = Paths.get(location, project.targetDependency.name).toString()
                 printReportToConsole(service.setVersion(projectLocation, project.targetDependency))
             }

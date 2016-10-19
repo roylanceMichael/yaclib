@@ -18,7 +18,7 @@ class POMFileBuilder(private val projectInformation: YaclibModel.ProjectInformat
 
     <groupId>${projectInformation.mainDependency.group}</groupId>
     <artifactId>${CommonTokens.ServerApi}</artifactId>
-    <version>${buildMavenPropertyReference(JavaUtilities.FullVersionName)}</version>
+    <version>${projectInformation.mainDependency.majorVersion}.${projectInformation.mainDependency.minorVersion}</version>
 
     <repositories>
         ${buildRepositories()}

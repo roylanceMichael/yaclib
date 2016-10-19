@@ -128,11 +128,11 @@ object GradleUtilities: IProjectBuilderServices {
     }
 
     override fun clean(location: String): YaclibModel.ProcessReport {
-        return FileProcessUtilities.executeProcess(location, "gradle", "clean")
+        return FileProcessUtilities.executeProcess(location, InitUtilities.Gradle, "clean")
     }
 
     override fun build(location: String): YaclibModel.ProcessReport {
-        return FileProcessUtilities.executeProcess(location, "gradle", "build")
+        return FileProcessUtilities.executeProcess(location, InitUtilities.Gradle, "build")
     }
 
     override fun buildPackage(location: String, dependency: YaclibModel.Dependency): YaclibModel.ProcessReport {
@@ -143,10 +143,10 @@ object GradleUtilities: IProjectBuilderServices {
                          dependency: YaclibModel.Dependency,
                          apiKey: String): YaclibModel.ProcessReport {
         if (dependency.mavenRepository.repositoryType == YaclibModel.RepositoryType.ARTIFACTORY) {
-            return FileProcessUtilities.executeProcess(location, "gradle", "artifactoryPublish")
+            return FileProcessUtilities.executeProcess(location, InitUtilities.Gradle, "artifactoryPublish")
         }
         else {
-            return FileProcessUtilities.executeProcess(location, "gradle", "bintrayUpload")
+            return FileProcessUtilities.executeProcess(location, InitUtilities.Gradle, "bintrayUpload")
         }
     }
 

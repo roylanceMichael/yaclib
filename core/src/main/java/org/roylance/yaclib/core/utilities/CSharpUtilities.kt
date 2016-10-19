@@ -11,9 +11,6 @@ import java.nio.file.Paths
 object CSharpUtilities: IProjectBuilderServices {
     const val ProtobufVersion = "3.0.0"
 
-    private const val DotNet = "dotnet"
-    private const val Nuget = "nuget"
-
     private val gson = Gson()
 
     override fun incrementVersion(location: String, dependency: YaclibModel.Dependency): YaclibModel.ProcessReport {
@@ -43,37 +40,33 @@ object CSharpUtilities: IProjectBuilderServices {
     }
 
     override fun build(location: String): YaclibModel.ProcessReport {
-        return FileProcessUtilities.executeProcess(location, DotNet, "build")
+        return FileProcessUtilities.executeProcess(location, InitUtilities.DotNet, "build")
     }
 
     override fun buildPackage(location: String, dependency: YaclibModel.Dependency): YaclibModel.ProcessReport {
-        return FileProcessUtilities.executeProcess(location, DotNet, "pack")
+        return FileProcessUtilities.executeProcess(location, InitUtilities.DotNet, "pack")
     }
 
     override fun publish(location: String, dependency: YaclibModel.Dependency, apiKey: String): YaclibModel.ProcessReport {
         val nugetDirectoryLocation = Paths.get(location, "bin", "Debug").toString()
         val nugetPackage = buildNugetPackageName(dependency)
-        return FileProcessUtilities.executeProcess(nugetDirectoryLocation, Nuget, "push $nugetPackage $apiKey")
+        return FileProcessUtilities.executeProcess(nugetDirectoryLocation, InitUtilities.Nuget, "push $nugetPackage $apiKey")
     }
 
     override fun restoreDependencies(location: String, doAnonymously: Boolean): YaclibModel.ProcessReport {
-        return FileProcessUtilities.executeProcess(location, DotNet, "restore")
+        return FileProcessUtilities.executeProcess(location, InitUtilities.DotNet, "restore")
     }
 
     fun buildFullName(dependency: YaclibModel.Dependency):String {
         return StringUtilities.convertToPascalCase("${dependency.group}.${dependency.name}")
     }
 
-    fun buildProtobufs(location: String, mainDependency: YaclibModel.Dependency): ProcessBuilder {
+    fun buildProtobufs(location: String, mainDependency: YaclibModel.Dependency): YaclibModel.ProcessReport {
         val csharpDirectory = Paths.get(location, CommonTokens.CSharpName, CSharpUtilities.buildFullName(mainDependency)).toFile()
 
         val protobufLocation = Paths.get(location, CommonTokens.ApiName, "src", "main", "resources").toString()
-        val arguments = "-I=$protobufLocation --proto_path=$protobufLocation --csharp_out=${csharpDirectory.toString()} $protobufLocation/*.proto"
-        val generateProtoProcess = ProcessBuilder()
-                .directory(csharpDirectory)
-                .command(FileProcessUtilities.buildCommand("protoc", arguments))
-
-        return generateProtoProcess
+        val arguments = "-I=$protobufLocation --proto_path=$protobufLocation --csharp_out=$csharpDirectory $protobufLocation/*.proto"
+        return FileProcessUtilities.executeProcess(csharpDirectory.toString(), InitUtilities.Protoc, arguments)
     }
 
     fun buildNugetPackageName(dependency: YaclibModel.Dependency): String {
