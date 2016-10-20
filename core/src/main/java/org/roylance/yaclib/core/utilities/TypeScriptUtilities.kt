@@ -22,6 +22,7 @@ object TypeScriptUtilities: IProjectBuilderServices {
     val baseTypeScriptKit = object: ArrayList<YaclibModel.Dependency>(){
         init {
             add(protobufJsDependencyBuilder.build())
+            add(proto2TypeScriptDependencyBuilder.build())
         }
     }
 
