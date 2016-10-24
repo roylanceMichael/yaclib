@@ -9,6 +9,7 @@ class WiringFileBuilder(private val allControllerDependencies: YaclibModel.AllCo
     private val http = "\$http"
 
     private val initialTemplate = """${CommonTokens.DoNotAlterMessage}
+/// <reference path="../node_modules/roylance.common/bytebuffer.d.ts" />
 ${this.importFactories()}
 ${this.importDependencies()}
 import {${HttpExecuteImplementationBuilder.FileName}} from "./${HttpExecuteImplementationBuilder.FileName}"

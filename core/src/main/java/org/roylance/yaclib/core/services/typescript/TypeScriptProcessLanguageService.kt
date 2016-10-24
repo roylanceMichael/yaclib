@@ -19,8 +19,6 @@ class TypeScriptProcessLanguageService: IProcessLanguageService {
         returnList.addFiles(NPMPackageBuilder(actualProjectInformation).build())
         returnList.addFiles(HttpExecuteServiceBuilder().build())
         returnList.addFiles(ReadmeBuilder(actualProjectInformation.mainDependency).build())
-        returnList.addFiles(ByteBufferBuilder().build())
-        returnList.addFiles(LongBuilder().build())
 
         val allControllers = YaclibModel.AllControllers.newBuilder()
         actualProjectInformation.controllers.controllerDependenciesList
