@@ -10,10 +10,11 @@ class SetupBuilder: IBuilder<YaclibModel.File> {
         val initialTemplate = """from setuptools import setup, find_packages
 import ${PythonUtilities.PropertiesNameWithoutExtension}
 
-
+actual_name = "${PythonUtilities.PropertiesNameWithoutExtension}.${JavaUtilities.GroupName}" + "_" + "${PythonUtilities.PropertiesNameWithoutExtension}.${JavaUtilities.NameName}"
+actual_version = "${PythonUtilities.PropertiesNameWithoutExtension}.${JavaUtilities.MajorName}" + "." + "${PythonUtilities.PropertiesNameWithoutExtension}.${JavaUtilities.MinorName}"
 setup(
-    name=${PythonUtilities.PropertiesNameWithoutExtension}.${JavaUtilities.FullPackageName},
-    version=${PythonUtilities.PropertiesNameWithoutExtension}.${JavaUtilities.FullVersionName},
+    name=actual_name,
+    version=actual_version,
     author=${PythonUtilities.PropertiesNameWithoutExtension}.${JavaUtilities.AuthorName},
     license=${PythonUtilities.PropertiesNameWithoutExtension}.${JavaUtilities.LicenseName},
     include_package_data=True,

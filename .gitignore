@@ -16,3 +16,7 @@ hs_err_pid*
 core/build
 core/.idea
 core/.gradle
+
+ui/build
+ui/.idea
+ui/.gradle

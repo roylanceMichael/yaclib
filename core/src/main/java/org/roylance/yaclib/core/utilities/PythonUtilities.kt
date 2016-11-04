@@ -70,7 +70,9 @@ object PythonUtilities: IProjectBuilderServices {
 
             val currentVersion = cleanseProperty(properties.getProperty(JavaUtilities.MinorName)).toInt() + 1
             properties.setProperty(JavaUtilities.MinorName, surroundWithDoubleQuotes(currentVersion.toString()))
-            properties.setProperty(JavaUtilities.FullVersionName, surroundWithDoubleQuotes("${dependency.majorVersion}.$currentVersion"))
+            properties.setProperty(JavaUtilities.MajorName, surroundWithDoubleQuotes(dependency.majorVersion))
+
+//            properties.setProperty(JavaUtilities.FullVersionName, surroundWithDoubleQuotes("${dependency.majorVersion}.$currentVersion"))
 
             return YaclibModel.ProcessReport.newBuilder().setNewMinor(currentVersion).build()
         }
@@ -92,7 +94,6 @@ object PythonUtilities: IProjectBuilderServices {
         try {
             properties.load(inputStream)
             return YaclibModel.ProcessReport.newBuilder()
-                    .setContent(cleanseProperty(properties.getProperty(JavaUtilities.FullVersionName)))
                     .setNewMajor(cleanseProperty(properties.getProperty(JavaUtilities.MajorName)).toInt())
                     .setNewMinor(cleanseProperty(properties.getProperty(JavaUtilities.MinorName)).toInt())
                     .build()
@@ -113,7 +114,6 @@ object PythonUtilities: IProjectBuilderServices {
             properties.load(inputStream)
             properties.setProperty(JavaUtilities.MinorName, surroundWithDoubleQuotes(dependency.minorVersion.toString()))
             properties.setProperty(JavaUtilities.MajorName, surroundWithDoubleQuotes(dependency.majorVersion.toString()))
-            properties.setProperty(JavaUtilities.FullVersionName, surroundWithDoubleQuotes("${dependency.majorVersion}.${dependency.minorVersion}"))
             return YaclibModel.ProcessReport.getDefaultInstance()
         }
         finally {

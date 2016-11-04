@@ -26,7 +26,8 @@ object GradleUtilities: IProjectBuilderServices {
         var minorVersion = properties.getProperty(JavaUtilities.MinorName).toInt()
         minorVersion += 1
         properties.setProperty(JavaUtilities.MinorName, minorVersion.toString())
-        properties.setProperty(JavaUtilities.FullVersionName, "${dependency.majorVersion}.${dependency.minorVersion}")
+
+        val majorVersion = properties.getProperty(JavaUtilities.MajorName).toInt()
 
         val outputStream = FileOutputStream(propertiesFile)
         try {
@@ -37,8 +38,8 @@ object GradleUtilities: IProjectBuilderServices {
         }
 
         return YaclibModel.ProcessReport.newBuilder()
-                .setContent(properties.getProperty(JavaUtilities.FullVersionName))
                 .setNewMinor(minorVersion)
+                .setNewMajor(majorVersion)
                 .build()
     }
 
@@ -88,7 +89,6 @@ object GradleUtilities: IProjectBuilderServices {
         try {
             properties.load(inputStream)
             return YaclibModel.ProcessReport.newBuilder()
-                    .setContent(properties.getProperty(JavaUtilities.FullVersionName))
                     .setNewMinor(properties.getProperty(JavaUtilities.MinorName).toInt())
                     .setNewMajor(properties.getProperty(JavaUtilities.MajorName).toInt())
                     .build()
@@ -114,7 +114,6 @@ object GradleUtilities: IProjectBuilderServices {
 
         properties.setProperty(JavaUtilities.MajorName, dependency.majorVersion.toString())
         properties.setProperty(JavaUtilities.MinorName, dependency.minorVersion.toString())
-        properties.setProperty(JavaUtilities.FullVersionName, "${dependency.majorVersion}.${dependency.minorVersion}")
 
         val outputStream = FileOutputStream(propertiesFile)
         try {

@@ -229,7 +229,7 @@ class POMFileBuilder(private val projectInformation: YaclibModel.ProjectInformat
                 <version>${JavaUtilities.HerokuPluginVersion}</version>
                 <configuration>
                     <jdkVersion>${JavaUtilities.JavaServerJdkVersion}</jdkVersion>
-                    <appName>$${JavaUtilities.FullPackageName}</appName>
+                    <appName>${projectInformation.mainDependency.group}</appName>
                     <processTypes>
                         <web>sh proc.sh</web>
                     </processTypes>
@@ -324,10 +324,8 @@ class POMFileBuilder(private val projectInformation: YaclibModel.ProjectInformat
 
         workspace.appendln(buildProperty(JavaUtilities.GroupName, projectInformation.mainDependency.group))
         workspace.appendln(buildProperty(JavaUtilities.NameName, projectInformation.mainDependency.name))
-        workspace.appendln(buildProperty(JavaUtilities.FullPackageName, JavaUtilities.buildFullPackageName(projectInformation.mainDependency)))
         workspace.appendln(buildProperty(JavaUtilities.MinorName, projectInformation.mainDependency.minorVersion.toString()))
         workspace.appendln(buildProperty(JavaUtilities.MajorName, projectInformation.mainDependency.majorVersion.toString()))
-        workspace.appendln(buildProperty(JavaUtilities.FullVersionName, "${projectInformation.mainDependency.majorVersion}.${projectInformation.mainDependency.minorVersion}"))
 
         val uniqueDependencies = HashMap<String, String>()
         projectInformation.controllers.controllerDependenciesList.forEach {

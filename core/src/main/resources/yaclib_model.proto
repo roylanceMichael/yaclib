@@ -79,6 +79,7 @@ enum FileExtension {
     CFG_EXT = 20;
     PROPERTIES_EXT = 21;
     BLOB_EXT = 22;
+    PROTO_EXT = 23;
 }
 
 enum FileUpdateType {

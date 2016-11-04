@@ -1,0 +1,105 @@
+buildscript {
+    ext.kotlin_version = '1.0.4'
+    ext.projectVersion = '0.153'
+
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+    }
+}
+
+group 'org.roylance.yaclib'
+version projectVersion
+
+apply plugin: 'java'
+apply plugin: 'kotlin'
+apply from: "http://dl.bintray.com/content/shemnon/javafx-gradle/8.1.1/javafx.plugin"
+
+sourceCompatibility = 1.8
+
+javafx {
+    appID 'YaclibUI'
+    appName 'YaclibUI'
+    mainClass 'org.roylance.yaclib.Main'
+
+    jvmArgs = ['-XX:+AggressiveOpts', '-XX:CompileThreshold=1']
+    systemProperties = [ 'prism.disableRegionCaching':'true' ]
+    arguments = ['-l', '--fast']
+
+    embedLauncher = false
+
+    // deploy/info attributes
+    category = 'Tools'
+    copyright = "Copyright (c) " + (new Date().getYear()).toString() +  " Mike Roylance"
+    description = 'This application is the setup tool for yaclib.'
+    licenseType = 'MIT'
+    vendor = 'Mike Roylance'
+    installSystemWide = true
+    menu = true
+    shortcut = true
+
+    // app icons
+    icons {
+        shortcut = ['src/main/resources/icons/icon_16x16.png',
+                    'src/main/resources/icons/icon_32x32.png',
+                    'src/main/resources/icons/icon_128x128.png',
+                    'src/main/resources/icons/icon_256x256.png',
+                    'src/main/resources/icons/icon_512x512.png',
+                    'src/main/resources/icons/icon_16x16@2x.png',
+                    'src/main/resources/icons/icon_32x32@2x.png',
+                    'src/main/resources/icons/icon_128x128@2x.png',
+                    'src/main/resources/icons/icon_256x256@2x.png',
+                    'src/main/resources/icons/icon_512x512@2x.png']
+        volume = ['src/main/resources/icons/icon_16x16.png',
+                  'src/main/resources/icons/icon_32x32.png',
+                  'src/main/resources/icons/icon_128x128.png',
+                  'src/main/resources/icons/icon_256x256.png',
+                  'src/main/resources/icons/icon_512x512.png',
+                  'src/main/resources/icons/icon_16x16@2x.png',
+                  'src/main/resources/icons/icon_32x32@2x.png',
+                  'src/main/resources/icons/icon_128x128@2x.png',
+                  'src/main/resources/icons/icon_256x256@2x.png',
+                  'src/main/resources/icons/icon_512x512@2x.png']
+        setup = ['src/main/resources/icons/icon_16x16.png',
+                 'src/main/resources/icons/icon_32x32.png',
+                 'src/main/resources/icons/icon_128x128.png',
+                 'src/main/resources/icons/icon_256x256.png',
+                 'src/main/resources/icons/icon_512x512.png',
+                 'src/main/resources/icons/icon_16x16@2x.png',
+                 'src/main/resources/icons/icon_32x32@2x.png',
+                 'src/main/resources/icons/icon_128x128@2x.png',
+                 'src/main/resources/icons/icon_256x256@2x.png',
+                 'src/main/resources/icons/icon_512x512@2x.png']
+    }
+
+    width = 1024
+    height = 768
+    embedJNLP = false
+    codebase = 'https://github.com/roylanceMichael/yaclib'
+
+    icon {
+        href = 'src/main/resources/icons/icon_128x128.png'
+        kind = 'splash'
+        width = 128
+        height = 128
+    }
+    icon {
+        href = 'src/main/resources/icons/icon_16x16.png'
+        kind = 'selected'
+        width = 16
+        height = 16
+        scale = 1
+    }
+}
+
+repositories {
+    mavenCentral()
+    maven { url "http://dl.bintray.com/roylancemichael/maven" }
+}
+
+dependencies {
+    compile "org.roylance.yaclib:core:$projectVersion"
+    testCompile group: 'junit', name: 'junit', version: '4.11'
+}

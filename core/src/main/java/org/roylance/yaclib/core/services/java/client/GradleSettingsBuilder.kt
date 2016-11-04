@@ -4,9 +4,9 @@ import org.roylance.common.service.IBuilder
 import org.roylance.yaclib.YaclibModel
 import org.roylance.yaclib.core.enums.CommonTokens
 
-class GradleSettingsBuilder : IBuilder<YaclibModel.File> {
+class GradleSettingsBuilder(projectName: String): IBuilder<YaclibModel.File> {
     private val InitialTemplate = """${CommonTokens.DoNotAlterMessage}
-rootProject.name = '${CommonTokens.ClientApi}'"""
+rootProject.name = '$projectName'"""
     override fun build(): YaclibModel.File {
         val returnFile = YaclibModel.File.newBuilder()
                 .setFileToWrite(InitialTemplate)

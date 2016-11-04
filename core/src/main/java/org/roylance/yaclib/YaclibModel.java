@@ -862,6 +862,10 @@ public final class YaclibModel {
      * <code>BLOB_EXT = 22;</code>
      */
     BLOB_EXT(22),
+    /**
+     * <code>PROTO_EXT = 23;</code>
+     */
+    PROTO_EXT(23),
     UNRECOGNIZED(-1),
     ;
 
@@ -957,6 +961,10 @@ public final class YaclibModel {
      * <code>BLOB_EXT = 22;</code>
      */
     public static final int BLOB_EXT_VALUE = 22;
+    /**
+     * <code>PROTO_EXT = 23;</code>
+     */
+    public static final int PROTO_EXT_VALUE = 23;
 
 
     public final int getNumber() {
@@ -1000,6 +1008,7 @@ public final class YaclibModel {
         case 20: return CFG_EXT;
         case 21: return PROPERTIES_EXT;
         case 22: return BLOB_EXT;
+        case 23: return PROTO_EXT;
         default: return null;
       }
     }
@@ -16793,7 +16802,7 @@ public final class YaclibModel {
       "Y\020\010\022\023\n\017ARTIFACTORY_NPM\020\t\022\010\n\004PYPI\020\n\022\026\n\022AR" +
       "TIFACTORY_PYTHON\020\013*[\n\016DependencyType\022\014\n\010" +
       "INTERNAL\020\000\022\010\n\004JAVA\020\001\022\016\n\nTYPESCRIPT\020\002\022\n\n\006" +
-      "CSHARP\020\003\022\t\n\005SWIFT\020\004\022\n\n\006PYTHON\020\005*\324\002\n\rFile" +
+      "CSHARP\020\003\022\t\n\005SWIFT\020\004\022\n\n\006PYTHON\020\005*\343\002\n\rFile" +
       "Extension\022\n\n\006KT_EXT\020\000\022\014\n\010JAVA_EXT\020\001\022\022\n\016T" +
       "YPESCRIPT_EXT\020\002\022\022\n\016JAVASCRIPT_EXT\020\003\022\r\n\tS" +
       "WIFT_EXT\020\004\022\013\n\007POM_EXT\020\005\022\013\n\007XML_EXT\020\006\022\014\n\010" +
@@ -16802,8 +16811,9 @@ public final class YaclibModel {
       "\n\n\006JS_EXT\020\r\022\n\n\006CS_EXT\020\016\022\013\n\007SLN_EXT\020\017\022\r\n\t" +
       "XPROJ_EXT\020\020\022\n\n\006SH_EXT\020\021\022\n\n\006MD_EXT\020\022\022\n\n\006P" +
       "Y_EXT\020\023\022\013\n\007CFG_EXT\020\024\022\022\n\016PROPERTIES_EXT\020\025" +
-      "\022\014\n\010BLOB_EXT\020\026*8\n\016FileUpdateType\022\r\n\tOVER" +
-      "WRITE\020\000\022\027\n\023WRITE_IF_NOT_EXISTS\020\001b\006proto3"
+      "\022\014\n\010BLOB_EXT\020\026\022\r\n\tPROTO_EXT\020\027*8\n\016FileUpd" +
+      "ateType\022\r\n\tOVERWRITE\020\000\022\027\n\023WRITE_IF_NOT_E" +
+      "XISTS\020\001b\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {

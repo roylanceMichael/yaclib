@@ -13,10 +13,8 @@ class PropertiesBuilder(private val mainDependency: YaclibModel.Dependency): IBu
 
         properties.setProperty(JavaUtilities.GroupName, PythonUtilities.surroundWithDoubleQuotes(mainDependency.group))
         properties.setProperty(JavaUtilities.NameName, PythonUtilities.surroundWithDoubleQuotes(mainDependency.name))
-        properties.setProperty(JavaUtilities.FullPackageName, PythonUtilities.surroundWithDoubleQuotes(PythonUtilities.buildPackageName(mainDependency)))
         properties.setProperty(JavaUtilities.MinorName, PythonUtilities.surroundWithDoubleQuotes(mainDependency.minorVersion.toString()))
         properties.setProperty(JavaUtilities.MajorName, PythonUtilities.surroundWithDoubleQuotes(mainDependency.majorVersion.toString()))
-        properties.setProperty(JavaUtilities.FullVersionName, PythonUtilities.surroundWithDoubleQuotes("${mainDependency.majorVersion}.${mainDependency.minorVersion}"))
         properties.setProperty(JavaUtilities.AuthorName, PythonUtilities.surroundWithDoubleQuotes(mainDependency.authorName))
         properties.setProperty(JavaUtilities.GithubUrlName, PythonUtilities.surroundWithDoubleQuotes(mainDependency.githubRepo))
         properties.setProperty(JavaUtilities.LicenseName, PythonUtilities.surroundWithDoubleQuotes(mainDependency.license))

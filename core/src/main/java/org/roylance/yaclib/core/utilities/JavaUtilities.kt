@@ -9,8 +9,6 @@ object JavaUtilities {
     const val NameName = "name"
     const val MajorName = "major"
     const val MinorName = "minor"
-    const val FullVersionName = "fullVersion"
-    const val FullPackageName = "fullName"
     const val AuthorName = "author"
     const val GithubUrlName = "githubUrl"
     const val LicenseName = "license"

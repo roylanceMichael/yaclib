@@ -14,10 +14,8 @@ class PropertiesBuilder(private val controllerDependencies: YaclibModel.AllContr
 
         properties.setProperty(JavaUtilities.GroupName, mainDependency.group)
         properties.setProperty(JavaUtilities.NameName, mainDependency.name)
-        properties.setProperty(JavaUtilities.FullPackageName, JavaUtilities.buildFullPackageName(mainDependency))
         properties.setProperty(JavaUtilities.MinorName, mainDependency.minorVersion.toString())
         properties.setProperty(JavaUtilities.MajorName, mainDependency.majorVersion.toString())
-        properties.setProperty(JavaUtilities.FullVersionName, "${mainDependency.majorVersion}.${mainDependency.minorVersion}")
 
         val uniqueDependencies = HashMap<String, String>()
         controllerDependencies.controllerDependenciesList.forEach {
