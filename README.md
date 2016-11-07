@@ -72,9 +72,13 @@ The rest server uses post requests for everything, with each model being seriali
 
 ## How do I get started?
 
-First, grab the UI application from the releases. Currently this only runs on Mac. 
+First, grab the UI application from the releases. Currently this only runs on Mac. On the first page, it will display if you have all the prerequisite programs installed.
 
-Second, fill out the information in the screen (group name, repository, etc). Then click create project.
+![alt tag](https://raw.githubusercontent.com/roylanceMichael/yaclib/master/settings.png)
+
+Second, fill out the information in the second tab (group name, repository, etc). Then click create project.
+
+![alt tag](https://raw.githubusercontent.com/roylanceMichael/yaclib/master/start_project.png)
 
 Next, open up the project with IntelliJ. 
 
