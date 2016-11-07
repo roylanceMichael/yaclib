@@ -47,6 +47,18 @@ The rest server uses post requests for everything, with each model being seriali
 
 ## How do I get started?
 
+Before you start doing anything, you have to understand the following concepts:
+
+Java development with gradle (https://gradle.org/).
+
+Java development with maven (https://maven.apache.org/).
+
+JavaScript and TypeScript development with npm (https://www.npmjs.com/).
+
+(optional) CSharp development with the new dotnet core and nuget publishing (https://www.microsoft.com/net/core and https://www.nuget.org/).
+
+(optional) Python development with pip and wheel (https://pypi.python.org/pypi/pip).
+
 First, grab the UI application from the releases. Currently this only runs on Mac. 
 
 Second, fill out the information in the screen (group name, repository, etc). Then click create project.
@@ -61,7 +73,7 @@ Next, make sure you have access to the following programs in your path: gradle, 
 
 Next, make changes to your model. Create messages. I suggest a standard request and response model for the controller as well.
 
-Next, make chagnes to the controller protobuf. Define what a controller end-point should look like. 
+Next, make changes to the controller protobuf. Define what a controller end-point should look like. 
 
 Next, use the generate_proto.sh file to generate your model.
 
