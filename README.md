@@ -20,10 +20,15 @@ If you don't see a problem with that, yaclib is not for you.
 
 If you do see a problem with that, read on.
 
+***
 
 ## Okay, how does Yaclib solve that problem?
 
-Yaclib solves that problem by keeping the model and the communication definition in one place. So you make a change there, then run the Yaclib process to update projects that use it as a dependency.
+Yaclib solves that problem by keeping the model and rest communication definition in one place. So you make a change to the definition, then run the Yaclib process to update projects that use it as a dependency.
+
+***
+
+## How does it work?
 
 First, Yaclib uses protocol buffers for two roles: model and controller (rest) definitions. In order to use Yaclib, you must understand how protocol buffers work (https://developers.google.com/protocol-buffers/).
 
@@ -44,6 +49,8 @@ This process also generates the Java rest server (sapi), currently using Jersey.
 The end result is a working framework to make changes safely between your Java back-end, C#, Python, TypeScript, and Java clients. 
 
 The rest server uses post requests for everything, with each model being serialized/deserialized to a base64 string.
+
+***
 
 ## How do I get started?
 
