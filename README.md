@@ -74,8 +74,25 @@ Next, run the "runYaclib" task in gradle.
 Next, update the sapi project definition. The controller you defined will have an auto-generated rest end-point as well as a service. The service will be an interface that will need an implementation. Create and implement that. As the controller changes, this implementation will need to be updated too.
 
 ## Anything else?
+The following might be useful to reference. I currently use these (as well as many other private ones) for many applications I'm building:
 
-Usually with N-Tier applications there are more than just a web server (back-end and UI). There are mobile apps, desktop apps, workers, etc that will access this. The "yaclib.gradle" has ways to update those projects which consume the models as dependencies, build them, then publish them as well. More documentation to come.
+https://github.com/roylanceMichael/yaorm
+https://github.com/roylanceMichael/yadel
+https://github.com/roylanceMichael/yaas
+
+Usually with N-Tier applications there are more than just a web server (back-end and UI). There are mobile apps, desktop apps, workers, etc that will access this. The "yaclib.gradle" has ways to update those projects which consume the models as dependencies, build them, then publish them as well. For now, look at the following project yaclib.gradle files for more information:
+
+This is a standard yaclib process. It just builds and publishes the capi, javascript, csharp, and python projects. It also builds and packages the sapi application (witht he Angular interface)
+https://github.com/roylanceMichael/yaorm/blob/master/api/yaclib.gradle
+
+This builds the cli, plugin, and ui projects, and publishes them as well each time yaclib is run.
+https://github.com/roylanceMichael/yadel/blob/master/api/yaclib.gradle
+
+This builds the common, redis, and yaorm projects, and publishes them as well (to npmjs.org and bintray).
+https://github.com/roylanceMichael/yaas/blob/master/api/yaclib.gradle
+
+
+
 
 This is a work in progress.
 
