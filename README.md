@@ -16,14 +16,14 @@ This is **Y**et **A**nother **C**ross **L**anguage **I**nterface **B**uilder.
 
 Here's the problem with N-Tier architectures: let's say you have this model that you want to serialize to a database, serve up in a Java back-end to a JavaScript UI. Normally, you have to have redundant models in each language which can be a maintenance nightmare (make a change to your ORM, make sure you make the change in JavaScript too, etc). Furthermore, if you change the rest contract definition, you have to update that in multiple places as well.
 
-If you don't see a problem with that, then yaclib is not for you. 
+If you don't see a problem with that, yaclib is not for you. 
 
-If you do see a problem with that, then read on.
+If you do see a problem with that, read on.
 
 
 ## Okay, how does Yaclib solve that problem?
 
-Yaclib solves this problem by keeping the model and the communication definition in one place. So you make a change there, then run the Yaclib process to update projects that use this as the dependency.
+Yaclib solves that problem by keeping the model and the communication definition in one place. So you make a change there, then run the Yaclib process to update projects that use this as the dependency.
 
 First, Yaclib uses protocol buffers for two roles: model and controller (rest) definitions. In order to use Yaclib, you must understand how protocol buffers work (https://developers.google.com/protocol-buffers/).
 
