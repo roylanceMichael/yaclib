@@ -23,7 +23,7 @@ If you do see a problem with that, read on.
 
 ## Okay, how does Yaclib solve that problem?
 
-Yaclib solves that problem by keeping the model and the communication definition in one place. So you make a change there, then run the Yaclib process to update projects that use this as the dependency.
+Yaclib solves that problem by keeping the model and the communication definition in one place. So you make a change there, then run the Yaclib process to update projects that use it as a dependency.
 
 First, Yaclib uses protocol buffers for two roles: model and controller (rest) definitions. In order to use Yaclib, you must understand how protocol buffers work (https://developers.google.com/protocol-buffers/).
 
