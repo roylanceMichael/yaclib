@@ -67,7 +67,9 @@ object FileExtensionUtilities {
         if (YaclibModel.FileExtension.BLOB_EXT == extension) {
             return ".blob"
         }
-
+        if (YaclibModel.FileExtension.PROTO_EXT == extension) {
+            return ".proto"
+        }
         return ".java"
     }
 }
