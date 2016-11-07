@@ -28,9 +28,8 @@ Yaclib solves that problem by keeping the model and rest communication definitio
 
 ***
 
-## How does it work?
+## What is the prerequisite knowledge to use Yaclib?
 
-First, Yaclib uses protocol buffers for two roles: model and controller (rest) definitions. In order to use Yaclib, you must understand how protocol buffers work (https://developers.google.com/protocol-buffers/).
 
 You must also understand how project structures, code compilation, packaging, and dependency resolution work with the following tools:
 
@@ -38,13 +37,20 @@ Java development with gradle (https://gradle.org/).
 
 Java development with maven (https://maven.apache.org/).
 
-JavaScript and TypeScript development with npm (https://www.npmjs.com/) (http://gulpjs.com/) (https://www.typescriptlang.org/).
+JavaScript and TypeScript development with npm (https://www.npmjs.com/) (http://gulpjs.com/) (https://www.typescriptlang.org/) as well as Angular (https://angularjs.org/). Yaclib is currently using Angular 1.
 
 (optional) CSharp development with the new dotnet core and nuget publishing (https://www.microsoft.com/net/core and https://www.nuget.org/).
 
 (optional) Python development with pip and wheel (https://pypi.python.org/pypi/pip).
 
-The models created are serialized and used throughout any Yaclib application.
+***
+
+## How does it work?
+
+
+First, Yaclib uses protocol buffers for two roles: model and controller (rest) definitions. In order to use Yaclib, you must understand how protocol buffers work (https://developers.google.com/protocol-buffers/).
+
+The protobuf models created are serialized and used throughout any Yaclib application. 
 
 Protocol messages that are in the controller protobuf file and have a suffix of controller have the following convention around them:
 
