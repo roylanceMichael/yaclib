@@ -32,6 +32,18 @@ Yaclib solves that problem by keeping the model and rest communication definitio
 
 First, Yaclib uses protocol buffers for two roles: model and controller (rest) definitions. In order to use Yaclib, you must understand how protocol buffers work (https://developers.google.com/protocol-buffers/).
 
+You must also understand how project structures, code compilation, packaging, and dependency resolution work with the following tools:
+
+Java development with gradle (https://gradle.org/).
+
+Java development with maven (https://maven.apache.org/).
+
+JavaScript and TypeScript development with npm (https://www.npmjs.com/) (http://gulpjs.com/) (https://www.typescriptlang.org/).
+
+(optional) CSharp development with the new dotnet core and nuget publishing (https://www.microsoft.com/net/core and https://www.nuget.org/).
+
+(optional) Python development with pip and wheel (https://pypi.python.org/pypi/pip).
+
 The models created are serialized and used throughout any Yaclib application.
 
 Protocol messages that are in the controller protobuf file and have a suffix of controller have the following convention around them:
@@ -53,18 +65,6 @@ The rest server uses post requests for everything, with each model being seriali
 ***
 
 ## How do I get started?
-
-Before you start doing anything, you have to understand the following concepts:
-
-Java development with gradle (https://gradle.org/).
-
-Java development with maven (https://maven.apache.org/).
-
-JavaScript and TypeScript development with npm (https://www.npmjs.com/).
-
-(optional) CSharp development with the new dotnet core and nuget publishing (https://www.microsoft.com/net/core and https://www.nuget.org/).
-
-(optional) Python development with pip and wheel (https://pypi.python.org/pypi/pip).
 
 First, grab the UI application from the releases. Currently this only runs on Mac. 
 
