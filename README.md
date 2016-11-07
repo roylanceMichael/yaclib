@@ -77,7 +77,9 @@ Next, update the sapi project definition. The controller you defined will have a
 The following might be useful to reference. I currently use these (as well as many other private ones) for many applications I'm building:
 
 https://github.com/roylanceMichael/yaorm
+
 https://github.com/roylanceMichael/yadel
+
 https://github.com/roylanceMichael/yaas
 
 Usually with N-Tier applications there are more than just a web server (back-end and UI). There are mobile apps, desktop apps, workers, etc that will access this. The "yaclib.gradle" has ways to update those projects which consume the models as dependencies, build them, then publish them as well. For now, look at the following project yaclib.gradle files for more information:
