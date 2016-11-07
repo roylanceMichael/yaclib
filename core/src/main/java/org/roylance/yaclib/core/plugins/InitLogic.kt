@@ -6,10 +6,7 @@ import org.roylance.yaclib.core.enums.CommonTokens
 import org.roylance.yaclib.core.services.FilePersistService
 import org.roylance.yaclib.core.services.java.client.GradleFileBuilder
 import org.roylance.yaclib.core.services.java.client.GradleSettingsBuilder
-import org.roylance.yaclib.core.services.java.init.ControllerProtoBuilder
-import org.roylance.yaclib.core.services.java.init.InitPropertiesBuilder
-import org.roylance.yaclib.core.services.java.init.ModelProtoBuilder
-import org.roylance.yaclib.core.services.java.init.YaclibGradleBuilder
+import org.roylance.yaclib.core.services.java.init.*
 import java.nio.file.Paths
 
 class InitLogic(private val location: String,
@@ -22,6 +19,7 @@ class InitLogic(private val location: String,
 
         val files = YaclibModel.AllFiles.newBuilder()
 
+        val generateProtoFile = GenerateProtoBuilder().build()
         val gradleFile = GradleFileBuilder(projectInformation, CommonTokens.ApiName).build()
         val gradleSettings = GradleSettingsBuilder(CommonTokens.ApiName).build()
         val yaclibFile = YaclibGradleBuilder(mainDependency).build()
@@ -30,6 +28,7 @@ class InitLogic(private val location: String,
         val controllerFile = ControllerProtoBuilder(mainDependency).build()
 
         files.addFiles(gradleFile)
+                .addFiles(generateProtoFile)
                 .addFiles(gradleSettings)
                 .addFiles(yaclibFile)
                 .addFiles(propertiesFile)
