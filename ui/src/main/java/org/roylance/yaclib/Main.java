@@ -4,6 +4,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.JavaFXBuilderFactory;
 import javafx.scene.Scene;
+import javafx.scene.control.TabPane;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
@@ -25,9 +26,9 @@ public class Main extends Application {
         loader.setBuilderFactory(new JavaFXBuilderFactory());
         loader.setLocation(Main.class.getResource("/main.fxml"));
 
-        AnchorPane page;
+        TabPane page;
         try (InputStream in = Main.class.getResourceAsStream("/main.fxml")) {
-            page = (AnchorPane) loader.load(in);
+            page = (TabPane) loader.load(in);
         }
 
         final Scene scene = new Scene(page);
