@@ -12,11 +12,22 @@ This is **Y**et **A**nother **C**ross **L**anguage **I**nterface **B**uilder.
 
 ## What? 
 
+
 Here's the problem with N-Tier architectures: let's say you have this model that you want to serialize to a database, serve up in a Java back-end to a JavaScript UI. Normally, you have to have redundant models in each language which can be a maintenance nightmare (make a change to your ORM, make sure you make the change in JavaScript too, etc). Furthermore, if you change the rest contract definition, you have to update that in multiple places as well.
 
-If you don't see a problem with that, yaclib is not for you. 
+Yaclib is very similar to Google's GRPC. So to better understand it, understand the problem that GRPC is solving (https://github.com/grpc/grpc). 
 
-If you do see a problem with that, read on.
+Why not just use Google's GRPC? I did, but it has a few limitations: 
+
+
+Its servers don't naturally serve up web pages (or, it's more work to configure it to run on port 80 and serve up many of the assets like html pages, css, etc). I want a server to have a UI viewable through the browser.
+
+
+It doesn't support TypeScript naturally. I personally feel that any web development should be done with TypeScript, as there is nothing to lose and so much to gain with this approach. Yaclib supports building TypeScript interfaces from the get-go.
+
+I like Java's servlet 3.0 architecture, especially coupled with Jersey. 
+
+So Yaclib is like GRPC, except the server is running Java and it supports TypeScript protobufs.
 
 ***
 
