@@ -31,9 +31,9 @@ So Yaclib is like GRPC, except the server is running Java and it supports TypeSc
 
 ***
 
-## Okay, how does Yaclib solve that problem?
+## Okay, how does Yaclib work?
 
-Yaclib solves that problem by keeping the model and rest communication definition in one place. So you make a change to the definition, then run the Yaclib process to update projects that use it as a dependency.
+Yaclib works by keeping the model and rest communication definition in one place. So you make a change to the definition, then run the Yaclib process to update projects that use it as a dependency.
 
 ***
 
@@ -41,6 +41,8 @@ Yaclib solves that problem by keeping the model and rest communication definitio
 
 
 You must also understand how project structures, code compilation, packaging, and dependency resolution work with the following tools:
+
+Protobufs (https://developers.google.com/protocol-buffers/).
 
 Java development with gradle (https://gradle.org/).
 
