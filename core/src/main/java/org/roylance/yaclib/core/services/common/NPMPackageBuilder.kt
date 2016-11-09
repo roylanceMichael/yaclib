@@ -89,7 +89,7 @@ ${buildDependencies()}
     private fun buildPrivateRegistry(): String {
         if (projectInformation.mainDependency.hasNpmRepository() &&
                 projectInformation.mainDependency.npmRepository.repositoryType == YaclibModel.RepositoryType.PRIVATE_NPM &&
-                projectInformation.mainDependency.npmRepository.registry.length > 0) {
+                projectInformation.mainDependency.npmRepository.registry.isNotEmpty()) {
             return """"publishConfig":{"registry":"${projectInformation.mainDependency.npmRepository.registry}"},"""
         }
         return ""

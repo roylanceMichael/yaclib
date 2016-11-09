@@ -94,7 +94,7 @@ dependencies {
     }
 }"""
         }
-        else if (projectInformation.mainDependency.hasMavenRepository() && projectInformation.mainDependency.mavenRepository.url.length > 0) {
+        else if (projectInformation.mainDependency.hasMavenRepository() && projectInformation.mainDependency.mavenRepository.url.isNotEmpty()) {
            return """maven {
     url "${JavaUtilities.buildRepositoryUrl(projectInformation.mainDependency.mavenRepository)}"
 }"""

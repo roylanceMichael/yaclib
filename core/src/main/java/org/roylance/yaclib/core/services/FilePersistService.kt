@@ -20,7 +20,6 @@ class FilePersistService: IFilePersistService {
             }
 
             val existingFile = File(existingDir.absolutePath, file.fileName + FileExtensionUtilities.getExtension(file.fileExtension))
-
             if (existingFile.exists() && file.fileUpdateType == YaclibModel.FileUpdateType.WRITE_IF_NOT_EXISTS) {
                 return@forEach
             }

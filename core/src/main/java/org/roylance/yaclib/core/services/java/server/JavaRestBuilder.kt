@@ -11,7 +11,7 @@ class JavaRestBuilder(
         private val mainDependency: YaclibModel.Dependency): IBuilder<YaclibModel.File> {
     override fun build(): YaclibModel.File {
         val workspace = StringBuilder()
-        val lowercaseName = "${controller.name.toLowerCase()}"
+        val lowercaseName = controller.name.toLowerCase()
         val serviceName = StringUtilities.convertServiceNameToVariableName(controller)
         val interfaceName = StringUtilities.convertServiceNameToInterfaceName(controller)
 
@@ -56,7 +56,7 @@ public class ${controller.name}Controller {
                 "String ${input.argumentName}"
             }.joinToString()
 
-            if (colonSeparatedInputs.length > 0) {
+            if (colonSeparatedInputs.isNotEmpty()) {
                 colonSeparatedInputs = ", " + colonSeparatedInputs
             }
 
@@ -83,9 +83,9 @@ public class ${controller.name}Controller {
             val actionTemplate = """
     @POST
     @Path("/$lowercaseActionName")
-    public void ${action.name}(@Suspended AsyncResponse asyncResponse${colonSeparatedInputs}) throws Exception {
+    public void ${action.name}(@Suspended AsyncResponse asyncResponse$colonSeparatedInputs) throws Exception {
         new Thread(() -> {
-            ${actionVariableWorkspace.toString()}
+            $actionVariableWorkspace
         }).start();
     }
 """

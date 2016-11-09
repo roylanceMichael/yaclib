@@ -43,7 +43,7 @@ class ProcessFileDescriptorService: IProcessFileDescriptorService {
             CommonTokens.ProtoMessageType == field.type.name
         }.sortedBy { it.number }
 
-        if (foundInputOutputTypes.size == 0) {
+        if (foundInputOutputTypes.isEmpty()) {
             return null
         }
 

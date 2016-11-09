@@ -49,35 +49,35 @@ MAKE SURE THAT ~/.bashrc or ~/.bash_profile PATH contains references to the fold
     }
 
     fun hasProtoc(): Boolean {
-        return FileProcessUtilities.getActualLocation(Protoc).length > 0
+        return FileProcessUtilities.getActualLocation(Protoc).isNotEmpty()
     }
 
     fun hasGradle(): Boolean {
-        return FileProcessUtilities.getActualLocation(Gradle).length > 0
+        return FileProcessUtilities.getActualLocation(Gradle).isNotEmpty()
     }
 
     fun hasMaven(): Boolean {
-        return FileProcessUtilities.getActualLocation(Maven).length > 0
+        return FileProcessUtilities.getActualLocation(Maven).isNotEmpty()
     }
 
     fun hasDotNet(): Boolean {
-        return FileProcessUtilities.getActualLocation(DotNet).length > 0
+        return FileProcessUtilities.getActualLocation(DotNet).isNotEmpty()
     }
 
     fun hasNuget(): Boolean {
-        return FileProcessUtilities.getActualLocation(Nuget).length > 0
+        return FileProcessUtilities.getActualLocation(Nuget).isNotEmpty()
     }
 
     fun hasPython(): Boolean {
-        return FileProcessUtilities.getActualLocation(Python).length > 0
+        return FileProcessUtilities.getActualLocation(Python).isNotEmpty()
     }
 
     fun hasTypeScriptCompiler(): Boolean {
-        return FileProcessUtilities.getActualLocation(TypeScriptCompiler).length > 0
+        return FileProcessUtilities.getActualLocation(TypeScriptCompiler).isNotEmpty()
     }
 
     fun hasNPM(): Boolean {
-        return FileProcessUtilities.getActualLocation(NPM).length > 0
+        return FileProcessUtilities.getActualLocation(NPM).isNotEmpty()
     }
 
     fun isNotWindows(): Boolean {

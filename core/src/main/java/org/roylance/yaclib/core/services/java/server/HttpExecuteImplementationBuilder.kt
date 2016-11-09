@@ -41,7 +41,7 @@ export class $FileName implements ${HttpExecuteServiceBuilder.FileName} {
     }
 
     private fun buildNodeModulePath():String {
-        if (mainDependency.npmRepository.npmScope.length > 0) {
+        if (mainDependency.npmRepository.npmScope.isNotEmpty()) {
             return "../node_modules/${this.mainDependency.npmRepository.npmScope}/${this.mainDependency.group}.${this.mainDependency.name}/${HttpExecuteServiceBuilder.FileName}"
         }
 

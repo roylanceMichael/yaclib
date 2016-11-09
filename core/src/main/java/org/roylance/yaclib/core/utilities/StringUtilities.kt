@@ -22,10 +22,10 @@ object StringUtilities {
         val splitByUnderScore = noPeriodProtoFileName.split("_")
 
         splitByUnderScore.forEach {
-            if (it.length == 0) {
+            if (it.isEmpty()) {
                 return@forEach
             }
-            if (it.length > 0) {
+            if (it.isNotEmpty()) {
                 workspace.append(it[0].toUpperCase())
             }
             if (it.length > 1) {

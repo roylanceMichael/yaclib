@@ -102,7 +102,7 @@ furtherAngularSetup(app);
 
     private fun buildFactoryNodeModulePath(dependency: YaclibModel.Dependency):String {
         if (dependency.hasNpmRepository() &&
-                dependency.npmRepository.npmScope.length > 0) {
+                dependency.npmRepository.npmScope.isNotEmpty()) {
             return "../${CommonTokens.NodeModules}/${dependency.npmRepository.npmScope}/${dependency.group}.${dependency.name}/${dependency.typescriptModelFile}${CommonTokens.FactoryName}"
         }
 
@@ -111,7 +111,7 @@ furtherAngularSetup(app);
 
     private fun buildControllerServiceNodeModulePath(dependency: YaclibModel.Dependency, controller: YaclibModel.Controller):String {
         if (dependency.hasNpmRepository() &&
-                dependency.npmRepository.npmScope.length > 0) {
+                dependency.npmRepository.npmScope.isNotEmpty()) {
             return "../${CommonTokens.NodeModules}/${dependency.npmRepository.npmScope}/${dependency.group}.${dependency.name}/${controller.name}${CommonTokens.ServiceName}"
         }
 

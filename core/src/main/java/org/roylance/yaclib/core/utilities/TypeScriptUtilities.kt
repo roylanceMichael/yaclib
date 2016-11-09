@@ -17,7 +17,7 @@ object TypeScriptUtilities: IProjectBuilderServices {
     private val gson = GsonBuilder().setPrettyPrinting().create()
 
     val protobufJsDependencyBuilder = YaclibModel.Dependency.newBuilder().setThirdPartyDependencyVersion("^5.0.1").setGroup("protobufjs").setType(YaclibModel.DependencyType.TYPESCRIPT)!!
-    val roylanceCommonDependencyBuilder = YaclibModel.Dependency.newBuilder().setThirdPartyDependencyVersion("^0.7.0").setGroup("roylance.common").setType(YaclibModel.DependencyType.TYPESCRIPT)!!
+    val roylanceCommonDependencyBuilder = YaclibModel.Dependency.newBuilder().setThirdPartyDependencyVersion("^${JavaUtilities.RoylanceCommonVersion}.0").setGroup("roylance.common").setType(YaclibModel.DependencyType.TYPESCRIPT)!!
 
     val proto2TypeScriptDependencyBuilder = YaclibModel.Dependency.newBuilder().setThirdPartyDependencyVersion("^2.2.0").setGroup("proto2typescript").setType(YaclibModel.DependencyType.TYPESCRIPT)!!
 
@@ -57,7 +57,7 @@ object TypeScriptUtilities: IProjectBuilderServices {
 
     fun buildDependency(dependency: YaclibModel.Dependency): String {
         if (dependency.type == YaclibModel.DependencyType.INTERNAL) {
-            if (dependency.hasNpmRepository() && dependency.npmRepository.npmScope.length > 0) {
+            if (dependency.hasNpmRepository() && dependency.npmRepository.npmScope.isNotEmpty()) {
                 return """"${buildFullName(dependency)}": "${buildVersion(dependency)}"
 """
             }
@@ -73,7 +73,7 @@ object TypeScriptUtilities: IProjectBuilderServices {
             }
         }
 
-        if (dependency.hasNpmRepository() && dependency.npmRepository.npmScope.length > 0) {
+        if (dependency.hasNpmRepository() && dependency.npmRepository.npmScope.isNotEmpty()) {
             return """"${buildFullName(dependency)}": "${buildVersion(dependency)}"
 """
         }
@@ -195,7 +195,7 @@ export var $exportFactoryName = _root;
 
         if (dependency.hasNpmRepository() &&
                 dependency.npmRepository.repositoryType == YaclibModel.RepositoryType.ARTIFACTORY_NPM &&
-                dependency.npmRepository.url.length > 0) {
+                dependency.npmRepository.url.isNotEmpty()) {
             val tarFileName = Paths.get(location, ArtifactoryUtilities.buildTarFileName(dependency)).toString()
             val result = FileProcessUtilities.createTarFromDirectory(location, tarFileName, neverTarThisDirectory)
             if (result) {
@@ -252,7 +252,7 @@ export var $exportFactoryName = _root;
 
     private fun buildFullName(dependency: YaclibModel.Dependency): String {
         if (dependency.type == YaclibModel.DependencyType.INTERNAL) {
-            if (dependency.hasNpmRepository() && dependency.npmRepository.npmScope.length > 0) {
+            if (dependency.hasNpmRepository() && dependency.npmRepository.npmScope.isNotEmpty()) {
                 return "${dependency.npmRepository.npmScope}/${dependency.group}.${dependency.name}"
             }
             else {
@@ -260,7 +260,7 @@ export var $exportFactoryName = _root;
             }
         }
 
-        if (dependency.hasNpmRepository() && dependency.npmRepository.npmScope.length > 0) {
+        if (dependency.hasNpmRepository() && dependency.npmRepository.npmScope.isNotEmpty()) {
             return "${dependency.npmRepository.npmScope}/${dependency.group}"
         }
         else {

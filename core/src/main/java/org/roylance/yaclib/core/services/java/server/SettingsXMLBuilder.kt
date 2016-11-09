@@ -39,7 +39,7 @@ class SettingsXMLBuilder(private val controllerDependencies: YaclibModel.AllCont
             workspace.appendln(it)
         }
 
-        if (workspace.length > 0) {
+        if (workspace.isNotEmpty()) {
             return """
         <servers>
                 $workspace

@@ -72,8 +72,6 @@ object PythonUtilities: IProjectBuilderServices {
             properties.setProperty(JavaUtilities.MinorName, surroundWithDoubleQuotes(currentVersion.toString()))
             properties.setProperty(JavaUtilities.MajorName, surroundWithDoubleQuotes(dependency.majorVersion))
 
-//            properties.setProperty(JavaUtilities.FullVersionName, surroundWithDoubleQuotes("${dependency.majorVersion}.$currentVersion"))
-
             return YaclibModel.ProcessReport.newBuilder().setNewMinor(currentVersion).build()
         }
         finally {
@@ -156,8 +154,8 @@ object PythonUtilities: IProjectBuilderServices {
                          apiKey: String): YaclibModel.ProcessReport {
         if (dependency.hasPipRepository() &&
                 dependency.pipRepository.repositoryType == YaclibModel.RepositoryType.ARTIFACTORY_PYTHON &&
-                dependency.pipRepository.url.length > 0) {
-            val scriptToRun = ArtifactoryUtilities.buildUploadWheelScript(location.toString(), dependency)
+                dependency.pipRepository.url.isNotEmpty()) {
+            val scriptToRun = ArtifactoryUtilities.buildUploadWheelScript(location, dependency)
 
             val actualScriptFile = File(location, ArtifactoryUtilities.UploadWheelScriptName)
             actualScriptFile.writeText(scriptToRun)

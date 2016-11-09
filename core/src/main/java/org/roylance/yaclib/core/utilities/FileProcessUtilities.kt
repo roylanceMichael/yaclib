@@ -19,7 +19,7 @@ object FileProcessUtilities {
     fun buildCommand(application: String, allArguments: String):List<String> {
         val returnList = ArrayList<String>()
         val actualApplicationLocation = getActualLocation(application)
-        if (actualApplicationLocation.length == 0) {
+        if (actualApplicationLocation.isEmpty()) {
             returnList.add(application)
         }
         else {
@@ -146,7 +146,7 @@ which $application""")
         }
 
         val entryName: String
-        if (base.length == 0) {
+        if (base.isEmpty()) {
             entryName = "."
         }
         else {

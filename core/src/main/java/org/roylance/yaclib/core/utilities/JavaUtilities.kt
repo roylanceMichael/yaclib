@@ -52,9 +52,9 @@ object JavaUtilities {
 
     const val ArtifactoryVersion = "4.4.0"
     const val BintrayVersion = "1.7"
-    const val RoylanceCommonVersion = "0.7"
+    const val RoylanceCommonVersion = "0.8"
     const val TomcatVersion = "8.0.28"
-    const val KotlinVersion = "1.0.4"
+    const val KotlinVersion = "1.0.5"
 
     const val CommonsIOVersion = "2.5"
     const val ProtobufVersion = "3.0.0"
@@ -89,7 +89,7 @@ object JavaUtilities {
         if (repository.repositoryType == YaclibModel.RepositoryType.ARTIFACTORY ||
             repository.repositoryType == YaclibModel.RepositoryType.ARTIFACTORY_NPM ||
             repository.repositoryType == YaclibModel.RepositoryType.ARTIFACTORY_PYTHON) {
-            if (repository.url.length > 0 && repository.url[repository.url.length - 1] == '/') {
+            if (repository.url.isNotEmpty() && repository.url[repository.url.length - 1] == '/') {
                 return "${repository.url}${repository.name}"
             }
             return "${repository.url}/${repository.name}"
