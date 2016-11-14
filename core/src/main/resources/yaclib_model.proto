@@ -44,6 +44,7 @@ enum RepositoryType {
     ARTIFACTORY_NPM = 9;
     PYPI = 10;
     ARTIFACTORY_PYTHON = 11;
+    STANDARD_MAVEN = 12;
 }
 
 enum DependencyType {
@@ -121,6 +122,7 @@ message File {
     FileExtension file_extension = 3;
     string file_to_write = 4;
     FileUpdateType file_update_type = 5;
+    bool ignore_initial_location = 6;
 }
 
 message Controller {

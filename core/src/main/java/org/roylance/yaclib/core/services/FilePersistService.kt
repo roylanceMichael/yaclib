@@ -13,7 +13,13 @@ class FilePersistService: IFilePersistService {
         }
 
         files.filesList.forEach { file ->
-            val existingDir = File(initialLocation, file.fullDirectoryLocation)
+            val existingDir: File
+            if (file.ignoreInitialLocation) {
+                existingDir = File(file.fullDirectoryLocation)
+            }
+            else {
+                existingDir = File(initialLocation, file.fullDirectoryLocation)
+            }
 
             if (!existingDir.exists()) {
                 existingDir.mkdirs()

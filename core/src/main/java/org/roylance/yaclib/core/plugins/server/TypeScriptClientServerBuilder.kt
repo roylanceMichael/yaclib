@@ -15,7 +15,7 @@ class TypeScriptClientServerBuilder(private val location: String): IBuilder<Bool
         val projectModel = TypeScriptUtilities.buildNpmModel(javascriptDirectory.toString()) ?: return false
         val shouldInstallAnon = projectModel.dependencies.values.any { it.startsWith("https:") && it.endsWith(".tar.gz") }
 
-        println(InitUtilities.buildPhaseMessage("restoring: (installing anon: $shouldInstallAnon"))
+        println(InitUtilities.buildPhaseMessage("restoring: (installing anon: $shouldInstallAnon)"))
         val restoreDependenciesReport = TypeScriptUtilities.restoreDependencies(javascriptDirectory.toString(), shouldInstallAnon)
         println(restoreDependenciesReport.normalOutput)
         println(restoreDependenciesReport.errorOutput)

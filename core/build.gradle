@@ -1,6 +1,6 @@
 buildscript {
     ext.kotlin_version = '1.0.5'
-    ext.project_version = "0.157"
+    ext.project_version = "0.167"
 
     repositories {
         mavenCentral()
@@ -59,7 +59,7 @@ dependencies {
     compile gradleApi()
     compile localGroovy()
 
-    compile 'org.roylance:common:0.8'
+    compile 'org.roylance:common:0.9'
     compile 'commons-io:commons-io:2.5'
     compile 'org.apache.commons:commons-compress:1.12'
     compile 'com.google.code.gson:gson:2.7'

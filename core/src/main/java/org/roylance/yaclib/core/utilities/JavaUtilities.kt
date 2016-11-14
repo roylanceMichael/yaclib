@@ -20,6 +20,9 @@ object JavaUtilities {
     const val BintrayUserName = "BINTRAY_USER"
     const val BintrayKeyName = "BINTRAY_KEY"
 
+    const val StandardMavenUserName = "STANDARD_MAVEN_USER"
+    const val StandardMavenPassword = "STANDARD_MAVEN_PASSWORD"
+
     const val PropertiesFileNameWithoutExtension = "gradle"
     const val PropertiesFileName = "$PropertiesFileNameWithoutExtension.properties"
 
@@ -52,7 +55,7 @@ object JavaUtilities {
 
     const val ArtifactoryVersion = "4.4.0"
     const val BintrayVersion = "1.7"
-    const val RoylanceCommonVersion = "0.8"
+    const val RoylanceCommonVersion = "0.9"
     const val TomcatVersion = "8.0.28"
     const val KotlinVersion = "1.0.5"
 

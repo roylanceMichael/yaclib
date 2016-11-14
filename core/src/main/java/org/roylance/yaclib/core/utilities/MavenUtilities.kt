@@ -16,9 +16,8 @@ object MavenUtilities: IProjectBuilderServices {
 
         val pomFile = File(location, PomXml)
         if (!pomFile.exists()) {
-            return YaclibModel.ProcessReport.getDefaultInstance()
+            pomFile.createNewFile()
         }
-
         val model = reader.read(FileReader(pomFile))
         val minorVersion = model.properties.getProperty(JavaUtilities.MinorName).toInt() + 1
         model.properties.setProperty(JavaUtilities.MinorName, minorVersion.toString())
@@ -37,7 +36,7 @@ object MavenUtilities: IProjectBuilderServices {
 
         val pomFile = File(location, PomXml)
         if (!pomFile.exists()) {
-            return YaclibModel.ProcessReport.getDefaultInstance()
+            pomFile.createNewFile()
         }
 
         val variableName = JavaUtilities.buildPackageVariableName(otherDependency)
@@ -55,8 +54,9 @@ object MavenUtilities: IProjectBuilderServices {
 
         val pomFile = File(location, PomXml)
         if (!pomFile.exists()) {
-            return YaclibModel.ProcessReport.getDefaultInstance()
+            pomFile.createNewFile()
         }
+
         val model = reader.read(FileReader(pomFile))
         return YaclibModel.ProcessReport.newBuilder()
                 .setNewMinor(model.properties.getProperty(JavaUtilities.MinorName).toInt())
@@ -69,9 +69,8 @@ object MavenUtilities: IProjectBuilderServices {
 
         val pomFile = File(location, PomXml)
         if (!pomFile.exists()) {
-            return YaclibModel.ProcessReport.getDefaultInstance()
+            pomFile.createNewFile()
         }
-
         val model = reader.read(FileReader(pomFile))
         model.properties.setProperty(JavaUtilities.MinorName, dependency.minorVersion.toString())
         model.properties.setProperty(JavaUtilities.MajorName, dependency.majorVersion.toString())

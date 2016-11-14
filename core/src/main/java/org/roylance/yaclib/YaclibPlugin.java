@@ -8,6 +8,7 @@ import org.roylance.yaclib.core.models.DependencyDescriptor;
 import org.roylance.yaclib.core.plugins.PluginLogic;
 import org.roylance.yaclib.core.utilities.FileProcessUtilities;
 import org.roylance.yaclib.core.utilities.InitUtilities;
+import org.roylance.yaclib.core.utilities.JavaUtilities;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.List;
@@ -24,6 +25,10 @@ public class YaclibPlugin extends DefaultTask {
 
     @TaskAction
     public Boolean buildDefinitions() throws ClassNotFoundException, NoSuchMethodException, IllegalAccessException, InvocationTargetException {
+        System.out.println("standard maven username: " + System.getenv(JavaUtilities.StandardMavenUserName));
+        System.out.println("artifactory username: " + System.getenv(JavaUtilities.ArtifactoryUserName));
+        System.out.println("artifactory bintray: " + System.getenv(JavaUtilities.BintrayUserName));
+
         System.out.println("gradle: " + FileProcessUtilities.INSTANCE.getActualLocation(InitUtilities.Gradle));
         System.out.println("maven: " + FileProcessUtilities.INSTANCE.getActualLocation(InitUtilities.Maven));
         System.out.println("npm: " + FileProcessUtilities.INSTANCE.getActualLocation(InitUtilities.NPM));

@@ -335,7 +335,12 @@ class POMFileBuilder(private val projectInformation: YaclibModel.ProjectInformat
         projectInformation.thirdPartyDependenciesList
                 .filter { it.type == YaclibModel.DependencyType.JAVA }
                 .forEach {
-            uniqueDependencies[JavaUtilities.buildPackageVariableName(it)] = it.thirdPartyDependencyVersion
+                    if (it.thirdPartyDependencyVersion.isEmpty()) {
+                        uniqueDependencies[JavaUtilities.buildPackageVariableName(it)] = "${it.majorVersion}.${it.minorVersion}"
+                    }
+                    else {
+                        uniqueDependencies[JavaUtilities.buildPackageVariableName(it)] = it.thirdPartyDependencyVersion
+                    }
         }
 
         uniqueDependencies.keys.forEach {

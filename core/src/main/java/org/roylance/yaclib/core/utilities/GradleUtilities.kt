@@ -12,8 +12,9 @@ object GradleUtilities: IProjectBuilderServices {
     override fun incrementVersion(location: String, dependency: YaclibModel.Dependency): YaclibModel.ProcessReport {
         val propertiesFile = Paths.get(location, JavaUtilities.PropertiesFileName).toFile()
         if (!propertiesFile.exists()) {
-            return YaclibModel.ProcessReport.newBuilder().setIsError(true).build()
+            propertiesFile.createNewFile()
         }
+
         val properties = Properties()
         val inputStream = FileInputStream(propertiesFile)
         try {
@@ -45,6 +46,10 @@ object GradleUtilities: IProjectBuilderServices {
 
     override fun updateDependencyVersion(location: String, otherDependency: YaclibModel.Dependency): YaclibModel.ProcessReport {
         val propertiesFile = Paths.get(location, JavaUtilities.PropertiesFileName).toFile()
+        if (!propertiesFile.exists()) {
+            propertiesFile.createNewFile()
+        }
+
         if (!propertiesFile.exists()) {
             return YaclibModel.ProcessReport.newBuilder().setIsError(true).build()
         }
@@ -82,8 +87,9 @@ object GradleUtilities: IProjectBuilderServices {
     override fun getVersion(location: String): YaclibModel.ProcessReport {
         val propertiesFile = Paths.get(location, JavaUtilities.PropertiesFileName).toFile()
         if (!propertiesFile.exists()) {
-            return YaclibModel.ProcessReport.newBuilder().setIsError(true).build()
+            propertiesFile.createNewFile()
         }
+
         val properties = Properties()
         val inputStream = FileInputStream(propertiesFile)
         try {
@@ -101,8 +107,9 @@ object GradleUtilities: IProjectBuilderServices {
     override fun setVersion(location: String, dependency: YaclibModel.Dependency): YaclibModel.ProcessReport {
         val propertiesFile = Paths.get(location, JavaUtilities.PropertiesFileName).toFile()
         if (!propertiesFile.exists()) {
-            return YaclibModel.ProcessReport.newBuilder().setIsError(true).build()
+            propertiesFile.createNewFile()
         }
+
         val properties = Properties()
         val inputStream = FileInputStream(propertiesFile)
         try {
@@ -143,6 +150,9 @@ object GradleUtilities: IProjectBuilderServices {
                          apiKey: String): YaclibModel.ProcessReport {
         if (dependency.mavenRepository.repositoryType == YaclibModel.RepositoryType.ARTIFACTORY) {
             return FileProcessUtilities.executeProcess(location, InitUtilities.Gradle, "artifactoryPublish")
+        }
+        else if (dependency.mavenRepository.repositoryType == YaclibModel.RepositoryType.STANDARD_MAVEN) {
+            return FileProcessUtilities.executeProcess(location, InitUtilities.Gradle, "upload")
         }
         else {
             return FileProcessUtilities.executeProcess(location, InitUtilities.Gradle, "bintrayUpload")

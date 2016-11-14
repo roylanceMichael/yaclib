@@ -496,6 +496,10 @@ public final class YaclibModel {
      * <code>ARTIFACTORY_PYTHON = 11;</code>
      */
     ARTIFACTORY_PYTHON(11),
+    /**
+     * <code>STANDARD_MAVEN = 12;</code>
+     */
+    STANDARD_MAVEN(12),
     UNRECOGNIZED(-1),
     ;
 
@@ -547,6 +551,10 @@ public final class YaclibModel {
      * <code>ARTIFACTORY_PYTHON = 11;</code>
      */
     public static final int ARTIFACTORY_PYTHON_VALUE = 11;
+    /**
+     * <code>STANDARD_MAVEN = 12;</code>
+     */
+    public static final int STANDARD_MAVEN_VALUE = 12;
 
 
     public final int getNumber() {
@@ -579,6 +587,7 @@ public final class YaclibModel {
         case 9: return ARTIFACTORY_NPM;
         case 10: return PYPI;
         case 11: return ARTIFACTORY_PYTHON;
+        case 12: return STANDARD_MAVEN;
         default: return null;
       }
     }
@@ -4946,6 +4955,11 @@ public final class YaclibModel {
      * <code>optional .org.roylance.yaclib.FileUpdateType file_update_type = 5;</code>
      */
     org.roylance.yaclib.YaclibModel.FileUpdateType getFileUpdateType();
+
+    /**
+     * <code>optional bool ignore_initial_location = 6;</code>
+     */
+    boolean getIgnoreInitialLocation();
   }
   /**
    * Protobuf type {@code org.roylance.yaclib.File}
@@ -4964,6 +4978,7 @@ public final class YaclibModel {
       fileExtension_ = 0;
       fileToWrite_ = "";
       fileUpdateType_ = 0;
+      ignoreInitialLocation_ = false;
     }
 
     @java.lang.Override
@@ -5019,6 +5034,11 @@ public final class YaclibModel {
               int rawValue = input.readEnum();
 
               fileUpdateType_ = rawValue;
+              break;
+            }
+            case 48: {
+
+              ignoreInitialLocation_ = input.readBool();
               break;
             }
           }
@@ -5178,6 +5198,15 @@ public final class YaclibModel {
       return result == null ? org.roylance.yaclib.YaclibModel.FileUpdateType.UNRECOGNIZED : result;
     }
 
+    public static final int IGNORE_INITIAL_LOCATION_FIELD_NUMBER = 6;
+    private boolean ignoreInitialLocation_;
+    /**
+     * <code>optional bool ignore_initial_location = 6;</code>
+     */
+    public boolean getIgnoreInitialLocation() {
+      return ignoreInitialLocation_;
+    }
+
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
@@ -5205,6 +5234,9 @@ public final class YaclibModel {
       if (fileUpdateType_ != org.roylance.yaclib.YaclibModel.FileUpdateType.OVERWRITE.getNumber()) {
         output.writeEnum(5, fileUpdateType_);
       }
+      if (ignoreInitialLocation_ != false) {
+        output.writeBool(6, ignoreInitialLocation_);
+      }
     }
 
     public int getSerializedSize() {
@@ -5228,6 +5260,10 @@ public final class YaclibModel {
       if (fileUpdateType_ != org.roylance.yaclib.YaclibModel.FileUpdateType.OVERWRITE.getNumber()) {
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(5, fileUpdateType_);
+      }
+      if (ignoreInitialLocation_ != false) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(6, ignoreInitialLocation_);
       }
       memoizedSize = size;
       return size;
@@ -5253,6 +5289,8 @@ public final class YaclibModel {
       result = result && getFileToWrite()
           .equals(other.getFileToWrite());
       result = result && fileUpdateType_ == other.fileUpdateType_;
+      result = result && (getIgnoreInitialLocation()
+          == other.getIgnoreInitialLocation());
       return result;
     }
 
@@ -5273,6 +5311,9 @@ public final class YaclibModel {
       hash = (53 * hash) + getFileToWrite().hashCode();
       hash = (37 * hash) + FILE_UPDATE_TYPE_FIELD_NUMBER;
       hash = (53 * hash) + fileUpdateType_;
+      hash = (37 * hash) + IGNORE_INITIAL_LOCATION_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+          getIgnoreInitialLocation());
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -5401,6 +5442,8 @@ public final class YaclibModel {
 
         fileUpdateType_ = 0;
 
+        ignoreInitialLocation_ = false;
+
         return this;
       }
 
@@ -5428,6 +5471,7 @@ public final class YaclibModel {
         result.fileExtension_ = fileExtension_;
         result.fileToWrite_ = fileToWrite_;
         result.fileUpdateType_ = fileUpdateType_;
+        result.ignoreInitialLocation_ = ignoreInitialLocation_;
         onBuilt();
         return result;
       }
@@ -5486,6 +5530,9 @@ public final class YaclibModel {
         }
         if (other.fileUpdateType_ != 0) {
           setFileUpdateTypeValue(other.getFileUpdateTypeValue());
+        }
+        if (other.getIgnoreInitialLocation() != false) {
+          setIgnoreInitialLocation(other.getIgnoreInitialLocation());
         }
         onChanged();
         return this;
@@ -5804,6 +5851,32 @@ public final class YaclibModel {
       public Builder clearFileUpdateType() {
         
         fileUpdateType_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private boolean ignoreInitialLocation_ ;
+      /**
+       * <code>optional bool ignore_initial_location = 6;</code>
+       */
+      public boolean getIgnoreInitialLocation() {
+        return ignoreInitialLocation_;
+      }
+      /**
+       * <code>optional bool ignore_initial_location = 6;</code>
+       */
+      public Builder setIgnoreInitialLocation(boolean value) {
+        
+        ignoreInitialLocation_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional bool ignore_initial_location = 6;</code>
+       */
+      public Builder clearIgnoreInitialLocation() {
+        
+        ignoreInitialLocation_ = false;
         onChanged();
         return this;
       }
@@ -16736,84 +16809,85 @@ public final class YaclibModel {
       "oylance.yaclib.Repository\0229\n\020nuget_repos" +
       "itory\030\023 \001(\0132\037.org.roylance.yaclib.Reposi" +
       "tory\0227\n\016pip_repository\030\024 \001(\0132\037.org.royla" +
-      "nce.yaclib.Repository\"\314\001\n\004File\022\037\n\027full_d" +
+      "nce.yaclib.Repository\"\355\001\n\004File\022\037\n\027full_d" +
       "irectory_location\030\001 \001(\t\022\021\n\tfile_name\030\002 \001",
       "(\t\022:\n\016file_extension\030\003 \001(\0162\".org.roylanc" +
       "e.yaclib.FileExtension\022\025\n\rfile_to_write\030" +
       "\004 \001(\t\022=\n\020file_update_type\030\005 \001(\0162#.org.ro" +
-      "ylance.yaclib.FileUpdateType\"H\n\nControll" +
-      "er\022\014\n\004name\030\001 \001(\t\022,\n\007actions\030\002 \003(\0132\033.org." +
-      "roylance.yaclib.Action\"r\n\006Action\022\014\n\004name" +
-      "\030\001 \001(\t\022,\n\006inputs\030\002 \003(\0132\034.org.roylance.ya" +
-      "clib.Message\022,\n\006output\030\005 \001(\0132\034.org.royla" +
-      "nce.yaclib.Message\"\215\001\n\007Message\022\025\n\rargume" +
-      "nt_name\030\001 \001(\t\022\024\n\014file_package\030\002 \001(\t\022\022\n\nf",
-      "ile_class\030\003 \001(\t\022\027\n\017message_package\030\004 \001(\t" +
-      "\022\025\n\rmessage_class\030\005 \001(\t\022\021\n\tfile_name\030\006 \001" +
-      "(\t\"4\n\010AllFiles\022(\n\005files\030\001 \003(\0132\031.org.royl" +
-      "ance.yaclib.File\"F\n\016AllControllers\0224\n\013co" +
-      "ntrollers\030\001 \003(\0132\037.org.roylance.yaclib.Co" +
-      "ntroller\"\205\001\n\024ControllerDependency\0228\n\013con" +
-      "trollers\030\001 \001(\0132#.org.roylance.yaclib.All" +
-      "Controllers\0223\n\ndependency\030\002 \001(\0132\037.org.ro" +
-      "ylance.yaclib.Dependency\"g\n\031AllControlle" +
-      "rDependencies\022J\n\027controller_dependencies",
-      "\030\001 \003(\0132).org.roylance.yaclib.ControllerD" +
-      "ependency\"\231\001\n\rProcessReport\022\025\n\rnormal_ou" +
-      "tput\030\001 \001(\t\022\024\n\014error_output\030\002 \001(\t\022\020\n\010is_e" +
-      "rror\030\003 \001(\010\022\022\n\nexit_value\030\004 \001(\005\022\017\n\007conten" +
-      "t\030\005 \001(\t\022\021\n\tnew_major\030\006 \001(\005\022\021\n\tnew_minor\030" +
-      "\007 \001(\005\"\351\001\n\022ProjectInformation\022C\n\013controll" +
-      "ers\030\001 \001(\0132..org.roylance.yaclib.AllContr" +
-      "ollerDependencies\0228\n\017main_dependency\030\002 \001" +
-      "(\0132\037.org.roylance.yaclib.Dependency\022A\n\030t" +
-      "hird_party_dependencies\030\003 \003(\0132\037.org.royl",
-      "ance.yaclib.Dependency\022\021\n\tis_server\030\004 \001(" +
-      "\010\"\366\002\n\020AuxiliaryProject\022:\n\rhandle_before\030" +
-      "\001 \001(\0162#.org.roylance.yaclib.ExecutionPha" +
-      "se\022<\n\nexecutions\030\002 \003(\0162(.org.roylance.ya" +
-      "clib.CustomExecutionType\022:\n\021from_depende" +
-      "ncies\030\003 \003(\0132\037.org.roylance.yaclib.Depend" +
-      "ency\022:\n\021target_dependency\030\004 \001(\0132\037.org.ro" +
-      "ylance.yaclib.Dependency\0228\n\017to_dependenc" +
-      "ies\030\005 \003(\0132\037.org.roylance.yaclib.Dependen" +
-      "cy\0226\n\014project_type\030\006 \001(\0162 .org.roylance.",
-      "yaclib.ProjectType\"L\n\021AuxiliaryProjects\022" +
-      "7\n\010projects\030\001 \003(\0132%.org.roylance.yaclib." +
-      "AuxiliaryProject*\232\001\n\013ProjectType\022\027\n\023GRAD" +
-      "LE_PROJECT_TYPE\020\000\022\026\n\022MAVEN_PROJECT_TYPE\020" +
-      "\001\022\024\n\020NPM_PROJECT_TYPE\020\002\022\025\n\021GULP_PROJECT_" +
-      "TYPE\020\003\022\027\n\023DOTNET_PROJECT_TYPE\020\004\022\024\n\020PIP_P" +
-      "ROJECT_TYPE\020\005*\367\001\n\016ExecutionPhase\022\026\n\022DELE" +
-      "TE_DIRECTORIES\020\000\022 \n\034GENERATE_CODE_FROM_P" +
-      "ROTOBUFS\020\001\022\030\n\024BUILD_PUBLISH_CSHARP\020\002\022\030\n\024" +
-      "BUILD_PUBLISH_PYTHON\020\003\022\035\n\031BUILD_PUBLISH_",
-      "JAVA_CLIENT\020\004\022\034\n\030BUILD_PUBLISH_TYPESCRIP" +
-      "T\020\005\022\033\n\027BUILD_TYPESCRIPT_SERVER\020\006\022\035\n\031BUIL" +
-      "D_PACKAGE_JAVA_SERVER\020\007*\267\001\n\023CustomExecut" +
-      "ionType\022\020\n\014CUSTOM_BUILD\020\000\022\022\n\016CUSTOM_PACK" +
-      "AGE\020\001\022\022\n\016CUSTOM_PUBLISH\020\002\022\034\n\030CUSTOM_INCR" +
-      "EMENT_VERSION\020\003\022\036\n\032CUSTOM_UPDATE_DEPENDE" +
-      "NCIES\020\004\022\026\n\022CUSTOM_SET_VERSION\020\005\022\020\n\014CUSTO" +
-      "M_CLEAN\020\006*\316\001\n\016RepositoryType\022\013\n\007BINTRAY\020" +
-      "\000\022\017\n\013ARTIFACTORY\020\001\022\t\n\005NPMJS\020\002\022\017\n\013PRIVATE" +
-      "_NPM\020\003\022\t\n\005NUGET\020\004\022\021\n\rPRIVATE_NUGET\020\005\022\007\n\003",
-      "PIP\020\006\022\017\n\013PRIVATE_PIP\020\007\022\023\n\017PRIVATE_BINTRA" +
-      "Y\020\010\022\023\n\017ARTIFACTORY_NPM\020\t\022\010\n\004PYPI\020\n\022\026\n\022AR" +
-      "TIFACTORY_PYTHON\020\013*[\n\016DependencyType\022\014\n\010" +
-      "INTERNAL\020\000\022\010\n\004JAVA\020\001\022\016\n\nTYPESCRIPT\020\002\022\n\n\006" +
-      "CSHARP\020\003\022\t\n\005SWIFT\020\004\022\n\n\006PYTHON\020\005*\343\002\n\rFile" +
-      "Extension\022\n\n\006KT_EXT\020\000\022\014\n\010JAVA_EXT\020\001\022\022\n\016T" +
-      "YPESCRIPT_EXT\020\002\022\022\n\016JAVASCRIPT_EXT\020\003\022\r\n\tS" +
-      "WIFT_EXT\020\004\022\013\n\007POM_EXT\020\005\022\013\n\007XML_EXT\020\006\022\014\n\010" +
-      "HTML_EXT\020\007\022\016\n\nGRADLE_EXT\020\010\022\014\n\010JSON_EXT\020\t" +
-      "\022\n\n\006TS_EXT\020\n\022\014\n\010NONE_EXT\020\013\022\013\n\007BAT_EXT\020\014\022",
-      "\n\n\006JS_EXT\020\r\022\n\n\006CS_EXT\020\016\022\013\n\007SLN_EXT\020\017\022\r\n\t" +
-      "XPROJ_EXT\020\020\022\n\n\006SH_EXT\020\021\022\n\n\006MD_EXT\020\022\022\n\n\006P" +
-      "Y_EXT\020\023\022\013\n\007CFG_EXT\020\024\022\022\n\016PROPERTIES_EXT\020\025" +
-      "\022\014\n\010BLOB_EXT\020\026\022\r\n\tPROTO_EXT\020\027*8\n\016FileUpd" +
-      "ateType\022\r\n\tOVERWRITE\020\000\022\027\n\023WRITE_IF_NOT_E" +
-      "XISTS\020\001b\006proto3"
+      "ylance.yaclib.FileUpdateType\022\037\n\027ignore_i" +
+      "nitial_location\030\006 \001(\010\"H\n\nController\022\014\n\004n" +
+      "ame\030\001 \001(\t\022,\n\007actions\030\002 \003(\0132\033.org.roylanc" +
+      "e.yaclib.Action\"r\n\006Action\022\014\n\004name\030\001 \001(\t\022" +
+      ",\n\006inputs\030\002 \003(\0132\034.org.roylance.yaclib.Me" +
+      "ssage\022,\n\006output\030\005 \001(\0132\034.org.roylance.yac" +
+      "lib.Message\"\215\001\n\007Message\022\025\n\rargument_name",
+      "\030\001 \001(\t\022\024\n\014file_package\030\002 \001(\t\022\022\n\nfile_cla" +
+      "ss\030\003 \001(\t\022\027\n\017message_package\030\004 \001(\t\022\025\n\rmes" +
+      "sage_class\030\005 \001(\t\022\021\n\tfile_name\030\006 \001(\t\"4\n\010A" +
+      "llFiles\022(\n\005files\030\001 \003(\0132\031.org.roylance.ya" +
+      "clib.File\"F\n\016AllControllers\0224\n\013controlle" +
+      "rs\030\001 \003(\0132\037.org.roylance.yaclib.Controlle" +
+      "r\"\205\001\n\024ControllerDependency\0228\n\013controller" +
+      "s\030\001 \001(\0132#.org.roylance.yaclib.AllControl" +
+      "lers\0223\n\ndependency\030\002 \001(\0132\037.org.roylance." +
+      "yaclib.Dependency\"g\n\031AllControllerDepend",
+      "encies\022J\n\027controller_dependencies\030\001 \003(\0132" +
+      ").org.roylance.yaclib.ControllerDependen" +
+      "cy\"\231\001\n\rProcessReport\022\025\n\rnormal_output\030\001 " +
+      "\001(\t\022\024\n\014error_output\030\002 \001(\t\022\020\n\010is_error\030\003 " +
+      "\001(\010\022\022\n\nexit_value\030\004 \001(\005\022\017\n\007content\030\005 \001(\t" +
+      "\022\021\n\tnew_major\030\006 \001(\005\022\021\n\tnew_minor\030\007 \001(\005\"\351" +
+      "\001\n\022ProjectInformation\022C\n\013controllers\030\001 \001" +
+      "(\0132..org.roylance.yaclib.AllControllerDe" +
+      "pendencies\0228\n\017main_dependency\030\002 \001(\0132\037.or" +
+      "g.roylance.yaclib.Dependency\022A\n\030third_pa",
+      "rty_dependencies\030\003 \003(\0132\037.org.roylance.ya" +
+      "clib.Dependency\022\021\n\tis_server\030\004 \001(\010\"\366\002\n\020A" +
+      "uxiliaryProject\022:\n\rhandle_before\030\001 \001(\0162#" +
+      ".org.roylance.yaclib.ExecutionPhase\022<\n\ne" +
+      "xecutions\030\002 \003(\0162(.org.roylance.yaclib.Cu" +
+      "stomExecutionType\022:\n\021from_dependencies\030\003" +
+      " \003(\0132\037.org.roylance.yaclib.Dependency\022:\n" +
+      "\021target_dependency\030\004 \001(\0132\037.org.roylance." +
+      "yaclib.Dependency\0228\n\017to_dependencies\030\005 \003" +
+      "(\0132\037.org.roylance.yaclib.Dependency\0226\n\014p",
+      "roject_type\030\006 \001(\0162 .org.roylance.yaclib." +
+      "ProjectType\"L\n\021AuxiliaryProjects\0227\n\010proj" +
+      "ects\030\001 \003(\0132%.org.roylance.yaclib.Auxilia" +
+      "ryProject*\232\001\n\013ProjectType\022\027\n\023GRADLE_PROJ" +
+      "ECT_TYPE\020\000\022\026\n\022MAVEN_PROJECT_TYPE\020\001\022\024\n\020NP" +
+      "M_PROJECT_TYPE\020\002\022\025\n\021GULP_PROJECT_TYPE\020\003\022" +
+      "\027\n\023DOTNET_PROJECT_TYPE\020\004\022\024\n\020PIP_PROJECT_" +
+      "TYPE\020\005*\367\001\n\016ExecutionPhase\022\026\n\022DELETE_DIRE" +
+      "CTORIES\020\000\022 \n\034GENERATE_CODE_FROM_PROTOBUF" +
+      "S\020\001\022\030\n\024BUILD_PUBLISH_CSHARP\020\002\022\030\n\024BUILD_P",
+      "UBLISH_PYTHON\020\003\022\035\n\031BUILD_PUBLISH_JAVA_CL" +
+      "IENT\020\004\022\034\n\030BUILD_PUBLISH_TYPESCRIPT\020\005\022\033\n\027" +
+      "BUILD_TYPESCRIPT_SERVER\020\006\022\035\n\031BUILD_PACKA" +
+      "GE_JAVA_SERVER\020\007*\267\001\n\023CustomExecutionType" +
+      "\022\020\n\014CUSTOM_BUILD\020\000\022\022\n\016CUSTOM_PACKAGE\020\001\022\022" +
+      "\n\016CUSTOM_PUBLISH\020\002\022\034\n\030CUSTOM_INCREMENT_V" +
+      "ERSION\020\003\022\036\n\032CUSTOM_UPDATE_DEPENDENCIES\020\004" +
+      "\022\026\n\022CUSTOM_SET_VERSION\020\005\022\020\n\014CUSTOM_CLEAN" +
+      "\020\006*\342\001\n\016RepositoryType\022\013\n\007BINTRAY\020\000\022\017\n\013AR" +
+      "TIFACTORY\020\001\022\t\n\005NPMJS\020\002\022\017\n\013PRIVATE_NPM\020\003\022",
+      "\t\n\005NUGET\020\004\022\021\n\rPRIVATE_NUGET\020\005\022\007\n\003PIP\020\006\022\017" +
+      "\n\013PRIVATE_PIP\020\007\022\023\n\017PRIVATE_BINTRAY\020\010\022\023\n\017" +
+      "ARTIFACTORY_NPM\020\t\022\010\n\004PYPI\020\n\022\026\n\022ARTIFACTO" +
+      "RY_PYTHON\020\013\022\022\n\016STANDARD_MAVEN\020\014*[\n\016Depen" +
+      "dencyType\022\014\n\010INTERNAL\020\000\022\010\n\004JAVA\020\001\022\016\n\nTYP" +
+      "ESCRIPT\020\002\022\n\n\006CSHARP\020\003\022\t\n\005SWIFT\020\004\022\n\n\006PYTH" +
+      "ON\020\005*\343\002\n\rFileExtension\022\n\n\006KT_EXT\020\000\022\014\n\010JA" +
+      "VA_EXT\020\001\022\022\n\016TYPESCRIPT_EXT\020\002\022\022\n\016JAVASCRI" +
+      "PT_EXT\020\003\022\r\n\tSWIFT_EXT\020\004\022\013\n\007POM_EXT\020\005\022\013\n\007" +
+      "XML_EXT\020\006\022\014\n\010HTML_EXT\020\007\022\016\n\nGRADLE_EXT\020\010\022",
+      "\014\n\010JSON_EXT\020\t\022\n\n\006TS_EXT\020\n\022\014\n\010NONE_EXT\020\013\022" +
+      "\013\n\007BAT_EXT\020\014\022\n\n\006JS_EXT\020\r\022\n\n\006CS_EXT\020\016\022\013\n\007" +
+      "SLN_EXT\020\017\022\r\n\tXPROJ_EXT\020\020\022\n\n\006SH_EXT\020\021\022\n\n\006" +
+      "MD_EXT\020\022\022\n\n\006PY_EXT\020\023\022\013\n\007CFG_EXT\020\024\022\022\n\016PRO" +
+      "PERTIES_EXT\020\025\022\014\n\010BLOB_EXT\020\026\022\r\n\tPROTO_EXT" +
+      "\020\027*8\n\016FileUpdateType\022\r\n\tOVERWRITE\020\000\022\027\n\023W" +
+      "RITE_IF_NOT_EXISTS\020\001b\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -16844,7 +16918,7 @@ public final class YaclibModel {
     internal_static_org_roylance_yaclib_File_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_org_roylance_yaclib_File_descriptor,
-        new java.lang.String[] { "FullDirectoryLocation", "FileName", "FileExtension", "FileToWrite", "FileUpdateType", });
+        new java.lang.String[] { "FullDirectoryLocation", "FileName", "FileExtension", "FileToWrite", "FileUpdateType", "IgnoreInitialLocation", });
     internal_static_org_roylance_yaclib_Controller_descriptor =
       getDescriptor().getMessageTypes().get(3);
     internal_static_org_roylance_yaclib_Controller_fieldAccessorTable = new

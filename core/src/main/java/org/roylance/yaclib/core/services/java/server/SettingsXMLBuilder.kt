@@ -2,6 +2,8 @@ package org.roylance.yaclib.core.services.java.server
 
 import org.roylance.common.service.IBuilder
 import org.roylance.yaclib.YaclibModel
+import org.roylance.yaclib.core.utilities.JavaUtilities
+import java.nio.file.Paths
 import java.util.*
 
 class SettingsXMLBuilder(private val controllerDependencies: YaclibModel.AllControllerDependencies,
@@ -15,11 +17,15 @@ class SettingsXMLBuilder(private val controllerDependencies: YaclibModel.AllCont
 """
 
     override fun build(): YaclibModel.File {
+        val userHome = System.getProperty("user.home")
+        val settingsFileFullPath = Paths.get(userHome, ".m2").toString()
+
         val returnFile = YaclibModel.File.newBuilder()
                 .setFileToWrite(initialTemplate.trim())
                 .setFileExtension(YaclibModel.FileExtension.XML_EXT)
                 .setFileName("settings")
-                .setFullDirectoryLocation("")
+                .setIgnoreInitialLocation(true)
+                .setFullDirectoryLocation(settingsFileFullPath)
                 .build()
 
         return returnFile
@@ -54,14 +60,17 @@ class SettingsXMLBuilder(private val controllerDependencies: YaclibModel.AllCont
         return """
 <server>
     <id>${repository.name}</id>
-    <username>$EnvironmentUserName</username>
-    <password>$EnvironmentKey</password>
+    <username>${if (repository.repositoryType == YaclibModel.RepositoryType.BINTRAY) BintrayEnvironmentUserName else StandardEnvironmentUserName}</username>
+    <password>${if (repository.repositoryType == YaclibModel.RepositoryType.BINTRAY) BintrayEnvironmentKeyName else StandardEnvironmentKeyName}</password>
 </server>
 """
     }
 
     companion object {
-        const val EnvironmentUserName = "\${env.BINTRAY_USER}"
-        const val EnvironmentKey = "\${env.BINTRAY_KEY}"
+        const val BintrayEnvironmentUserName = "\${env.${JavaUtilities.BintrayUserName}}"
+        const val BintrayEnvironmentKeyName = "\${env.${JavaUtilities.BintrayKeyName}}"
+
+        const val StandardEnvironmentUserName = "\${env.${JavaUtilities.StandardMavenUserName}}"
+        const val StandardEnvironmentKeyName = "\${env.${JavaUtilities.StandardMavenPassword}}"
     }
 }

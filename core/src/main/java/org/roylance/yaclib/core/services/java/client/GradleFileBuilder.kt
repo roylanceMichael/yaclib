@@ -41,7 +41,7 @@ publishing {
     }
 }
 
-${if (projectInformation.mainDependency.mavenRepository.repositoryType == YaclibModel.RepositoryType.ARTIFACTORY) buildArtifactory() else buildBintray()}
+${buildUploadMethod()}
 
 repositories {
     mavenCentral()
@@ -94,12 +94,34 @@ dependencies {
     }
 }"""
         }
-        else if (projectInformation.mainDependency.hasMavenRepository() && projectInformation.mainDependency.mavenRepository.url.isNotEmpty()) {
+       else if (projectInformation.mainDependency.mavenRepository.repositoryType == YaclibModel.RepositoryType.STANDARD_MAVEN) {
+           return """maven {
+    url "${JavaUtilities.buildRepositoryUrl(projectInformation.mainDependency.mavenRepository)}"
+    credentials {
+        username System.getenv('${JavaUtilities.StandardMavenUserName}')
+        password System.getenv('${JavaUtilities.StandardMavenPassword}')
+    }
+}"""
+       }
+        else if (projectInformation.mainDependency.mavenRepository.url.isNotEmpty()) {
            return """maven {
     url "${JavaUtilities.buildRepositoryUrl(projectInformation.mainDependency.mavenRepository)}"
 }"""
        }
         return ""
+    }
+
+    private fun buildUploadMethod(): String {
+        if (!projectInformation.mainDependency.hasMavenRepository()) {
+            return ""
+        }
+        if (projectInformation.mainDependency.mavenRepository.repositoryType == YaclibModel.RepositoryType.ARTIFACTORY) {
+            return buildArtifactory()
+        }
+        else if (projectInformation.mainDependency.mavenRepository.repositoryType == YaclibModel.RepositoryType.BINTRAY) {
+            return buildBintray()
+        }
+        return buildStandardMaven()
     }
 
     private fun buildBintray(): String {
@@ -126,7 +148,7 @@ bintray {
 
     private fun buildArtifactory(): String {
         return """artifactory {
-    contextUrl = "${projectInformation.mainDependency.mavenRepository.url}"   //The base Artifactory URL if not overridden by the publisher/resolver
+    contextUrl = "${projectInformation.mainDependency.mavenRepository.url}"   // The base Artifactory URL if not overridden by the publisher/resolver
     publish {
         repository {
             repoKey = '${projectInformation.mainDependency.mavenRepository.name}'
@@ -146,6 +168,22 @@ bintray {
     resolve {
         repository {
             repoKey = 'repo'
+        }
+    }
+}
+"""
+    }
+
+    private fun buildStandardMaven(): String {
+        return """uploadArchives {
+    repositories {
+        mavenDeployer {
+            repository(url: "${projectInformation.mainDependency.mavenRepository.url}") {
+                authentication(userName: System.getenv('${JavaUtilities.StandardMavenUserName}'), password: System.getenv('${JavaUtilities.StandardMavenPassword}'))
+            }
+            pom.version = "$${JavaUtilities.MajorName}.$${JavaUtilities.MinorName}"
+            pom.artifactId = "${projectInformation.mainDependency.name}"
+            pom.groupId = "${projectInformation.mainDependency.group}"
         }
     }
 }
