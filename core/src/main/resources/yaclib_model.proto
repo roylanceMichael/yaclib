@@ -1,6 +1,11 @@
 syntax = "proto3";
 package org.roylance.yaclib;
 
+enum ServerType {
+    MAVEN_TOMCAT_EMBEDDED = 0;
+    GRADLE_JETTY_EMBEDDED = 1;
+}
+
 enum ProjectType {
     GRADLE_PROJECT_TYPE = 0;
     MAVEN_PROJECT_TYPE = 1;
@@ -114,6 +119,9 @@ message Dependency {
     Repository npm_repository = 18;
     Repository nuget_repository = 19;
     Repository pip_repository = 20;
+    ServerType server_type = 21;
+    int32 server_port = 22;
+    string yaclib_version = 23;
 }
 
 message File {

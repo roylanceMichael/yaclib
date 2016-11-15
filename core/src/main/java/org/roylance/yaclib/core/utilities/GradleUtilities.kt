@@ -142,7 +142,7 @@ object GradleUtilities: IProjectBuilderServices {
     }
 
     override fun buildPackage(location: String, dependency: YaclibModel.Dependency): YaclibModel.ProcessReport {
-        return YaclibModel.ProcessReport.getDefaultInstance()
+        return FileProcessUtilities.executeProcess(location, InitUtilities.Gradle, "packageApp")
     }
 
     override fun publish(location: String,
@@ -161,5 +161,43 @@ object GradleUtilities: IProjectBuilderServices {
 
     override fun restoreDependencies(location: String, doAnonymously: Boolean): YaclibModel.ProcessReport {
         return YaclibModel.ProcessReport.getDefaultInstance()
+    }
+
+    fun buildRepository(repository: YaclibModel.Repository): String {
+        if (repository.repositoryType == YaclibModel.RepositoryType.PRIVATE_BINTRAY) {
+            return """maven {
+    url "${JavaUtilities.buildRepositoryUrl(repository)}"
+    credentials {
+        username System.getenv('${JavaUtilities.BintrayUserName}')
+        password System.getenv('${JavaUtilities.BintrayKeyName}')
+    }
+}"""
+        }
+        else if (repository.repositoryType == YaclibModel.RepositoryType.STANDARD_MAVEN) {
+            return """maven {
+    url "${JavaUtilities.buildRepositoryUrl(repository)}"
+    credentials {
+        username System.getenv('${JavaUtilities.StandardMavenUserName}')
+        password System.getenv('${JavaUtilities.StandardMavenPassword}')
+    }
+}"""
+        }
+        else if (repository.url.isNotEmpty()) {
+            return """maven {
+    url "${JavaUtilities.buildRepositoryUrl(repository)}"
+}"""
+        }
+        return ""
+    }
+
+    fun buildDependencies(projectInformation: YaclibModel.ProjectInformation):String {
+        val workspace = StringBuilder()
+
+        projectInformation.controllers.controllerDependenciesList.forEach { controllerDependency ->
+            workspace.append("""compile "${controllerDependency.dependency.group}:${controllerDependency.dependency.name}:$${JavaUtilities.buildPackageVariableName(controllerDependency.dependency)}"
+""")
+        }
+
+        return workspace.toString()
     }
 }

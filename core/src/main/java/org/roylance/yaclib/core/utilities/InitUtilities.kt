@@ -3,6 +3,8 @@ package org.roylance.yaclib.core.utilities
 object InitUtilities {
     const val OsNameProperty = "os.name"
 
+    const val DpkgDeb = "dpkg-deb"
+
     const val Chmod = "chmod"
     const val ChmodExecutable = "755"
     const val RemoveDirectory = "rm"

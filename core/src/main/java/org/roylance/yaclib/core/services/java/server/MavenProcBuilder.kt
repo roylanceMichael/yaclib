@@ -3,7 +3,7 @@ package org.roylance.yaclib.core.services.java.server
 import org.roylance.common.service.IBuilder
 import org.roylance.yaclib.YaclibModel
 
-class ProcBuilder: IBuilder<YaclibModel.File> {
+class MavenProcBuilder : IBuilder<YaclibModel.File> {
     override fun build(): YaclibModel.File {
         val initialTemplate = """#!/usr/bin/env bash
 if [ -d "/app/.jdk" ]; then

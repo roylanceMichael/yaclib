@@ -3,6 +3,7 @@ package org.roylance.yaclib.core.services.java.client
 import org.roylance.common.service.IBuilder
 import org.roylance.yaclib.YaclibModel
 import org.roylance.yaclib.core.enums.CommonTokens
+import org.roylance.yaclib.core.utilities.GradleUtilities
 import org.roylance.yaclib.core.utilities.JavaUtilities
 
 class GradleFileBuilder(private val projectInformation: YaclibModel.ProjectInformation,
@@ -46,7 +47,7 @@ ${buildUploadMethod()}
 repositories {
     mavenCentral()
     maven { url '${JavaUtilities.DefaultRepository}'}
-    ${this.buildRepository()}
+    ${GradleUtilities.buildRepository(projectInformation.mainDependency.mavenRepository)}
 }
 
 dependencies {
@@ -54,7 +55,7 @@ dependencies {
     compile 'com.squareup.retrofit2:retrofit:${JavaUtilities.RetrofitVersion}'
 
     compile 'org.roylance:common:${JavaUtilities.RoylanceCommonVersion}'
-    ${this.buildDependencies()}
+    ${GradleUtilities.buildDependencies(projectInformation)}
 }
 """
 
@@ -69,46 +70,8 @@ dependencies {
         return returnFile.build()
     }
 
-    private fun buildDependencies():String {
-        val workspace = StringBuilder()
-
-        projectInformation.controllers.controllerDependenciesList.forEach { controllerDependency ->
-        workspace.append("""compile "${controllerDependency.dependency.group}:${controllerDependency.dependency.name}:$${JavaUtilities.buildPackageVariableName(controllerDependency.dependency)}"
-""")
-        }
-
-        return workspace.toString()
-    }
-
     private fun buildGithubRepo(): String {
         return projectInformation.mainDependency.githubRepo
-    }
-
-    private fun buildRepository(): String {
-       if (projectInformation.mainDependency.mavenRepository.repositoryType == YaclibModel.RepositoryType.PRIVATE_BINTRAY) {
-            return """maven {
-    url "${JavaUtilities.buildRepositoryUrl(projectInformation.mainDependency.mavenRepository)}"
-    credentials {
-        username System.getenv('${JavaUtilities.BintrayUserName}')
-        password System.getenv('${JavaUtilities.BintrayKeyName}')
-    }
-}"""
-        }
-       else if (projectInformation.mainDependency.mavenRepository.repositoryType == YaclibModel.RepositoryType.STANDARD_MAVEN) {
-           return """maven {
-    url "${JavaUtilities.buildRepositoryUrl(projectInformation.mainDependency.mavenRepository)}"
-    credentials {
-        username System.getenv('${JavaUtilities.StandardMavenUserName}')
-        password System.getenv('${JavaUtilities.StandardMavenPassword}')
-    }
-}"""
-       }
-        else if (projectInformation.mainDependency.mavenRepository.url.isNotEmpty()) {
-           return """maven {
-    url "${JavaUtilities.buildRepositoryUrl(projectInformation.mainDependency.mavenRepository)}"
-}"""
-       }
-        return ""
     }
 
     private fun buildUploadMethod(): String {
@@ -182,7 +145,7 @@ bintray {
                 authentication(userName: System.getenv('${JavaUtilities.StandardMavenUserName}'), password: System.getenv('${JavaUtilities.StandardMavenPassword}'))
             }
             pom.version = "$${JavaUtilities.MajorName}.$${JavaUtilities.MinorName}"
-            pom.artifactId = "${projectInformation.mainDependency.name}"
+            pom.artifactId = "$projectName"
             pom.groupId = "${projectInformation.mainDependency.group}"
         }
     }

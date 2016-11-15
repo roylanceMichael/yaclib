@@ -69,6 +69,7 @@ object JavaUtilities {
     const val QuartzVersion = "2.2.1"
     const val GsonVersion = "2.7"
     const val RetrofitVersion = "2.1.0"
+    const val JettyServerVersion = "9.3.14.v20161028"
 
     const val MavenCompilerPluginVersion = "2.3.2"
     const val MavenWarPluginVersion = "2.1.1"
@@ -77,6 +78,10 @@ object JavaUtilities {
     const val HerokuPluginVersion = "1.0.3"
     const val JavaServerJdkVersion = "1.8"
     const val PropertiesMavenPlugin = "1.0.0"
+
+    fun convertGroupNameToFolders(groupName: String): String {
+        return groupName.replace(".", "/")
+    }
 
     fun buildFullPackageName(dependency: YaclibModel.Dependency): String {
         return "${dependency.group}.${dependency.name}"

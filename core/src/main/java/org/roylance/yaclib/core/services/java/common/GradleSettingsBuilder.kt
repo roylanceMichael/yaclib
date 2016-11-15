@@ -1,4 +1,4 @@
-package org.roylance.yaclib.core.services.java.client
+package org.roylance.yaclib.core.services.java.common
 
 import org.roylance.common.service.IBuilder
 import org.roylance.yaclib.YaclibModel

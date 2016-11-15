@@ -4,6 +4,7 @@ import org.roylance.yaclib.YaclibModel
 import org.roylance.yaclib.core.enums.CommonTokens
 import org.roylance.yaclib.core.services.IProcessLanguageService
 import org.roylance.yaclib.core.services.common.ReadmeBuilder
+import org.roylance.yaclib.core.services.java.common.GradleSettingsBuilder
 import org.roylance.yaclib.core.services.java.common.PropertiesBuilder
 
 class JavaClientProcessLanguageService: IProcessLanguageService {

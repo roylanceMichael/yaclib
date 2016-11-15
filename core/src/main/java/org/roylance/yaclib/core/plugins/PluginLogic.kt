@@ -96,7 +96,7 @@ class PluginLogic(
 
         processPhase(YaclibModel.ExecutionPhase.BUILD_PACKAGE_JAVA_SERVER)
         println(InitUtilities.buildPhaseMessage(YaclibModel.ExecutionPhase.BUILD_PACKAGE_JAVA_SERVER.name))
-        JavaServerBuilder(location).build()
+        JavaServerBuilder(location, mainDependency.serverType).build()
 
         return true
     }

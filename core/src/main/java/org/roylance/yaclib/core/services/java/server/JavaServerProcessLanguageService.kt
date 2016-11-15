@@ -1,9 +1,11 @@
 package org.roylance.yaclib.core.services.java.server
 
 import org.roylance.yaclib.YaclibModel
+import org.roylance.yaclib.core.enums.CommonTokens
 import org.roylance.yaclib.core.services.IProcessLanguageService
 import org.roylance.yaclib.core.services.common.NPMBlobBuilder
 import org.roylance.yaclib.core.services.common.NPMPackageBuilder
+import org.roylance.yaclib.core.services.java.common.GradleSettingsBuilder
 import org.roylance.yaclib.core.services.java.common.PropertiesBuilder
 import org.roylance.yaclib.core.utilities.TypeScriptUtilities
 
@@ -16,8 +18,21 @@ class JavaServerProcessLanguageService: IProcessLanguageService {
                 .addAllThirdPartyDependencies(TypeScriptUtilities.baseServerTypeScriptKit)
                 .build()
 
-        returnList.addFiles(POMFileBuilder(actualProjectInformation).build())
-        returnList.addFiles(SettingsXMLBuilder(actualProjectInformation.controllers, actualProjectInformation.mainDependency).build())
+        if (projectInformation.mainDependency.serverType == YaclibModel.ServerType.MAVEN_TOMCAT_EMBEDDED) {
+            returnList.addFiles(POMFileBuilder(actualProjectInformation).build())
+            returnList.addFiles(SettingsXMLBuilder(actualProjectInformation.controllers, actualProjectInformation.mainDependency).build())
+            returnList.addFiles(JavaLaunchBuilder().build())
+            returnList.addFiles(MavenProcBuilder().build())
+        }
+        else {
+            returnList.addFiles(GradleSettingsBuilder(CommonTokens.ServerApi).build())
+            returnList.addFiles(GradleProcBuilder(CommonTokens.ServerApi).build())
+            returnList.addFiles(JettyGradleBuilder(projectInformation).build())
+            returnList.addFiles(PropertiesBuilder(projectInformation.controllers, projectInformation.mainDependency, projectInformation.thirdPartyDependenciesList).build())
+            returnList.addFiles(JettyMainBuilder(projectInformation).build())
+            returnList.addFiles(CustomSetupBuilder().build())
+        }
+
         returnList.addFiles(GulpFileBuilder(actualProjectInformation.controllers).build())
         returnList.addFiles(NPMBlobBuilder(actualProjectInformation).build())
         returnList.addFiles(NPMPackageBuilder(actualProjectInformation).build())
@@ -25,10 +40,9 @@ class JavaServerProcessLanguageService: IProcessLanguageService {
         returnList.addFiles(FurtherAngularSetupBuilder().build())
         returnList.addFiles(IndexHTMLBuilder().build())
         returnList.addFiles(WiringFileBuilder(actualProjectInformation.controllers).build())
-        returnList.addFiles(JavaLaunchBuilder().build())
+
         returnList.addFiles(JavaServletXMLBuilder(actualProjectInformation.mainDependency).build())
         returnList.addFiles(Java8Base64ServiceBuilder(actualProjectInformation.mainDependency).build())
-        returnList.addFiles(ProcBuilder().build())
 
         returnList.addFiles(KotlinIServiceLocatorBuilder(actualProjectInformation.controllers, actualProjectInformation.mainDependency).build())
         returnList.addFiles(KotlinServiceLocatorBuilder(actualProjectInformation.controllers, actualProjectInformation.mainDependency).build())

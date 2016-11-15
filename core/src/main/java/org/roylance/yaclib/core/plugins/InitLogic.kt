@@ -5,7 +5,7 @@ import org.roylance.yaclib.YaclibModel
 import org.roylance.yaclib.core.enums.CommonTokens
 import org.roylance.yaclib.core.services.FilePersistService
 import org.roylance.yaclib.core.services.java.client.GradleFileBuilder
-import org.roylance.yaclib.core.services.java.client.GradleSettingsBuilder
+import org.roylance.yaclib.core.services.java.common.GradleSettingsBuilder
 import org.roylance.yaclib.core.services.java.init.*
 import java.nio.file.Paths
 
