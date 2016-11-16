@@ -11,12 +11,14 @@ import org.roylance.yaclib.core.utilities.InitUtilities;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
 
 public class YaclibPackagePlugin extends DefaultTask {
     public String appName;
     public String serverVersion;
     public String maintainerInfo;
     public int serverPort;
+    public List<String> includeFiles;
 
     @TaskAction
     public Boolean packageApp() throws IOException, InterruptedException {
@@ -42,6 +44,13 @@ public class YaclibPackagePlugin extends DefaultTask {
 
         FileUtils.copyFile(new File("custom.sh"), new File("build/install/" + appName + "/custom.sh"));
         FileUtils.copyFile(new File("proc.sh"), new File("build/install/" + appName + "/proc.sh"));
+
+        if (includeFiles != null) {
+            for(final String file: includeFiles) {
+                final File fileToCopy = new File(file);
+                FileUtils.copyFile(fileToCopy, new File("build/install/" + appName + "/" + fileToCopy.getName()));
+            }
+        }
 
         // this will build the JavaScript UI
         new TypeScriptClientServerBuilder(currentDirectory).build();
