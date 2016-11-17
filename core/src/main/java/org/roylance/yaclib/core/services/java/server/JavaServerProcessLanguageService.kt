@@ -28,7 +28,7 @@ class JavaServerProcessLanguageService: IProcessLanguageService {
         }
         else {
             returnList.addFiles(GradleSettingsBuilder(CommonTokens.ServerApi).build())
-            returnList.addFiles(GradleProcBuilder(CommonTokens.ServerApi).build())
+            returnList.addFiles(JettyGradleProcBuilder(CommonTokens.ServerApi).build())
             returnList.addFiles(JettyGradleBuilder(projectInformation).build())
 
             val buildProperties = HashMap<String, String>()

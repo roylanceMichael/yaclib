@@ -69,22 +69,22 @@ class MainController: Initializable {
         val repo = repositoryComboBox?.selectionModel?.selectedItem
         val repoUrl = repositoryURLTextField?.text
 
-        if (groupName == null || groupName.length == 0) {
+        if (groupName == null || groupName.isEmpty()) {
             messageLabel?.text = "need to have a group name!"
             return
         }
 
-        if (baseLocation == null || baseLocation.length == 0) {
+        if (baseLocation == null || baseLocation.isEmpty()) {
             messageLabel?.text = "need to have a base location!"
             return
         }
 
-        if (repo == null || repo.length == 0) {
+        if (repo == null || repo.isEmpty()) {
             messageLabel?.text = "need to have a repository selected!"
             return
         }
 
-        if (repoUrl == null || repoUrl.length == 0) {
+        if (repoUrl == null || repoUrl.isEmpty()) {
             messageLabel?.text = "need to have a repository url!"
             return
         }

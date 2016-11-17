@@ -7,7 +7,7 @@ class RunBuilder(private val projectName: String, private val fileLocation: Stri
     override fun build(): Boolean {
         val template = """#!/usr/bin/env bash
 pushd /opt/$projectName
-bash /opt/$projectName/custom.sh
+source /opt/$projectName/custom.sh
 nohup /opt/$projectName/bin/$projectName "$@" > latest.out 2>&1&
 """
 
