@@ -3,7 +3,6 @@ package org.roylance.yaclib.core.services.java.server
 import org.roylance.common.service.IBuilder
 import org.roylance.yaclib.YaclibModel
 import org.roylance.yaclib.core.enums.CommonTokens
-import org.roylance.yaclib.core.utilities.FileExtensionUtilities
 import org.roylance.yaclib.core.utilities.JavaUtilities
 
 class JettyMainBuilder(private val projectInformation: YaclibModel.ProjectInformation): IBuilder<YaclibModel.File> {
@@ -35,6 +34,7 @@ public class Main {
         final ServletHolder jerseyServlet = context.addServlet(ServletContainer.class, "/rest/*");
         jerseyServlet.setInitOrder(1);
         jerseyServlet.setInitParameter("jersey.config.server.provider.packages","${projectInformation.mainDependency.group}");
+        jerseyServlet.setInitParameter("jersey.config.server.provider.classnames", "org.glassfish.jersey.media.multipart.MultiPartFeature");
 
         final ServletHolder staticServlet = context.addServlet(DefaultServlet.class,"/*");
         staticServlet.setInitParameter("resourceBase",fileLocation);

@@ -32,7 +32,7 @@ object GradleUtilities: IProjectBuilderServices {
 
         val outputStream = FileOutputStream(propertiesFile)
         try {
-            properties.store(FileOutputStream(propertiesFile), "incrementVersion: ${dependency.majorVersion}.${dependency.minorVersion}")
+            properties.store(outputStream, "incrementVersion: ${dependency.majorVersion}.${dependency.minorVersion}")
         }
         finally {
             outputStream.close()
@@ -75,7 +75,7 @@ object GradleUtilities: IProjectBuilderServices {
 
         val outputStream = FileOutputStream(propertiesFile)
         try {
-            properties.store(FileOutputStream(propertiesFile), "update dependency: $variableName $version")
+            properties.store(outputStream, "update dependency: $variableName $version")
         }
         finally {
             outputStream.close()
@@ -124,7 +124,7 @@ object GradleUtilities: IProjectBuilderServices {
 
         val outputStream = FileOutputStream(propertiesFile)
         try {
-            properties.store(FileOutputStream(propertiesFile), "set version: ${dependency.majorVersion}.${dependency.minorVersion}")
+            properties.store(outputStream, "set version: ${dependency.majorVersion}.${dependency.minorVersion}")
         }
         finally {
             outputStream.close()

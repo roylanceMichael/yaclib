@@ -5,6 +5,7 @@ import org.roylance.yaclib.core.enums.CommonTokens
 import org.roylance.yaclib.core.services.IProjectBuilderServices
 import java.io.File
 import java.io.FileInputStream
+import java.io.FileOutputStream
 import java.nio.file.Paths
 import java.util.*
 
@@ -67,16 +68,24 @@ object PythonUtilities: IProjectBuilderServices {
         val inputStream = FileInputStream(propertiesFile)
         try {
             properties.load(inputStream)
-
-            val currentVersion = cleanseProperty(properties.getProperty(JavaUtilities.MinorName)).toInt() + 1
-            properties.setProperty(JavaUtilities.MinorName, surroundWithDoubleQuotes(currentVersion.toString()))
-            properties.setProperty(JavaUtilities.MajorName, surroundWithDoubleQuotes(dependency.majorVersion))
-
-            return YaclibModel.ProcessReport.newBuilder().setNewMinor(currentVersion).build()
         }
         finally {
             inputStream.close()
-        }    }
+        }
+
+        val currentVersion = cleanseProperty(properties.getProperty(JavaUtilities.MinorName)).toInt() + 1
+        properties.setProperty(JavaUtilities.MinorName, surroundWithDoubleQuotes(currentVersion.toString()))
+        properties.setProperty(JavaUtilities.MajorName, surroundWithDoubleQuotes(dependency.majorVersion))
+
+        val outputStream = FileOutputStream(propertiesFile)
+        try {
+            properties.store(outputStream, "set version: ${dependency.majorVersion}.${dependency.minorVersion}")
+        }
+        finally {
+            outputStream.close()
+        }
+        return YaclibModel.ProcessReport.newBuilder().setNewMinor(currentVersion).build()
+    }
 
     override fun updateDependencyVersion(location: String, otherDependency: YaclibModel.Dependency): YaclibModel.ProcessReport {
         return YaclibModel.ProcessReport.getDefaultInstance()
@@ -110,13 +119,22 @@ object PythonUtilities: IProjectBuilderServices {
         val inputStream = FileInputStream(propertiesFile)
         try {
             properties.load(inputStream)
-            properties.setProperty(JavaUtilities.MinorName, surroundWithDoubleQuotes(dependency.minorVersion.toString()))
-            properties.setProperty(JavaUtilities.MajorName, surroundWithDoubleQuotes(dependency.majorVersion.toString()))
-            return YaclibModel.ProcessReport.getDefaultInstance()
         }
         finally {
             inputStream.close()
         }
+
+        properties.setProperty(JavaUtilities.MinorName, surroundWithDoubleQuotes(dependency.minorVersion.toString()))
+        properties.setProperty(JavaUtilities.MajorName, surroundWithDoubleQuotes(dependency.majorVersion.toString()))
+
+        val outputStream = FileOutputStream(propertiesFile)
+        try {
+            properties.store(outputStream, "set version: ${dependency.majorVersion}.${dependency.minorVersion}")
+        }
+        finally {
+            outputStream.close()
+        }
+        return YaclibModel.ProcessReport.getDefaultInstance()
     }
 
     override fun clean(location: String): YaclibModel.ProcessReport {

@@ -57,7 +57,7 @@ ${buildDependencies()}
 }
 
 task packageApp(type: YaclibPackagePlugin) {
-    appName = "$${JavaUtilities.NameName}"
+    appName = rootProject.name
     serverVersion = "$${JavaUtilities.MajorName}.$${JavaUtilities.MinorName}"
     maintainerInfo = "${projectInformation.mainDependency.authorName}"
     serverPort = "$${JavaUtilities.ServerPortName}".toInteger()
