@@ -8,7 +8,8 @@ import java.util.*
 
 class PropertiesBuilder(private val controllerDependencies: YaclibModel.AllControllerDependencies,
                         private val mainDependency: YaclibModel.Dependency,
-                        private val thirdPartyDependencies: List<YaclibModel.Dependency>): IBuilder<YaclibModel.File> {
+                        private val thirdPartyDependencies: List<YaclibModel.Dependency>,
+                        private val additionalProperties: HashMap<String, String> = HashMap()): IBuilder<YaclibModel.File> {
     override fun build(): YaclibModel.File {
         val properties = Properties()
 
@@ -24,6 +25,10 @@ class PropertiesBuilder(private val controllerDependencies: YaclibModel.AllContr
 
         thirdPartyDependencies.forEach {
             uniqueDependencies[JavaUtilities.buildPackageVariableName(it)] = it.thirdPartyDependencyVersion
+        }
+
+        additionalProperties.keys.forEach {
+            properties.setProperty(it, additionalProperties[it])
         }
 
         uniqueDependencies.keys.forEach {

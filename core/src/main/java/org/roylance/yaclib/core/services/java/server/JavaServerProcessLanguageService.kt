@@ -7,7 +7,9 @@ import org.roylance.yaclib.core.services.common.NPMBlobBuilder
 import org.roylance.yaclib.core.services.common.NPMPackageBuilder
 import org.roylance.yaclib.core.services.java.common.GradleSettingsBuilder
 import org.roylance.yaclib.core.services.java.common.PropertiesBuilder
+import org.roylance.yaclib.core.utilities.JavaUtilities
 import org.roylance.yaclib.core.utilities.TypeScriptUtilities
+import java.util.*
 
 class JavaServerProcessLanguageService: IProcessLanguageService {
     override fun buildInterface(projectInformation: YaclibModel.ProjectInformation): YaclibModel.AllFiles {
@@ -28,7 +30,16 @@ class JavaServerProcessLanguageService: IProcessLanguageService {
             returnList.addFiles(GradleSettingsBuilder(CommonTokens.ServerApi).build())
             returnList.addFiles(GradleProcBuilder(CommonTokens.ServerApi).build())
             returnList.addFiles(JettyGradleBuilder(projectInformation).build())
-            returnList.addFiles(PropertiesBuilder(projectInformation.controllers, projectInformation.mainDependency, projectInformation.thirdPartyDependenciesList).build())
+
+            val buildProperties = HashMap<String, String>()
+            buildProperties[JavaUtilities.JerseyMediaName] = JavaUtilities.JerseyMediaVersion
+            buildProperties[JavaUtilities.JettyServerName] = JavaUtilities.JettyServerVersion
+            buildProperties[JavaUtilities.KotlinName] = JavaUtilities.KotlinVersion
+            buildProperties[JavaUtilities.ServerPortName] = projectInformation.mainDependency.serverPort.toString()
+            buildProperties[JavaUtilities.YaclibVersionName] = projectInformation.mainDependency.yaclibVersion
+            buildProperties[JavaUtilities.HttpComponentsName] = JavaUtilities.HttpComponentsVersion
+
+            returnList.addFiles(PropertiesBuilder(projectInformation.controllers, projectInformation.mainDependency, projectInformation.thirdPartyDependenciesList, buildProperties).build())
             returnList.addFiles(JettyMainBuilder(projectInformation).build())
             returnList.addFiles(CustomSetupBuilder().build())
         }

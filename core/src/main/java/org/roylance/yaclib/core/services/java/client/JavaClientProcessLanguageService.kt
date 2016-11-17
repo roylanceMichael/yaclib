@@ -6,12 +6,21 @@ import org.roylance.yaclib.core.services.IProcessLanguageService
 import org.roylance.yaclib.core.services.common.ReadmeBuilder
 import org.roylance.yaclib.core.services.java.common.GradleSettingsBuilder
 import org.roylance.yaclib.core.services.java.common.PropertiesBuilder
+import org.roylance.yaclib.core.utilities.JavaUtilities
+import java.util.*
 
 class JavaClientProcessLanguageService: IProcessLanguageService {
     override fun buildInterface(projectInformation: YaclibModel.ProjectInformation): YaclibModel.AllFiles {
         val returnList = YaclibModel.AllFiles.newBuilder()
 
-        returnList.addFiles(PropertiesBuilder(projectInformation.controllers, projectInformation.mainDependency, projectInformation.thirdPartyDependenciesList).build())
+        val buildProperties = HashMap<String, String>()
+        buildProperties[JavaUtilities.KotlinName] = JavaUtilities.KotlinVersion
+        buildProperties[JavaUtilities.RoylanceCommonName] = JavaUtilities.RoylanceCommonVersion
+        buildProperties[JavaUtilities.ArtifactoryName] = JavaUtilities.ArtifactoryVersion
+        buildProperties[JavaUtilities.BintrayName] = JavaUtilities.BintrayVersion
+        buildProperties[JavaUtilities.RetrofitName] = JavaUtilities.RetrofitVersion
+
+        returnList.addFiles(PropertiesBuilder(projectInformation.controllers, projectInformation.mainDependency, projectInformation.thirdPartyDependenciesList, buildProperties).build())
         returnList.addFiles(ReadmeBuilder(projectInformation.mainDependency).build())
         returnList.addFiles(GradleFileBuilder(projectInformation, CommonTokens.ClientApi).build())
         returnList.addFiles(GradleSettingsBuilder(CommonTokens.ClientApi).build())
