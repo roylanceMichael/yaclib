@@ -23,8 +23,15 @@ class PropertiesBuilder(private val controllerDependencies: YaclibModel.AllContr
             uniqueDependencies[JavaUtilities.buildPackageVariableName(it.dependency)] = "${it.dependency.majorVersion}.${it.dependency.minorVersion}"
         }
 
-        thirdPartyDependencies.forEach {
-            uniqueDependencies[JavaUtilities.buildPackageVariableName(it)] = it.thirdPartyDependencyVersion
+        thirdPartyDependencies
+                .filter { it.type == YaclibModel.DependencyType.JAVA }
+                .forEach {
+            if (it.thirdPartyDependencyVersion.isEmpty()) {
+                uniqueDependencies[JavaUtilities.buildPackageVariableName(it)] = "${it.majorVersion}.${it.minorVersion}"
+            }
+            else {
+                uniqueDependencies[JavaUtilities.buildPackageVariableName(it)] = it.thirdPartyDependencyVersion
+            }
         }
 
         additionalProperties.keys.forEach {

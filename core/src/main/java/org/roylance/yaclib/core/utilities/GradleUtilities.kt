@@ -70,12 +70,17 @@ object GradleUtilities: IProjectBuilderServices {
         }
 
         val variableName = JavaUtilities.buildPackageVariableName(otherDependency)
-        val version = "${otherDependency.majorVersion}.${otherDependency.minorVersion}"
-        properties.setProperty(variableName, version)
+        if (otherDependency.thirdPartyDependencyVersion.isEmpty()) {
+            val version = "${otherDependency.majorVersion}.${otherDependency.minorVersion}"
+            properties.setProperty(variableName, version)
+        }
+        else {
+            properties.setProperty(variableName, otherDependency.thirdPartyDependencyVersion)
+        }
 
         val outputStream = FileOutputStream(propertiesFile)
         try {
-            properties.store(outputStream, "update dependency: $variableName $version")
+            properties.store(outputStream, "update dependency: $variableName")
         }
         finally {
             outputStream.close()

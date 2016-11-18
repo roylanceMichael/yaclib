@@ -41,7 +41,12 @@ object MavenUtilities: IProjectBuilderServices {
 
         val variableName = JavaUtilities.buildPackageVariableName(otherDependency)
         val model = reader.read(FileReader(pomFile))
-        model.properties.setProperty(variableName, "${otherDependency.majorVersion}.${otherDependency.minorVersion}")
+        if (otherDependency.thirdPartyDependencyVersion.isEmpty()) {
+            model.properties.setProperty(variableName, "${otherDependency.majorVersion}.${otherDependency.minorVersion}")
+        }
+        else {
+            model.properties.setProperty(variableName, otherDependency.thirdPartyDependencyVersion)
+        }
 
         MavenXpp3Writer().write(FileWriter(pomFile), model)
 
