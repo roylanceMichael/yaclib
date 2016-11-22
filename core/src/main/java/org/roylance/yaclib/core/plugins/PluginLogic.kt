@@ -29,6 +29,18 @@ class PluginLogic(
     private val auxiliaryProjectsMap = HashMap<String, YaclibModel.AuxiliaryProject.Builder>()
     private val dependencyMap = HashMap<String, YaclibModel.Dependency>()
 
+    private val roylanceCommonDependency = YaclibModel.Dependency.newBuilder()
+            .setGroup("yaclib.roylance")
+            .setName("common")
+            .setThirdPartyDependencyVersion(JavaUtilities.RoylanceCommonVersion)
+            .build()
+
+    private val kotlinDependency = YaclibModel.Dependency.newBuilder()
+            .setGroup("yaclib")
+            .setName("kotlin")
+            .setThirdPartyDependencyVersion(JavaUtilities.KotlinVersion)
+            .build()
+
     init {
         auxiliaryProjects.projectsList.forEach {
             dependencyMap[JavaUtilities.buildFullPackageName(it.targetDependency)] = it.targetDependency
@@ -45,6 +57,13 @@ class PluginLogic(
     }
 
     override fun build(): Boolean {
+        auxiliaryProjectsMap.values.forEach { project ->
+            println("updating ${project.targetDependency.group}.${project.targetDependency.name} with roylance.common (${JavaUtilities.RoylanceCommonVersion}) and kotlin (${JavaUtilities.KotlinVersion})")
+
+            val actualLocation = Paths.get(location, project.targetDependency.name).toString()
+            GradleUtilities.updateDependencyVersion(actualLocation, roylanceCommonDependency)
+            GradleUtilities.updateDependencyVersion(actualLocation, kotlinDependency)
+        }
         processPhase(YaclibModel.ExecutionPhase.DELETE_DIRECTORIES)
 
         // delete phase
