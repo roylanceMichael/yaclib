@@ -1,6 +1,12 @@
 syntax = "proto3";
 package org.roylance.yaclib;
 
+// no binding, use the actual models...
+// let's define our schema first
+// we have a root view at the beginning
+// next, a collection of segues
+// segues are activated through a variety of ways
+
 enum BindingType {
     BINDING_INPUT = 0;
     BINDING_LABEL = 1;

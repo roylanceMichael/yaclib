@@ -1,6 +1,6 @@
 buildscript {
     ext.kotlin_version = '1.0.5'
-    ext.projectVersion = '0.184'
+    ext.projectVersion = '0.188'
 
     repositories {
         mavenCentral()
