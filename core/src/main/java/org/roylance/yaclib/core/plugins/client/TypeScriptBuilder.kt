@@ -18,11 +18,11 @@ class TypeScriptBuilder(private val location: String,
         println(InitUtilities.buildPhaseMessage("typescript client begin"))
 
         println(InitUtilities.buildPhaseMessage("building protobufs for npm"))
-        val protobufJsInstallReport = FileProcessUtilities.executeProcess(javaScriptDirectory.toString(), InitUtilities.NPM, "install -g protobufjs")
+        val protobufJsInstallReport = FileProcessUtilities.executeProcess(javaScriptDirectory.toString(), InitUtilities.NPM, "install -g protobufjs@${TypeScriptUtilities.ProtobufJsVersion}")
         println(protobufJsInstallReport.normalOutput)
         println(protobufJsInstallReport.errorOutput)
 
-        val proto2TypeScriptInstallReport = FileProcessUtilities.executeProcess(javaScriptDirectory.toString(), InitUtilities.NPM, "install -g proto2typescript")
+        val proto2TypeScriptInstallReport = FileProcessUtilities.executeProcess(javaScriptDirectory.toString(), InitUtilities.NPM, "install -g proto2typescript@${TypeScriptUtilities.Proto2TypeScriptVersion}")
         println(proto2TypeScriptInstallReport.normalOutput)
         println(proto2TypeScriptInstallReport.errorOutput)
 

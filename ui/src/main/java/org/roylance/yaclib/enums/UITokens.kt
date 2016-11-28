@@ -2,7 +2,7 @@ package org.roylance.yaclib.enums
 
 object UITokens {
     const val YaclibMajor = 0
-    const val YaclibMinor = 189
+    const val YaclibMinor = 190
     const val YaclibGroup = "org.roylance.yaclib"
     const val YaclibName = "yaclib"
 

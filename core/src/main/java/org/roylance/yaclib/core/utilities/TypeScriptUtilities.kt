@@ -16,10 +16,13 @@ object TypeScriptUtilities: IProjectBuilderServices {
     }
     private val gson = GsonBuilder().setPrettyPrinting().create()
 
-    val protobufJsDependencyBuilder = YaclibModel.Dependency.newBuilder().setThirdPartyDependencyVersion("^5.0.1").setGroup("protobufjs").setType(YaclibModel.DependencyType.TYPESCRIPT)!!
+    const val ProtobufJsVersion = "^5.0.1"
+    const val Proto2TypeScriptVersion = "^2.2.0"
+
+    val protobufJsDependencyBuilder = YaclibModel.Dependency.newBuilder().setThirdPartyDependencyVersion(ProtobufJsVersion).setGroup("protobufjs").setType(YaclibModel.DependencyType.TYPESCRIPT)!!
     val roylanceCommonDependencyBuilder = YaclibModel.Dependency.newBuilder().setThirdPartyDependencyVersion("^${JavaUtilities.RoylanceCommonVersion}.0").setGroup("roylance.common").setType(YaclibModel.DependencyType.TYPESCRIPT)!!
 
-    val proto2TypeScriptDependencyBuilder = YaclibModel.Dependency.newBuilder().setThirdPartyDependencyVersion("^2.2.0").setGroup("proto2typescript").setType(YaclibModel.DependencyType.TYPESCRIPT)!!
+    val proto2TypeScriptDependencyBuilder = YaclibModel.Dependency.newBuilder().setThirdPartyDependencyVersion(Proto2TypeScriptVersion).setGroup("proto2typescript").setType(YaclibModel.DependencyType.TYPESCRIPT)!!
 
     val baseTypeScriptKit = object: ArrayList<YaclibModel.Dependency>(){
         init {

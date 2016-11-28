@@ -1,6 +1,17 @@
 syntax = "proto3";
 package org.roylance.yaclib;
 
+enum ClientType {
+    CLIENT_ANDROID = 0;
+    CLIENT_IOS_XAMARIN = 1;
+    CLIENT_LIBGDX = 2;
+    CLIENT_JAVAFX = 3;
+    CLIENT_TYPESCRIPT = 4;
+    CLIENT_CLI_JAVA = 5;
+    CLIENT_CLI_PYTHON = 6;
+    CLIENT_CLI_CSHARP = 7;
+}
+
 enum ServerType {
     MAVEN_TOMCAT_EMBEDDED = 0;
     GRADLE_JETTY_EMBEDDED = 1;
