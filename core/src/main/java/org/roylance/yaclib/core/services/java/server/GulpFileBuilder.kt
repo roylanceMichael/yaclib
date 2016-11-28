@@ -9,7 +9,6 @@ class GulpFileBuilder(private val dependencies: YaclibModel.AllControllerDepende
     private val initialTemplate = """${CommonTokens.DoNotAlterMessage}
 var gulp = require('gulp');
 var gulpsync = require('gulp-sync')(gulp);
-var sass = require('gulp-sass');
 var concat = require('gulp-concat');
 var del = require('del');
 var uglify = require('gulp-uglify');
