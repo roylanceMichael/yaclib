@@ -6,6 +6,7 @@ public class CommonTokens {
 
     public static final String ControllerSuffix = "Controller";
     public static final String ActionSuffix = "Action";
+    public static final String ServiceSuffix = "Service";
 
     public static final String ProtoMessageType = "MESSAGE";
 

@@ -15,6 +15,15 @@ public final class YaclibView {
         (com.google.protobuf.ExtensionRegistryLite) registry);
   }
   /**
+   * <pre>
+   * simple view definition
+   * if it ends with view, it's a view
+   * its children are now components
+   * a view is a list of views
+   * let's do some concrete tests...
+   * step 1, UI framework in protobuf models
+   * </pre>
+   *
    * Protobuf enum {@code org.roylance.yaclib.VisualSize}
    */
   public enum VisualSize

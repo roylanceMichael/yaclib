@@ -170,6 +170,7 @@ message AllFiles {
 
 message AllControllers {
     repeated Controller controllers = 1;
+    repeated Service services = 2;
 }
 
 message ControllerDependency {
@@ -209,4 +210,9 @@ message AuxiliaryProject {
 
 message AuxiliaryProjects {
     repeated AuxiliaryProject projects = 1;
+}
+
+message Service {
+    string name = 1;
+    repeated Action actions = 2;
 }
