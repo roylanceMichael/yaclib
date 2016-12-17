@@ -30,9 +30,9 @@ object JavaUtilities {
 
     const val ArtifactoryVersion = "4.4.0"
     const val BintrayVersion = "1.7"
-    const val RoylanceCommonVersion = "0.10"
+    const val RoylanceCommonVersion = "0.11"
     const val TomcatVersion = "8.0.28"
-    const val KotlinVersion = "1.0.5-2"
+    const val KotlinVersion = "1.0.5-3"
 
     const val CommonsIOVersion = "2.5"
     const val ProtobufVersion = "3.0.0"

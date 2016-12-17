@@ -41,6 +41,10 @@ class PluginLogic(
             .setThirdPartyDependencyVersion(JavaUtilities.KotlinVersion)
             .build()
 
+    private val projectBuilderServices = HashMap<YaclibModel.ProjectType, IProjectBuilderServices>()
+
+    private val executionTypes = HashMap<YaclibModel.CustomExecutionType, (project: YaclibModel.AuxiliaryProject.Builder, service: IProjectBuilderServices) -> Unit>()
+
     init {
         auxiliaryProjects.projectsList.forEach {
             dependencyMap[JavaUtilities.buildFullPackageName(it.targetDependency)] = it.targetDependency
@@ -53,6 +57,79 @@ class PluginLogic(
         thirdPartyServerDependencies.forEach {
             val packageName= JavaUtilities.buildFullPackageName(it)
             dependencyMap[packageName] = it
+        }
+
+        projectBuilderServices[YaclibModel.ProjectType.GRADLE_PROJECT_TYPE] = GradleUtilities
+        projectBuilderServices[YaclibModel.ProjectType.MAVEN_PROJECT_TYPE] = MavenUtilities
+        projectBuilderServices[YaclibModel.ProjectType.NPM_PROJECT_TYPE] = TypeScriptUtilities
+        projectBuilderServices[YaclibModel.ProjectType.DOTNET_PROJECT_TYPE] = CSharpUtilities
+        projectBuilderServices[YaclibModel.ProjectType.PIP_PROJECT_TYPE] = PythonUtilities
+
+        executionTypes[YaclibModel.CustomExecutionType.CUSTOM_BUILD] = { project, service ->
+            val projectLocation = Paths.get(location, project.targetDependency.name)
+
+            println(InitUtilities.buildPhaseMessage(YaclibModel.CustomExecutionType.CUSTOM_BUILD.name + " " + JavaUtilities.buildFullPackageName(project.targetDependency)))
+            printReportToConsole(service.build(projectLocation.toString()))
+        }
+        executionTypes[YaclibModel.CustomExecutionType.CUSTOM_PACKAGE] = { project, service ->
+            val packageName = JavaUtilities.buildFullPackageName(project.targetDependency)
+            val actualTargetDependency = dependencyMap[packageName]!!
+            val projectLocation = Paths.get(location, project.targetDependency.name)
+
+            println(InitUtilities.buildPhaseMessage(YaclibModel.CustomExecutionType.CUSTOM_PACKAGE.name + " " + packageName))
+            printReportToConsole(service.buildPackage(projectLocation.toString(), actualTargetDependency))
+        }
+        executionTypes[YaclibModel.CustomExecutionType.CUSTOM_PUBLISH] = { project, service ->
+            val packageName = JavaUtilities.buildFullPackageName(project.targetDependency)
+            val actualTargetDependency = dependencyMap[packageName]!!
+            val projectLocation = Paths.get(location, project.targetDependency.name)
+
+            println(InitUtilities.buildPhaseMessage(YaclibModel.CustomExecutionType.CUSTOM_PUBLISH.name + " " + packageName))
+            printReportToConsole(service.publish(projectLocation.toString(), actualTargetDependency))
+        }
+        executionTypes[YaclibModel.CustomExecutionType.CUSTOM_INCREMENT_VERSION] = { project, service ->
+            val packageName = JavaUtilities.buildFullPackageName(project.targetDependency)
+            val actualTargetDependency = dependencyMap[packageName]!!
+            println(InitUtilities.buildPhaseMessage(YaclibModel.CustomExecutionType.CUSTOM_INCREMENT_VERSION.name + " " + packageName))
+
+            val projectLocation = Paths.get(location, project.targetDependency.name).toString()
+            val report = service.incrementVersion(projectLocation, actualTargetDependency)
+            printReportToConsole(report)
+
+            project.targetDependencyBuilder
+                    .setMajorVersion(report.newMajor)
+                    .setMinorVersion(report.newMinor)
+
+            dependencyMap[JavaUtilities.buildFullPackageName(project.targetDependency)] = project.targetDependency
+            auxiliaryProjectsMap[JavaUtilities.buildFullPackageName(project.targetDependency)] = project
+        }
+        executionTypes[YaclibModel.CustomExecutionType.CUSTOM_UPDATE_DEPENDENCIES] = { project, service ->
+            val packageName = JavaUtilities.buildFullPackageName(project.targetDependency)
+            val actualTargetDependency = dependencyMap[packageName]!!
+            println(InitUtilities.buildPhaseMessage(YaclibModel.CustomExecutionType.CUSTOM_UPDATE_DEPENDENCIES.name + " " + packageName))
+            val projectLocation = Paths.get(location, actualTargetDependency.name).toString()
+            project.fromDependenciesList.forEach { fromDependency ->
+                val actualFromDependency = dependencyMap[JavaUtilities.buildFullPackageName(fromDependency)]!!
+                printReportToConsole(service.updateDependencyVersion(projectLocation, actualFromDependency))
+            }
+            project.toDependenciesList.forEach { toDependency ->
+                val toLocation = Paths.get(location, toDependency.name).toString()
+                printReportToConsole(service.updateDependencyVersion(toLocation, actualTargetDependency))
+            }
+        }
+        executionTypes[YaclibModel.CustomExecutionType.CUSTOM_SET_VERSION] = { project, service ->
+            val packageName = JavaUtilities.buildFullPackageName(project.targetDependency)
+            val actualTargetDependency = dependencyMap[packageName]!!
+            println(InitUtilities.buildPhaseMessage(YaclibModel.CustomExecutionType.CUSTOM_SET_VERSION.name + " " + packageName))
+            val projectLocation = Paths.get(location, project.targetDependency.name).toString()
+            printReportToConsole(service.setVersion(projectLocation, actualTargetDependency))
+        }
+        executionTypes[YaclibModel.CustomExecutionType.CUSTOM_CLEAN] = { project, service ->
+            val packageName = JavaUtilities.buildFullPackageName(project.targetDependency)
+            val actualTargetDependency = dependencyMap[packageName]!!
+            println(InitUtilities.buildPhaseMessage(YaclibModel.CustomExecutionType.CUSTOM_CLEAN.name + " " + packageName))
+            val projectLocation = Paths.get(location, project.targetDependency.name).toString()
+            printReportToConsole(service.setVersion(projectLocation, actualTargetDependency))
         }
     }
 
@@ -148,86 +225,5 @@ class PluginLogic(
     private fun printReportToConsole(report: YaclibModel.ProcessReport) {
         println(report.normalOutput)
         println(report.errorOutput)
-    }
-
-    private val projectBuilderServices = object: HashMap<YaclibModel.ProjectType, IProjectBuilderServices>() {
-        init {
-            this[YaclibModel.ProjectType.GRADLE_PROJECT_TYPE] = GradleUtilities
-            this[YaclibModel.ProjectType.MAVEN_PROJECT_TYPE] = MavenUtilities
-            this[YaclibModel.ProjectType.NPM_PROJECT_TYPE] = TypeScriptUtilities
-            this[YaclibModel.ProjectType.DOTNET_PROJECT_TYPE] = CSharpUtilities
-            this[YaclibModel.ProjectType.PIP_PROJECT_TYPE] = PythonUtilities
-        }
-    }
-
-    private val executionTypes = object: HashMap<YaclibModel.CustomExecutionType, (project: YaclibModel.AuxiliaryProject.Builder, service: IProjectBuilderServices) -> Unit>() {
-        init {
-            this[YaclibModel.CustomExecutionType.CUSTOM_BUILD] = { project, service ->
-                val projectLocation = Paths.get(location, project.targetDependency.name)
-
-                println(InitUtilities.buildPhaseMessage(YaclibModel.CustomExecutionType.CUSTOM_BUILD.name + " " + JavaUtilities.buildFullPackageName(project.targetDependency)))
-                printReportToConsole(service.build(projectLocation.toString()))
-            }
-            this[YaclibModel.CustomExecutionType.CUSTOM_PACKAGE] = { project, service ->
-                val packageName = JavaUtilities.buildFullPackageName(project.targetDependency)
-                val actualTargetDependency = dependencyMap[packageName]!!
-                val projectLocation = Paths.get(location, project.targetDependency.name)
-
-                println(InitUtilities.buildPhaseMessage(YaclibModel.CustomExecutionType.CUSTOM_PACKAGE.name + " " + packageName))
-                printReportToConsole(service.buildPackage(projectLocation.toString(), actualTargetDependency))
-            }
-            this[YaclibModel.CustomExecutionType.CUSTOM_PUBLISH] = { project, service ->
-                val packageName = JavaUtilities.buildFullPackageName(project.targetDependency)
-                val actualTargetDependency = dependencyMap[packageName]!!
-                val projectLocation = Paths.get(location, project.targetDependency.name)
-
-                println(InitUtilities.buildPhaseMessage(YaclibModel.CustomExecutionType.CUSTOM_PUBLISH.name + " " + packageName))
-                printReportToConsole(service.publish(projectLocation.toString(), actualTargetDependency))
-            }
-            this[YaclibModel.CustomExecutionType.CUSTOM_INCREMENT_VERSION] = { project, service ->
-                val packageName = JavaUtilities.buildFullPackageName(project.targetDependency)
-                val actualTargetDependency = dependencyMap[packageName]!!
-                println(InitUtilities.buildPhaseMessage(YaclibModel.CustomExecutionType.CUSTOM_INCREMENT_VERSION.name + " " + packageName))
-
-                val projectLocation = Paths.get(location, project.targetDependency.name).toString()
-                val report = service.incrementVersion(projectLocation, actualTargetDependency)
-                printReportToConsole(report)
-
-                project.targetDependencyBuilder
-                    .setMajorVersion(report.newMajor)
-                    .setMinorVersion(report.newMinor)
-
-                dependencyMap[JavaUtilities.buildFullPackageName(project.targetDependency)] = project.targetDependency
-                auxiliaryProjectsMap[JavaUtilities.buildFullPackageName(project.targetDependency)] = project
-            }
-            this[YaclibModel.CustomExecutionType.CUSTOM_UPDATE_DEPENDENCIES] = { project, service ->
-                val packageName = JavaUtilities.buildFullPackageName(project.targetDependency)
-                val actualTargetDependency = dependencyMap[packageName]!!
-                println(InitUtilities.buildPhaseMessage(YaclibModel.CustomExecutionType.CUSTOM_UPDATE_DEPENDENCIES.name + " " + packageName))
-                val projectLocation = Paths.get(location, actualTargetDependency.name).toString()
-                project.fromDependenciesList.forEach { fromDependency ->
-                    val actualFromDependency = dependencyMap[JavaUtilities.buildFullPackageName(fromDependency)]!!
-                    printReportToConsole(service.updateDependencyVersion(projectLocation, actualFromDependency))
-                }
-                project.toDependenciesList.forEach { toDependency ->
-                    val toLocation = Paths.get(location, toDependency.name).toString()
-                    printReportToConsole(service.updateDependencyVersion(toLocation, actualTargetDependency))
-                }
-            }
-            this[YaclibModel.CustomExecutionType.CUSTOM_SET_VERSION] = { project, service ->
-                val packageName = JavaUtilities.buildFullPackageName(project.targetDependency)
-                val actualTargetDependency = dependencyMap[packageName]!!
-                println(InitUtilities.buildPhaseMessage(YaclibModel.CustomExecutionType.CUSTOM_SET_VERSION.name + " " + packageName))
-                val projectLocation = Paths.get(location, project.targetDependency.name).toString()
-                printReportToConsole(service.setVersion(projectLocation, actualTargetDependency))
-            }
-            this[YaclibModel.CustomExecutionType.CUSTOM_CLEAN] = { project, service ->
-                val packageName = JavaUtilities.buildFullPackageName(project.targetDependency)
-                val actualTargetDependency = dependencyMap[packageName]!!
-                println(InitUtilities.buildPhaseMessage(YaclibModel.CustomExecutionType.CUSTOM_CLEAN.name + " " + packageName))
-                val projectLocation = Paths.get(location, project.targetDependency.name).toString()
-                printReportToConsole(service.setVersion(projectLocation, actualTargetDependency))
-            }
-        }
     }
 }

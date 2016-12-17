@@ -26,7 +26,5 @@ class DotNetProject {
         var debugType: String? = null
     }
 
-    class Frameworks: HashMap<String, Dependency>() {}
-
-    var frameworks: Frameworks? = null
+    var frameworks: HashMap<String, Dependency>? = null
 }
