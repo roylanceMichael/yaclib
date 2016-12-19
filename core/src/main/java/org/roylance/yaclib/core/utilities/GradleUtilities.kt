@@ -143,7 +143,13 @@ object GradleUtilities: IProjectBuilderServices {
     }
 
     override fun build(location: String): YaclibModel.ProcessReport {
-        return FileProcessUtilities.executeProcess(location, InitUtilities.Gradle, "build")
+        val buildReport = FileProcessUtilities.executeProcess(location, InitUtilities.Gradle, "build")
+        val installReport = FileProcessUtilities.executeProcess(location, InitUtilities.Gradle, "install")
+
+        return buildReport.toBuilder()
+                .setContent(buildReport.content + installReport.content)
+                .setErrorOutput(buildReport.errorOutput + installReport.errorOutput)
+                .build()
     }
 
     override fun buildPackage(location: String, dependency: YaclibModel.Dependency): YaclibModel.ProcessReport {
