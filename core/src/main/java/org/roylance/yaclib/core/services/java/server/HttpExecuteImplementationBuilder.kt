@@ -18,12 +18,17 @@ export class $FileName implements ${HttpExecuteServiceBuilder.FileName} {
     }
 
     performPost(url:string, data:any, onSuccess:(data)=>void, onError:(data)=>void) {
+        // https://docs.angularjs.org/api/ng/service/${"\$http"}
         this.httpService({
             url: url,
             method: this.httpPost,
             data: data
-        }).success(onSuccess)
-          .error(onError);
+        }).then(function(response) {
+            onSuccess(response.data);
+        },
+            function(response) {
+            onError(response.data);
+        });
     }
 }
 """
