@@ -133,6 +133,7 @@ message Dependency {
     ServerType server_type = 21;
     int32 server_port = 22;
     string yaclib_version = 23;
+    bool unpublish_nuget = 24;
 }
 
 message File {

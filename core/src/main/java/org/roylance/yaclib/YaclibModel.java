@@ -3003,6 +3003,11 @@ public final class YaclibModel {
      */
     com.google.protobuf.ByteString
         getYaclibVersionBytes();
+
+    /**
+     * <code>optional bool unpublish_nuget = 24;</code>
+     */
+    boolean getUnpublishNuget();
   }
   /**
    * Protobuf type {@code org.roylance.yaclib.Dependency}
@@ -3029,6 +3034,7 @@ public final class YaclibModel {
       serverType_ = 0;
       serverPort_ = 0;
       yaclibVersion_ = "";
+      unpublishNuget_ = false;
     }
 
     @java.lang.Override
@@ -3181,6 +3187,11 @@ public final class YaclibModel {
               java.lang.String s = input.readStringRequireUtf8();
 
               yaclibVersion_ = s;
+              break;
+            }
+            case 192: {
+
+              unpublishNuget_ = input.readBool();
               break;
             }
           }
@@ -3621,6 +3632,15 @@ public final class YaclibModel {
       }
     }
 
+    public static final int UNPUBLISH_NUGET_FIELD_NUMBER = 24;
+    private boolean unpublishNuget_;
+    /**
+     * <code>optional bool unpublish_nuget = 24;</code>
+     */
+    public boolean getUnpublishNuget() {
+      return unpublishNuget_;
+    }
+
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
@@ -3683,6 +3703,9 @@ public final class YaclibModel {
       }
       if (!getYaclibVersionBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 23, yaclibVersion_);
+      }
+      if (unpublishNuget_ != false) {
+        output.writeBool(24, unpublishNuget_);
       }
     }
 
@@ -3751,6 +3774,10 @@ public final class YaclibModel {
       if (!getYaclibVersionBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(23, yaclibVersion_);
       }
+      if (unpublishNuget_ != false) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(24, unpublishNuget_);
+      }
       memoizedSize = size;
       return size;
     }
@@ -3811,6 +3838,8 @@ public final class YaclibModel {
           == other.getServerPort());
       result = result && getYaclibVersion()
           .equals(other.getYaclibVersion());
+      result = result && (getUnpublishNuget()
+          == other.getUnpublishNuget());
       return result;
     }
 
@@ -3863,6 +3892,9 @@ public final class YaclibModel {
       hash = (53 * hash) + getServerPort();
       hash = (37 * hash) + YACLIB_VERSION_FIELD_NUMBER;
       hash = (53 * hash) + getYaclibVersion().hashCode();
+      hash = (37 * hash) + UNPUBLISH_NUGET_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+          getUnpublishNuget());
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -4031,6 +4063,8 @@ public final class YaclibModel {
 
         yaclibVersion_ = "";
 
+        unpublishNuget_ = false;
+
         return this;
       }
 
@@ -4086,6 +4120,7 @@ public final class YaclibModel {
         result.serverType_ = serverType_;
         result.serverPort_ = serverPort_;
         result.yaclibVersion_ = yaclibVersion_;
+        result.unpublishNuget_ = unpublishNuget_;
         onBuilt();
         return result;
       }
@@ -4185,6 +4220,9 @@ public final class YaclibModel {
         if (!other.getYaclibVersion().isEmpty()) {
           yaclibVersion_ = other.yaclibVersion_;
           onChanged();
+        }
+        if (other.getUnpublishNuget() != false) {
+          setUnpublishNuget(other.getUnpublishNuget());
         }
         onChanged();
         return this;
@@ -5394,6 +5432,32 @@ public final class YaclibModel {
   checkByteStringIsUtf8(value);
         
         yaclibVersion_ = value;
+        onChanged();
+        return this;
+      }
+
+      private boolean unpublishNuget_ ;
+      /**
+       * <code>optional bool unpublish_nuget = 24;</code>
+       */
+      public boolean getUnpublishNuget() {
+        return unpublishNuget_;
+      }
+      /**
+       * <code>optional bool unpublish_nuget = 24;</code>
+       */
+      public Builder setUnpublishNuget(boolean value) {
+        
+        unpublishNuget_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional bool unpublish_nuget = 24;</code>
+       */
+      public Builder clearUnpublishNuget() {
+        
+        unpublishNuget_ = false;
         onChanged();
         return this;
       }
@@ -18585,7 +18649,7 @@ public final class YaclibModel {
       "e\030\002 \001(\t\022\014\n\004name\030\010 \001(\t\022<\n\017repository_type" +
       "\030\t \001(\0162#.org.roylance.yaclib.RepositoryT" +
       "ype\022\020\n\010registry\030\n \001(\t\022\021\n\tnpm_scope\030\013 \001(\t" +
-      "\022\022\n\nupload_url\030\014 \001(\t\022\020\n\010password\030\r \001(\t\"\327" +
+      "\022\022\n\nupload_url\030\014 \001(\t\022\020\n\010password\030\r \001(\t\"\360" +
       "\004\n\nDependency\0221\n\004type\030\001 \001(\0162#.org.roylan" +
       "ce.yaclib.DependencyType\022\r\n\005group\030\002 \001(\t\022" +
       "\014\n\004name\030\003 \001(\t\022\035\n\025typescript_model_file\030\006" +
@@ -18601,94 +18665,95 @@ public final class YaclibModel {
       "nce.yaclib.Repository\0224\n\013server_type\030\025 \001" +
       "(\0162\037.org.roylance.yaclib.ServerType\022\023\n\013s",
       "erver_port\030\026 \001(\005\022\026\n\016yaclib_version\030\027 \001(\t" +
-      "\"\355\001\n\004File\022\037\n\027full_directory_location\030\001 \001" +
-      "(\t\022\021\n\tfile_name\030\002 \001(\t\022:\n\016file_extension\030" +
-      "\003 \001(\0162\".org.roylance.yaclib.FileExtensio" +
-      "n\022\025\n\rfile_to_write\030\004 \001(\t\022=\n\020file_update_" +
-      "type\030\005 \001(\0162#.org.roylance.yaclib.FileUpd" +
-      "ateType\022\037\n\027ignore_initial_location\030\006 \001(\010" +
-      "\"H\n\nController\022\014\n\004name\030\001 \001(\t\022,\n\007actions\030" +
-      "\002 \003(\0132\033.org.roylance.yaclib.Action\"r\n\006Ac" +
-      "tion\022\014\n\004name\030\001 \001(\t\022,\n\006inputs\030\002 \003(\0132\034.org",
-      ".roylance.yaclib.Message\022,\n\006output\030\005 \001(\013" +
-      "2\034.org.roylance.yaclib.Message\"\215\001\n\007Messa" +
-      "ge\022\025\n\rargument_name\030\001 \001(\t\022\024\n\014file_packag" +
-      "e\030\002 \001(\t\022\022\n\nfile_class\030\003 \001(\t\022\027\n\017message_p" +
-      "ackage\030\004 \001(\t\022\025\n\rmessage_class\030\005 \001(\t\022\021\n\tf" +
-      "ile_name\030\006 \001(\t\"4\n\010AllFiles\022(\n\005files\030\001 \003(" +
-      "\0132\031.org.roylance.yaclib.File\"v\n\016AllContr" +
-      "ollers\0224\n\013controllers\030\001 \003(\0132\037.org.roylan" +
-      "ce.yaclib.Controller\022.\n\010services\030\002 \003(\0132\034" +
-      ".org.roylance.yaclib.Service\"\205\001\n\024Control",
-      "lerDependency\0228\n\013controllers\030\001 \001(\0132#.org" +
-      ".roylance.yaclib.AllControllers\0223\n\ndepen" +
-      "dency\030\002 \001(\0132\037.org.roylance.yaclib.Depend" +
-      "ency\"g\n\031AllControllerDependencies\022J\n\027con" +
-      "troller_dependencies\030\001 \003(\0132).org.roylanc" +
-      "e.yaclib.ControllerDependency\"\231\001\n\rProces" +
-      "sReport\022\025\n\rnormal_output\030\001 \001(\t\022\024\n\014error_" +
-      "output\030\002 \001(\t\022\020\n\010is_error\030\003 \001(\010\022\022\n\nexit_v" +
-      "alue\030\004 \001(\005\022\017\n\007content\030\005 \001(\t\022\021\n\tnew_major" +
-      "\030\006 \001(\005\022\021\n\tnew_minor\030\007 \001(\005\"\351\001\n\022ProjectInf",
-      "ormation\022C\n\013controllers\030\001 \001(\0132..org.royl" +
-      "ance.yaclib.AllControllerDependencies\0228\n" +
-      "\017main_dependency\030\002 \001(\0132\037.org.roylance.ya" +
-      "clib.Dependency\022A\n\030third_party_dependenc" +
-      "ies\030\003 \003(\0132\037.org.roylance.yaclib.Dependen" +
-      "cy\022\021\n\tis_server\030\004 \001(\010\"\366\002\n\020AuxiliaryProje" +
-      "ct\022:\n\rhandle_before\030\001 \001(\0162#.org.roylance" +
-      ".yaclib.ExecutionPhase\022<\n\nexecutions\030\002 \003" +
-      "(\0162(.org.roylance.yaclib.CustomExecution" +
-      "Type\022:\n\021from_dependencies\030\003 \003(\0132\037.org.ro",
-      "ylance.yaclib.Dependency\022:\n\021target_depen" +
-      "dency\030\004 \001(\0132\037.org.roylance.yaclib.Depend" +
-      "ency\0228\n\017to_dependencies\030\005 \003(\0132\037.org.royl" +
-      "ance.yaclib.Dependency\0226\n\014project_type\030\006" +
-      " \001(\0162 .org.roylance.yaclib.ProjectType\"L" +
-      "\n\021AuxiliaryProjects\0227\n\010projects\030\001 \003(\0132%." +
-      "org.roylance.yaclib.AuxiliaryProject\"E\n\007" +
-      "Service\022\014\n\004name\030\001 \001(\t\022,\n\007actions\030\002 \003(\0132\033" +
-      ".org.roylance.yaclib.Action*\270\001\n\nClientTy" +
-      "pe\022\022\n\016CLIENT_ANDROID\020\000\022\026\n\022CLIENT_IOS_XAM",
-      "ARIN\020\001\022\021\n\rCLIENT_LIBGDX\020\002\022\021\n\rCLIENT_JAVA" +
-      "FX\020\003\022\025\n\021CLIENT_TYPESCRIPT\020\004\022\023\n\017CLIENT_CL" +
-      "I_JAVA\020\005\022\025\n\021CLIENT_CLI_PYTHON\020\006\022\025\n\021CLIEN" +
-      "T_CLI_CSHARP\020\007*B\n\nServerType\022\031\n\025MAVEN_TO" +
-      "MCAT_EMBEDDED\020\000\022\031\n\025GRADLE_JETTY_EMBEDDED" +
-      "\020\001*\232\001\n\013ProjectType\022\027\n\023GRADLE_PROJECT_TYP" +
-      "E\020\000\022\026\n\022MAVEN_PROJECT_TYPE\020\001\022\024\n\020NPM_PROJE" +
-      "CT_TYPE\020\002\022\025\n\021GULP_PROJECT_TYPE\020\003\022\027\n\023DOTN" +
-      "ET_PROJECT_TYPE\020\004\022\024\n\020PIP_PROJECT_TYPE\020\005*" +
-      "\367\001\n\016ExecutionPhase\022\026\n\022DELETE_DIRECTORIES",
-      "\020\000\022 \n\034GENERATE_CODE_FROM_PROTOBUFS\020\001\022\030\n\024" +
-      "BUILD_PUBLISH_CSHARP\020\002\022\030\n\024BUILD_PUBLISH_" +
-      "PYTHON\020\003\022\035\n\031BUILD_PUBLISH_JAVA_CLIENT\020\004\022" +
-      "\034\n\030BUILD_PUBLISH_TYPESCRIPT\020\005\022\033\n\027BUILD_T" +
-      "YPESCRIPT_SERVER\020\006\022\035\n\031BUILD_PACKAGE_JAVA" +
-      "_SERVER\020\007*\267\001\n\023CustomExecutionType\022\020\n\014CUS" +
-      "TOM_BUILD\020\000\022\022\n\016CUSTOM_PACKAGE\020\001\022\022\n\016CUSTO" +
-      "M_PUBLISH\020\002\022\034\n\030CUSTOM_INCREMENT_VERSION\020" +
-      "\003\022\036\n\032CUSTOM_UPDATE_DEPENDENCIES\020\004\022\026\n\022CUS" +
-      "TOM_SET_VERSION\020\005\022\020\n\014CUSTOM_CLEAN\020\006*\342\001\n\016",
-      "RepositoryType\022\013\n\007BINTRAY\020\000\022\017\n\013ARTIFACTO" +
-      "RY\020\001\022\t\n\005NPMJS\020\002\022\017\n\013PRIVATE_NPM\020\003\022\t\n\005NUGE" +
-      "T\020\004\022\021\n\rPRIVATE_NUGET\020\005\022\007\n\003PIP\020\006\022\017\n\013PRIVA" +
-      "TE_PIP\020\007\022\023\n\017PRIVATE_BINTRAY\020\010\022\023\n\017ARTIFAC" +
-      "TORY_NPM\020\t\022\010\n\004PYPI\020\n\022\026\n\022ARTIFACTORY_PYTH" +
-      "ON\020\013\022\022\n\016STANDARD_MAVEN\020\014*[\n\016DependencyTy" +
-      "pe\022\014\n\010INTERNAL\020\000\022\010\n\004JAVA\020\001\022\016\n\nTYPESCRIPT" +
-      "\020\002\022\n\n\006CSHARP\020\003\022\t\n\005SWIFT\020\004\022\n\n\006PYTHON\020\005*\343\002" +
-      "\n\rFileExtension\022\n\n\006KT_EXT\020\000\022\014\n\010JAVA_EXT\020" +
-      "\001\022\022\n\016TYPESCRIPT_EXT\020\002\022\022\n\016JAVASCRIPT_EXT\020",
-      "\003\022\r\n\tSWIFT_EXT\020\004\022\013\n\007POM_EXT\020\005\022\013\n\007XML_EXT" +
-      "\020\006\022\014\n\010HTML_EXT\020\007\022\016\n\nGRADLE_EXT\020\010\022\014\n\010JSON" +
-      "_EXT\020\t\022\n\n\006TS_EXT\020\n\022\014\n\010NONE_EXT\020\013\022\013\n\007BAT_" +
-      "EXT\020\014\022\n\n\006JS_EXT\020\r\022\n\n\006CS_EXT\020\016\022\013\n\007SLN_EXT" +
-      "\020\017\022\r\n\tXPROJ_EXT\020\020\022\n\n\006SH_EXT\020\021\022\n\n\006MD_EXT\020" +
-      "\022\022\n\n\006PY_EXT\020\023\022\013\n\007CFG_EXT\020\024\022\022\n\016PROPERTIES" +
-      "_EXT\020\025\022\014\n\010BLOB_EXT\020\026\022\r\n\tPROTO_EXT\020\027*8\n\016F" +
-      "ileUpdateType\022\r\n\tOVERWRITE\020\000\022\027\n\023WRITE_IF" +
-      "_NOT_EXISTS\020\001b\006proto3"
+      "\022\027\n\017unpublish_nuget\030\030 \001(\010\"\355\001\n\004File\022\037\n\027fu" +
+      "ll_directory_location\030\001 \001(\t\022\021\n\tfile_name" +
+      "\030\002 \001(\t\022:\n\016file_extension\030\003 \001(\0162\".org.roy" +
+      "lance.yaclib.FileExtension\022\025\n\rfile_to_wr" +
+      "ite\030\004 \001(\t\022=\n\020file_update_type\030\005 \001(\0162#.or" +
+      "g.roylance.yaclib.FileUpdateType\022\037\n\027igno" +
+      "re_initial_location\030\006 \001(\010\"H\n\nController\022" +
+      "\014\n\004name\030\001 \001(\t\022,\n\007actions\030\002 \003(\0132\033.org.roy" +
+      "lance.yaclib.Action\"r\n\006Action\022\014\n\004name\030\001 ",
+      "\001(\t\022,\n\006inputs\030\002 \003(\0132\034.org.roylance.yacli" +
+      "b.Message\022,\n\006output\030\005 \001(\0132\034.org.roylance" +
+      ".yaclib.Message\"\215\001\n\007Message\022\025\n\rargument_" +
+      "name\030\001 \001(\t\022\024\n\014file_package\030\002 \001(\t\022\022\n\nfile" +
+      "_class\030\003 \001(\t\022\027\n\017message_package\030\004 \001(\t\022\025\n" +
+      "\rmessage_class\030\005 \001(\t\022\021\n\tfile_name\030\006 \001(\t\"" +
+      "4\n\010AllFiles\022(\n\005files\030\001 \003(\0132\031.org.roylanc" +
+      "e.yaclib.File\"v\n\016AllControllers\0224\n\013contr" +
+      "ollers\030\001 \003(\0132\037.org.roylance.yaclib.Contr" +
+      "oller\022.\n\010services\030\002 \003(\0132\034.org.roylance.y",
+      "aclib.Service\"\205\001\n\024ControllerDependency\0228" +
+      "\n\013controllers\030\001 \001(\0132#.org.roylance.yacli" +
+      "b.AllControllers\0223\n\ndependency\030\002 \001(\0132\037.o" +
+      "rg.roylance.yaclib.Dependency\"g\n\031AllCont" +
+      "rollerDependencies\022J\n\027controller_depende" +
+      "ncies\030\001 \003(\0132).org.roylance.yaclib.Contro" +
+      "llerDependency\"\231\001\n\rProcessReport\022\025\n\rnorm" +
+      "al_output\030\001 \001(\t\022\024\n\014error_output\030\002 \001(\t\022\020\n" +
+      "\010is_error\030\003 \001(\010\022\022\n\nexit_value\030\004 \001(\005\022\017\n\007c" +
+      "ontent\030\005 \001(\t\022\021\n\tnew_major\030\006 \001(\005\022\021\n\tnew_m",
+      "inor\030\007 \001(\005\"\351\001\n\022ProjectInformation\022C\n\013con" +
+      "trollers\030\001 \001(\0132..org.roylance.yaclib.All" +
+      "ControllerDependencies\0228\n\017main_dependenc" +
+      "y\030\002 \001(\0132\037.org.roylance.yaclib.Dependency" +
+      "\022A\n\030third_party_dependencies\030\003 \003(\0132\037.org" +
+      ".roylance.yaclib.Dependency\022\021\n\tis_server" +
+      "\030\004 \001(\010\"\366\002\n\020AuxiliaryProject\022:\n\rhandle_be" +
+      "fore\030\001 \001(\0162#.org.roylance.yaclib.Executi" +
+      "onPhase\022<\n\nexecutions\030\002 \003(\0162(.org.roylan" +
+      "ce.yaclib.CustomExecutionType\022:\n\021from_de",
+      "pendencies\030\003 \003(\0132\037.org.roylance.yaclib.D" +
+      "ependency\022:\n\021target_dependency\030\004 \001(\0132\037.o" +
+      "rg.roylance.yaclib.Dependency\0228\n\017to_depe" +
+      "ndencies\030\005 \003(\0132\037.org.roylance.yaclib.Dep" +
+      "endency\0226\n\014project_type\030\006 \001(\0162 .org.royl" +
+      "ance.yaclib.ProjectType\"L\n\021AuxiliaryProj" +
+      "ects\0227\n\010projects\030\001 \003(\0132%.org.roylance.ya" +
+      "clib.AuxiliaryProject\"E\n\007Service\022\014\n\004name" +
+      "\030\001 \001(\t\022,\n\007actions\030\002 \003(\0132\033.org.roylance.y" +
+      "aclib.Action*\270\001\n\nClientType\022\022\n\016CLIENT_AN",
+      "DROID\020\000\022\026\n\022CLIENT_IOS_XAMARIN\020\001\022\021\n\rCLIEN" +
+      "T_LIBGDX\020\002\022\021\n\rCLIENT_JAVAFX\020\003\022\025\n\021CLIENT_" +
+      "TYPESCRIPT\020\004\022\023\n\017CLIENT_CLI_JAVA\020\005\022\025\n\021CLI" +
+      "ENT_CLI_PYTHON\020\006\022\025\n\021CLIENT_CLI_CSHARP\020\007*" +
+      "B\n\nServerType\022\031\n\025MAVEN_TOMCAT_EMBEDDED\020\000" +
+      "\022\031\n\025GRADLE_JETTY_EMBEDDED\020\001*\232\001\n\013ProjectT" +
+      "ype\022\027\n\023GRADLE_PROJECT_TYPE\020\000\022\026\n\022MAVEN_PR" +
+      "OJECT_TYPE\020\001\022\024\n\020NPM_PROJECT_TYPE\020\002\022\025\n\021GU" +
+      "LP_PROJECT_TYPE\020\003\022\027\n\023DOTNET_PROJECT_TYPE" +
+      "\020\004\022\024\n\020PIP_PROJECT_TYPE\020\005*\367\001\n\016ExecutionPh",
+      "ase\022\026\n\022DELETE_DIRECTORIES\020\000\022 \n\034GENERATE_" +
+      "CODE_FROM_PROTOBUFS\020\001\022\030\n\024BUILD_PUBLISH_C" +
+      "SHARP\020\002\022\030\n\024BUILD_PUBLISH_PYTHON\020\003\022\035\n\031BUI" +
+      "LD_PUBLISH_JAVA_CLIENT\020\004\022\034\n\030BUILD_PUBLIS" +
+      "H_TYPESCRIPT\020\005\022\033\n\027BUILD_TYPESCRIPT_SERVE" +
+      "R\020\006\022\035\n\031BUILD_PACKAGE_JAVA_SERVER\020\007*\267\001\n\023C" +
+      "ustomExecutionType\022\020\n\014CUSTOM_BUILD\020\000\022\022\n\016" +
+      "CUSTOM_PACKAGE\020\001\022\022\n\016CUSTOM_PUBLISH\020\002\022\034\n\030" +
+      "CUSTOM_INCREMENT_VERSION\020\003\022\036\n\032CUSTOM_UPD" +
+      "ATE_DEPENDENCIES\020\004\022\026\n\022CUSTOM_SET_VERSION",
+      "\020\005\022\020\n\014CUSTOM_CLEAN\020\006*\342\001\n\016RepositoryType\022" +
+      "\013\n\007BINTRAY\020\000\022\017\n\013ARTIFACTORY\020\001\022\t\n\005NPMJS\020\002" +
+      "\022\017\n\013PRIVATE_NPM\020\003\022\t\n\005NUGET\020\004\022\021\n\rPRIVATE_" +
+      "NUGET\020\005\022\007\n\003PIP\020\006\022\017\n\013PRIVATE_PIP\020\007\022\023\n\017PRI" +
+      "VATE_BINTRAY\020\010\022\023\n\017ARTIFACTORY_NPM\020\t\022\010\n\004P" +
+      "YPI\020\n\022\026\n\022ARTIFACTORY_PYTHON\020\013\022\022\n\016STANDAR" +
+      "D_MAVEN\020\014*[\n\016DependencyType\022\014\n\010INTERNAL\020" +
+      "\000\022\010\n\004JAVA\020\001\022\016\n\nTYPESCRIPT\020\002\022\n\n\006CSHARP\020\003\022" +
+      "\t\n\005SWIFT\020\004\022\n\n\006PYTHON\020\005*\343\002\n\rFileExtension" +
+      "\022\n\n\006KT_EXT\020\000\022\014\n\010JAVA_EXT\020\001\022\022\n\016TYPESCRIPT",
+      "_EXT\020\002\022\022\n\016JAVASCRIPT_EXT\020\003\022\r\n\tSWIFT_EXT\020" +
+      "\004\022\013\n\007POM_EXT\020\005\022\013\n\007XML_EXT\020\006\022\014\n\010HTML_EXT\020" +
+      "\007\022\016\n\nGRADLE_EXT\020\010\022\014\n\010JSON_EXT\020\t\022\n\n\006TS_EX" +
+      "T\020\n\022\014\n\010NONE_EXT\020\013\022\013\n\007BAT_EXT\020\014\022\n\n\006JS_EXT" +
+      "\020\r\022\n\n\006CS_EXT\020\016\022\013\n\007SLN_EXT\020\017\022\r\n\tXPROJ_EXT" +
+      "\020\020\022\n\n\006SH_EXT\020\021\022\n\n\006MD_EXT\020\022\022\n\n\006PY_EXT\020\023\022\013" +
+      "\n\007CFG_EXT\020\024\022\022\n\016PROPERTIES_EXT\020\025\022\014\n\010BLOB_" +
+      "EXT\020\026\022\r\n\tPROTO_EXT\020\027*8\n\016FileUpdateType\022\r" +
+      "\n\tOVERWRITE\020\000\022\027\n\023WRITE_IF_NOT_EXISTS\020\001b\006" +
+      "proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -18713,7 +18778,7 @@ public final class YaclibModel {
     internal_static_org_roylance_yaclib_Dependency_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_org_roylance_yaclib_Dependency_descriptor,
-        new java.lang.String[] { "Type", "Group", "Name", "TypescriptModelFile", "ThirdPartyDependencyVersion", "MajorVersion", "MinorVersion", "GithubRepo", "AuthorName", "License", "MavenRepository", "NpmRepository", "NugetRepository", "PipRepository", "ServerType", "ServerPort", "YaclibVersion", });
+        new java.lang.String[] { "Type", "Group", "Name", "TypescriptModelFile", "ThirdPartyDependencyVersion", "MajorVersion", "MinorVersion", "GithubRepo", "AuthorName", "License", "MavenRepository", "NpmRepository", "NugetRepository", "PipRepository", "ServerType", "ServerPort", "YaclibVersion", "UnpublishNuget", });
     internal_static_org_roylance_yaclib_File_descriptor =
       getDescriptor().getMessageTypes().get(2);
     internal_static_org_roylance_yaclib_File_fieldAccessorTable = new

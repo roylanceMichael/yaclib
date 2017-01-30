@@ -50,6 +50,20 @@ object CSharpUtilities: IProjectBuilderServices {
     override fun publish(location: String, dependency: YaclibModel.Dependency, apiKey: String): YaclibModel.ProcessReport {
         val nugetDirectoryLocation = Paths.get(location, "bin", "Debug").toString()
         val nugetPackage = buildNugetPackageName(dependency)
+
+        if (dependency.unpublishNuget) {
+            val pushReport = FileProcessUtilities.executeProcess(nugetDirectoryLocation,
+                    InitUtilities.Nuget,
+                    "push $nugetPackage $apiKey")
+            val deleteReport = FileProcessUtilities.executeProcess(nugetDirectoryLocation,
+                    InitUtilities.Nuget,
+                    "delete ${buildNugetPackageName(dependency)} ${dependency.majorVersion}.${dependency.minorVersion}.0 $apiKey")
+
+            return pushReport.toBuilder()
+                    .setContent(pushReport.content + deleteReport.content)
+                    .setErrorOutput(pushReport.errorOutput + deleteReport.errorOutput)
+                    .build()
+        }
         return FileProcessUtilities.executeProcess(nugetDirectoryLocation, InitUtilities.Nuget, "push $nugetPackage $apiKey")
     }
 
