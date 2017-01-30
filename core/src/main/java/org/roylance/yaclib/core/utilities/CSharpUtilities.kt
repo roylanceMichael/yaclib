@@ -57,7 +57,7 @@ object CSharpUtilities: IProjectBuilderServices {
                     "push $nugetPackage $apiKey")
             val deleteReport = FileProcessUtilities.executeProcess(nugetDirectoryLocation,
                     InitUtilities.Nuget,
-                    "delete ${buildNugetPackageName(dependency)} ${dependency.majorVersion}.${dependency.minorVersion}.0 $apiKey")
+                    "delete ${buildNugetPackageName(dependency)} ${dependency.majorVersion}.${dependency.minorVersion}.0 $apiKey -NoPrompt")
 
             return pushReport.toBuilder()
                     .setContent(pushReport.content + deleteReport.content)
