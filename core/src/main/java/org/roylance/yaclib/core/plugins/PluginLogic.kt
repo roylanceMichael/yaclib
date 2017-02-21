@@ -6,13 +6,12 @@ import org.roylance.common.service.IBuilder
 import org.roylance.yaclib.YaclibModel
 import org.roylance.yaclib.core.enums.CommonTokens
 import org.roylance.yaclib.core.models.DependencyDescriptor
-import org.roylance.yaclib.core.plugins.client.CSharpBuilder
-import org.roylance.yaclib.core.plugins.client.JavaClientBuilder
-import org.roylance.yaclib.core.plugins.client.PythonBuilder
-import org.roylance.yaclib.core.plugins.client.TypeScriptBuilder
+import org.roylance.yaclib.core.plugins.client.*
 import org.roylance.yaclib.core.plugins.server.JavaServerBuilder
 import org.roylance.yaclib.core.plugins.server.TypeScriptClientServerBuilder
+import org.roylance.yaclib.core.services.FilePersistService
 import org.roylance.yaclib.core.services.IProjectBuilderServices
+import org.roylance.yaclib.core.services.ProcessFileDescriptorService
 import org.roylance.yaclib.core.utilities.*
 import java.nio.file.Paths
 import java.util.*
@@ -24,7 +23,8 @@ class PluginLogic(
         val dependencyDescriptors: List<DependencyDescriptor>,
         val thirdPartyServerDependencies: List<YaclibModel.Dependency>,
         val nugetKey: String?,
-        auxiliaryProjects: YaclibModel.AuxiliaryProjects): IBuilder<Boolean> {
+        auxiliaryProjects: YaclibModel.AuxiliaryProjects,
+        private val processSwift: Boolean = false): IBuilder<Boolean> {
 
     private val auxiliaryProjectsMap = HashMap<String, YaclibModel.AuxiliaryProject.Builder>()
     private val dependencyMap = HashMap<String, YaclibModel.Dependency>()
@@ -152,15 +152,40 @@ class PluginLogic(
         FileUtils.deleteDirectory(Paths.get(location, CommonTokens.CSharpName).toFile())
         println("deleting ${Paths.get(location, CommonTokens.PythonName)}")
         FileUtils.deleteDirectory(Paths.get(location, CommonTokens.PythonName).toFile())
+        println("deleting ${Paths.get(location, CommonTokens.SwiftName)}")
+        FileUtils.deleteDirectory(Paths.get(location, CommonTokens.SwiftName).toFile())
 
         println(InitUtilities.buildPhaseMessage(YaclibModel.ExecutionPhase.GENERATE_CODE_FROM_PROTOBUFS.name))
         processPhase(YaclibModel.ExecutionPhase.GENERATE_CODE_FROM_PROTOBUFS)
+
+        val mainDependencyDescriptor = DependencyDescriptor(mainDependency, this.mainController)
+        val processFileDescriptorService = ProcessFileDescriptorService()
+
+        val serverControllerDependencies = YaclibModel.AllControllerDependencies.newBuilder()
+
+        val actualMainController = processFileDescriptorService.processFile(mainDependencyDescriptor.descriptor)
+        val mainControllerDependencies = YaclibModel.ControllerDependency.newBuilder()
+                .setControllers(actualMainController)
+                .setDependency(mainDependencyDescriptor.dependency)
+
+        serverControllerDependencies.addControllerDependencies(mainControllerDependencies)
+
+        this.dependencyDescriptors.forEach {
+            val controller = processFileDescriptorService.processFile(it.descriptor)
+            val controllerDependencies = YaclibModel.ControllerDependency.newBuilder().setControllers(controller)
+                    .setDependency(it.dependency)
+            serverControllerDependencies.addControllerDependencies(controllerDependencies)
+        }
+
+        val projectInformation = YaclibModel.ProjectInformation.newBuilder()
+                .addAllThirdPartyDependencies(thirdPartyServerDependencies.map { dependencyMap[JavaUtilities.buildFullPackageName(it)]!! })
+                .setMainDependency(mainDependencyDescriptor.dependency)
+                .setControllers(serverControllerDependencies.build())
+                .build()
+
         ClientLogic(
                 location,
-                mainDependency,
-                mainController,
-                dependencyDescriptors,
-                thirdPartyServerDependencies.map { dependencyMap[JavaUtilities.buildFullPackageName(it)]!! }).build()
+                projectInformation).build()
 
         println(InitUtilities.buildPhaseMessage(YaclibModel.ExecutionPhase.BUILD_PUBLISH_CSHARP.name))
         processPhase(YaclibModel.ExecutionPhase.BUILD_PUBLISH_CSHARP)
@@ -176,6 +201,9 @@ class PluginLogic(
         println(InitUtilities.buildPhaseMessage(YaclibModel.ExecutionPhase.BUILD_PUBLISH_TYPESCRIPT.name))
         processPhase(YaclibModel.ExecutionPhase.BUILD_PUBLISH_TYPESCRIPT)
         TypeScriptBuilder(location, mainDependency).build()
+        if (processSwift) {
+            SwiftBuilder(location, projectInformation).build()
+        }
 
         // process server now
         ServerLogic(

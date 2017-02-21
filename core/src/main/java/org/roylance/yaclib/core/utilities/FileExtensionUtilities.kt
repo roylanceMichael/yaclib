@@ -70,6 +70,18 @@ object FileExtensionUtilities {
         if (YaclibModel.FileExtension.PROTO_EXT == extension) {
             return ".proto"
         }
+        if (YaclibModel.FileExtension.PLIST_EXT == extension) {
+            return ".plist"
+        }
+        if (YaclibModel.FileExtension.XCWORKSPACEDATA_EXT == extension) {
+            return ".xcworkspacedata"
+        }
+        if (YaclibModel.FileExtension.PBXPROJ_EXT == extension) {
+            return ".pbxproj"
+        }
+        if (YaclibModel.FileExtension.H_EXT == extension) {
+            return ".h"
+        }
         return ".java"
     }
 }

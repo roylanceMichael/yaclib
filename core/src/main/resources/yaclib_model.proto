@@ -97,6 +97,10 @@ enum FileExtension {
     PROPERTIES_EXT = 21;
     BLOB_EXT = 22;
     PROTO_EXT = 23;
+    PLIST_EXT = 24;
+    PBXPROJ_EXT = 25;
+    XCWORKSPACEDATA_EXT = 26;
+    H_EXT = 27;
 }
 
 enum FileUpdateType {

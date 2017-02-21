@@ -22,6 +22,7 @@ public class YaclibPlugin extends DefaultTask {
     public List<YaclibModel.Dependency> thirdPartyServerDependencies;
     public String nugetKey;
     public YaclibModel.AuxiliaryProjects auxiliaryProjects;
+    public boolean processSwift;
 
     @TaskAction
     public Boolean buildDefinitions() throws ClassNotFoundException, NoSuchMethodException, IllegalAccessException, InvocationTargetException {
@@ -77,7 +78,8 @@ public class YaclibPlugin extends DefaultTask {
                 dependencyDescriptors,
                 thirdPartyServerDependencies,
                 nugetKey,
-                projectsToUse.build()).build();
+                projectsToUse.build(),
+                processSwift).build();
     }
 
     private static boolean nullChecker(Object item, String name) {

@@ -65,5 +65,5 @@ object StringUtilities {
         }.joinToString(Period)
     }
 
-    private const val Period = "."
+    const val Period = "."
 }

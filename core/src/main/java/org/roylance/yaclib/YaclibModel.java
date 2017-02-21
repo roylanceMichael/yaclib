@@ -1125,6 +1125,22 @@ public final class YaclibModel {
      * <code>PROTO_EXT = 23;</code>
      */
     PROTO_EXT(23),
+    /**
+     * <code>PLIST_EXT = 24;</code>
+     */
+    PLIST_EXT(24),
+    /**
+     * <code>PBXPROJ_EXT = 25;</code>
+     */
+    PBXPROJ_EXT(25),
+    /**
+     * <code>XCWORKSPACEDATA_EXT = 26;</code>
+     */
+    XCWORKSPACEDATA_EXT(26),
+    /**
+     * <code>H_EXT = 27;</code>
+     */
+    H_EXT(27),
     UNRECOGNIZED(-1),
     ;
 
@@ -1224,6 +1240,22 @@ public final class YaclibModel {
      * <code>PROTO_EXT = 23;</code>
      */
     public static final int PROTO_EXT_VALUE = 23;
+    /**
+     * <code>PLIST_EXT = 24;</code>
+     */
+    public static final int PLIST_EXT_VALUE = 24;
+    /**
+     * <code>PBXPROJ_EXT = 25;</code>
+     */
+    public static final int PBXPROJ_EXT_VALUE = 25;
+    /**
+     * <code>XCWORKSPACEDATA_EXT = 26;</code>
+     */
+    public static final int XCWORKSPACEDATA_EXT_VALUE = 26;
+    /**
+     * <code>H_EXT = 27;</code>
+     */
+    public static final int H_EXT_VALUE = 27;
 
 
     public final int getNumber() {
@@ -1268,6 +1300,10 @@ public final class YaclibModel {
         case 21: return PROPERTIES_EXT;
         case 22: return BLOB_EXT;
         case 23: return PROTO_EXT;
+        case 24: return PLIST_EXT;
+        case 25: return PBXPROJ_EXT;
+        case 26: return XCWORKSPACEDATA_EXT;
+        case 27: return H_EXT;
         default: return null;
       }
     }
@@ -18742,7 +18778,7 @@ public final class YaclibModel {
       "YPI\020\n\022\026\n\022ARTIFACTORY_PYTHON\020\013\022\022\n\016STANDAR" +
       "D_MAVEN\020\014*[\n\016DependencyType\022\014\n\010INTERNAL\020" +
       "\000\022\010\n\004JAVA\020\001\022\016\n\nTYPESCRIPT\020\002\022\n\n\006CSHARP\020\003\022" +
-      "\t\n\005SWIFT\020\004\022\n\n\006PYTHON\020\005*\343\002\n\rFileExtension" +
+      "\t\n\005SWIFT\020\004\022\n\n\006PYTHON\020\005*\247\003\n\rFileExtension" +
       "\022\n\n\006KT_EXT\020\000\022\014\n\010JAVA_EXT\020\001\022\022\n\016TYPESCRIPT",
       "_EXT\020\002\022\022\n\016JAVASCRIPT_EXT\020\003\022\r\n\tSWIFT_EXT\020" +
       "\004\022\013\n\007POM_EXT\020\005\022\013\n\007XML_EXT\020\006\022\014\n\010HTML_EXT\020" +
@@ -18751,9 +18787,10 @@ public final class YaclibModel {
       "\020\r\022\n\n\006CS_EXT\020\016\022\013\n\007SLN_EXT\020\017\022\r\n\tXPROJ_EXT" +
       "\020\020\022\n\n\006SH_EXT\020\021\022\n\n\006MD_EXT\020\022\022\n\n\006PY_EXT\020\023\022\013" +
       "\n\007CFG_EXT\020\024\022\022\n\016PROPERTIES_EXT\020\025\022\014\n\010BLOB_" +
-      "EXT\020\026\022\r\n\tPROTO_EXT\020\027*8\n\016FileUpdateType\022\r" +
-      "\n\tOVERWRITE\020\000\022\027\n\023WRITE_IF_NOT_EXISTS\020\001b\006" +
-      "proto3"
+      "EXT\020\026\022\r\n\tPROTO_EXT\020\027\022\r\n\tPLIST_EXT\020\030\022\017\n\013P" +
+      "BXPROJ_EXT\020\031\022\027\n\023XCWORKSPACEDATA_EXT\020\032\022\t\n" +
+      "\005H_EXT\020\033*8\n\016FileUpdateType\022\r\n\tOVERWRITE\020",
+      "\000\022\027\n\023WRITE_IF_NOT_EXISTS\020\001b\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {

@@ -19,6 +19,8 @@ object FileProcessUtilities {
     fun buildCommand(application: String, allArguments: String):List<String> {
         val returnList = ArrayList<String>()
         val actualApplicationLocation = getActualLocation(application)
+        print(actualApplicationLocation)
+
         if (actualApplicationLocation.isEmpty()) {
             returnList.add(application)
         }
@@ -88,6 +90,32 @@ object FileProcessUtilities {
         }
     }
 
+    fun executeScript(location: String, application: String, script: String): YaclibModel.ProcessReport {
+        val tempScript = File(getTempDirectory(), UUID.randomUUID().toString())
+        tempScript.writeText(script)
+
+        val tempFile = File(getTempDirectory(), UUID.randomUUID().toString())
+        val actualCommand = buildCommand(application, tempScript.absolutePath).joinToString(Space)
+
+        val tempExecuteScript = buildTempScript(location, actualCommand)
+        tempFile.writeText(tempExecuteScript)
+
+        try {
+            Runtime.getRuntime().exec("${InitUtilities.Chmod} ${InitUtilities.ChmodExecutable} ${tempFile.absolutePath}")
+            Runtime.getRuntime().exec("${InitUtilities.Chmod} ${InitUtilities.ChmodExecutable} ${tempScript.absolutePath}")
+            val process = Runtime.getRuntime().exec(tempFile.absolutePath)
+            process.waitFor()
+
+            val report = buildReport(process).toBuilder()
+            report.normalOutput = report.normalOutput + "\n" + tempScript
+            return report.build()
+        }
+        finally {
+            tempScript.delete()
+            tempFile.delete()
+        }
+    }
+
     fun createTarFromDirectory(inputDirectory: String, outputFile: String, directoriesToExclude: HashSet<String>): Boolean {
         val directory = File(inputDirectory)
 
@@ -123,6 +151,8 @@ object FileProcessUtilities {
 . ~/.bash_profile
 . ~/.bashrc
 which $application""")
+
+        print(tempFile.readText())
 
         val inputWriter = StringWriter()
         try {
