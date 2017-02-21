@@ -14,7 +14,7 @@ class SwiftServiceBuilder(private val controller: YaclibModel.Controller): IBuil
         val initialTemplate = """${CommonTokens.DoNotAlterMessage}
 import Foundation
 
-protocol $interfaceName {
+public protocol $interfaceName {
 """
         workspace.append(initialTemplate)
 

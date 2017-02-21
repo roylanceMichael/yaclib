@@ -101,6 +101,7 @@ enum FileExtension {
     PBXPROJ_EXT = 25;
     XCWORKSPACEDATA_EXT = 26;
     H_EXT = 27;
+    XCSCHEME_EXT = 28;
 }
 
 enum FileUpdateType {

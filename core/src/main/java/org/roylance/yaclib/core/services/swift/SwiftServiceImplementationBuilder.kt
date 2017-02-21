@@ -16,7 +16,7 @@ import Foundation
 import Alamofire
 import SwiftProtobuf
 
-class ${controller.name}${CommonTokens.ServiceName}: $interfaceName {
+public class ${controller.name}${CommonTokens.ServiceName}: $interfaceName {
     let baseUrl: String
     init(baseUrl: String) {
         self.baseUrl = baseUrl
@@ -31,7 +31,7 @@ class ${controller.name}${CommonTokens.ServiceName}: $interfaceName {
                     "${input.argumentName}: ${SwiftUtilities.buildSwiftFullName(input)}"
                 }.joinToString()
 
-                val actionTemplate = "\tfunc ${action.name}($colonSeparatedInputs, onSuccess: @escaping (_ response: ${SwiftUtilities.buildSwiftFullName(action.output).trim()}) -> Void, onError: @escaping (_ response: String) -> Void) {\n"
+                val actionTemplate = "\tpublic func ${action.name}($colonSeparatedInputs, onSuccess: @escaping (_ response: ${SwiftUtilities.buildSwiftFullName(action.output).trim()}) -> Void, onError: @escaping (_ response: String) -> Void) {\n"
                 val fullUrl = StringUtilities.buildUrl("/rest/${controller.name}/${action.name}")
                 val functionTemplate = """
             do {

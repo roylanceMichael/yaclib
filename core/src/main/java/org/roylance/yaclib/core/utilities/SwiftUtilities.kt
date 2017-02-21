@@ -9,6 +9,7 @@ object SwiftUtilities: IProjectBuilderServices {
     const val Carthage = "carthage"
     const val XCodeBuild = "xcodebuild"
     const val Clean = "clean"
+    const val ProtocGenSwift = "protoc-gen-swift"
 
     const val AlamofireFrameworkLocation = "Carthage/Build/iOS/Alamofire.framework"
     const val SwiftProtobufFrameworkLocation = "Carthage/Build/iOS/SwiftProtobuf.framework"
@@ -77,9 +78,11 @@ object SwiftUtilities: IProjectBuilderServices {
     }
 
     fun buildProtobufs(location: String): YaclibModel.ProcessReport {
+        val protocGenSwiftLocation = FileProcessUtilities.getActualLocation(ProtocGenSwift)
+
         val sourceDirectory = Paths.get(location, CommonTokens.SwiftName, "Source").toFile()
         val protobufLocation = Paths.get(location, CommonTokens.ApiName, "src", "main", "resources").toString()
-        val arguments = "-I=$protobufLocation --proto_path=$protobufLocation --swift_out=$sourceDirectory $protobufLocation/*.proto"
+        val arguments = "--plugin=$protocGenSwiftLocation -I=$protobufLocation --proto_path=$protobufLocation --swift_opt=Visibility=Public --swift_out=$sourceDirectory $protobufLocation/*.proto"
         return FileProcessUtilities.executeProcess(sourceDirectory.toString(), InitUtilities.Protoc, arguments)
     }
 
@@ -90,8 +93,8 @@ from pbxproj.XcodeProject import *
 file_options = FileOptions(weak=True)
 project = XcodeProject.load('${SwiftUtilities.buildSwiftFullName(dependency)}.xcodeproj/project.pbxproj')
 
-project.add_file('$location/${CommonTokens.SwiftName}/$AlamofireFrameworkLocation', force=False, file_options=file_options)
-project.add_file('$location/${CommonTokens.SwiftName}/$SwiftProtobufFrameworkLocation', force=False, file_options=file_options)
+project.add_file('$location/$AlamofireFrameworkLocation', force=False, file_options=file_options)
+project.add_file('$location/$SwiftProtobufFrameworkLocation', force=False, file_options=file_options)
 
 project.save()
 """

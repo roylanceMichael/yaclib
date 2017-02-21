@@ -1141,6 +1141,10 @@ public final class YaclibModel {
      * <code>H_EXT = 27;</code>
      */
     H_EXT(27),
+    /**
+     * <code>XCSCHEME_EXT = 28;</code>
+     */
+    XCSCHEME_EXT(28),
     UNRECOGNIZED(-1),
     ;
 
@@ -1256,6 +1260,10 @@ public final class YaclibModel {
      * <code>H_EXT = 27;</code>
      */
     public static final int H_EXT_VALUE = 27;
+    /**
+     * <code>XCSCHEME_EXT = 28;</code>
+     */
+    public static final int XCSCHEME_EXT_VALUE = 28;
 
 
     public final int getNumber() {
@@ -1304,6 +1312,7 @@ public final class YaclibModel {
         case 25: return PBXPROJ_EXT;
         case 26: return XCWORKSPACEDATA_EXT;
         case 27: return H_EXT;
+        case 28: return XCSCHEME_EXT;
         default: return null;
       }
     }
@@ -18778,7 +18787,7 @@ public final class YaclibModel {
       "YPI\020\n\022\026\n\022ARTIFACTORY_PYTHON\020\013\022\022\n\016STANDAR" +
       "D_MAVEN\020\014*[\n\016DependencyType\022\014\n\010INTERNAL\020" +
       "\000\022\010\n\004JAVA\020\001\022\016\n\nTYPESCRIPT\020\002\022\n\n\006CSHARP\020\003\022" +
-      "\t\n\005SWIFT\020\004\022\n\n\006PYTHON\020\005*\247\003\n\rFileExtension" +
+      "\t\n\005SWIFT\020\004\022\n\n\006PYTHON\020\005*\271\003\n\rFileExtension" +
       "\022\n\n\006KT_EXT\020\000\022\014\n\010JAVA_EXT\020\001\022\022\n\016TYPESCRIPT",
       "_EXT\020\002\022\022\n\016JAVASCRIPT_EXT\020\003\022\r\n\tSWIFT_EXT\020" +
       "\004\022\013\n\007POM_EXT\020\005\022\013\n\007XML_EXT\020\006\022\014\n\010HTML_EXT\020" +
@@ -18789,8 +18798,9 @@ public final class YaclibModel {
       "\n\007CFG_EXT\020\024\022\022\n\016PROPERTIES_EXT\020\025\022\014\n\010BLOB_" +
       "EXT\020\026\022\r\n\tPROTO_EXT\020\027\022\r\n\tPLIST_EXT\020\030\022\017\n\013P" +
       "BXPROJ_EXT\020\031\022\027\n\023XCWORKSPACEDATA_EXT\020\032\022\t\n" +
-      "\005H_EXT\020\033*8\n\016FileUpdateType\022\r\n\tOVERWRITE\020",
-      "\000\022\027\n\023WRITE_IF_NOT_EXISTS\020\001b\006proto3"
+      "\005H_EXT\020\033\022\020\n\014XCSCHEME_EXT\020\034*8\n\016FileUpdate",
+      "Type\022\r\n\tOVERWRITE\020\000\022\027\n\023WRITE_IF_NOT_EXIS" +
+      "TS\020\001b\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {

@@ -82,6 +82,9 @@ object FileExtensionUtilities {
         if (YaclibModel.FileExtension.H_EXT == extension) {
             return ".h"
         }
+        if (YaclibModel.FileExtension.XCSCHEME_EXT == extension) {
+            return ".xcscheme"
+        }
         return ".java"
     }
 }

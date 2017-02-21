@@ -9,6 +9,8 @@ class SwiftProcessLanguageService: IProcessLanguageService {
 
         returnList.addFiles(SwiftPBXProjBuilder(projectInformation).build())
         returnList.addFiles(SwiftContentsXCWorkspaceDataBuilder(projectInformation).build())
+        returnList.addFiles(SwiftShareDataBuilder(projectInformation).build())
+        returnList.addFiles(SwiftSchemeManagementBuilder(projectInformation).build())
 
         returnList.addFiles(CartFileBuilder().build())
         returnList.addFiles(InfoPlistBuilder(projectInformation, false).build())

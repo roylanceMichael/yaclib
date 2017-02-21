@@ -12,7 +12,6 @@ import java.util.*
 class SwiftBuilder(private val location: String,
                    private val projectInformation: YaclibModel.ProjectInformation): IBuilder<Boolean> {
     override fun build(): Boolean {
-        val swiftLocation = Paths.get(location, CommonTokens.SwiftName).toString()
         // generate template
         println(InitUtilities.buildPhaseMessage("building protobufs for swift"))
         val generateProtoProcessReport = SwiftUtilities.buildProtobufs(location)
@@ -20,7 +19,7 @@ class SwiftBuilder(private val location: String,
         println(generateProtoProcessReport.errorOutput)
 
         // call carthage update
-        val restoreReport = SwiftUtilities.restoreDependencies(swiftLocation)
+        val restoreReport = SwiftUtilities.restoreDependencies(location)
         println(restoreReport.normalOutput)
         println(restoreReport.errorOutput)
 
