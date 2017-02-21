@@ -18,7 +18,7 @@ import SwiftProtobuf
 
 public class ${controller.name}${CommonTokens.ServiceName}: $interfaceName {
     let baseUrl: String
-    init(baseUrl: String) {
+    public init(baseUrl: String) {
         self.baseUrl = baseUrl
     }
 """
