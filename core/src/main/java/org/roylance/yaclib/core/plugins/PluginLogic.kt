@@ -9,7 +9,6 @@ import org.roylance.yaclib.core.models.DependencyDescriptor
 import org.roylance.yaclib.core.plugins.client.*
 import org.roylance.yaclib.core.plugins.server.JavaServerBuilder
 import org.roylance.yaclib.core.plugins.server.TypeScriptClientServerBuilder
-import org.roylance.yaclib.core.services.FilePersistService
 import org.roylance.yaclib.core.services.IProjectBuilderServices
 import org.roylance.yaclib.core.services.ProcessFileDescriptorService
 import org.roylance.yaclib.core.utilities.*
@@ -201,9 +200,7 @@ class PluginLogic(
         println(InitUtilities.buildPhaseMessage(YaclibModel.ExecutionPhase.BUILD_PUBLISH_TYPESCRIPT.name))
         processPhase(YaclibModel.ExecutionPhase.BUILD_PUBLISH_TYPESCRIPT)
         TypeScriptBuilder(location, mainDependency).build()
-        if (processSwift) {
-            SwiftBuilder(location, projectInformation).build()
-        }
+        SwiftBuilder(location, projectInformation, processSwift).build()
 
         // process server now
         ServerLogic(

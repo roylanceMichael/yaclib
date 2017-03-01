@@ -10,18 +10,14 @@ import java.nio.file.Paths
 import java.util.*
 
 class SwiftBuilder(private val location: String,
-                   private val projectInformation: YaclibModel.ProjectInformation): IBuilder<Boolean> {
+                   private val projectInformation: YaclibModel.ProjectInformation,
+                   private val processSwift: Boolean): IBuilder<Boolean> {
     override fun build(): Boolean {
         // generate template
         println(InitUtilities.buildPhaseMessage("building protobufs for swift"))
         val generateProtoProcessReport = SwiftUtilities.buildProtobufs(location)
         println(generateProtoProcessReport.normalOutput)
         println(generateProtoProcessReport.errorOutput)
-
-        // call carthage update
-        val restoreReport = SwiftUtilities.restoreDependencies(location)
-        println(restoreReport.normalOutput)
-        println(restoreReport.errorOutput)
 
         // add custom swift files to project
         val newFiles = ArrayList<String>()
@@ -37,16 +33,23 @@ class SwiftBuilder(private val location: String,
         println(addReport.normalOutput)
         println(addReport.errorOutput)
 
-        // add alamofire framework
-        // add swiftprotobuf framework
-        val addFrameworksReport = SwiftUtilities.addFrameworksToProject(projectInformation.mainDependency, location)
-        println(addFrameworksReport.normalOutput)
-        println(addFrameworksReport.errorOutput)
+        if (processSwift) {
+            // call carthage update
+            val restoreReport = SwiftUtilities.restoreDependencies(location)
+            println(restoreReport.normalOutput)
+            println(restoreReport.errorOutput)
 
-        // build
-        val buildReport = SwiftUtilities.build(location)
-        println(buildReport.normalOutput)
-        println(buildReport.errorOutput)
+            // add alamofire framework
+            // add swiftprotobuf framework
+            val addFrameworksReport = SwiftUtilities.addFrameworksToProject(projectInformation.mainDependency, location)
+            println(addFrameworksReport.normalOutput)
+            println(addFrameworksReport.errorOutput)
+
+            // build
+            val buildReport = SwiftUtilities.build(location)
+            println(buildReport.normalOutput)
+            println(buildReport.errorOutput)
+        }
 
         return true
     }

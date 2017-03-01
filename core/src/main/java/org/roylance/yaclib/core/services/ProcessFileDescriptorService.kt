@@ -78,15 +78,4 @@ class ProcessFileDescriptorService: IProcessFileDescriptorService {
 
         return returnItem.build()
     }
-
-    private fun processServiceMessageType(messageType: Descriptors.Descriptor): YaclibModel.Service? {
-        val serviceName = messageType.name
-        val returnService = YaclibModel.Service.newBuilder().setName(serviceName)
-
-        messageType.fields.forEach { field ->
-
-        }
-
-        return returnService.build()
-    }
 }

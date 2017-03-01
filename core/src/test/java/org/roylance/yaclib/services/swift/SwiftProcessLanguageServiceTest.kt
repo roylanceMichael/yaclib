@@ -43,7 +43,7 @@ class SwiftProcessLanguageServiceTest {
         val filePersistService = FilePersistService()
         filePersistService.persistFiles(testLocation, item)
 
-        SwiftBuilder(testLocation, projectInformation).build()
+        SwiftBuilder(testLocation, projectInformation, true).build()
         // assert
 //        item.filesList.forEach {
 //            System.out.println(it.fileToWrite)
