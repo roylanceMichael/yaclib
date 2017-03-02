@@ -15,7 +15,7 @@ class CartFileBuilder: IBuilder<YaclibModel.File> {
         return file
     }
 
-    private val InitialTemplate = """github "apple/swift-protobuf == ${SwiftUtilities.SwiftProtobufVersion}"
-github "Alamofire/Alamofire == ${SwiftUtilities.AlamoFireVersion}"
+    private val InitialTemplate = """github "apple/swift-protobuf" == ${SwiftUtilities.SwiftProtobufVersion}
+github "Alamofire/Alamofire" == ${SwiftUtilities.AlamoFireVersion}
 """
 }
