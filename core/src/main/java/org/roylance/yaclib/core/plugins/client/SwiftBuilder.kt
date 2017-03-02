@@ -29,23 +29,27 @@ class SwiftBuilder(private val location: String,
             }
         }
 
+        println(InitUtilities.buildPhaseMessage("adding files to project"))
         val addReport = SwiftUtilities.addFilesToProject(projectInformation.mainDependency, location, newFiles)
         println(addReport.normalOutput)
         println(addReport.errorOutput)
 
         if (processSwift) {
             // call carthage update
+            println(InitUtilities.buildPhaseMessage("restoring carthage dependencies"))
             val restoreReport = SwiftUtilities.restoreDependencies(location)
             println(restoreReport.normalOutput)
             println(restoreReport.errorOutput)
 
             // add alamofire framework
             // add swiftprotobuf framework
+            println(InitUtilities.buildPhaseMessage("adding frameworks to project"))
             val addFrameworksReport = SwiftUtilities.addFrameworksToProject(projectInformation.mainDependency, location)
             println(addFrameworksReport.normalOutput)
             println(addFrameworksReport.errorOutput)
 
             // build
+            println(InitUtilities.buildPhaseMessage("building swift project"))
             val buildReport = SwiftUtilities.build(location)
             println(buildReport.normalOutput)
             println(buildReport.errorOutput)

@@ -2,6 +2,7 @@ package org.roylance.yaclib.core.services.swift
 
 import org.roylance.common.service.IBuilder
 import org.roylance.yaclib.YaclibModel
+import org.roylance.yaclib.core.utilities.SwiftUtilities
 
 class CartFileBuilder: IBuilder<YaclibModel.File> {
     override fun build(): YaclibModel.File {
@@ -14,7 +15,7 @@ class CartFileBuilder: IBuilder<YaclibModel.File> {
         return file
     }
 
-    private val InitialTemplate = """github "apple/swift-protobuf"
-github "Alamofire/Alamofire"
+    private val InitialTemplate = """github "apple/swift-protobuf == ${SwiftUtilities.SwiftProtobufVersion}"
+github "Alamofire/Alamofire == ${SwiftUtilities.AlamoFireVersion}"
 """
 }

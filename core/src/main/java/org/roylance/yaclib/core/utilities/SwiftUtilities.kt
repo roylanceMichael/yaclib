@@ -11,10 +11,13 @@ object SwiftUtilities: IProjectBuilderServices {
     const val Clean = "clean"
     const val ProtocGenSwift = "protoc-gen-swift"
 
+    const val AlamoFireVersion = "4.3.0"
+    const val SwiftProtobufVersion = "0.9.27"
+
     const val AlamofireFrameworkLocation = "Carthage/Build/iOS/Alamofire.framework"
     const val SwiftProtobufFrameworkLocation = "Carthage/Build/iOS/SwiftProtobuf.framework"
 
-    const val Update = "update"
+    const val Update = "update --platform iOS"
 
     override fun getVersion(location: String): YaclibModel.ProcessReport {
         return YaclibModel.ProcessReport.getDefaultInstance()
@@ -54,6 +57,7 @@ object SwiftUtilities: IProjectBuilderServices {
 
     fun addFrameworksToProject(dependency: YaclibModel.Dependency, location: String): YaclibModel.ProcessReport {
         val frameworksScript = addFrameworksPyScript(dependency, location)
+        println(frameworksScript)
         return FileProcessUtilities.executeScript(location, "python", frameworksScript)
     }
 
