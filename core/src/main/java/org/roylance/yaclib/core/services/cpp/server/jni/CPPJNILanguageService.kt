@@ -1,7 +1,12 @@
 package org.roylance.yaclib.core.services.cpp.server.jni
 
-/**
- * Created by mroylance on 3/25/17.
- */
-class CPPJNILanguageService {
+import org.roylance.yaclib.YaclibModel
+import org.roylance.yaclib.core.services.IProcessLanguageService
+
+class CPPJNILanguageService: IProcessLanguageService {
+    override fun buildInterface(projectInformation: YaclibModel.ProjectInformation): YaclibModel.AllFiles {
+
+
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
 }
