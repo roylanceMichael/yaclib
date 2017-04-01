@@ -24,6 +24,8 @@ public class YaclibInitPlugin extends DefaultTask {
         System.out.println("protoc: " + FileProcessUtilities.INSTANCE.getActualLocation(InitUtilities.Protoc));
         System.out.println("nuget: " + FileProcessUtilities.INSTANCE.getActualLocation(InitUtilities.Nuget));
         System.out.println("dotnet: " + FileProcessUtilities.INSTANCE.getActualLocation(InitUtilities.DotNet));
+        System.out.println("xcodebuild: " + FileProcessUtilities.INSTANCE.getActualLocation(InitUtilities.XCodeBuild));
+        System.out.println("carthage: " + FileProcessUtilities.INSTANCE.getActualLocation(InitUtilities.Carthage));
         System.out.println("is not windows: " + InitUtilities.INSTANCE.isNotWindows());
 
         if (!InitUtilities.INSTANCE.hasMinimumRequired()) {

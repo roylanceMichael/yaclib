@@ -22,6 +22,9 @@ object InitUtilities {
     const val Python = "python"
     const val Pip = "pip"
 
+    const val XCodeBuild = "xcodebuild"
+    const val Carthage = "carthage"
+
     const val TypeScriptCompiler = "tsc"
     const val NPM = "npm"
 

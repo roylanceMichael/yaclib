@@ -211,4 +211,87 @@ object GradleUtilities: IProjectBuilderServices {
 
         return workspace.toString()
     }
+
+    fun buildUploadMethod(projectInformation: YaclibModel.ProjectInformation, projectName: String): String {
+        if (!projectInformation.mainDependency.hasMavenRepository()) {
+            return ""
+        }
+        if (projectInformation.mainDependency.mavenRepository.repositoryType == YaclibModel.RepositoryType.ARTIFACTORY) {
+            return buildArtifactory(projectInformation)
+        }
+        else if (projectInformation.mainDependency.mavenRepository.repositoryType == YaclibModel.RepositoryType.BINTRAY) {
+            return buildBintray(projectInformation, projectName)
+        }
+        return buildStandardMaven(projectInformation, projectName)
+    }
+
+    fun buildBintray(projectInformation: YaclibModel.ProjectInformation, projectName: String): String {
+        return """
+bintray {
+    user = System.getenv('${JavaUtilities.BintrayUserName}')
+    key = System.getenv('${JavaUtilities.BintrayKeyName}')
+    publications = ['mavenJava']
+    publish = true
+    pkg {
+        repo = "${projectInformation.mainDependency.mavenRepository.name}"
+        name = "${projectInformation.mainDependency.group}.$projectName"
+        userOrg = user
+        licenses = ['${projectInformation.mainDependency.license}']
+        labels = [rootProject.name]
+        publicDownloadNumbers = true
+        vcsUrl = '${buildGithubRepo(projectInformation)}'
+        version {
+            name = "${projectInformation.mainDependency.group}.$projectName"
+        }
+    }
+}"""
+    }
+
+    fun buildGithubRepo(projectInformation: YaclibModel.ProjectInformation): String {
+        return projectInformation.mainDependency.githubRepo
+    }
+
+    fun buildArtifactory(projectInformation: YaclibModel.ProjectInformation): String {
+        return """artifactory {
+    contextUrl = "${projectInformation.mainDependency.mavenRepository.url}"   // The base Artifactory URL if not overridden by the publisher/resolver
+    publish {
+        repository {
+            repoKey = '${projectInformation.mainDependency.mavenRepository.name}'
+            username = System.getenv('${JavaUtilities.ArtifactoryUserName}')
+            password = System.getenv('${JavaUtilities.ArtifactoryPasswordName}')
+            maven = true
+
+        }
+        defaults {
+            publications('mavenJava')
+            publishBuildInfo = true
+            publishArtifacts = true
+            properties = ['qa.level': 'basic', 'dev.team' : 'core']
+            publishPom = true
+        }
+    }
+    resolve {
+        repository {
+            repoKey = 'repo'
+        }
+    }
+}
+"""
+    }
+
+    fun buildStandardMaven(projectInformation: YaclibModel.ProjectInformation, projectName: String): String {
+        return """uploadArchives {
+    repositories {
+        mavenDeployer {
+            repository(url: "${projectInformation.mainDependency.mavenRepository.url}") {
+                authentication(userName: System.getenv('${JavaUtilities.StandardMavenUserName}'), password: System.getenv('${JavaUtilities.StandardMavenPassword}'))
+            }
+            pom.version = "$${JavaUtilities.MajorName}.$${JavaUtilities.MinorName}"
+            pom.artifactId = "$projectName"
+            pom.groupId = "${projectInformation.mainDependency.group}"
+        }
+    }
+}
+"""
+    }
 }
