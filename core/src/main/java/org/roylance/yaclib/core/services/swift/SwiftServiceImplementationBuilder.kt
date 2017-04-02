@@ -35,7 +35,7 @@ public class ${controller.name}${CommonTokens.ServiceName}: $interfaceName {
                 val fullUrl = StringUtilities.buildUrl("/rest/${controller.name}/${action.name}")
                 val functionTemplate = """
             do {
-                let serializedRequest = try ${action.inputsList.first().argumentName}.serializeProtobuf()
+                let serializedRequest = try ${action.inputsList.first().argumentName}.serializedData()
                 var urlRequest = URLRequest(url: URL(string: self.baseUrl + "$fullUrl")!)
                 urlRequest.httpMethod = HTTPMethod.post.rawValue
                 urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -46,7 +46,7 @@ public class ${controller.name}${CommonTokens.ServiceName}: $interfaceName {
                         let base64String = String(data: alamoResponse.data!, encoding: String.Encoding.utf8)
                         let decodedData = Data(base64Encoded: base64String!)!
                         do {
-                            let actualResponse = try ${SwiftUtilities.buildSwiftFullName(action.output)}(protobuf: decodedData)
+                            let actualResponse = try ${SwiftUtilities.buildSwiftFullName(action.output)}(serializedData: decodedData)
                             onSuccess(actualResponse)
                         }
                         catch {
