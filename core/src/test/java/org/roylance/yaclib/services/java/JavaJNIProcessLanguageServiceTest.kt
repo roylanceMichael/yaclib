@@ -6,7 +6,6 @@ import org.naru.park.ParkController
 import org.roylance.yaclib.YaclibModel
 import org.roylance.yaclib.core.services.ProcessFileDescriptorService
 import org.roylance.yaclib.core.services.cpp.server.jni.CPPJNILanguageService
-import org.roylance.yaclib.core.services.java.client.JavaClientProcessLanguageService
 
 class JavaJNIProcessLanguageServiceTest {
     @Test

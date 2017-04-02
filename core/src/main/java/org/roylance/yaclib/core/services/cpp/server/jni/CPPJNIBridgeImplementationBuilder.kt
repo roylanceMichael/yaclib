@@ -3,6 +3,7 @@ package org.roylance.yaclib.core.services.cpp.server.jni
 import org.roylance.common.service.IBuilder
 import org.roylance.yaclib.YaclibModel
 import org.roylance.yaclib.core.enums.CommonTokens
+import org.roylance.yaclib.core.utilities.JavaUtilities
 import org.roylance.yaclib.core.utilities.StringUtilities
 
 class CPPJNIBridgeImplementationBuilder(
@@ -14,7 +15,7 @@ class CPPJNIBridgeImplementationBuilder(
 package ${dependency.group}.${CommonTokens.ServicesName};
 
 class $className: ${StringUtilities.convertServiceNameToInterfaceName(controller)} {
-    private val bridge = ${controller.name}${CommonTokens.ServiceName}JNIBridge();
+    private val bridge = ${JavaUtilities.buildJavaBridgeName(controller)}()
 """
     override fun build(): YaclibModel.File {
         val workspace = StringBuilder(initialTemplate)
@@ -29,16 +30,16 @@ class $className: ${StringUtilities.convertServiceNameToInterfaceName(controller
 
             val firstInput = action.inputsList.first().argumentName
 
-            workspace.appendln("\t\tval bytes = $firstInput.toByteArray();")
-            workspace.appendln("\t\tval result = this.bridge.${action.name}(bytes);")
-            workspace.appendln("\t\treturn ${action.output.filePackage}.${action.output.fileClass}.${action.output.messageClass}.parseFrom(result);")
+            workspace.appendln("\t\tval bytes = $firstInput.toByteArray()")
+            workspace.appendln("\t\tval result = this.bridge.${action.name}(bytes)")
+            workspace.appendln("\t\treturn ${action.output.filePackage}.${action.output.fileClass}.${action.output.messageClass}.parseFrom(result)")
             workspace.appendln("\t}");
         }
 
         workspace.appendln("}")
 
         val returnFile = YaclibModel.File.newBuilder()
-                .setFileName(initialTemplate)
+                .setFileName(className)
                 .setFileExtension(YaclibModel.FileExtension.KT_EXT)
                 .setFileToWrite(workspace.toString())
                 .setFullDirectoryLocation(StringUtilities.convertPackageToJavaFolderStructureServices(

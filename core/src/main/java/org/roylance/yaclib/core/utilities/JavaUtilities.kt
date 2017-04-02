@@ -1,6 +1,7 @@
 package org.roylance.yaclib.core.utilities
 
 import org.roylance.yaclib.YaclibModel
+import org.roylance.yaclib.core.enums.CommonTokens
 
 object JavaUtilities {
     private val AlphaRegex = Regex("[^A-Za-z]+")
@@ -30,12 +31,12 @@ object JavaUtilities {
 
     const val ArtifactoryVersion = "4.4.0"
     const val BintrayVersion = "1.7"
-    const val RoylanceCommonVersion = "0.15"
+    const val RoylanceCommonVersion = "0.17"
     const val TomcatVersion = "8.0.28"
     const val KotlinVersion = "1.1.1"
 
     const val CommonsIOVersion = "2.5"
-    const val ProtobufVersion = "3.0.0"
+    const val ProtobufVersion = "3.2.0"
     const val HttpComponentsVersion = "4.5.1"
     const val IntellijAnnotationsVersion = "12.0"
     const val JerseyJsonVersion = "1.19.1"
@@ -89,5 +90,9 @@ object JavaUtilities {
             return "${repository.url}/${repository.name}"
         }
         return repository.url
+    }
+
+    fun buildJavaBridgeName(controller: YaclibModel.Controller): String {
+        return "${controller.name}JNIBridge"
     }
 }

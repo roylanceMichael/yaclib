@@ -24,11 +24,6 @@ class JavaServerBuilder(private val location: String,
             val compileReport = GradleUtilities.build(javaServerDirectory.toString())
             println(compileReport.normalOutput)
             println(compileReport.errorOutput)
-
-//            println(InitUtilities.buildPhaseMessage("packaging"))
-//            val packageReport = MavenUtilities.buildPackage(javaServerDirectory.toString(), YaclibModel.Dependency.getDefaultInstance())
-//            println(packageReport.normalOutput)
-//            println(packageReport.errorOutput)
         }
         else {
             val cleanReport = MavenUtilities.clean(javaServerDirectory.toString())

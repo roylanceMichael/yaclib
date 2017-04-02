@@ -9,7 +9,7 @@ import java.io.File
 import java.nio.file.Paths
 
 object CSharpUtilities: IProjectBuilderServices {
-    const val ProtobufVersion = "3.0.0"
+    const val ProtobufVersion = "3.2.0"
 
     private val gson = Gson()
 

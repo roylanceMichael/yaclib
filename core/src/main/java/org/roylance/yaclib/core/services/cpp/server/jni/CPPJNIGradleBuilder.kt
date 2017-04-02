@@ -37,6 +37,14 @@ apply plugin: 'cpp'
 
 sourceCompatibility = 1.8
 
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            from components.java
+        }
+    }
+}
+
 println "Building on OS: " + System.properties['os.name']
 println "Using JDK: " + System.properties['java.home']
 
@@ -142,14 +150,6 @@ task copyLibBridge(type: Copy) {
         from "$projectDirName/build/binaries/bridgeSharedLibrary/libbridge.so"
     }
     into 'libs'
-}
-
-publishing {
-    publications {
-        mavenJava(MavenPublication) {
-            from components.java
-        }
-    }
 }
 
 ${GradleUtilities.buildUploadMethod(projectInformation, projectName)}

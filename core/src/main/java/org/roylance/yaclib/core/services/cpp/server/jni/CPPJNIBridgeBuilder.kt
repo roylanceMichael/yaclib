@@ -3,12 +3,13 @@ package org.roylance.yaclib.core.services.cpp.server.jni
 import org.roylance.common.service.IBuilder
 import org.roylance.yaclib.YaclibModel
 import org.roylance.yaclib.core.enums.CommonTokens
+import org.roylance.yaclib.core.utilities.JavaUtilities
 import org.roylance.yaclib.core.utilities.StringUtilities
 
 class CPPJNIBridgeBuilder(private val controller: YaclibModel.Controller,
                           private val dependency: YaclibModel.Dependency): IBuilder<YaclibModel.File> {
 
-    private val className = "${controller.name}${CommonTokens.ServiceName}JNIBridge"
+    private val className = JavaUtilities.buildJavaBridgeName(controller)
 
     private val initialTemplate = """${CommonTokens.DoNotAlterMessage}
 package ${dependency.group}.${CommonTokens.ServicesName};

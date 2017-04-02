@@ -7,6 +7,7 @@ import org.roylance.yaclib.YaclibModel
 import org.roylance.yaclib.core.enums.CommonTokens
 import org.roylance.yaclib.core.models.DependencyDescriptor
 import org.roylance.yaclib.core.plugins.client.*
+import org.roylance.yaclib.core.plugins.server.CPPJNIServerBuilder
 import org.roylance.yaclib.core.plugins.server.JavaServerBuilder
 import org.roylance.yaclib.core.plugins.server.TypeScriptClientServerBuilder
 import org.roylance.yaclib.core.services.IProjectBuilderServices
@@ -218,6 +219,10 @@ class PluginLogic(
         processPhase(YaclibModel.ExecutionPhase.BUILD_PACKAGE_JAVA_SERVER)
         println(InitUtilities.buildPhaseMessage(YaclibModel.ExecutionPhase.BUILD_PACKAGE_JAVA_SERVER.name))
         JavaServerBuilder(location, mainDependency.serverType).build()
+
+        processPhase(YaclibModel.ExecutionPhase.BUILD_PACKAGE_JAVA_SERVER)
+        println(InitUtilities.buildPhaseMessage(YaclibModel.ExecutionPhase.BUILD_PACKAGE_JAVA_SERVER.name))
+        CPPJNIServerBuilder(location, projectInformation).build()
 
         return true
     }

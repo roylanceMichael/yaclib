@@ -12,7 +12,7 @@ object SwiftUtilities: IProjectBuilderServices {
     const val ProtocGenSwift = "protoc-gen-swift"
 
     const val AlamoFireVersion = "4.3.0"
-    const val SwiftProtobufVersion = "0.9.27"
+    const val SwiftProtobufVersion = "0.9.29"
 
     const val AlamofireFrameworkLocation = "Carthage/Build/iOS/Alamofire.framework"
     const val SwiftProtobufFrameworkLocation = "Carthage/Build/iOS/SwiftProtobuf.framework"
