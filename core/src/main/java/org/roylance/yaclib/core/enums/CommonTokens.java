@@ -25,6 +25,7 @@ public class CommonTokens {
     public static final String ClientApi = "capi";
     public static final String ServerApi = "sapi";
     public static final String ServerJni = "jni";
+    public static final String CppApi = "cpp";
 
     public static final String ApiName = "api";
     public static final String CSharpName = "csharp";
