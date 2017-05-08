@@ -17,8 +17,7 @@ class FileProcessUtilitiesTest {
         val report = FileProcessUtilities.executeProcess("~", "echo", "\$PATH")
         println(report.normalOutput)
 //        assert(nugetLocation.length > 0)
-        Assert.assertEquals(report.normalOutput, protocLocation.length, 39)
-
+        Assert.assertTrue(report.normalOutput.isNotEmpty())
     }
 
 //    @Test

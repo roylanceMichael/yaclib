@@ -241,7 +241,7 @@ bintray {
         publicDownloadNumbers = true
         vcsUrl = '${buildGithubRepo(projectInformation)}'
         version {
-            name = "${projectInformation.mainDependency.group}.$projectName"
+            name = "${projectInformation.mainDependency.majorVersion}.${projectInformation.mainDependency.minorVersion}"
         }
     }
 }"""
