@@ -6,7 +6,6 @@ import org.apache.commons.compress.compressors.gzip.GzipCompressorOutputStream
 import org.apache.commons.io.IOUtils
 import org.roylance.yaclib.YaclibModel
 import java.io.*
-import java.nio.charset.Charset
 import java.util.*
 
 object FileProcessUtilities {
@@ -64,8 +63,8 @@ object FileProcessUtilities {
         val inputWriter = StringWriter()
         val errorWriter = StringWriter()
 
-        IOUtils.copy(process.inputStream, inputWriter, Charset.defaultCharset())
-        IOUtils.copy(process.errorStream, errorWriter, Charset.defaultCharset())
+        IOUtils.copy(process.inputStream, inputWriter)
+        IOUtils.copy(process.errorStream, errorWriter)
 
         return returnReport.setErrorOutput(errorWriter.toString()).setNormalOutput(inputWriter.toString()).build()
     }
@@ -160,7 +159,7 @@ which $application""")
             val process = Runtime.getRuntime().exec(tempFile.absolutePath)
             process.waitFor()
 
-            IOUtils.copy(process.inputStream, inputWriter, Charset.defaultCharset())
+            IOUtils.copy(process.inputStream, inputWriter)
             return inputWriter.toString().trim()
         }
         finally {

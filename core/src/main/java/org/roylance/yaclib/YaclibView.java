@@ -592,46 +592,46 @@ public final class YaclibView {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>optional .org.roylance.yaclib.BindingDefinition binding = 1;</code>
+     * <code>.org.roylance.yaclib.BindingDefinition binding = 1;</code>
      */
     boolean hasBinding();
     /**
-     * <code>optional .org.roylance.yaclib.BindingDefinition binding = 1;</code>
+     * <code>.org.roylance.yaclib.BindingDefinition binding = 1;</code>
      */
     org.roylance.yaclib.YaclibViewmodel.BindingDefinition getBinding();
     /**
-     * <code>optional .org.roylance.yaclib.BindingDefinition binding = 1;</code>
+     * <code>.org.roylance.yaclib.BindingDefinition binding = 1;</code>
      */
     org.roylance.yaclib.YaclibViewmodel.BindingDefinitionOrBuilder getBindingOrBuilder();
 
     /**
-     * <code>optional .org.roylance.yaclib.VisualSize visual_size = 2;</code>
+     * <code>.org.roylance.yaclib.VisualSize visual_size = 2;</code>
      */
     int getVisualSizeValue();
     /**
-     * <code>optional .org.roylance.yaclib.VisualSize visual_size = 2;</code>
+     * <code>.org.roylance.yaclib.VisualSize visual_size = 2;</code>
      */
     org.roylance.yaclib.YaclibView.VisualSize getVisualSize();
 
     /**
-     * <code>optional .org.roylance.yaclib.BindingDefinition show = 3;</code>
+     * <code>.org.roylance.yaclib.BindingDefinition show = 3;</code>
      */
     boolean hasShow();
     /**
-     * <code>optional .org.roylance.yaclib.BindingDefinition show = 3;</code>
+     * <code>.org.roylance.yaclib.BindingDefinition show = 3;</code>
      */
     org.roylance.yaclib.YaclibViewmodel.BindingDefinition getShow();
     /**
-     * <code>optional .org.roylance.yaclib.BindingDefinition show = 3;</code>
+     * <code>.org.roylance.yaclib.BindingDefinition show = 3;</code>
      */
     org.roylance.yaclib.YaclibViewmodel.BindingDefinitionOrBuilder getShowOrBuilder();
 
     /**
-     * <code>optional string title = 4;</code>
+     * <code>string title = 4;</code>
      */
     java.lang.String getTitle();
     /**
-     * <code>optional string title = 4;</code>
+     * <code>string title = 4;</code>
      */
     com.google.protobuf.ByteString
         getTitleBytes();
@@ -741,19 +741,19 @@ public final class YaclibView {
     public static final int BINDING_FIELD_NUMBER = 1;
     private org.roylance.yaclib.YaclibViewmodel.BindingDefinition binding_;
     /**
-     * <code>optional .org.roylance.yaclib.BindingDefinition binding = 1;</code>
+     * <code>.org.roylance.yaclib.BindingDefinition binding = 1;</code>
      */
     public boolean hasBinding() {
       return binding_ != null;
     }
     /**
-     * <code>optional .org.roylance.yaclib.BindingDefinition binding = 1;</code>
+     * <code>.org.roylance.yaclib.BindingDefinition binding = 1;</code>
      */
     public org.roylance.yaclib.YaclibViewmodel.BindingDefinition getBinding() {
       return binding_ == null ? org.roylance.yaclib.YaclibViewmodel.BindingDefinition.getDefaultInstance() : binding_;
     }
     /**
-     * <code>optional .org.roylance.yaclib.BindingDefinition binding = 1;</code>
+     * <code>.org.roylance.yaclib.BindingDefinition binding = 1;</code>
      */
     public org.roylance.yaclib.YaclibViewmodel.BindingDefinitionOrBuilder getBindingOrBuilder() {
       return getBinding();
@@ -762,13 +762,13 @@ public final class YaclibView {
     public static final int VISUAL_SIZE_FIELD_NUMBER = 2;
     private int visualSize_;
     /**
-     * <code>optional .org.roylance.yaclib.VisualSize visual_size = 2;</code>
+     * <code>.org.roylance.yaclib.VisualSize visual_size = 2;</code>
      */
     public int getVisualSizeValue() {
       return visualSize_;
     }
     /**
-     * <code>optional .org.roylance.yaclib.VisualSize visual_size = 2;</code>
+     * <code>.org.roylance.yaclib.VisualSize visual_size = 2;</code>
      */
     public org.roylance.yaclib.YaclibView.VisualSize getVisualSize() {
       org.roylance.yaclib.YaclibView.VisualSize result = org.roylance.yaclib.YaclibView.VisualSize.valueOf(visualSize_);
@@ -778,19 +778,19 @@ public final class YaclibView {
     public static final int SHOW_FIELD_NUMBER = 3;
     private org.roylance.yaclib.YaclibViewmodel.BindingDefinition show_;
     /**
-     * <code>optional .org.roylance.yaclib.BindingDefinition show = 3;</code>
+     * <code>.org.roylance.yaclib.BindingDefinition show = 3;</code>
      */
     public boolean hasShow() {
       return show_ != null;
     }
     /**
-     * <code>optional .org.roylance.yaclib.BindingDefinition show = 3;</code>
+     * <code>.org.roylance.yaclib.BindingDefinition show = 3;</code>
      */
     public org.roylance.yaclib.YaclibViewmodel.BindingDefinition getShow() {
       return show_ == null ? org.roylance.yaclib.YaclibViewmodel.BindingDefinition.getDefaultInstance() : show_;
     }
     /**
-     * <code>optional .org.roylance.yaclib.BindingDefinition show = 3;</code>
+     * <code>.org.roylance.yaclib.BindingDefinition show = 3;</code>
      */
     public org.roylance.yaclib.YaclibViewmodel.BindingDefinitionOrBuilder getShowOrBuilder() {
       return getShow();
@@ -799,7 +799,7 @@ public final class YaclibView {
     public static final int TITLE_FIELD_NUMBER = 4;
     private volatile java.lang.Object title_;
     /**
-     * <code>optional string title = 4;</code>
+     * <code>string title = 4;</code>
      */
     public java.lang.String getTitle() {
       java.lang.Object ref = title_;
@@ -814,7 +814,7 @@ public final class YaclibView {
       }
     }
     /**
-     * <code>optional string title = 4;</code>
+     * <code>string title = 4;</code>
      */
     public com.google.protobuf.ByteString
         getTitleBytes() {
@@ -914,7 +914,7 @@ public final class YaclibView {
         return memoizedHashCode;
       }
       int hash = 41;
-      hash = (19 * hash) + getDescriptorForType().hashCode();
+      hash = (19 * hash) + getDescriptor().hashCode();
       if (hasBinding()) {
         hash = (37 * hash) + BINDING_FIELD_NUMBER;
         hash = (53 * hash) + getBinding().hashCode();
@@ -1179,13 +1179,13 @@ public final class YaclibView {
       private com.google.protobuf.SingleFieldBuilderV3<
           org.roylance.yaclib.YaclibViewmodel.BindingDefinition, org.roylance.yaclib.YaclibViewmodel.BindingDefinition.Builder, org.roylance.yaclib.YaclibViewmodel.BindingDefinitionOrBuilder> bindingBuilder_;
       /**
-       * <code>optional .org.roylance.yaclib.BindingDefinition binding = 1;</code>
+       * <code>.org.roylance.yaclib.BindingDefinition binding = 1;</code>
        */
       public boolean hasBinding() {
         return bindingBuilder_ != null || binding_ != null;
       }
       /**
-       * <code>optional .org.roylance.yaclib.BindingDefinition binding = 1;</code>
+       * <code>.org.roylance.yaclib.BindingDefinition binding = 1;</code>
        */
       public org.roylance.yaclib.YaclibViewmodel.BindingDefinition getBinding() {
         if (bindingBuilder_ == null) {
@@ -1195,7 +1195,7 @@ public final class YaclibView {
         }
       }
       /**
-       * <code>optional .org.roylance.yaclib.BindingDefinition binding = 1;</code>
+       * <code>.org.roylance.yaclib.BindingDefinition binding = 1;</code>
        */
       public Builder setBinding(org.roylance.yaclib.YaclibViewmodel.BindingDefinition value) {
         if (bindingBuilder_ == null) {
@@ -1211,7 +1211,7 @@ public final class YaclibView {
         return this;
       }
       /**
-       * <code>optional .org.roylance.yaclib.BindingDefinition binding = 1;</code>
+       * <code>.org.roylance.yaclib.BindingDefinition binding = 1;</code>
        */
       public Builder setBinding(
           org.roylance.yaclib.YaclibViewmodel.BindingDefinition.Builder builderForValue) {
@@ -1225,7 +1225,7 @@ public final class YaclibView {
         return this;
       }
       /**
-       * <code>optional .org.roylance.yaclib.BindingDefinition binding = 1;</code>
+       * <code>.org.roylance.yaclib.BindingDefinition binding = 1;</code>
        */
       public Builder mergeBinding(org.roylance.yaclib.YaclibViewmodel.BindingDefinition value) {
         if (bindingBuilder_ == null) {
@@ -1243,7 +1243,7 @@ public final class YaclibView {
         return this;
       }
       /**
-       * <code>optional .org.roylance.yaclib.BindingDefinition binding = 1;</code>
+       * <code>.org.roylance.yaclib.BindingDefinition binding = 1;</code>
        */
       public Builder clearBinding() {
         if (bindingBuilder_ == null) {
@@ -1257,7 +1257,7 @@ public final class YaclibView {
         return this;
       }
       /**
-       * <code>optional .org.roylance.yaclib.BindingDefinition binding = 1;</code>
+       * <code>.org.roylance.yaclib.BindingDefinition binding = 1;</code>
        */
       public org.roylance.yaclib.YaclibViewmodel.BindingDefinition.Builder getBindingBuilder() {
         
@@ -1265,7 +1265,7 @@ public final class YaclibView {
         return getBindingFieldBuilder().getBuilder();
       }
       /**
-       * <code>optional .org.roylance.yaclib.BindingDefinition binding = 1;</code>
+       * <code>.org.roylance.yaclib.BindingDefinition binding = 1;</code>
        */
       public org.roylance.yaclib.YaclibViewmodel.BindingDefinitionOrBuilder getBindingOrBuilder() {
         if (bindingBuilder_ != null) {
@@ -1276,7 +1276,7 @@ public final class YaclibView {
         }
       }
       /**
-       * <code>optional .org.roylance.yaclib.BindingDefinition binding = 1;</code>
+       * <code>.org.roylance.yaclib.BindingDefinition binding = 1;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           org.roylance.yaclib.YaclibViewmodel.BindingDefinition, org.roylance.yaclib.YaclibViewmodel.BindingDefinition.Builder, org.roylance.yaclib.YaclibViewmodel.BindingDefinitionOrBuilder> 
@@ -1294,13 +1294,13 @@ public final class YaclibView {
 
       private int visualSize_ = 0;
       /**
-       * <code>optional .org.roylance.yaclib.VisualSize visual_size = 2;</code>
+       * <code>.org.roylance.yaclib.VisualSize visual_size = 2;</code>
        */
       public int getVisualSizeValue() {
         return visualSize_;
       }
       /**
-       * <code>optional .org.roylance.yaclib.VisualSize visual_size = 2;</code>
+       * <code>.org.roylance.yaclib.VisualSize visual_size = 2;</code>
        */
       public Builder setVisualSizeValue(int value) {
         visualSize_ = value;
@@ -1308,14 +1308,14 @@ public final class YaclibView {
         return this;
       }
       /**
-       * <code>optional .org.roylance.yaclib.VisualSize visual_size = 2;</code>
+       * <code>.org.roylance.yaclib.VisualSize visual_size = 2;</code>
        */
       public org.roylance.yaclib.YaclibView.VisualSize getVisualSize() {
         org.roylance.yaclib.YaclibView.VisualSize result = org.roylance.yaclib.YaclibView.VisualSize.valueOf(visualSize_);
         return result == null ? org.roylance.yaclib.YaclibView.VisualSize.UNRECOGNIZED : result;
       }
       /**
-       * <code>optional .org.roylance.yaclib.VisualSize visual_size = 2;</code>
+       * <code>.org.roylance.yaclib.VisualSize visual_size = 2;</code>
        */
       public Builder setVisualSize(org.roylance.yaclib.YaclibView.VisualSize value) {
         if (value == null) {
@@ -1327,7 +1327,7 @@ public final class YaclibView {
         return this;
       }
       /**
-       * <code>optional .org.roylance.yaclib.VisualSize visual_size = 2;</code>
+       * <code>.org.roylance.yaclib.VisualSize visual_size = 2;</code>
        */
       public Builder clearVisualSize() {
         
@@ -1340,13 +1340,13 @@ public final class YaclibView {
       private com.google.protobuf.SingleFieldBuilderV3<
           org.roylance.yaclib.YaclibViewmodel.BindingDefinition, org.roylance.yaclib.YaclibViewmodel.BindingDefinition.Builder, org.roylance.yaclib.YaclibViewmodel.BindingDefinitionOrBuilder> showBuilder_;
       /**
-       * <code>optional .org.roylance.yaclib.BindingDefinition show = 3;</code>
+       * <code>.org.roylance.yaclib.BindingDefinition show = 3;</code>
        */
       public boolean hasShow() {
         return showBuilder_ != null || show_ != null;
       }
       /**
-       * <code>optional .org.roylance.yaclib.BindingDefinition show = 3;</code>
+       * <code>.org.roylance.yaclib.BindingDefinition show = 3;</code>
        */
       public org.roylance.yaclib.YaclibViewmodel.BindingDefinition getShow() {
         if (showBuilder_ == null) {
@@ -1356,7 +1356,7 @@ public final class YaclibView {
         }
       }
       /**
-       * <code>optional .org.roylance.yaclib.BindingDefinition show = 3;</code>
+       * <code>.org.roylance.yaclib.BindingDefinition show = 3;</code>
        */
       public Builder setShow(org.roylance.yaclib.YaclibViewmodel.BindingDefinition value) {
         if (showBuilder_ == null) {
@@ -1372,7 +1372,7 @@ public final class YaclibView {
         return this;
       }
       /**
-       * <code>optional .org.roylance.yaclib.BindingDefinition show = 3;</code>
+       * <code>.org.roylance.yaclib.BindingDefinition show = 3;</code>
        */
       public Builder setShow(
           org.roylance.yaclib.YaclibViewmodel.BindingDefinition.Builder builderForValue) {
@@ -1386,7 +1386,7 @@ public final class YaclibView {
         return this;
       }
       /**
-       * <code>optional .org.roylance.yaclib.BindingDefinition show = 3;</code>
+       * <code>.org.roylance.yaclib.BindingDefinition show = 3;</code>
        */
       public Builder mergeShow(org.roylance.yaclib.YaclibViewmodel.BindingDefinition value) {
         if (showBuilder_ == null) {
@@ -1404,7 +1404,7 @@ public final class YaclibView {
         return this;
       }
       /**
-       * <code>optional .org.roylance.yaclib.BindingDefinition show = 3;</code>
+       * <code>.org.roylance.yaclib.BindingDefinition show = 3;</code>
        */
       public Builder clearShow() {
         if (showBuilder_ == null) {
@@ -1418,7 +1418,7 @@ public final class YaclibView {
         return this;
       }
       /**
-       * <code>optional .org.roylance.yaclib.BindingDefinition show = 3;</code>
+       * <code>.org.roylance.yaclib.BindingDefinition show = 3;</code>
        */
       public org.roylance.yaclib.YaclibViewmodel.BindingDefinition.Builder getShowBuilder() {
         
@@ -1426,7 +1426,7 @@ public final class YaclibView {
         return getShowFieldBuilder().getBuilder();
       }
       /**
-       * <code>optional .org.roylance.yaclib.BindingDefinition show = 3;</code>
+       * <code>.org.roylance.yaclib.BindingDefinition show = 3;</code>
        */
       public org.roylance.yaclib.YaclibViewmodel.BindingDefinitionOrBuilder getShowOrBuilder() {
         if (showBuilder_ != null) {
@@ -1437,7 +1437,7 @@ public final class YaclibView {
         }
       }
       /**
-       * <code>optional .org.roylance.yaclib.BindingDefinition show = 3;</code>
+       * <code>.org.roylance.yaclib.BindingDefinition show = 3;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           org.roylance.yaclib.YaclibViewmodel.BindingDefinition, org.roylance.yaclib.YaclibViewmodel.BindingDefinition.Builder, org.roylance.yaclib.YaclibViewmodel.BindingDefinitionOrBuilder> 
@@ -1455,7 +1455,7 @@ public final class YaclibView {
 
       private java.lang.Object title_ = "";
       /**
-       * <code>optional string title = 4;</code>
+       * <code>string title = 4;</code>
        */
       public java.lang.String getTitle() {
         java.lang.Object ref = title_;
@@ -1470,7 +1470,7 @@ public final class YaclibView {
         }
       }
       /**
-       * <code>optional string title = 4;</code>
+       * <code>string title = 4;</code>
        */
       public com.google.protobuf.ByteString
           getTitleBytes() {
@@ -1486,7 +1486,7 @@ public final class YaclibView {
         }
       }
       /**
-       * <code>optional string title = 4;</code>
+       * <code>string title = 4;</code>
        */
       public Builder setTitle(
           java.lang.String value) {
@@ -1499,7 +1499,7 @@ public final class YaclibView {
         return this;
       }
       /**
-       * <code>optional string title = 4;</code>
+       * <code>string title = 4;</code>
        */
       public Builder clearTitle() {
         
@@ -1508,7 +1508,7 @@ public final class YaclibView {
         return this;
       }
       /**
-       * <code>optional string title = 4;</code>
+       * <code>string title = 4;</code>
        */
       public Builder setTitleBytes(
           com.google.protobuf.ByteString value) {
@@ -1599,15 +1599,15 @@ public final class YaclibView {
         int index);
 
     /**
-     * <code>optional .org.roylance.yaclib.BindingDefinition show = 2;</code>
+     * <code>.org.roylance.yaclib.BindingDefinition show = 2;</code>
      */
     boolean hasShow();
     /**
-     * <code>optional .org.roylance.yaclib.BindingDefinition show = 2;</code>
+     * <code>.org.roylance.yaclib.BindingDefinition show = 2;</code>
      */
     org.roylance.yaclib.YaclibViewmodel.BindingDefinition getShow();
     /**
-     * <code>optional .org.roylance.yaclib.BindingDefinition show = 2;</code>
+     * <code>.org.roylance.yaclib.BindingDefinition show = 2;</code>
      */
     org.roylance.yaclib.YaclibViewmodel.BindingDefinitionOrBuilder getShowOrBuilder();
   }
@@ -1738,19 +1738,19 @@ public final class YaclibView {
     public static final int SHOW_FIELD_NUMBER = 2;
     private org.roylance.yaclib.YaclibViewmodel.BindingDefinition show_;
     /**
-     * <code>optional .org.roylance.yaclib.BindingDefinition show = 2;</code>
+     * <code>.org.roylance.yaclib.BindingDefinition show = 2;</code>
      */
     public boolean hasShow() {
       return show_ != null;
     }
     /**
-     * <code>optional .org.roylance.yaclib.BindingDefinition show = 2;</code>
+     * <code>.org.roylance.yaclib.BindingDefinition show = 2;</code>
      */
     public org.roylance.yaclib.YaclibViewmodel.BindingDefinition getShow() {
       return show_ == null ? org.roylance.yaclib.YaclibViewmodel.BindingDefinition.getDefaultInstance() : show_;
     }
     /**
-     * <code>optional .org.roylance.yaclib.BindingDefinition show = 2;</code>
+     * <code>.org.roylance.yaclib.BindingDefinition show = 2;</code>
      */
     public org.roylance.yaclib.YaclibViewmodel.BindingDefinitionOrBuilder getShowOrBuilder() {
       return getShow();
@@ -1821,7 +1821,7 @@ public final class YaclibView {
         return memoizedHashCode;
       }
       int hash = 41;
-      hash = (19 * hash) + getDescriptorForType().hashCode();
+      hash = (19 * hash) + getDescriptor().hashCode();
       if (getColumnsCount() > 0) {
         hash = (37 * hash) + COLUMNS_FIELD_NUMBER;
         hash = (53 * hash) + getColumnsList().hashCode();
@@ -2341,13 +2341,13 @@ public final class YaclibView {
       private com.google.protobuf.SingleFieldBuilderV3<
           org.roylance.yaclib.YaclibViewmodel.BindingDefinition, org.roylance.yaclib.YaclibViewmodel.BindingDefinition.Builder, org.roylance.yaclib.YaclibViewmodel.BindingDefinitionOrBuilder> showBuilder_;
       /**
-       * <code>optional .org.roylance.yaclib.BindingDefinition show = 2;</code>
+       * <code>.org.roylance.yaclib.BindingDefinition show = 2;</code>
        */
       public boolean hasShow() {
         return showBuilder_ != null || show_ != null;
       }
       /**
-       * <code>optional .org.roylance.yaclib.BindingDefinition show = 2;</code>
+       * <code>.org.roylance.yaclib.BindingDefinition show = 2;</code>
        */
       public org.roylance.yaclib.YaclibViewmodel.BindingDefinition getShow() {
         if (showBuilder_ == null) {
@@ -2357,7 +2357,7 @@ public final class YaclibView {
         }
       }
       /**
-       * <code>optional .org.roylance.yaclib.BindingDefinition show = 2;</code>
+       * <code>.org.roylance.yaclib.BindingDefinition show = 2;</code>
        */
       public Builder setShow(org.roylance.yaclib.YaclibViewmodel.BindingDefinition value) {
         if (showBuilder_ == null) {
@@ -2373,7 +2373,7 @@ public final class YaclibView {
         return this;
       }
       /**
-       * <code>optional .org.roylance.yaclib.BindingDefinition show = 2;</code>
+       * <code>.org.roylance.yaclib.BindingDefinition show = 2;</code>
        */
       public Builder setShow(
           org.roylance.yaclib.YaclibViewmodel.BindingDefinition.Builder builderForValue) {
@@ -2387,7 +2387,7 @@ public final class YaclibView {
         return this;
       }
       /**
-       * <code>optional .org.roylance.yaclib.BindingDefinition show = 2;</code>
+       * <code>.org.roylance.yaclib.BindingDefinition show = 2;</code>
        */
       public Builder mergeShow(org.roylance.yaclib.YaclibViewmodel.BindingDefinition value) {
         if (showBuilder_ == null) {
@@ -2405,7 +2405,7 @@ public final class YaclibView {
         return this;
       }
       /**
-       * <code>optional .org.roylance.yaclib.BindingDefinition show = 2;</code>
+       * <code>.org.roylance.yaclib.BindingDefinition show = 2;</code>
        */
       public Builder clearShow() {
         if (showBuilder_ == null) {
@@ -2419,7 +2419,7 @@ public final class YaclibView {
         return this;
       }
       /**
-       * <code>optional .org.roylance.yaclib.BindingDefinition show = 2;</code>
+       * <code>.org.roylance.yaclib.BindingDefinition show = 2;</code>
        */
       public org.roylance.yaclib.YaclibViewmodel.BindingDefinition.Builder getShowBuilder() {
         
@@ -2427,7 +2427,7 @@ public final class YaclibView {
         return getShowFieldBuilder().getBuilder();
       }
       /**
-       * <code>optional .org.roylance.yaclib.BindingDefinition show = 2;</code>
+       * <code>.org.roylance.yaclib.BindingDefinition show = 2;</code>
        */
       public org.roylance.yaclib.YaclibViewmodel.BindingDefinitionOrBuilder getShowOrBuilder() {
         if (showBuilder_ != null) {
@@ -2438,7 +2438,7 @@ public final class YaclibView {
         }
       }
       /**
-       * <code>optional .org.roylance.yaclib.BindingDefinition show = 2;</code>
+       * <code>.org.roylance.yaclib.BindingDefinition show = 2;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           org.roylance.yaclib.YaclibViewmodel.BindingDefinition, org.roylance.yaclib.YaclibViewmodel.BindingDefinition.Builder, org.roylance.yaclib.YaclibViewmodel.BindingDefinitionOrBuilder> 
@@ -2507,11 +2507,11 @@ public final class YaclibView {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>optional .org.roylance.yaclib.ViewType view_type = 1;</code>
+     * <code>.org.roylance.yaclib.ViewType view_type = 1;</code>
      */
     int getViewTypeValue();
     /**
-     * <code>optional .org.roylance.yaclib.ViewType view_type = 1;</code>
+     * <code>.org.roylance.yaclib.ViewType view_type = 1;</code>
      */
     org.roylance.yaclib.YaclibView.ViewType getViewType();
 
@@ -2564,28 +2564,28 @@ public final class YaclibView {
         int index);
 
     /**
-     * <code>optional .org.roylance.yaclib.BindingDefinition show = 4;</code>
+     * <code>.org.roylance.yaclib.BindingDefinition show = 4;</code>
      */
     boolean hasShow();
     /**
-     * <code>optional .org.roylance.yaclib.BindingDefinition show = 4;</code>
+     * <code>.org.roylance.yaclib.BindingDefinition show = 4;</code>
      */
     org.roylance.yaclib.YaclibViewmodel.BindingDefinition getShow();
     /**
-     * <code>optional .org.roylance.yaclib.BindingDefinition show = 4;</code>
+     * <code>.org.roylance.yaclib.BindingDefinition show = 4;</code>
      */
     org.roylance.yaclib.YaclibViewmodel.BindingDefinitionOrBuilder getShowOrBuilder();
 
     /**
-     * <code>optional .org.roylance.yaclib.ViewModel view_model = 5;</code>
+     * <code>.org.roylance.yaclib.ViewModel view_model = 5;</code>
      */
     boolean hasViewModel();
     /**
-     * <code>optional .org.roylance.yaclib.ViewModel view_model = 5;</code>
+     * <code>.org.roylance.yaclib.ViewModel view_model = 5;</code>
      */
     org.roylance.yaclib.YaclibViewmodel.ViewModel getViewModel();
     /**
-     * <code>optional .org.roylance.yaclib.ViewModel view_model = 5;</code>
+     * <code>.org.roylance.yaclib.ViewModel view_model = 5;</code>
      */
     org.roylance.yaclib.YaclibViewmodel.ViewModelOrBuilder getViewModelOrBuilder();
   }
@@ -2714,13 +2714,13 @@ public final class YaclibView {
     public static final int VIEW_TYPE_FIELD_NUMBER = 1;
     private int viewType_;
     /**
-     * <code>optional .org.roylance.yaclib.ViewType view_type = 1;</code>
+     * <code>.org.roylance.yaclib.ViewType view_type = 1;</code>
      */
     public int getViewTypeValue() {
       return viewType_;
     }
     /**
-     * <code>optional .org.roylance.yaclib.ViewType view_type = 1;</code>
+     * <code>.org.roylance.yaclib.ViewType view_type = 1;</code>
      */
     public org.roylance.yaclib.YaclibView.ViewType getViewType() {
       org.roylance.yaclib.YaclibView.ViewType result = org.roylance.yaclib.YaclibView.ViewType.valueOf(viewType_);
@@ -2800,19 +2800,19 @@ public final class YaclibView {
     public static final int SHOW_FIELD_NUMBER = 4;
     private org.roylance.yaclib.YaclibViewmodel.BindingDefinition show_;
     /**
-     * <code>optional .org.roylance.yaclib.BindingDefinition show = 4;</code>
+     * <code>.org.roylance.yaclib.BindingDefinition show = 4;</code>
      */
     public boolean hasShow() {
       return show_ != null;
     }
     /**
-     * <code>optional .org.roylance.yaclib.BindingDefinition show = 4;</code>
+     * <code>.org.roylance.yaclib.BindingDefinition show = 4;</code>
      */
     public org.roylance.yaclib.YaclibViewmodel.BindingDefinition getShow() {
       return show_ == null ? org.roylance.yaclib.YaclibViewmodel.BindingDefinition.getDefaultInstance() : show_;
     }
     /**
-     * <code>optional .org.roylance.yaclib.BindingDefinition show = 4;</code>
+     * <code>.org.roylance.yaclib.BindingDefinition show = 4;</code>
      */
     public org.roylance.yaclib.YaclibViewmodel.BindingDefinitionOrBuilder getShowOrBuilder() {
       return getShow();
@@ -2821,19 +2821,19 @@ public final class YaclibView {
     public static final int VIEW_MODEL_FIELD_NUMBER = 5;
     private org.roylance.yaclib.YaclibViewmodel.ViewModel viewModel_;
     /**
-     * <code>optional .org.roylance.yaclib.ViewModel view_model = 5;</code>
+     * <code>.org.roylance.yaclib.ViewModel view_model = 5;</code>
      */
     public boolean hasViewModel() {
       return viewModel_ != null;
     }
     /**
-     * <code>optional .org.roylance.yaclib.ViewModel view_model = 5;</code>
+     * <code>.org.roylance.yaclib.ViewModel view_model = 5;</code>
      */
     public org.roylance.yaclib.YaclibViewmodel.ViewModel getViewModel() {
       return viewModel_ == null ? org.roylance.yaclib.YaclibViewmodel.ViewModel.getDefaultInstance() : viewModel_;
     }
     /**
-     * <code>optional .org.roylance.yaclib.ViewModel view_model = 5;</code>
+     * <code>.org.roylance.yaclib.ViewModel view_model = 5;</code>
      */
     public org.roylance.yaclib.YaclibViewmodel.ViewModelOrBuilder getViewModelOrBuilder() {
       return getViewModel();
@@ -2933,7 +2933,7 @@ public final class YaclibView {
         return memoizedHashCode;
       }
       int hash = 41;
-      hash = (19 * hash) + getDescriptorForType().hashCode();
+      hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + VIEW_TYPE_FIELD_NUMBER;
       hash = (53 * hash) + viewType_;
       if (getViewsCount() > 0) {
@@ -3283,13 +3283,13 @@ public final class YaclibView {
 
       private int viewType_ = 0;
       /**
-       * <code>optional .org.roylance.yaclib.ViewType view_type = 1;</code>
+       * <code>.org.roylance.yaclib.ViewType view_type = 1;</code>
        */
       public int getViewTypeValue() {
         return viewType_;
       }
       /**
-       * <code>optional .org.roylance.yaclib.ViewType view_type = 1;</code>
+       * <code>.org.roylance.yaclib.ViewType view_type = 1;</code>
        */
       public Builder setViewTypeValue(int value) {
         viewType_ = value;
@@ -3297,14 +3297,14 @@ public final class YaclibView {
         return this;
       }
       /**
-       * <code>optional .org.roylance.yaclib.ViewType view_type = 1;</code>
+       * <code>.org.roylance.yaclib.ViewType view_type = 1;</code>
        */
       public org.roylance.yaclib.YaclibView.ViewType getViewType() {
         org.roylance.yaclib.YaclibView.ViewType result = org.roylance.yaclib.YaclibView.ViewType.valueOf(viewType_);
         return result == null ? org.roylance.yaclib.YaclibView.ViewType.UNRECOGNIZED : result;
       }
       /**
-       * <code>optional .org.roylance.yaclib.ViewType view_type = 1;</code>
+       * <code>.org.roylance.yaclib.ViewType view_type = 1;</code>
        */
       public Builder setViewType(org.roylance.yaclib.YaclibView.ViewType value) {
         if (value == null) {
@@ -3316,7 +3316,7 @@ public final class YaclibView {
         return this;
       }
       /**
-       * <code>optional .org.roylance.yaclib.ViewType view_type = 1;</code>
+       * <code>.org.roylance.yaclib.ViewType view_type = 1;</code>
        */
       public Builder clearViewType() {
         
@@ -3809,13 +3809,13 @@ public final class YaclibView {
       private com.google.protobuf.SingleFieldBuilderV3<
           org.roylance.yaclib.YaclibViewmodel.BindingDefinition, org.roylance.yaclib.YaclibViewmodel.BindingDefinition.Builder, org.roylance.yaclib.YaclibViewmodel.BindingDefinitionOrBuilder> showBuilder_;
       /**
-       * <code>optional .org.roylance.yaclib.BindingDefinition show = 4;</code>
+       * <code>.org.roylance.yaclib.BindingDefinition show = 4;</code>
        */
       public boolean hasShow() {
         return showBuilder_ != null || show_ != null;
       }
       /**
-       * <code>optional .org.roylance.yaclib.BindingDefinition show = 4;</code>
+       * <code>.org.roylance.yaclib.BindingDefinition show = 4;</code>
        */
       public org.roylance.yaclib.YaclibViewmodel.BindingDefinition getShow() {
         if (showBuilder_ == null) {
@@ -3825,7 +3825,7 @@ public final class YaclibView {
         }
       }
       /**
-       * <code>optional .org.roylance.yaclib.BindingDefinition show = 4;</code>
+       * <code>.org.roylance.yaclib.BindingDefinition show = 4;</code>
        */
       public Builder setShow(org.roylance.yaclib.YaclibViewmodel.BindingDefinition value) {
         if (showBuilder_ == null) {
@@ -3841,7 +3841,7 @@ public final class YaclibView {
         return this;
       }
       /**
-       * <code>optional .org.roylance.yaclib.BindingDefinition show = 4;</code>
+       * <code>.org.roylance.yaclib.BindingDefinition show = 4;</code>
        */
       public Builder setShow(
           org.roylance.yaclib.YaclibViewmodel.BindingDefinition.Builder builderForValue) {
@@ -3855,7 +3855,7 @@ public final class YaclibView {
         return this;
       }
       /**
-       * <code>optional .org.roylance.yaclib.BindingDefinition show = 4;</code>
+       * <code>.org.roylance.yaclib.BindingDefinition show = 4;</code>
        */
       public Builder mergeShow(org.roylance.yaclib.YaclibViewmodel.BindingDefinition value) {
         if (showBuilder_ == null) {
@@ -3873,7 +3873,7 @@ public final class YaclibView {
         return this;
       }
       /**
-       * <code>optional .org.roylance.yaclib.BindingDefinition show = 4;</code>
+       * <code>.org.roylance.yaclib.BindingDefinition show = 4;</code>
        */
       public Builder clearShow() {
         if (showBuilder_ == null) {
@@ -3887,7 +3887,7 @@ public final class YaclibView {
         return this;
       }
       /**
-       * <code>optional .org.roylance.yaclib.BindingDefinition show = 4;</code>
+       * <code>.org.roylance.yaclib.BindingDefinition show = 4;</code>
        */
       public org.roylance.yaclib.YaclibViewmodel.BindingDefinition.Builder getShowBuilder() {
         
@@ -3895,7 +3895,7 @@ public final class YaclibView {
         return getShowFieldBuilder().getBuilder();
       }
       /**
-       * <code>optional .org.roylance.yaclib.BindingDefinition show = 4;</code>
+       * <code>.org.roylance.yaclib.BindingDefinition show = 4;</code>
        */
       public org.roylance.yaclib.YaclibViewmodel.BindingDefinitionOrBuilder getShowOrBuilder() {
         if (showBuilder_ != null) {
@@ -3906,7 +3906,7 @@ public final class YaclibView {
         }
       }
       /**
-       * <code>optional .org.roylance.yaclib.BindingDefinition show = 4;</code>
+       * <code>.org.roylance.yaclib.BindingDefinition show = 4;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           org.roylance.yaclib.YaclibViewmodel.BindingDefinition, org.roylance.yaclib.YaclibViewmodel.BindingDefinition.Builder, org.roylance.yaclib.YaclibViewmodel.BindingDefinitionOrBuilder> 
@@ -3926,13 +3926,13 @@ public final class YaclibView {
       private com.google.protobuf.SingleFieldBuilderV3<
           org.roylance.yaclib.YaclibViewmodel.ViewModel, org.roylance.yaclib.YaclibViewmodel.ViewModel.Builder, org.roylance.yaclib.YaclibViewmodel.ViewModelOrBuilder> viewModelBuilder_;
       /**
-       * <code>optional .org.roylance.yaclib.ViewModel view_model = 5;</code>
+       * <code>.org.roylance.yaclib.ViewModel view_model = 5;</code>
        */
       public boolean hasViewModel() {
         return viewModelBuilder_ != null || viewModel_ != null;
       }
       /**
-       * <code>optional .org.roylance.yaclib.ViewModel view_model = 5;</code>
+       * <code>.org.roylance.yaclib.ViewModel view_model = 5;</code>
        */
       public org.roylance.yaclib.YaclibViewmodel.ViewModel getViewModel() {
         if (viewModelBuilder_ == null) {
@@ -3942,7 +3942,7 @@ public final class YaclibView {
         }
       }
       /**
-       * <code>optional .org.roylance.yaclib.ViewModel view_model = 5;</code>
+       * <code>.org.roylance.yaclib.ViewModel view_model = 5;</code>
        */
       public Builder setViewModel(org.roylance.yaclib.YaclibViewmodel.ViewModel value) {
         if (viewModelBuilder_ == null) {
@@ -3958,7 +3958,7 @@ public final class YaclibView {
         return this;
       }
       /**
-       * <code>optional .org.roylance.yaclib.ViewModel view_model = 5;</code>
+       * <code>.org.roylance.yaclib.ViewModel view_model = 5;</code>
        */
       public Builder setViewModel(
           org.roylance.yaclib.YaclibViewmodel.ViewModel.Builder builderForValue) {
@@ -3972,7 +3972,7 @@ public final class YaclibView {
         return this;
       }
       /**
-       * <code>optional .org.roylance.yaclib.ViewModel view_model = 5;</code>
+       * <code>.org.roylance.yaclib.ViewModel view_model = 5;</code>
        */
       public Builder mergeViewModel(org.roylance.yaclib.YaclibViewmodel.ViewModel value) {
         if (viewModelBuilder_ == null) {
@@ -3990,7 +3990,7 @@ public final class YaclibView {
         return this;
       }
       /**
-       * <code>optional .org.roylance.yaclib.ViewModel view_model = 5;</code>
+       * <code>.org.roylance.yaclib.ViewModel view_model = 5;</code>
        */
       public Builder clearViewModel() {
         if (viewModelBuilder_ == null) {
@@ -4004,7 +4004,7 @@ public final class YaclibView {
         return this;
       }
       /**
-       * <code>optional .org.roylance.yaclib.ViewModel view_model = 5;</code>
+       * <code>.org.roylance.yaclib.ViewModel view_model = 5;</code>
        */
       public org.roylance.yaclib.YaclibViewmodel.ViewModel.Builder getViewModelBuilder() {
         
@@ -4012,7 +4012,7 @@ public final class YaclibView {
         return getViewModelFieldBuilder().getBuilder();
       }
       /**
-       * <code>optional .org.roylance.yaclib.ViewModel view_model = 5;</code>
+       * <code>.org.roylance.yaclib.ViewModel view_model = 5;</code>
        */
       public org.roylance.yaclib.YaclibViewmodel.ViewModelOrBuilder getViewModelOrBuilder() {
         if (viewModelBuilder_ != null) {
@@ -4023,7 +4023,7 @@ public final class YaclibView {
         }
       }
       /**
-       * <code>optional .org.roylance.yaclib.ViewModel view_model = 5;</code>
+       * <code>.org.roylance.yaclib.ViewModel view_model = 5;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           org.roylance.yaclib.YaclibViewmodel.ViewModel, org.roylance.yaclib.YaclibViewmodel.ViewModel.Builder, org.roylance.yaclib.YaclibViewmodel.ViewModelOrBuilder> 
@@ -4092,28 +4092,28 @@ public final class YaclibView {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>optional .org.roylance.yaclib.ViewDefinition from = 1;</code>
+     * <code>.org.roylance.yaclib.ViewDefinition from = 1;</code>
      */
     boolean hasFrom();
     /**
-     * <code>optional .org.roylance.yaclib.ViewDefinition from = 1;</code>
+     * <code>.org.roylance.yaclib.ViewDefinition from = 1;</code>
      */
     org.roylance.yaclib.YaclibView.ViewDefinition getFrom();
     /**
-     * <code>optional .org.roylance.yaclib.ViewDefinition from = 1;</code>
+     * <code>.org.roylance.yaclib.ViewDefinition from = 1;</code>
      */
     org.roylance.yaclib.YaclibView.ViewDefinitionOrBuilder getFromOrBuilder();
 
     /**
-     * <code>optional .org.roylance.yaclib.ViewDefinition to = 2;</code>
+     * <code>.org.roylance.yaclib.ViewDefinition to = 2;</code>
      */
     boolean hasTo();
     /**
-     * <code>optional .org.roylance.yaclib.ViewDefinition to = 2;</code>
+     * <code>.org.roylance.yaclib.ViewDefinition to = 2;</code>
      */
     org.roylance.yaclib.YaclibView.ViewDefinition getTo();
     /**
-     * <code>optional .org.roylance.yaclib.ViewDefinition to = 2;</code>
+     * <code>.org.roylance.yaclib.ViewDefinition to = 2;</code>
      */
     org.roylance.yaclib.YaclibView.ViewDefinitionOrBuilder getToOrBuilder();
   }
@@ -4208,19 +4208,19 @@ public final class YaclibView {
     public static final int FROM_FIELD_NUMBER = 1;
     private org.roylance.yaclib.YaclibView.ViewDefinition from_;
     /**
-     * <code>optional .org.roylance.yaclib.ViewDefinition from = 1;</code>
+     * <code>.org.roylance.yaclib.ViewDefinition from = 1;</code>
      */
     public boolean hasFrom() {
       return from_ != null;
     }
     /**
-     * <code>optional .org.roylance.yaclib.ViewDefinition from = 1;</code>
+     * <code>.org.roylance.yaclib.ViewDefinition from = 1;</code>
      */
     public org.roylance.yaclib.YaclibView.ViewDefinition getFrom() {
       return from_ == null ? org.roylance.yaclib.YaclibView.ViewDefinition.getDefaultInstance() : from_;
     }
     /**
-     * <code>optional .org.roylance.yaclib.ViewDefinition from = 1;</code>
+     * <code>.org.roylance.yaclib.ViewDefinition from = 1;</code>
      */
     public org.roylance.yaclib.YaclibView.ViewDefinitionOrBuilder getFromOrBuilder() {
       return getFrom();
@@ -4229,19 +4229,19 @@ public final class YaclibView {
     public static final int TO_FIELD_NUMBER = 2;
     private org.roylance.yaclib.YaclibView.ViewDefinition to_;
     /**
-     * <code>optional .org.roylance.yaclib.ViewDefinition to = 2;</code>
+     * <code>.org.roylance.yaclib.ViewDefinition to = 2;</code>
      */
     public boolean hasTo() {
       return to_ != null;
     }
     /**
-     * <code>optional .org.roylance.yaclib.ViewDefinition to = 2;</code>
+     * <code>.org.roylance.yaclib.ViewDefinition to = 2;</code>
      */
     public org.roylance.yaclib.YaclibView.ViewDefinition getTo() {
       return to_ == null ? org.roylance.yaclib.YaclibView.ViewDefinition.getDefaultInstance() : to_;
     }
     /**
-     * <code>optional .org.roylance.yaclib.ViewDefinition to = 2;</code>
+     * <code>.org.roylance.yaclib.ViewDefinition to = 2;</code>
      */
     public org.roylance.yaclib.YaclibView.ViewDefinitionOrBuilder getToOrBuilder() {
       return getTo();
@@ -4315,7 +4315,7 @@ public final class YaclibView {
         return memoizedHashCode;
       }
       int hash = 41;
-      hash = (19 * hash) + getDescriptorForType().hashCode();
+      hash = (19 * hash) + getDescriptor().hashCode();
       if (hasFrom()) {
         hash = (37 * hash) + FROM_FIELD_NUMBER;
         hash = (53 * hash) + getFrom().hashCode();
@@ -4563,13 +4563,13 @@ public final class YaclibView {
       private com.google.protobuf.SingleFieldBuilderV3<
           org.roylance.yaclib.YaclibView.ViewDefinition, org.roylance.yaclib.YaclibView.ViewDefinition.Builder, org.roylance.yaclib.YaclibView.ViewDefinitionOrBuilder> fromBuilder_;
       /**
-       * <code>optional .org.roylance.yaclib.ViewDefinition from = 1;</code>
+       * <code>.org.roylance.yaclib.ViewDefinition from = 1;</code>
        */
       public boolean hasFrom() {
         return fromBuilder_ != null || from_ != null;
       }
       /**
-       * <code>optional .org.roylance.yaclib.ViewDefinition from = 1;</code>
+       * <code>.org.roylance.yaclib.ViewDefinition from = 1;</code>
        */
       public org.roylance.yaclib.YaclibView.ViewDefinition getFrom() {
         if (fromBuilder_ == null) {
@@ -4579,7 +4579,7 @@ public final class YaclibView {
         }
       }
       /**
-       * <code>optional .org.roylance.yaclib.ViewDefinition from = 1;</code>
+       * <code>.org.roylance.yaclib.ViewDefinition from = 1;</code>
        */
       public Builder setFrom(org.roylance.yaclib.YaclibView.ViewDefinition value) {
         if (fromBuilder_ == null) {
@@ -4595,7 +4595,7 @@ public final class YaclibView {
         return this;
       }
       /**
-       * <code>optional .org.roylance.yaclib.ViewDefinition from = 1;</code>
+       * <code>.org.roylance.yaclib.ViewDefinition from = 1;</code>
        */
       public Builder setFrom(
           org.roylance.yaclib.YaclibView.ViewDefinition.Builder builderForValue) {
@@ -4609,7 +4609,7 @@ public final class YaclibView {
         return this;
       }
       /**
-       * <code>optional .org.roylance.yaclib.ViewDefinition from = 1;</code>
+       * <code>.org.roylance.yaclib.ViewDefinition from = 1;</code>
        */
       public Builder mergeFrom(org.roylance.yaclib.YaclibView.ViewDefinition value) {
         if (fromBuilder_ == null) {
@@ -4627,7 +4627,7 @@ public final class YaclibView {
         return this;
       }
       /**
-       * <code>optional .org.roylance.yaclib.ViewDefinition from = 1;</code>
+       * <code>.org.roylance.yaclib.ViewDefinition from = 1;</code>
        */
       public Builder clearFrom() {
         if (fromBuilder_ == null) {
@@ -4641,7 +4641,7 @@ public final class YaclibView {
         return this;
       }
       /**
-       * <code>optional .org.roylance.yaclib.ViewDefinition from = 1;</code>
+       * <code>.org.roylance.yaclib.ViewDefinition from = 1;</code>
        */
       public org.roylance.yaclib.YaclibView.ViewDefinition.Builder getFromBuilder() {
         
@@ -4649,7 +4649,7 @@ public final class YaclibView {
         return getFromFieldBuilder().getBuilder();
       }
       /**
-       * <code>optional .org.roylance.yaclib.ViewDefinition from = 1;</code>
+       * <code>.org.roylance.yaclib.ViewDefinition from = 1;</code>
        */
       public org.roylance.yaclib.YaclibView.ViewDefinitionOrBuilder getFromOrBuilder() {
         if (fromBuilder_ != null) {
@@ -4660,7 +4660,7 @@ public final class YaclibView {
         }
       }
       /**
-       * <code>optional .org.roylance.yaclib.ViewDefinition from = 1;</code>
+       * <code>.org.roylance.yaclib.ViewDefinition from = 1;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           org.roylance.yaclib.YaclibView.ViewDefinition, org.roylance.yaclib.YaclibView.ViewDefinition.Builder, org.roylance.yaclib.YaclibView.ViewDefinitionOrBuilder> 
@@ -4680,13 +4680,13 @@ public final class YaclibView {
       private com.google.protobuf.SingleFieldBuilderV3<
           org.roylance.yaclib.YaclibView.ViewDefinition, org.roylance.yaclib.YaclibView.ViewDefinition.Builder, org.roylance.yaclib.YaclibView.ViewDefinitionOrBuilder> toBuilder_;
       /**
-       * <code>optional .org.roylance.yaclib.ViewDefinition to = 2;</code>
+       * <code>.org.roylance.yaclib.ViewDefinition to = 2;</code>
        */
       public boolean hasTo() {
         return toBuilder_ != null || to_ != null;
       }
       /**
-       * <code>optional .org.roylance.yaclib.ViewDefinition to = 2;</code>
+       * <code>.org.roylance.yaclib.ViewDefinition to = 2;</code>
        */
       public org.roylance.yaclib.YaclibView.ViewDefinition getTo() {
         if (toBuilder_ == null) {
@@ -4696,7 +4696,7 @@ public final class YaclibView {
         }
       }
       /**
-       * <code>optional .org.roylance.yaclib.ViewDefinition to = 2;</code>
+       * <code>.org.roylance.yaclib.ViewDefinition to = 2;</code>
        */
       public Builder setTo(org.roylance.yaclib.YaclibView.ViewDefinition value) {
         if (toBuilder_ == null) {
@@ -4712,7 +4712,7 @@ public final class YaclibView {
         return this;
       }
       /**
-       * <code>optional .org.roylance.yaclib.ViewDefinition to = 2;</code>
+       * <code>.org.roylance.yaclib.ViewDefinition to = 2;</code>
        */
       public Builder setTo(
           org.roylance.yaclib.YaclibView.ViewDefinition.Builder builderForValue) {
@@ -4726,7 +4726,7 @@ public final class YaclibView {
         return this;
       }
       /**
-       * <code>optional .org.roylance.yaclib.ViewDefinition to = 2;</code>
+       * <code>.org.roylance.yaclib.ViewDefinition to = 2;</code>
        */
       public Builder mergeTo(org.roylance.yaclib.YaclibView.ViewDefinition value) {
         if (toBuilder_ == null) {
@@ -4744,7 +4744,7 @@ public final class YaclibView {
         return this;
       }
       /**
-       * <code>optional .org.roylance.yaclib.ViewDefinition to = 2;</code>
+       * <code>.org.roylance.yaclib.ViewDefinition to = 2;</code>
        */
       public Builder clearTo() {
         if (toBuilder_ == null) {
@@ -4758,7 +4758,7 @@ public final class YaclibView {
         return this;
       }
       /**
-       * <code>optional .org.roylance.yaclib.ViewDefinition to = 2;</code>
+       * <code>.org.roylance.yaclib.ViewDefinition to = 2;</code>
        */
       public org.roylance.yaclib.YaclibView.ViewDefinition.Builder getToBuilder() {
         
@@ -4766,7 +4766,7 @@ public final class YaclibView {
         return getToFieldBuilder().getBuilder();
       }
       /**
-       * <code>optional .org.roylance.yaclib.ViewDefinition to = 2;</code>
+       * <code>.org.roylance.yaclib.ViewDefinition to = 2;</code>
        */
       public org.roylance.yaclib.YaclibView.ViewDefinitionOrBuilder getToOrBuilder() {
         if (toBuilder_ != null) {
@@ -4777,7 +4777,7 @@ public final class YaclibView {
         }
       }
       /**
-       * <code>optional .org.roylance.yaclib.ViewDefinition to = 2;</code>
+       * <code>.org.roylance.yaclib.ViewDefinition to = 2;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           org.roylance.yaclib.YaclibView.ViewDefinition, org.roylance.yaclib.YaclibView.ViewDefinition.Builder, org.roylance.yaclib.YaclibView.ViewDefinitionOrBuilder> 

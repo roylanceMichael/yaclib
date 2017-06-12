@@ -171,11 +171,11 @@ public final class YaclibViewmodel {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>optional string regex = 1;</code>
+     * <code>string regex = 1;</code>
      */
     java.lang.String getRegex();
     /**
-     * <code>optional string regex = 1;</code>
+     * <code>string regex = 1;</code>
      */
     com.google.protobuf.ByteString
         getRegexBytes();
@@ -252,7 +252,7 @@ public final class YaclibViewmodel {
     public static final int REGEX_FIELD_NUMBER = 1;
     private volatile java.lang.Object regex_;
     /**
-     * <code>optional string regex = 1;</code>
+     * <code>string regex = 1;</code>
      */
     public java.lang.String getRegex() {
       java.lang.Object ref = regex_;
@@ -267,7 +267,7 @@ public final class YaclibViewmodel {
       }
     }
     /**
-     * <code>optional string regex = 1;</code>
+     * <code>string regex = 1;</code>
      */
     public com.google.protobuf.ByteString
         getRegexBytes() {
@@ -335,7 +335,7 @@ public final class YaclibViewmodel {
         return memoizedHashCode;
       }
       int hash = 41;
-      hash = (19 * hash) + getDescriptorForType().hashCode();
+      hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + REGEX_FIELD_NUMBER;
       hash = (53 * hash) + getRegex().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
@@ -554,7 +554,7 @@ public final class YaclibViewmodel {
 
       private java.lang.Object regex_ = "";
       /**
-       * <code>optional string regex = 1;</code>
+       * <code>string regex = 1;</code>
        */
       public java.lang.String getRegex() {
         java.lang.Object ref = regex_;
@@ -569,7 +569,7 @@ public final class YaclibViewmodel {
         }
       }
       /**
-       * <code>optional string regex = 1;</code>
+       * <code>string regex = 1;</code>
        */
       public com.google.protobuf.ByteString
           getRegexBytes() {
@@ -585,7 +585,7 @@ public final class YaclibViewmodel {
         }
       }
       /**
-       * <code>optional string regex = 1;</code>
+       * <code>string regex = 1;</code>
        */
       public Builder setRegex(
           java.lang.String value) {
@@ -598,7 +598,7 @@ public final class YaclibViewmodel {
         return this;
       }
       /**
-       * <code>optional string regex = 1;</code>
+       * <code>string regex = 1;</code>
        */
       public Builder clearRegex() {
         
@@ -607,7 +607,7 @@ public final class YaclibViewmodel {
         return this;
       }
       /**
-       * <code>optional string regex = 1;</code>
+       * <code>string regex = 1;</code>
        */
       public Builder setRegexBytes(
           com.google.protobuf.ByteString value) {
@@ -674,33 +674,33 @@ public final class YaclibViewmodel {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>optional .org.roylance.yaclib.BindingType binding_type = 1;</code>
+     * <code>.org.roylance.yaclib.BindingType binding_type = 1;</code>
      */
     int getBindingTypeValue();
     /**
-     * <code>optional .org.roylance.yaclib.BindingType binding_type = 1;</code>
+     * <code>.org.roylance.yaclib.BindingType binding_type = 1;</code>
      */
     org.roylance.yaclib.YaclibViewmodel.BindingType getBindingType();
 
     /**
-     * <code>optional .org.roylance.yaclib.Validation validation = 2;</code>
+     * <code>.org.roylance.yaclib.Validation validation = 2;</code>
      */
     boolean hasValidation();
     /**
-     * <code>optional .org.roylance.yaclib.Validation validation = 2;</code>
+     * <code>.org.roylance.yaclib.Validation validation = 2;</code>
      */
     org.roylance.yaclib.YaclibViewmodel.Validation getValidation();
     /**
-     * <code>optional .org.roylance.yaclib.Validation validation = 2;</code>
+     * <code>.org.roylance.yaclib.Validation validation = 2;</code>
      */
     org.roylance.yaclib.YaclibViewmodel.ValidationOrBuilder getValidationOrBuilder();
 
     /**
-     * <code>optional string model_path = 3;</code>
+     * <code>string model_path = 3;</code>
      */
     java.lang.String getModelPath();
     /**
-     * <code>optional string model_path = 3;</code>
+     * <code>string model_path = 3;</code>
      */
     com.google.protobuf.ByteString
         getModelPathBytes();
@@ -797,13 +797,13 @@ public final class YaclibViewmodel {
     public static final int BINDING_TYPE_FIELD_NUMBER = 1;
     private int bindingType_;
     /**
-     * <code>optional .org.roylance.yaclib.BindingType binding_type = 1;</code>
+     * <code>.org.roylance.yaclib.BindingType binding_type = 1;</code>
      */
     public int getBindingTypeValue() {
       return bindingType_;
     }
     /**
-     * <code>optional .org.roylance.yaclib.BindingType binding_type = 1;</code>
+     * <code>.org.roylance.yaclib.BindingType binding_type = 1;</code>
      */
     public org.roylance.yaclib.YaclibViewmodel.BindingType getBindingType() {
       org.roylance.yaclib.YaclibViewmodel.BindingType result = org.roylance.yaclib.YaclibViewmodel.BindingType.valueOf(bindingType_);
@@ -813,19 +813,19 @@ public final class YaclibViewmodel {
     public static final int VALIDATION_FIELD_NUMBER = 2;
     private org.roylance.yaclib.YaclibViewmodel.Validation validation_;
     /**
-     * <code>optional .org.roylance.yaclib.Validation validation = 2;</code>
+     * <code>.org.roylance.yaclib.Validation validation = 2;</code>
      */
     public boolean hasValidation() {
       return validation_ != null;
     }
     /**
-     * <code>optional .org.roylance.yaclib.Validation validation = 2;</code>
+     * <code>.org.roylance.yaclib.Validation validation = 2;</code>
      */
     public org.roylance.yaclib.YaclibViewmodel.Validation getValidation() {
       return validation_ == null ? org.roylance.yaclib.YaclibViewmodel.Validation.getDefaultInstance() : validation_;
     }
     /**
-     * <code>optional .org.roylance.yaclib.Validation validation = 2;</code>
+     * <code>.org.roylance.yaclib.Validation validation = 2;</code>
      */
     public org.roylance.yaclib.YaclibViewmodel.ValidationOrBuilder getValidationOrBuilder() {
       return getValidation();
@@ -834,7 +834,7 @@ public final class YaclibViewmodel {
     public static final int MODEL_PATH_FIELD_NUMBER = 3;
     private volatile java.lang.Object modelPath_;
     /**
-     * <code>optional string model_path = 3;</code>
+     * <code>string model_path = 3;</code>
      */
     public java.lang.String getModelPath() {
       java.lang.Object ref = modelPath_;
@@ -849,7 +849,7 @@ public final class YaclibViewmodel {
       }
     }
     /**
-     * <code>optional string model_path = 3;</code>
+     * <code>string model_path = 3;</code>
      */
     public com.google.protobuf.ByteString
         getModelPathBytes() {
@@ -937,7 +937,7 @@ public final class YaclibViewmodel {
         return memoizedHashCode;
       }
       int hash = 41;
-      hash = (19 * hash) + getDescriptorForType().hashCode();
+      hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + BINDING_TYPE_FIELD_NUMBER;
       hash = (53 * hash) + bindingType_;
       if (hasValidation()) {
@@ -1182,13 +1182,13 @@ public final class YaclibViewmodel {
 
       private int bindingType_ = 0;
       /**
-       * <code>optional .org.roylance.yaclib.BindingType binding_type = 1;</code>
+       * <code>.org.roylance.yaclib.BindingType binding_type = 1;</code>
        */
       public int getBindingTypeValue() {
         return bindingType_;
       }
       /**
-       * <code>optional .org.roylance.yaclib.BindingType binding_type = 1;</code>
+       * <code>.org.roylance.yaclib.BindingType binding_type = 1;</code>
        */
       public Builder setBindingTypeValue(int value) {
         bindingType_ = value;
@@ -1196,14 +1196,14 @@ public final class YaclibViewmodel {
         return this;
       }
       /**
-       * <code>optional .org.roylance.yaclib.BindingType binding_type = 1;</code>
+       * <code>.org.roylance.yaclib.BindingType binding_type = 1;</code>
        */
       public org.roylance.yaclib.YaclibViewmodel.BindingType getBindingType() {
         org.roylance.yaclib.YaclibViewmodel.BindingType result = org.roylance.yaclib.YaclibViewmodel.BindingType.valueOf(bindingType_);
         return result == null ? org.roylance.yaclib.YaclibViewmodel.BindingType.UNRECOGNIZED : result;
       }
       /**
-       * <code>optional .org.roylance.yaclib.BindingType binding_type = 1;</code>
+       * <code>.org.roylance.yaclib.BindingType binding_type = 1;</code>
        */
       public Builder setBindingType(org.roylance.yaclib.YaclibViewmodel.BindingType value) {
         if (value == null) {
@@ -1215,7 +1215,7 @@ public final class YaclibViewmodel {
         return this;
       }
       /**
-       * <code>optional .org.roylance.yaclib.BindingType binding_type = 1;</code>
+       * <code>.org.roylance.yaclib.BindingType binding_type = 1;</code>
        */
       public Builder clearBindingType() {
         
@@ -1228,13 +1228,13 @@ public final class YaclibViewmodel {
       private com.google.protobuf.SingleFieldBuilderV3<
           org.roylance.yaclib.YaclibViewmodel.Validation, org.roylance.yaclib.YaclibViewmodel.Validation.Builder, org.roylance.yaclib.YaclibViewmodel.ValidationOrBuilder> validationBuilder_;
       /**
-       * <code>optional .org.roylance.yaclib.Validation validation = 2;</code>
+       * <code>.org.roylance.yaclib.Validation validation = 2;</code>
        */
       public boolean hasValidation() {
         return validationBuilder_ != null || validation_ != null;
       }
       /**
-       * <code>optional .org.roylance.yaclib.Validation validation = 2;</code>
+       * <code>.org.roylance.yaclib.Validation validation = 2;</code>
        */
       public org.roylance.yaclib.YaclibViewmodel.Validation getValidation() {
         if (validationBuilder_ == null) {
@@ -1244,7 +1244,7 @@ public final class YaclibViewmodel {
         }
       }
       /**
-       * <code>optional .org.roylance.yaclib.Validation validation = 2;</code>
+       * <code>.org.roylance.yaclib.Validation validation = 2;</code>
        */
       public Builder setValidation(org.roylance.yaclib.YaclibViewmodel.Validation value) {
         if (validationBuilder_ == null) {
@@ -1260,7 +1260,7 @@ public final class YaclibViewmodel {
         return this;
       }
       /**
-       * <code>optional .org.roylance.yaclib.Validation validation = 2;</code>
+       * <code>.org.roylance.yaclib.Validation validation = 2;</code>
        */
       public Builder setValidation(
           org.roylance.yaclib.YaclibViewmodel.Validation.Builder builderForValue) {
@@ -1274,7 +1274,7 @@ public final class YaclibViewmodel {
         return this;
       }
       /**
-       * <code>optional .org.roylance.yaclib.Validation validation = 2;</code>
+       * <code>.org.roylance.yaclib.Validation validation = 2;</code>
        */
       public Builder mergeValidation(org.roylance.yaclib.YaclibViewmodel.Validation value) {
         if (validationBuilder_ == null) {
@@ -1292,7 +1292,7 @@ public final class YaclibViewmodel {
         return this;
       }
       /**
-       * <code>optional .org.roylance.yaclib.Validation validation = 2;</code>
+       * <code>.org.roylance.yaclib.Validation validation = 2;</code>
        */
       public Builder clearValidation() {
         if (validationBuilder_ == null) {
@@ -1306,7 +1306,7 @@ public final class YaclibViewmodel {
         return this;
       }
       /**
-       * <code>optional .org.roylance.yaclib.Validation validation = 2;</code>
+       * <code>.org.roylance.yaclib.Validation validation = 2;</code>
        */
       public org.roylance.yaclib.YaclibViewmodel.Validation.Builder getValidationBuilder() {
         
@@ -1314,7 +1314,7 @@ public final class YaclibViewmodel {
         return getValidationFieldBuilder().getBuilder();
       }
       /**
-       * <code>optional .org.roylance.yaclib.Validation validation = 2;</code>
+       * <code>.org.roylance.yaclib.Validation validation = 2;</code>
        */
       public org.roylance.yaclib.YaclibViewmodel.ValidationOrBuilder getValidationOrBuilder() {
         if (validationBuilder_ != null) {
@@ -1325,7 +1325,7 @@ public final class YaclibViewmodel {
         }
       }
       /**
-       * <code>optional .org.roylance.yaclib.Validation validation = 2;</code>
+       * <code>.org.roylance.yaclib.Validation validation = 2;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           org.roylance.yaclib.YaclibViewmodel.Validation, org.roylance.yaclib.YaclibViewmodel.Validation.Builder, org.roylance.yaclib.YaclibViewmodel.ValidationOrBuilder> 
@@ -1343,7 +1343,7 @@ public final class YaclibViewmodel {
 
       private java.lang.Object modelPath_ = "";
       /**
-       * <code>optional string model_path = 3;</code>
+       * <code>string model_path = 3;</code>
        */
       public java.lang.String getModelPath() {
         java.lang.Object ref = modelPath_;
@@ -1358,7 +1358,7 @@ public final class YaclibViewmodel {
         }
       }
       /**
-       * <code>optional string model_path = 3;</code>
+       * <code>string model_path = 3;</code>
        */
       public com.google.protobuf.ByteString
           getModelPathBytes() {
@@ -1374,7 +1374,7 @@ public final class YaclibViewmodel {
         }
       }
       /**
-       * <code>optional string model_path = 3;</code>
+       * <code>string model_path = 3;</code>
        */
       public Builder setModelPath(
           java.lang.String value) {
@@ -1387,7 +1387,7 @@ public final class YaclibViewmodel {
         return this;
       }
       /**
-       * <code>optional string model_path = 3;</code>
+       * <code>string model_path = 3;</code>
        */
       public Builder clearModelPath() {
         
@@ -1396,7 +1396,7 @@ public final class YaclibViewmodel {
         return this;
       }
       /**
-       * <code>optional string model_path = 3;</code>
+       * <code>string model_path = 3;</code>
        */
       public Builder setModelPathBytes(
           com.google.protobuf.ByteString value) {
@@ -1463,21 +1463,21 @@ public final class YaclibViewmodel {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>optional string full_name = 1;</code>
+     * <code>string full_name = 1;</code>
      */
     java.lang.String getFullName();
     /**
-     * <code>optional string full_name = 1;</code>
+     * <code>string full_name = 1;</code>
      */
     com.google.protobuf.ByteString
         getFullNameBytes();
 
     /**
-     * <code>optional string view_model_property_name = 2;</code>
+     * <code>string view_model_property_name = 2;</code>
      */
     java.lang.String getViewModelPropertyName();
     /**
-     * <code>optional string view_model_property_name = 2;</code>
+     * <code>string view_model_property_name = 2;</code>
      */
     com.google.protobuf.ByteString
         getViewModelPropertyNameBytes();
@@ -1561,7 +1561,7 @@ public final class YaclibViewmodel {
     public static final int FULL_NAME_FIELD_NUMBER = 1;
     private volatile java.lang.Object fullName_;
     /**
-     * <code>optional string full_name = 1;</code>
+     * <code>string full_name = 1;</code>
      */
     public java.lang.String getFullName() {
       java.lang.Object ref = fullName_;
@@ -1576,7 +1576,7 @@ public final class YaclibViewmodel {
       }
     }
     /**
-     * <code>optional string full_name = 1;</code>
+     * <code>string full_name = 1;</code>
      */
     public com.google.protobuf.ByteString
         getFullNameBytes() {
@@ -1595,7 +1595,7 @@ public final class YaclibViewmodel {
     public static final int VIEW_MODEL_PROPERTY_NAME_FIELD_NUMBER = 2;
     private volatile java.lang.Object viewModelPropertyName_;
     /**
-     * <code>optional string view_model_property_name = 2;</code>
+     * <code>string view_model_property_name = 2;</code>
      */
     public java.lang.String getViewModelPropertyName() {
       java.lang.Object ref = viewModelPropertyName_;
@@ -1610,7 +1610,7 @@ public final class YaclibViewmodel {
       }
     }
     /**
-     * <code>optional string view_model_property_name = 2;</code>
+     * <code>string view_model_property_name = 2;</code>
      */
     public com.google.protobuf.ByteString
         getViewModelPropertyNameBytes() {
@@ -1686,7 +1686,7 @@ public final class YaclibViewmodel {
         return memoizedHashCode;
       }
       int hash = 41;
-      hash = (19 * hash) + getDescriptorForType().hashCode();
+      hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + FULL_NAME_FIELD_NUMBER;
       hash = (53 * hash) + getFullName().hashCode();
       hash = (37 * hash) + VIEW_MODEL_PROPERTY_NAME_FIELD_NUMBER;
@@ -1914,7 +1914,7 @@ public final class YaclibViewmodel {
 
       private java.lang.Object fullName_ = "";
       /**
-       * <code>optional string full_name = 1;</code>
+       * <code>string full_name = 1;</code>
        */
       public java.lang.String getFullName() {
         java.lang.Object ref = fullName_;
@@ -1929,7 +1929,7 @@ public final class YaclibViewmodel {
         }
       }
       /**
-       * <code>optional string full_name = 1;</code>
+       * <code>string full_name = 1;</code>
        */
       public com.google.protobuf.ByteString
           getFullNameBytes() {
@@ -1945,7 +1945,7 @@ public final class YaclibViewmodel {
         }
       }
       /**
-       * <code>optional string full_name = 1;</code>
+       * <code>string full_name = 1;</code>
        */
       public Builder setFullName(
           java.lang.String value) {
@@ -1958,7 +1958,7 @@ public final class YaclibViewmodel {
         return this;
       }
       /**
-       * <code>optional string full_name = 1;</code>
+       * <code>string full_name = 1;</code>
        */
       public Builder clearFullName() {
         
@@ -1967,7 +1967,7 @@ public final class YaclibViewmodel {
         return this;
       }
       /**
-       * <code>optional string full_name = 1;</code>
+       * <code>string full_name = 1;</code>
        */
       public Builder setFullNameBytes(
           com.google.protobuf.ByteString value) {
@@ -1983,7 +1983,7 @@ public final class YaclibViewmodel {
 
       private java.lang.Object viewModelPropertyName_ = "";
       /**
-       * <code>optional string view_model_property_name = 2;</code>
+       * <code>string view_model_property_name = 2;</code>
        */
       public java.lang.String getViewModelPropertyName() {
         java.lang.Object ref = viewModelPropertyName_;
@@ -1998,7 +1998,7 @@ public final class YaclibViewmodel {
         }
       }
       /**
-       * <code>optional string view_model_property_name = 2;</code>
+       * <code>string view_model_property_name = 2;</code>
        */
       public com.google.protobuf.ByteString
           getViewModelPropertyNameBytes() {
@@ -2014,7 +2014,7 @@ public final class YaclibViewmodel {
         }
       }
       /**
-       * <code>optional string view_model_property_name = 2;</code>
+       * <code>string view_model_property_name = 2;</code>
        */
       public Builder setViewModelPropertyName(
           java.lang.String value) {
@@ -2027,7 +2027,7 @@ public final class YaclibViewmodel {
         return this;
       }
       /**
-       * <code>optional string view_model_property_name = 2;</code>
+       * <code>string view_model_property_name = 2;</code>
        */
       public Builder clearViewModelPropertyName() {
         
@@ -2036,7 +2036,7 @@ public final class YaclibViewmodel {
         return this;
       }
       /**
-       * <code>optional string view_model_property_name = 2;</code>
+       * <code>string view_model_property_name = 2;</code>
        */
       public Builder setViewModelPropertyNameBytes(
           com.google.protobuf.ByteString value) {
@@ -2103,11 +2103,11 @@ public final class YaclibViewmodel {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>optional string name = 1;</code>
+     * <code>string name = 1;</code>
      */
     java.lang.String getName();
     /**
-     * <code>optional string name = 1;</code>
+     * <code>string name = 1;</code>
      */
     com.google.protobuf.ByteString
         getNameBytes();
@@ -2184,7 +2184,7 @@ public final class YaclibViewmodel {
     public static final int NAME_FIELD_NUMBER = 1;
     private volatile java.lang.Object name_;
     /**
-     * <code>optional string name = 1;</code>
+     * <code>string name = 1;</code>
      */
     public java.lang.String getName() {
       java.lang.Object ref = name_;
@@ -2199,7 +2199,7 @@ public final class YaclibViewmodel {
       }
     }
     /**
-     * <code>optional string name = 1;</code>
+     * <code>string name = 1;</code>
      */
     public com.google.protobuf.ByteString
         getNameBytes() {
@@ -2267,7 +2267,7 @@ public final class YaclibViewmodel {
         return memoizedHashCode;
       }
       int hash = 41;
-      hash = (19 * hash) + getDescriptorForType().hashCode();
+      hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + NAME_FIELD_NUMBER;
       hash = (53 * hash) + getName().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
@@ -2486,7 +2486,7 @@ public final class YaclibViewmodel {
 
       private java.lang.Object name_ = "";
       /**
-       * <code>optional string name = 1;</code>
+       * <code>string name = 1;</code>
        */
       public java.lang.String getName() {
         java.lang.Object ref = name_;
@@ -2501,7 +2501,7 @@ public final class YaclibViewmodel {
         }
       }
       /**
-       * <code>optional string name = 1;</code>
+       * <code>string name = 1;</code>
        */
       public com.google.protobuf.ByteString
           getNameBytes() {
@@ -2517,7 +2517,7 @@ public final class YaclibViewmodel {
         }
       }
       /**
-       * <code>optional string name = 1;</code>
+       * <code>string name = 1;</code>
        */
       public Builder setName(
           java.lang.String value) {
@@ -2530,7 +2530,7 @@ public final class YaclibViewmodel {
         return this;
       }
       /**
-       * <code>optional string name = 1;</code>
+       * <code>string name = 1;</code>
        */
       public Builder clearName() {
         
@@ -2539,7 +2539,7 @@ public final class YaclibViewmodel {
         return this;
       }
       /**
-       * <code>optional string name = 1;</code>
+       * <code>string name = 1;</code>
        */
       public Builder setNameBytes(
           com.google.protobuf.ByteString value) {

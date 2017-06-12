@@ -1468,80 +1468,80 @@ public final class YaclibModel {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>optional string url = 1;</code>
+     * <code>string url = 1;</code>
      */
     java.lang.String getUrl();
     /**
-     * <code>optional string url = 1;</code>
+     * <code>string url = 1;</code>
      */
     com.google.protobuf.ByteString
         getUrlBytes();
 
     /**
-     * <code>optional string username = 2;</code>
+     * <code>string username = 2;</code>
      */
     java.lang.String getUsername();
     /**
-     * <code>optional string username = 2;</code>
+     * <code>string username = 2;</code>
      */
     com.google.protobuf.ByteString
         getUsernameBytes();
 
     /**
-     * <code>optional string name = 8;</code>
+     * <code>string name = 8;</code>
      */
     java.lang.String getName();
     /**
-     * <code>optional string name = 8;</code>
+     * <code>string name = 8;</code>
      */
     com.google.protobuf.ByteString
         getNameBytes();
 
     /**
-     * <code>optional .org.roylance.yaclib.RepositoryType repository_type = 9;</code>
+     * <code>.org.roylance.yaclib.RepositoryType repository_type = 9;</code>
      */
     int getRepositoryTypeValue();
     /**
-     * <code>optional .org.roylance.yaclib.RepositoryType repository_type = 9;</code>
+     * <code>.org.roylance.yaclib.RepositoryType repository_type = 9;</code>
      */
     org.roylance.yaclib.YaclibModel.RepositoryType getRepositoryType();
 
     /**
-     * <code>optional string registry = 10;</code>
+     * <code>string registry = 10;</code>
      */
     java.lang.String getRegistry();
     /**
-     * <code>optional string registry = 10;</code>
+     * <code>string registry = 10;</code>
      */
     com.google.protobuf.ByteString
         getRegistryBytes();
 
     /**
-     * <code>optional string npm_scope = 11;</code>
+     * <code>string npm_scope = 11;</code>
      */
     java.lang.String getNpmScope();
     /**
-     * <code>optional string npm_scope = 11;</code>
+     * <code>string npm_scope = 11;</code>
      */
     com.google.protobuf.ByteString
         getNpmScopeBytes();
 
     /**
-     * <code>optional string upload_url = 12;</code>
+     * <code>string upload_url = 12;</code>
      */
     java.lang.String getUploadUrl();
     /**
-     * <code>optional string upload_url = 12;</code>
+     * <code>string upload_url = 12;</code>
      */
     com.google.protobuf.ByteString
         getUploadUrlBytes();
 
     /**
-     * <code>optional string password = 13;</code>
+     * <code>string password = 13;</code>
      */
     java.lang.String getPassword();
     /**
-     * <code>optional string password = 13;</code>
+     * <code>string password = 13;</code>
      */
     com.google.protobuf.ByteString
         getPasswordBytes();
@@ -1667,7 +1667,7 @@ public final class YaclibModel {
     public static final int URL_FIELD_NUMBER = 1;
     private volatile java.lang.Object url_;
     /**
-     * <code>optional string url = 1;</code>
+     * <code>string url = 1;</code>
      */
     public java.lang.String getUrl() {
       java.lang.Object ref = url_;
@@ -1682,7 +1682,7 @@ public final class YaclibModel {
       }
     }
     /**
-     * <code>optional string url = 1;</code>
+     * <code>string url = 1;</code>
      */
     public com.google.protobuf.ByteString
         getUrlBytes() {
@@ -1701,7 +1701,7 @@ public final class YaclibModel {
     public static final int USERNAME_FIELD_NUMBER = 2;
     private volatile java.lang.Object username_;
     /**
-     * <code>optional string username = 2;</code>
+     * <code>string username = 2;</code>
      */
     public java.lang.String getUsername() {
       java.lang.Object ref = username_;
@@ -1716,7 +1716,7 @@ public final class YaclibModel {
       }
     }
     /**
-     * <code>optional string username = 2;</code>
+     * <code>string username = 2;</code>
      */
     public com.google.protobuf.ByteString
         getUsernameBytes() {
@@ -1735,7 +1735,7 @@ public final class YaclibModel {
     public static final int NAME_FIELD_NUMBER = 8;
     private volatile java.lang.Object name_;
     /**
-     * <code>optional string name = 8;</code>
+     * <code>string name = 8;</code>
      */
     public java.lang.String getName() {
       java.lang.Object ref = name_;
@@ -1750,7 +1750,7 @@ public final class YaclibModel {
       }
     }
     /**
-     * <code>optional string name = 8;</code>
+     * <code>string name = 8;</code>
      */
     public com.google.protobuf.ByteString
         getNameBytes() {
@@ -1769,13 +1769,13 @@ public final class YaclibModel {
     public static final int REPOSITORY_TYPE_FIELD_NUMBER = 9;
     private int repositoryType_;
     /**
-     * <code>optional .org.roylance.yaclib.RepositoryType repository_type = 9;</code>
+     * <code>.org.roylance.yaclib.RepositoryType repository_type = 9;</code>
      */
     public int getRepositoryTypeValue() {
       return repositoryType_;
     }
     /**
-     * <code>optional .org.roylance.yaclib.RepositoryType repository_type = 9;</code>
+     * <code>.org.roylance.yaclib.RepositoryType repository_type = 9;</code>
      */
     public org.roylance.yaclib.YaclibModel.RepositoryType getRepositoryType() {
       org.roylance.yaclib.YaclibModel.RepositoryType result = org.roylance.yaclib.YaclibModel.RepositoryType.valueOf(repositoryType_);
@@ -1785,7 +1785,7 @@ public final class YaclibModel {
     public static final int REGISTRY_FIELD_NUMBER = 10;
     private volatile java.lang.Object registry_;
     /**
-     * <code>optional string registry = 10;</code>
+     * <code>string registry = 10;</code>
      */
     public java.lang.String getRegistry() {
       java.lang.Object ref = registry_;
@@ -1800,7 +1800,7 @@ public final class YaclibModel {
       }
     }
     /**
-     * <code>optional string registry = 10;</code>
+     * <code>string registry = 10;</code>
      */
     public com.google.protobuf.ByteString
         getRegistryBytes() {
@@ -1819,7 +1819,7 @@ public final class YaclibModel {
     public static final int NPM_SCOPE_FIELD_NUMBER = 11;
     private volatile java.lang.Object npmScope_;
     /**
-     * <code>optional string npm_scope = 11;</code>
+     * <code>string npm_scope = 11;</code>
      */
     public java.lang.String getNpmScope() {
       java.lang.Object ref = npmScope_;
@@ -1834,7 +1834,7 @@ public final class YaclibModel {
       }
     }
     /**
-     * <code>optional string npm_scope = 11;</code>
+     * <code>string npm_scope = 11;</code>
      */
     public com.google.protobuf.ByteString
         getNpmScopeBytes() {
@@ -1853,7 +1853,7 @@ public final class YaclibModel {
     public static final int UPLOAD_URL_FIELD_NUMBER = 12;
     private volatile java.lang.Object uploadUrl_;
     /**
-     * <code>optional string upload_url = 12;</code>
+     * <code>string upload_url = 12;</code>
      */
     public java.lang.String getUploadUrl() {
       java.lang.Object ref = uploadUrl_;
@@ -1868,7 +1868,7 @@ public final class YaclibModel {
       }
     }
     /**
-     * <code>optional string upload_url = 12;</code>
+     * <code>string upload_url = 12;</code>
      */
     public com.google.protobuf.ByteString
         getUploadUrlBytes() {
@@ -1887,7 +1887,7 @@ public final class YaclibModel {
     public static final int PASSWORD_FIELD_NUMBER = 13;
     private volatile java.lang.Object password_;
     /**
-     * <code>optional string password = 13;</code>
+     * <code>string password = 13;</code>
      */
     public java.lang.String getPassword() {
       java.lang.Object ref = password_;
@@ -1902,7 +1902,7 @@ public final class YaclibModel {
       }
     }
     /**
-     * <code>optional string password = 13;</code>
+     * <code>string password = 13;</code>
      */
     public com.google.protobuf.ByteString
         getPasswordBytes() {
@@ -2026,7 +2026,7 @@ public final class YaclibModel {
         return memoizedHashCode;
       }
       int hash = 41;
-      hash = (19 * hash) + getDescriptorForType().hashCode();
+      hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + URL_FIELD_NUMBER;
       hash = (53 * hash) + getUrl().hashCode();
       hash = (37 * hash) + USERNAME_FIELD_NUMBER;
@@ -2307,7 +2307,7 @@ public final class YaclibModel {
 
       private java.lang.Object url_ = "";
       /**
-       * <code>optional string url = 1;</code>
+       * <code>string url = 1;</code>
        */
       public java.lang.String getUrl() {
         java.lang.Object ref = url_;
@@ -2322,7 +2322,7 @@ public final class YaclibModel {
         }
       }
       /**
-       * <code>optional string url = 1;</code>
+       * <code>string url = 1;</code>
        */
       public com.google.protobuf.ByteString
           getUrlBytes() {
@@ -2338,7 +2338,7 @@ public final class YaclibModel {
         }
       }
       /**
-       * <code>optional string url = 1;</code>
+       * <code>string url = 1;</code>
        */
       public Builder setUrl(
           java.lang.String value) {
@@ -2351,7 +2351,7 @@ public final class YaclibModel {
         return this;
       }
       /**
-       * <code>optional string url = 1;</code>
+       * <code>string url = 1;</code>
        */
       public Builder clearUrl() {
         
@@ -2360,7 +2360,7 @@ public final class YaclibModel {
         return this;
       }
       /**
-       * <code>optional string url = 1;</code>
+       * <code>string url = 1;</code>
        */
       public Builder setUrlBytes(
           com.google.protobuf.ByteString value) {
@@ -2376,7 +2376,7 @@ public final class YaclibModel {
 
       private java.lang.Object username_ = "";
       /**
-       * <code>optional string username = 2;</code>
+       * <code>string username = 2;</code>
        */
       public java.lang.String getUsername() {
         java.lang.Object ref = username_;
@@ -2391,7 +2391,7 @@ public final class YaclibModel {
         }
       }
       /**
-       * <code>optional string username = 2;</code>
+       * <code>string username = 2;</code>
        */
       public com.google.protobuf.ByteString
           getUsernameBytes() {
@@ -2407,7 +2407,7 @@ public final class YaclibModel {
         }
       }
       /**
-       * <code>optional string username = 2;</code>
+       * <code>string username = 2;</code>
        */
       public Builder setUsername(
           java.lang.String value) {
@@ -2420,7 +2420,7 @@ public final class YaclibModel {
         return this;
       }
       /**
-       * <code>optional string username = 2;</code>
+       * <code>string username = 2;</code>
        */
       public Builder clearUsername() {
         
@@ -2429,7 +2429,7 @@ public final class YaclibModel {
         return this;
       }
       /**
-       * <code>optional string username = 2;</code>
+       * <code>string username = 2;</code>
        */
       public Builder setUsernameBytes(
           com.google.protobuf.ByteString value) {
@@ -2445,7 +2445,7 @@ public final class YaclibModel {
 
       private java.lang.Object name_ = "";
       /**
-       * <code>optional string name = 8;</code>
+       * <code>string name = 8;</code>
        */
       public java.lang.String getName() {
         java.lang.Object ref = name_;
@@ -2460,7 +2460,7 @@ public final class YaclibModel {
         }
       }
       /**
-       * <code>optional string name = 8;</code>
+       * <code>string name = 8;</code>
        */
       public com.google.protobuf.ByteString
           getNameBytes() {
@@ -2476,7 +2476,7 @@ public final class YaclibModel {
         }
       }
       /**
-       * <code>optional string name = 8;</code>
+       * <code>string name = 8;</code>
        */
       public Builder setName(
           java.lang.String value) {
@@ -2489,7 +2489,7 @@ public final class YaclibModel {
         return this;
       }
       /**
-       * <code>optional string name = 8;</code>
+       * <code>string name = 8;</code>
        */
       public Builder clearName() {
         
@@ -2498,7 +2498,7 @@ public final class YaclibModel {
         return this;
       }
       /**
-       * <code>optional string name = 8;</code>
+       * <code>string name = 8;</code>
        */
       public Builder setNameBytes(
           com.google.protobuf.ByteString value) {
@@ -2514,13 +2514,13 @@ public final class YaclibModel {
 
       private int repositoryType_ = 0;
       /**
-       * <code>optional .org.roylance.yaclib.RepositoryType repository_type = 9;</code>
+       * <code>.org.roylance.yaclib.RepositoryType repository_type = 9;</code>
        */
       public int getRepositoryTypeValue() {
         return repositoryType_;
       }
       /**
-       * <code>optional .org.roylance.yaclib.RepositoryType repository_type = 9;</code>
+       * <code>.org.roylance.yaclib.RepositoryType repository_type = 9;</code>
        */
       public Builder setRepositoryTypeValue(int value) {
         repositoryType_ = value;
@@ -2528,14 +2528,14 @@ public final class YaclibModel {
         return this;
       }
       /**
-       * <code>optional .org.roylance.yaclib.RepositoryType repository_type = 9;</code>
+       * <code>.org.roylance.yaclib.RepositoryType repository_type = 9;</code>
        */
       public org.roylance.yaclib.YaclibModel.RepositoryType getRepositoryType() {
         org.roylance.yaclib.YaclibModel.RepositoryType result = org.roylance.yaclib.YaclibModel.RepositoryType.valueOf(repositoryType_);
         return result == null ? org.roylance.yaclib.YaclibModel.RepositoryType.UNRECOGNIZED : result;
       }
       /**
-       * <code>optional .org.roylance.yaclib.RepositoryType repository_type = 9;</code>
+       * <code>.org.roylance.yaclib.RepositoryType repository_type = 9;</code>
        */
       public Builder setRepositoryType(org.roylance.yaclib.YaclibModel.RepositoryType value) {
         if (value == null) {
@@ -2547,7 +2547,7 @@ public final class YaclibModel {
         return this;
       }
       /**
-       * <code>optional .org.roylance.yaclib.RepositoryType repository_type = 9;</code>
+       * <code>.org.roylance.yaclib.RepositoryType repository_type = 9;</code>
        */
       public Builder clearRepositoryType() {
         
@@ -2558,7 +2558,7 @@ public final class YaclibModel {
 
       private java.lang.Object registry_ = "";
       /**
-       * <code>optional string registry = 10;</code>
+       * <code>string registry = 10;</code>
        */
       public java.lang.String getRegistry() {
         java.lang.Object ref = registry_;
@@ -2573,7 +2573,7 @@ public final class YaclibModel {
         }
       }
       /**
-       * <code>optional string registry = 10;</code>
+       * <code>string registry = 10;</code>
        */
       public com.google.protobuf.ByteString
           getRegistryBytes() {
@@ -2589,7 +2589,7 @@ public final class YaclibModel {
         }
       }
       /**
-       * <code>optional string registry = 10;</code>
+       * <code>string registry = 10;</code>
        */
       public Builder setRegistry(
           java.lang.String value) {
@@ -2602,7 +2602,7 @@ public final class YaclibModel {
         return this;
       }
       /**
-       * <code>optional string registry = 10;</code>
+       * <code>string registry = 10;</code>
        */
       public Builder clearRegistry() {
         
@@ -2611,7 +2611,7 @@ public final class YaclibModel {
         return this;
       }
       /**
-       * <code>optional string registry = 10;</code>
+       * <code>string registry = 10;</code>
        */
       public Builder setRegistryBytes(
           com.google.protobuf.ByteString value) {
@@ -2627,7 +2627,7 @@ public final class YaclibModel {
 
       private java.lang.Object npmScope_ = "";
       /**
-       * <code>optional string npm_scope = 11;</code>
+       * <code>string npm_scope = 11;</code>
        */
       public java.lang.String getNpmScope() {
         java.lang.Object ref = npmScope_;
@@ -2642,7 +2642,7 @@ public final class YaclibModel {
         }
       }
       /**
-       * <code>optional string npm_scope = 11;</code>
+       * <code>string npm_scope = 11;</code>
        */
       public com.google.protobuf.ByteString
           getNpmScopeBytes() {
@@ -2658,7 +2658,7 @@ public final class YaclibModel {
         }
       }
       /**
-       * <code>optional string npm_scope = 11;</code>
+       * <code>string npm_scope = 11;</code>
        */
       public Builder setNpmScope(
           java.lang.String value) {
@@ -2671,7 +2671,7 @@ public final class YaclibModel {
         return this;
       }
       /**
-       * <code>optional string npm_scope = 11;</code>
+       * <code>string npm_scope = 11;</code>
        */
       public Builder clearNpmScope() {
         
@@ -2680,7 +2680,7 @@ public final class YaclibModel {
         return this;
       }
       /**
-       * <code>optional string npm_scope = 11;</code>
+       * <code>string npm_scope = 11;</code>
        */
       public Builder setNpmScopeBytes(
           com.google.protobuf.ByteString value) {
@@ -2696,7 +2696,7 @@ public final class YaclibModel {
 
       private java.lang.Object uploadUrl_ = "";
       /**
-       * <code>optional string upload_url = 12;</code>
+       * <code>string upload_url = 12;</code>
        */
       public java.lang.String getUploadUrl() {
         java.lang.Object ref = uploadUrl_;
@@ -2711,7 +2711,7 @@ public final class YaclibModel {
         }
       }
       /**
-       * <code>optional string upload_url = 12;</code>
+       * <code>string upload_url = 12;</code>
        */
       public com.google.protobuf.ByteString
           getUploadUrlBytes() {
@@ -2727,7 +2727,7 @@ public final class YaclibModel {
         }
       }
       /**
-       * <code>optional string upload_url = 12;</code>
+       * <code>string upload_url = 12;</code>
        */
       public Builder setUploadUrl(
           java.lang.String value) {
@@ -2740,7 +2740,7 @@ public final class YaclibModel {
         return this;
       }
       /**
-       * <code>optional string upload_url = 12;</code>
+       * <code>string upload_url = 12;</code>
        */
       public Builder clearUploadUrl() {
         
@@ -2749,7 +2749,7 @@ public final class YaclibModel {
         return this;
       }
       /**
-       * <code>optional string upload_url = 12;</code>
+       * <code>string upload_url = 12;</code>
        */
       public Builder setUploadUrlBytes(
           com.google.protobuf.ByteString value) {
@@ -2765,7 +2765,7 @@ public final class YaclibModel {
 
       private java.lang.Object password_ = "";
       /**
-       * <code>optional string password = 13;</code>
+       * <code>string password = 13;</code>
        */
       public java.lang.String getPassword() {
         java.lang.Object ref = password_;
@@ -2780,7 +2780,7 @@ public final class YaclibModel {
         }
       }
       /**
-       * <code>optional string password = 13;</code>
+       * <code>string password = 13;</code>
        */
       public com.google.protobuf.ByteString
           getPasswordBytes() {
@@ -2796,7 +2796,7 @@ public final class YaclibModel {
         }
       }
       /**
-       * <code>optional string password = 13;</code>
+       * <code>string password = 13;</code>
        */
       public Builder setPassword(
           java.lang.String value) {
@@ -2809,7 +2809,7 @@ public final class YaclibModel {
         return this;
       }
       /**
-       * <code>optional string password = 13;</code>
+       * <code>string password = 13;</code>
        */
       public Builder clearPassword() {
         
@@ -2818,7 +2818,7 @@ public final class YaclibModel {
         return this;
       }
       /**
-       * <code>optional string password = 13;</code>
+       * <code>string password = 13;</code>
        */
       public Builder setPasswordBytes(
           com.google.protobuf.ByteString value) {
@@ -2885,172 +2885,172 @@ public final class YaclibModel {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>optional .org.roylance.yaclib.DependencyType type = 1;</code>
+     * <code>.org.roylance.yaclib.DependencyType type = 1;</code>
      */
     int getTypeValue();
     /**
-     * <code>optional .org.roylance.yaclib.DependencyType type = 1;</code>
+     * <code>.org.roylance.yaclib.DependencyType type = 1;</code>
      */
     org.roylance.yaclib.YaclibModel.DependencyType getType();
 
     /**
-     * <code>optional string group = 2;</code>
+     * <code>string group = 2;</code>
      */
     java.lang.String getGroup();
     /**
-     * <code>optional string group = 2;</code>
+     * <code>string group = 2;</code>
      */
     com.google.protobuf.ByteString
         getGroupBytes();
 
     /**
-     * <code>optional string name = 3;</code>
+     * <code>string name = 3;</code>
      */
     java.lang.String getName();
     /**
-     * <code>optional string name = 3;</code>
+     * <code>string name = 3;</code>
      */
     com.google.protobuf.ByteString
         getNameBytes();
 
     /**
-     * <code>optional string typescript_model_file = 6;</code>
+     * <code>string typescript_model_file = 6;</code>
      */
     java.lang.String getTypescriptModelFile();
     /**
-     * <code>optional string typescript_model_file = 6;</code>
+     * <code>string typescript_model_file = 6;</code>
      */
     com.google.protobuf.ByteString
         getTypescriptModelFileBytes();
 
     /**
-     * <code>optional string third_party_dependency_version = 11;</code>
+     * <code>string third_party_dependency_version = 11;</code>
      */
     java.lang.String getThirdPartyDependencyVersion();
     /**
-     * <code>optional string third_party_dependency_version = 11;</code>
+     * <code>string third_party_dependency_version = 11;</code>
      */
     com.google.protobuf.ByteString
         getThirdPartyDependencyVersionBytes();
 
     /**
-     * <code>optional int32 major_version = 12;</code>
+     * <code>int32 major_version = 12;</code>
      */
     int getMajorVersion();
 
     /**
-     * <code>optional int32 minor_version = 13;</code>
+     * <code>int32 minor_version = 13;</code>
      */
     int getMinorVersion();
 
     /**
-     * <code>optional string github_repo = 14;</code>
+     * <code>string github_repo = 14;</code>
      */
     java.lang.String getGithubRepo();
     /**
-     * <code>optional string github_repo = 14;</code>
+     * <code>string github_repo = 14;</code>
      */
     com.google.protobuf.ByteString
         getGithubRepoBytes();
 
     /**
-     * <code>optional string author_name = 15;</code>
+     * <code>string author_name = 15;</code>
      */
     java.lang.String getAuthorName();
     /**
-     * <code>optional string author_name = 15;</code>
+     * <code>string author_name = 15;</code>
      */
     com.google.protobuf.ByteString
         getAuthorNameBytes();
 
     /**
-     * <code>optional string license = 16;</code>
+     * <code>string license = 16;</code>
      */
     java.lang.String getLicense();
     /**
-     * <code>optional string license = 16;</code>
+     * <code>string license = 16;</code>
      */
     com.google.protobuf.ByteString
         getLicenseBytes();
 
     /**
-     * <code>optional .org.roylance.yaclib.Repository maven_repository = 17;</code>
+     * <code>.org.roylance.yaclib.Repository maven_repository = 17;</code>
      */
     boolean hasMavenRepository();
     /**
-     * <code>optional .org.roylance.yaclib.Repository maven_repository = 17;</code>
+     * <code>.org.roylance.yaclib.Repository maven_repository = 17;</code>
      */
     org.roylance.yaclib.YaclibModel.Repository getMavenRepository();
     /**
-     * <code>optional .org.roylance.yaclib.Repository maven_repository = 17;</code>
+     * <code>.org.roylance.yaclib.Repository maven_repository = 17;</code>
      */
     org.roylance.yaclib.YaclibModel.RepositoryOrBuilder getMavenRepositoryOrBuilder();
 
     /**
-     * <code>optional .org.roylance.yaclib.Repository npm_repository = 18;</code>
+     * <code>.org.roylance.yaclib.Repository npm_repository = 18;</code>
      */
     boolean hasNpmRepository();
     /**
-     * <code>optional .org.roylance.yaclib.Repository npm_repository = 18;</code>
+     * <code>.org.roylance.yaclib.Repository npm_repository = 18;</code>
      */
     org.roylance.yaclib.YaclibModel.Repository getNpmRepository();
     /**
-     * <code>optional .org.roylance.yaclib.Repository npm_repository = 18;</code>
+     * <code>.org.roylance.yaclib.Repository npm_repository = 18;</code>
      */
     org.roylance.yaclib.YaclibModel.RepositoryOrBuilder getNpmRepositoryOrBuilder();
 
     /**
-     * <code>optional .org.roylance.yaclib.Repository nuget_repository = 19;</code>
+     * <code>.org.roylance.yaclib.Repository nuget_repository = 19;</code>
      */
     boolean hasNugetRepository();
     /**
-     * <code>optional .org.roylance.yaclib.Repository nuget_repository = 19;</code>
+     * <code>.org.roylance.yaclib.Repository nuget_repository = 19;</code>
      */
     org.roylance.yaclib.YaclibModel.Repository getNugetRepository();
     /**
-     * <code>optional .org.roylance.yaclib.Repository nuget_repository = 19;</code>
+     * <code>.org.roylance.yaclib.Repository nuget_repository = 19;</code>
      */
     org.roylance.yaclib.YaclibModel.RepositoryOrBuilder getNugetRepositoryOrBuilder();
 
     /**
-     * <code>optional .org.roylance.yaclib.Repository pip_repository = 20;</code>
+     * <code>.org.roylance.yaclib.Repository pip_repository = 20;</code>
      */
     boolean hasPipRepository();
     /**
-     * <code>optional .org.roylance.yaclib.Repository pip_repository = 20;</code>
+     * <code>.org.roylance.yaclib.Repository pip_repository = 20;</code>
      */
     org.roylance.yaclib.YaclibModel.Repository getPipRepository();
     /**
-     * <code>optional .org.roylance.yaclib.Repository pip_repository = 20;</code>
+     * <code>.org.roylance.yaclib.Repository pip_repository = 20;</code>
      */
     org.roylance.yaclib.YaclibModel.RepositoryOrBuilder getPipRepositoryOrBuilder();
 
     /**
-     * <code>optional .org.roylance.yaclib.ServerType server_type = 21;</code>
+     * <code>.org.roylance.yaclib.ServerType server_type = 21;</code>
      */
     int getServerTypeValue();
     /**
-     * <code>optional .org.roylance.yaclib.ServerType server_type = 21;</code>
+     * <code>.org.roylance.yaclib.ServerType server_type = 21;</code>
      */
     org.roylance.yaclib.YaclibModel.ServerType getServerType();
 
     /**
-     * <code>optional int32 server_port = 22;</code>
+     * <code>int32 server_port = 22;</code>
      */
     int getServerPort();
 
     /**
-     * <code>optional string yaclib_version = 23;</code>
+     * <code>string yaclib_version = 23;</code>
      */
     java.lang.String getYaclibVersion();
     /**
-     * <code>optional string yaclib_version = 23;</code>
+     * <code>string yaclib_version = 23;</code>
      */
     com.google.protobuf.ByteString
         getYaclibVersionBytes();
 
     /**
-     * <code>optional bool unpublish_nuget = 24;</code>
+     * <code>bool unpublish_nuget = 24;</code>
      */
     boolean getUnpublishNuget();
   }
@@ -3265,13 +3265,13 @@ public final class YaclibModel {
     public static final int TYPE_FIELD_NUMBER = 1;
     private int type_;
     /**
-     * <code>optional .org.roylance.yaclib.DependencyType type = 1;</code>
+     * <code>.org.roylance.yaclib.DependencyType type = 1;</code>
      */
     public int getTypeValue() {
       return type_;
     }
     /**
-     * <code>optional .org.roylance.yaclib.DependencyType type = 1;</code>
+     * <code>.org.roylance.yaclib.DependencyType type = 1;</code>
      */
     public org.roylance.yaclib.YaclibModel.DependencyType getType() {
       org.roylance.yaclib.YaclibModel.DependencyType result = org.roylance.yaclib.YaclibModel.DependencyType.valueOf(type_);
@@ -3281,7 +3281,7 @@ public final class YaclibModel {
     public static final int GROUP_FIELD_NUMBER = 2;
     private volatile java.lang.Object group_;
     /**
-     * <code>optional string group = 2;</code>
+     * <code>string group = 2;</code>
      */
     public java.lang.String getGroup() {
       java.lang.Object ref = group_;
@@ -3296,7 +3296,7 @@ public final class YaclibModel {
       }
     }
     /**
-     * <code>optional string group = 2;</code>
+     * <code>string group = 2;</code>
      */
     public com.google.protobuf.ByteString
         getGroupBytes() {
@@ -3315,7 +3315,7 @@ public final class YaclibModel {
     public static final int NAME_FIELD_NUMBER = 3;
     private volatile java.lang.Object name_;
     /**
-     * <code>optional string name = 3;</code>
+     * <code>string name = 3;</code>
      */
     public java.lang.String getName() {
       java.lang.Object ref = name_;
@@ -3330,7 +3330,7 @@ public final class YaclibModel {
       }
     }
     /**
-     * <code>optional string name = 3;</code>
+     * <code>string name = 3;</code>
      */
     public com.google.protobuf.ByteString
         getNameBytes() {
@@ -3349,7 +3349,7 @@ public final class YaclibModel {
     public static final int TYPESCRIPT_MODEL_FILE_FIELD_NUMBER = 6;
     private volatile java.lang.Object typescriptModelFile_;
     /**
-     * <code>optional string typescript_model_file = 6;</code>
+     * <code>string typescript_model_file = 6;</code>
      */
     public java.lang.String getTypescriptModelFile() {
       java.lang.Object ref = typescriptModelFile_;
@@ -3364,7 +3364,7 @@ public final class YaclibModel {
       }
     }
     /**
-     * <code>optional string typescript_model_file = 6;</code>
+     * <code>string typescript_model_file = 6;</code>
      */
     public com.google.protobuf.ByteString
         getTypescriptModelFileBytes() {
@@ -3383,7 +3383,7 @@ public final class YaclibModel {
     public static final int THIRD_PARTY_DEPENDENCY_VERSION_FIELD_NUMBER = 11;
     private volatile java.lang.Object thirdPartyDependencyVersion_;
     /**
-     * <code>optional string third_party_dependency_version = 11;</code>
+     * <code>string third_party_dependency_version = 11;</code>
      */
     public java.lang.String getThirdPartyDependencyVersion() {
       java.lang.Object ref = thirdPartyDependencyVersion_;
@@ -3398,7 +3398,7 @@ public final class YaclibModel {
       }
     }
     /**
-     * <code>optional string third_party_dependency_version = 11;</code>
+     * <code>string third_party_dependency_version = 11;</code>
      */
     public com.google.protobuf.ByteString
         getThirdPartyDependencyVersionBytes() {
@@ -3417,7 +3417,7 @@ public final class YaclibModel {
     public static final int MAJOR_VERSION_FIELD_NUMBER = 12;
     private int majorVersion_;
     /**
-     * <code>optional int32 major_version = 12;</code>
+     * <code>int32 major_version = 12;</code>
      */
     public int getMajorVersion() {
       return majorVersion_;
@@ -3426,7 +3426,7 @@ public final class YaclibModel {
     public static final int MINOR_VERSION_FIELD_NUMBER = 13;
     private int minorVersion_;
     /**
-     * <code>optional int32 minor_version = 13;</code>
+     * <code>int32 minor_version = 13;</code>
      */
     public int getMinorVersion() {
       return minorVersion_;
@@ -3435,7 +3435,7 @@ public final class YaclibModel {
     public static final int GITHUB_REPO_FIELD_NUMBER = 14;
     private volatile java.lang.Object githubRepo_;
     /**
-     * <code>optional string github_repo = 14;</code>
+     * <code>string github_repo = 14;</code>
      */
     public java.lang.String getGithubRepo() {
       java.lang.Object ref = githubRepo_;
@@ -3450,7 +3450,7 @@ public final class YaclibModel {
       }
     }
     /**
-     * <code>optional string github_repo = 14;</code>
+     * <code>string github_repo = 14;</code>
      */
     public com.google.protobuf.ByteString
         getGithubRepoBytes() {
@@ -3469,7 +3469,7 @@ public final class YaclibModel {
     public static final int AUTHOR_NAME_FIELD_NUMBER = 15;
     private volatile java.lang.Object authorName_;
     /**
-     * <code>optional string author_name = 15;</code>
+     * <code>string author_name = 15;</code>
      */
     public java.lang.String getAuthorName() {
       java.lang.Object ref = authorName_;
@@ -3484,7 +3484,7 @@ public final class YaclibModel {
       }
     }
     /**
-     * <code>optional string author_name = 15;</code>
+     * <code>string author_name = 15;</code>
      */
     public com.google.protobuf.ByteString
         getAuthorNameBytes() {
@@ -3503,7 +3503,7 @@ public final class YaclibModel {
     public static final int LICENSE_FIELD_NUMBER = 16;
     private volatile java.lang.Object license_;
     /**
-     * <code>optional string license = 16;</code>
+     * <code>string license = 16;</code>
      */
     public java.lang.String getLicense() {
       java.lang.Object ref = license_;
@@ -3518,7 +3518,7 @@ public final class YaclibModel {
       }
     }
     /**
-     * <code>optional string license = 16;</code>
+     * <code>string license = 16;</code>
      */
     public com.google.protobuf.ByteString
         getLicenseBytes() {
@@ -3537,19 +3537,19 @@ public final class YaclibModel {
     public static final int MAVEN_REPOSITORY_FIELD_NUMBER = 17;
     private org.roylance.yaclib.YaclibModel.Repository mavenRepository_;
     /**
-     * <code>optional .org.roylance.yaclib.Repository maven_repository = 17;</code>
+     * <code>.org.roylance.yaclib.Repository maven_repository = 17;</code>
      */
     public boolean hasMavenRepository() {
       return mavenRepository_ != null;
     }
     /**
-     * <code>optional .org.roylance.yaclib.Repository maven_repository = 17;</code>
+     * <code>.org.roylance.yaclib.Repository maven_repository = 17;</code>
      */
     public org.roylance.yaclib.YaclibModel.Repository getMavenRepository() {
       return mavenRepository_ == null ? org.roylance.yaclib.YaclibModel.Repository.getDefaultInstance() : mavenRepository_;
     }
     /**
-     * <code>optional .org.roylance.yaclib.Repository maven_repository = 17;</code>
+     * <code>.org.roylance.yaclib.Repository maven_repository = 17;</code>
      */
     public org.roylance.yaclib.YaclibModel.RepositoryOrBuilder getMavenRepositoryOrBuilder() {
       return getMavenRepository();
@@ -3558,19 +3558,19 @@ public final class YaclibModel {
     public static final int NPM_REPOSITORY_FIELD_NUMBER = 18;
     private org.roylance.yaclib.YaclibModel.Repository npmRepository_;
     /**
-     * <code>optional .org.roylance.yaclib.Repository npm_repository = 18;</code>
+     * <code>.org.roylance.yaclib.Repository npm_repository = 18;</code>
      */
     public boolean hasNpmRepository() {
       return npmRepository_ != null;
     }
     /**
-     * <code>optional .org.roylance.yaclib.Repository npm_repository = 18;</code>
+     * <code>.org.roylance.yaclib.Repository npm_repository = 18;</code>
      */
     public org.roylance.yaclib.YaclibModel.Repository getNpmRepository() {
       return npmRepository_ == null ? org.roylance.yaclib.YaclibModel.Repository.getDefaultInstance() : npmRepository_;
     }
     /**
-     * <code>optional .org.roylance.yaclib.Repository npm_repository = 18;</code>
+     * <code>.org.roylance.yaclib.Repository npm_repository = 18;</code>
      */
     public org.roylance.yaclib.YaclibModel.RepositoryOrBuilder getNpmRepositoryOrBuilder() {
       return getNpmRepository();
@@ -3579,19 +3579,19 @@ public final class YaclibModel {
     public static final int NUGET_REPOSITORY_FIELD_NUMBER = 19;
     private org.roylance.yaclib.YaclibModel.Repository nugetRepository_;
     /**
-     * <code>optional .org.roylance.yaclib.Repository nuget_repository = 19;</code>
+     * <code>.org.roylance.yaclib.Repository nuget_repository = 19;</code>
      */
     public boolean hasNugetRepository() {
       return nugetRepository_ != null;
     }
     /**
-     * <code>optional .org.roylance.yaclib.Repository nuget_repository = 19;</code>
+     * <code>.org.roylance.yaclib.Repository nuget_repository = 19;</code>
      */
     public org.roylance.yaclib.YaclibModel.Repository getNugetRepository() {
       return nugetRepository_ == null ? org.roylance.yaclib.YaclibModel.Repository.getDefaultInstance() : nugetRepository_;
     }
     /**
-     * <code>optional .org.roylance.yaclib.Repository nuget_repository = 19;</code>
+     * <code>.org.roylance.yaclib.Repository nuget_repository = 19;</code>
      */
     public org.roylance.yaclib.YaclibModel.RepositoryOrBuilder getNugetRepositoryOrBuilder() {
       return getNugetRepository();
@@ -3600,19 +3600,19 @@ public final class YaclibModel {
     public static final int PIP_REPOSITORY_FIELD_NUMBER = 20;
     private org.roylance.yaclib.YaclibModel.Repository pipRepository_;
     /**
-     * <code>optional .org.roylance.yaclib.Repository pip_repository = 20;</code>
+     * <code>.org.roylance.yaclib.Repository pip_repository = 20;</code>
      */
     public boolean hasPipRepository() {
       return pipRepository_ != null;
     }
     /**
-     * <code>optional .org.roylance.yaclib.Repository pip_repository = 20;</code>
+     * <code>.org.roylance.yaclib.Repository pip_repository = 20;</code>
      */
     public org.roylance.yaclib.YaclibModel.Repository getPipRepository() {
       return pipRepository_ == null ? org.roylance.yaclib.YaclibModel.Repository.getDefaultInstance() : pipRepository_;
     }
     /**
-     * <code>optional .org.roylance.yaclib.Repository pip_repository = 20;</code>
+     * <code>.org.roylance.yaclib.Repository pip_repository = 20;</code>
      */
     public org.roylance.yaclib.YaclibModel.RepositoryOrBuilder getPipRepositoryOrBuilder() {
       return getPipRepository();
@@ -3621,13 +3621,13 @@ public final class YaclibModel {
     public static final int SERVER_TYPE_FIELD_NUMBER = 21;
     private int serverType_;
     /**
-     * <code>optional .org.roylance.yaclib.ServerType server_type = 21;</code>
+     * <code>.org.roylance.yaclib.ServerType server_type = 21;</code>
      */
     public int getServerTypeValue() {
       return serverType_;
     }
     /**
-     * <code>optional .org.roylance.yaclib.ServerType server_type = 21;</code>
+     * <code>.org.roylance.yaclib.ServerType server_type = 21;</code>
      */
     public org.roylance.yaclib.YaclibModel.ServerType getServerType() {
       org.roylance.yaclib.YaclibModel.ServerType result = org.roylance.yaclib.YaclibModel.ServerType.valueOf(serverType_);
@@ -3637,7 +3637,7 @@ public final class YaclibModel {
     public static final int SERVER_PORT_FIELD_NUMBER = 22;
     private int serverPort_;
     /**
-     * <code>optional int32 server_port = 22;</code>
+     * <code>int32 server_port = 22;</code>
      */
     public int getServerPort() {
       return serverPort_;
@@ -3646,7 +3646,7 @@ public final class YaclibModel {
     public static final int YACLIB_VERSION_FIELD_NUMBER = 23;
     private volatile java.lang.Object yaclibVersion_;
     /**
-     * <code>optional string yaclib_version = 23;</code>
+     * <code>string yaclib_version = 23;</code>
      */
     public java.lang.String getYaclibVersion() {
       java.lang.Object ref = yaclibVersion_;
@@ -3661,7 +3661,7 @@ public final class YaclibModel {
       }
     }
     /**
-     * <code>optional string yaclib_version = 23;</code>
+     * <code>string yaclib_version = 23;</code>
      */
     public com.google.protobuf.ByteString
         getYaclibVersionBytes() {
@@ -3680,7 +3680,7 @@ public final class YaclibModel {
     public static final int UNPUBLISH_NUGET_FIELD_NUMBER = 24;
     private boolean unpublishNuget_;
     /**
-     * <code>optional bool unpublish_nuget = 24;</code>
+     * <code>bool unpublish_nuget = 24;</code>
      */
     public boolean getUnpublishNuget() {
       return unpublishNuget_;
@@ -3894,7 +3894,7 @@ public final class YaclibModel {
         return memoizedHashCode;
       }
       int hash = 41;
-      hash = (19 * hash) + getDescriptorForType().hashCode();
+      hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + TYPE_FIELD_NUMBER;
       hash = (53 * hash) + type_;
       hash = (37 * hash) + GROUP_FIELD_NUMBER;
@@ -4297,13 +4297,13 @@ public final class YaclibModel {
 
       private int type_ = 0;
       /**
-       * <code>optional .org.roylance.yaclib.DependencyType type = 1;</code>
+       * <code>.org.roylance.yaclib.DependencyType type = 1;</code>
        */
       public int getTypeValue() {
         return type_;
       }
       /**
-       * <code>optional .org.roylance.yaclib.DependencyType type = 1;</code>
+       * <code>.org.roylance.yaclib.DependencyType type = 1;</code>
        */
       public Builder setTypeValue(int value) {
         type_ = value;
@@ -4311,14 +4311,14 @@ public final class YaclibModel {
         return this;
       }
       /**
-       * <code>optional .org.roylance.yaclib.DependencyType type = 1;</code>
+       * <code>.org.roylance.yaclib.DependencyType type = 1;</code>
        */
       public org.roylance.yaclib.YaclibModel.DependencyType getType() {
         org.roylance.yaclib.YaclibModel.DependencyType result = org.roylance.yaclib.YaclibModel.DependencyType.valueOf(type_);
         return result == null ? org.roylance.yaclib.YaclibModel.DependencyType.UNRECOGNIZED : result;
       }
       /**
-       * <code>optional .org.roylance.yaclib.DependencyType type = 1;</code>
+       * <code>.org.roylance.yaclib.DependencyType type = 1;</code>
        */
       public Builder setType(org.roylance.yaclib.YaclibModel.DependencyType value) {
         if (value == null) {
@@ -4330,7 +4330,7 @@ public final class YaclibModel {
         return this;
       }
       /**
-       * <code>optional .org.roylance.yaclib.DependencyType type = 1;</code>
+       * <code>.org.roylance.yaclib.DependencyType type = 1;</code>
        */
       public Builder clearType() {
         
@@ -4341,7 +4341,7 @@ public final class YaclibModel {
 
       private java.lang.Object group_ = "";
       /**
-       * <code>optional string group = 2;</code>
+       * <code>string group = 2;</code>
        */
       public java.lang.String getGroup() {
         java.lang.Object ref = group_;
@@ -4356,7 +4356,7 @@ public final class YaclibModel {
         }
       }
       /**
-       * <code>optional string group = 2;</code>
+       * <code>string group = 2;</code>
        */
       public com.google.protobuf.ByteString
           getGroupBytes() {
@@ -4372,7 +4372,7 @@ public final class YaclibModel {
         }
       }
       /**
-       * <code>optional string group = 2;</code>
+       * <code>string group = 2;</code>
        */
       public Builder setGroup(
           java.lang.String value) {
@@ -4385,7 +4385,7 @@ public final class YaclibModel {
         return this;
       }
       /**
-       * <code>optional string group = 2;</code>
+       * <code>string group = 2;</code>
        */
       public Builder clearGroup() {
         
@@ -4394,7 +4394,7 @@ public final class YaclibModel {
         return this;
       }
       /**
-       * <code>optional string group = 2;</code>
+       * <code>string group = 2;</code>
        */
       public Builder setGroupBytes(
           com.google.protobuf.ByteString value) {
@@ -4410,7 +4410,7 @@ public final class YaclibModel {
 
       private java.lang.Object name_ = "";
       /**
-       * <code>optional string name = 3;</code>
+       * <code>string name = 3;</code>
        */
       public java.lang.String getName() {
         java.lang.Object ref = name_;
@@ -4425,7 +4425,7 @@ public final class YaclibModel {
         }
       }
       /**
-       * <code>optional string name = 3;</code>
+       * <code>string name = 3;</code>
        */
       public com.google.protobuf.ByteString
           getNameBytes() {
@@ -4441,7 +4441,7 @@ public final class YaclibModel {
         }
       }
       /**
-       * <code>optional string name = 3;</code>
+       * <code>string name = 3;</code>
        */
       public Builder setName(
           java.lang.String value) {
@@ -4454,7 +4454,7 @@ public final class YaclibModel {
         return this;
       }
       /**
-       * <code>optional string name = 3;</code>
+       * <code>string name = 3;</code>
        */
       public Builder clearName() {
         
@@ -4463,7 +4463,7 @@ public final class YaclibModel {
         return this;
       }
       /**
-       * <code>optional string name = 3;</code>
+       * <code>string name = 3;</code>
        */
       public Builder setNameBytes(
           com.google.protobuf.ByteString value) {
@@ -4479,7 +4479,7 @@ public final class YaclibModel {
 
       private java.lang.Object typescriptModelFile_ = "";
       /**
-       * <code>optional string typescript_model_file = 6;</code>
+       * <code>string typescript_model_file = 6;</code>
        */
       public java.lang.String getTypescriptModelFile() {
         java.lang.Object ref = typescriptModelFile_;
@@ -4494,7 +4494,7 @@ public final class YaclibModel {
         }
       }
       /**
-       * <code>optional string typescript_model_file = 6;</code>
+       * <code>string typescript_model_file = 6;</code>
        */
       public com.google.protobuf.ByteString
           getTypescriptModelFileBytes() {
@@ -4510,7 +4510,7 @@ public final class YaclibModel {
         }
       }
       /**
-       * <code>optional string typescript_model_file = 6;</code>
+       * <code>string typescript_model_file = 6;</code>
        */
       public Builder setTypescriptModelFile(
           java.lang.String value) {
@@ -4523,7 +4523,7 @@ public final class YaclibModel {
         return this;
       }
       /**
-       * <code>optional string typescript_model_file = 6;</code>
+       * <code>string typescript_model_file = 6;</code>
        */
       public Builder clearTypescriptModelFile() {
         
@@ -4532,7 +4532,7 @@ public final class YaclibModel {
         return this;
       }
       /**
-       * <code>optional string typescript_model_file = 6;</code>
+       * <code>string typescript_model_file = 6;</code>
        */
       public Builder setTypescriptModelFileBytes(
           com.google.protobuf.ByteString value) {
@@ -4548,7 +4548,7 @@ public final class YaclibModel {
 
       private java.lang.Object thirdPartyDependencyVersion_ = "";
       /**
-       * <code>optional string third_party_dependency_version = 11;</code>
+       * <code>string third_party_dependency_version = 11;</code>
        */
       public java.lang.String getThirdPartyDependencyVersion() {
         java.lang.Object ref = thirdPartyDependencyVersion_;
@@ -4563,7 +4563,7 @@ public final class YaclibModel {
         }
       }
       /**
-       * <code>optional string third_party_dependency_version = 11;</code>
+       * <code>string third_party_dependency_version = 11;</code>
        */
       public com.google.protobuf.ByteString
           getThirdPartyDependencyVersionBytes() {
@@ -4579,7 +4579,7 @@ public final class YaclibModel {
         }
       }
       /**
-       * <code>optional string third_party_dependency_version = 11;</code>
+       * <code>string third_party_dependency_version = 11;</code>
        */
       public Builder setThirdPartyDependencyVersion(
           java.lang.String value) {
@@ -4592,7 +4592,7 @@ public final class YaclibModel {
         return this;
       }
       /**
-       * <code>optional string third_party_dependency_version = 11;</code>
+       * <code>string third_party_dependency_version = 11;</code>
        */
       public Builder clearThirdPartyDependencyVersion() {
         
@@ -4601,7 +4601,7 @@ public final class YaclibModel {
         return this;
       }
       /**
-       * <code>optional string third_party_dependency_version = 11;</code>
+       * <code>string third_party_dependency_version = 11;</code>
        */
       public Builder setThirdPartyDependencyVersionBytes(
           com.google.protobuf.ByteString value) {
@@ -4617,13 +4617,13 @@ public final class YaclibModel {
 
       private int majorVersion_ ;
       /**
-       * <code>optional int32 major_version = 12;</code>
+       * <code>int32 major_version = 12;</code>
        */
       public int getMajorVersion() {
         return majorVersion_;
       }
       /**
-       * <code>optional int32 major_version = 12;</code>
+       * <code>int32 major_version = 12;</code>
        */
       public Builder setMajorVersion(int value) {
         
@@ -4632,7 +4632,7 @@ public final class YaclibModel {
         return this;
       }
       /**
-       * <code>optional int32 major_version = 12;</code>
+       * <code>int32 major_version = 12;</code>
        */
       public Builder clearMajorVersion() {
         
@@ -4643,13 +4643,13 @@ public final class YaclibModel {
 
       private int minorVersion_ ;
       /**
-       * <code>optional int32 minor_version = 13;</code>
+       * <code>int32 minor_version = 13;</code>
        */
       public int getMinorVersion() {
         return minorVersion_;
       }
       /**
-       * <code>optional int32 minor_version = 13;</code>
+       * <code>int32 minor_version = 13;</code>
        */
       public Builder setMinorVersion(int value) {
         
@@ -4658,7 +4658,7 @@ public final class YaclibModel {
         return this;
       }
       /**
-       * <code>optional int32 minor_version = 13;</code>
+       * <code>int32 minor_version = 13;</code>
        */
       public Builder clearMinorVersion() {
         
@@ -4669,7 +4669,7 @@ public final class YaclibModel {
 
       private java.lang.Object githubRepo_ = "";
       /**
-       * <code>optional string github_repo = 14;</code>
+       * <code>string github_repo = 14;</code>
        */
       public java.lang.String getGithubRepo() {
         java.lang.Object ref = githubRepo_;
@@ -4684,7 +4684,7 @@ public final class YaclibModel {
         }
       }
       /**
-       * <code>optional string github_repo = 14;</code>
+       * <code>string github_repo = 14;</code>
        */
       public com.google.protobuf.ByteString
           getGithubRepoBytes() {
@@ -4700,7 +4700,7 @@ public final class YaclibModel {
         }
       }
       /**
-       * <code>optional string github_repo = 14;</code>
+       * <code>string github_repo = 14;</code>
        */
       public Builder setGithubRepo(
           java.lang.String value) {
@@ -4713,7 +4713,7 @@ public final class YaclibModel {
         return this;
       }
       /**
-       * <code>optional string github_repo = 14;</code>
+       * <code>string github_repo = 14;</code>
        */
       public Builder clearGithubRepo() {
         
@@ -4722,7 +4722,7 @@ public final class YaclibModel {
         return this;
       }
       /**
-       * <code>optional string github_repo = 14;</code>
+       * <code>string github_repo = 14;</code>
        */
       public Builder setGithubRepoBytes(
           com.google.protobuf.ByteString value) {
@@ -4738,7 +4738,7 @@ public final class YaclibModel {
 
       private java.lang.Object authorName_ = "";
       /**
-       * <code>optional string author_name = 15;</code>
+       * <code>string author_name = 15;</code>
        */
       public java.lang.String getAuthorName() {
         java.lang.Object ref = authorName_;
@@ -4753,7 +4753,7 @@ public final class YaclibModel {
         }
       }
       /**
-       * <code>optional string author_name = 15;</code>
+       * <code>string author_name = 15;</code>
        */
       public com.google.protobuf.ByteString
           getAuthorNameBytes() {
@@ -4769,7 +4769,7 @@ public final class YaclibModel {
         }
       }
       /**
-       * <code>optional string author_name = 15;</code>
+       * <code>string author_name = 15;</code>
        */
       public Builder setAuthorName(
           java.lang.String value) {
@@ -4782,7 +4782,7 @@ public final class YaclibModel {
         return this;
       }
       /**
-       * <code>optional string author_name = 15;</code>
+       * <code>string author_name = 15;</code>
        */
       public Builder clearAuthorName() {
         
@@ -4791,7 +4791,7 @@ public final class YaclibModel {
         return this;
       }
       /**
-       * <code>optional string author_name = 15;</code>
+       * <code>string author_name = 15;</code>
        */
       public Builder setAuthorNameBytes(
           com.google.protobuf.ByteString value) {
@@ -4807,7 +4807,7 @@ public final class YaclibModel {
 
       private java.lang.Object license_ = "";
       /**
-       * <code>optional string license = 16;</code>
+       * <code>string license = 16;</code>
        */
       public java.lang.String getLicense() {
         java.lang.Object ref = license_;
@@ -4822,7 +4822,7 @@ public final class YaclibModel {
         }
       }
       /**
-       * <code>optional string license = 16;</code>
+       * <code>string license = 16;</code>
        */
       public com.google.protobuf.ByteString
           getLicenseBytes() {
@@ -4838,7 +4838,7 @@ public final class YaclibModel {
         }
       }
       /**
-       * <code>optional string license = 16;</code>
+       * <code>string license = 16;</code>
        */
       public Builder setLicense(
           java.lang.String value) {
@@ -4851,7 +4851,7 @@ public final class YaclibModel {
         return this;
       }
       /**
-       * <code>optional string license = 16;</code>
+       * <code>string license = 16;</code>
        */
       public Builder clearLicense() {
         
@@ -4860,7 +4860,7 @@ public final class YaclibModel {
         return this;
       }
       /**
-       * <code>optional string license = 16;</code>
+       * <code>string license = 16;</code>
        */
       public Builder setLicenseBytes(
           com.google.protobuf.ByteString value) {
@@ -4878,13 +4878,13 @@ public final class YaclibModel {
       private com.google.protobuf.SingleFieldBuilderV3<
           org.roylance.yaclib.YaclibModel.Repository, org.roylance.yaclib.YaclibModel.Repository.Builder, org.roylance.yaclib.YaclibModel.RepositoryOrBuilder> mavenRepositoryBuilder_;
       /**
-       * <code>optional .org.roylance.yaclib.Repository maven_repository = 17;</code>
+       * <code>.org.roylance.yaclib.Repository maven_repository = 17;</code>
        */
       public boolean hasMavenRepository() {
         return mavenRepositoryBuilder_ != null || mavenRepository_ != null;
       }
       /**
-       * <code>optional .org.roylance.yaclib.Repository maven_repository = 17;</code>
+       * <code>.org.roylance.yaclib.Repository maven_repository = 17;</code>
        */
       public org.roylance.yaclib.YaclibModel.Repository getMavenRepository() {
         if (mavenRepositoryBuilder_ == null) {
@@ -4894,7 +4894,7 @@ public final class YaclibModel {
         }
       }
       /**
-       * <code>optional .org.roylance.yaclib.Repository maven_repository = 17;</code>
+       * <code>.org.roylance.yaclib.Repository maven_repository = 17;</code>
        */
       public Builder setMavenRepository(org.roylance.yaclib.YaclibModel.Repository value) {
         if (mavenRepositoryBuilder_ == null) {
@@ -4910,7 +4910,7 @@ public final class YaclibModel {
         return this;
       }
       /**
-       * <code>optional .org.roylance.yaclib.Repository maven_repository = 17;</code>
+       * <code>.org.roylance.yaclib.Repository maven_repository = 17;</code>
        */
       public Builder setMavenRepository(
           org.roylance.yaclib.YaclibModel.Repository.Builder builderForValue) {
@@ -4924,7 +4924,7 @@ public final class YaclibModel {
         return this;
       }
       /**
-       * <code>optional .org.roylance.yaclib.Repository maven_repository = 17;</code>
+       * <code>.org.roylance.yaclib.Repository maven_repository = 17;</code>
        */
       public Builder mergeMavenRepository(org.roylance.yaclib.YaclibModel.Repository value) {
         if (mavenRepositoryBuilder_ == null) {
@@ -4942,7 +4942,7 @@ public final class YaclibModel {
         return this;
       }
       /**
-       * <code>optional .org.roylance.yaclib.Repository maven_repository = 17;</code>
+       * <code>.org.roylance.yaclib.Repository maven_repository = 17;</code>
        */
       public Builder clearMavenRepository() {
         if (mavenRepositoryBuilder_ == null) {
@@ -4956,7 +4956,7 @@ public final class YaclibModel {
         return this;
       }
       /**
-       * <code>optional .org.roylance.yaclib.Repository maven_repository = 17;</code>
+       * <code>.org.roylance.yaclib.Repository maven_repository = 17;</code>
        */
       public org.roylance.yaclib.YaclibModel.Repository.Builder getMavenRepositoryBuilder() {
         
@@ -4964,7 +4964,7 @@ public final class YaclibModel {
         return getMavenRepositoryFieldBuilder().getBuilder();
       }
       /**
-       * <code>optional .org.roylance.yaclib.Repository maven_repository = 17;</code>
+       * <code>.org.roylance.yaclib.Repository maven_repository = 17;</code>
        */
       public org.roylance.yaclib.YaclibModel.RepositoryOrBuilder getMavenRepositoryOrBuilder() {
         if (mavenRepositoryBuilder_ != null) {
@@ -4975,7 +4975,7 @@ public final class YaclibModel {
         }
       }
       /**
-       * <code>optional .org.roylance.yaclib.Repository maven_repository = 17;</code>
+       * <code>.org.roylance.yaclib.Repository maven_repository = 17;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           org.roylance.yaclib.YaclibModel.Repository, org.roylance.yaclib.YaclibModel.Repository.Builder, org.roylance.yaclib.YaclibModel.RepositoryOrBuilder> 
@@ -4995,13 +4995,13 @@ public final class YaclibModel {
       private com.google.protobuf.SingleFieldBuilderV3<
           org.roylance.yaclib.YaclibModel.Repository, org.roylance.yaclib.YaclibModel.Repository.Builder, org.roylance.yaclib.YaclibModel.RepositoryOrBuilder> npmRepositoryBuilder_;
       /**
-       * <code>optional .org.roylance.yaclib.Repository npm_repository = 18;</code>
+       * <code>.org.roylance.yaclib.Repository npm_repository = 18;</code>
        */
       public boolean hasNpmRepository() {
         return npmRepositoryBuilder_ != null || npmRepository_ != null;
       }
       /**
-       * <code>optional .org.roylance.yaclib.Repository npm_repository = 18;</code>
+       * <code>.org.roylance.yaclib.Repository npm_repository = 18;</code>
        */
       public org.roylance.yaclib.YaclibModel.Repository getNpmRepository() {
         if (npmRepositoryBuilder_ == null) {
@@ -5011,7 +5011,7 @@ public final class YaclibModel {
         }
       }
       /**
-       * <code>optional .org.roylance.yaclib.Repository npm_repository = 18;</code>
+       * <code>.org.roylance.yaclib.Repository npm_repository = 18;</code>
        */
       public Builder setNpmRepository(org.roylance.yaclib.YaclibModel.Repository value) {
         if (npmRepositoryBuilder_ == null) {
@@ -5027,7 +5027,7 @@ public final class YaclibModel {
         return this;
       }
       /**
-       * <code>optional .org.roylance.yaclib.Repository npm_repository = 18;</code>
+       * <code>.org.roylance.yaclib.Repository npm_repository = 18;</code>
        */
       public Builder setNpmRepository(
           org.roylance.yaclib.YaclibModel.Repository.Builder builderForValue) {
@@ -5041,7 +5041,7 @@ public final class YaclibModel {
         return this;
       }
       /**
-       * <code>optional .org.roylance.yaclib.Repository npm_repository = 18;</code>
+       * <code>.org.roylance.yaclib.Repository npm_repository = 18;</code>
        */
       public Builder mergeNpmRepository(org.roylance.yaclib.YaclibModel.Repository value) {
         if (npmRepositoryBuilder_ == null) {
@@ -5059,7 +5059,7 @@ public final class YaclibModel {
         return this;
       }
       /**
-       * <code>optional .org.roylance.yaclib.Repository npm_repository = 18;</code>
+       * <code>.org.roylance.yaclib.Repository npm_repository = 18;</code>
        */
       public Builder clearNpmRepository() {
         if (npmRepositoryBuilder_ == null) {
@@ -5073,7 +5073,7 @@ public final class YaclibModel {
         return this;
       }
       /**
-       * <code>optional .org.roylance.yaclib.Repository npm_repository = 18;</code>
+       * <code>.org.roylance.yaclib.Repository npm_repository = 18;</code>
        */
       public org.roylance.yaclib.YaclibModel.Repository.Builder getNpmRepositoryBuilder() {
         
@@ -5081,7 +5081,7 @@ public final class YaclibModel {
         return getNpmRepositoryFieldBuilder().getBuilder();
       }
       /**
-       * <code>optional .org.roylance.yaclib.Repository npm_repository = 18;</code>
+       * <code>.org.roylance.yaclib.Repository npm_repository = 18;</code>
        */
       public org.roylance.yaclib.YaclibModel.RepositoryOrBuilder getNpmRepositoryOrBuilder() {
         if (npmRepositoryBuilder_ != null) {
@@ -5092,7 +5092,7 @@ public final class YaclibModel {
         }
       }
       /**
-       * <code>optional .org.roylance.yaclib.Repository npm_repository = 18;</code>
+       * <code>.org.roylance.yaclib.Repository npm_repository = 18;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           org.roylance.yaclib.YaclibModel.Repository, org.roylance.yaclib.YaclibModel.Repository.Builder, org.roylance.yaclib.YaclibModel.RepositoryOrBuilder> 
@@ -5112,13 +5112,13 @@ public final class YaclibModel {
       private com.google.protobuf.SingleFieldBuilderV3<
           org.roylance.yaclib.YaclibModel.Repository, org.roylance.yaclib.YaclibModel.Repository.Builder, org.roylance.yaclib.YaclibModel.RepositoryOrBuilder> nugetRepositoryBuilder_;
       /**
-       * <code>optional .org.roylance.yaclib.Repository nuget_repository = 19;</code>
+       * <code>.org.roylance.yaclib.Repository nuget_repository = 19;</code>
        */
       public boolean hasNugetRepository() {
         return nugetRepositoryBuilder_ != null || nugetRepository_ != null;
       }
       /**
-       * <code>optional .org.roylance.yaclib.Repository nuget_repository = 19;</code>
+       * <code>.org.roylance.yaclib.Repository nuget_repository = 19;</code>
        */
       public org.roylance.yaclib.YaclibModel.Repository getNugetRepository() {
         if (nugetRepositoryBuilder_ == null) {
@@ -5128,7 +5128,7 @@ public final class YaclibModel {
         }
       }
       /**
-       * <code>optional .org.roylance.yaclib.Repository nuget_repository = 19;</code>
+       * <code>.org.roylance.yaclib.Repository nuget_repository = 19;</code>
        */
       public Builder setNugetRepository(org.roylance.yaclib.YaclibModel.Repository value) {
         if (nugetRepositoryBuilder_ == null) {
@@ -5144,7 +5144,7 @@ public final class YaclibModel {
         return this;
       }
       /**
-       * <code>optional .org.roylance.yaclib.Repository nuget_repository = 19;</code>
+       * <code>.org.roylance.yaclib.Repository nuget_repository = 19;</code>
        */
       public Builder setNugetRepository(
           org.roylance.yaclib.YaclibModel.Repository.Builder builderForValue) {
@@ -5158,7 +5158,7 @@ public final class YaclibModel {
         return this;
       }
       /**
-       * <code>optional .org.roylance.yaclib.Repository nuget_repository = 19;</code>
+       * <code>.org.roylance.yaclib.Repository nuget_repository = 19;</code>
        */
       public Builder mergeNugetRepository(org.roylance.yaclib.YaclibModel.Repository value) {
         if (nugetRepositoryBuilder_ == null) {
@@ -5176,7 +5176,7 @@ public final class YaclibModel {
         return this;
       }
       /**
-       * <code>optional .org.roylance.yaclib.Repository nuget_repository = 19;</code>
+       * <code>.org.roylance.yaclib.Repository nuget_repository = 19;</code>
        */
       public Builder clearNugetRepository() {
         if (nugetRepositoryBuilder_ == null) {
@@ -5190,7 +5190,7 @@ public final class YaclibModel {
         return this;
       }
       /**
-       * <code>optional .org.roylance.yaclib.Repository nuget_repository = 19;</code>
+       * <code>.org.roylance.yaclib.Repository nuget_repository = 19;</code>
        */
       public org.roylance.yaclib.YaclibModel.Repository.Builder getNugetRepositoryBuilder() {
         
@@ -5198,7 +5198,7 @@ public final class YaclibModel {
         return getNugetRepositoryFieldBuilder().getBuilder();
       }
       /**
-       * <code>optional .org.roylance.yaclib.Repository nuget_repository = 19;</code>
+       * <code>.org.roylance.yaclib.Repository nuget_repository = 19;</code>
        */
       public org.roylance.yaclib.YaclibModel.RepositoryOrBuilder getNugetRepositoryOrBuilder() {
         if (nugetRepositoryBuilder_ != null) {
@@ -5209,7 +5209,7 @@ public final class YaclibModel {
         }
       }
       /**
-       * <code>optional .org.roylance.yaclib.Repository nuget_repository = 19;</code>
+       * <code>.org.roylance.yaclib.Repository nuget_repository = 19;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           org.roylance.yaclib.YaclibModel.Repository, org.roylance.yaclib.YaclibModel.Repository.Builder, org.roylance.yaclib.YaclibModel.RepositoryOrBuilder> 
@@ -5229,13 +5229,13 @@ public final class YaclibModel {
       private com.google.protobuf.SingleFieldBuilderV3<
           org.roylance.yaclib.YaclibModel.Repository, org.roylance.yaclib.YaclibModel.Repository.Builder, org.roylance.yaclib.YaclibModel.RepositoryOrBuilder> pipRepositoryBuilder_;
       /**
-       * <code>optional .org.roylance.yaclib.Repository pip_repository = 20;</code>
+       * <code>.org.roylance.yaclib.Repository pip_repository = 20;</code>
        */
       public boolean hasPipRepository() {
         return pipRepositoryBuilder_ != null || pipRepository_ != null;
       }
       /**
-       * <code>optional .org.roylance.yaclib.Repository pip_repository = 20;</code>
+       * <code>.org.roylance.yaclib.Repository pip_repository = 20;</code>
        */
       public org.roylance.yaclib.YaclibModel.Repository getPipRepository() {
         if (pipRepositoryBuilder_ == null) {
@@ -5245,7 +5245,7 @@ public final class YaclibModel {
         }
       }
       /**
-       * <code>optional .org.roylance.yaclib.Repository pip_repository = 20;</code>
+       * <code>.org.roylance.yaclib.Repository pip_repository = 20;</code>
        */
       public Builder setPipRepository(org.roylance.yaclib.YaclibModel.Repository value) {
         if (pipRepositoryBuilder_ == null) {
@@ -5261,7 +5261,7 @@ public final class YaclibModel {
         return this;
       }
       /**
-       * <code>optional .org.roylance.yaclib.Repository pip_repository = 20;</code>
+       * <code>.org.roylance.yaclib.Repository pip_repository = 20;</code>
        */
       public Builder setPipRepository(
           org.roylance.yaclib.YaclibModel.Repository.Builder builderForValue) {
@@ -5275,7 +5275,7 @@ public final class YaclibModel {
         return this;
       }
       /**
-       * <code>optional .org.roylance.yaclib.Repository pip_repository = 20;</code>
+       * <code>.org.roylance.yaclib.Repository pip_repository = 20;</code>
        */
       public Builder mergePipRepository(org.roylance.yaclib.YaclibModel.Repository value) {
         if (pipRepositoryBuilder_ == null) {
@@ -5293,7 +5293,7 @@ public final class YaclibModel {
         return this;
       }
       /**
-       * <code>optional .org.roylance.yaclib.Repository pip_repository = 20;</code>
+       * <code>.org.roylance.yaclib.Repository pip_repository = 20;</code>
        */
       public Builder clearPipRepository() {
         if (pipRepositoryBuilder_ == null) {
@@ -5307,7 +5307,7 @@ public final class YaclibModel {
         return this;
       }
       /**
-       * <code>optional .org.roylance.yaclib.Repository pip_repository = 20;</code>
+       * <code>.org.roylance.yaclib.Repository pip_repository = 20;</code>
        */
       public org.roylance.yaclib.YaclibModel.Repository.Builder getPipRepositoryBuilder() {
         
@@ -5315,7 +5315,7 @@ public final class YaclibModel {
         return getPipRepositoryFieldBuilder().getBuilder();
       }
       /**
-       * <code>optional .org.roylance.yaclib.Repository pip_repository = 20;</code>
+       * <code>.org.roylance.yaclib.Repository pip_repository = 20;</code>
        */
       public org.roylance.yaclib.YaclibModel.RepositoryOrBuilder getPipRepositoryOrBuilder() {
         if (pipRepositoryBuilder_ != null) {
@@ -5326,7 +5326,7 @@ public final class YaclibModel {
         }
       }
       /**
-       * <code>optional .org.roylance.yaclib.Repository pip_repository = 20;</code>
+       * <code>.org.roylance.yaclib.Repository pip_repository = 20;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           org.roylance.yaclib.YaclibModel.Repository, org.roylance.yaclib.YaclibModel.Repository.Builder, org.roylance.yaclib.YaclibModel.RepositoryOrBuilder> 
@@ -5344,13 +5344,13 @@ public final class YaclibModel {
 
       private int serverType_ = 0;
       /**
-       * <code>optional .org.roylance.yaclib.ServerType server_type = 21;</code>
+       * <code>.org.roylance.yaclib.ServerType server_type = 21;</code>
        */
       public int getServerTypeValue() {
         return serverType_;
       }
       /**
-       * <code>optional .org.roylance.yaclib.ServerType server_type = 21;</code>
+       * <code>.org.roylance.yaclib.ServerType server_type = 21;</code>
        */
       public Builder setServerTypeValue(int value) {
         serverType_ = value;
@@ -5358,14 +5358,14 @@ public final class YaclibModel {
         return this;
       }
       /**
-       * <code>optional .org.roylance.yaclib.ServerType server_type = 21;</code>
+       * <code>.org.roylance.yaclib.ServerType server_type = 21;</code>
        */
       public org.roylance.yaclib.YaclibModel.ServerType getServerType() {
         org.roylance.yaclib.YaclibModel.ServerType result = org.roylance.yaclib.YaclibModel.ServerType.valueOf(serverType_);
         return result == null ? org.roylance.yaclib.YaclibModel.ServerType.UNRECOGNIZED : result;
       }
       /**
-       * <code>optional .org.roylance.yaclib.ServerType server_type = 21;</code>
+       * <code>.org.roylance.yaclib.ServerType server_type = 21;</code>
        */
       public Builder setServerType(org.roylance.yaclib.YaclibModel.ServerType value) {
         if (value == null) {
@@ -5377,7 +5377,7 @@ public final class YaclibModel {
         return this;
       }
       /**
-       * <code>optional .org.roylance.yaclib.ServerType server_type = 21;</code>
+       * <code>.org.roylance.yaclib.ServerType server_type = 21;</code>
        */
       public Builder clearServerType() {
         
@@ -5388,13 +5388,13 @@ public final class YaclibModel {
 
       private int serverPort_ ;
       /**
-       * <code>optional int32 server_port = 22;</code>
+       * <code>int32 server_port = 22;</code>
        */
       public int getServerPort() {
         return serverPort_;
       }
       /**
-       * <code>optional int32 server_port = 22;</code>
+       * <code>int32 server_port = 22;</code>
        */
       public Builder setServerPort(int value) {
         
@@ -5403,7 +5403,7 @@ public final class YaclibModel {
         return this;
       }
       /**
-       * <code>optional int32 server_port = 22;</code>
+       * <code>int32 server_port = 22;</code>
        */
       public Builder clearServerPort() {
         
@@ -5414,7 +5414,7 @@ public final class YaclibModel {
 
       private java.lang.Object yaclibVersion_ = "";
       /**
-       * <code>optional string yaclib_version = 23;</code>
+       * <code>string yaclib_version = 23;</code>
        */
       public java.lang.String getYaclibVersion() {
         java.lang.Object ref = yaclibVersion_;
@@ -5429,7 +5429,7 @@ public final class YaclibModel {
         }
       }
       /**
-       * <code>optional string yaclib_version = 23;</code>
+       * <code>string yaclib_version = 23;</code>
        */
       public com.google.protobuf.ByteString
           getYaclibVersionBytes() {
@@ -5445,7 +5445,7 @@ public final class YaclibModel {
         }
       }
       /**
-       * <code>optional string yaclib_version = 23;</code>
+       * <code>string yaclib_version = 23;</code>
        */
       public Builder setYaclibVersion(
           java.lang.String value) {
@@ -5458,7 +5458,7 @@ public final class YaclibModel {
         return this;
       }
       /**
-       * <code>optional string yaclib_version = 23;</code>
+       * <code>string yaclib_version = 23;</code>
        */
       public Builder clearYaclibVersion() {
         
@@ -5467,7 +5467,7 @@ public final class YaclibModel {
         return this;
       }
       /**
-       * <code>optional string yaclib_version = 23;</code>
+       * <code>string yaclib_version = 23;</code>
        */
       public Builder setYaclibVersionBytes(
           com.google.protobuf.ByteString value) {
@@ -5483,13 +5483,13 @@ public final class YaclibModel {
 
       private boolean unpublishNuget_ ;
       /**
-       * <code>optional bool unpublish_nuget = 24;</code>
+       * <code>bool unpublish_nuget = 24;</code>
        */
       public boolean getUnpublishNuget() {
         return unpublishNuget_;
       }
       /**
-       * <code>optional bool unpublish_nuget = 24;</code>
+       * <code>bool unpublish_nuget = 24;</code>
        */
       public Builder setUnpublishNuget(boolean value) {
         
@@ -5498,7 +5498,7 @@ public final class YaclibModel {
         return this;
       }
       /**
-       * <code>optional bool unpublish_nuget = 24;</code>
+       * <code>bool unpublish_nuget = 24;</code>
        */
       public Builder clearUnpublishNuget() {
         
@@ -5560,55 +5560,55 @@ public final class YaclibModel {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>optional string full_directory_location = 1;</code>
+     * <code>string full_directory_location = 1;</code>
      */
     java.lang.String getFullDirectoryLocation();
     /**
-     * <code>optional string full_directory_location = 1;</code>
+     * <code>string full_directory_location = 1;</code>
      */
     com.google.protobuf.ByteString
         getFullDirectoryLocationBytes();
 
     /**
-     * <code>optional string file_name = 2;</code>
+     * <code>string file_name = 2;</code>
      */
     java.lang.String getFileName();
     /**
-     * <code>optional string file_name = 2;</code>
+     * <code>string file_name = 2;</code>
      */
     com.google.protobuf.ByteString
         getFileNameBytes();
 
     /**
-     * <code>optional .org.roylance.yaclib.FileExtension file_extension = 3;</code>
+     * <code>.org.roylance.yaclib.FileExtension file_extension = 3;</code>
      */
     int getFileExtensionValue();
     /**
-     * <code>optional .org.roylance.yaclib.FileExtension file_extension = 3;</code>
+     * <code>.org.roylance.yaclib.FileExtension file_extension = 3;</code>
      */
     org.roylance.yaclib.YaclibModel.FileExtension getFileExtension();
 
     /**
-     * <code>optional string file_to_write = 4;</code>
+     * <code>string file_to_write = 4;</code>
      */
     java.lang.String getFileToWrite();
     /**
-     * <code>optional string file_to_write = 4;</code>
+     * <code>string file_to_write = 4;</code>
      */
     com.google.protobuf.ByteString
         getFileToWriteBytes();
 
     /**
-     * <code>optional .org.roylance.yaclib.FileUpdateType file_update_type = 5;</code>
+     * <code>.org.roylance.yaclib.FileUpdateType file_update_type = 5;</code>
      */
     int getFileUpdateTypeValue();
     /**
-     * <code>optional .org.roylance.yaclib.FileUpdateType file_update_type = 5;</code>
+     * <code>.org.roylance.yaclib.FileUpdateType file_update_type = 5;</code>
      */
     org.roylance.yaclib.YaclibModel.FileUpdateType getFileUpdateType();
 
     /**
-     * <code>optional bool ignore_initial_location = 6;</code>
+     * <code>bool ignore_initial_location = 6;</code>
      */
     boolean getIgnoreInitialLocation();
   }
@@ -5718,7 +5718,7 @@ public final class YaclibModel {
     public static final int FULL_DIRECTORY_LOCATION_FIELD_NUMBER = 1;
     private volatile java.lang.Object fullDirectoryLocation_;
     /**
-     * <code>optional string full_directory_location = 1;</code>
+     * <code>string full_directory_location = 1;</code>
      */
     public java.lang.String getFullDirectoryLocation() {
       java.lang.Object ref = fullDirectoryLocation_;
@@ -5733,7 +5733,7 @@ public final class YaclibModel {
       }
     }
     /**
-     * <code>optional string full_directory_location = 1;</code>
+     * <code>string full_directory_location = 1;</code>
      */
     public com.google.protobuf.ByteString
         getFullDirectoryLocationBytes() {
@@ -5752,7 +5752,7 @@ public final class YaclibModel {
     public static final int FILE_NAME_FIELD_NUMBER = 2;
     private volatile java.lang.Object fileName_;
     /**
-     * <code>optional string file_name = 2;</code>
+     * <code>string file_name = 2;</code>
      */
     public java.lang.String getFileName() {
       java.lang.Object ref = fileName_;
@@ -5767,7 +5767,7 @@ public final class YaclibModel {
       }
     }
     /**
-     * <code>optional string file_name = 2;</code>
+     * <code>string file_name = 2;</code>
      */
     public com.google.protobuf.ByteString
         getFileNameBytes() {
@@ -5786,13 +5786,13 @@ public final class YaclibModel {
     public static final int FILE_EXTENSION_FIELD_NUMBER = 3;
     private int fileExtension_;
     /**
-     * <code>optional .org.roylance.yaclib.FileExtension file_extension = 3;</code>
+     * <code>.org.roylance.yaclib.FileExtension file_extension = 3;</code>
      */
     public int getFileExtensionValue() {
       return fileExtension_;
     }
     /**
-     * <code>optional .org.roylance.yaclib.FileExtension file_extension = 3;</code>
+     * <code>.org.roylance.yaclib.FileExtension file_extension = 3;</code>
      */
     public org.roylance.yaclib.YaclibModel.FileExtension getFileExtension() {
       org.roylance.yaclib.YaclibModel.FileExtension result = org.roylance.yaclib.YaclibModel.FileExtension.valueOf(fileExtension_);
@@ -5802,7 +5802,7 @@ public final class YaclibModel {
     public static final int FILE_TO_WRITE_FIELD_NUMBER = 4;
     private volatile java.lang.Object fileToWrite_;
     /**
-     * <code>optional string file_to_write = 4;</code>
+     * <code>string file_to_write = 4;</code>
      */
     public java.lang.String getFileToWrite() {
       java.lang.Object ref = fileToWrite_;
@@ -5817,7 +5817,7 @@ public final class YaclibModel {
       }
     }
     /**
-     * <code>optional string file_to_write = 4;</code>
+     * <code>string file_to_write = 4;</code>
      */
     public com.google.protobuf.ByteString
         getFileToWriteBytes() {
@@ -5836,13 +5836,13 @@ public final class YaclibModel {
     public static final int FILE_UPDATE_TYPE_FIELD_NUMBER = 5;
     private int fileUpdateType_;
     /**
-     * <code>optional .org.roylance.yaclib.FileUpdateType file_update_type = 5;</code>
+     * <code>.org.roylance.yaclib.FileUpdateType file_update_type = 5;</code>
      */
     public int getFileUpdateTypeValue() {
       return fileUpdateType_;
     }
     /**
-     * <code>optional .org.roylance.yaclib.FileUpdateType file_update_type = 5;</code>
+     * <code>.org.roylance.yaclib.FileUpdateType file_update_type = 5;</code>
      */
     public org.roylance.yaclib.YaclibModel.FileUpdateType getFileUpdateType() {
       org.roylance.yaclib.YaclibModel.FileUpdateType result = org.roylance.yaclib.YaclibModel.FileUpdateType.valueOf(fileUpdateType_);
@@ -5852,7 +5852,7 @@ public final class YaclibModel {
     public static final int IGNORE_INITIAL_LOCATION_FIELD_NUMBER = 6;
     private boolean ignoreInitialLocation_;
     /**
-     * <code>optional bool ignore_initial_location = 6;</code>
+     * <code>bool ignore_initial_location = 6;</code>
      */
     public boolean getIgnoreInitialLocation() {
       return ignoreInitialLocation_;
@@ -5951,7 +5951,7 @@ public final class YaclibModel {
         return memoizedHashCode;
       }
       int hash = 41;
-      hash = (19 * hash) + getDescriptorForType().hashCode();
+      hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + FULL_DIRECTORY_LOCATION_FIELD_NUMBER;
       hash = (53 * hash) + getFullDirectoryLocation().hashCode();
       hash = (37 * hash) + FILE_NAME_FIELD_NUMBER;
@@ -6213,7 +6213,7 @@ public final class YaclibModel {
 
       private java.lang.Object fullDirectoryLocation_ = "";
       /**
-       * <code>optional string full_directory_location = 1;</code>
+       * <code>string full_directory_location = 1;</code>
        */
       public java.lang.String getFullDirectoryLocation() {
         java.lang.Object ref = fullDirectoryLocation_;
@@ -6228,7 +6228,7 @@ public final class YaclibModel {
         }
       }
       /**
-       * <code>optional string full_directory_location = 1;</code>
+       * <code>string full_directory_location = 1;</code>
        */
       public com.google.protobuf.ByteString
           getFullDirectoryLocationBytes() {
@@ -6244,7 +6244,7 @@ public final class YaclibModel {
         }
       }
       /**
-       * <code>optional string full_directory_location = 1;</code>
+       * <code>string full_directory_location = 1;</code>
        */
       public Builder setFullDirectoryLocation(
           java.lang.String value) {
@@ -6257,7 +6257,7 @@ public final class YaclibModel {
         return this;
       }
       /**
-       * <code>optional string full_directory_location = 1;</code>
+       * <code>string full_directory_location = 1;</code>
        */
       public Builder clearFullDirectoryLocation() {
         
@@ -6266,7 +6266,7 @@ public final class YaclibModel {
         return this;
       }
       /**
-       * <code>optional string full_directory_location = 1;</code>
+       * <code>string full_directory_location = 1;</code>
        */
       public Builder setFullDirectoryLocationBytes(
           com.google.protobuf.ByteString value) {
@@ -6282,7 +6282,7 @@ public final class YaclibModel {
 
       private java.lang.Object fileName_ = "";
       /**
-       * <code>optional string file_name = 2;</code>
+       * <code>string file_name = 2;</code>
        */
       public java.lang.String getFileName() {
         java.lang.Object ref = fileName_;
@@ -6297,7 +6297,7 @@ public final class YaclibModel {
         }
       }
       /**
-       * <code>optional string file_name = 2;</code>
+       * <code>string file_name = 2;</code>
        */
       public com.google.protobuf.ByteString
           getFileNameBytes() {
@@ -6313,7 +6313,7 @@ public final class YaclibModel {
         }
       }
       /**
-       * <code>optional string file_name = 2;</code>
+       * <code>string file_name = 2;</code>
        */
       public Builder setFileName(
           java.lang.String value) {
@@ -6326,7 +6326,7 @@ public final class YaclibModel {
         return this;
       }
       /**
-       * <code>optional string file_name = 2;</code>
+       * <code>string file_name = 2;</code>
        */
       public Builder clearFileName() {
         
@@ -6335,7 +6335,7 @@ public final class YaclibModel {
         return this;
       }
       /**
-       * <code>optional string file_name = 2;</code>
+       * <code>string file_name = 2;</code>
        */
       public Builder setFileNameBytes(
           com.google.protobuf.ByteString value) {
@@ -6351,13 +6351,13 @@ public final class YaclibModel {
 
       private int fileExtension_ = 0;
       /**
-       * <code>optional .org.roylance.yaclib.FileExtension file_extension = 3;</code>
+       * <code>.org.roylance.yaclib.FileExtension file_extension = 3;</code>
        */
       public int getFileExtensionValue() {
         return fileExtension_;
       }
       /**
-       * <code>optional .org.roylance.yaclib.FileExtension file_extension = 3;</code>
+       * <code>.org.roylance.yaclib.FileExtension file_extension = 3;</code>
        */
       public Builder setFileExtensionValue(int value) {
         fileExtension_ = value;
@@ -6365,14 +6365,14 @@ public final class YaclibModel {
         return this;
       }
       /**
-       * <code>optional .org.roylance.yaclib.FileExtension file_extension = 3;</code>
+       * <code>.org.roylance.yaclib.FileExtension file_extension = 3;</code>
        */
       public org.roylance.yaclib.YaclibModel.FileExtension getFileExtension() {
         org.roylance.yaclib.YaclibModel.FileExtension result = org.roylance.yaclib.YaclibModel.FileExtension.valueOf(fileExtension_);
         return result == null ? org.roylance.yaclib.YaclibModel.FileExtension.UNRECOGNIZED : result;
       }
       /**
-       * <code>optional .org.roylance.yaclib.FileExtension file_extension = 3;</code>
+       * <code>.org.roylance.yaclib.FileExtension file_extension = 3;</code>
        */
       public Builder setFileExtension(org.roylance.yaclib.YaclibModel.FileExtension value) {
         if (value == null) {
@@ -6384,7 +6384,7 @@ public final class YaclibModel {
         return this;
       }
       /**
-       * <code>optional .org.roylance.yaclib.FileExtension file_extension = 3;</code>
+       * <code>.org.roylance.yaclib.FileExtension file_extension = 3;</code>
        */
       public Builder clearFileExtension() {
         
@@ -6395,7 +6395,7 @@ public final class YaclibModel {
 
       private java.lang.Object fileToWrite_ = "";
       /**
-       * <code>optional string file_to_write = 4;</code>
+       * <code>string file_to_write = 4;</code>
        */
       public java.lang.String getFileToWrite() {
         java.lang.Object ref = fileToWrite_;
@@ -6410,7 +6410,7 @@ public final class YaclibModel {
         }
       }
       /**
-       * <code>optional string file_to_write = 4;</code>
+       * <code>string file_to_write = 4;</code>
        */
       public com.google.protobuf.ByteString
           getFileToWriteBytes() {
@@ -6426,7 +6426,7 @@ public final class YaclibModel {
         }
       }
       /**
-       * <code>optional string file_to_write = 4;</code>
+       * <code>string file_to_write = 4;</code>
        */
       public Builder setFileToWrite(
           java.lang.String value) {
@@ -6439,7 +6439,7 @@ public final class YaclibModel {
         return this;
       }
       /**
-       * <code>optional string file_to_write = 4;</code>
+       * <code>string file_to_write = 4;</code>
        */
       public Builder clearFileToWrite() {
         
@@ -6448,7 +6448,7 @@ public final class YaclibModel {
         return this;
       }
       /**
-       * <code>optional string file_to_write = 4;</code>
+       * <code>string file_to_write = 4;</code>
        */
       public Builder setFileToWriteBytes(
           com.google.protobuf.ByteString value) {
@@ -6464,13 +6464,13 @@ public final class YaclibModel {
 
       private int fileUpdateType_ = 0;
       /**
-       * <code>optional .org.roylance.yaclib.FileUpdateType file_update_type = 5;</code>
+       * <code>.org.roylance.yaclib.FileUpdateType file_update_type = 5;</code>
        */
       public int getFileUpdateTypeValue() {
         return fileUpdateType_;
       }
       /**
-       * <code>optional .org.roylance.yaclib.FileUpdateType file_update_type = 5;</code>
+       * <code>.org.roylance.yaclib.FileUpdateType file_update_type = 5;</code>
        */
       public Builder setFileUpdateTypeValue(int value) {
         fileUpdateType_ = value;
@@ -6478,14 +6478,14 @@ public final class YaclibModel {
         return this;
       }
       /**
-       * <code>optional .org.roylance.yaclib.FileUpdateType file_update_type = 5;</code>
+       * <code>.org.roylance.yaclib.FileUpdateType file_update_type = 5;</code>
        */
       public org.roylance.yaclib.YaclibModel.FileUpdateType getFileUpdateType() {
         org.roylance.yaclib.YaclibModel.FileUpdateType result = org.roylance.yaclib.YaclibModel.FileUpdateType.valueOf(fileUpdateType_);
         return result == null ? org.roylance.yaclib.YaclibModel.FileUpdateType.UNRECOGNIZED : result;
       }
       /**
-       * <code>optional .org.roylance.yaclib.FileUpdateType file_update_type = 5;</code>
+       * <code>.org.roylance.yaclib.FileUpdateType file_update_type = 5;</code>
        */
       public Builder setFileUpdateType(org.roylance.yaclib.YaclibModel.FileUpdateType value) {
         if (value == null) {
@@ -6497,7 +6497,7 @@ public final class YaclibModel {
         return this;
       }
       /**
-       * <code>optional .org.roylance.yaclib.FileUpdateType file_update_type = 5;</code>
+       * <code>.org.roylance.yaclib.FileUpdateType file_update_type = 5;</code>
        */
       public Builder clearFileUpdateType() {
         
@@ -6508,13 +6508,13 @@ public final class YaclibModel {
 
       private boolean ignoreInitialLocation_ ;
       /**
-       * <code>optional bool ignore_initial_location = 6;</code>
+       * <code>bool ignore_initial_location = 6;</code>
        */
       public boolean getIgnoreInitialLocation() {
         return ignoreInitialLocation_;
       }
       /**
-       * <code>optional bool ignore_initial_location = 6;</code>
+       * <code>bool ignore_initial_location = 6;</code>
        */
       public Builder setIgnoreInitialLocation(boolean value) {
         
@@ -6523,7 +6523,7 @@ public final class YaclibModel {
         return this;
       }
       /**
-       * <code>optional bool ignore_initial_location = 6;</code>
+       * <code>bool ignore_initial_location = 6;</code>
        */
       public Builder clearIgnoreInitialLocation() {
         
@@ -6585,11 +6585,11 @@ public final class YaclibModel {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>optional string name = 1;</code>
+     * <code>string name = 1;</code>
      */
     java.lang.String getName();
     /**
-     * <code>optional string name = 1;</code>
+     * <code>string name = 1;</code>
      */
     com.google.protobuf.ByteString
         getNameBytes();
@@ -6704,7 +6704,7 @@ public final class YaclibModel {
     public static final int NAME_FIELD_NUMBER = 1;
     private volatile java.lang.Object name_;
     /**
-     * <code>optional string name = 1;</code>
+     * <code>string name = 1;</code>
      */
     public java.lang.String getName() {
       java.lang.Object ref = name_;
@@ -6719,7 +6719,7 @@ public final class YaclibModel {
       }
     }
     /**
-     * <code>optional string name = 1;</code>
+     * <code>string name = 1;</code>
      */
     public com.google.protobuf.ByteString
         getNameBytes() {
@@ -6831,7 +6831,7 @@ public final class YaclibModel {
         return memoizedHashCode;
       }
       int hash = 41;
-      hash = (19 * hash) + getDescriptorForType().hashCode();
+      hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + NAME_FIELD_NUMBER;
       hash = (53 * hash) + getName().hashCode();
       if (getActionsCount() > 0) {
@@ -7100,7 +7100,7 @@ public final class YaclibModel {
 
       private java.lang.Object name_ = "";
       /**
-       * <code>optional string name = 1;</code>
+       * <code>string name = 1;</code>
        */
       public java.lang.String getName() {
         java.lang.Object ref = name_;
@@ -7115,7 +7115,7 @@ public final class YaclibModel {
         }
       }
       /**
-       * <code>optional string name = 1;</code>
+       * <code>string name = 1;</code>
        */
       public com.google.protobuf.ByteString
           getNameBytes() {
@@ -7131,7 +7131,7 @@ public final class YaclibModel {
         }
       }
       /**
-       * <code>optional string name = 1;</code>
+       * <code>string name = 1;</code>
        */
       public Builder setName(
           java.lang.String value) {
@@ -7144,7 +7144,7 @@ public final class YaclibModel {
         return this;
       }
       /**
-       * <code>optional string name = 1;</code>
+       * <code>string name = 1;</code>
        */
       public Builder clearName() {
         
@@ -7153,7 +7153,7 @@ public final class YaclibModel {
         return this;
       }
       /**
-       * <code>optional string name = 1;</code>
+       * <code>string name = 1;</code>
        */
       public Builder setNameBytes(
           com.google.protobuf.ByteString value) {
@@ -7460,11 +7460,11 @@ public final class YaclibModel {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>optional string name = 1;</code>
+     * <code>string name = 1;</code>
      */
     java.lang.String getName();
     /**
-     * <code>optional string name = 1;</code>
+     * <code>string name = 1;</code>
      */
     com.google.protobuf.ByteString
         getNameBytes();
@@ -7494,15 +7494,15 @@ public final class YaclibModel {
         int index);
 
     /**
-     * <code>optional .org.roylance.yaclib.Message output = 5;</code>
+     * <code>.org.roylance.yaclib.Message output = 5;</code>
      */
     boolean hasOutput();
     /**
-     * <code>optional .org.roylance.yaclib.Message output = 5;</code>
+     * <code>.org.roylance.yaclib.Message output = 5;</code>
      */
     org.roylance.yaclib.YaclibModel.Message getOutput();
     /**
-     * <code>optional .org.roylance.yaclib.Message output = 5;</code>
+     * <code>.org.roylance.yaclib.Message output = 5;</code>
      */
     org.roylance.yaclib.YaclibModel.MessageOrBuilder getOutputOrBuilder();
   }
@@ -7605,7 +7605,7 @@ public final class YaclibModel {
     public static final int NAME_FIELD_NUMBER = 1;
     private volatile java.lang.Object name_;
     /**
-     * <code>optional string name = 1;</code>
+     * <code>string name = 1;</code>
      */
     public java.lang.String getName() {
       java.lang.Object ref = name_;
@@ -7620,7 +7620,7 @@ public final class YaclibModel {
       }
     }
     /**
-     * <code>optional string name = 1;</code>
+     * <code>string name = 1;</code>
      */
     public com.google.protobuf.ByteString
         getNameBytes() {
@@ -7674,19 +7674,19 @@ public final class YaclibModel {
     public static final int OUTPUT_FIELD_NUMBER = 5;
     private org.roylance.yaclib.YaclibModel.Message output_;
     /**
-     * <code>optional .org.roylance.yaclib.Message output = 5;</code>
+     * <code>.org.roylance.yaclib.Message output = 5;</code>
      */
     public boolean hasOutput() {
       return output_ != null;
     }
     /**
-     * <code>optional .org.roylance.yaclib.Message output = 5;</code>
+     * <code>.org.roylance.yaclib.Message output = 5;</code>
      */
     public org.roylance.yaclib.YaclibModel.Message getOutput() {
       return output_ == null ? org.roylance.yaclib.YaclibModel.Message.getDefaultInstance() : output_;
     }
     /**
-     * <code>optional .org.roylance.yaclib.Message output = 5;</code>
+     * <code>.org.roylance.yaclib.Message output = 5;</code>
      */
     public org.roylance.yaclib.YaclibModel.MessageOrBuilder getOutputOrBuilder() {
       return getOutput();
@@ -7765,7 +7765,7 @@ public final class YaclibModel {
         return memoizedHashCode;
       }
       int hash = 41;
-      hash = (19 * hash) + getDescriptorForType().hashCode();
+      hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + NAME_FIELD_NUMBER;
       hash = (53 * hash) + getName().hashCode();
       if (getInputsCount() > 0) {
@@ -8052,7 +8052,7 @@ public final class YaclibModel {
 
       private java.lang.Object name_ = "";
       /**
-       * <code>optional string name = 1;</code>
+       * <code>string name = 1;</code>
        */
       public java.lang.String getName() {
         java.lang.Object ref = name_;
@@ -8067,7 +8067,7 @@ public final class YaclibModel {
         }
       }
       /**
-       * <code>optional string name = 1;</code>
+       * <code>string name = 1;</code>
        */
       public com.google.protobuf.ByteString
           getNameBytes() {
@@ -8083,7 +8083,7 @@ public final class YaclibModel {
         }
       }
       /**
-       * <code>optional string name = 1;</code>
+       * <code>string name = 1;</code>
        */
       public Builder setName(
           java.lang.String value) {
@@ -8096,7 +8096,7 @@ public final class YaclibModel {
         return this;
       }
       /**
-       * <code>optional string name = 1;</code>
+       * <code>string name = 1;</code>
        */
       public Builder clearName() {
         
@@ -8105,7 +8105,7 @@ public final class YaclibModel {
         return this;
       }
       /**
-       * <code>optional string name = 1;</code>
+       * <code>string name = 1;</code>
        */
       public Builder setNameBytes(
           com.google.protobuf.ByteString value) {
@@ -8363,13 +8363,13 @@ public final class YaclibModel {
       private com.google.protobuf.SingleFieldBuilderV3<
           org.roylance.yaclib.YaclibModel.Message, org.roylance.yaclib.YaclibModel.Message.Builder, org.roylance.yaclib.YaclibModel.MessageOrBuilder> outputBuilder_;
       /**
-       * <code>optional .org.roylance.yaclib.Message output = 5;</code>
+       * <code>.org.roylance.yaclib.Message output = 5;</code>
        */
       public boolean hasOutput() {
         return outputBuilder_ != null || output_ != null;
       }
       /**
-       * <code>optional .org.roylance.yaclib.Message output = 5;</code>
+       * <code>.org.roylance.yaclib.Message output = 5;</code>
        */
       public org.roylance.yaclib.YaclibModel.Message getOutput() {
         if (outputBuilder_ == null) {
@@ -8379,7 +8379,7 @@ public final class YaclibModel {
         }
       }
       /**
-       * <code>optional .org.roylance.yaclib.Message output = 5;</code>
+       * <code>.org.roylance.yaclib.Message output = 5;</code>
        */
       public Builder setOutput(org.roylance.yaclib.YaclibModel.Message value) {
         if (outputBuilder_ == null) {
@@ -8395,7 +8395,7 @@ public final class YaclibModel {
         return this;
       }
       /**
-       * <code>optional .org.roylance.yaclib.Message output = 5;</code>
+       * <code>.org.roylance.yaclib.Message output = 5;</code>
        */
       public Builder setOutput(
           org.roylance.yaclib.YaclibModel.Message.Builder builderForValue) {
@@ -8409,7 +8409,7 @@ public final class YaclibModel {
         return this;
       }
       /**
-       * <code>optional .org.roylance.yaclib.Message output = 5;</code>
+       * <code>.org.roylance.yaclib.Message output = 5;</code>
        */
       public Builder mergeOutput(org.roylance.yaclib.YaclibModel.Message value) {
         if (outputBuilder_ == null) {
@@ -8427,7 +8427,7 @@ public final class YaclibModel {
         return this;
       }
       /**
-       * <code>optional .org.roylance.yaclib.Message output = 5;</code>
+       * <code>.org.roylance.yaclib.Message output = 5;</code>
        */
       public Builder clearOutput() {
         if (outputBuilder_ == null) {
@@ -8441,7 +8441,7 @@ public final class YaclibModel {
         return this;
       }
       /**
-       * <code>optional .org.roylance.yaclib.Message output = 5;</code>
+       * <code>.org.roylance.yaclib.Message output = 5;</code>
        */
       public org.roylance.yaclib.YaclibModel.Message.Builder getOutputBuilder() {
         
@@ -8449,7 +8449,7 @@ public final class YaclibModel {
         return getOutputFieldBuilder().getBuilder();
       }
       /**
-       * <code>optional .org.roylance.yaclib.Message output = 5;</code>
+       * <code>.org.roylance.yaclib.Message output = 5;</code>
        */
       public org.roylance.yaclib.YaclibModel.MessageOrBuilder getOutputOrBuilder() {
         if (outputBuilder_ != null) {
@@ -8460,7 +8460,7 @@ public final class YaclibModel {
         }
       }
       /**
-       * <code>optional .org.roylance.yaclib.Message output = 5;</code>
+       * <code>.org.roylance.yaclib.Message output = 5;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           org.roylance.yaclib.YaclibModel.Message, org.roylance.yaclib.YaclibModel.Message.Builder, org.roylance.yaclib.YaclibModel.MessageOrBuilder> 
@@ -8529,61 +8529,61 @@ public final class YaclibModel {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>optional string argument_name = 1;</code>
+     * <code>string argument_name = 1;</code>
      */
     java.lang.String getArgumentName();
     /**
-     * <code>optional string argument_name = 1;</code>
+     * <code>string argument_name = 1;</code>
      */
     com.google.protobuf.ByteString
         getArgumentNameBytes();
 
     /**
-     * <code>optional string file_package = 2;</code>
+     * <code>string file_package = 2;</code>
      */
     java.lang.String getFilePackage();
     /**
-     * <code>optional string file_package = 2;</code>
+     * <code>string file_package = 2;</code>
      */
     com.google.protobuf.ByteString
         getFilePackageBytes();
 
     /**
-     * <code>optional string file_class = 3;</code>
+     * <code>string file_class = 3;</code>
      */
     java.lang.String getFileClass();
     /**
-     * <code>optional string file_class = 3;</code>
+     * <code>string file_class = 3;</code>
      */
     com.google.protobuf.ByteString
         getFileClassBytes();
 
     /**
-     * <code>optional string message_package = 4;</code>
+     * <code>string message_package = 4;</code>
      */
     java.lang.String getMessagePackage();
     /**
-     * <code>optional string message_package = 4;</code>
+     * <code>string message_package = 4;</code>
      */
     com.google.protobuf.ByteString
         getMessagePackageBytes();
 
     /**
-     * <code>optional string message_class = 5;</code>
+     * <code>string message_class = 5;</code>
      */
     java.lang.String getMessageClass();
     /**
-     * <code>optional string message_class = 5;</code>
+     * <code>string message_class = 5;</code>
      */
     com.google.protobuf.ByteString
         getMessageClassBytes();
 
     /**
-     * <code>optional string file_name = 6;</code>
+     * <code>string file_name = 6;</code>
      */
     java.lang.String getFileName();
     /**
-     * <code>optional string file_name = 6;</code>
+     * <code>string file_name = 6;</code>
      */
     com.google.protobuf.ByteString
         getFileNameBytes();
@@ -8695,7 +8695,7 @@ public final class YaclibModel {
     public static final int ARGUMENT_NAME_FIELD_NUMBER = 1;
     private volatile java.lang.Object argumentName_;
     /**
-     * <code>optional string argument_name = 1;</code>
+     * <code>string argument_name = 1;</code>
      */
     public java.lang.String getArgumentName() {
       java.lang.Object ref = argumentName_;
@@ -8710,7 +8710,7 @@ public final class YaclibModel {
       }
     }
     /**
-     * <code>optional string argument_name = 1;</code>
+     * <code>string argument_name = 1;</code>
      */
     public com.google.protobuf.ByteString
         getArgumentNameBytes() {
@@ -8729,7 +8729,7 @@ public final class YaclibModel {
     public static final int FILE_PACKAGE_FIELD_NUMBER = 2;
     private volatile java.lang.Object filePackage_;
     /**
-     * <code>optional string file_package = 2;</code>
+     * <code>string file_package = 2;</code>
      */
     public java.lang.String getFilePackage() {
       java.lang.Object ref = filePackage_;
@@ -8744,7 +8744,7 @@ public final class YaclibModel {
       }
     }
     /**
-     * <code>optional string file_package = 2;</code>
+     * <code>string file_package = 2;</code>
      */
     public com.google.protobuf.ByteString
         getFilePackageBytes() {
@@ -8763,7 +8763,7 @@ public final class YaclibModel {
     public static final int FILE_CLASS_FIELD_NUMBER = 3;
     private volatile java.lang.Object fileClass_;
     /**
-     * <code>optional string file_class = 3;</code>
+     * <code>string file_class = 3;</code>
      */
     public java.lang.String getFileClass() {
       java.lang.Object ref = fileClass_;
@@ -8778,7 +8778,7 @@ public final class YaclibModel {
       }
     }
     /**
-     * <code>optional string file_class = 3;</code>
+     * <code>string file_class = 3;</code>
      */
     public com.google.protobuf.ByteString
         getFileClassBytes() {
@@ -8797,7 +8797,7 @@ public final class YaclibModel {
     public static final int MESSAGE_PACKAGE_FIELD_NUMBER = 4;
     private volatile java.lang.Object messagePackage_;
     /**
-     * <code>optional string message_package = 4;</code>
+     * <code>string message_package = 4;</code>
      */
     public java.lang.String getMessagePackage() {
       java.lang.Object ref = messagePackage_;
@@ -8812,7 +8812,7 @@ public final class YaclibModel {
       }
     }
     /**
-     * <code>optional string message_package = 4;</code>
+     * <code>string message_package = 4;</code>
      */
     public com.google.protobuf.ByteString
         getMessagePackageBytes() {
@@ -8831,7 +8831,7 @@ public final class YaclibModel {
     public static final int MESSAGE_CLASS_FIELD_NUMBER = 5;
     private volatile java.lang.Object messageClass_;
     /**
-     * <code>optional string message_class = 5;</code>
+     * <code>string message_class = 5;</code>
      */
     public java.lang.String getMessageClass() {
       java.lang.Object ref = messageClass_;
@@ -8846,7 +8846,7 @@ public final class YaclibModel {
       }
     }
     /**
-     * <code>optional string message_class = 5;</code>
+     * <code>string message_class = 5;</code>
      */
     public com.google.protobuf.ByteString
         getMessageClassBytes() {
@@ -8865,7 +8865,7 @@ public final class YaclibModel {
     public static final int FILE_NAME_FIELD_NUMBER = 6;
     private volatile java.lang.Object fileName_;
     /**
-     * <code>optional string file_name = 6;</code>
+     * <code>string file_name = 6;</code>
      */
     public java.lang.String getFileName() {
       java.lang.Object ref = fileName_;
@@ -8880,7 +8880,7 @@ public final class YaclibModel {
       }
     }
     /**
-     * <code>optional string file_name = 6;</code>
+     * <code>string file_name = 6;</code>
      */
     public com.google.protobuf.ByteString
         getFileNameBytes() {
@@ -8988,7 +8988,7 @@ public final class YaclibModel {
         return memoizedHashCode;
       }
       int hash = 41;
-      hash = (19 * hash) + getDescriptorForType().hashCode();
+      hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + ARGUMENT_NAME_FIELD_NUMBER;
       hash = (53 * hash) + getArgumentName().hashCode();
       hash = (37 * hash) + FILE_PACKAGE_FIELD_NUMBER;
@@ -9252,7 +9252,7 @@ public final class YaclibModel {
 
       private java.lang.Object argumentName_ = "";
       /**
-       * <code>optional string argument_name = 1;</code>
+       * <code>string argument_name = 1;</code>
        */
       public java.lang.String getArgumentName() {
         java.lang.Object ref = argumentName_;
@@ -9267,7 +9267,7 @@ public final class YaclibModel {
         }
       }
       /**
-       * <code>optional string argument_name = 1;</code>
+       * <code>string argument_name = 1;</code>
        */
       public com.google.protobuf.ByteString
           getArgumentNameBytes() {
@@ -9283,7 +9283,7 @@ public final class YaclibModel {
         }
       }
       /**
-       * <code>optional string argument_name = 1;</code>
+       * <code>string argument_name = 1;</code>
        */
       public Builder setArgumentName(
           java.lang.String value) {
@@ -9296,7 +9296,7 @@ public final class YaclibModel {
         return this;
       }
       /**
-       * <code>optional string argument_name = 1;</code>
+       * <code>string argument_name = 1;</code>
        */
       public Builder clearArgumentName() {
         
@@ -9305,7 +9305,7 @@ public final class YaclibModel {
         return this;
       }
       /**
-       * <code>optional string argument_name = 1;</code>
+       * <code>string argument_name = 1;</code>
        */
       public Builder setArgumentNameBytes(
           com.google.protobuf.ByteString value) {
@@ -9321,7 +9321,7 @@ public final class YaclibModel {
 
       private java.lang.Object filePackage_ = "";
       /**
-       * <code>optional string file_package = 2;</code>
+       * <code>string file_package = 2;</code>
        */
       public java.lang.String getFilePackage() {
         java.lang.Object ref = filePackage_;
@@ -9336,7 +9336,7 @@ public final class YaclibModel {
         }
       }
       /**
-       * <code>optional string file_package = 2;</code>
+       * <code>string file_package = 2;</code>
        */
       public com.google.protobuf.ByteString
           getFilePackageBytes() {
@@ -9352,7 +9352,7 @@ public final class YaclibModel {
         }
       }
       /**
-       * <code>optional string file_package = 2;</code>
+       * <code>string file_package = 2;</code>
        */
       public Builder setFilePackage(
           java.lang.String value) {
@@ -9365,7 +9365,7 @@ public final class YaclibModel {
         return this;
       }
       /**
-       * <code>optional string file_package = 2;</code>
+       * <code>string file_package = 2;</code>
        */
       public Builder clearFilePackage() {
         
@@ -9374,7 +9374,7 @@ public final class YaclibModel {
         return this;
       }
       /**
-       * <code>optional string file_package = 2;</code>
+       * <code>string file_package = 2;</code>
        */
       public Builder setFilePackageBytes(
           com.google.protobuf.ByteString value) {
@@ -9390,7 +9390,7 @@ public final class YaclibModel {
 
       private java.lang.Object fileClass_ = "";
       /**
-       * <code>optional string file_class = 3;</code>
+       * <code>string file_class = 3;</code>
        */
       public java.lang.String getFileClass() {
         java.lang.Object ref = fileClass_;
@@ -9405,7 +9405,7 @@ public final class YaclibModel {
         }
       }
       /**
-       * <code>optional string file_class = 3;</code>
+       * <code>string file_class = 3;</code>
        */
       public com.google.protobuf.ByteString
           getFileClassBytes() {
@@ -9421,7 +9421,7 @@ public final class YaclibModel {
         }
       }
       /**
-       * <code>optional string file_class = 3;</code>
+       * <code>string file_class = 3;</code>
        */
       public Builder setFileClass(
           java.lang.String value) {
@@ -9434,7 +9434,7 @@ public final class YaclibModel {
         return this;
       }
       /**
-       * <code>optional string file_class = 3;</code>
+       * <code>string file_class = 3;</code>
        */
       public Builder clearFileClass() {
         
@@ -9443,7 +9443,7 @@ public final class YaclibModel {
         return this;
       }
       /**
-       * <code>optional string file_class = 3;</code>
+       * <code>string file_class = 3;</code>
        */
       public Builder setFileClassBytes(
           com.google.protobuf.ByteString value) {
@@ -9459,7 +9459,7 @@ public final class YaclibModel {
 
       private java.lang.Object messagePackage_ = "";
       /**
-       * <code>optional string message_package = 4;</code>
+       * <code>string message_package = 4;</code>
        */
       public java.lang.String getMessagePackage() {
         java.lang.Object ref = messagePackage_;
@@ -9474,7 +9474,7 @@ public final class YaclibModel {
         }
       }
       /**
-       * <code>optional string message_package = 4;</code>
+       * <code>string message_package = 4;</code>
        */
       public com.google.protobuf.ByteString
           getMessagePackageBytes() {
@@ -9490,7 +9490,7 @@ public final class YaclibModel {
         }
       }
       /**
-       * <code>optional string message_package = 4;</code>
+       * <code>string message_package = 4;</code>
        */
       public Builder setMessagePackage(
           java.lang.String value) {
@@ -9503,7 +9503,7 @@ public final class YaclibModel {
         return this;
       }
       /**
-       * <code>optional string message_package = 4;</code>
+       * <code>string message_package = 4;</code>
        */
       public Builder clearMessagePackage() {
         
@@ -9512,7 +9512,7 @@ public final class YaclibModel {
         return this;
       }
       /**
-       * <code>optional string message_package = 4;</code>
+       * <code>string message_package = 4;</code>
        */
       public Builder setMessagePackageBytes(
           com.google.protobuf.ByteString value) {
@@ -9528,7 +9528,7 @@ public final class YaclibModel {
 
       private java.lang.Object messageClass_ = "";
       /**
-       * <code>optional string message_class = 5;</code>
+       * <code>string message_class = 5;</code>
        */
       public java.lang.String getMessageClass() {
         java.lang.Object ref = messageClass_;
@@ -9543,7 +9543,7 @@ public final class YaclibModel {
         }
       }
       /**
-       * <code>optional string message_class = 5;</code>
+       * <code>string message_class = 5;</code>
        */
       public com.google.protobuf.ByteString
           getMessageClassBytes() {
@@ -9559,7 +9559,7 @@ public final class YaclibModel {
         }
       }
       /**
-       * <code>optional string message_class = 5;</code>
+       * <code>string message_class = 5;</code>
        */
       public Builder setMessageClass(
           java.lang.String value) {
@@ -9572,7 +9572,7 @@ public final class YaclibModel {
         return this;
       }
       /**
-       * <code>optional string message_class = 5;</code>
+       * <code>string message_class = 5;</code>
        */
       public Builder clearMessageClass() {
         
@@ -9581,7 +9581,7 @@ public final class YaclibModel {
         return this;
       }
       /**
-       * <code>optional string message_class = 5;</code>
+       * <code>string message_class = 5;</code>
        */
       public Builder setMessageClassBytes(
           com.google.protobuf.ByteString value) {
@@ -9597,7 +9597,7 @@ public final class YaclibModel {
 
       private java.lang.Object fileName_ = "";
       /**
-       * <code>optional string file_name = 6;</code>
+       * <code>string file_name = 6;</code>
        */
       public java.lang.String getFileName() {
         java.lang.Object ref = fileName_;
@@ -9612,7 +9612,7 @@ public final class YaclibModel {
         }
       }
       /**
-       * <code>optional string file_name = 6;</code>
+       * <code>string file_name = 6;</code>
        */
       public com.google.protobuf.ByteString
           getFileNameBytes() {
@@ -9628,7 +9628,7 @@ public final class YaclibModel {
         }
       }
       /**
-       * <code>optional string file_name = 6;</code>
+       * <code>string file_name = 6;</code>
        */
       public Builder setFileName(
           java.lang.String value) {
@@ -9641,7 +9641,7 @@ public final class YaclibModel {
         return this;
       }
       /**
-       * <code>optional string file_name = 6;</code>
+       * <code>string file_name = 6;</code>
        */
       public Builder clearFileName() {
         
@@ -9650,7 +9650,7 @@ public final class YaclibModel {
         return this;
       }
       /**
-       * <code>optional string file_name = 6;</code>
+       * <code>string file_name = 6;</code>
        */
       public Builder setFileNameBytes(
           com.google.protobuf.ByteString value) {
@@ -9903,7 +9903,7 @@ public final class YaclibModel {
         return memoizedHashCode;
       }
       int hash = 41;
-      hash = (19 * hash) + getDescriptorForType().hashCode();
+      hash = (19 * hash) + getDescriptor().hashCode();
       if (getFilesCount() > 0) {
         hash = (37 * hash) + FILES_FIELD_NUMBER;
         hash = (53 * hash) + getFilesList().hashCode();
@@ -10719,7 +10719,7 @@ public final class YaclibModel {
         return memoizedHashCode;
       }
       int hash = 41;
-      hash = (19 * hash) + getDescriptorForType().hashCode();
+      hash = (19 * hash) + getDescriptor().hashCode();
       if (getControllersCount() > 0) {
         hash = (37 * hash) + CONTROLLERS_FIELD_NUMBER;
         hash = (53 * hash) + getControllersList().hashCode();
@@ -11554,28 +11554,28 @@ public final class YaclibModel {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>optional .org.roylance.yaclib.AllControllers controllers = 1;</code>
+     * <code>.org.roylance.yaclib.AllControllers controllers = 1;</code>
      */
     boolean hasControllers();
     /**
-     * <code>optional .org.roylance.yaclib.AllControllers controllers = 1;</code>
+     * <code>.org.roylance.yaclib.AllControllers controllers = 1;</code>
      */
     org.roylance.yaclib.YaclibModel.AllControllers getControllers();
     /**
-     * <code>optional .org.roylance.yaclib.AllControllers controllers = 1;</code>
+     * <code>.org.roylance.yaclib.AllControllers controllers = 1;</code>
      */
     org.roylance.yaclib.YaclibModel.AllControllersOrBuilder getControllersOrBuilder();
 
     /**
-     * <code>optional .org.roylance.yaclib.Dependency dependency = 2;</code>
+     * <code>.org.roylance.yaclib.Dependency dependency = 2;</code>
      */
     boolean hasDependency();
     /**
-     * <code>optional .org.roylance.yaclib.Dependency dependency = 2;</code>
+     * <code>.org.roylance.yaclib.Dependency dependency = 2;</code>
      */
     org.roylance.yaclib.YaclibModel.Dependency getDependency();
     /**
-     * <code>optional .org.roylance.yaclib.Dependency dependency = 2;</code>
+     * <code>.org.roylance.yaclib.Dependency dependency = 2;</code>
      */
     org.roylance.yaclib.YaclibModel.DependencyOrBuilder getDependencyOrBuilder();
   }
@@ -11670,19 +11670,19 @@ public final class YaclibModel {
     public static final int CONTROLLERS_FIELD_NUMBER = 1;
     private org.roylance.yaclib.YaclibModel.AllControllers controllers_;
     /**
-     * <code>optional .org.roylance.yaclib.AllControllers controllers = 1;</code>
+     * <code>.org.roylance.yaclib.AllControllers controllers = 1;</code>
      */
     public boolean hasControllers() {
       return controllers_ != null;
     }
     /**
-     * <code>optional .org.roylance.yaclib.AllControllers controllers = 1;</code>
+     * <code>.org.roylance.yaclib.AllControllers controllers = 1;</code>
      */
     public org.roylance.yaclib.YaclibModel.AllControllers getControllers() {
       return controllers_ == null ? org.roylance.yaclib.YaclibModel.AllControllers.getDefaultInstance() : controllers_;
     }
     /**
-     * <code>optional .org.roylance.yaclib.AllControllers controllers = 1;</code>
+     * <code>.org.roylance.yaclib.AllControllers controllers = 1;</code>
      */
     public org.roylance.yaclib.YaclibModel.AllControllersOrBuilder getControllersOrBuilder() {
       return getControllers();
@@ -11691,19 +11691,19 @@ public final class YaclibModel {
     public static final int DEPENDENCY_FIELD_NUMBER = 2;
     private org.roylance.yaclib.YaclibModel.Dependency dependency_;
     /**
-     * <code>optional .org.roylance.yaclib.Dependency dependency = 2;</code>
+     * <code>.org.roylance.yaclib.Dependency dependency = 2;</code>
      */
     public boolean hasDependency() {
       return dependency_ != null;
     }
     /**
-     * <code>optional .org.roylance.yaclib.Dependency dependency = 2;</code>
+     * <code>.org.roylance.yaclib.Dependency dependency = 2;</code>
      */
     public org.roylance.yaclib.YaclibModel.Dependency getDependency() {
       return dependency_ == null ? org.roylance.yaclib.YaclibModel.Dependency.getDefaultInstance() : dependency_;
     }
     /**
-     * <code>optional .org.roylance.yaclib.Dependency dependency = 2;</code>
+     * <code>.org.roylance.yaclib.Dependency dependency = 2;</code>
      */
     public org.roylance.yaclib.YaclibModel.DependencyOrBuilder getDependencyOrBuilder() {
       return getDependency();
@@ -11777,7 +11777,7 @@ public final class YaclibModel {
         return memoizedHashCode;
       }
       int hash = 41;
-      hash = (19 * hash) + getDescriptorForType().hashCode();
+      hash = (19 * hash) + getDescriptor().hashCode();
       if (hasControllers()) {
         hash = (37 * hash) + CONTROLLERS_FIELD_NUMBER;
         hash = (53 * hash) + getControllers().hashCode();
@@ -12025,13 +12025,13 @@ public final class YaclibModel {
       private com.google.protobuf.SingleFieldBuilderV3<
           org.roylance.yaclib.YaclibModel.AllControllers, org.roylance.yaclib.YaclibModel.AllControllers.Builder, org.roylance.yaclib.YaclibModel.AllControllersOrBuilder> controllersBuilder_;
       /**
-       * <code>optional .org.roylance.yaclib.AllControllers controllers = 1;</code>
+       * <code>.org.roylance.yaclib.AllControllers controllers = 1;</code>
        */
       public boolean hasControllers() {
         return controllersBuilder_ != null || controllers_ != null;
       }
       /**
-       * <code>optional .org.roylance.yaclib.AllControllers controllers = 1;</code>
+       * <code>.org.roylance.yaclib.AllControllers controllers = 1;</code>
        */
       public org.roylance.yaclib.YaclibModel.AllControllers getControllers() {
         if (controllersBuilder_ == null) {
@@ -12041,7 +12041,7 @@ public final class YaclibModel {
         }
       }
       /**
-       * <code>optional .org.roylance.yaclib.AllControllers controllers = 1;</code>
+       * <code>.org.roylance.yaclib.AllControllers controllers = 1;</code>
        */
       public Builder setControllers(org.roylance.yaclib.YaclibModel.AllControllers value) {
         if (controllersBuilder_ == null) {
@@ -12057,7 +12057,7 @@ public final class YaclibModel {
         return this;
       }
       /**
-       * <code>optional .org.roylance.yaclib.AllControllers controllers = 1;</code>
+       * <code>.org.roylance.yaclib.AllControllers controllers = 1;</code>
        */
       public Builder setControllers(
           org.roylance.yaclib.YaclibModel.AllControllers.Builder builderForValue) {
@@ -12071,7 +12071,7 @@ public final class YaclibModel {
         return this;
       }
       /**
-       * <code>optional .org.roylance.yaclib.AllControllers controllers = 1;</code>
+       * <code>.org.roylance.yaclib.AllControllers controllers = 1;</code>
        */
       public Builder mergeControllers(org.roylance.yaclib.YaclibModel.AllControllers value) {
         if (controllersBuilder_ == null) {
@@ -12089,7 +12089,7 @@ public final class YaclibModel {
         return this;
       }
       /**
-       * <code>optional .org.roylance.yaclib.AllControllers controllers = 1;</code>
+       * <code>.org.roylance.yaclib.AllControllers controllers = 1;</code>
        */
       public Builder clearControllers() {
         if (controllersBuilder_ == null) {
@@ -12103,7 +12103,7 @@ public final class YaclibModel {
         return this;
       }
       /**
-       * <code>optional .org.roylance.yaclib.AllControllers controllers = 1;</code>
+       * <code>.org.roylance.yaclib.AllControllers controllers = 1;</code>
        */
       public org.roylance.yaclib.YaclibModel.AllControllers.Builder getControllersBuilder() {
         
@@ -12111,7 +12111,7 @@ public final class YaclibModel {
         return getControllersFieldBuilder().getBuilder();
       }
       /**
-       * <code>optional .org.roylance.yaclib.AllControllers controllers = 1;</code>
+       * <code>.org.roylance.yaclib.AllControllers controllers = 1;</code>
        */
       public org.roylance.yaclib.YaclibModel.AllControllersOrBuilder getControllersOrBuilder() {
         if (controllersBuilder_ != null) {
@@ -12122,7 +12122,7 @@ public final class YaclibModel {
         }
       }
       /**
-       * <code>optional .org.roylance.yaclib.AllControllers controllers = 1;</code>
+       * <code>.org.roylance.yaclib.AllControllers controllers = 1;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           org.roylance.yaclib.YaclibModel.AllControllers, org.roylance.yaclib.YaclibModel.AllControllers.Builder, org.roylance.yaclib.YaclibModel.AllControllersOrBuilder> 
@@ -12142,13 +12142,13 @@ public final class YaclibModel {
       private com.google.protobuf.SingleFieldBuilderV3<
           org.roylance.yaclib.YaclibModel.Dependency, org.roylance.yaclib.YaclibModel.Dependency.Builder, org.roylance.yaclib.YaclibModel.DependencyOrBuilder> dependencyBuilder_;
       /**
-       * <code>optional .org.roylance.yaclib.Dependency dependency = 2;</code>
+       * <code>.org.roylance.yaclib.Dependency dependency = 2;</code>
        */
       public boolean hasDependency() {
         return dependencyBuilder_ != null || dependency_ != null;
       }
       /**
-       * <code>optional .org.roylance.yaclib.Dependency dependency = 2;</code>
+       * <code>.org.roylance.yaclib.Dependency dependency = 2;</code>
        */
       public org.roylance.yaclib.YaclibModel.Dependency getDependency() {
         if (dependencyBuilder_ == null) {
@@ -12158,7 +12158,7 @@ public final class YaclibModel {
         }
       }
       /**
-       * <code>optional .org.roylance.yaclib.Dependency dependency = 2;</code>
+       * <code>.org.roylance.yaclib.Dependency dependency = 2;</code>
        */
       public Builder setDependency(org.roylance.yaclib.YaclibModel.Dependency value) {
         if (dependencyBuilder_ == null) {
@@ -12174,7 +12174,7 @@ public final class YaclibModel {
         return this;
       }
       /**
-       * <code>optional .org.roylance.yaclib.Dependency dependency = 2;</code>
+       * <code>.org.roylance.yaclib.Dependency dependency = 2;</code>
        */
       public Builder setDependency(
           org.roylance.yaclib.YaclibModel.Dependency.Builder builderForValue) {
@@ -12188,7 +12188,7 @@ public final class YaclibModel {
         return this;
       }
       /**
-       * <code>optional .org.roylance.yaclib.Dependency dependency = 2;</code>
+       * <code>.org.roylance.yaclib.Dependency dependency = 2;</code>
        */
       public Builder mergeDependency(org.roylance.yaclib.YaclibModel.Dependency value) {
         if (dependencyBuilder_ == null) {
@@ -12206,7 +12206,7 @@ public final class YaclibModel {
         return this;
       }
       /**
-       * <code>optional .org.roylance.yaclib.Dependency dependency = 2;</code>
+       * <code>.org.roylance.yaclib.Dependency dependency = 2;</code>
        */
       public Builder clearDependency() {
         if (dependencyBuilder_ == null) {
@@ -12220,7 +12220,7 @@ public final class YaclibModel {
         return this;
       }
       /**
-       * <code>optional .org.roylance.yaclib.Dependency dependency = 2;</code>
+       * <code>.org.roylance.yaclib.Dependency dependency = 2;</code>
        */
       public org.roylance.yaclib.YaclibModel.Dependency.Builder getDependencyBuilder() {
         
@@ -12228,7 +12228,7 @@ public final class YaclibModel {
         return getDependencyFieldBuilder().getBuilder();
       }
       /**
-       * <code>optional .org.roylance.yaclib.Dependency dependency = 2;</code>
+       * <code>.org.roylance.yaclib.Dependency dependency = 2;</code>
        */
       public org.roylance.yaclib.YaclibModel.DependencyOrBuilder getDependencyOrBuilder() {
         if (dependencyBuilder_ != null) {
@@ -12239,7 +12239,7 @@ public final class YaclibModel {
         }
       }
       /**
-       * <code>optional .org.roylance.yaclib.Dependency dependency = 2;</code>
+       * <code>.org.roylance.yaclib.Dependency dependency = 2;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           org.roylance.yaclib.YaclibModel.Dependency, org.roylance.yaclib.YaclibModel.Dependency.Builder, org.roylance.yaclib.YaclibModel.DependencyOrBuilder> 
@@ -12494,7 +12494,7 @@ public final class YaclibModel {
         return memoizedHashCode;
       }
       int hash = 41;
-      hash = (19 * hash) + getDescriptorForType().hashCode();
+      hash = (19 * hash) + getDescriptor().hashCode();
       if (getControllerDependenciesCount() > 0) {
         hash = (37 * hash) + CONTROLLER_DEPENDENCIES_FIELD_NUMBER;
         hash = (53 * hash) + getControllerDependenciesList().hashCode();
@@ -13043,52 +13043,52 @@ public final class YaclibModel {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>optional string normal_output = 1;</code>
+     * <code>string normal_output = 1;</code>
      */
     java.lang.String getNormalOutput();
     /**
-     * <code>optional string normal_output = 1;</code>
+     * <code>string normal_output = 1;</code>
      */
     com.google.protobuf.ByteString
         getNormalOutputBytes();
 
     /**
-     * <code>optional string error_output = 2;</code>
+     * <code>string error_output = 2;</code>
      */
     java.lang.String getErrorOutput();
     /**
-     * <code>optional string error_output = 2;</code>
+     * <code>string error_output = 2;</code>
      */
     com.google.protobuf.ByteString
         getErrorOutputBytes();
 
     /**
-     * <code>optional bool is_error = 3;</code>
+     * <code>bool is_error = 3;</code>
      */
     boolean getIsError();
 
     /**
-     * <code>optional int32 exit_value = 4;</code>
+     * <code>int32 exit_value = 4;</code>
      */
     int getExitValue();
 
     /**
-     * <code>optional string content = 5;</code>
+     * <code>string content = 5;</code>
      */
     java.lang.String getContent();
     /**
-     * <code>optional string content = 5;</code>
+     * <code>string content = 5;</code>
      */
     com.google.protobuf.ByteString
         getContentBytes();
 
     /**
-     * <code>optional int32 new_major = 6;</code>
+     * <code>int32 new_major = 6;</code>
      */
     int getNewMajor();
 
     /**
-     * <code>optional int32 new_minor = 7;</code>
+     * <code>int32 new_minor = 7;</code>
      */
     int getNewMinor();
   }
@@ -13202,7 +13202,7 @@ public final class YaclibModel {
     public static final int NORMAL_OUTPUT_FIELD_NUMBER = 1;
     private volatile java.lang.Object normalOutput_;
     /**
-     * <code>optional string normal_output = 1;</code>
+     * <code>string normal_output = 1;</code>
      */
     public java.lang.String getNormalOutput() {
       java.lang.Object ref = normalOutput_;
@@ -13217,7 +13217,7 @@ public final class YaclibModel {
       }
     }
     /**
-     * <code>optional string normal_output = 1;</code>
+     * <code>string normal_output = 1;</code>
      */
     public com.google.protobuf.ByteString
         getNormalOutputBytes() {
@@ -13236,7 +13236,7 @@ public final class YaclibModel {
     public static final int ERROR_OUTPUT_FIELD_NUMBER = 2;
     private volatile java.lang.Object errorOutput_;
     /**
-     * <code>optional string error_output = 2;</code>
+     * <code>string error_output = 2;</code>
      */
     public java.lang.String getErrorOutput() {
       java.lang.Object ref = errorOutput_;
@@ -13251,7 +13251,7 @@ public final class YaclibModel {
       }
     }
     /**
-     * <code>optional string error_output = 2;</code>
+     * <code>string error_output = 2;</code>
      */
     public com.google.protobuf.ByteString
         getErrorOutputBytes() {
@@ -13270,7 +13270,7 @@ public final class YaclibModel {
     public static final int IS_ERROR_FIELD_NUMBER = 3;
     private boolean isError_;
     /**
-     * <code>optional bool is_error = 3;</code>
+     * <code>bool is_error = 3;</code>
      */
     public boolean getIsError() {
       return isError_;
@@ -13279,7 +13279,7 @@ public final class YaclibModel {
     public static final int EXIT_VALUE_FIELD_NUMBER = 4;
     private int exitValue_;
     /**
-     * <code>optional int32 exit_value = 4;</code>
+     * <code>int32 exit_value = 4;</code>
      */
     public int getExitValue() {
       return exitValue_;
@@ -13288,7 +13288,7 @@ public final class YaclibModel {
     public static final int CONTENT_FIELD_NUMBER = 5;
     private volatile java.lang.Object content_;
     /**
-     * <code>optional string content = 5;</code>
+     * <code>string content = 5;</code>
      */
     public java.lang.String getContent() {
       java.lang.Object ref = content_;
@@ -13303,7 +13303,7 @@ public final class YaclibModel {
       }
     }
     /**
-     * <code>optional string content = 5;</code>
+     * <code>string content = 5;</code>
      */
     public com.google.protobuf.ByteString
         getContentBytes() {
@@ -13322,7 +13322,7 @@ public final class YaclibModel {
     public static final int NEW_MAJOR_FIELD_NUMBER = 6;
     private int newMajor_;
     /**
-     * <code>optional int32 new_major = 6;</code>
+     * <code>int32 new_major = 6;</code>
      */
     public int getNewMajor() {
       return newMajor_;
@@ -13331,7 +13331,7 @@ public final class YaclibModel {
     public static final int NEW_MINOR_FIELD_NUMBER = 7;
     private int newMinor_;
     /**
-     * <code>optional int32 new_minor = 7;</code>
+     * <code>int32 new_minor = 7;</code>
      */
     public int getNewMinor() {
       return newMinor_;
@@ -13441,7 +13441,7 @@ public final class YaclibModel {
         return memoizedHashCode;
       }
       int hash = 41;
-      hash = (19 * hash) + getDescriptorForType().hashCode();
+      hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + NORMAL_OUTPUT_FIELD_NUMBER;
       hash = (53 * hash) + getNormalOutput().hashCode();
       hash = (37 * hash) + ERROR_OUTPUT_FIELD_NUMBER;
@@ -13711,7 +13711,7 @@ public final class YaclibModel {
 
       private java.lang.Object normalOutput_ = "";
       /**
-       * <code>optional string normal_output = 1;</code>
+       * <code>string normal_output = 1;</code>
        */
       public java.lang.String getNormalOutput() {
         java.lang.Object ref = normalOutput_;
@@ -13726,7 +13726,7 @@ public final class YaclibModel {
         }
       }
       /**
-       * <code>optional string normal_output = 1;</code>
+       * <code>string normal_output = 1;</code>
        */
       public com.google.protobuf.ByteString
           getNormalOutputBytes() {
@@ -13742,7 +13742,7 @@ public final class YaclibModel {
         }
       }
       /**
-       * <code>optional string normal_output = 1;</code>
+       * <code>string normal_output = 1;</code>
        */
       public Builder setNormalOutput(
           java.lang.String value) {
@@ -13755,7 +13755,7 @@ public final class YaclibModel {
         return this;
       }
       /**
-       * <code>optional string normal_output = 1;</code>
+       * <code>string normal_output = 1;</code>
        */
       public Builder clearNormalOutput() {
         
@@ -13764,7 +13764,7 @@ public final class YaclibModel {
         return this;
       }
       /**
-       * <code>optional string normal_output = 1;</code>
+       * <code>string normal_output = 1;</code>
        */
       public Builder setNormalOutputBytes(
           com.google.protobuf.ByteString value) {
@@ -13780,7 +13780,7 @@ public final class YaclibModel {
 
       private java.lang.Object errorOutput_ = "";
       /**
-       * <code>optional string error_output = 2;</code>
+       * <code>string error_output = 2;</code>
        */
       public java.lang.String getErrorOutput() {
         java.lang.Object ref = errorOutput_;
@@ -13795,7 +13795,7 @@ public final class YaclibModel {
         }
       }
       /**
-       * <code>optional string error_output = 2;</code>
+       * <code>string error_output = 2;</code>
        */
       public com.google.protobuf.ByteString
           getErrorOutputBytes() {
@@ -13811,7 +13811,7 @@ public final class YaclibModel {
         }
       }
       /**
-       * <code>optional string error_output = 2;</code>
+       * <code>string error_output = 2;</code>
        */
       public Builder setErrorOutput(
           java.lang.String value) {
@@ -13824,7 +13824,7 @@ public final class YaclibModel {
         return this;
       }
       /**
-       * <code>optional string error_output = 2;</code>
+       * <code>string error_output = 2;</code>
        */
       public Builder clearErrorOutput() {
         
@@ -13833,7 +13833,7 @@ public final class YaclibModel {
         return this;
       }
       /**
-       * <code>optional string error_output = 2;</code>
+       * <code>string error_output = 2;</code>
        */
       public Builder setErrorOutputBytes(
           com.google.protobuf.ByteString value) {
@@ -13849,13 +13849,13 @@ public final class YaclibModel {
 
       private boolean isError_ ;
       /**
-       * <code>optional bool is_error = 3;</code>
+       * <code>bool is_error = 3;</code>
        */
       public boolean getIsError() {
         return isError_;
       }
       /**
-       * <code>optional bool is_error = 3;</code>
+       * <code>bool is_error = 3;</code>
        */
       public Builder setIsError(boolean value) {
         
@@ -13864,7 +13864,7 @@ public final class YaclibModel {
         return this;
       }
       /**
-       * <code>optional bool is_error = 3;</code>
+       * <code>bool is_error = 3;</code>
        */
       public Builder clearIsError() {
         
@@ -13875,13 +13875,13 @@ public final class YaclibModel {
 
       private int exitValue_ ;
       /**
-       * <code>optional int32 exit_value = 4;</code>
+       * <code>int32 exit_value = 4;</code>
        */
       public int getExitValue() {
         return exitValue_;
       }
       /**
-       * <code>optional int32 exit_value = 4;</code>
+       * <code>int32 exit_value = 4;</code>
        */
       public Builder setExitValue(int value) {
         
@@ -13890,7 +13890,7 @@ public final class YaclibModel {
         return this;
       }
       /**
-       * <code>optional int32 exit_value = 4;</code>
+       * <code>int32 exit_value = 4;</code>
        */
       public Builder clearExitValue() {
         
@@ -13901,7 +13901,7 @@ public final class YaclibModel {
 
       private java.lang.Object content_ = "";
       /**
-       * <code>optional string content = 5;</code>
+       * <code>string content = 5;</code>
        */
       public java.lang.String getContent() {
         java.lang.Object ref = content_;
@@ -13916,7 +13916,7 @@ public final class YaclibModel {
         }
       }
       /**
-       * <code>optional string content = 5;</code>
+       * <code>string content = 5;</code>
        */
       public com.google.protobuf.ByteString
           getContentBytes() {
@@ -13932,7 +13932,7 @@ public final class YaclibModel {
         }
       }
       /**
-       * <code>optional string content = 5;</code>
+       * <code>string content = 5;</code>
        */
       public Builder setContent(
           java.lang.String value) {
@@ -13945,7 +13945,7 @@ public final class YaclibModel {
         return this;
       }
       /**
-       * <code>optional string content = 5;</code>
+       * <code>string content = 5;</code>
        */
       public Builder clearContent() {
         
@@ -13954,7 +13954,7 @@ public final class YaclibModel {
         return this;
       }
       /**
-       * <code>optional string content = 5;</code>
+       * <code>string content = 5;</code>
        */
       public Builder setContentBytes(
           com.google.protobuf.ByteString value) {
@@ -13970,13 +13970,13 @@ public final class YaclibModel {
 
       private int newMajor_ ;
       /**
-       * <code>optional int32 new_major = 6;</code>
+       * <code>int32 new_major = 6;</code>
        */
       public int getNewMajor() {
         return newMajor_;
       }
       /**
-       * <code>optional int32 new_major = 6;</code>
+       * <code>int32 new_major = 6;</code>
        */
       public Builder setNewMajor(int value) {
         
@@ -13985,7 +13985,7 @@ public final class YaclibModel {
         return this;
       }
       /**
-       * <code>optional int32 new_major = 6;</code>
+       * <code>int32 new_major = 6;</code>
        */
       public Builder clearNewMajor() {
         
@@ -13996,13 +13996,13 @@ public final class YaclibModel {
 
       private int newMinor_ ;
       /**
-       * <code>optional int32 new_minor = 7;</code>
+       * <code>int32 new_minor = 7;</code>
        */
       public int getNewMinor() {
         return newMinor_;
       }
       /**
-       * <code>optional int32 new_minor = 7;</code>
+       * <code>int32 new_minor = 7;</code>
        */
       public Builder setNewMinor(int value) {
         
@@ -14011,7 +14011,7 @@ public final class YaclibModel {
         return this;
       }
       /**
-       * <code>optional int32 new_minor = 7;</code>
+       * <code>int32 new_minor = 7;</code>
        */
       public Builder clearNewMinor() {
         
@@ -14073,28 +14073,28 @@ public final class YaclibModel {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>optional .org.roylance.yaclib.AllControllerDependencies controllers = 1;</code>
+     * <code>.org.roylance.yaclib.AllControllerDependencies controllers = 1;</code>
      */
     boolean hasControllers();
     /**
-     * <code>optional .org.roylance.yaclib.AllControllerDependencies controllers = 1;</code>
+     * <code>.org.roylance.yaclib.AllControllerDependencies controllers = 1;</code>
      */
     org.roylance.yaclib.YaclibModel.AllControllerDependencies getControllers();
     /**
-     * <code>optional .org.roylance.yaclib.AllControllerDependencies controllers = 1;</code>
+     * <code>.org.roylance.yaclib.AllControllerDependencies controllers = 1;</code>
      */
     org.roylance.yaclib.YaclibModel.AllControllerDependenciesOrBuilder getControllersOrBuilder();
 
     /**
-     * <code>optional .org.roylance.yaclib.Dependency main_dependency = 2;</code>
+     * <code>.org.roylance.yaclib.Dependency main_dependency = 2;</code>
      */
     boolean hasMainDependency();
     /**
-     * <code>optional .org.roylance.yaclib.Dependency main_dependency = 2;</code>
+     * <code>.org.roylance.yaclib.Dependency main_dependency = 2;</code>
      */
     org.roylance.yaclib.YaclibModel.Dependency getMainDependency();
     /**
-     * <code>optional .org.roylance.yaclib.Dependency main_dependency = 2;</code>
+     * <code>.org.roylance.yaclib.Dependency main_dependency = 2;</code>
      */
     org.roylance.yaclib.YaclibModel.DependencyOrBuilder getMainDependencyOrBuilder();
 
@@ -14123,9 +14123,14 @@ public final class YaclibModel {
         int index);
 
     /**
-     * <code>optional bool is_server = 4;</code>
+     * <code>bool is_server = 4;</code>
      */
     boolean getIsServer();
+
+    /**
+     * <code>bool use_json = 5;</code>
+     */
+    boolean getUseJson();
   }
   /**
    * Protobuf type {@code org.roylance.yaclib.ProjectInformation}
@@ -14141,6 +14146,7 @@ public final class YaclibModel {
     private ProjectInformation() {
       thirdPartyDependencies_ = java.util.Collections.emptyList();
       isServer_ = false;
+      useJson_ = false;
     }
 
     @java.lang.Override
@@ -14208,6 +14214,11 @@ public final class YaclibModel {
               isServer_ = input.readBool();
               break;
             }
+            case 40: {
+
+              useJson_ = input.readBool();
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -14238,19 +14249,19 @@ public final class YaclibModel {
     public static final int CONTROLLERS_FIELD_NUMBER = 1;
     private org.roylance.yaclib.YaclibModel.AllControllerDependencies controllers_;
     /**
-     * <code>optional .org.roylance.yaclib.AllControllerDependencies controllers = 1;</code>
+     * <code>.org.roylance.yaclib.AllControllerDependencies controllers = 1;</code>
      */
     public boolean hasControllers() {
       return controllers_ != null;
     }
     /**
-     * <code>optional .org.roylance.yaclib.AllControllerDependencies controllers = 1;</code>
+     * <code>.org.roylance.yaclib.AllControllerDependencies controllers = 1;</code>
      */
     public org.roylance.yaclib.YaclibModel.AllControllerDependencies getControllers() {
       return controllers_ == null ? org.roylance.yaclib.YaclibModel.AllControllerDependencies.getDefaultInstance() : controllers_;
     }
     /**
-     * <code>optional .org.roylance.yaclib.AllControllerDependencies controllers = 1;</code>
+     * <code>.org.roylance.yaclib.AllControllerDependencies controllers = 1;</code>
      */
     public org.roylance.yaclib.YaclibModel.AllControllerDependenciesOrBuilder getControllersOrBuilder() {
       return getControllers();
@@ -14259,19 +14270,19 @@ public final class YaclibModel {
     public static final int MAIN_DEPENDENCY_FIELD_NUMBER = 2;
     private org.roylance.yaclib.YaclibModel.Dependency mainDependency_;
     /**
-     * <code>optional .org.roylance.yaclib.Dependency main_dependency = 2;</code>
+     * <code>.org.roylance.yaclib.Dependency main_dependency = 2;</code>
      */
     public boolean hasMainDependency() {
       return mainDependency_ != null;
     }
     /**
-     * <code>optional .org.roylance.yaclib.Dependency main_dependency = 2;</code>
+     * <code>.org.roylance.yaclib.Dependency main_dependency = 2;</code>
      */
     public org.roylance.yaclib.YaclibModel.Dependency getMainDependency() {
       return mainDependency_ == null ? org.roylance.yaclib.YaclibModel.Dependency.getDefaultInstance() : mainDependency_;
     }
     /**
-     * <code>optional .org.roylance.yaclib.Dependency main_dependency = 2;</code>
+     * <code>.org.roylance.yaclib.Dependency main_dependency = 2;</code>
      */
     public org.roylance.yaclib.YaclibModel.DependencyOrBuilder getMainDependencyOrBuilder() {
       return getMainDependency();
@@ -14315,10 +14326,19 @@ public final class YaclibModel {
     public static final int IS_SERVER_FIELD_NUMBER = 4;
     private boolean isServer_;
     /**
-     * <code>optional bool is_server = 4;</code>
+     * <code>bool is_server = 4;</code>
      */
     public boolean getIsServer() {
       return isServer_;
+    }
+
+    public static final int USE_JSON_FIELD_NUMBER = 5;
+    private boolean useJson_;
+    /**
+     * <code>bool use_json = 5;</code>
+     */
+    public boolean getUseJson() {
+      return useJson_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -14345,6 +14365,9 @@ public final class YaclibModel {
       if (isServer_ != false) {
         output.writeBool(4, isServer_);
       }
+      if (useJson_ != false) {
+        output.writeBool(5, useJson_);
+      }
     }
 
     public int getSerializedSize() {
@@ -14367,6 +14390,10 @@ public final class YaclibModel {
       if (isServer_ != false) {
         size += com.google.protobuf.CodedOutputStream
           .computeBoolSize(4, isServer_);
+      }
+      if (useJson_ != false) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(5, useJson_);
       }
       memoizedSize = size;
       return size;
@@ -14398,6 +14425,8 @@ public final class YaclibModel {
           .equals(other.getThirdPartyDependenciesList());
       result = result && (getIsServer()
           == other.getIsServer());
+      result = result && (getUseJson()
+          == other.getUseJson());
       return result;
     }
 
@@ -14407,7 +14436,7 @@ public final class YaclibModel {
         return memoizedHashCode;
       }
       int hash = 41;
-      hash = (19 * hash) + getDescriptorForType().hashCode();
+      hash = (19 * hash) + getDescriptor().hashCode();
       if (hasControllers()) {
         hash = (37 * hash) + CONTROLLERS_FIELD_NUMBER;
         hash = (53 * hash) + getControllers().hashCode();
@@ -14423,6 +14452,9 @@ public final class YaclibModel {
       hash = (37 * hash) + IS_SERVER_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
           getIsServer());
+      hash = (37 * hash) + USE_JSON_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+          getUseJson());
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -14562,6 +14594,8 @@ public final class YaclibModel {
         }
         isServer_ = false;
 
+        useJson_ = false;
+
         return this;
       }
 
@@ -14606,6 +14640,7 @@ public final class YaclibModel {
           result.thirdPartyDependencies_ = thirdPartyDependenciesBuilder_.build();
         }
         result.isServer_ = isServer_;
+        result.useJson_ = useJson_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -14683,6 +14718,9 @@ public final class YaclibModel {
         if (other.getIsServer() != false) {
           setIsServer(other.getIsServer());
         }
+        if (other.getUseJson() != false) {
+          setUseJson(other.getUseJson());
+        }
         onChanged();
         return this;
       }
@@ -14714,13 +14752,13 @@ public final class YaclibModel {
       private com.google.protobuf.SingleFieldBuilderV3<
           org.roylance.yaclib.YaclibModel.AllControllerDependencies, org.roylance.yaclib.YaclibModel.AllControllerDependencies.Builder, org.roylance.yaclib.YaclibModel.AllControllerDependenciesOrBuilder> controllersBuilder_;
       /**
-       * <code>optional .org.roylance.yaclib.AllControllerDependencies controllers = 1;</code>
+       * <code>.org.roylance.yaclib.AllControllerDependencies controllers = 1;</code>
        */
       public boolean hasControllers() {
         return controllersBuilder_ != null || controllers_ != null;
       }
       /**
-       * <code>optional .org.roylance.yaclib.AllControllerDependencies controllers = 1;</code>
+       * <code>.org.roylance.yaclib.AllControllerDependencies controllers = 1;</code>
        */
       public org.roylance.yaclib.YaclibModel.AllControllerDependencies getControllers() {
         if (controllersBuilder_ == null) {
@@ -14730,7 +14768,7 @@ public final class YaclibModel {
         }
       }
       /**
-       * <code>optional .org.roylance.yaclib.AllControllerDependencies controllers = 1;</code>
+       * <code>.org.roylance.yaclib.AllControllerDependencies controllers = 1;</code>
        */
       public Builder setControllers(org.roylance.yaclib.YaclibModel.AllControllerDependencies value) {
         if (controllersBuilder_ == null) {
@@ -14746,7 +14784,7 @@ public final class YaclibModel {
         return this;
       }
       /**
-       * <code>optional .org.roylance.yaclib.AllControllerDependencies controllers = 1;</code>
+       * <code>.org.roylance.yaclib.AllControllerDependencies controllers = 1;</code>
        */
       public Builder setControllers(
           org.roylance.yaclib.YaclibModel.AllControllerDependencies.Builder builderForValue) {
@@ -14760,7 +14798,7 @@ public final class YaclibModel {
         return this;
       }
       /**
-       * <code>optional .org.roylance.yaclib.AllControllerDependencies controllers = 1;</code>
+       * <code>.org.roylance.yaclib.AllControllerDependencies controllers = 1;</code>
        */
       public Builder mergeControllers(org.roylance.yaclib.YaclibModel.AllControllerDependencies value) {
         if (controllersBuilder_ == null) {
@@ -14778,7 +14816,7 @@ public final class YaclibModel {
         return this;
       }
       /**
-       * <code>optional .org.roylance.yaclib.AllControllerDependencies controllers = 1;</code>
+       * <code>.org.roylance.yaclib.AllControllerDependencies controllers = 1;</code>
        */
       public Builder clearControllers() {
         if (controllersBuilder_ == null) {
@@ -14792,7 +14830,7 @@ public final class YaclibModel {
         return this;
       }
       /**
-       * <code>optional .org.roylance.yaclib.AllControllerDependencies controllers = 1;</code>
+       * <code>.org.roylance.yaclib.AllControllerDependencies controllers = 1;</code>
        */
       public org.roylance.yaclib.YaclibModel.AllControllerDependencies.Builder getControllersBuilder() {
         
@@ -14800,7 +14838,7 @@ public final class YaclibModel {
         return getControllersFieldBuilder().getBuilder();
       }
       /**
-       * <code>optional .org.roylance.yaclib.AllControllerDependencies controllers = 1;</code>
+       * <code>.org.roylance.yaclib.AllControllerDependencies controllers = 1;</code>
        */
       public org.roylance.yaclib.YaclibModel.AllControllerDependenciesOrBuilder getControllersOrBuilder() {
         if (controllersBuilder_ != null) {
@@ -14811,7 +14849,7 @@ public final class YaclibModel {
         }
       }
       /**
-       * <code>optional .org.roylance.yaclib.AllControllerDependencies controllers = 1;</code>
+       * <code>.org.roylance.yaclib.AllControllerDependencies controllers = 1;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           org.roylance.yaclib.YaclibModel.AllControllerDependencies, org.roylance.yaclib.YaclibModel.AllControllerDependencies.Builder, org.roylance.yaclib.YaclibModel.AllControllerDependenciesOrBuilder> 
@@ -14831,13 +14869,13 @@ public final class YaclibModel {
       private com.google.protobuf.SingleFieldBuilderV3<
           org.roylance.yaclib.YaclibModel.Dependency, org.roylance.yaclib.YaclibModel.Dependency.Builder, org.roylance.yaclib.YaclibModel.DependencyOrBuilder> mainDependencyBuilder_;
       /**
-       * <code>optional .org.roylance.yaclib.Dependency main_dependency = 2;</code>
+       * <code>.org.roylance.yaclib.Dependency main_dependency = 2;</code>
        */
       public boolean hasMainDependency() {
         return mainDependencyBuilder_ != null || mainDependency_ != null;
       }
       /**
-       * <code>optional .org.roylance.yaclib.Dependency main_dependency = 2;</code>
+       * <code>.org.roylance.yaclib.Dependency main_dependency = 2;</code>
        */
       public org.roylance.yaclib.YaclibModel.Dependency getMainDependency() {
         if (mainDependencyBuilder_ == null) {
@@ -14847,7 +14885,7 @@ public final class YaclibModel {
         }
       }
       /**
-       * <code>optional .org.roylance.yaclib.Dependency main_dependency = 2;</code>
+       * <code>.org.roylance.yaclib.Dependency main_dependency = 2;</code>
        */
       public Builder setMainDependency(org.roylance.yaclib.YaclibModel.Dependency value) {
         if (mainDependencyBuilder_ == null) {
@@ -14863,7 +14901,7 @@ public final class YaclibModel {
         return this;
       }
       /**
-       * <code>optional .org.roylance.yaclib.Dependency main_dependency = 2;</code>
+       * <code>.org.roylance.yaclib.Dependency main_dependency = 2;</code>
        */
       public Builder setMainDependency(
           org.roylance.yaclib.YaclibModel.Dependency.Builder builderForValue) {
@@ -14877,7 +14915,7 @@ public final class YaclibModel {
         return this;
       }
       /**
-       * <code>optional .org.roylance.yaclib.Dependency main_dependency = 2;</code>
+       * <code>.org.roylance.yaclib.Dependency main_dependency = 2;</code>
        */
       public Builder mergeMainDependency(org.roylance.yaclib.YaclibModel.Dependency value) {
         if (mainDependencyBuilder_ == null) {
@@ -14895,7 +14933,7 @@ public final class YaclibModel {
         return this;
       }
       /**
-       * <code>optional .org.roylance.yaclib.Dependency main_dependency = 2;</code>
+       * <code>.org.roylance.yaclib.Dependency main_dependency = 2;</code>
        */
       public Builder clearMainDependency() {
         if (mainDependencyBuilder_ == null) {
@@ -14909,7 +14947,7 @@ public final class YaclibModel {
         return this;
       }
       /**
-       * <code>optional .org.roylance.yaclib.Dependency main_dependency = 2;</code>
+       * <code>.org.roylance.yaclib.Dependency main_dependency = 2;</code>
        */
       public org.roylance.yaclib.YaclibModel.Dependency.Builder getMainDependencyBuilder() {
         
@@ -14917,7 +14955,7 @@ public final class YaclibModel {
         return getMainDependencyFieldBuilder().getBuilder();
       }
       /**
-       * <code>optional .org.roylance.yaclib.Dependency main_dependency = 2;</code>
+       * <code>.org.roylance.yaclib.Dependency main_dependency = 2;</code>
        */
       public org.roylance.yaclib.YaclibModel.DependencyOrBuilder getMainDependencyOrBuilder() {
         if (mainDependencyBuilder_ != null) {
@@ -14928,7 +14966,7 @@ public final class YaclibModel {
         }
       }
       /**
-       * <code>optional .org.roylance.yaclib.Dependency main_dependency = 2;</code>
+       * <code>.org.roylance.yaclib.Dependency main_dependency = 2;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           org.roylance.yaclib.YaclibModel.Dependency, org.roylance.yaclib.YaclibModel.Dependency.Builder, org.roylance.yaclib.YaclibModel.DependencyOrBuilder> 
@@ -15186,13 +15224,13 @@ public final class YaclibModel {
 
       private boolean isServer_ ;
       /**
-       * <code>optional bool is_server = 4;</code>
+       * <code>bool is_server = 4;</code>
        */
       public boolean getIsServer() {
         return isServer_;
       }
       /**
-       * <code>optional bool is_server = 4;</code>
+       * <code>bool is_server = 4;</code>
        */
       public Builder setIsServer(boolean value) {
         
@@ -15201,11 +15239,37 @@ public final class YaclibModel {
         return this;
       }
       /**
-       * <code>optional bool is_server = 4;</code>
+       * <code>bool is_server = 4;</code>
        */
       public Builder clearIsServer() {
         
         isServer_ = false;
+        onChanged();
+        return this;
+      }
+
+      private boolean useJson_ ;
+      /**
+       * <code>bool use_json = 5;</code>
+       */
+      public boolean getUseJson() {
+        return useJson_;
+      }
+      /**
+       * <code>bool use_json = 5;</code>
+       */
+      public Builder setUseJson(boolean value) {
+        
+        useJson_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>bool use_json = 5;</code>
+       */
+      public Builder clearUseJson() {
+        
+        useJson_ = false;
         onChanged();
         return this;
       }
@@ -15263,11 +15327,11 @@ public final class YaclibModel {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>optional .org.roylance.yaclib.ExecutionPhase handle_before = 1;</code>
+     * <code>.org.roylance.yaclib.ExecutionPhase handle_before = 1;</code>
      */
     int getHandleBeforeValue();
     /**
-     * <code>optional .org.roylance.yaclib.ExecutionPhase handle_before = 1;</code>
+     * <code>.org.roylance.yaclib.ExecutionPhase handle_before = 1;</code>
      */
     org.roylance.yaclib.YaclibModel.ExecutionPhase getHandleBefore();
 
@@ -15318,15 +15382,15 @@ public final class YaclibModel {
         int index);
 
     /**
-     * <code>optional .org.roylance.yaclib.Dependency target_dependency = 4;</code>
+     * <code>.org.roylance.yaclib.Dependency target_dependency = 4;</code>
      */
     boolean hasTargetDependency();
     /**
-     * <code>optional .org.roylance.yaclib.Dependency target_dependency = 4;</code>
+     * <code>.org.roylance.yaclib.Dependency target_dependency = 4;</code>
      */
     org.roylance.yaclib.YaclibModel.Dependency getTargetDependency();
     /**
-     * <code>optional .org.roylance.yaclib.Dependency target_dependency = 4;</code>
+     * <code>.org.roylance.yaclib.Dependency target_dependency = 4;</code>
      */
     org.roylance.yaclib.YaclibModel.DependencyOrBuilder getTargetDependencyOrBuilder();
 
@@ -15355,11 +15419,11 @@ public final class YaclibModel {
         int index);
 
     /**
-     * <code>optional .org.roylance.yaclib.ProjectType project_type = 6;</code>
+     * <code>.org.roylance.yaclib.ProjectType project_type = 6;</code>
      */
     int getProjectTypeValue();
     /**
-     * <code>optional .org.roylance.yaclib.ProjectType project_type = 6;</code>
+     * <code>.org.roylance.yaclib.ProjectType project_type = 6;</code>
      */
     org.roylance.yaclib.YaclibModel.ProjectType getProjectType();
   }
@@ -15509,13 +15573,13 @@ public final class YaclibModel {
     public static final int HANDLE_BEFORE_FIELD_NUMBER = 1;
     private int handleBefore_;
     /**
-     * <code>optional .org.roylance.yaclib.ExecutionPhase handle_before = 1;</code>
+     * <code>.org.roylance.yaclib.ExecutionPhase handle_before = 1;</code>
      */
     public int getHandleBeforeValue() {
       return handleBefore_;
     }
     /**
-     * <code>optional .org.roylance.yaclib.ExecutionPhase handle_before = 1;</code>
+     * <code>.org.roylance.yaclib.ExecutionPhase handle_before = 1;</code>
      */
     public org.roylance.yaclib.YaclibModel.ExecutionPhase getHandleBefore() {
       org.roylance.yaclib.YaclibModel.ExecutionPhase result = org.roylance.yaclib.YaclibModel.ExecutionPhase.valueOf(handleBefore_);
@@ -15605,19 +15669,19 @@ public final class YaclibModel {
     public static final int TARGET_DEPENDENCY_FIELD_NUMBER = 4;
     private org.roylance.yaclib.YaclibModel.Dependency targetDependency_;
     /**
-     * <code>optional .org.roylance.yaclib.Dependency target_dependency = 4;</code>
+     * <code>.org.roylance.yaclib.Dependency target_dependency = 4;</code>
      */
     public boolean hasTargetDependency() {
       return targetDependency_ != null;
     }
     /**
-     * <code>optional .org.roylance.yaclib.Dependency target_dependency = 4;</code>
+     * <code>.org.roylance.yaclib.Dependency target_dependency = 4;</code>
      */
     public org.roylance.yaclib.YaclibModel.Dependency getTargetDependency() {
       return targetDependency_ == null ? org.roylance.yaclib.YaclibModel.Dependency.getDefaultInstance() : targetDependency_;
     }
     /**
-     * <code>optional .org.roylance.yaclib.Dependency target_dependency = 4;</code>
+     * <code>.org.roylance.yaclib.Dependency target_dependency = 4;</code>
      */
     public org.roylance.yaclib.YaclibModel.DependencyOrBuilder getTargetDependencyOrBuilder() {
       return getTargetDependency();
@@ -15661,13 +15725,13 @@ public final class YaclibModel {
     public static final int PROJECT_TYPE_FIELD_NUMBER = 6;
     private int projectType_;
     /**
-     * <code>optional .org.roylance.yaclib.ProjectType project_type = 6;</code>
+     * <code>.org.roylance.yaclib.ProjectType project_type = 6;</code>
      */
     public int getProjectTypeValue() {
       return projectType_;
     }
     /**
-     * <code>optional .org.roylance.yaclib.ProjectType project_type = 6;</code>
+     * <code>.org.roylance.yaclib.ProjectType project_type = 6;</code>
      */
     public org.roylance.yaclib.YaclibModel.ProjectType getProjectType() {
       org.roylance.yaclib.YaclibModel.ProjectType result = org.roylance.yaclib.YaclibModel.ProjectType.valueOf(projectType_);
@@ -15785,7 +15849,7 @@ public final class YaclibModel {
         return memoizedHashCode;
       }
       int hash = 41;
-      hash = (19 * hash) + getDescriptorForType().hashCode();
+      hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + HANDLE_BEFORE_FIELD_NUMBER;
       hash = (53 * hash) + handleBefore_;
       if (getExecutionsCount() > 0) {
@@ -16146,13 +16210,13 @@ public final class YaclibModel {
 
       private int handleBefore_ = 0;
       /**
-       * <code>optional .org.roylance.yaclib.ExecutionPhase handle_before = 1;</code>
+       * <code>.org.roylance.yaclib.ExecutionPhase handle_before = 1;</code>
        */
       public int getHandleBeforeValue() {
         return handleBefore_;
       }
       /**
-       * <code>optional .org.roylance.yaclib.ExecutionPhase handle_before = 1;</code>
+       * <code>.org.roylance.yaclib.ExecutionPhase handle_before = 1;</code>
        */
       public Builder setHandleBeforeValue(int value) {
         handleBefore_ = value;
@@ -16160,14 +16224,14 @@ public final class YaclibModel {
         return this;
       }
       /**
-       * <code>optional .org.roylance.yaclib.ExecutionPhase handle_before = 1;</code>
+       * <code>.org.roylance.yaclib.ExecutionPhase handle_before = 1;</code>
        */
       public org.roylance.yaclib.YaclibModel.ExecutionPhase getHandleBefore() {
         org.roylance.yaclib.YaclibModel.ExecutionPhase result = org.roylance.yaclib.YaclibModel.ExecutionPhase.valueOf(handleBefore_);
         return result == null ? org.roylance.yaclib.YaclibModel.ExecutionPhase.UNRECOGNIZED : result;
       }
       /**
-       * <code>optional .org.roylance.yaclib.ExecutionPhase handle_before = 1;</code>
+       * <code>.org.roylance.yaclib.ExecutionPhase handle_before = 1;</code>
        */
       public Builder setHandleBefore(org.roylance.yaclib.YaclibModel.ExecutionPhase value) {
         if (value == null) {
@@ -16179,7 +16243,7 @@ public final class YaclibModel {
         return this;
       }
       /**
-       * <code>optional .org.roylance.yaclib.ExecutionPhase handle_before = 1;</code>
+       * <code>.org.roylance.yaclib.ExecutionPhase handle_before = 1;</code>
        */
       public Builder clearHandleBefore() {
         
@@ -16550,13 +16614,13 @@ public final class YaclibModel {
       private com.google.protobuf.SingleFieldBuilderV3<
           org.roylance.yaclib.YaclibModel.Dependency, org.roylance.yaclib.YaclibModel.Dependency.Builder, org.roylance.yaclib.YaclibModel.DependencyOrBuilder> targetDependencyBuilder_;
       /**
-       * <code>optional .org.roylance.yaclib.Dependency target_dependency = 4;</code>
+       * <code>.org.roylance.yaclib.Dependency target_dependency = 4;</code>
        */
       public boolean hasTargetDependency() {
         return targetDependencyBuilder_ != null || targetDependency_ != null;
       }
       /**
-       * <code>optional .org.roylance.yaclib.Dependency target_dependency = 4;</code>
+       * <code>.org.roylance.yaclib.Dependency target_dependency = 4;</code>
        */
       public org.roylance.yaclib.YaclibModel.Dependency getTargetDependency() {
         if (targetDependencyBuilder_ == null) {
@@ -16566,7 +16630,7 @@ public final class YaclibModel {
         }
       }
       /**
-       * <code>optional .org.roylance.yaclib.Dependency target_dependency = 4;</code>
+       * <code>.org.roylance.yaclib.Dependency target_dependency = 4;</code>
        */
       public Builder setTargetDependency(org.roylance.yaclib.YaclibModel.Dependency value) {
         if (targetDependencyBuilder_ == null) {
@@ -16582,7 +16646,7 @@ public final class YaclibModel {
         return this;
       }
       /**
-       * <code>optional .org.roylance.yaclib.Dependency target_dependency = 4;</code>
+       * <code>.org.roylance.yaclib.Dependency target_dependency = 4;</code>
        */
       public Builder setTargetDependency(
           org.roylance.yaclib.YaclibModel.Dependency.Builder builderForValue) {
@@ -16596,7 +16660,7 @@ public final class YaclibModel {
         return this;
       }
       /**
-       * <code>optional .org.roylance.yaclib.Dependency target_dependency = 4;</code>
+       * <code>.org.roylance.yaclib.Dependency target_dependency = 4;</code>
        */
       public Builder mergeTargetDependency(org.roylance.yaclib.YaclibModel.Dependency value) {
         if (targetDependencyBuilder_ == null) {
@@ -16614,7 +16678,7 @@ public final class YaclibModel {
         return this;
       }
       /**
-       * <code>optional .org.roylance.yaclib.Dependency target_dependency = 4;</code>
+       * <code>.org.roylance.yaclib.Dependency target_dependency = 4;</code>
        */
       public Builder clearTargetDependency() {
         if (targetDependencyBuilder_ == null) {
@@ -16628,7 +16692,7 @@ public final class YaclibModel {
         return this;
       }
       /**
-       * <code>optional .org.roylance.yaclib.Dependency target_dependency = 4;</code>
+       * <code>.org.roylance.yaclib.Dependency target_dependency = 4;</code>
        */
       public org.roylance.yaclib.YaclibModel.Dependency.Builder getTargetDependencyBuilder() {
         
@@ -16636,7 +16700,7 @@ public final class YaclibModel {
         return getTargetDependencyFieldBuilder().getBuilder();
       }
       /**
-       * <code>optional .org.roylance.yaclib.Dependency target_dependency = 4;</code>
+       * <code>.org.roylance.yaclib.Dependency target_dependency = 4;</code>
        */
       public org.roylance.yaclib.YaclibModel.DependencyOrBuilder getTargetDependencyOrBuilder() {
         if (targetDependencyBuilder_ != null) {
@@ -16647,7 +16711,7 @@ public final class YaclibModel {
         }
       }
       /**
-       * <code>optional .org.roylance.yaclib.Dependency target_dependency = 4;</code>
+       * <code>.org.roylance.yaclib.Dependency target_dependency = 4;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           org.roylance.yaclib.YaclibModel.Dependency, org.roylance.yaclib.YaclibModel.Dependency.Builder, org.roylance.yaclib.YaclibModel.DependencyOrBuilder> 
@@ -16905,13 +16969,13 @@ public final class YaclibModel {
 
       private int projectType_ = 0;
       /**
-       * <code>optional .org.roylance.yaclib.ProjectType project_type = 6;</code>
+       * <code>.org.roylance.yaclib.ProjectType project_type = 6;</code>
        */
       public int getProjectTypeValue() {
         return projectType_;
       }
       /**
-       * <code>optional .org.roylance.yaclib.ProjectType project_type = 6;</code>
+       * <code>.org.roylance.yaclib.ProjectType project_type = 6;</code>
        */
       public Builder setProjectTypeValue(int value) {
         projectType_ = value;
@@ -16919,14 +16983,14 @@ public final class YaclibModel {
         return this;
       }
       /**
-       * <code>optional .org.roylance.yaclib.ProjectType project_type = 6;</code>
+       * <code>.org.roylance.yaclib.ProjectType project_type = 6;</code>
        */
       public org.roylance.yaclib.YaclibModel.ProjectType getProjectType() {
         org.roylance.yaclib.YaclibModel.ProjectType result = org.roylance.yaclib.YaclibModel.ProjectType.valueOf(projectType_);
         return result == null ? org.roylance.yaclib.YaclibModel.ProjectType.UNRECOGNIZED : result;
       }
       /**
-       * <code>optional .org.roylance.yaclib.ProjectType project_type = 6;</code>
+       * <code>.org.roylance.yaclib.ProjectType project_type = 6;</code>
        */
       public Builder setProjectType(org.roylance.yaclib.YaclibModel.ProjectType value) {
         if (value == null) {
@@ -16938,7 +17002,7 @@ public final class YaclibModel {
         return this;
       }
       /**
-       * <code>optional .org.roylance.yaclib.ProjectType project_type = 6;</code>
+       * <code>.org.roylance.yaclib.ProjectType project_type = 6;</code>
        */
       public Builder clearProjectType() {
         
@@ -17186,7 +17250,7 @@ public final class YaclibModel {
         return memoizedHashCode;
       }
       int hash = 41;
-      hash = (19 * hash) + getDescriptorForType().hashCode();
+      hash = (19 * hash) + getDescriptor().hashCode();
       if (getProjectsCount() > 0) {
         hash = (37 * hash) + PROJECTS_FIELD_NUMBER;
         hash = (53 * hash) + getProjectsList().hashCode();
@@ -17735,11 +17799,11 @@ public final class YaclibModel {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>optional string name = 1;</code>
+     * <code>string name = 1;</code>
      */
     java.lang.String getName();
     /**
-     * <code>optional string name = 1;</code>
+     * <code>string name = 1;</code>
      */
     com.google.protobuf.ByteString
         getNameBytes();
@@ -17854,7 +17918,7 @@ public final class YaclibModel {
     public static final int NAME_FIELD_NUMBER = 1;
     private volatile java.lang.Object name_;
     /**
-     * <code>optional string name = 1;</code>
+     * <code>string name = 1;</code>
      */
     public java.lang.String getName() {
       java.lang.Object ref = name_;
@@ -17869,7 +17933,7 @@ public final class YaclibModel {
       }
     }
     /**
-     * <code>optional string name = 1;</code>
+     * <code>string name = 1;</code>
      */
     public com.google.protobuf.ByteString
         getNameBytes() {
@@ -17981,7 +18045,7 @@ public final class YaclibModel {
         return memoizedHashCode;
       }
       int hash = 41;
-      hash = (19 * hash) + getDescriptorForType().hashCode();
+      hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + NAME_FIELD_NUMBER;
       hash = (53 * hash) + getName().hashCode();
       if (getActionsCount() > 0) {
@@ -18250,7 +18314,7 @@ public final class YaclibModel {
 
       private java.lang.Object name_ = "";
       /**
-       * <code>optional string name = 1;</code>
+       * <code>string name = 1;</code>
        */
       public java.lang.String getName() {
         java.lang.Object ref = name_;
@@ -18265,7 +18329,7 @@ public final class YaclibModel {
         }
       }
       /**
-       * <code>optional string name = 1;</code>
+       * <code>string name = 1;</code>
        */
       public com.google.protobuf.ByteString
           getNameBytes() {
@@ -18281,7 +18345,7 @@ public final class YaclibModel {
         }
       }
       /**
-       * <code>optional string name = 1;</code>
+       * <code>string name = 1;</code>
        */
       public Builder setName(
           java.lang.String value) {
@@ -18294,7 +18358,7 @@ public final class YaclibModel {
         return this;
       }
       /**
-       * <code>optional string name = 1;</code>
+       * <code>string name = 1;</code>
        */
       public Builder clearName() {
         
@@ -18303,7 +18367,7 @@ public final class YaclibModel {
         return this;
       }
       /**
-       * <code>optional string name = 1;</code>
+       * <code>string name = 1;</code>
        */
       public Builder setNameBytes(
           com.google.protobuf.ByteString value) {
@@ -18739,68 +18803,68 @@ public final class YaclibModel {
       "al_output\030\001 \001(\t\022\024\n\014error_output\030\002 \001(\t\022\020\n" +
       "\010is_error\030\003 \001(\010\022\022\n\nexit_value\030\004 \001(\005\022\017\n\007c" +
       "ontent\030\005 \001(\t\022\021\n\tnew_major\030\006 \001(\005\022\021\n\tnew_m",
-      "inor\030\007 \001(\005\"\351\001\n\022ProjectInformation\022C\n\013con" +
+      "inor\030\007 \001(\005\"\373\001\n\022ProjectInformation\022C\n\013con" +
       "trollers\030\001 \001(\0132..org.roylance.yaclib.All" +
       "ControllerDependencies\0228\n\017main_dependenc" +
       "y\030\002 \001(\0132\037.org.roylance.yaclib.Dependency" +
       "\022A\n\030third_party_dependencies\030\003 \003(\0132\037.org" +
       ".roylance.yaclib.Dependency\022\021\n\tis_server" +
-      "\030\004 \001(\010\"\366\002\n\020AuxiliaryProject\022:\n\rhandle_be" +
-      "fore\030\001 \001(\0162#.org.roylance.yaclib.Executi" +
-      "onPhase\022<\n\nexecutions\030\002 \003(\0162(.org.roylan" +
-      "ce.yaclib.CustomExecutionType\022:\n\021from_de",
-      "pendencies\030\003 \003(\0132\037.org.roylance.yaclib.D" +
-      "ependency\022:\n\021target_dependency\030\004 \001(\0132\037.o" +
-      "rg.roylance.yaclib.Dependency\0228\n\017to_depe" +
-      "ndencies\030\005 \003(\0132\037.org.roylance.yaclib.Dep" +
-      "endency\0226\n\014project_type\030\006 \001(\0162 .org.royl" +
-      "ance.yaclib.ProjectType\"L\n\021AuxiliaryProj" +
-      "ects\0227\n\010projects\030\001 \003(\0132%.org.roylance.ya" +
-      "clib.AuxiliaryProject\"E\n\007Service\022\014\n\004name" +
-      "\030\001 \001(\t\022,\n\007actions\030\002 \003(\0132\033.org.roylance.y" +
-      "aclib.Action*\270\001\n\nClientType\022\022\n\016CLIENT_AN",
-      "DROID\020\000\022\026\n\022CLIENT_IOS_XAMARIN\020\001\022\021\n\rCLIEN" +
-      "T_LIBGDX\020\002\022\021\n\rCLIENT_JAVAFX\020\003\022\025\n\021CLIENT_" +
-      "TYPESCRIPT\020\004\022\023\n\017CLIENT_CLI_JAVA\020\005\022\025\n\021CLI" +
-      "ENT_CLI_PYTHON\020\006\022\025\n\021CLIENT_CLI_CSHARP\020\007*" +
-      "B\n\nServerType\022\031\n\025MAVEN_TOMCAT_EMBEDDED\020\000" +
-      "\022\031\n\025GRADLE_JETTY_EMBEDDED\020\001*\232\001\n\013ProjectT" +
-      "ype\022\027\n\023GRADLE_PROJECT_TYPE\020\000\022\026\n\022MAVEN_PR" +
-      "OJECT_TYPE\020\001\022\024\n\020NPM_PROJECT_TYPE\020\002\022\025\n\021GU" +
-      "LP_PROJECT_TYPE\020\003\022\027\n\023DOTNET_PROJECT_TYPE" +
-      "\020\004\022\024\n\020PIP_PROJECT_TYPE\020\005*\367\001\n\016ExecutionPh",
-      "ase\022\026\n\022DELETE_DIRECTORIES\020\000\022 \n\034GENERATE_" +
-      "CODE_FROM_PROTOBUFS\020\001\022\030\n\024BUILD_PUBLISH_C" +
-      "SHARP\020\002\022\030\n\024BUILD_PUBLISH_PYTHON\020\003\022\035\n\031BUI" +
-      "LD_PUBLISH_JAVA_CLIENT\020\004\022\034\n\030BUILD_PUBLIS" +
-      "H_TYPESCRIPT\020\005\022\033\n\027BUILD_TYPESCRIPT_SERVE" +
-      "R\020\006\022\035\n\031BUILD_PACKAGE_JAVA_SERVER\020\007*\267\001\n\023C" +
-      "ustomExecutionType\022\020\n\014CUSTOM_BUILD\020\000\022\022\n\016" +
-      "CUSTOM_PACKAGE\020\001\022\022\n\016CUSTOM_PUBLISH\020\002\022\034\n\030" +
-      "CUSTOM_INCREMENT_VERSION\020\003\022\036\n\032CUSTOM_UPD" +
-      "ATE_DEPENDENCIES\020\004\022\026\n\022CUSTOM_SET_VERSION",
-      "\020\005\022\020\n\014CUSTOM_CLEAN\020\006*\342\001\n\016RepositoryType\022" +
-      "\013\n\007BINTRAY\020\000\022\017\n\013ARTIFACTORY\020\001\022\t\n\005NPMJS\020\002" +
-      "\022\017\n\013PRIVATE_NPM\020\003\022\t\n\005NUGET\020\004\022\021\n\rPRIVATE_" +
-      "NUGET\020\005\022\007\n\003PIP\020\006\022\017\n\013PRIVATE_PIP\020\007\022\023\n\017PRI" +
-      "VATE_BINTRAY\020\010\022\023\n\017ARTIFACTORY_NPM\020\t\022\010\n\004P" +
-      "YPI\020\n\022\026\n\022ARTIFACTORY_PYTHON\020\013\022\022\n\016STANDAR" +
-      "D_MAVEN\020\014*[\n\016DependencyType\022\014\n\010INTERNAL\020" +
-      "\000\022\010\n\004JAVA\020\001\022\016\n\nTYPESCRIPT\020\002\022\n\n\006CSHARP\020\003\022" +
-      "\t\n\005SWIFT\020\004\022\n\n\006PYTHON\020\005*\271\003\n\rFileExtension" +
-      "\022\n\n\006KT_EXT\020\000\022\014\n\010JAVA_EXT\020\001\022\022\n\016TYPESCRIPT",
-      "_EXT\020\002\022\022\n\016JAVASCRIPT_EXT\020\003\022\r\n\tSWIFT_EXT\020" +
-      "\004\022\013\n\007POM_EXT\020\005\022\013\n\007XML_EXT\020\006\022\014\n\010HTML_EXT\020" +
-      "\007\022\016\n\nGRADLE_EXT\020\010\022\014\n\010JSON_EXT\020\t\022\n\n\006TS_EX" +
-      "T\020\n\022\014\n\010NONE_EXT\020\013\022\013\n\007BAT_EXT\020\014\022\n\n\006JS_EXT" +
-      "\020\r\022\n\n\006CS_EXT\020\016\022\013\n\007SLN_EXT\020\017\022\r\n\tXPROJ_EXT" +
-      "\020\020\022\n\n\006SH_EXT\020\021\022\n\n\006MD_EXT\020\022\022\n\n\006PY_EXT\020\023\022\013" +
-      "\n\007CFG_EXT\020\024\022\022\n\016PROPERTIES_EXT\020\025\022\014\n\010BLOB_" +
-      "EXT\020\026\022\r\n\tPROTO_EXT\020\027\022\r\n\tPLIST_EXT\020\030\022\017\n\013P" +
-      "BXPROJ_EXT\020\031\022\027\n\023XCWORKSPACEDATA_EXT\020\032\022\t\n" +
-      "\005H_EXT\020\033\022\020\n\014XCSCHEME_EXT\020\034*8\n\016FileUpdate",
-      "Type\022\r\n\tOVERWRITE\020\000\022\027\n\023WRITE_IF_NOT_EXIS" +
-      "TS\020\001b\006proto3"
+      "\030\004 \001(\010\022\020\n\010use_json\030\005 \001(\010\"\366\002\n\020AuxiliaryPr" +
+      "oject\022:\n\rhandle_before\030\001 \001(\0162#.org.royla" +
+      "nce.yaclib.ExecutionPhase\022<\n\nexecutions\030" +
+      "\002 \003(\0162(.org.roylance.yaclib.CustomExecut",
+      "ionType\022:\n\021from_dependencies\030\003 \003(\0132\037.org" +
+      ".roylance.yaclib.Dependency\022:\n\021target_de" +
+      "pendency\030\004 \001(\0132\037.org.roylance.yaclib.Dep" +
+      "endency\0228\n\017to_dependencies\030\005 \003(\0132\037.org.r" +
+      "oylance.yaclib.Dependency\0226\n\014project_typ" +
+      "e\030\006 \001(\0162 .org.roylance.yaclib.ProjectTyp" +
+      "e\"L\n\021AuxiliaryProjects\0227\n\010projects\030\001 \003(\013" +
+      "2%.org.roylance.yaclib.AuxiliaryProject\"" +
+      "E\n\007Service\022\014\n\004name\030\001 \001(\t\022,\n\007actions\030\002 \003(" +
+      "\0132\033.org.roylance.yaclib.Action*\270\001\n\nClien",
+      "tType\022\022\n\016CLIENT_ANDROID\020\000\022\026\n\022CLIENT_IOS_" +
+      "XAMARIN\020\001\022\021\n\rCLIENT_LIBGDX\020\002\022\021\n\rCLIENT_J" +
+      "AVAFX\020\003\022\025\n\021CLIENT_TYPESCRIPT\020\004\022\023\n\017CLIENT" +
+      "_CLI_JAVA\020\005\022\025\n\021CLIENT_CLI_PYTHON\020\006\022\025\n\021CL" +
+      "IENT_CLI_CSHARP\020\007*B\n\nServerType\022\031\n\025MAVEN" +
+      "_TOMCAT_EMBEDDED\020\000\022\031\n\025GRADLE_JETTY_EMBED" +
+      "DED\020\001*\232\001\n\013ProjectType\022\027\n\023GRADLE_PROJECT_" +
+      "TYPE\020\000\022\026\n\022MAVEN_PROJECT_TYPE\020\001\022\024\n\020NPM_PR" +
+      "OJECT_TYPE\020\002\022\025\n\021GULP_PROJECT_TYPE\020\003\022\027\n\023D" +
+      "OTNET_PROJECT_TYPE\020\004\022\024\n\020PIP_PROJECT_TYPE",
+      "\020\005*\367\001\n\016ExecutionPhase\022\026\n\022DELETE_DIRECTOR" +
+      "IES\020\000\022 \n\034GENERATE_CODE_FROM_PROTOBUFS\020\001\022" +
+      "\030\n\024BUILD_PUBLISH_CSHARP\020\002\022\030\n\024BUILD_PUBLI" +
+      "SH_PYTHON\020\003\022\035\n\031BUILD_PUBLISH_JAVA_CLIENT" +
+      "\020\004\022\034\n\030BUILD_PUBLISH_TYPESCRIPT\020\005\022\033\n\027BUIL" +
+      "D_TYPESCRIPT_SERVER\020\006\022\035\n\031BUILD_PACKAGE_J" +
+      "AVA_SERVER\020\007*\267\001\n\023CustomExecutionType\022\020\n\014" +
+      "CUSTOM_BUILD\020\000\022\022\n\016CUSTOM_PACKAGE\020\001\022\022\n\016CU" +
+      "STOM_PUBLISH\020\002\022\034\n\030CUSTOM_INCREMENT_VERSI" +
+      "ON\020\003\022\036\n\032CUSTOM_UPDATE_DEPENDENCIES\020\004\022\026\n\022",
+      "CUSTOM_SET_VERSION\020\005\022\020\n\014CUSTOM_CLEAN\020\006*\342" +
+      "\001\n\016RepositoryType\022\013\n\007BINTRAY\020\000\022\017\n\013ARTIFA" +
+      "CTORY\020\001\022\t\n\005NPMJS\020\002\022\017\n\013PRIVATE_NPM\020\003\022\t\n\005N" +
+      "UGET\020\004\022\021\n\rPRIVATE_NUGET\020\005\022\007\n\003PIP\020\006\022\017\n\013PR" +
+      "IVATE_PIP\020\007\022\023\n\017PRIVATE_BINTRAY\020\010\022\023\n\017ARTI" +
+      "FACTORY_NPM\020\t\022\010\n\004PYPI\020\n\022\026\n\022ARTIFACTORY_P" +
+      "YTHON\020\013\022\022\n\016STANDARD_MAVEN\020\014*[\n\016Dependenc" +
+      "yType\022\014\n\010INTERNAL\020\000\022\010\n\004JAVA\020\001\022\016\n\nTYPESCR" +
+      "IPT\020\002\022\n\n\006CSHARP\020\003\022\t\n\005SWIFT\020\004\022\n\n\006PYTHON\020\005" +
+      "*\271\003\n\rFileExtension\022\n\n\006KT_EXT\020\000\022\014\n\010JAVA_E",
+      "XT\020\001\022\022\n\016TYPESCRIPT_EXT\020\002\022\022\n\016JAVASCRIPT_E" +
+      "XT\020\003\022\r\n\tSWIFT_EXT\020\004\022\013\n\007POM_EXT\020\005\022\013\n\007XML_" +
+      "EXT\020\006\022\014\n\010HTML_EXT\020\007\022\016\n\nGRADLE_EXT\020\010\022\014\n\010J" +
+      "SON_EXT\020\t\022\n\n\006TS_EXT\020\n\022\014\n\010NONE_EXT\020\013\022\013\n\007B" +
+      "AT_EXT\020\014\022\n\n\006JS_EXT\020\r\022\n\n\006CS_EXT\020\016\022\013\n\007SLN_" +
+      "EXT\020\017\022\r\n\tXPROJ_EXT\020\020\022\n\n\006SH_EXT\020\021\022\n\n\006MD_E" +
+      "XT\020\022\022\n\n\006PY_EXT\020\023\022\013\n\007CFG_EXT\020\024\022\022\n\016PROPERT" +
+      "IES_EXT\020\025\022\014\n\010BLOB_EXT\020\026\022\r\n\tPROTO_EXT\020\027\022\r" +
+      "\n\tPLIST_EXT\020\030\022\017\n\013PBXPROJ_EXT\020\031\022\027\n\023XCWORK" +
+      "SPACEDATA_EXT\020\032\022\t\n\005H_EXT\020\033\022\020\n\014XCSCHEME_E",
+      "XT\020\034*8\n\016FileUpdateType\022\r\n\tOVERWRITE\020\000\022\027\n" +
+      "\023WRITE_IF_NOT_EXISTS\020\001b\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -18885,7 +18949,7 @@ public final class YaclibModel {
     internal_static_org_roylance_yaclib_ProjectInformation_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_org_roylance_yaclib_ProjectInformation_descriptor,
-        new java.lang.String[] { "Controllers", "MainDependency", "ThirdPartyDependencies", "IsServer", });
+        new java.lang.String[] { "Controllers", "MainDependency", "ThirdPartyDependencies", "IsServer", "UseJson", });
     internal_static_org_roylance_yaclib_AuxiliaryProject_descriptor =
       getDescriptor().getMessageTypes().get(12);
     internal_static_org_roylance_yaclib_AuxiliaryProject_fieldAccessorTable = new

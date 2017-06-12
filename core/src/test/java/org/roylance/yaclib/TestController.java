@@ -19,41 +19,41 @@ public final class TestController {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>optional .org.roylance.yaclib.UITestRequest request = 1;</code>
+     * <code>.org.roylance.yaclib.UITestRequest request = 1;</code>
      */
     boolean hasRequest();
     /**
-     * <code>optional .org.roylance.yaclib.UITestRequest request = 1;</code>
+     * <code>.org.roylance.yaclib.UITestRequest request = 1;</code>
      */
     org.roylance.yaclib.TestModel.UITestRequest getRequest();
     /**
-     * <code>optional .org.roylance.yaclib.UITestRequest request = 1;</code>
+     * <code>.org.roylance.yaclib.UITestRequest request = 1;</code>
      */
     org.roylance.yaclib.TestModel.UITestRequestOrBuilder getRequestOrBuilder();
 
     /**
-     * <code>optional .org.roylance.yaclib.UIRandomFiller filler = 2;</code>
+     * <code>.org.roylance.yaclib.UIRandomFiller filler = 2;</code>
      */
     boolean hasFiller();
     /**
-     * <code>optional .org.roylance.yaclib.UIRandomFiller filler = 2;</code>
+     * <code>.org.roylance.yaclib.UIRandomFiller filler = 2;</code>
      */
     org.roylance.yaclib.TestModel.UIRandomFiller getFiller();
     /**
-     * <code>optional .org.roylance.yaclib.UIRandomFiller filler = 2;</code>
+     * <code>.org.roylance.yaclib.UIRandomFiller filler = 2;</code>
      */
     org.roylance.yaclib.TestModel.UIRandomFillerOrBuilder getFillerOrBuilder();
 
     /**
-     * <code>optional .org.roylance.yaclib.UITestResponse response = 3;</code>
+     * <code>.org.roylance.yaclib.UITestResponse response = 3;</code>
      */
     boolean hasResponse();
     /**
-     * <code>optional .org.roylance.yaclib.UITestResponse response = 3;</code>
+     * <code>.org.roylance.yaclib.UITestResponse response = 3;</code>
      */
     org.roylance.yaclib.TestModel.UITestResponse getResponse();
     /**
-     * <code>optional .org.roylance.yaclib.UITestResponse response = 3;</code>
+     * <code>.org.roylance.yaclib.UITestResponse response = 3;</code>
      */
     org.roylance.yaclib.TestModel.UITestResponseOrBuilder getResponseOrBuilder();
   }
@@ -161,19 +161,19 @@ public final class TestController {
     public static final int REQUEST_FIELD_NUMBER = 1;
     private org.roylance.yaclib.TestModel.UITestRequest request_;
     /**
-     * <code>optional .org.roylance.yaclib.UITestRequest request = 1;</code>
+     * <code>.org.roylance.yaclib.UITestRequest request = 1;</code>
      */
     public boolean hasRequest() {
       return request_ != null;
     }
     /**
-     * <code>optional .org.roylance.yaclib.UITestRequest request = 1;</code>
+     * <code>.org.roylance.yaclib.UITestRequest request = 1;</code>
      */
     public org.roylance.yaclib.TestModel.UITestRequest getRequest() {
       return request_ == null ? org.roylance.yaclib.TestModel.UITestRequest.getDefaultInstance() : request_;
     }
     /**
-     * <code>optional .org.roylance.yaclib.UITestRequest request = 1;</code>
+     * <code>.org.roylance.yaclib.UITestRequest request = 1;</code>
      */
     public org.roylance.yaclib.TestModel.UITestRequestOrBuilder getRequestOrBuilder() {
       return getRequest();
@@ -182,19 +182,19 @@ public final class TestController {
     public static final int FILLER_FIELD_NUMBER = 2;
     private org.roylance.yaclib.TestModel.UIRandomFiller filler_;
     /**
-     * <code>optional .org.roylance.yaclib.UIRandomFiller filler = 2;</code>
+     * <code>.org.roylance.yaclib.UIRandomFiller filler = 2;</code>
      */
     public boolean hasFiller() {
       return filler_ != null;
     }
     /**
-     * <code>optional .org.roylance.yaclib.UIRandomFiller filler = 2;</code>
+     * <code>.org.roylance.yaclib.UIRandomFiller filler = 2;</code>
      */
     public org.roylance.yaclib.TestModel.UIRandomFiller getFiller() {
       return filler_ == null ? org.roylance.yaclib.TestModel.UIRandomFiller.getDefaultInstance() : filler_;
     }
     /**
-     * <code>optional .org.roylance.yaclib.UIRandomFiller filler = 2;</code>
+     * <code>.org.roylance.yaclib.UIRandomFiller filler = 2;</code>
      */
     public org.roylance.yaclib.TestModel.UIRandomFillerOrBuilder getFillerOrBuilder() {
       return getFiller();
@@ -203,19 +203,19 @@ public final class TestController {
     public static final int RESPONSE_FIELD_NUMBER = 3;
     private org.roylance.yaclib.TestModel.UITestResponse response_;
     /**
-     * <code>optional .org.roylance.yaclib.UITestResponse response = 3;</code>
+     * <code>.org.roylance.yaclib.UITestResponse response = 3;</code>
      */
     public boolean hasResponse() {
       return response_ != null;
     }
     /**
-     * <code>optional .org.roylance.yaclib.UITestResponse response = 3;</code>
+     * <code>.org.roylance.yaclib.UITestResponse response = 3;</code>
      */
     public org.roylance.yaclib.TestModel.UITestResponse getResponse() {
       return response_ == null ? org.roylance.yaclib.TestModel.UITestResponse.getDefaultInstance() : response_;
     }
     /**
-     * <code>optional .org.roylance.yaclib.UITestResponse response = 3;</code>
+     * <code>.org.roylance.yaclib.UITestResponse response = 3;</code>
      */
     public org.roylance.yaclib.TestModel.UITestResponseOrBuilder getResponseOrBuilder() {
       return getResponse();
@@ -301,7 +301,7 @@ public final class TestController {
         return memoizedHashCode;
       }
       int hash = 41;
-      hash = (19 * hash) + getDescriptorForType().hashCode();
+      hash = (19 * hash) + getDescriptor().hashCode();
       if (hasRequest()) {
         hash = (37 * hash) + REQUEST_FIELD_NUMBER;
         hash = (53 * hash) + getRequest().hashCode();
@@ -567,13 +567,13 @@ public final class TestController {
       private com.google.protobuf.SingleFieldBuilderV3<
           org.roylance.yaclib.TestModel.UITestRequest, org.roylance.yaclib.TestModel.UITestRequest.Builder, org.roylance.yaclib.TestModel.UITestRequestOrBuilder> requestBuilder_;
       /**
-       * <code>optional .org.roylance.yaclib.UITestRequest request = 1;</code>
+       * <code>.org.roylance.yaclib.UITestRequest request = 1;</code>
        */
       public boolean hasRequest() {
         return requestBuilder_ != null || request_ != null;
       }
       /**
-       * <code>optional .org.roylance.yaclib.UITestRequest request = 1;</code>
+       * <code>.org.roylance.yaclib.UITestRequest request = 1;</code>
        */
       public org.roylance.yaclib.TestModel.UITestRequest getRequest() {
         if (requestBuilder_ == null) {
@@ -583,7 +583,7 @@ public final class TestController {
         }
       }
       /**
-       * <code>optional .org.roylance.yaclib.UITestRequest request = 1;</code>
+       * <code>.org.roylance.yaclib.UITestRequest request = 1;</code>
        */
       public Builder setRequest(org.roylance.yaclib.TestModel.UITestRequest value) {
         if (requestBuilder_ == null) {
@@ -599,7 +599,7 @@ public final class TestController {
         return this;
       }
       /**
-       * <code>optional .org.roylance.yaclib.UITestRequest request = 1;</code>
+       * <code>.org.roylance.yaclib.UITestRequest request = 1;</code>
        */
       public Builder setRequest(
           org.roylance.yaclib.TestModel.UITestRequest.Builder builderForValue) {
@@ -613,7 +613,7 @@ public final class TestController {
         return this;
       }
       /**
-       * <code>optional .org.roylance.yaclib.UITestRequest request = 1;</code>
+       * <code>.org.roylance.yaclib.UITestRequest request = 1;</code>
        */
       public Builder mergeRequest(org.roylance.yaclib.TestModel.UITestRequest value) {
         if (requestBuilder_ == null) {
@@ -631,7 +631,7 @@ public final class TestController {
         return this;
       }
       /**
-       * <code>optional .org.roylance.yaclib.UITestRequest request = 1;</code>
+       * <code>.org.roylance.yaclib.UITestRequest request = 1;</code>
        */
       public Builder clearRequest() {
         if (requestBuilder_ == null) {
@@ -645,7 +645,7 @@ public final class TestController {
         return this;
       }
       /**
-       * <code>optional .org.roylance.yaclib.UITestRequest request = 1;</code>
+       * <code>.org.roylance.yaclib.UITestRequest request = 1;</code>
        */
       public org.roylance.yaclib.TestModel.UITestRequest.Builder getRequestBuilder() {
         
@@ -653,7 +653,7 @@ public final class TestController {
         return getRequestFieldBuilder().getBuilder();
       }
       /**
-       * <code>optional .org.roylance.yaclib.UITestRequest request = 1;</code>
+       * <code>.org.roylance.yaclib.UITestRequest request = 1;</code>
        */
       public org.roylance.yaclib.TestModel.UITestRequestOrBuilder getRequestOrBuilder() {
         if (requestBuilder_ != null) {
@@ -664,7 +664,7 @@ public final class TestController {
         }
       }
       /**
-       * <code>optional .org.roylance.yaclib.UITestRequest request = 1;</code>
+       * <code>.org.roylance.yaclib.UITestRequest request = 1;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           org.roylance.yaclib.TestModel.UITestRequest, org.roylance.yaclib.TestModel.UITestRequest.Builder, org.roylance.yaclib.TestModel.UITestRequestOrBuilder> 
@@ -684,13 +684,13 @@ public final class TestController {
       private com.google.protobuf.SingleFieldBuilderV3<
           org.roylance.yaclib.TestModel.UIRandomFiller, org.roylance.yaclib.TestModel.UIRandomFiller.Builder, org.roylance.yaclib.TestModel.UIRandomFillerOrBuilder> fillerBuilder_;
       /**
-       * <code>optional .org.roylance.yaclib.UIRandomFiller filler = 2;</code>
+       * <code>.org.roylance.yaclib.UIRandomFiller filler = 2;</code>
        */
       public boolean hasFiller() {
         return fillerBuilder_ != null || filler_ != null;
       }
       /**
-       * <code>optional .org.roylance.yaclib.UIRandomFiller filler = 2;</code>
+       * <code>.org.roylance.yaclib.UIRandomFiller filler = 2;</code>
        */
       public org.roylance.yaclib.TestModel.UIRandomFiller getFiller() {
         if (fillerBuilder_ == null) {
@@ -700,7 +700,7 @@ public final class TestController {
         }
       }
       /**
-       * <code>optional .org.roylance.yaclib.UIRandomFiller filler = 2;</code>
+       * <code>.org.roylance.yaclib.UIRandomFiller filler = 2;</code>
        */
       public Builder setFiller(org.roylance.yaclib.TestModel.UIRandomFiller value) {
         if (fillerBuilder_ == null) {
@@ -716,7 +716,7 @@ public final class TestController {
         return this;
       }
       /**
-       * <code>optional .org.roylance.yaclib.UIRandomFiller filler = 2;</code>
+       * <code>.org.roylance.yaclib.UIRandomFiller filler = 2;</code>
        */
       public Builder setFiller(
           org.roylance.yaclib.TestModel.UIRandomFiller.Builder builderForValue) {
@@ -730,7 +730,7 @@ public final class TestController {
         return this;
       }
       /**
-       * <code>optional .org.roylance.yaclib.UIRandomFiller filler = 2;</code>
+       * <code>.org.roylance.yaclib.UIRandomFiller filler = 2;</code>
        */
       public Builder mergeFiller(org.roylance.yaclib.TestModel.UIRandomFiller value) {
         if (fillerBuilder_ == null) {
@@ -748,7 +748,7 @@ public final class TestController {
         return this;
       }
       /**
-       * <code>optional .org.roylance.yaclib.UIRandomFiller filler = 2;</code>
+       * <code>.org.roylance.yaclib.UIRandomFiller filler = 2;</code>
        */
       public Builder clearFiller() {
         if (fillerBuilder_ == null) {
@@ -762,7 +762,7 @@ public final class TestController {
         return this;
       }
       /**
-       * <code>optional .org.roylance.yaclib.UIRandomFiller filler = 2;</code>
+       * <code>.org.roylance.yaclib.UIRandomFiller filler = 2;</code>
        */
       public org.roylance.yaclib.TestModel.UIRandomFiller.Builder getFillerBuilder() {
         
@@ -770,7 +770,7 @@ public final class TestController {
         return getFillerFieldBuilder().getBuilder();
       }
       /**
-       * <code>optional .org.roylance.yaclib.UIRandomFiller filler = 2;</code>
+       * <code>.org.roylance.yaclib.UIRandomFiller filler = 2;</code>
        */
       public org.roylance.yaclib.TestModel.UIRandomFillerOrBuilder getFillerOrBuilder() {
         if (fillerBuilder_ != null) {
@@ -781,7 +781,7 @@ public final class TestController {
         }
       }
       /**
-       * <code>optional .org.roylance.yaclib.UIRandomFiller filler = 2;</code>
+       * <code>.org.roylance.yaclib.UIRandomFiller filler = 2;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           org.roylance.yaclib.TestModel.UIRandomFiller, org.roylance.yaclib.TestModel.UIRandomFiller.Builder, org.roylance.yaclib.TestModel.UIRandomFillerOrBuilder> 
@@ -801,13 +801,13 @@ public final class TestController {
       private com.google.protobuf.SingleFieldBuilderV3<
           org.roylance.yaclib.TestModel.UITestResponse, org.roylance.yaclib.TestModel.UITestResponse.Builder, org.roylance.yaclib.TestModel.UITestResponseOrBuilder> responseBuilder_;
       /**
-       * <code>optional .org.roylance.yaclib.UITestResponse response = 3;</code>
+       * <code>.org.roylance.yaclib.UITestResponse response = 3;</code>
        */
       public boolean hasResponse() {
         return responseBuilder_ != null || response_ != null;
       }
       /**
-       * <code>optional .org.roylance.yaclib.UITestResponse response = 3;</code>
+       * <code>.org.roylance.yaclib.UITestResponse response = 3;</code>
        */
       public org.roylance.yaclib.TestModel.UITestResponse getResponse() {
         if (responseBuilder_ == null) {
@@ -817,7 +817,7 @@ public final class TestController {
         }
       }
       /**
-       * <code>optional .org.roylance.yaclib.UITestResponse response = 3;</code>
+       * <code>.org.roylance.yaclib.UITestResponse response = 3;</code>
        */
       public Builder setResponse(org.roylance.yaclib.TestModel.UITestResponse value) {
         if (responseBuilder_ == null) {
@@ -833,7 +833,7 @@ public final class TestController {
         return this;
       }
       /**
-       * <code>optional .org.roylance.yaclib.UITestResponse response = 3;</code>
+       * <code>.org.roylance.yaclib.UITestResponse response = 3;</code>
        */
       public Builder setResponse(
           org.roylance.yaclib.TestModel.UITestResponse.Builder builderForValue) {
@@ -847,7 +847,7 @@ public final class TestController {
         return this;
       }
       /**
-       * <code>optional .org.roylance.yaclib.UITestResponse response = 3;</code>
+       * <code>.org.roylance.yaclib.UITestResponse response = 3;</code>
        */
       public Builder mergeResponse(org.roylance.yaclib.TestModel.UITestResponse value) {
         if (responseBuilder_ == null) {
@@ -865,7 +865,7 @@ public final class TestController {
         return this;
       }
       /**
-       * <code>optional .org.roylance.yaclib.UITestResponse response = 3;</code>
+       * <code>.org.roylance.yaclib.UITestResponse response = 3;</code>
        */
       public Builder clearResponse() {
         if (responseBuilder_ == null) {
@@ -879,7 +879,7 @@ public final class TestController {
         return this;
       }
       /**
-       * <code>optional .org.roylance.yaclib.UITestResponse response = 3;</code>
+       * <code>.org.roylance.yaclib.UITestResponse response = 3;</code>
        */
       public org.roylance.yaclib.TestModel.UITestResponse.Builder getResponseBuilder() {
         
@@ -887,7 +887,7 @@ public final class TestController {
         return getResponseFieldBuilder().getBuilder();
       }
       /**
-       * <code>optional .org.roylance.yaclib.UITestResponse response = 3;</code>
+       * <code>.org.roylance.yaclib.UITestResponse response = 3;</code>
        */
       public org.roylance.yaclib.TestModel.UITestResponseOrBuilder getResponseOrBuilder() {
         if (responseBuilder_ != null) {
@@ -898,7 +898,7 @@ public final class TestController {
         }
       }
       /**
-       * <code>optional .org.roylance.yaclib.UITestResponse response = 3;</code>
+       * <code>.org.roylance.yaclib.UITestResponse response = 3;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           org.roylance.yaclib.TestModel.UITestResponse, org.roylance.yaclib.TestModel.UITestResponse.Builder, org.roylance.yaclib.TestModel.UITestResponseOrBuilder> 
@@ -967,28 +967,28 @@ public final class TestController {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>optional .org.roylance.yaclib.UITestRequest request = 1;</code>
+     * <code>.org.roylance.yaclib.UITestRequest request = 1;</code>
      */
     boolean hasRequest();
     /**
-     * <code>optional .org.roylance.yaclib.UITestRequest request = 1;</code>
+     * <code>.org.roylance.yaclib.UITestRequest request = 1;</code>
      */
     org.roylance.yaclib.TestModel.UITestRequest getRequest();
     /**
-     * <code>optional .org.roylance.yaclib.UITestRequest request = 1;</code>
+     * <code>.org.roylance.yaclib.UITestRequest request = 1;</code>
      */
     org.roylance.yaclib.TestModel.UITestRequestOrBuilder getRequestOrBuilder();
 
     /**
-     * <code>optional .org.roylance.yaclib.UITestResponse response = 2;</code>
+     * <code>.org.roylance.yaclib.UITestResponse response = 2;</code>
      */
     boolean hasResponse();
     /**
-     * <code>optional .org.roylance.yaclib.UITestResponse response = 2;</code>
+     * <code>.org.roylance.yaclib.UITestResponse response = 2;</code>
      */
     org.roylance.yaclib.TestModel.UITestResponse getResponse();
     /**
-     * <code>optional .org.roylance.yaclib.UITestResponse response = 2;</code>
+     * <code>.org.roylance.yaclib.UITestResponse response = 2;</code>
      */
     org.roylance.yaclib.TestModel.UITestResponseOrBuilder getResponseOrBuilder();
   }
@@ -1083,19 +1083,19 @@ public final class TestController {
     public static final int REQUEST_FIELD_NUMBER = 1;
     private org.roylance.yaclib.TestModel.UITestRequest request_;
     /**
-     * <code>optional .org.roylance.yaclib.UITestRequest request = 1;</code>
+     * <code>.org.roylance.yaclib.UITestRequest request = 1;</code>
      */
     public boolean hasRequest() {
       return request_ != null;
     }
     /**
-     * <code>optional .org.roylance.yaclib.UITestRequest request = 1;</code>
+     * <code>.org.roylance.yaclib.UITestRequest request = 1;</code>
      */
     public org.roylance.yaclib.TestModel.UITestRequest getRequest() {
       return request_ == null ? org.roylance.yaclib.TestModel.UITestRequest.getDefaultInstance() : request_;
     }
     /**
-     * <code>optional .org.roylance.yaclib.UITestRequest request = 1;</code>
+     * <code>.org.roylance.yaclib.UITestRequest request = 1;</code>
      */
     public org.roylance.yaclib.TestModel.UITestRequestOrBuilder getRequestOrBuilder() {
       return getRequest();
@@ -1104,19 +1104,19 @@ public final class TestController {
     public static final int RESPONSE_FIELD_NUMBER = 2;
     private org.roylance.yaclib.TestModel.UITestResponse response_;
     /**
-     * <code>optional .org.roylance.yaclib.UITestResponse response = 2;</code>
+     * <code>.org.roylance.yaclib.UITestResponse response = 2;</code>
      */
     public boolean hasResponse() {
       return response_ != null;
     }
     /**
-     * <code>optional .org.roylance.yaclib.UITestResponse response = 2;</code>
+     * <code>.org.roylance.yaclib.UITestResponse response = 2;</code>
      */
     public org.roylance.yaclib.TestModel.UITestResponse getResponse() {
       return response_ == null ? org.roylance.yaclib.TestModel.UITestResponse.getDefaultInstance() : response_;
     }
     /**
-     * <code>optional .org.roylance.yaclib.UITestResponse response = 2;</code>
+     * <code>.org.roylance.yaclib.UITestResponse response = 2;</code>
      */
     public org.roylance.yaclib.TestModel.UITestResponseOrBuilder getResponseOrBuilder() {
       return getResponse();
@@ -1190,7 +1190,7 @@ public final class TestController {
         return memoizedHashCode;
       }
       int hash = 41;
-      hash = (19 * hash) + getDescriptorForType().hashCode();
+      hash = (19 * hash) + getDescriptor().hashCode();
       if (hasRequest()) {
         hash = (37 * hash) + REQUEST_FIELD_NUMBER;
         hash = (53 * hash) + getRequest().hashCode();
@@ -1438,13 +1438,13 @@ public final class TestController {
       private com.google.protobuf.SingleFieldBuilderV3<
           org.roylance.yaclib.TestModel.UITestRequest, org.roylance.yaclib.TestModel.UITestRequest.Builder, org.roylance.yaclib.TestModel.UITestRequestOrBuilder> requestBuilder_;
       /**
-       * <code>optional .org.roylance.yaclib.UITestRequest request = 1;</code>
+       * <code>.org.roylance.yaclib.UITestRequest request = 1;</code>
        */
       public boolean hasRequest() {
         return requestBuilder_ != null || request_ != null;
       }
       /**
-       * <code>optional .org.roylance.yaclib.UITestRequest request = 1;</code>
+       * <code>.org.roylance.yaclib.UITestRequest request = 1;</code>
        */
       public org.roylance.yaclib.TestModel.UITestRequest getRequest() {
         if (requestBuilder_ == null) {
@@ -1454,7 +1454,7 @@ public final class TestController {
         }
       }
       /**
-       * <code>optional .org.roylance.yaclib.UITestRequest request = 1;</code>
+       * <code>.org.roylance.yaclib.UITestRequest request = 1;</code>
        */
       public Builder setRequest(org.roylance.yaclib.TestModel.UITestRequest value) {
         if (requestBuilder_ == null) {
@@ -1470,7 +1470,7 @@ public final class TestController {
         return this;
       }
       /**
-       * <code>optional .org.roylance.yaclib.UITestRequest request = 1;</code>
+       * <code>.org.roylance.yaclib.UITestRequest request = 1;</code>
        */
       public Builder setRequest(
           org.roylance.yaclib.TestModel.UITestRequest.Builder builderForValue) {
@@ -1484,7 +1484,7 @@ public final class TestController {
         return this;
       }
       /**
-       * <code>optional .org.roylance.yaclib.UITestRequest request = 1;</code>
+       * <code>.org.roylance.yaclib.UITestRequest request = 1;</code>
        */
       public Builder mergeRequest(org.roylance.yaclib.TestModel.UITestRequest value) {
         if (requestBuilder_ == null) {
@@ -1502,7 +1502,7 @@ public final class TestController {
         return this;
       }
       /**
-       * <code>optional .org.roylance.yaclib.UITestRequest request = 1;</code>
+       * <code>.org.roylance.yaclib.UITestRequest request = 1;</code>
        */
       public Builder clearRequest() {
         if (requestBuilder_ == null) {
@@ -1516,7 +1516,7 @@ public final class TestController {
         return this;
       }
       /**
-       * <code>optional .org.roylance.yaclib.UITestRequest request = 1;</code>
+       * <code>.org.roylance.yaclib.UITestRequest request = 1;</code>
        */
       public org.roylance.yaclib.TestModel.UITestRequest.Builder getRequestBuilder() {
         
@@ -1524,7 +1524,7 @@ public final class TestController {
         return getRequestFieldBuilder().getBuilder();
       }
       /**
-       * <code>optional .org.roylance.yaclib.UITestRequest request = 1;</code>
+       * <code>.org.roylance.yaclib.UITestRequest request = 1;</code>
        */
       public org.roylance.yaclib.TestModel.UITestRequestOrBuilder getRequestOrBuilder() {
         if (requestBuilder_ != null) {
@@ -1535,7 +1535,7 @@ public final class TestController {
         }
       }
       /**
-       * <code>optional .org.roylance.yaclib.UITestRequest request = 1;</code>
+       * <code>.org.roylance.yaclib.UITestRequest request = 1;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           org.roylance.yaclib.TestModel.UITestRequest, org.roylance.yaclib.TestModel.UITestRequest.Builder, org.roylance.yaclib.TestModel.UITestRequestOrBuilder> 
@@ -1555,13 +1555,13 @@ public final class TestController {
       private com.google.protobuf.SingleFieldBuilderV3<
           org.roylance.yaclib.TestModel.UITestResponse, org.roylance.yaclib.TestModel.UITestResponse.Builder, org.roylance.yaclib.TestModel.UITestResponseOrBuilder> responseBuilder_;
       /**
-       * <code>optional .org.roylance.yaclib.UITestResponse response = 2;</code>
+       * <code>.org.roylance.yaclib.UITestResponse response = 2;</code>
        */
       public boolean hasResponse() {
         return responseBuilder_ != null || response_ != null;
       }
       /**
-       * <code>optional .org.roylance.yaclib.UITestResponse response = 2;</code>
+       * <code>.org.roylance.yaclib.UITestResponse response = 2;</code>
        */
       public org.roylance.yaclib.TestModel.UITestResponse getResponse() {
         if (responseBuilder_ == null) {
@@ -1571,7 +1571,7 @@ public final class TestController {
         }
       }
       /**
-       * <code>optional .org.roylance.yaclib.UITestResponse response = 2;</code>
+       * <code>.org.roylance.yaclib.UITestResponse response = 2;</code>
        */
       public Builder setResponse(org.roylance.yaclib.TestModel.UITestResponse value) {
         if (responseBuilder_ == null) {
@@ -1587,7 +1587,7 @@ public final class TestController {
         return this;
       }
       /**
-       * <code>optional .org.roylance.yaclib.UITestResponse response = 2;</code>
+       * <code>.org.roylance.yaclib.UITestResponse response = 2;</code>
        */
       public Builder setResponse(
           org.roylance.yaclib.TestModel.UITestResponse.Builder builderForValue) {
@@ -1601,7 +1601,7 @@ public final class TestController {
         return this;
       }
       /**
-       * <code>optional .org.roylance.yaclib.UITestResponse response = 2;</code>
+       * <code>.org.roylance.yaclib.UITestResponse response = 2;</code>
        */
       public Builder mergeResponse(org.roylance.yaclib.TestModel.UITestResponse value) {
         if (responseBuilder_ == null) {
@@ -1619,7 +1619,7 @@ public final class TestController {
         return this;
       }
       /**
-       * <code>optional .org.roylance.yaclib.UITestResponse response = 2;</code>
+       * <code>.org.roylance.yaclib.UITestResponse response = 2;</code>
        */
       public Builder clearResponse() {
         if (responseBuilder_ == null) {
@@ -1633,7 +1633,7 @@ public final class TestController {
         return this;
       }
       /**
-       * <code>optional .org.roylance.yaclib.UITestResponse response = 2;</code>
+       * <code>.org.roylance.yaclib.UITestResponse response = 2;</code>
        */
       public org.roylance.yaclib.TestModel.UITestResponse.Builder getResponseBuilder() {
         
@@ -1641,7 +1641,7 @@ public final class TestController {
         return getResponseFieldBuilder().getBuilder();
       }
       /**
-       * <code>optional .org.roylance.yaclib.UITestResponse response = 2;</code>
+       * <code>.org.roylance.yaclib.UITestResponse response = 2;</code>
        */
       public org.roylance.yaclib.TestModel.UITestResponseOrBuilder getResponseOrBuilder() {
         if (responseBuilder_ != null) {
@@ -1652,7 +1652,7 @@ public final class TestController {
         }
       }
       /**
-       * <code>optional .org.roylance.yaclib.UITestResponse response = 2;</code>
+       * <code>.org.roylance.yaclib.UITestResponse response = 2;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           org.roylance.yaclib.TestModel.UITestResponse, org.roylance.yaclib.TestModel.UITestResponse.Builder, org.roylance.yaclib.TestModel.UITestResponseOrBuilder> 
@@ -1721,28 +1721,28 @@ public final class TestController {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>optional .org.roylance.yaclib.UITestRequest request = 1;</code>
+     * <code>.org.roylance.yaclib.UITestRequest request = 1;</code>
      */
     boolean hasRequest();
     /**
-     * <code>optional .org.roylance.yaclib.UITestRequest request = 1;</code>
+     * <code>.org.roylance.yaclib.UITestRequest request = 1;</code>
      */
     org.roylance.yaclib.TestModel.UITestRequest getRequest();
     /**
-     * <code>optional .org.roylance.yaclib.UITestRequest request = 1;</code>
+     * <code>.org.roylance.yaclib.UITestRequest request = 1;</code>
      */
     org.roylance.yaclib.TestModel.UITestRequestOrBuilder getRequestOrBuilder();
 
     /**
-     * <code>optional .org.roylance.yaclib.UITestResponse response = 2;</code>
+     * <code>.org.roylance.yaclib.UITestResponse response = 2;</code>
      */
     boolean hasResponse();
     /**
-     * <code>optional .org.roylance.yaclib.UITestResponse response = 2;</code>
+     * <code>.org.roylance.yaclib.UITestResponse response = 2;</code>
      */
     org.roylance.yaclib.TestModel.UITestResponse getResponse();
     /**
-     * <code>optional .org.roylance.yaclib.UITestResponse response = 2;</code>
+     * <code>.org.roylance.yaclib.UITestResponse response = 2;</code>
      */
     org.roylance.yaclib.TestModel.UITestResponseOrBuilder getResponseOrBuilder();
   }
@@ -1837,19 +1837,19 @@ public final class TestController {
     public static final int REQUEST_FIELD_NUMBER = 1;
     private org.roylance.yaclib.TestModel.UITestRequest request_;
     /**
-     * <code>optional .org.roylance.yaclib.UITestRequest request = 1;</code>
+     * <code>.org.roylance.yaclib.UITestRequest request = 1;</code>
      */
     public boolean hasRequest() {
       return request_ != null;
     }
     /**
-     * <code>optional .org.roylance.yaclib.UITestRequest request = 1;</code>
+     * <code>.org.roylance.yaclib.UITestRequest request = 1;</code>
      */
     public org.roylance.yaclib.TestModel.UITestRequest getRequest() {
       return request_ == null ? org.roylance.yaclib.TestModel.UITestRequest.getDefaultInstance() : request_;
     }
     /**
-     * <code>optional .org.roylance.yaclib.UITestRequest request = 1;</code>
+     * <code>.org.roylance.yaclib.UITestRequest request = 1;</code>
      */
     public org.roylance.yaclib.TestModel.UITestRequestOrBuilder getRequestOrBuilder() {
       return getRequest();
@@ -1858,19 +1858,19 @@ public final class TestController {
     public static final int RESPONSE_FIELD_NUMBER = 2;
     private org.roylance.yaclib.TestModel.UITestResponse response_;
     /**
-     * <code>optional .org.roylance.yaclib.UITestResponse response = 2;</code>
+     * <code>.org.roylance.yaclib.UITestResponse response = 2;</code>
      */
     public boolean hasResponse() {
       return response_ != null;
     }
     /**
-     * <code>optional .org.roylance.yaclib.UITestResponse response = 2;</code>
+     * <code>.org.roylance.yaclib.UITestResponse response = 2;</code>
      */
     public org.roylance.yaclib.TestModel.UITestResponse getResponse() {
       return response_ == null ? org.roylance.yaclib.TestModel.UITestResponse.getDefaultInstance() : response_;
     }
     /**
-     * <code>optional .org.roylance.yaclib.UITestResponse response = 2;</code>
+     * <code>.org.roylance.yaclib.UITestResponse response = 2;</code>
      */
     public org.roylance.yaclib.TestModel.UITestResponseOrBuilder getResponseOrBuilder() {
       return getResponse();
@@ -1944,7 +1944,7 @@ public final class TestController {
         return memoizedHashCode;
       }
       int hash = 41;
-      hash = (19 * hash) + getDescriptorForType().hashCode();
+      hash = (19 * hash) + getDescriptor().hashCode();
       if (hasRequest()) {
         hash = (37 * hash) + REQUEST_FIELD_NUMBER;
         hash = (53 * hash) + getRequest().hashCode();
@@ -2192,13 +2192,13 @@ public final class TestController {
       private com.google.protobuf.SingleFieldBuilderV3<
           org.roylance.yaclib.TestModel.UITestRequest, org.roylance.yaclib.TestModel.UITestRequest.Builder, org.roylance.yaclib.TestModel.UITestRequestOrBuilder> requestBuilder_;
       /**
-       * <code>optional .org.roylance.yaclib.UITestRequest request = 1;</code>
+       * <code>.org.roylance.yaclib.UITestRequest request = 1;</code>
        */
       public boolean hasRequest() {
         return requestBuilder_ != null || request_ != null;
       }
       /**
-       * <code>optional .org.roylance.yaclib.UITestRequest request = 1;</code>
+       * <code>.org.roylance.yaclib.UITestRequest request = 1;</code>
        */
       public org.roylance.yaclib.TestModel.UITestRequest getRequest() {
         if (requestBuilder_ == null) {
@@ -2208,7 +2208,7 @@ public final class TestController {
         }
       }
       /**
-       * <code>optional .org.roylance.yaclib.UITestRequest request = 1;</code>
+       * <code>.org.roylance.yaclib.UITestRequest request = 1;</code>
        */
       public Builder setRequest(org.roylance.yaclib.TestModel.UITestRequest value) {
         if (requestBuilder_ == null) {
@@ -2224,7 +2224,7 @@ public final class TestController {
         return this;
       }
       /**
-       * <code>optional .org.roylance.yaclib.UITestRequest request = 1;</code>
+       * <code>.org.roylance.yaclib.UITestRequest request = 1;</code>
        */
       public Builder setRequest(
           org.roylance.yaclib.TestModel.UITestRequest.Builder builderForValue) {
@@ -2238,7 +2238,7 @@ public final class TestController {
         return this;
       }
       /**
-       * <code>optional .org.roylance.yaclib.UITestRequest request = 1;</code>
+       * <code>.org.roylance.yaclib.UITestRequest request = 1;</code>
        */
       public Builder mergeRequest(org.roylance.yaclib.TestModel.UITestRequest value) {
         if (requestBuilder_ == null) {
@@ -2256,7 +2256,7 @@ public final class TestController {
         return this;
       }
       /**
-       * <code>optional .org.roylance.yaclib.UITestRequest request = 1;</code>
+       * <code>.org.roylance.yaclib.UITestRequest request = 1;</code>
        */
       public Builder clearRequest() {
         if (requestBuilder_ == null) {
@@ -2270,7 +2270,7 @@ public final class TestController {
         return this;
       }
       /**
-       * <code>optional .org.roylance.yaclib.UITestRequest request = 1;</code>
+       * <code>.org.roylance.yaclib.UITestRequest request = 1;</code>
        */
       public org.roylance.yaclib.TestModel.UITestRequest.Builder getRequestBuilder() {
         
@@ -2278,7 +2278,7 @@ public final class TestController {
         return getRequestFieldBuilder().getBuilder();
       }
       /**
-       * <code>optional .org.roylance.yaclib.UITestRequest request = 1;</code>
+       * <code>.org.roylance.yaclib.UITestRequest request = 1;</code>
        */
       public org.roylance.yaclib.TestModel.UITestRequestOrBuilder getRequestOrBuilder() {
         if (requestBuilder_ != null) {
@@ -2289,7 +2289,7 @@ public final class TestController {
         }
       }
       /**
-       * <code>optional .org.roylance.yaclib.UITestRequest request = 1;</code>
+       * <code>.org.roylance.yaclib.UITestRequest request = 1;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           org.roylance.yaclib.TestModel.UITestRequest, org.roylance.yaclib.TestModel.UITestRequest.Builder, org.roylance.yaclib.TestModel.UITestRequestOrBuilder> 
@@ -2309,13 +2309,13 @@ public final class TestController {
       private com.google.protobuf.SingleFieldBuilderV3<
           org.roylance.yaclib.TestModel.UITestResponse, org.roylance.yaclib.TestModel.UITestResponse.Builder, org.roylance.yaclib.TestModel.UITestResponseOrBuilder> responseBuilder_;
       /**
-       * <code>optional .org.roylance.yaclib.UITestResponse response = 2;</code>
+       * <code>.org.roylance.yaclib.UITestResponse response = 2;</code>
        */
       public boolean hasResponse() {
         return responseBuilder_ != null || response_ != null;
       }
       /**
-       * <code>optional .org.roylance.yaclib.UITestResponse response = 2;</code>
+       * <code>.org.roylance.yaclib.UITestResponse response = 2;</code>
        */
       public org.roylance.yaclib.TestModel.UITestResponse getResponse() {
         if (responseBuilder_ == null) {
@@ -2325,7 +2325,7 @@ public final class TestController {
         }
       }
       /**
-       * <code>optional .org.roylance.yaclib.UITestResponse response = 2;</code>
+       * <code>.org.roylance.yaclib.UITestResponse response = 2;</code>
        */
       public Builder setResponse(org.roylance.yaclib.TestModel.UITestResponse value) {
         if (responseBuilder_ == null) {
@@ -2341,7 +2341,7 @@ public final class TestController {
         return this;
       }
       /**
-       * <code>optional .org.roylance.yaclib.UITestResponse response = 2;</code>
+       * <code>.org.roylance.yaclib.UITestResponse response = 2;</code>
        */
       public Builder setResponse(
           org.roylance.yaclib.TestModel.UITestResponse.Builder builderForValue) {
@@ -2355,7 +2355,7 @@ public final class TestController {
         return this;
       }
       /**
-       * <code>optional .org.roylance.yaclib.UITestResponse response = 2;</code>
+       * <code>.org.roylance.yaclib.UITestResponse response = 2;</code>
        */
       public Builder mergeResponse(org.roylance.yaclib.TestModel.UITestResponse value) {
         if (responseBuilder_ == null) {
@@ -2373,7 +2373,7 @@ public final class TestController {
         return this;
       }
       /**
-       * <code>optional .org.roylance.yaclib.UITestResponse response = 2;</code>
+       * <code>.org.roylance.yaclib.UITestResponse response = 2;</code>
        */
       public Builder clearResponse() {
         if (responseBuilder_ == null) {
@@ -2387,7 +2387,7 @@ public final class TestController {
         return this;
       }
       /**
-       * <code>optional .org.roylance.yaclib.UITestResponse response = 2;</code>
+       * <code>.org.roylance.yaclib.UITestResponse response = 2;</code>
        */
       public org.roylance.yaclib.TestModel.UITestResponse.Builder getResponseBuilder() {
         
@@ -2395,7 +2395,7 @@ public final class TestController {
         return getResponseFieldBuilder().getBuilder();
       }
       /**
-       * <code>optional .org.roylance.yaclib.UITestResponse response = 2;</code>
+       * <code>.org.roylance.yaclib.UITestResponse response = 2;</code>
        */
       public org.roylance.yaclib.TestModel.UITestResponseOrBuilder getResponseOrBuilder() {
         if (responseBuilder_ != null) {
@@ -2406,7 +2406,7 @@ public final class TestController {
         }
       }
       /**
-       * <code>optional .org.roylance.yaclib.UITestResponse response = 2;</code>
+       * <code>.org.roylance.yaclib.UITestResponse response = 2;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           org.roylance.yaclib.TestModel.UITestResponse, org.roylance.yaclib.TestModel.UITestResponse.Builder, org.roylance.yaclib.TestModel.UITestResponseOrBuilder> 
@@ -2475,41 +2475,41 @@ public final class TestController {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>optional .org.roylance.yaclib.PingAction ping = 1;</code>
+     * <code>.org.roylance.yaclib.PingAction ping = 1;</code>
      */
     boolean hasPing();
     /**
-     * <code>optional .org.roylance.yaclib.PingAction ping = 1;</code>
+     * <code>.org.roylance.yaclib.PingAction ping = 1;</code>
      */
     org.roylance.yaclib.TestController.PingAction getPing();
     /**
-     * <code>optional .org.roylance.yaclib.PingAction ping = 1;</code>
+     * <code>.org.roylance.yaclib.PingAction ping = 1;</code>
      */
     org.roylance.yaclib.TestController.PingActionOrBuilder getPingOrBuilder();
 
     /**
-     * <code>optional .org.roylance.yaclib.FirstAction first = 2;</code>
+     * <code>.org.roylance.yaclib.FirstAction first = 2;</code>
      */
     boolean hasFirst();
     /**
-     * <code>optional .org.roylance.yaclib.FirstAction first = 2;</code>
+     * <code>.org.roylance.yaclib.FirstAction first = 2;</code>
      */
     org.roylance.yaclib.TestController.FirstAction getFirst();
     /**
-     * <code>optional .org.roylance.yaclib.FirstAction first = 2;</code>
+     * <code>.org.roylance.yaclib.FirstAction first = 2;</code>
      */
     org.roylance.yaclib.TestController.FirstActionOrBuilder getFirstOrBuilder();
 
     /**
-     * <code>optional .org.roylance.yaclib.SecondAction second = 3;</code>
+     * <code>.org.roylance.yaclib.SecondAction second = 3;</code>
      */
     boolean hasSecond();
     /**
-     * <code>optional .org.roylance.yaclib.SecondAction second = 3;</code>
+     * <code>.org.roylance.yaclib.SecondAction second = 3;</code>
      */
     org.roylance.yaclib.TestController.SecondAction getSecond();
     /**
-     * <code>optional .org.roylance.yaclib.SecondAction second = 3;</code>
+     * <code>.org.roylance.yaclib.SecondAction second = 3;</code>
      */
     org.roylance.yaclib.TestController.SecondActionOrBuilder getSecondOrBuilder();
   }
@@ -2617,19 +2617,19 @@ public final class TestController {
     public static final int PING_FIELD_NUMBER = 1;
     private org.roylance.yaclib.TestController.PingAction ping_;
     /**
-     * <code>optional .org.roylance.yaclib.PingAction ping = 1;</code>
+     * <code>.org.roylance.yaclib.PingAction ping = 1;</code>
      */
     public boolean hasPing() {
       return ping_ != null;
     }
     /**
-     * <code>optional .org.roylance.yaclib.PingAction ping = 1;</code>
+     * <code>.org.roylance.yaclib.PingAction ping = 1;</code>
      */
     public org.roylance.yaclib.TestController.PingAction getPing() {
       return ping_ == null ? org.roylance.yaclib.TestController.PingAction.getDefaultInstance() : ping_;
     }
     /**
-     * <code>optional .org.roylance.yaclib.PingAction ping = 1;</code>
+     * <code>.org.roylance.yaclib.PingAction ping = 1;</code>
      */
     public org.roylance.yaclib.TestController.PingActionOrBuilder getPingOrBuilder() {
       return getPing();
@@ -2638,19 +2638,19 @@ public final class TestController {
     public static final int FIRST_FIELD_NUMBER = 2;
     private org.roylance.yaclib.TestController.FirstAction first_;
     /**
-     * <code>optional .org.roylance.yaclib.FirstAction first = 2;</code>
+     * <code>.org.roylance.yaclib.FirstAction first = 2;</code>
      */
     public boolean hasFirst() {
       return first_ != null;
     }
     /**
-     * <code>optional .org.roylance.yaclib.FirstAction first = 2;</code>
+     * <code>.org.roylance.yaclib.FirstAction first = 2;</code>
      */
     public org.roylance.yaclib.TestController.FirstAction getFirst() {
       return first_ == null ? org.roylance.yaclib.TestController.FirstAction.getDefaultInstance() : first_;
     }
     /**
-     * <code>optional .org.roylance.yaclib.FirstAction first = 2;</code>
+     * <code>.org.roylance.yaclib.FirstAction first = 2;</code>
      */
     public org.roylance.yaclib.TestController.FirstActionOrBuilder getFirstOrBuilder() {
       return getFirst();
@@ -2659,19 +2659,19 @@ public final class TestController {
     public static final int SECOND_FIELD_NUMBER = 3;
     private org.roylance.yaclib.TestController.SecondAction second_;
     /**
-     * <code>optional .org.roylance.yaclib.SecondAction second = 3;</code>
+     * <code>.org.roylance.yaclib.SecondAction second = 3;</code>
      */
     public boolean hasSecond() {
       return second_ != null;
     }
     /**
-     * <code>optional .org.roylance.yaclib.SecondAction second = 3;</code>
+     * <code>.org.roylance.yaclib.SecondAction second = 3;</code>
      */
     public org.roylance.yaclib.TestController.SecondAction getSecond() {
       return second_ == null ? org.roylance.yaclib.TestController.SecondAction.getDefaultInstance() : second_;
     }
     /**
-     * <code>optional .org.roylance.yaclib.SecondAction second = 3;</code>
+     * <code>.org.roylance.yaclib.SecondAction second = 3;</code>
      */
     public org.roylance.yaclib.TestController.SecondActionOrBuilder getSecondOrBuilder() {
       return getSecond();
@@ -2757,7 +2757,7 @@ public final class TestController {
         return memoizedHashCode;
       }
       int hash = 41;
-      hash = (19 * hash) + getDescriptorForType().hashCode();
+      hash = (19 * hash) + getDescriptor().hashCode();
       if (hasPing()) {
         hash = (37 * hash) + PING_FIELD_NUMBER;
         hash = (53 * hash) + getPing().hashCode();
@@ -3023,13 +3023,13 @@ public final class TestController {
       private com.google.protobuf.SingleFieldBuilderV3<
           org.roylance.yaclib.TestController.PingAction, org.roylance.yaclib.TestController.PingAction.Builder, org.roylance.yaclib.TestController.PingActionOrBuilder> pingBuilder_;
       /**
-       * <code>optional .org.roylance.yaclib.PingAction ping = 1;</code>
+       * <code>.org.roylance.yaclib.PingAction ping = 1;</code>
        */
       public boolean hasPing() {
         return pingBuilder_ != null || ping_ != null;
       }
       /**
-       * <code>optional .org.roylance.yaclib.PingAction ping = 1;</code>
+       * <code>.org.roylance.yaclib.PingAction ping = 1;</code>
        */
       public org.roylance.yaclib.TestController.PingAction getPing() {
         if (pingBuilder_ == null) {
@@ -3039,7 +3039,7 @@ public final class TestController {
         }
       }
       /**
-       * <code>optional .org.roylance.yaclib.PingAction ping = 1;</code>
+       * <code>.org.roylance.yaclib.PingAction ping = 1;</code>
        */
       public Builder setPing(org.roylance.yaclib.TestController.PingAction value) {
         if (pingBuilder_ == null) {
@@ -3055,7 +3055,7 @@ public final class TestController {
         return this;
       }
       /**
-       * <code>optional .org.roylance.yaclib.PingAction ping = 1;</code>
+       * <code>.org.roylance.yaclib.PingAction ping = 1;</code>
        */
       public Builder setPing(
           org.roylance.yaclib.TestController.PingAction.Builder builderForValue) {
@@ -3069,7 +3069,7 @@ public final class TestController {
         return this;
       }
       /**
-       * <code>optional .org.roylance.yaclib.PingAction ping = 1;</code>
+       * <code>.org.roylance.yaclib.PingAction ping = 1;</code>
        */
       public Builder mergePing(org.roylance.yaclib.TestController.PingAction value) {
         if (pingBuilder_ == null) {
@@ -3087,7 +3087,7 @@ public final class TestController {
         return this;
       }
       /**
-       * <code>optional .org.roylance.yaclib.PingAction ping = 1;</code>
+       * <code>.org.roylance.yaclib.PingAction ping = 1;</code>
        */
       public Builder clearPing() {
         if (pingBuilder_ == null) {
@@ -3101,7 +3101,7 @@ public final class TestController {
         return this;
       }
       /**
-       * <code>optional .org.roylance.yaclib.PingAction ping = 1;</code>
+       * <code>.org.roylance.yaclib.PingAction ping = 1;</code>
        */
       public org.roylance.yaclib.TestController.PingAction.Builder getPingBuilder() {
         
@@ -3109,7 +3109,7 @@ public final class TestController {
         return getPingFieldBuilder().getBuilder();
       }
       /**
-       * <code>optional .org.roylance.yaclib.PingAction ping = 1;</code>
+       * <code>.org.roylance.yaclib.PingAction ping = 1;</code>
        */
       public org.roylance.yaclib.TestController.PingActionOrBuilder getPingOrBuilder() {
         if (pingBuilder_ != null) {
@@ -3120,7 +3120,7 @@ public final class TestController {
         }
       }
       /**
-       * <code>optional .org.roylance.yaclib.PingAction ping = 1;</code>
+       * <code>.org.roylance.yaclib.PingAction ping = 1;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           org.roylance.yaclib.TestController.PingAction, org.roylance.yaclib.TestController.PingAction.Builder, org.roylance.yaclib.TestController.PingActionOrBuilder> 
@@ -3140,13 +3140,13 @@ public final class TestController {
       private com.google.protobuf.SingleFieldBuilderV3<
           org.roylance.yaclib.TestController.FirstAction, org.roylance.yaclib.TestController.FirstAction.Builder, org.roylance.yaclib.TestController.FirstActionOrBuilder> firstBuilder_;
       /**
-       * <code>optional .org.roylance.yaclib.FirstAction first = 2;</code>
+       * <code>.org.roylance.yaclib.FirstAction first = 2;</code>
        */
       public boolean hasFirst() {
         return firstBuilder_ != null || first_ != null;
       }
       /**
-       * <code>optional .org.roylance.yaclib.FirstAction first = 2;</code>
+       * <code>.org.roylance.yaclib.FirstAction first = 2;</code>
        */
       public org.roylance.yaclib.TestController.FirstAction getFirst() {
         if (firstBuilder_ == null) {
@@ -3156,7 +3156,7 @@ public final class TestController {
         }
       }
       /**
-       * <code>optional .org.roylance.yaclib.FirstAction first = 2;</code>
+       * <code>.org.roylance.yaclib.FirstAction first = 2;</code>
        */
       public Builder setFirst(org.roylance.yaclib.TestController.FirstAction value) {
         if (firstBuilder_ == null) {
@@ -3172,7 +3172,7 @@ public final class TestController {
         return this;
       }
       /**
-       * <code>optional .org.roylance.yaclib.FirstAction first = 2;</code>
+       * <code>.org.roylance.yaclib.FirstAction first = 2;</code>
        */
       public Builder setFirst(
           org.roylance.yaclib.TestController.FirstAction.Builder builderForValue) {
@@ -3186,7 +3186,7 @@ public final class TestController {
         return this;
       }
       /**
-       * <code>optional .org.roylance.yaclib.FirstAction first = 2;</code>
+       * <code>.org.roylance.yaclib.FirstAction first = 2;</code>
        */
       public Builder mergeFirst(org.roylance.yaclib.TestController.FirstAction value) {
         if (firstBuilder_ == null) {
@@ -3204,7 +3204,7 @@ public final class TestController {
         return this;
       }
       /**
-       * <code>optional .org.roylance.yaclib.FirstAction first = 2;</code>
+       * <code>.org.roylance.yaclib.FirstAction first = 2;</code>
        */
       public Builder clearFirst() {
         if (firstBuilder_ == null) {
@@ -3218,7 +3218,7 @@ public final class TestController {
         return this;
       }
       /**
-       * <code>optional .org.roylance.yaclib.FirstAction first = 2;</code>
+       * <code>.org.roylance.yaclib.FirstAction first = 2;</code>
        */
       public org.roylance.yaclib.TestController.FirstAction.Builder getFirstBuilder() {
         
@@ -3226,7 +3226,7 @@ public final class TestController {
         return getFirstFieldBuilder().getBuilder();
       }
       /**
-       * <code>optional .org.roylance.yaclib.FirstAction first = 2;</code>
+       * <code>.org.roylance.yaclib.FirstAction first = 2;</code>
        */
       public org.roylance.yaclib.TestController.FirstActionOrBuilder getFirstOrBuilder() {
         if (firstBuilder_ != null) {
@@ -3237,7 +3237,7 @@ public final class TestController {
         }
       }
       /**
-       * <code>optional .org.roylance.yaclib.FirstAction first = 2;</code>
+       * <code>.org.roylance.yaclib.FirstAction first = 2;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           org.roylance.yaclib.TestController.FirstAction, org.roylance.yaclib.TestController.FirstAction.Builder, org.roylance.yaclib.TestController.FirstActionOrBuilder> 
@@ -3257,13 +3257,13 @@ public final class TestController {
       private com.google.protobuf.SingleFieldBuilderV3<
           org.roylance.yaclib.TestController.SecondAction, org.roylance.yaclib.TestController.SecondAction.Builder, org.roylance.yaclib.TestController.SecondActionOrBuilder> secondBuilder_;
       /**
-       * <code>optional .org.roylance.yaclib.SecondAction second = 3;</code>
+       * <code>.org.roylance.yaclib.SecondAction second = 3;</code>
        */
       public boolean hasSecond() {
         return secondBuilder_ != null || second_ != null;
       }
       /**
-       * <code>optional .org.roylance.yaclib.SecondAction second = 3;</code>
+       * <code>.org.roylance.yaclib.SecondAction second = 3;</code>
        */
       public org.roylance.yaclib.TestController.SecondAction getSecond() {
         if (secondBuilder_ == null) {
@@ -3273,7 +3273,7 @@ public final class TestController {
         }
       }
       /**
-       * <code>optional .org.roylance.yaclib.SecondAction second = 3;</code>
+       * <code>.org.roylance.yaclib.SecondAction second = 3;</code>
        */
       public Builder setSecond(org.roylance.yaclib.TestController.SecondAction value) {
         if (secondBuilder_ == null) {
@@ -3289,7 +3289,7 @@ public final class TestController {
         return this;
       }
       /**
-       * <code>optional .org.roylance.yaclib.SecondAction second = 3;</code>
+       * <code>.org.roylance.yaclib.SecondAction second = 3;</code>
        */
       public Builder setSecond(
           org.roylance.yaclib.TestController.SecondAction.Builder builderForValue) {
@@ -3303,7 +3303,7 @@ public final class TestController {
         return this;
       }
       /**
-       * <code>optional .org.roylance.yaclib.SecondAction second = 3;</code>
+       * <code>.org.roylance.yaclib.SecondAction second = 3;</code>
        */
       public Builder mergeSecond(org.roylance.yaclib.TestController.SecondAction value) {
         if (secondBuilder_ == null) {
@@ -3321,7 +3321,7 @@ public final class TestController {
         return this;
       }
       /**
-       * <code>optional .org.roylance.yaclib.SecondAction second = 3;</code>
+       * <code>.org.roylance.yaclib.SecondAction second = 3;</code>
        */
       public Builder clearSecond() {
         if (secondBuilder_ == null) {
@@ -3335,7 +3335,7 @@ public final class TestController {
         return this;
       }
       /**
-       * <code>optional .org.roylance.yaclib.SecondAction second = 3;</code>
+       * <code>.org.roylance.yaclib.SecondAction second = 3;</code>
        */
       public org.roylance.yaclib.TestController.SecondAction.Builder getSecondBuilder() {
         
@@ -3343,7 +3343,7 @@ public final class TestController {
         return getSecondFieldBuilder().getBuilder();
       }
       /**
-       * <code>optional .org.roylance.yaclib.SecondAction second = 3;</code>
+       * <code>.org.roylance.yaclib.SecondAction second = 3;</code>
        */
       public org.roylance.yaclib.TestController.SecondActionOrBuilder getSecondOrBuilder() {
         if (secondBuilder_ != null) {
@@ -3354,7 +3354,7 @@ public final class TestController {
         }
       }
       /**
-       * <code>optional .org.roylance.yaclib.SecondAction second = 3;</code>
+       * <code>.org.roylance.yaclib.SecondAction second = 3;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           org.roylance.yaclib.TestController.SecondAction, org.roylance.yaclib.TestController.SecondAction.Builder, org.roylance.yaclib.TestController.SecondActionOrBuilder> 

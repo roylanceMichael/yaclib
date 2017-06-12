@@ -19,31 +19,31 @@ public final class TestModel {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>optional string test = 1;</code>
+     * <code>string test = 1;</code>
      */
     java.lang.String getTest();
     /**
-     * <code>optional string test = 1;</code>
+     * <code>string test = 1;</code>
      */
     com.google.protobuf.ByteString
         getTestBytes();
 
     /**
-     * <code>optional string test_2 = 2;</code>
+     * <code>string test_2 = 2;</code>
      */
     java.lang.String getTest2();
     /**
-     * <code>optional string test_2 = 2;</code>
+     * <code>string test_2 = 2;</code>
      */
     com.google.protobuf.ByteString
         getTest2Bytes();
 
     /**
-     * <code>optional string test_3 = 3;</code>
+     * <code>string test_3 = 3;</code>
      */
     java.lang.String getTest3();
     /**
-     * <code>optional string test_3 = 3;</code>
+     * <code>string test_3 = 3;</code>
      */
     com.google.protobuf.ByteString
         getTest3Bytes();
@@ -134,7 +134,7 @@ public final class TestModel {
     public static final int TEST_FIELD_NUMBER = 1;
     private volatile java.lang.Object test_;
     /**
-     * <code>optional string test = 1;</code>
+     * <code>string test = 1;</code>
      */
     public java.lang.String getTest() {
       java.lang.Object ref = test_;
@@ -149,7 +149,7 @@ public final class TestModel {
       }
     }
     /**
-     * <code>optional string test = 1;</code>
+     * <code>string test = 1;</code>
      */
     public com.google.protobuf.ByteString
         getTestBytes() {
@@ -168,7 +168,7 @@ public final class TestModel {
     public static final int TEST_2_FIELD_NUMBER = 2;
     private volatile java.lang.Object test2_;
     /**
-     * <code>optional string test_2 = 2;</code>
+     * <code>string test_2 = 2;</code>
      */
     public java.lang.String getTest2() {
       java.lang.Object ref = test2_;
@@ -183,7 +183,7 @@ public final class TestModel {
       }
     }
     /**
-     * <code>optional string test_2 = 2;</code>
+     * <code>string test_2 = 2;</code>
      */
     public com.google.protobuf.ByteString
         getTest2Bytes() {
@@ -202,7 +202,7 @@ public final class TestModel {
     public static final int TEST_3_FIELD_NUMBER = 3;
     private volatile java.lang.Object test3_;
     /**
-     * <code>optional string test_3 = 3;</code>
+     * <code>string test_3 = 3;</code>
      */
     public java.lang.String getTest3() {
       java.lang.Object ref = test3_;
@@ -217,7 +217,7 @@ public final class TestModel {
       }
     }
     /**
-     * <code>optional string test_3 = 3;</code>
+     * <code>string test_3 = 3;</code>
      */
     public com.google.protobuf.ByteString
         getTest3Bytes() {
@@ -301,7 +301,7 @@ public final class TestModel {
         return memoizedHashCode;
       }
       int hash = 41;
-      hash = (19 * hash) + getDescriptorForType().hashCode();
+      hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + TEST_FIELD_NUMBER;
       hash = (53 * hash) + getTest().hashCode();
       hash = (37 * hash) + TEST_2_FIELD_NUMBER;
@@ -538,7 +538,7 @@ public final class TestModel {
 
       private java.lang.Object test_ = "";
       /**
-       * <code>optional string test = 1;</code>
+       * <code>string test = 1;</code>
        */
       public java.lang.String getTest() {
         java.lang.Object ref = test_;
@@ -553,7 +553,7 @@ public final class TestModel {
         }
       }
       /**
-       * <code>optional string test = 1;</code>
+       * <code>string test = 1;</code>
        */
       public com.google.protobuf.ByteString
           getTestBytes() {
@@ -569,7 +569,7 @@ public final class TestModel {
         }
       }
       /**
-       * <code>optional string test = 1;</code>
+       * <code>string test = 1;</code>
        */
       public Builder setTest(
           java.lang.String value) {
@@ -582,7 +582,7 @@ public final class TestModel {
         return this;
       }
       /**
-       * <code>optional string test = 1;</code>
+       * <code>string test = 1;</code>
        */
       public Builder clearTest() {
         
@@ -591,7 +591,7 @@ public final class TestModel {
         return this;
       }
       /**
-       * <code>optional string test = 1;</code>
+       * <code>string test = 1;</code>
        */
       public Builder setTestBytes(
           com.google.protobuf.ByteString value) {
@@ -607,7 +607,7 @@ public final class TestModel {
 
       private java.lang.Object test2_ = "";
       /**
-       * <code>optional string test_2 = 2;</code>
+       * <code>string test_2 = 2;</code>
        */
       public java.lang.String getTest2() {
         java.lang.Object ref = test2_;
@@ -622,7 +622,7 @@ public final class TestModel {
         }
       }
       /**
-       * <code>optional string test_2 = 2;</code>
+       * <code>string test_2 = 2;</code>
        */
       public com.google.protobuf.ByteString
           getTest2Bytes() {
@@ -638,7 +638,7 @@ public final class TestModel {
         }
       }
       /**
-       * <code>optional string test_2 = 2;</code>
+       * <code>string test_2 = 2;</code>
        */
       public Builder setTest2(
           java.lang.String value) {
@@ -651,7 +651,7 @@ public final class TestModel {
         return this;
       }
       /**
-       * <code>optional string test_2 = 2;</code>
+       * <code>string test_2 = 2;</code>
        */
       public Builder clearTest2() {
         
@@ -660,7 +660,7 @@ public final class TestModel {
         return this;
       }
       /**
-       * <code>optional string test_2 = 2;</code>
+       * <code>string test_2 = 2;</code>
        */
       public Builder setTest2Bytes(
           com.google.protobuf.ByteString value) {
@@ -676,7 +676,7 @@ public final class TestModel {
 
       private java.lang.Object test3_ = "";
       /**
-       * <code>optional string test_3 = 3;</code>
+       * <code>string test_3 = 3;</code>
        */
       public java.lang.String getTest3() {
         java.lang.Object ref = test3_;
@@ -691,7 +691,7 @@ public final class TestModel {
         }
       }
       /**
-       * <code>optional string test_3 = 3;</code>
+       * <code>string test_3 = 3;</code>
        */
       public com.google.protobuf.ByteString
           getTest3Bytes() {
@@ -707,7 +707,7 @@ public final class TestModel {
         }
       }
       /**
-       * <code>optional string test_3 = 3;</code>
+       * <code>string test_3 = 3;</code>
        */
       public Builder setTest3(
           java.lang.String value) {
@@ -720,7 +720,7 @@ public final class TestModel {
         return this;
       }
       /**
-       * <code>optional string test_3 = 3;</code>
+       * <code>string test_3 = 3;</code>
        */
       public Builder clearTest3() {
         
@@ -729,7 +729,7 @@ public final class TestModel {
         return this;
       }
       /**
-       * <code>optional string test_3 = 3;</code>
+       * <code>string test_3 = 3;</code>
        */
       public Builder setTest3Bytes(
           com.google.protobuf.ByteString value) {
@@ -796,21 +796,21 @@ public final class TestModel {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>optional string token = 1;</code>
+     * <code>string token = 1;</code>
      */
     java.lang.String getToken();
     /**
-     * <code>optional string token = 1;</code>
+     * <code>string token = 1;</code>
      */
     com.google.protobuf.ByteString
         getTokenBytes();
 
     /**
-     * <code>optional string context = 2;</code>
+     * <code>string context = 2;</code>
      */
     java.lang.String getContext();
     /**
-     * <code>optional string context = 2;</code>
+     * <code>string context = 2;</code>
      */
     com.google.protobuf.ByteString
         getContextBytes();
@@ -894,7 +894,7 @@ public final class TestModel {
     public static final int TOKEN_FIELD_NUMBER = 1;
     private volatile java.lang.Object token_;
     /**
-     * <code>optional string token = 1;</code>
+     * <code>string token = 1;</code>
      */
     public java.lang.String getToken() {
       java.lang.Object ref = token_;
@@ -909,7 +909,7 @@ public final class TestModel {
       }
     }
     /**
-     * <code>optional string token = 1;</code>
+     * <code>string token = 1;</code>
      */
     public com.google.protobuf.ByteString
         getTokenBytes() {
@@ -928,7 +928,7 @@ public final class TestModel {
     public static final int CONTEXT_FIELD_NUMBER = 2;
     private volatile java.lang.Object context_;
     /**
-     * <code>optional string context = 2;</code>
+     * <code>string context = 2;</code>
      */
     public java.lang.String getContext() {
       java.lang.Object ref = context_;
@@ -943,7 +943,7 @@ public final class TestModel {
       }
     }
     /**
-     * <code>optional string context = 2;</code>
+     * <code>string context = 2;</code>
      */
     public com.google.protobuf.ByteString
         getContextBytes() {
@@ -1019,7 +1019,7 @@ public final class TestModel {
         return memoizedHashCode;
       }
       int hash = 41;
-      hash = (19 * hash) + getDescriptorForType().hashCode();
+      hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + TOKEN_FIELD_NUMBER;
       hash = (53 * hash) + getToken().hashCode();
       hash = (37 * hash) + CONTEXT_FIELD_NUMBER;
@@ -1247,7 +1247,7 @@ public final class TestModel {
 
       private java.lang.Object token_ = "";
       /**
-       * <code>optional string token = 1;</code>
+       * <code>string token = 1;</code>
        */
       public java.lang.String getToken() {
         java.lang.Object ref = token_;
@@ -1262,7 +1262,7 @@ public final class TestModel {
         }
       }
       /**
-       * <code>optional string token = 1;</code>
+       * <code>string token = 1;</code>
        */
       public com.google.protobuf.ByteString
           getTokenBytes() {
@@ -1278,7 +1278,7 @@ public final class TestModel {
         }
       }
       /**
-       * <code>optional string token = 1;</code>
+       * <code>string token = 1;</code>
        */
       public Builder setToken(
           java.lang.String value) {
@@ -1291,7 +1291,7 @@ public final class TestModel {
         return this;
       }
       /**
-       * <code>optional string token = 1;</code>
+       * <code>string token = 1;</code>
        */
       public Builder clearToken() {
         
@@ -1300,7 +1300,7 @@ public final class TestModel {
         return this;
       }
       /**
-       * <code>optional string token = 1;</code>
+       * <code>string token = 1;</code>
        */
       public Builder setTokenBytes(
           com.google.protobuf.ByteString value) {
@@ -1316,7 +1316,7 @@ public final class TestModel {
 
       private java.lang.Object context_ = "";
       /**
-       * <code>optional string context = 2;</code>
+       * <code>string context = 2;</code>
        */
       public java.lang.String getContext() {
         java.lang.Object ref = context_;
@@ -1331,7 +1331,7 @@ public final class TestModel {
         }
       }
       /**
-       * <code>optional string context = 2;</code>
+       * <code>string context = 2;</code>
        */
       public com.google.protobuf.ByteString
           getContextBytes() {
@@ -1347,7 +1347,7 @@ public final class TestModel {
         }
       }
       /**
-       * <code>optional string context = 2;</code>
+       * <code>string context = 2;</code>
        */
       public Builder setContext(
           java.lang.String value) {
@@ -1360,7 +1360,7 @@ public final class TestModel {
         return this;
       }
       /**
-       * <code>optional string context = 2;</code>
+       * <code>string context = 2;</code>
        */
       public Builder clearContext() {
         
@@ -1369,7 +1369,7 @@ public final class TestModel {
         return this;
       }
       /**
-       * <code>optional string context = 2;</code>
+       * <code>string context = 2;</code>
        */
       public Builder setContextBytes(
           com.google.protobuf.ByteString value) {
@@ -1436,21 +1436,21 @@ public final class TestModel {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>optional string info = 1;</code>
+     * <code>string info = 1;</code>
      */
     java.lang.String getInfo();
     /**
-     * <code>optional string info = 1;</code>
+     * <code>string info = 1;</code>
      */
     com.google.protobuf.ByteString
         getInfoBytes();
 
     /**
-     * <code>optional string something_else = 2;</code>
+     * <code>string something_else = 2;</code>
      */
     java.lang.String getSomethingElse();
     /**
-     * <code>optional string something_else = 2;</code>
+     * <code>string something_else = 2;</code>
      */
     com.google.protobuf.ByteString
         getSomethingElseBytes();
@@ -1534,7 +1534,7 @@ public final class TestModel {
     public static final int INFO_FIELD_NUMBER = 1;
     private volatile java.lang.Object info_;
     /**
-     * <code>optional string info = 1;</code>
+     * <code>string info = 1;</code>
      */
     public java.lang.String getInfo() {
       java.lang.Object ref = info_;
@@ -1549,7 +1549,7 @@ public final class TestModel {
       }
     }
     /**
-     * <code>optional string info = 1;</code>
+     * <code>string info = 1;</code>
      */
     public com.google.protobuf.ByteString
         getInfoBytes() {
@@ -1568,7 +1568,7 @@ public final class TestModel {
     public static final int SOMETHING_ELSE_FIELD_NUMBER = 2;
     private volatile java.lang.Object somethingElse_;
     /**
-     * <code>optional string something_else = 2;</code>
+     * <code>string something_else = 2;</code>
      */
     public java.lang.String getSomethingElse() {
       java.lang.Object ref = somethingElse_;
@@ -1583,7 +1583,7 @@ public final class TestModel {
       }
     }
     /**
-     * <code>optional string something_else = 2;</code>
+     * <code>string something_else = 2;</code>
      */
     public com.google.protobuf.ByteString
         getSomethingElseBytes() {
@@ -1659,7 +1659,7 @@ public final class TestModel {
         return memoizedHashCode;
       }
       int hash = 41;
-      hash = (19 * hash) + getDescriptorForType().hashCode();
+      hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + INFO_FIELD_NUMBER;
       hash = (53 * hash) + getInfo().hashCode();
       hash = (37 * hash) + SOMETHING_ELSE_FIELD_NUMBER;
@@ -1887,7 +1887,7 @@ public final class TestModel {
 
       private java.lang.Object info_ = "";
       /**
-       * <code>optional string info = 1;</code>
+       * <code>string info = 1;</code>
        */
       public java.lang.String getInfo() {
         java.lang.Object ref = info_;
@@ -1902,7 +1902,7 @@ public final class TestModel {
         }
       }
       /**
-       * <code>optional string info = 1;</code>
+       * <code>string info = 1;</code>
        */
       public com.google.protobuf.ByteString
           getInfoBytes() {
@@ -1918,7 +1918,7 @@ public final class TestModel {
         }
       }
       /**
-       * <code>optional string info = 1;</code>
+       * <code>string info = 1;</code>
        */
       public Builder setInfo(
           java.lang.String value) {
@@ -1931,7 +1931,7 @@ public final class TestModel {
         return this;
       }
       /**
-       * <code>optional string info = 1;</code>
+       * <code>string info = 1;</code>
        */
       public Builder clearInfo() {
         
@@ -1940,7 +1940,7 @@ public final class TestModel {
         return this;
       }
       /**
-       * <code>optional string info = 1;</code>
+       * <code>string info = 1;</code>
        */
       public Builder setInfoBytes(
           com.google.protobuf.ByteString value) {
@@ -1956,7 +1956,7 @@ public final class TestModel {
 
       private java.lang.Object somethingElse_ = "";
       /**
-       * <code>optional string something_else = 2;</code>
+       * <code>string something_else = 2;</code>
        */
       public java.lang.String getSomethingElse() {
         java.lang.Object ref = somethingElse_;
@@ -1971,7 +1971,7 @@ public final class TestModel {
         }
       }
       /**
-       * <code>optional string something_else = 2;</code>
+       * <code>string something_else = 2;</code>
        */
       public com.google.protobuf.ByteString
           getSomethingElseBytes() {
@@ -1987,7 +1987,7 @@ public final class TestModel {
         }
       }
       /**
-       * <code>optional string something_else = 2;</code>
+       * <code>string something_else = 2;</code>
        */
       public Builder setSomethingElse(
           java.lang.String value) {
@@ -2000,7 +2000,7 @@ public final class TestModel {
         return this;
       }
       /**
-       * <code>optional string something_else = 2;</code>
+       * <code>string something_else = 2;</code>
        */
       public Builder clearSomethingElse() {
         
@@ -2009,7 +2009,7 @@ public final class TestModel {
         return this;
       }
       /**
-       * <code>optional string something_else = 2;</code>
+       * <code>string something_else = 2;</code>
        */
       public Builder setSomethingElseBytes(
           com.google.protobuf.ByteString value) {

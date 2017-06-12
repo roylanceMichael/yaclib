@@ -6,7 +6,7 @@ import org.roylance.yaclib.YaclibModel
 import org.roylance.yaclib.core.enums.CommonTokens
 import org.roylance.yaclib.core.utilities.StringUtilities
 
-class JavaRestBuilder(
+class JavaRestJsonBuilder(
         private val controller: YaclibModel.Controller,
         private val dependency: YaclibModel.Dependency,
         private val mainDependency: YaclibModel.Dependency): IBuilder<YaclibModel.File> {
@@ -24,6 +24,7 @@ import org.roylance.common.service.IProtoSerializerService;
 import ${mainDependency.group}.${CommonTokens.ServiceLocatorLocation};
 import ${dependency.group}.${CommonTokens.ServicesName}.${StringUtilities.convertServiceNameToInterfaceName(controller)};
 
+import com.google.protobuf.util.JsonFormat;
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -43,15 +44,17 @@ public class ${controller.name}Controller {
     private HttpServletResponse response;
 
     private final $interfaceName $serviceName;
-    private final IProtoSerializerService serializerService;
+    private final JsonFormat.Parser parser;
+    private final JsonFormat.Printer printer;
 
     public ${controller.name}Controller() {
-        this.serializerService = ${CommonTokens.ServiceLocatorSingletonName}.INSTANCE.getProtobufSerializerService();
+        this.parser = JsonFormat.parser();
+        this.printer = JsonFormat.printer();
         this.$serviceName = ${CommonTokens.ServiceLocatorSingletonName}.INSTANCE.${StringUtilities.convertServiceNameToJavaCall(controller)}();
     }
 """
         workspace.append(initialTemplate)
-
+        JsonFormat.parser()
         controller.actionsList.forEach { action ->
             var colonSeparatedInputs = action.inputsList.map { input ->
                 "String ${input.argumentName}"
@@ -68,16 +71,17 @@ public class ${controller.name}Controller {
 
             action.inputsList.forEach { input ->
                 val deserializeTemplate = """
-            final ${input.filePackage}.${input.fileClass}.${input.messageClass} ${input.argumentName}Actual =
-                    this.serializerService.deserializeFromBase64(${input.argumentName}, ${input.filePackage}.${input.fileClass}.${input.messageClass}.getDefaultInstance());
+            final ${input.filePackage}.${input.fileClass}.${input.messageClass}.Builder ${input.argumentName}Temp = ${input.filePackage}.${input.fileClass}.${input.messageClass}.newBuilder();
+            this.parser.merge(${input.argumentName}, ${input.argumentName}Temp);
+            final ${input.filePackage}.${input.fileClass}.${input.messageClass} ${input.argumentName}Actual = ${input.argumentName}Temp.build();
 """
                 actionVariableWorkspace.append(deserializeTemplate)
             }
 
             val executeWorkspace = """
             final ${action.output.filePackage}.${action.output.fileClass}.${action.output.messageClass} response = this.$serviceName.${action.name}($allActualArgumentNames);
-            final String deserializeResponse = this.serializerService.serializeToBase64(response);
-            asyncResponse.resume(deserializeResponse);
+            final String serializedResponse = this.printer.print(response);
+            asyncResponse.resume(serializedResponse);
 """
             actionVariableWorkspace.append(executeWorkspace)
 

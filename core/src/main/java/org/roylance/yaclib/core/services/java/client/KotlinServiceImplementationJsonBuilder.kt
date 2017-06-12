@@ -5,8 +5,8 @@ import org.roylance.yaclib.YaclibModel
 import org.roylance.yaclib.core.enums.CommonTokens
 import org.roylance.yaclib.core.utilities.StringUtilities
 
-class KotlinServiceImplementationBuilder(private val controller: YaclibModel.Controller,
-                                         private val mainDependency: YaclibModel.Dependency): IBuilder<YaclibModel.File> {
+class KotlinServiceImplementationJsonBuilder(private val controller: YaclibModel.Controller,
+                                             private val mainDependency: YaclibModel.Dependency): IBuilder<YaclibModel.File> {
     override fun build(): YaclibModel.File {
         val workspace = StringBuilder()
 

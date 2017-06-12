@@ -125,6 +125,11 @@ class POMFileBuilder(private val projectInformation: YaclibModel.ProjectInformat
             <version>${JavaUtilities.ProtobufVersion}</version>
         </dependency>
         <dependency>
+            <groupId>com.google.protobuf</groupId>
+            <artifactId>protobuf-java-util</artifactId>
+            <version>${JavaUtilities.ProtobufVersion}</version>
+        </dependency>
+        <dependency>
             <groupId>commons-io</groupId>
             <artifactId>commons-io</artifactId>
             <version>${JavaUtilities.CommonsIOVersion}</version>

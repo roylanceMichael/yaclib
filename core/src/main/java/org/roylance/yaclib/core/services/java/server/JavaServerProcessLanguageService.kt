@@ -60,7 +60,12 @@ class JavaServerProcessLanguageService: IProcessLanguageService {
 
         actualProjectInformation.controllers.controllerDependenciesList.forEach { controllerDependency ->
             controllerDependency.controllers.controllersList.forEach { controller ->
-                returnList.addFiles(JavaRestBuilder(controller, controllerDependency.dependency, actualProjectInformation.mainDependency).build())
+                if (projectInformation.useJson) {
+                    returnList.addFiles(JavaRestJsonBuilder(controller, controllerDependency.dependency, actualProjectInformation.mainDependency).build())
+                }
+                else {
+                    returnList.addFiles(JavaRestBuilder(controller, controllerDependency.dependency, actualProjectInformation.mainDependency).build())
+                }
             }
         }
 

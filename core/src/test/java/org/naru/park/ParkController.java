@@ -19,28 +19,28 @@ public final class ParkController {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>optional .org.naru.park.UIParkRequest request = 1;</code>
+     * <code>.org.naru.park.UIParkRequest request = 1;</code>
      */
     boolean hasRequest();
     /**
-     * <code>optional .org.naru.park.UIParkRequest request = 1;</code>
+     * <code>.org.naru.park.UIParkRequest request = 1;</code>
      */
     org.naru.park.ParkModel.UIParkRequest getRequest();
     /**
-     * <code>optional .org.naru.park.UIParkRequest request = 1;</code>
+     * <code>.org.naru.park.UIParkRequest request = 1;</code>
      */
     org.naru.park.ParkModel.UIParkRequestOrBuilder getRequestOrBuilder();
 
     /**
-     * <code>optional .org.naru.park.UIParkResponse response = 2;</code>
+     * <code>.org.naru.park.UIParkResponse response = 2;</code>
      */
     boolean hasResponse();
     /**
-     * <code>optional .org.naru.park.UIParkResponse response = 2;</code>
+     * <code>.org.naru.park.UIParkResponse response = 2;</code>
      */
     org.naru.park.ParkModel.UIParkResponse getResponse();
     /**
-     * <code>optional .org.naru.park.UIParkResponse response = 2;</code>
+     * <code>.org.naru.park.UIParkResponse response = 2;</code>
      */
     org.naru.park.ParkModel.UIParkResponseOrBuilder getResponseOrBuilder();
   }
@@ -135,19 +135,19 @@ public final class ParkController {
     public static final int REQUEST_FIELD_NUMBER = 1;
     private org.naru.park.ParkModel.UIParkRequest request_;
     /**
-     * <code>optional .org.naru.park.UIParkRequest request = 1;</code>
+     * <code>.org.naru.park.UIParkRequest request = 1;</code>
      */
     public boolean hasRequest() {
       return request_ != null;
     }
     /**
-     * <code>optional .org.naru.park.UIParkRequest request = 1;</code>
+     * <code>.org.naru.park.UIParkRequest request = 1;</code>
      */
     public org.naru.park.ParkModel.UIParkRequest getRequest() {
       return request_ == null ? org.naru.park.ParkModel.UIParkRequest.getDefaultInstance() : request_;
     }
     /**
-     * <code>optional .org.naru.park.UIParkRequest request = 1;</code>
+     * <code>.org.naru.park.UIParkRequest request = 1;</code>
      */
     public org.naru.park.ParkModel.UIParkRequestOrBuilder getRequestOrBuilder() {
       return getRequest();
@@ -156,19 +156,19 @@ public final class ParkController {
     public static final int RESPONSE_FIELD_NUMBER = 2;
     private org.naru.park.ParkModel.UIParkResponse response_;
     /**
-     * <code>optional .org.naru.park.UIParkResponse response = 2;</code>
+     * <code>.org.naru.park.UIParkResponse response = 2;</code>
      */
     public boolean hasResponse() {
       return response_ != null;
     }
     /**
-     * <code>optional .org.naru.park.UIParkResponse response = 2;</code>
+     * <code>.org.naru.park.UIParkResponse response = 2;</code>
      */
     public org.naru.park.ParkModel.UIParkResponse getResponse() {
       return response_ == null ? org.naru.park.ParkModel.UIParkResponse.getDefaultInstance() : response_;
     }
     /**
-     * <code>optional .org.naru.park.UIParkResponse response = 2;</code>
+     * <code>.org.naru.park.UIParkResponse response = 2;</code>
      */
     public org.naru.park.ParkModel.UIParkResponseOrBuilder getResponseOrBuilder() {
       return getResponse();
@@ -242,7 +242,7 @@ public final class ParkController {
         return memoizedHashCode;
       }
       int hash = 41;
-      hash = (19 * hash) + getDescriptorForType().hashCode();
+      hash = (19 * hash) + getDescriptor().hashCode();
       if (hasRequest()) {
         hash = (37 * hash) + REQUEST_FIELD_NUMBER;
         hash = (53 * hash) + getRequest().hashCode();
@@ -490,13 +490,13 @@ public final class ParkController {
       private com.google.protobuf.SingleFieldBuilderV3<
           org.naru.park.ParkModel.UIParkRequest, org.naru.park.ParkModel.UIParkRequest.Builder, org.naru.park.ParkModel.UIParkRequestOrBuilder> requestBuilder_;
       /**
-       * <code>optional .org.naru.park.UIParkRequest request = 1;</code>
+       * <code>.org.naru.park.UIParkRequest request = 1;</code>
        */
       public boolean hasRequest() {
         return requestBuilder_ != null || request_ != null;
       }
       /**
-       * <code>optional .org.naru.park.UIParkRequest request = 1;</code>
+       * <code>.org.naru.park.UIParkRequest request = 1;</code>
        */
       public org.naru.park.ParkModel.UIParkRequest getRequest() {
         if (requestBuilder_ == null) {
@@ -506,7 +506,7 @@ public final class ParkController {
         }
       }
       /**
-       * <code>optional .org.naru.park.UIParkRequest request = 1;</code>
+       * <code>.org.naru.park.UIParkRequest request = 1;</code>
        */
       public Builder setRequest(org.naru.park.ParkModel.UIParkRequest value) {
         if (requestBuilder_ == null) {
@@ -522,7 +522,7 @@ public final class ParkController {
         return this;
       }
       /**
-       * <code>optional .org.naru.park.UIParkRequest request = 1;</code>
+       * <code>.org.naru.park.UIParkRequest request = 1;</code>
        */
       public Builder setRequest(
           org.naru.park.ParkModel.UIParkRequest.Builder builderForValue) {
@@ -536,7 +536,7 @@ public final class ParkController {
         return this;
       }
       /**
-       * <code>optional .org.naru.park.UIParkRequest request = 1;</code>
+       * <code>.org.naru.park.UIParkRequest request = 1;</code>
        */
       public Builder mergeRequest(org.naru.park.ParkModel.UIParkRequest value) {
         if (requestBuilder_ == null) {
@@ -554,7 +554,7 @@ public final class ParkController {
         return this;
       }
       /**
-       * <code>optional .org.naru.park.UIParkRequest request = 1;</code>
+       * <code>.org.naru.park.UIParkRequest request = 1;</code>
        */
       public Builder clearRequest() {
         if (requestBuilder_ == null) {
@@ -568,7 +568,7 @@ public final class ParkController {
         return this;
       }
       /**
-       * <code>optional .org.naru.park.UIParkRequest request = 1;</code>
+       * <code>.org.naru.park.UIParkRequest request = 1;</code>
        */
       public org.naru.park.ParkModel.UIParkRequest.Builder getRequestBuilder() {
         
@@ -576,7 +576,7 @@ public final class ParkController {
         return getRequestFieldBuilder().getBuilder();
       }
       /**
-       * <code>optional .org.naru.park.UIParkRequest request = 1;</code>
+       * <code>.org.naru.park.UIParkRequest request = 1;</code>
        */
       public org.naru.park.ParkModel.UIParkRequestOrBuilder getRequestOrBuilder() {
         if (requestBuilder_ != null) {
@@ -587,7 +587,7 @@ public final class ParkController {
         }
       }
       /**
-       * <code>optional .org.naru.park.UIParkRequest request = 1;</code>
+       * <code>.org.naru.park.UIParkRequest request = 1;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           org.naru.park.ParkModel.UIParkRequest, org.naru.park.ParkModel.UIParkRequest.Builder, org.naru.park.ParkModel.UIParkRequestOrBuilder> 
@@ -607,13 +607,13 @@ public final class ParkController {
       private com.google.protobuf.SingleFieldBuilderV3<
           org.naru.park.ParkModel.UIParkResponse, org.naru.park.ParkModel.UIParkResponse.Builder, org.naru.park.ParkModel.UIParkResponseOrBuilder> responseBuilder_;
       /**
-       * <code>optional .org.naru.park.UIParkResponse response = 2;</code>
+       * <code>.org.naru.park.UIParkResponse response = 2;</code>
        */
       public boolean hasResponse() {
         return responseBuilder_ != null || response_ != null;
       }
       /**
-       * <code>optional .org.naru.park.UIParkResponse response = 2;</code>
+       * <code>.org.naru.park.UIParkResponse response = 2;</code>
        */
       public org.naru.park.ParkModel.UIParkResponse getResponse() {
         if (responseBuilder_ == null) {
@@ -623,7 +623,7 @@ public final class ParkController {
         }
       }
       /**
-       * <code>optional .org.naru.park.UIParkResponse response = 2;</code>
+       * <code>.org.naru.park.UIParkResponse response = 2;</code>
        */
       public Builder setResponse(org.naru.park.ParkModel.UIParkResponse value) {
         if (responseBuilder_ == null) {
@@ -639,7 +639,7 @@ public final class ParkController {
         return this;
       }
       /**
-       * <code>optional .org.naru.park.UIParkResponse response = 2;</code>
+       * <code>.org.naru.park.UIParkResponse response = 2;</code>
        */
       public Builder setResponse(
           org.naru.park.ParkModel.UIParkResponse.Builder builderForValue) {
@@ -653,7 +653,7 @@ public final class ParkController {
         return this;
       }
       /**
-       * <code>optional .org.naru.park.UIParkResponse response = 2;</code>
+       * <code>.org.naru.park.UIParkResponse response = 2;</code>
        */
       public Builder mergeResponse(org.naru.park.ParkModel.UIParkResponse value) {
         if (responseBuilder_ == null) {
@@ -671,7 +671,7 @@ public final class ParkController {
         return this;
       }
       /**
-       * <code>optional .org.naru.park.UIParkResponse response = 2;</code>
+       * <code>.org.naru.park.UIParkResponse response = 2;</code>
        */
       public Builder clearResponse() {
         if (responseBuilder_ == null) {
@@ -685,7 +685,7 @@ public final class ParkController {
         return this;
       }
       /**
-       * <code>optional .org.naru.park.UIParkResponse response = 2;</code>
+       * <code>.org.naru.park.UIParkResponse response = 2;</code>
        */
       public org.naru.park.ParkModel.UIParkResponse.Builder getResponseBuilder() {
         
@@ -693,7 +693,7 @@ public final class ParkController {
         return getResponseFieldBuilder().getBuilder();
       }
       /**
-       * <code>optional .org.naru.park.UIParkResponse response = 2;</code>
+       * <code>.org.naru.park.UIParkResponse response = 2;</code>
        */
       public org.naru.park.ParkModel.UIParkResponseOrBuilder getResponseOrBuilder() {
         if (responseBuilder_ != null) {
@@ -704,7 +704,7 @@ public final class ParkController {
         }
       }
       /**
-       * <code>optional .org.naru.park.UIParkResponse response = 2;</code>
+       * <code>.org.naru.park.UIParkResponse response = 2;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           org.naru.park.ParkModel.UIParkResponse, org.naru.park.ParkModel.UIParkResponse.Builder, org.naru.park.ParkModel.UIParkResponseOrBuilder> 
@@ -773,93 +773,93 @@ public final class ParkController {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>optional .org.naru.park.CommonAction send_reading = 1;</code>
+     * <code>.org.naru.park.CommonAction send_reading = 1;</code>
      */
     boolean hasSendReading();
     /**
-     * <code>optional .org.naru.park.CommonAction send_reading = 1;</code>
+     * <code>.org.naru.park.CommonAction send_reading = 1;</code>
      */
     org.naru.park.ParkController.CommonAction getSendReading();
     /**
-     * <code>optional .org.naru.park.CommonAction send_reading = 1;</code>
+     * <code>.org.naru.park.CommonAction send_reading = 1;</code>
      */
     org.naru.park.ParkController.CommonActionOrBuilder getSendReadingOrBuilder();
 
     /**
-     * <code>optional .org.naru.park.CommonAction all = 2;</code>
+     * <code>.org.naru.park.CommonAction all = 2;</code>
      */
     boolean hasAll();
     /**
-     * <code>optional .org.naru.park.CommonAction all = 2;</code>
+     * <code>.org.naru.park.CommonAction all = 2;</code>
      */
     org.naru.park.ParkController.CommonAction getAll();
     /**
-     * <code>optional .org.naru.park.CommonAction all = 2;</code>
+     * <code>.org.naru.park.CommonAction all = 2;</code>
      */
     org.naru.park.ParkController.CommonActionOrBuilder getAllOrBuilder();
 
     /**
-     * <code>optional .org.naru.park.CommonAction save_sensor = 3;</code>
+     * <code>.org.naru.park.CommonAction save_sensor = 3;</code>
      */
     boolean hasSaveSensor();
     /**
-     * <code>optional .org.naru.park.CommonAction save_sensor = 3;</code>
+     * <code>.org.naru.park.CommonAction save_sensor = 3;</code>
      */
     org.naru.park.ParkController.CommonAction getSaveSensor();
     /**
-     * <code>optional .org.naru.park.CommonAction save_sensor = 3;</code>
+     * <code>.org.naru.park.CommonAction save_sensor = 3;</code>
      */
     org.naru.park.ParkController.CommonActionOrBuilder getSaveSensorOrBuilder();
 
     /**
-     * <code>optional .org.naru.park.CommonAction delete_sensor = 4;</code>
+     * <code>.org.naru.park.CommonAction delete_sensor = 4;</code>
      */
     boolean hasDeleteSensor();
     /**
-     * <code>optional .org.naru.park.CommonAction delete_sensor = 4;</code>
+     * <code>.org.naru.park.CommonAction delete_sensor = 4;</code>
      */
     org.naru.park.ParkController.CommonAction getDeleteSensor();
     /**
-     * <code>optional .org.naru.park.CommonAction delete_sensor = 4;</code>
+     * <code>.org.naru.park.CommonAction delete_sensor = 4;</code>
      */
     org.naru.park.ParkController.CommonActionOrBuilder getDeleteSensorOrBuilder();
 
     /**
-     * <code>optional .org.naru.park.CommonAction get_latest_reading = 5;</code>
+     * <code>.org.naru.park.CommonAction get_latest_reading = 5;</code>
      */
     boolean hasGetLatestReading();
     /**
-     * <code>optional .org.naru.park.CommonAction get_latest_reading = 5;</code>
+     * <code>.org.naru.park.CommonAction get_latest_reading = 5;</code>
      */
     org.naru.park.ParkController.CommonAction getGetLatestReading();
     /**
-     * <code>optional .org.naru.park.CommonAction get_latest_reading = 5;</code>
+     * <code>.org.naru.park.CommonAction get_latest_reading = 5;</code>
      */
     org.naru.park.ParkController.CommonActionOrBuilder getGetLatestReadingOrBuilder();
 
     /**
-     * <code>optional .org.naru.park.CommonAction get_user_history = 6;</code>
+     * <code>.org.naru.park.CommonAction get_user_history = 6;</code>
      */
     boolean hasGetUserHistory();
     /**
-     * <code>optional .org.naru.park.CommonAction get_user_history = 6;</code>
+     * <code>.org.naru.park.CommonAction get_user_history = 6;</code>
      */
     org.naru.park.ParkController.CommonAction getGetUserHistory();
     /**
-     * <code>optional .org.naru.park.CommonAction get_user_history = 6;</code>
+     * <code>.org.naru.park.CommonAction get_user_history = 6;</code>
      */
     org.naru.park.ParkController.CommonActionOrBuilder getGetUserHistoryOrBuilder();
 
     /**
-     * <code>optional .org.naru.park.CommonAction get_latest_sensor_reading_for_user = 7;</code>
+     * <code>.org.naru.park.CommonAction get_latest_sensor_reading_for_user = 7;</code>
      */
     boolean hasGetLatestSensorReadingForUser();
     /**
-     * <code>optional .org.naru.park.CommonAction get_latest_sensor_reading_for_user = 7;</code>
+     * <code>.org.naru.park.CommonAction get_latest_sensor_reading_for_user = 7;</code>
      */
     org.naru.park.ParkController.CommonAction getGetLatestSensorReadingForUser();
     /**
-     * <code>optional .org.naru.park.CommonAction get_latest_sensor_reading_for_user = 7;</code>
+     * <code>.org.naru.park.CommonAction get_latest_sensor_reading_for_user = 7;</code>
      */
     org.naru.park.ParkController.CommonActionOrBuilder getGetLatestSensorReadingForUserOrBuilder();
   }
@@ -1019,19 +1019,19 @@ public final class ParkController {
     public static final int SEND_READING_FIELD_NUMBER = 1;
     private org.naru.park.ParkController.CommonAction sendReading_;
     /**
-     * <code>optional .org.naru.park.CommonAction send_reading = 1;</code>
+     * <code>.org.naru.park.CommonAction send_reading = 1;</code>
      */
     public boolean hasSendReading() {
       return sendReading_ != null;
     }
     /**
-     * <code>optional .org.naru.park.CommonAction send_reading = 1;</code>
+     * <code>.org.naru.park.CommonAction send_reading = 1;</code>
      */
     public org.naru.park.ParkController.CommonAction getSendReading() {
       return sendReading_ == null ? org.naru.park.ParkController.CommonAction.getDefaultInstance() : sendReading_;
     }
     /**
-     * <code>optional .org.naru.park.CommonAction send_reading = 1;</code>
+     * <code>.org.naru.park.CommonAction send_reading = 1;</code>
      */
     public org.naru.park.ParkController.CommonActionOrBuilder getSendReadingOrBuilder() {
       return getSendReading();
@@ -1040,19 +1040,19 @@ public final class ParkController {
     public static final int ALL_FIELD_NUMBER = 2;
     private org.naru.park.ParkController.CommonAction all_;
     /**
-     * <code>optional .org.naru.park.CommonAction all = 2;</code>
+     * <code>.org.naru.park.CommonAction all = 2;</code>
      */
     public boolean hasAll() {
       return all_ != null;
     }
     /**
-     * <code>optional .org.naru.park.CommonAction all = 2;</code>
+     * <code>.org.naru.park.CommonAction all = 2;</code>
      */
     public org.naru.park.ParkController.CommonAction getAll() {
       return all_ == null ? org.naru.park.ParkController.CommonAction.getDefaultInstance() : all_;
     }
     /**
-     * <code>optional .org.naru.park.CommonAction all = 2;</code>
+     * <code>.org.naru.park.CommonAction all = 2;</code>
      */
     public org.naru.park.ParkController.CommonActionOrBuilder getAllOrBuilder() {
       return getAll();
@@ -1061,19 +1061,19 @@ public final class ParkController {
     public static final int SAVE_SENSOR_FIELD_NUMBER = 3;
     private org.naru.park.ParkController.CommonAction saveSensor_;
     /**
-     * <code>optional .org.naru.park.CommonAction save_sensor = 3;</code>
+     * <code>.org.naru.park.CommonAction save_sensor = 3;</code>
      */
     public boolean hasSaveSensor() {
       return saveSensor_ != null;
     }
     /**
-     * <code>optional .org.naru.park.CommonAction save_sensor = 3;</code>
+     * <code>.org.naru.park.CommonAction save_sensor = 3;</code>
      */
     public org.naru.park.ParkController.CommonAction getSaveSensor() {
       return saveSensor_ == null ? org.naru.park.ParkController.CommonAction.getDefaultInstance() : saveSensor_;
     }
     /**
-     * <code>optional .org.naru.park.CommonAction save_sensor = 3;</code>
+     * <code>.org.naru.park.CommonAction save_sensor = 3;</code>
      */
     public org.naru.park.ParkController.CommonActionOrBuilder getSaveSensorOrBuilder() {
       return getSaveSensor();
@@ -1082,19 +1082,19 @@ public final class ParkController {
     public static final int DELETE_SENSOR_FIELD_NUMBER = 4;
     private org.naru.park.ParkController.CommonAction deleteSensor_;
     /**
-     * <code>optional .org.naru.park.CommonAction delete_sensor = 4;</code>
+     * <code>.org.naru.park.CommonAction delete_sensor = 4;</code>
      */
     public boolean hasDeleteSensor() {
       return deleteSensor_ != null;
     }
     /**
-     * <code>optional .org.naru.park.CommonAction delete_sensor = 4;</code>
+     * <code>.org.naru.park.CommonAction delete_sensor = 4;</code>
      */
     public org.naru.park.ParkController.CommonAction getDeleteSensor() {
       return deleteSensor_ == null ? org.naru.park.ParkController.CommonAction.getDefaultInstance() : deleteSensor_;
     }
     /**
-     * <code>optional .org.naru.park.CommonAction delete_sensor = 4;</code>
+     * <code>.org.naru.park.CommonAction delete_sensor = 4;</code>
      */
     public org.naru.park.ParkController.CommonActionOrBuilder getDeleteSensorOrBuilder() {
       return getDeleteSensor();
@@ -1103,19 +1103,19 @@ public final class ParkController {
     public static final int GET_LATEST_READING_FIELD_NUMBER = 5;
     private org.naru.park.ParkController.CommonAction getLatestReading_;
     /**
-     * <code>optional .org.naru.park.CommonAction get_latest_reading = 5;</code>
+     * <code>.org.naru.park.CommonAction get_latest_reading = 5;</code>
      */
     public boolean hasGetLatestReading() {
       return getLatestReading_ != null;
     }
     /**
-     * <code>optional .org.naru.park.CommonAction get_latest_reading = 5;</code>
+     * <code>.org.naru.park.CommonAction get_latest_reading = 5;</code>
      */
     public org.naru.park.ParkController.CommonAction getGetLatestReading() {
       return getLatestReading_ == null ? org.naru.park.ParkController.CommonAction.getDefaultInstance() : getLatestReading_;
     }
     /**
-     * <code>optional .org.naru.park.CommonAction get_latest_reading = 5;</code>
+     * <code>.org.naru.park.CommonAction get_latest_reading = 5;</code>
      */
     public org.naru.park.ParkController.CommonActionOrBuilder getGetLatestReadingOrBuilder() {
       return getGetLatestReading();
@@ -1124,19 +1124,19 @@ public final class ParkController {
     public static final int GET_USER_HISTORY_FIELD_NUMBER = 6;
     private org.naru.park.ParkController.CommonAction getUserHistory_;
     /**
-     * <code>optional .org.naru.park.CommonAction get_user_history = 6;</code>
+     * <code>.org.naru.park.CommonAction get_user_history = 6;</code>
      */
     public boolean hasGetUserHistory() {
       return getUserHistory_ != null;
     }
     /**
-     * <code>optional .org.naru.park.CommonAction get_user_history = 6;</code>
+     * <code>.org.naru.park.CommonAction get_user_history = 6;</code>
      */
     public org.naru.park.ParkController.CommonAction getGetUserHistory() {
       return getUserHistory_ == null ? org.naru.park.ParkController.CommonAction.getDefaultInstance() : getUserHistory_;
     }
     /**
-     * <code>optional .org.naru.park.CommonAction get_user_history = 6;</code>
+     * <code>.org.naru.park.CommonAction get_user_history = 6;</code>
      */
     public org.naru.park.ParkController.CommonActionOrBuilder getGetUserHistoryOrBuilder() {
       return getGetUserHistory();
@@ -1145,19 +1145,19 @@ public final class ParkController {
     public static final int GET_LATEST_SENSOR_READING_FOR_USER_FIELD_NUMBER = 7;
     private org.naru.park.ParkController.CommonAction getLatestSensorReadingForUser_;
     /**
-     * <code>optional .org.naru.park.CommonAction get_latest_sensor_reading_for_user = 7;</code>
+     * <code>.org.naru.park.CommonAction get_latest_sensor_reading_for_user = 7;</code>
      */
     public boolean hasGetLatestSensorReadingForUser() {
       return getLatestSensorReadingForUser_ != null;
     }
     /**
-     * <code>optional .org.naru.park.CommonAction get_latest_sensor_reading_for_user = 7;</code>
+     * <code>.org.naru.park.CommonAction get_latest_sensor_reading_for_user = 7;</code>
      */
     public org.naru.park.ParkController.CommonAction getGetLatestSensorReadingForUser() {
       return getLatestSensorReadingForUser_ == null ? org.naru.park.ParkController.CommonAction.getDefaultInstance() : getLatestSensorReadingForUser_;
     }
     /**
-     * <code>optional .org.naru.park.CommonAction get_latest_sensor_reading_for_user = 7;</code>
+     * <code>.org.naru.park.CommonAction get_latest_sensor_reading_for_user = 7;</code>
      */
     public org.naru.park.ParkController.CommonActionOrBuilder getGetLatestSensorReadingForUserOrBuilder() {
       return getGetLatestSensorReadingForUser();
@@ -1291,7 +1291,7 @@ public final class ParkController {
         return memoizedHashCode;
       }
       int hash = 41;
-      hash = (19 * hash) + getDescriptorForType().hashCode();
+      hash = (19 * hash) + getDescriptor().hashCode();
       if (hasSendReading()) {
         hash = (37 * hash) + SEND_READING_FIELD_NUMBER;
         hash = (53 * hash) + getSendReading().hashCode();
@@ -1629,13 +1629,13 @@ public final class ParkController {
       private com.google.protobuf.SingleFieldBuilderV3<
           org.naru.park.ParkController.CommonAction, org.naru.park.ParkController.CommonAction.Builder, org.naru.park.ParkController.CommonActionOrBuilder> sendReadingBuilder_;
       /**
-       * <code>optional .org.naru.park.CommonAction send_reading = 1;</code>
+       * <code>.org.naru.park.CommonAction send_reading = 1;</code>
        */
       public boolean hasSendReading() {
         return sendReadingBuilder_ != null || sendReading_ != null;
       }
       /**
-       * <code>optional .org.naru.park.CommonAction send_reading = 1;</code>
+       * <code>.org.naru.park.CommonAction send_reading = 1;</code>
        */
       public org.naru.park.ParkController.CommonAction getSendReading() {
         if (sendReadingBuilder_ == null) {
@@ -1645,7 +1645,7 @@ public final class ParkController {
         }
       }
       /**
-       * <code>optional .org.naru.park.CommonAction send_reading = 1;</code>
+       * <code>.org.naru.park.CommonAction send_reading = 1;</code>
        */
       public Builder setSendReading(org.naru.park.ParkController.CommonAction value) {
         if (sendReadingBuilder_ == null) {
@@ -1661,7 +1661,7 @@ public final class ParkController {
         return this;
       }
       /**
-       * <code>optional .org.naru.park.CommonAction send_reading = 1;</code>
+       * <code>.org.naru.park.CommonAction send_reading = 1;</code>
        */
       public Builder setSendReading(
           org.naru.park.ParkController.CommonAction.Builder builderForValue) {
@@ -1675,7 +1675,7 @@ public final class ParkController {
         return this;
       }
       /**
-       * <code>optional .org.naru.park.CommonAction send_reading = 1;</code>
+       * <code>.org.naru.park.CommonAction send_reading = 1;</code>
        */
       public Builder mergeSendReading(org.naru.park.ParkController.CommonAction value) {
         if (sendReadingBuilder_ == null) {
@@ -1693,7 +1693,7 @@ public final class ParkController {
         return this;
       }
       /**
-       * <code>optional .org.naru.park.CommonAction send_reading = 1;</code>
+       * <code>.org.naru.park.CommonAction send_reading = 1;</code>
        */
       public Builder clearSendReading() {
         if (sendReadingBuilder_ == null) {
@@ -1707,7 +1707,7 @@ public final class ParkController {
         return this;
       }
       /**
-       * <code>optional .org.naru.park.CommonAction send_reading = 1;</code>
+       * <code>.org.naru.park.CommonAction send_reading = 1;</code>
        */
       public org.naru.park.ParkController.CommonAction.Builder getSendReadingBuilder() {
         
@@ -1715,7 +1715,7 @@ public final class ParkController {
         return getSendReadingFieldBuilder().getBuilder();
       }
       /**
-       * <code>optional .org.naru.park.CommonAction send_reading = 1;</code>
+       * <code>.org.naru.park.CommonAction send_reading = 1;</code>
        */
       public org.naru.park.ParkController.CommonActionOrBuilder getSendReadingOrBuilder() {
         if (sendReadingBuilder_ != null) {
@@ -1726,7 +1726,7 @@ public final class ParkController {
         }
       }
       /**
-       * <code>optional .org.naru.park.CommonAction send_reading = 1;</code>
+       * <code>.org.naru.park.CommonAction send_reading = 1;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           org.naru.park.ParkController.CommonAction, org.naru.park.ParkController.CommonAction.Builder, org.naru.park.ParkController.CommonActionOrBuilder> 
@@ -1746,13 +1746,13 @@ public final class ParkController {
       private com.google.protobuf.SingleFieldBuilderV3<
           org.naru.park.ParkController.CommonAction, org.naru.park.ParkController.CommonAction.Builder, org.naru.park.ParkController.CommonActionOrBuilder> allBuilder_;
       /**
-       * <code>optional .org.naru.park.CommonAction all = 2;</code>
+       * <code>.org.naru.park.CommonAction all = 2;</code>
        */
       public boolean hasAll() {
         return allBuilder_ != null || all_ != null;
       }
       /**
-       * <code>optional .org.naru.park.CommonAction all = 2;</code>
+       * <code>.org.naru.park.CommonAction all = 2;</code>
        */
       public org.naru.park.ParkController.CommonAction getAll() {
         if (allBuilder_ == null) {
@@ -1762,7 +1762,7 @@ public final class ParkController {
         }
       }
       /**
-       * <code>optional .org.naru.park.CommonAction all = 2;</code>
+       * <code>.org.naru.park.CommonAction all = 2;</code>
        */
       public Builder setAll(org.naru.park.ParkController.CommonAction value) {
         if (allBuilder_ == null) {
@@ -1778,7 +1778,7 @@ public final class ParkController {
         return this;
       }
       /**
-       * <code>optional .org.naru.park.CommonAction all = 2;</code>
+       * <code>.org.naru.park.CommonAction all = 2;</code>
        */
       public Builder setAll(
           org.naru.park.ParkController.CommonAction.Builder builderForValue) {
@@ -1792,7 +1792,7 @@ public final class ParkController {
         return this;
       }
       /**
-       * <code>optional .org.naru.park.CommonAction all = 2;</code>
+       * <code>.org.naru.park.CommonAction all = 2;</code>
        */
       public Builder mergeAll(org.naru.park.ParkController.CommonAction value) {
         if (allBuilder_ == null) {
@@ -1810,7 +1810,7 @@ public final class ParkController {
         return this;
       }
       /**
-       * <code>optional .org.naru.park.CommonAction all = 2;</code>
+       * <code>.org.naru.park.CommonAction all = 2;</code>
        */
       public Builder clearAll() {
         if (allBuilder_ == null) {
@@ -1824,7 +1824,7 @@ public final class ParkController {
         return this;
       }
       /**
-       * <code>optional .org.naru.park.CommonAction all = 2;</code>
+       * <code>.org.naru.park.CommonAction all = 2;</code>
        */
       public org.naru.park.ParkController.CommonAction.Builder getAllBuilder() {
         
@@ -1832,7 +1832,7 @@ public final class ParkController {
         return getAllFieldBuilder().getBuilder();
       }
       /**
-       * <code>optional .org.naru.park.CommonAction all = 2;</code>
+       * <code>.org.naru.park.CommonAction all = 2;</code>
        */
       public org.naru.park.ParkController.CommonActionOrBuilder getAllOrBuilder() {
         if (allBuilder_ != null) {
@@ -1843,7 +1843,7 @@ public final class ParkController {
         }
       }
       /**
-       * <code>optional .org.naru.park.CommonAction all = 2;</code>
+       * <code>.org.naru.park.CommonAction all = 2;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           org.naru.park.ParkController.CommonAction, org.naru.park.ParkController.CommonAction.Builder, org.naru.park.ParkController.CommonActionOrBuilder> 
@@ -1863,13 +1863,13 @@ public final class ParkController {
       private com.google.protobuf.SingleFieldBuilderV3<
           org.naru.park.ParkController.CommonAction, org.naru.park.ParkController.CommonAction.Builder, org.naru.park.ParkController.CommonActionOrBuilder> saveSensorBuilder_;
       /**
-       * <code>optional .org.naru.park.CommonAction save_sensor = 3;</code>
+       * <code>.org.naru.park.CommonAction save_sensor = 3;</code>
        */
       public boolean hasSaveSensor() {
         return saveSensorBuilder_ != null || saveSensor_ != null;
       }
       /**
-       * <code>optional .org.naru.park.CommonAction save_sensor = 3;</code>
+       * <code>.org.naru.park.CommonAction save_sensor = 3;</code>
        */
       public org.naru.park.ParkController.CommonAction getSaveSensor() {
         if (saveSensorBuilder_ == null) {
@@ -1879,7 +1879,7 @@ public final class ParkController {
         }
       }
       /**
-       * <code>optional .org.naru.park.CommonAction save_sensor = 3;</code>
+       * <code>.org.naru.park.CommonAction save_sensor = 3;</code>
        */
       public Builder setSaveSensor(org.naru.park.ParkController.CommonAction value) {
         if (saveSensorBuilder_ == null) {
@@ -1895,7 +1895,7 @@ public final class ParkController {
         return this;
       }
       /**
-       * <code>optional .org.naru.park.CommonAction save_sensor = 3;</code>
+       * <code>.org.naru.park.CommonAction save_sensor = 3;</code>
        */
       public Builder setSaveSensor(
           org.naru.park.ParkController.CommonAction.Builder builderForValue) {
@@ -1909,7 +1909,7 @@ public final class ParkController {
         return this;
       }
       /**
-       * <code>optional .org.naru.park.CommonAction save_sensor = 3;</code>
+       * <code>.org.naru.park.CommonAction save_sensor = 3;</code>
        */
       public Builder mergeSaveSensor(org.naru.park.ParkController.CommonAction value) {
         if (saveSensorBuilder_ == null) {
@@ -1927,7 +1927,7 @@ public final class ParkController {
         return this;
       }
       /**
-       * <code>optional .org.naru.park.CommonAction save_sensor = 3;</code>
+       * <code>.org.naru.park.CommonAction save_sensor = 3;</code>
        */
       public Builder clearSaveSensor() {
         if (saveSensorBuilder_ == null) {
@@ -1941,7 +1941,7 @@ public final class ParkController {
         return this;
       }
       /**
-       * <code>optional .org.naru.park.CommonAction save_sensor = 3;</code>
+       * <code>.org.naru.park.CommonAction save_sensor = 3;</code>
        */
       public org.naru.park.ParkController.CommonAction.Builder getSaveSensorBuilder() {
         
@@ -1949,7 +1949,7 @@ public final class ParkController {
         return getSaveSensorFieldBuilder().getBuilder();
       }
       /**
-       * <code>optional .org.naru.park.CommonAction save_sensor = 3;</code>
+       * <code>.org.naru.park.CommonAction save_sensor = 3;</code>
        */
       public org.naru.park.ParkController.CommonActionOrBuilder getSaveSensorOrBuilder() {
         if (saveSensorBuilder_ != null) {
@@ -1960,7 +1960,7 @@ public final class ParkController {
         }
       }
       /**
-       * <code>optional .org.naru.park.CommonAction save_sensor = 3;</code>
+       * <code>.org.naru.park.CommonAction save_sensor = 3;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           org.naru.park.ParkController.CommonAction, org.naru.park.ParkController.CommonAction.Builder, org.naru.park.ParkController.CommonActionOrBuilder> 
@@ -1980,13 +1980,13 @@ public final class ParkController {
       private com.google.protobuf.SingleFieldBuilderV3<
           org.naru.park.ParkController.CommonAction, org.naru.park.ParkController.CommonAction.Builder, org.naru.park.ParkController.CommonActionOrBuilder> deleteSensorBuilder_;
       /**
-       * <code>optional .org.naru.park.CommonAction delete_sensor = 4;</code>
+       * <code>.org.naru.park.CommonAction delete_sensor = 4;</code>
        */
       public boolean hasDeleteSensor() {
         return deleteSensorBuilder_ != null || deleteSensor_ != null;
       }
       /**
-       * <code>optional .org.naru.park.CommonAction delete_sensor = 4;</code>
+       * <code>.org.naru.park.CommonAction delete_sensor = 4;</code>
        */
       public org.naru.park.ParkController.CommonAction getDeleteSensor() {
         if (deleteSensorBuilder_ == null) {
@@ -1996,7 +1996,7 @@ public final class ParkController {
         }
       }
       /**
-       * <code>optional .org.naru.park.CommonAction delete_sensor = 4;</code>
+       * <code>.org.naru.park.CommonAction delete_sensor = 4;</code>
        */
       public Builder setDeleteSensor(org.naru.park.ParkController.CommonAction value) {
         if (deleteSensorBuilder_ == null) {
@@ -2012,7 +2012,7 @@ public final class ParkController {
         return this;
       }
       /**
-       * <code>optional .org.naru.park.CommonAction delete_sensor = 4;</code>
+       * <code>.org.naru.park.CommonAction delete_sensor = 4;</code>
        */
       public Builder setDeleteSensor(
           org.naru.park.ParkController.CommonAction.Builder builderForValue) {
@@ -2026,7 +2026,7 @@ public final class ParkController {
         return this;
       }
       /**
-       * <code>optional .org.naru.park.CommonAction delete_sensor = 4;</code>
+       * <code>.org.naru.park.CommonAction delete_sensor = 4;</code>
        */
       public Builder mergeDeleteSensor(org.naru.park.ParkController.CommonAction value) {
         if (deleteSensorBuilder_ == null) {
@@ -2044,7 +2044,7 @@ public final class ParkController {
         return this;
       }
       /**
-       * <code>optional .org.naru.park.CommonAction delete_sensor = 4;</code>
+       * <code>.org.naru.park.CommonAction delete_sensor = 4;</code>
        */
       public Builder clearDeleteSensor() {
         if (deleteSensorBuilder_ == null) {
@@ -2058,7 +2058,7 @@ public final class ParkController {
         return this;
       }
       /**
-       * <code>optional .org.naru.park.CommonAction delete_sensor = 4;</code>
+       * <code>.org.naru.park.CommonAction delete_sensor = 4;</code>
        */
       public org.naru.park.ParkController.CommonAction.Builder getDeleteSensorBuilder() {
         
@@ -2066,7 +2066,7 @@ public final class ParkController {
         return getDeleteSensorFieldBuilder().getBuilder();
       }
       /**
-       * <code>optional .org.naru.park.CommonAction delete_sensor = 4;</code>
+       * <code>.org.naru.park.CommonAction delete_sensor = 4;</code>
        */
       public org.naru.park.ParkController.CommonActionOrBuilder getDeleteSensorOrBuilder() {
         if (deleteSensorBuilder_ != null) {
@@ -2077,7 +2077,7 @@ public final class ParkController {
         }
       }
       /**
-       * <code>optional .org.naru.park.CommonAction delete_sensor = 4;</code>
+       * <code>.org.naru.park.CommonAction delete_sensor = 4;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           org.naru.park.ParkController.CommonAction, org.naru.park.ParkController.CommonAction.Builder, org.naru.park.ParkController.CommonActionOrBuilder> 
@@ -2097,13 +2097,13 @@ public final class ParkController {
       private com.google.protobuf.SingleFieldBuilderV3<
           org.naru.park.ParkController.CommonAction, org.naru.park.ParkController.CommonAction.Builder, org.naru.park.ParkController.CommonActionOrBuilder> getLatestReadingBuilder_;
       /**
-       * <code>optional .org.naru.park.CommonAction get_latest_reading = 5;</code>
+       * <code>.org.naru.park.CommonAction get_latest_reading = 5;</code>
        */
       public boolean hasGetLatestReading() {
         return getLatestReadingBuilder_ != null || getLatestReading_ != null;
       }
       /**
-       * <code>optional .org.naru.park.CommonAction get_latest_reading = 5;</code>
+       * <code>.org.naru.park.CommonAction get_latest_reading = 5;</code>
        */
       public org.naru.park.ParkController.CommonAction getGetLatestReading() {
         if (getLatestReadingBuilder_ == null) {
@@ -2113,7 +2113,7 @@ public final class ParkController {
         }
       }
       /**
-       * <code>optional .org.naru.park.CommonAction get_latest_reading = 5;</code>
+       * <code>.org.naru.park.CommonAction get_latest_reading = 5;</code>
        */
       public Builder setGetLatestReading(org.naru.park.ParkController.CommonAction value) {
         if (getLatestReadingBuilder_ == null) {
@@ -2129,7 +2129,7 @@ public final class ParkController {
         return this;
       }
       /**
-       * <code>optional .org.naru.park.CommonAction get_latest_reading = 5;</code>
+       * <code>.org.naru.park.CommonAction get_latest_reading = 5;</code>
        */
       public Builder setGetLatestReading(
           org.naru.park.ParkController.CommonAction.Builder builderForValue) {
@@ -2143,7 +2143,7 @@ public final class ParkController {
         return this;
       }
       /**
-       * <code>optional .org.naru.park.CommonAction get_latest_reading = 5;</code>
+       * <code>.org.naru.park.CommonAction get_latest_reading = 5;</code>
        */
       public Builder mergeGetLatestReading(org.naru.park.ParkController.CommonAction value) {
         if (getLatestReadingBuilder_ == null) {
@@ -2161,7 +2161,7 @@ public final class ParkController {
         return this;
       }
       /**
-       * <code>optional .org.naru.park.CommonAction get_latest_reading = 5;</code>
+       * <code>.org.naru.park.CommonAction get_latest_reading = 5;</code>
        */
       public Builder clearGetLatestReading() {
         if (getLatestReadingBuilder_ == null) {
@@ -2175,7 +2175,7 @@ public final class ParkController {
         return this;
       }
       /**
-       * <code>optional .org.naru.park.CommonAction get_latest_reading = 5;</code>
+       * <code>.org.naru.park.CommonAction get_latest_reading = 5;</code>
        */
       public org.naru.park.ParkController.CommonAction.Builder getGetLatestReadingBuilder() {
         
@@ -2183,7 +2183,7 @@ public final class ParkController {
         return getGetLatestReadingFieldBuilder().getBuilder();
       }
       /**
-       * <code>optional .org.naru.park.CommonAction get_latest_reading = 5;</code>
+       * <code>.org.naru.park.CommonAction get_latest_reading = 5;</code>
        */
       public org.naru.park.ParkController.CommonActionOrBuilder getGetLatestReadingOrBuilder() {
         if (getLatestReadingBuilder_ != null) {
@@ -2194,7 +2194,7 @@ public final class ParkController {
         }
       }
       /**
-       * <code>optional .org.naru.park.CommonAction get_latest_reading = 5;</code>
+       * <code>.org.naru.park.CommonAction get_latest_reading = 5;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           org.naru.park.ParkController.CommonAction, org.naru.park.ParkController.CommonAction.Builder, org.naru.park.ParkController.CommonActionOrBuilder> 
@@ -2214,13 +2214,13 @@ public final class ParkController {
       private com.google.protobuf.SingleFieldBuilderV3<
           org.naru.park.ParkController.CommonAction, org.naru.park.ParkController.CommonAction.Builder, org.naru.park.ParkController.CommonActionOrBuilder> getUserHistoryBuilder_;
       /**
-       * <code>optional .org.naru.park.CommonAction get_user_history = 6;</code>
+       * <code>.org.naru.park.CommonAction get_user_history = 6;</code>
        */
       public boolean hasGetUserHistory() {
         return getUserHistoryBuilder_ != null || getUserHistory_ != null;
       }
       /**
-       * <code>optional .org.naru.park.CommonAction get_user_history = 6;</code>
+       * <code>.org.naru.park.CommonAction get_user_history = 6;</code>
        */
       public org.naru.park.ParkController.CommonAction getGetUserHistory() {
         if (getUserHistoryBuilder_ == null) {
@@ -2230,7 +2230,7 @@ public final class ParkController {
         }
       }
       /**
-       * <code>optional .org.naru.park.CommonAction get_user_history = 6;</code>
+       * <code>.org.naru.park.CommonAction get_user_history = 6;</code>
        */
       public Builder setGetUserHistory(org.naru.park.ParkController.CommonAction value) {
         if (getUserHistoryBuilder_ == null) {
@@ -2246,7 +2246,7 @@ public final class ParkController {
         return this;
       }
       /**
-       * <code>optional .org.naru.park.CommonAction get_user_history = 6;</code>
+       * <code>.org.naru.park.CommonAction get_user_history = 6;</code>
        */
       public Builder setGetUserHistory(
           org.naru.park.ParkController.CommonAction.Builder builderForValue) {
@@ -2260,7 +2260,7 @@ public final class ParkController {
         return this;
       }
       /**
-       * <code>optional .org.naru.park.CommonAction get_user_history = 6;</code>
+       * <code>.org.naru.park.CommonAction get_user_history = 6;</code>
        */
       public Builder mergeGetUserHistory(org.naru.park.ParkController.CommonAction value) {
         if (getUserHistoryBuilder_ == null) {
@@ -2278,7 +2278,7 @@ public final class ParkController {
         return this;
       }
       /**
-       * <code>optional .org.naru.park.CommonAction get_user_history = 6;</code>
+       * <code>.org.naru.park.CommonAction get_user_history = 6;</code>
        */
       public Builder clearGetUserHistory() {
         if (getUserHistoryBuilder_ == null) {
@@ -2292,7 +2292,7 @@ public final class ParkController {
         return this;
       }
       /**
-       * <code>optional .org.naru.park.CommonAction get_user_history = 6;</code>
+       * <code>.org.naru.park.CommonAction get_user_history = 6;</code>
        */
       public org.naru.park.ParkController.CommonAction.Builder getGetUserHistoryBuilder() {
         
@@ -2300,7 +2300,7 @@ public final class ParkController {
         return getGetUserHistoryFieldBuilder().getBuilder();
       }
       /**
-       * <code>optional .org.naru.park.CommonAction get_user_history = 6;</code>
+       * <code>.org.naru.park.CommonAction get_user_history = 6;</code>
        */
       public org.naru.park.ParkController.CommonActionOrBuilder getGetUserHistoryOrBuilder() {
         if (getUserHistoryBuilder_ != null) {
@@ -2311,7 +2311,7 @@ public final class ParkController {
         }
       }
       /**
-       * <code>optional .org.naru.park.CommonAction get_user_history = 6;</code>
+       * <code>.org.naru.park.CommonAction get_user_history = 6;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           org.naru.park.ParkController.CommonAction, org.naru.park.ParkController.CommonAction.Builder, org.naru.park.ParkController.CommonActionOrBuilder> 
@@ -2331,13 +2331,13 @@ public final class ParkController {
       private com.google.protobuf.SingleFieldBuilderV3<
           org.naru.park.ParkController.CommonAction, org.naru.park.ParkController.CommonAction.Builder, org.naru.park.ParkController.CommonActionOrBuilder> getLatestSensorReadingForUserBuilder_;
       /**
-       * <code>optional .org.naru.park.CommonAction get_latest_sensor_reading_for_user = 7;</code>
+       * <code>.org.naru.park.CommonAction get_latest_sensor_reading_for_user = 7;</code>
        */
       public boolean hasGetLatestSensorReadingForUser() {
         return getLatestSensorReadingForUserBuilder_ != null || getLatestSensorReadingForUser_ != null;
       }
       /**
-       * <code>optional .org.naru.park.CommonAction get_latest_sensor_reading_for_user = 7;</code>
+       * <code>.org.naru.park.CommonAction get_latest_sensor_reading_for_user = 7;</code>
        */
       public org.naru.park.ParkController.CommonAction getGetLatestSensorReadingForUser() {
         if (getLatestSensorReadingForUserBuilder_ == null) {
@@ -2347,7 +2347,7 @@ public final class ParkController {
         }
       }
       /**
-       * <code>optional .org.naru.park.CommonAction get_latest_sensor_reading_for_user = 7;</code>
+       * <code>.org.naru.park.CommonAction get_latest_sensor_reading_for_user = 7;</code>
        */
       public Builder setGetLatestSensorReadingForUser(org.naru.park.ParkController.CommonAction value) {
         if (getLatestSensorReadingForUserBuilder_ == null) {
@@ -2363,7 +2363,7 @@ public final class ParkController {
         return this;
       }
       /**
-       * <code>optional .org.naru.park.CommonAction get_latest_sensor_reading_for_user = 7;</code>
+       * <code>.org.naru.park.CommonAction get_latest_sensor_reading_for_user = 7;</code>
        */
       public Builder setGetLatestSensorReadingForUser(
           org.naru.park.ParkController.CommonAction.Builder builderForValue) {
@@ -2377,7 +2377,7 @@ public final class ParkController {
         return this;
       }
       /**
-       * <code>optional .org.naru.park.CommonAction get_latest_sensor_reading_for_user = 7;</code>
+       * <code>.org.naru.park.CommonAction get_latest_sensor_reading_for_user = 7;</code>
        */
       public Builder mergeGetLatestSensorReadingForUser(org.naru.park.ParkController.CommonAction value) {
         if (getLatestSensorReadingForUserBuilder_ == null) {
@@ -2395,7 +2395,7 @@ public final class ParkController {
         return this;
       }
       /**
-       * <code>optional .org.naru.park.CommonAction get_latest_sensor_reading_for_user = 7;</code>
+       * <code>.org.naru.park.CommonAction get_latest_sensor_reading_for_user = 7;</code>
        */
       public Builder clearGetLatestSensorReadingForUser() {
         if (getLatestSensorReadingForUserBuilder_ == null) {
@@ -2409,7 +2409,7 @@ public final class ParkController {
         return this;
       }
       /**
-       * <code>optional .org.naru.park.CommonAction get_latest_sensor_reading_for_user = 7;</code>
+       * <code>.org.naru.park.CommonAction get_latest_sensor_reading_for_user = 7;</code>
        */
       public org.naru.park.ParkController.CommonAction.Builder getGetLatestSensorReadingForUserBuilder() {
         
@@ -2417,7 +2417,7 @@ public final class ParkController {
         return getGetLatestSensorReadingForUserFieldBuilder().getBuilder();
       }
       /**
-       * <code>optional .org.naru.park.CommonAction get_latest_sensor_reading_for_user = 7;</code>
+       * <code>.org.naru.park.CommonAction get_latest_sensor_reading_for_user = 7;</code>
        */
       public org.naru.park.ParkController.CommonActionOrBuilder getGetLatestSensorReadingForUserOrBuilder() {
         if (getLatestSensorReadingForUserBuilder_ != null) {
@@ -2428,7 +2428,7 @@ public final class ParkController {
         }
       }
       /**
-       * <code>optional .org.naru.park.CommonAction get_latest_sensor_reading_for_user = 7;</code>
+       * <code>.org.naru.park.CommonAction get_latest_sensor_reading_for_user = 7;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           org.naru.park.ParkController.CommonAction, org.naru.park.ParkController.CommonAction.Builder, org.naru.park.ParkController.CommonActionOrBuilder> 
@@ -2497,41 +2497,41 @@ public final class ParkController {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>optional .org.naru.park.CommonAction all = 1;</code>
+     * <code>.org.naru.park.CommonAction all = 1;</code>
      */
     boolean hasAll();
     /**
-     * <code>optional .org.naru.park.CommonAction all = 1;</code>
+     * <code>.org.naru.park.CommonAction all = 1;</code>
      */
     org.naru.park.ParkController.CommonAction getAll();
     /**
-     * <code>optional .org.naru.park.CommonAction all = 1;</code>
+     * <code>.org.naru.park.CommonAction all = 1;</code>
      */
     org.naru.park.ParkController.CommonActionOrBuilder getAllOrBuilder();
 
     /**
-     * <code>optional .org.naru.park.CommonAction save_beacon = 2;</code>
+     * <code>.org.naru.park.CommonAction save_beacon = 2;</code>
      */
     boolean hasSaveBeacon();
     /**
-     * <code>optional .org.naru.park.CommonAction save_beacon = 2;</code>
+     * <code>.org.naru.park.CommonAction save_beacon = 2;</code>
      */
     org.naru.park.ParkController.CommonAction getSaveBeacon();
     /**
-     * <code>optional .org.naru.park.CommonAction save_beacon = 2;</code>
+     * <code>.org.naru.park.CommonAction save_beacon = 2;</code>
      */
     org.naru.park.ParkController.CommonActionOrBuilder getSaveBeaconOrBuilder();
 
     /**
-     * <code>optional .org.naru.park.CommonAction delete_beacon = 3;</code>
+     * <code>.org.naru.park.CommonAction delete_beacon = 3;</code>
      */
     boolean hasDeleteBeacon();
     /**
-     * <code>optional .org.naru.park.CommonAction delete_beacon = 3;</code>
+     * <code>.org.naru.park.CommonAction delete_beacon = 3;</code>
      */
     org.naru.park.ParkController.CommonAction getDeleteBeacon();
     /**
-     * <code>optional .org.naru.park.CommonAction delete_beacon = 3;</code>
+     * <code>.org.naru.park.CommonAction delete_beacon = 3;</code>
      */
     org.naru.park.ParkController.CommonActionOrBuilder getDeleteBeaconOrBuilder();
   }
@@ -2639,19 +2639,19 @@ public final class ParkController {
     public static final int ALL_FIELD_NUMBER = 1;
     private org.naru.park.ParkController.CommonAction all_;
     /**
-     * <code>optional .org.naru.park.CommonAction all = 1;</code>
+     * <code>.org.naru.park.CommonAction all = 1;</code>
      */
     public boolean hasAll() {
       return all_ != null;
     }
     /**
-     * <code>optional .org.naru.park.CommonAction all = 1;</code>
+     * <code>.org.naru.park.CommonAction all = 1;</code>
      */
     public org.naru.park.ParkController.CommonAction getAll() {
       return all_ == null ? org.naru.park.ParkController.CommonAction.getDefaultInstance() : all_;
     }
     /**
-     * <code>optional .org.naru.park.CommonAction all = 1;</code>
+     * <code>.org.naru.park.CommonAction all = 1;</code>
      */
     public org.naru.park.ParkController.CommonActionOrBuilder getAllOrBuilder() {
       return getAll();
@@ -2660,19 +2660,19 @@ public final class ParkController {
     public static final int SAVE_BEACON_FIELD_NUMBER = 2;
     private org.naru.park.ParkController.CommonAction saveBeacon_;
     /**
-     * <code>optional .org.naru.park.CommonAction save_beacon = 2;</code>
+     * <code>.org.naru.park.CommonAction save_beacon = 2;</code>
      */
     public boolean hasSaveBeacon() {
       return saveBeacon_ != null;
     }
     /**
-     * <code>optional .org.naru.park.CommonAction save_beacon = 2;</code>
+     * <code>.org.naru.park.CommonAction save_beacon = 2;</code>
      */
     public org.naru.park.ParkController.CommonAction getSaveBeacon() {
       return saveBeacon_ == null ? org.naru.park.ParkController.CommonAction.getDefaultInstance() : saveBeacon_;
     }
     /**
-     * <code>optional .org.naru.park.CommonAction save_beacon = 2;</code>
+     * <code>.org.naru.park.CommonAction save_beacon = 2;</code>
      */
     public org.naru.park.ParkController.CommonActionOrBuilder getSaveBeaconOrBuilder() {
       return getSaveBeacon();
@@ -2681,19 +2681,19 @@ public final class ParkController {
     public static final int DELETE_BEACON_FIELD_NUMBER = 3;
     private org.naru.park.ParkController.CommonAction deleteBeacon_;
     /**
-     * <code>optional .org.naru.park.CommonAction delete_beacon = 3;</code>
+     * <code>.org.naru.park.CommonAction delete_beacon = 3;</code>
      */
     public boolean hasDeleteBeacon() {
       return deleteBeacon_ != null;
     }
     /**
-     * <code>optional .org.naru.park.CommonAction delete_beacon = 3;</code>
+     * <code>.org.naru.park.CommonAction delete_beacon = 3;</code>
      */
     public org.naru.park.ParkController.CommonAction getDeleteBeacon() {
       return deleteBeacon_ == null ? org.naru.park.ParkController.CommonAction.getDefaultInstance() : deleteBeacon_;
     }
     /**
-     * <code>optional .org.naru.park.CommonAction delete_beacon = 3;</code>
+     * <code>.org.naru.park.CommonAction delete_beacon = 3;</code>
      */
     public org.naru.park.ParkController.CommonActionOrBuilder getDeleteBeaconOrBuilder() {
       return getDeleteBeacon();
@@ -2779,7 +2779,7 @@ public final class ParkController {
         return memoizedHashCode;
       }
       int hash = 41;
-      hash = (19 * hash) + getDescriptorForType().hashCode();
+      hash = (19 * hash) + getDescriptor().hashCode();
       if (hasAll()) {
         hash = (37 * hash) + ALL_FIELD_NUMBER;
         hash = (53 * hash) + getAll().hashCode();
@@ -3045,13 +3045,13 @@ public final class ParkController {
       private com.google.protobuf.SingleFieldBuilderV3<
           org.naru.park.ParkController.CommonAction, org.naru.park.ParkController.CommonAction.Builder, org.naru.park.ParkController.CommonActionOrBuilder> allBuilder_;
       /**
-       * <code>optional .org.naru.park.CommonAction all = 1;</code>
+       * <code>.org.naru.park.CommonAction all = 1;</code>
        */
       public boolean hasAll() {
         return allBuilder_ != null || all_ != null;
       }
       /**
-       * <code>optional .org.naru.park.CommonAction all = 1;</code>
+       * <code>.org.naru.park.CommonAction all = 1;</code>
        */
       public org.naru.park.ParkController.CommonAction getAll() {
         if (allBuilder_ == null) {
@@ -3061,7 +3061,7 @@ public final class ParkController {
         }
       }
       /**
-       * <code>optional .org.naru.park.CommonAction all = 1;</code>
+       * <code>.org.naru.park.CommonAction all = 1;</code>
        */
       public Builder setAll(org.naru.park.ParkController.CommonAction value) {
         if (allBuilder_ == null) {
@@ -3077,7 +3077,7 @@ public final class ParkController {
         return this;
       }
       /**
-       * <code>optional .org.naru.park.CommonAction all = 1;</code>
+       * <code>.org.naru.park.CommonAction all = 1;</code>
        */
       public Builder setAll(
           org.naru.park.ParkController.CommonAction.Builder builderForValue) {
@@ -3091,7 +3091,7 @@ public final class ParkController {
         return this;
       }
       /**
-       * <code>optional .org.naru.park.CommonAction all = 1;</code>
+       * <code>.org.naru.park.CommonAction all = 1;</code>
        */
       public Builder mergeAll(org.naru.park.ParkController.CommonAction value) {
         if (allBuilder_ == null) {
@@ -3109,7 +3109,7 @@ public final class ParkController {
         return this;
       }
       /**
-       * <code>optional .org.naru.park.CommonAction all = 1;</code>
+       * <code>.org.naru.park.CommonAction all = 1;</code>
        */
       public Builder clearAll() {
         if (allBuilder_ == null) {
@@ -3123,7 +3123,7 @@ public final class ParkController {
         return this;
       }
       /**
-       * <code>optional .org.naru.park.CommonAction all = 1;</code>
+       * <code>.org.naru.park.CommonAction all = 1;</code>
        */
       public org.naru.park.ParkController.CommonAction.Builder getAllBuilder() {
         
@@ -3131,7 +3131,7 @@ public final class ParkController {
         return getAllFieldBuilder().getBuilder();
       }
       /**
-       * <code>optional .org.naru.park.CommonAction all = 1;</code>
+       * <code>.org.naru.park.CommonAction all = 1;</code>
        */
       public org.naru.park.ParkController.CommonActionOrBuilder getAllOrBuilder() {
         if (allBuilder_ != null) {
@@ -3142,7 +3142,7 @@ public final class ParkController {
         }
       }
       /**
-       * <code>optional .org.naru.park.CommonAction all = 1;</code>
+       * <code>.org.naru.park.CommonAction all = 1;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           org.naru.park.ParkController.CommonAction, org.naru.park.ParkController.CommonAction.Builder, org.naru.park.ParkController.CommonActionOrBuilder> 
@@ -3162,13 +3162,13 @@ public final class ParkController {
       private com.google.protobuf.SingleFieldBuilderV3<
           org.naru.park.ParkController.CommonAction, org.naru.park.ParkController.CommonAction.Builder, org.naru.park.ParkController.CommonActionOrBuilder> saveBeaconBuilder_;
       /**
-       * <code>optional .org.naru.park.CommonAction save_beacon = 2;</code>
+       * <code>.org.naru.park.CommonAction save_beacon = 2;</code>
        */
       public boolean hasSaveBeacon() {
         return saveBeaconBuilder_ != null || saveBeacon_ != null;
       }
       /**
-       * <code>optional .org.naru.park.CommonAction save_beacon = 2;</code>
+       * <code>.org.naru.park.CommonAction save_beacon = 2;</code>
        */
       public org.naru.park.ParkController.CommonAction getSaveBeacon() {
         if (saveBeaconBuilder_ == null) {
@@ -3178,7 +3178,7 @@ public final class ParkController {
         }
       }
       /**
-       * <code>optional .org.naru.park.CommonAction save_beacon = 2;</code>
+       * <code>.org.naru.park.CommonAction save_beacon = 2;</code>
        */
       public Builder setSaveBeacon(org.naru.park.ParkController.CommonAction value) {
         if (saveBeaconBuilder_ == null) {
@@ -3194,7 +3194,7 @@ public final class ParkController {
         return this;
       }
       /**
-       * <code>optional .org.naru.park.CommonAction save_beacon = 2;</code>
+       * <code>.org.naru.park.CommonAction save_beacon = 2;</code>
        */
       public Builder setSaveBeacon(
           org.naru.park.ParkController.CommonAction.Builder builderForValue) {
@@ -3208,7 +3208,7 @@ public final class ParkController {
         return this;
       }
       /**
-       * <code>optional .org.naru.park.CommonAction save_beacon = 2;</code>
+       * <code>.org.naru.park.CommonAction save_beacon = 2;</code>
        */
       public Builder mergeSaveBeacon(org.naru.park.ParkController.CommonAction value) {
         if (saveBeaconBuilder_ == null) {
@@ -3226,7 +3226,7 @@ public final class ParkController {
         return this;
       }
       /**
-       * <code>optional .org.naru.park.CommonAction save_beacon = 2;</code>
+       * <code>.org.naru.park.CommonAction save_beacon = 2;</code>
        */
       public Builder clearSaveBeacon() {
         if (saveBeaconBuilder_ == null) {
@@ -3240,7 +3240,7 @@ public final class ParkController {
         return this;
       }
       /**
-       * <code>optional .org.naru.park.CommonAction save_beacon = 2;</code>
+       * <code>.org.naru.park.CommonAction save_beacon = 2;</code>
        */
       public org.naru.park.ParkController.CommonAction.Builder getSaveBeaconBuilder() {
         
@@ -3248,7 +3248,7 @@ public final class ParkController {
         return getSaveBeaconFieldBuilder().getBuilder();
       }
       /**
-       * <code>optional .org.naru.park.CommonAction save_beacon = 2;</code>
+       * <code>.org.naru.park.CommonAction save_beacon = 2;</code>
        */
       public org.naru.park.ParkController.CommonActionOrBuilder getSaveBeaconOrBuilder() {
         if (saveBeaconBuilder_ != null) {
@@ -3259,7 +3259,7 @@ public final class ParkController {
         }
       }
       /**
-       * <code>optional .org.naru.park.CommonAction save_beacon = 2;</code>
+       * <code>.org.naru.park.CommonAction save_beacon = 2;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           org.naru.park.ParkController.CommonAction, org.naru.park.ParkController.CommonAction.Builder, org.naru.park.ParkController.CommonActionOrBuilder> 
@@ -3279,13 +3279,13 @@ public final class ParkController {
       private com.google.protobuf.SingleFieldBuilderV3<
           org.naru.park.ParkController.CommonAction, org.naru.park.ParkController.CommonAction.Builder, org.naru.park.ParkController.CommonActionOrBuilder> deleteBeaconBuilder_;
       /**
-       * <code>optional .org.naru.park.CommonAction delete_beacon = 3;</code>
+       * <code>.org.naru.park.CommonAction delete_beacon = 3;</code>
        */
       public boolean hasDeleteBeacon() {
         return deleteBeaconBuilder_ != null || deleteBeacon_ != null;
       }
       /**
-       * <code>optional .org.naru.park.CommonAction delete_beacon = 3;</code>
+       * <code>.org.naru.park.CommonAction delete_beacon = 3;</code>
        */
       public org.naru.park.ParkController.CommonAction getDeleteBeacon() {
         if (deleteBeaconBuilder_ == null) {
@@ -3295,7 +3295,7 @@ public final class ParkController {
         }
       }
       /**
-       * <code>optional .org.naru.park.CommonAction delete_beacon = 3;</code>
+       * <code>.org.naru.park.CommonAction delete_beacon = 3;</code>
        */
       public Builder setDeleteBeacon(org.naru.park.ParkController.CommonAction value) {
         if (deleteBeaconBuilder_ == null) {
@@ -3311,7 +3311,7 @@ public final class ParkController {
         return this;
       }
       /**
-       * <code>optional .org.naru.park.CommonAction delete_beacon = 3;</code>
+       * <code>.org.naru.park.CommonAction delete_beacon = 3;</code>
        */
       public Builder setDeleteBeacon(
           org.naru.park.ParkController.CommonAction.Builder builderForValue) {
@@ -3325,7 +3325,7 @@ public final class ParkController {
         return this;
       }
       /**
-       * <code>optional .org.naru.park.CommonAction delete_beacon = 3;</code>
+       * <code>.org.naru.park.CommonAction delete_beacon = 3;</code>
        */
       public Builder mergeDeleteBeacon(org.naru.park.ParkController.CommonAction value) {
         if (deleteBeaconBuilder_ == null) {
@@ -3343,7 +3343,7 @@ public final class ParkController {
         return this;
       }
       /**
-       * <code>optional .org.naru.park.CommonAction delete_beacon = 3;</code>
+       * <code>.org.naru.park.CommonAction delete_beacon = 3;</code>
        */
       public Builder clearDeleteBeacon() {
         if (deleteBeaconBuilder_ == null) {
@@ -3357,7 +3357,7 @@ public final class ParkController {
         return this;
       }
       /**
-       * <code>optional .org.naru.park.CommonAction delete_beacon = 3;</code>
+       * <code>.org.naru.park.CommonAction delete_beacon = 3;</code>
        */
       public org.naru.park.ParkController.CommonAction.Builder getDeleteBeaconBuilder() {
         
@@ -3365,7 +3365,7 @@ public final class ParkController {
         return getDeleteBeaconFieldBuilder().getBuilder();
       }
       /**
-       * <code>optional .org.naru.park.CommonAction delete_beacon = 3;</code>
+       * <code>.org.naru.park.CommonAction delete_beacon = 3;</code>
        */
       public org.naru.park.ParkController.CommonActionOrBuilder getDeleteBeaconOrBuilder() {
         if (deleteBeaconBuilder_ != null) {
@@ -3376,7 +3376,7 @@ public final class ParkController {
         }
       }
       /**
-       * <code>optional .org.naru.park.CommonAction delete_beacon = 3;</code>
+       * <code>.org.naru.park.CommonAction delete_beacon = 3;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           org.naru.park.ParkController.CommonAction, org.naru.park.ParkController.CommonAction.Builder, org.naru.park.ParkController.CommonActionOrBuilder> 

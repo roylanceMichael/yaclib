@@ -117,80 +117,80 @@ public final class ParkModel {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>optional string id = 1;</code>
+     * <code>string id = 1;</code>
      */
     java.lang.String getId();
     /**
-     * <code>optional string id = 1;</code>
+     * <code>string id = 1;</code>
      */
     com.google.protobuf.ByteString
         getIdBytes();
 
     /**
-     * <code>optional string id1 = 2;</code>
+     * <code>string id1 = 2;</code>
      */
     java.lang.String getId1();
     /**
-     * <code>optional string id1 = 2;</code>
+     * <code>string id1 = 2;</code>
      */
     com.google.protobuf.ByteString
         getId1Bytes();
 
     /**
-     * <code>optional string id2 = 3;</code>
+     * <code>string id2 = 3;</code>
      */
     java.lang.String getId2();
     /**
-     * <code>optional string id2 = 3;</code>
+     * <code>string id2 = 3;</code>
      */
     com.google.protobuf.ByteString
         getId2Bytes();
 
     /**
-     * <code>optional string id3 = 4;</code>
+     * <code>string id3 = 4;</code>
      */
     java.lang.String getId3();
     /**
-     * <code>optional string id3 = 4;</code>
+     * <code>string id3 = 4;</code>
      */
     com.google.protobuf.ByteString
         getId3Bytes();
 
     /**
-     * <code>optional string description = 5;</code>
+     * <code>string description = 5;</code>
      */
     java.lang.String getDescription();
     /**
-     * <code>optional string description = 5;</code>
+     * <code>string description = 5;</code>
      */
     com.google.protobuf.ByteString
         getDescriptionBytes();
 
     /**
-     * <code>optional .org.naru.park.BeaconType beacon_type = 6;</code>
+     * <code>.org.naru.park.BeaconType beacon_type = 6;</code>
      */
     int getBeaconTypeValue();
     /**
-     * <code>optional .org.naru.park.BeaconType beacon_type = 6;</code>
+     * <code>.org.naru.park.BeaconType beacon_type = 6;</code>
      */
     org.naru.park.ParkModel.BeaconType getBeaconType();
 
     /**
-     * <code>optional double annotated_lat = 7;</code>
+     * <code>double annotated_lat = 7;</code>
      */
     double getAnnotatedLat();
 
     /**
-     * <code>optional double annotated_long = 8;</code>
+     * <code>double annotated_long = 8;</code>
      */
     double getAnnotatedLong();
 
     /**
-     * <code>optional string beacon_search = 9;</code>
+     * <code>string beacon_search = 9;</code>
      */
     java.lang.String getBeaconSearch();
     /**
-     * <code>optional string beacon_search = 9;</code>
+     * <code>string beacon_search = 9;</code>
      */
     com.google.protobuf.ByteString
         getBeaconSearchBytes();
@@ -321,7 +321,7 @@ public final class ParkModel {
     public static final int ID_FIELD_NUMBER = 1;
     private volatile java.lang.Object id_;
     /**
-     * <code>optional string id = 1;</code>
+     * <code>string id = 1;</code>
      */
     public java.lang.String getId() {
       java.lang.Object ref = id_;
@@ -336,7 +336,7 @@ public final class ParkModel {
       }
     }
     /**
-     * <code>optional string id = 1;</code>
+     * <code>string id = 1;</code>
      */
     public com.google.protobuf.ByteString
         getIdBytes() {
@@ -355,7 +355,7 @@ public final class ParkModel {
     public static final int ID1_FIELD_NUMBER = 2;
     private volatile java.lang.Object id1_;
     /**
-     * <code>optional string id1 = 2;</code>
+     * <code>string id1 = 2;</code>
      */
     public java.lang.String getId1() {
       java.lang.Object ref = id1_;
@@ -370,7 +370,7 @@ public final class ParkModel {
       }
     }
     /**
-     * <code>optional string id1 = 2;</code>
+     * <code>string id1 = 2;</code>
      */
     public com.google.protobuf.ByteString
         getId1Bytes() {
@@ -389,7 +389,7 @@ public final class ParkModel {
     public static final int ID2_FIELD_NUMBER = 3;
     private volatile java.lang.Object id2_;
     /**
-     * <code>optional string id2 = 3;</code>
+     * <code>string id2 = 3;</code>
      */
     public java.lang.String getId2() {
       java.lang.Object ref = id2_;
@@ -404,7 +404,7 @@ public final class ParkModel {
       }
     }
     /**
-     * <code>optional string id2 = 3;</code>
+     * <code>string id2 = 3;</code>
      */
     public com.google.protobuf.ByteString
         getId2Bytes() {
@@ -423,7 +423,7 @@ public final class ParkModel {
     public static final int ID3_FIELD_NUMBER = 4;
     private volatile java.lang.Object id3_;
     /**
-     * <code>optional string id3 = 4;</code>
+     * <code>string id3 = 4;</code>
      */
     public java.lang.String getId3() {
       java.lang.Object ref = id3_;
@@ -438,7 +438,7 @@ public final class ParkModel {
       }
     }
     /**
-     * <code>optional string id3 = 4;</code>
+     * <code>string id3 = 4;</code>
      */
     public com.google.protobuf.ByteString
         getId3Bytes() {
@@ -457,7 +457,7 @@ public final class ParkModel {
     public static final int DESCRIPTION_FIELD_NUMBER = 5;
     private volatile java.lang.Object description_;
     /**
-     * <code>optional string description = 5;</code>
+     * <code>string description = 5;</code>
      */
     public java.lang.String getDescription() {
       java.lang.Object ref = description_;
@@ -472,7 +472,7 @@ public final class ParkModel {
       }
     }
     /**
-     * <code>optional string description = 5;</code>
+     * <code>string description = 5;</code>
      */
     public com.google.protobuf.ByteString
         getDescriptionBytes() {
@@ -491,13 +491,13 @@ public final class ParkModel {
     public static final int BEACON_TYPE_FIELD_NUMBER = 6;
     private int beaconType_;
     /**
-     * <code>optional .org.naru.park.BeaconType beacon_type = 6;</code>
+     * <code>.org.naru.park.BeaconType beacon_type = 6;</code>
      */
     public int getBeaconTypeValue() {
       return beaconType_;
     }
     /**
-     * <code>optional .org.naru.park.BeaconType beacon_type = 6;</code>
+     * <code>.org.naru.park.BeaconType beacon_type = 6;</code>
      */
     public org.naru.park.ParkModel.BeaconType getBeaconType() {
       org.naru.park.ParkModel.BeaconType result = org.naru.park.ParkModel.BeaconType.valueOf(beaconType_);
@@ -507,7 +507,7 @@ public final class ParkModel {
     public static final int ANNOTATED_LAT_FIELD_NUMBER = 7;
     private double annotatedLat_;
     /**
-     * <code>optional double annotated_lat = 7;</code>
+     * <code>double annotated_lat = 7;</code>
      */
     public double getAnnotatedLat() {
       return annotatedLat_;
@@ -516,7 +516,7 @@ public final class ParkModel {
     public static final int ANNOTATED_LONG_FIELD_NUMBER = 8;
     private double annotatedLong_;
     /**
-     * <code>optional double annotated_long = 8;</code>
+     * <code>double annotated_long = 8;</code>
      */
     public double getAnnotatedLong() {
       return annotatedLong_;
@@ -525,7 +525,7 @@ public final class ParkModel {
     public static final int BEACON_SEARCH_FIELD_NUMBER = 9;
     private volatile java.lang.Object beaconSearch_;
     /**
-     * <code>optional string beacon_search = 9;</code>
+     * <code>string beacon_search = 9;</code>
      */
     public java.lang.String getBeaconSearch() {
       java.lang.Object ref = beaconSearch_;
@@ -540,7 +540,7 @@ public final class ParkModel {
       }
     }
     /**
-     * <code>optional string beacon_search = 9;</code>
+     * <code>string beacon_search = 9;</code>
      */
     public com.google.protobuf.ByteString
         getBeaconSearchBytes() {
@@ -678,7 +678,7 @@ public final class ParkModel {
         return memoizedHashCode;
       }
       int hash = 41;
-      hash = (19 * hash) + getDescriptorForType().hashCode();
+      hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + ID_FIELD_NUMBER;
       hash = (53 * hash) + getId().hashCode();
       hash = (37 * hash) + ID1_FIELD_NUMBER;
@@ -968,7 +968,7 @@ public final class ParkModel {
 
       private java.lang.Object id_ = "";
       /**
-       * <code>optional string id = 1;</code>
+       * <code>string id = 1;</code>
        */
       public java.lang.String getId() {
         java.lang.Object ref = id_;
@@ -983,7 +983,7 @@ public final class ParkModel {
         }
       }
       /**
-       * <code>optional string id = 1;</code>
+       * <code>string id = 1;</code>
        */
       public com.google.protobuf.ByteString
           getIdBytes() {
@@ -999,7 +999,7 @@ public final class ParkModel {
         }
       }
       /**
-       * <code>optional string id = 1;</code>
+       * <code>string id = 1;</code>
        */
       public Builder setId(
           java.lang.String value) {
@@ -1012,7 +1012,7 @@ public final class ParkModel {
         return this;
       }
       /**
-       * <code>optional string id = 1;</code>
+       * <code>string id = 1;</code>
        */
       public Builder clearId() {
         
@@ -1021,7 +1021,7 @@ public final class ParkModel {
         return this;
       }
       /**
-       * <code>optional string id = 1;</code>
+       * <code>string id = 1;</code>
        */
       public Builder setIdBytes(
           com.google.protobuf.ByteString value) {
@@ -1037,7 +1037,7 @@ public final class ParkModel {
 
       private java.lang.Object id1_ = "";
       /**
-       * <code>optional string id1 = 2;</code>
+       * <code>string id1 = 2;</code>
        */
       public java.lang.String getId1() {
         java.lang.Object ref = id1_;
@@ -1052,7 +1052,7 @@ public final class ParkModel {
         }
       }
       /**
-       * <code>optional string id1 = 2;</code>
+       * <code>string id1 = 2;</code>
        */
       public com.google.protobuf.ByteString
           getId1Bytes() {
@@ -1068,7 +1068,7 @@ public final class ParkModel {
         }
       }
       /**
-       * <code>optional string id1 = 2;</code>
+       * <code>string id1 = 2;</code>
        */
       public Builder setId1(
           java.lang.String value) {
@@ -1081,7 +1081,7 @@ public final class ParkModel {
         return this;
       }
       /**
-       * <code>optional string id1 = 2;</code>
+       * <code>string id1 = 2;</code>
        */
       public Builder clearId1() {
         
@@ -1090,7 +1090,7 @@ public final class ParkModel {
         return this;
       }
       /**
-       * <code>optional string id1 = 2;</code>
+       * <code>string id1 = 2;</code>
        */
       public Builder setId1Bytes(
           com.google.protobuf.ByteString value) {
@@ -1106,7 +1106,7 @@ public final class ParkModel {
 
       private java.lang.Object id2_ = "";
       /**
-       * <code>optional string id2 = 3;</code>
+       * <code>string id2 = 3;</code>
        */
       public java.lang.String getId2() {
         java.lang.Object ref = id2_;
@@ -1121,7 +1121,7 @@ public final class ParkModel {
         }
       }
       /**
-       * <code>optional string id2 = 3;</code>
+       * <code>string id2 = 3;</code>
        */
       public com.google.protobuf.ByteString
           getId2Bytes() {
@@ -1137,7 +1137,7 @@ public final class ParkModel {
         }
       }
       /**
-       * <code>optional string id2 = 3;</code>
+       * <code>string id2 = 3;</code>
        */
       public Builder setId2(
           java.lang.String value) {
@@ -1150,7 +1150,7 @@ public final class ParkModel {
         return this;
       }
       /**
-       * <code>optional string id2 = 3;</code>
+       * <code>string id2 = 3;</code>
        */
       public Builder clearId2() {
         
@@ -1159,7 +1159,7 @@ public final class ParkModel {
         return this;
       }
       /**
-       * <code>optional string id2 = 3;</code>
+       * <code>string id2 = 3;</code>
        */
       public Builder setId2Bytes(
           com.google.protobuf.ByteString value) {
@@ -1175,7 +1175,7 @@ public final class ParkModel {
 
       private java.lang.Object id3_ = "";
       /**
-       * <code>optional string id3 = 4;</code>
+       * <code>string id3 = 4;</code>
        */
       public java.lang.String getId3() {
         java.lang.Object ref = id3_;
@@ -1190,7 +1190,7 @@ public final class ParkModel {
         }
       }
       /**
-       * <code>optional string id3 = 4;</code>
+       * <code>string id3 = 4;</code>
        */
       public com.google.protobuf.ByteString
           getId3Bytes() {
@@ -1206,7 +1206,7 @@ public final class ParkModel {
         }
       }
       /**
-       * <code>optional string id3 = 4;</code>
+       * <code>string id3 = 4;</code>
        */
       public Builder setId3(
           java.lang.String value) {
@@ -1219,7 +1219,7 @@ public final class ParkModel {
         return this;
       }
       /**
-       * <code>optional string id3 = 4;</code>
+       * <code>string id3 = 4;</code>
        */
       public Builder clearId3() {
         
@@ -1228,7 +1228,7 @@ public final class ParkModel {
         return this;
       }
       /**
-       * <code>optional string id3 = 4;</code>
+       * <code>string id3 = 4;</code>
        */
       public Builder setId3Bytes(
           com.google.protobuf.ByteString value) {
@@ -1244,7 +1244,7 @@ public final class ParkModel {
 
       private java.lang.Object description_ = "";
       /**
-       * <code>optional string description = 5;</code>
+       * <code>string description = 5;</code>
        */
       public java.lang.String getDescription() {
         java.lang.Object ref = description_;
@@ -1259,7 +1259,7 @@ public final class ParkModel {
         }
       }
       /**
-       * <code>optional string description = 5;</code>
+       * <code>string description = 5;</code>
        */
       public com.google.protobuf.ByteString
           getDescriptionBytes() {
@@ -1275,7 +1275,7 @@ public final class ParkModel {
         }
       }
       /**
-       * <code>optional string description = 5;</code>
+       * <code>string description = 5;</code>
        */
       public Builder setDescription(
           java.lang.String value) {
@@ -1288,7 +1288,7 @@ public final class ParkModel {
         return this;
       }
       /**
-       * <code>optional string description = 5;</code>
+       * <code>string description = 5;</code>
        */
       public Builder clearDescription() {
         
@@ -1297,7 +1297,7 @@ public final class ParkModel {
         return this;
       }
       /**
-       * <code>optional string description = 5;</code>
+       * <code>string description = 5;</code>
        */
       public Builder setDescriptionBytes(
           com.google.protobuf.ByteString value) {
@@ -1313,13 +1313,13 @@ public final class ParkModel {
 
       private int beaconType_ = 0;
       /**
-       * <code>optional .org.naru.park.BeaconType beacon_type = 6;</code>
+       * <code>.org.naru.park.BeaconType beacon_type = 6;</code>
        */
       public int getBeaconTypeValue() {
         return beaconType_;
       }
       /**
-       * <code>optional .org.naru.park.BeaconType beacon_type = 6;</code>
+       * <code>.org.naru.park.BeaconType beacon_type = 6;</code>
        */
       public Builder setBeaconTypeValue(int value) {
         beaconType_ = value;
@@ -1327,14 +1327,14 @@ public final class ParkModel {
         return this;
       }
       /**
-       * <code>optional .org.naru.park.BeaconType beacon_type = 6;</code>
+       * <code>.org.naru.park.BeaconType beacon_type = 6;</code>
        */
       public org.naru.park.ParkModel.BeaconType getBeaconType() {
         org.naru.park.ParkModel.BeaconType result = org.naru.park.ParkModel.BeaconType.valueOf(beaconType_);
         return result == null ? org.naru.park.ParkModel.BeaconType.UNRECOGNIZED : result;
       }
       /**
-       * <code>optional .org.naru.park.BeaconType beacon_type = 6;</code>
+       * <code>.org.naru.park.BeaconType beacon_type = 6;</code>
        */
       public Builder setBeaconType(org.naru.park.ParkModel.BeaconType value) {
         if (value == null) {
@@ -1346,7 +1346,7 @@ public final class ParkModel {
         return this;
       }
       /**
-       * <code>optional .org.naru.park.BeaconType beacon_type = 6;</code>
+       * <code>.org.naru.park.BeaconType beacon_type = 6;</code>
        */
       public Builder clearBeaconType() {
         
@@ -1357,13 +1357,13 @@ public final class ParkModel {
 
       private double annotatedLat_ ;
       /**
-       * <code>optional double annotated_lat = 7;</code>
+       * <code>double annotated_lat = 7;</code>
        */
       public double getAnnotatedLat() {
         return annotatedLat_;
       }
       /**
-       * <code>optional double annotated_lat = 7;</code>
+       * <code>double annotated_lat = 7;</code>
        */
       public Builder setAnnotatedLat(double value) {
         
@@ -1372,7 +1372,7 @@ public final class ParkModel {
         return this;
       }
       /**
-       * <code>optional double annotated_lat = 7;</code>
+       * <code>double annotated_lat = 7;</code>
        */
       public Builder clearAnnotatedLat() {
         
@@ -1383,13 +1383,13 @@ public final class ParkModel {
 
       private double annotatedLong_ ;
       /**
-       * <code>optional double annotated_long = 8;</code>
+       * <code>double annotated_long = 8;</code>
        */
       public double getAnnotatedLong() {
         return annotatedLong_;
       }
       /**
-       * <code>optional double annotated_long = 8;</code>
+       * <code>double annotated_long = 8;</code>
        */
       public Builder setAnnotatedLong(double value) {
         
@@ -1398,7 +1398,7 @@ public final class ParkModel {
         return this;
       }
       /**
-       * <code>optional double annotated_long = 8;</code>
+       * <code>double annotated_long = 8;</code>
        */
       public Builder clearAnnotatedLong() {
         
@@ -1409,7 +1409,7 @@ public final class ParkModel {
 
       private java.lang.Object beaconSearch_ = "";
       /**
-       * <code>optional string beacon_search = 9;</code>
+       * <code>string beacon_search = 9;</code>
        */
       public java.lang.String getBeaconSearch() {
         java.lang.Object ref = beaconSearch_;
@@ -1424,7 +1424,7 @@ public final class ParkModel {
         }
       }
       /**
-       * <code>optional string beacon_search = 9;</code>
+       * <code>string beacon_search = 9;</code>
        */
       public com.google.protobuf.ByteString
           getBeaconSearchBytes() {
@@ -1440,7 +1440,7 @@ public final class ParkModel {
         }
       }
       /**
-       * <code>optional string beacon_search = 9;</code>
+       * <code>string beacon_search = 9;</code>
        */
       public Builder setBeaconSearch(
           java.lang.String value) {
@@ -1453,7 +1453,7 @@ public final class ParkModel {
         return this;
       }
       /**
-       * <code>optional string beacon_search = 9;</code>
+       * <code>string beacon_search = 9;</code>
        */
       public Builder clearBeaconSearch() {
         
@@ -1462,7 +1462,7 @@ public final class ParkModel {
         return this;
       }
       /**
-       * <code>optional string beacon_search = 9;</code>
+       * <code>string beacon_search = 9;</code>
        */
       public Builder setBeaconSearchBytes(
           com.google.protobuf.ByteString value) {
@@ -1529,116 +1529,116 @@ public final class ParkModel {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>optional string id = 1;</code>
+     * <code>string id = 1;</code>
      */
     java.lang.String getId();
     /**
-     * <code>optional string id = 1;</code>
+     * <code>string id = 1;</code>
      */
     com.google.protobuf.ByteString
         getIdBytes();
 
     /**
-     * <code>optional int64 recorded_date = 2;</code>
+     * <code>int64 recorded_date = 2;</code>
      */
     long getRecordedDate();
 
     /**
-     * <code>optional string id1 = 3;</code>
+     * <code>string id1 = 3;</code>
      */
     java.lang.String getId1();
     /**
-     * <code>optional string id1 = 3;</code>
+     * <code>string id1 = 3;</code>
      */
     com.google.protobuf.ByteString
         getId1Bytes();
 
     /**
-     * <code>optional string id2 = 4;</code>
+     * <code>string id2 = 4;</code>
      */
     java.lang.String getId2();
     /**
-     * <code>optional string id2 = 4;</code>
+     * <code>string id2 = 4;</code>
      */
     com.google.protobuf.ByteString
         getId2Bytes();
 
     /**
-     * <code>optional string id3 = 5;</code>
+     * <code>string id3 = 5;</code>
      */
     java.lang.String getId3();
     /**
-     * <code>optional string id3 = 5;</code>
+     * <code>string id3 = 5;</code>
      */
     com.google.protobuf.ByteString
         getId3Bytes();
 
     /**
-     * <code>optional string sensor_id = 6;</code>
+     * <code>string sensor_id = 6;</code>
      */
     java.lang.String getSensorId();
     /**
-     * <code>optional string sensor_id = 6;</code>
+     * <code>string sensor_id = 6;</code>
      */
     com.google.protobuf.ByteString
         getSensorIdBytes();
 
     /**
-     * <code>optional string sensor_name = 7;</code>
+     * <code>string sensor_name = 7;</code>
      */
     java.lang.String getSensorName();
     /**
-     * <code>optional string sensor_name = 7;</code>
+     * <code>string sensor_name = 7;</code>
      */
     com.google.protobuf.ByteString
         getSensorNameBytes();
 
     /**
-     * <code>optional string sensor_description = 8;</code>
+     * <code>string sensor_description = 8;</code>
      */
     java.lang.String getSensorDescription();
     /**
-     * <code>optional string sensor_description = 8;</code>
+     * <code>string sensor_description = 8;</code>
      */
     com.google.protobuf.ByteString
         getSensorDescriptionBytes();
 
     /**
-     * <code>optional double distance_from_sensor = 9;</code>
+     * <code>double distance_from_sensor = 9;</code>
      */
     double getDistanceFromSensor();
 
     /**
-     * <code>optional double sensor_lat = 10;</code>
+     * <code>double sensor_lat = 10;</code>
      */
     double getSensorLat();
 
     /**
-     * <code>optional double sensor_long = 11;</code>
+     * <code>double sensor_long = 11;</code>
      */
     double getSensorLong();
 
     /**
-     * <code>optional string sensor_connected_wifi = 12;</code>
+     * <code>string sensor_connected_wifi = 12;</code>
      */
     java.lang.String getSensorConnectedWifi();
     /**
-     * <code>optional string sensor_connected_wifi = 12;</code>
+     * <code>string sensor_connected_wifi = 12;</code>
      */
     com.google.protobuf.ByteString
         getSensorConnectedWifiBytes();
 
     /**
-     * <code>optional int32 connected_wifi_rssi = 13;</code>
+     * <code>int32 connected_wifi_rssi = 13;</code>
      */
     int getConnectedWifiRssi();
 
     /**
-     * <code>optional string beacon_search = 14;</code>
+     * <code>string beacon_search = 14;</code>
      */
     java.lang.String getBeaconSearch();
     /**
-     * <code>optional string beacon_search = 14;</code>
+     * <code>string beacon_search = 14;</code>
      */
     com.google.protobuf.ByteString
         getBeaconSearchBytes();
@@ -1801,7 +1801,7 @@ public final class ParkModel {
     public static final int ID_FIELD_NUMBER = 1;
     private volatile java.lang.Object id_;
     /**
-     * <code>optional string id = 1;</code>
+     * <code>string id = 1;</code>
      */
     public java.lang.String getId() {
       java.lang.Object ref = id_;
@@ -1816,7 +1816,7 @@ public final class ParkModel {
       }
     }
     /**
-     * <code>optional string id = 1;</code>
+     * <code>string id = 1;</code>
      */
     public com.google.protobuf.ByteString
         getIdBytes() {
@@ -1835,7 +1835,7 @@ public final class ParkModel {
     public static final int RECORDED_DATE_FIELD_NUMBER = 2;
     private long recordedDate_;
     /**
-     * <code>optional int64 recorded_date = 2;</code>
+     * <code>int64 recorded_date = 2;</code>
      */
     public long getRecordedDate() {
       return recordedDate_;
@@ -1844,7 +1844,7 @@ public final class ParkModel {
     public static final int ID1_FIELD_NUMBER = 3;
     private volatile java.lang.Object id1_;
     /**
-     * <code>optional string id1 = 3;</code>
+     * <code>string id1 = 3;</code>
      */
     public java.lang.String getId1() {
       java.lang.Object ref = id1_;
@@ -1859,7 +1859,7 @@ public final class ParkModel {
       }
     }
     /**
-     * <code>optional string id1 = 3;</code>
+     * <code>string id1 = 3;</code>
      */
     public com.google.protobuf.ByteString
         getId1Bytes() {
@@ -1878,7 +1878,7 @@ public final class ParkModel {
     public static final int ID2_FIELD_NUMBER = 4;
     private volatile java.lang.Object id2_;
     /**
-     * <code>optional string id2 = 4;</code>
+     * <code>string id2 = 4;</code>
      */
     public java.lang.String getId2() {
       java.lang.Object ref = id2_;
@@ -1893,7 +1893,7 @@ public final class ParkModel {
       }
     }
     /**
-     * <code>optional string id2 = 4;</code>
+     * <code>string id2 = 4;</code>
      */
     public com.google.protobuf.ByteString
         getId2Bytes() {
@@ -1912,7 +1912,7 @@ public final class ParkModel {
     public static final int ID3_FIELD_NUMBER = 5;
     private volatile java.lang.Object id3_;
     /**
-     * <code>optional string id3 = 5;</code>
+     * <code>string id3 = 5;</code>
      */
     public java.lang.String getId3() {
       java.lang.Object ref = id3_;
@@ -1927,7 +1927,7 @@ public final class ParkModel {
       }
     }
     /**
-     * <code>optional string id3 = 5;</code>
+     * <code>string id3 = 5;</code>
      */
     public com.google.protobuf.ByteString
         getId3Bytes() {
@@ -1946,7 +1946,7 @@ public final class ParkModel {
     public static final int SENSOR_ID_FIELD_NUMBER = 6;
     private volatile java.lang.Object sensorId_;
     /**
-     * <code>optional string sensor_id = 6;</code>
+     * <code>string sensor_id = 6;</code>
      */
     public java.lang.String getSensorId() {
       java.lang.Object ref = sensorId_;
@@ -1961,7 +1961,7 @@ public final class ParkModel {
       }
     }
     /**
-     * <code>optional string sensor_id = 6;</code>
+     * <code>string sensor_id = 6;</code>
      */
     public com.google.protobuf.ByteString
         getSensorIdBytes() {
@@ -1980,7 +1980,7 @@ public final class ParkModel {
     public static final int SENSOR_NAME_FIELD_NUMBER = 7;
     private volatile java.lang.Object sensorName_;
     /**
-     * <code>optional string sensor_name = 7;</code>
+     * <code>string sensor_name = 7;</code>
      */
     public java.lang.String getSensorName() {
       java.lang.Object ref = sensorName_;
@@ -1995,7 +1995,7 @@ public final class ParkModel {
       }
     }
     /**
-     * <code>optional string sensor_name = 7;</code>
+     * <code>string sensor_name = 7;</code>
      */
     public com.google.protobuf.ByteString
         getSensorNameBytes() {
@@ -2014,7 +2014,7 @@ public final class ParkModel {
     public static final int SENSOR_DESCRIPTION_FIELD_NUMBER = 8;
     private volatile java.lang.Object sensorDescription_;
     /**
-     * <code>optional string sensor_description = 8;</code>
+     * <code>string sensor_description = 8;</code>
      */
     public java.lang.String getSensorDescription() {
       java.lang.Object ref = sensorDescription_;
@@ -2029,7 +2029,7 @@ public final class ParkModel {
       }
     }
     /**
-     * <code>optional string sensor_description = 8;</code>
+     * <code>string sensor_description = 8;</code>
      */
     public com.google.protobuf.ByteString
         getSensorDescriptionBytes() {
@@ -2048,7 +2048,7 @@ public final class ParkModel {
     public static final int DISTANCE_FROM_SENSOR_FIELD_NUMBER = 9;
     private double distanceFromSensor_;
     /**
-     * <code>optional double distance_from_sensor = 9;</code>
+     * <code>double distance_from_sensor = 9;</code>
      */
     public double getDistanceFromSensor() {
       return distanceFromSensor_;
@@ -2057,7 +2057,7 @@ public final class ParkModel {
     public static final int SENSOR_LAT_FIELD_NUMBER = 10;
     private double sensorLat_;
     /**
-     * <code>optional double sensor_lat = 10;</code>
+     * <code>double sensor_lat = 10;</code>
      */
     public double getSensorLat() {
       return sensorLat_;
@@ -2066,7 +2066,7 @@ public final class ParkModel {
     public static final int SENSOR_LONG_FIELD_NUMBER = 11;
     private double sensorLong_;
     /**
-     * <code>optional double sensor_long = 11;</code>
+     * <code>double sensor_long = 11;</code>
      */
     public double getSensorLong() {
       return sensorLong_;
@@ -2075,7 +2075,7 @@ public final class ParkModel {
     public static final int SENSOR_CONNECTED_WIFI_FIELD_NUMBER = 12;
     private volatile java.lang.Object sensorConnectedWifi_;
     /**
-     * <code>optional string sensor_connected_wifi = 12;</code>
+     * <code>string sensor_connected_wifi = 12;</code>
      */
     public java.lang.String getSensorConnectedWifi() {
       java.lang.Object ref = sensorConnectedWifi_;
@@ -2090,7 +2090,7 @@ public final class ParkModel {
       }
     }
     /**
-     * <code>optional string sensor_connected_wifi = 12;</code>
+     * <code>string sensor_connected_wifi = 12;</code>
      */
     public com.google.protobuf.ByteString
         getSensorConnectedWifiBytes() {
@@ -2109,7 +2109,7 @@ public final class ParkModel {
     public static final int CONNECTED_WIFI_RSSI_FIELD_NUMBER = 13;
     private int connectedWifiRssi_;
     /**
-     * <code>optional int32 connected_wifi_rssi = 13;</code>
+     * <code>int32 connected_wifi_rssi = 13;</code>
      */
     public int getConnectedWifiRssi() {
       return connectedWifiRssi_;
@@ -2118,7 +2118,7 @@ public final class ParkModel {
     public static final int BEACON_SEARCH_FIELD_NUMBER = 14;
     private volatile java.lang.Object beaconSearch_;
     /**
-     * <code>optional string beacon_search = 14;</code>
+     * <code>string beacon_search = 14;</code>
      */
     public java.lang.String getBeaconSearch() {
       java.lang.Object ref = beaconSearch_;
@@ -2133,7 +2133,7 @@ public final class ParkModel {
       }
     }
     /**
-     * <code>optional string beacon_search = 14;</code>
+     * <code>string beacon_search = 14;</code>
      */
     public com.google.protobuf.ByteString
         getBeaconSearchBytes() {
@@ -2316,7 +2316,7 @@ public final class ParkModel {
         return memoizedHashCode;
       }
       int hash = 41;
-      hash = (19 * hash) + getDescriptorForType().hashCode();
+      hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + ID_FIELD_NUMBER;
       hash = (53 * hash) + getId().hashCode();
       hash = (37 * hash) + RECORDED_DATE_FIELD_NUMBER;
@@ -2651,7 +2651,7 @@ public final class ParkModel {
 
       private java.lang.Object id_ = "";
       /**
-       * <code>optional string id = 1;</code>
+       * <code>string id = 1;</code>
        */
       public java.lang.String getId() {
         java.lang.Object ref = id_;
@@ -2666,7 +2666,7 @@ public final class ParkModel {
         }
       }
       /**
-       * <code>optional string id = 1;</code>
+       * <code>string id = 1;</code>
        */
       public com.google.protobuf.ByteString
           getIdBytes() {
@@ -2682,7 +2682,7 @@ public final class ParkModel {
         }
       }
       /**
-       * <code>optional string id = 1;</code>
+       * <code>string id = 1;</code>
        */
       public Builder setId(
           java.lang.String value) {
@@ -2695,7 +2695,7 @@ public final class ParkModel {
         return this;
       }
       /**
-       * <code>optional string id = 1;</code>
+       * <code>string id = 1;</code>
        */
       public Builder clearId() {
         
@@ -2704,7 +2704,7 @@ public final class ParkModel {
         return this;
       }
       /**
-       * <code>optional string id = 1;</code>
+       * <code>string id = 1;</code>
        */
       public Builder setIdBytes(
           com.google.protobuf.ByteString value) {
@@ -2720,13 +2720,13 @@ public final class ParkModel {
 
       private long recordedDate_ ;
       /**
-       * <code>optional int64 recorded_date = 2;</code>
+       * <code>int64 recorded_date = 2;</code>
        */
       public long getRecordedDate() {
         return recordedDate_;
       }
       /**
-       * <code>optional int64 recorded_date = 2;</code>
+       * <code>int64 recorded_date = 2;</code>
        */
       public Builder setRecordedDate(long value) {
         
@@ -2735,7 +2735,7 @@ public final class ParkModel {
         return this;
       }
       /**
-       * <code>optional int64 recorded_date = 2;</code>
+       * <code>int64 recorded_date = 2;</code>
        */
       public Builder clearRecordedDate() {
         
@@ -2746,7 +2746,7 @@ public final class ParkModel {
 
       private java.lang.Object id1_ = "";
       /**
-       * <code>optional string id1 = 3;</code>
+       * <code>string id1 = 3;</code>
        */
       public java.lang.String getId1() {
         java.lang.Object ref = id1_;
@@ -2761,7 +2761,7 @@ public final class ParkModel {
         }
       }
       /**
-       * <code>optional string id1 = 3;</code>
+       * <code>string id1 = 3;</code>
        */
       public com.google.protobuf.ByteString
           getId1Bytes() {
@@ -2777,7 +2777,7 @@ public final class ParkModel {
         }
       }
       /**
-       * <code>optional string id1 = 3;</code>
+       * <code>string id1 = 3;</code>
        */
       public Builder setId1(
           java.lang.String value) {
@@ -2790,7 +2790,7 @@ public final class ParkModel {
         return this;
       }
       /**
-       * <code>optional string id1 = 3;</code>
+       * <code>string id1 = 3;</code>
        */
       public Builder clearId1() {
         
@@ -2799,7 +2799,7 @@ public final class ParkModel {
         return this;
       }
       /**
-       * <code>optional string id1 = 3;</code>
+       * <code>string id1 = 3;</code>
        */
       public Builder setId1Bytes(
           com.google.protobuf.ByteString value) {
@@ -2815,7 +2815,7 @@ public final class ParkModel {
 
       private java.lang.Object id2_ = "";
       /**
-       * <code>optional string id2 = 4;</code>
+       * <code>string id2 = 4;</code>
        */
       public java.lang.String getId2() {
         java.lang.Object ref = id2_;
@@ -2830,7 +2830,7 @@ public final class ParkModel {
         }
       }
       /**
-       * <code>optional string id2 = 4;</code>
+       * <code>string id2 = 4;</code>
        */
       public com.google.protobuf.ByteString
           getId2Bytes() {
@@ -2846,7 +2846,7 @@ public final class ParkModel {
         }
       }
       /**
-       * <code>optional string id2 = 4;</code>
+       * <code>string id2 = 4;</code>
        */
       public Builder setId2(
           java.lang.String value) {
@@ -2859,7 +2859,7 @@ public final class ParkModel {
         return this;
       }
       /**
-       * <code>optional string id2 = 4;</code>
+       * <code>string id2 = 4;</code>
        */
       public Builder clearId2() {
         
@@ -2868,7 +2868,7 @@ public final class ParkModel {
         return this;
       }
       /**
-       * <code>optional string id2 = 4;</code>
+       * <code>string id2 = 4;</code>
        */
       public Builder setId2Bytes(
           com.google.protobuf.ByteString value) {
@@ -2884,7 +2884,7 @@ public final class ParkModel {
 
       private java.lang.Object id3_ = "";
       /**
-       * <code>optional string id3 = 5;</code>
+       * <code>string id3 = 5;</code>
        */
       public java.lang.String getId3() {
         java.lang.Object ref = id3_;
@@ -2899,7 +2899,7 @@ public final class ParkModel {
         }
       }
       /**
-       * <code>optional string id3 = 5;</code>
+       * <code>string id3 = 5;</code>
        */
       public com.google.protobuf.ByteString
           getId3Bytes() {
@@ -2915,7 +2915,7 @@ public final class ParkModel {
         }
       }
       /**
-       * <code>optional string id3 = 5;</code>
+       * <code>string id3 = 5;</code>
        */
       public Builder setId3(
           java.lang.String value) {
@@ -2928,7 +2928,7 @@ public final class ParkModel {
         return this;
       }
       /**
-       * <code>optional string id3 = 5;</code>
+       * <code>string id3 = 5;</code>
        */
       public Builder clearId3() {
         
@@ -2937,7 +2937,7 @@ public final class ParkModel {
         return this;
       }
       /**
-       * <code>optional string id3 = 5;</code>
+       * <code>string id3 = 5;</code>
        */
       public Builder setId3Bytes(
           com.google.protobuf.ByteString value) {
@@ -2953,7 +2953,7 @@ public final class ParkModel {
 
       private java.lang.Object sensorId_ = "";
       /**
-       * <code>optional string sensor_id = 6;</code>
+       * <code>string sensor_id = 6;</code>
        */
       public java.lang.String getSensorId() {
         java.lang.Object ref = sensorId_;
@@ -2968,7 +2968,7 @@ public final class ParkModel {
         }
       }
       /**
-       * <code>optional string sensor_id = 6;</code>
+       * <code>string sensor_id = 6;</code>
        */
       public com.google.protobuf.ByteString
           getSensorIdBytes() {
@@ -2984,7 +2984,7 @@ public final class ParkModel {
         }
       }
       /**
-       * <code>optional string sensor_id = 6;</code>
+       * <code>string sensor_id = 6;</code>
        */
       public Builder setSensorId(
           java.lang.String value) {
@@ -2997,7 +2997,7 @@ public final class ParkModel {
         return this;
       }
       /**
-       * <code>optional string sensor_id = 6;</code>
+       * <code>string sensor_id = 6;</code>
        */
       public Builder clearSensorId() {
         
@@ -3006,7 +3006,7 @@ public final class ParkModel {
         return this;
       }
       /**
-       * <code>optional string sensor_id = 6;</code>
+       * <code>string sensor_id = 6;</code>
        */
       public Builder setSensorIdBytes(
           com.google.protobuf.ByteString value) {
@@ -3022,7 +3022,7 @@ public final class ParkModel {
 
       private java.lang.Object sensorName_ = "";
       /**
-       * <code>optional string sensor_name = 7;</code>
+       * <code>string sensor_name = 7;</code>
        */
       public java.lang.String getSensorName() {
         java.lang.Object ref = sensorName_;
@@ -3037,7 +3037,7 @@ public final class ParkModel {
         }
       }
       /**
-       * <code>optional string sensor_name = 7;</code>
+       * <code>string sensor_name = 7;</code>
        */
       public com.google.protobuf.ByteString
           getSensorNameBytes() {
@@ -3053,7 +3053,7 @@ public final class ParkModel {
         }
       }
       /**
-       * <code>optional string sensor_name = 7;</code>
+       * <code>string sensor_name = 7;</code>
        */
       public Builder setSensorName(
           java.lang.String value) {
@@ -3066,7 +3066,7 @@ public final class ParkModel {
         return this;
       }
       /**
-       * <code>optional string sensor_name = 7;</code>
+       * <code>string sensor_name = 7;</code>
        */
       public Builder clearSensorName() {
         
@@ -3075,7 +3075,7 @@ public final class ParkModel {
         return this;
       }
       /**
-       * <code>optional string sensor_name = 7;</code>
+       * <code>string sensor_name = 7;</code>
        */
       public Builder setSensorNameBytes(
           com.google.protobuf.ByteString value) {
@@ -3091,7 +3091,7 @@ public final class ParkModel {
 
       private java.lang.Object sensorDescription_ = "";
       /**
-       * <code>optional string sensor_description = 8;</code>
+       * <code>string sensor_description = 8;</code>
        */
       public java.lang.String getSensorDescription() {
         java.lang.Object ref = sensorDescription_;
@@ -3106,7 +3106,7 @@ public final class ParkModel {
         }
       }
       /**
-       * <code>optional string sensor_description = 8;</code>
+       * <code>string sensor_description = 8;</code>
        */
       public com.google.protobuf.ByteString
           getSensorDescriptionBytes() {
@@ -3122,7 +3122,7 @@ public final class ParkModel {
         }
       }
       /**
-       * <code>optional string sensor_description = 8;</code>
+       * <code>string sensor_description = 8;</code>
        */
       public Builder setSensorDescription(
           java.lang.String value) {
@@ -3135,7 +3135,7 @@ public final class ParkModel {
         return this;
       }
       /**
-       * <code>optional string sensor_description = 8;</code>
+       * <code>string sensor_description = 8;</code>
        */
       public Builder clearSensorDescription() {
         
@@ -3144,7 +3144,7 @@ public final class ParkModel {
         return this;
       }
       /**
-       * <code>optional string sensor_description = 8;</code>
+       * <code>string sensor_description = 8;</code>
        */
       public Builder setSensorDescriptionBytes(
           com.google.protobuf.ByteString value) {
@@ -3160,13 +3160,13 @@ public final class ParkModel {
 
       private double distanceFromSensor_ ;
       /**
-       * <code>optional double distance_from_sensor = 9;</code>
+       * <code>double distance_from_sensor = 9;</code>
        */
       public double getDistanceFromSensor() {
         return distanceFromSensor_;
       }
       /**
-       * <code>optional double distance_from_sensor = 9;</code>
+       * <code>double distance_from_sensor = 9;</code>
        */
       public Builder setDistanceFromSensor(double value) {
         
@@ -3175,7 +3175,7 @@ public final class ParkModel {
         return this;
       }
       /**
-       * <code>optional double distance_from_sensor = 9;</code>
+       * <code>double distance_from_sensor = 9;</code>
        */
       public Builder clearDistanceFromSensor() {
         
@@ -3186,13 +3186,13 @@ public final class ParkModel {
 
       private double sensorLat_ ;
       /**
-       * <code>optional double sensor_lat = 10;</code>
+       * <code>double sensor_lat = 10;</code>
        */
       public double getSensorLat() {
         return sensorLat_;
       }
       /**
-       * <code>optional double sensor_lat = 10;</code>
+       * <code>double sensor_lat = 10;</code>
        */
       public Builder setSensorLat(double value) {
         
@@ -3201,7 +3201,7 @@ public final class ParkModel {
         return this;
       }
       /**
-       * <code>optional double sensor_lat = 10;</code>
+       * <code>double sensor_lat = 10;</code>
        */
       public Builder clearSensorLat() {
         
@@ -3212,13 +3212,13 @@ public final class ParkModel {
 
       private double sensorLong_ ;
       /**
-       * <code>optional double sensor_long = 11;</code>
+       * <code>double sensor_long = 11;</code>
        */
       public double getSensorLong() {
         return sensorLong_;
       }
       /**
-       * <code>optional double sensor_long = 11;</code>
+       * <code>double sensor_long = 11;</code>
        */
       public Builder setSensorLong(double value) {
         
@@ -3227,7 +3227,7 @@ public final class ParkModel {
         return this;
       }
       /**
-       * <code>optional double sensor_long = 11;</code>
+       * <code>double sensor_long = 11;</code>
        */
       public Builder clearSensorLong() {
         
@@ -3238,7 +3238,7 @@ public final class ParkModel {
 
       private java.lang.Object sensorConnectedWifi_ = "";
       /**
-       * <code>optional string sensor_connected_wifi = 12;</code>
+       * <code>string sensor_connected_wifi = 12;</code>
        */
       public java.lang.String getSensorConnectedWifi() {
         java.lang.Object ref = sensorConnectedWifi_;
@@ -3253,7 +3253,7 @@ public final class ParkModel {
         }
       }
       /**
-       * <code>optional string sensor_connected_wifi = 12;</code>
+       * <code>string sensor_connected_wifi = 12;</code>
        */
       public com.google.protobuf.ByteString
           getSensorConnectedWifiBytes() {
@@ -3269,7 +3269,7 @@ public final class ParkModel {
         }
       }
       /**
-       * <code>optional string sensor_connected_wifi = 12;</code>
+       * <code>string sensor_connected_wifi = 12;</code>
        */
       public Builder setSensorConnectedWifi(
           java.lang.String value) {
@@ -3282,7 +3282,7 @@ public final class ParkModel {
         return this;
       }
       /**
-       * <code>optional string sensor_connected_wifi = 12;</code>
+       * <code>string sensor_connected_wifi = 12;</code>
        */
       public Builder clearSensorConnectedWifi() {
         
@@ -3291,7 +3291,7 @@ public final class ParkModel {
         return this;
       }
       /**
-       * <code>optional string sensor_connected_wifi = 12;</code>
+       * <code>string sensor_connected_wifi = 12;</code>
        */
       public Builder setSensorConnectedWifiBytes(
           com.google.protobuf.ByteString value) {
@@ -3307,13 +3307,13 @@ public final class ParkModel {
 
       private int connectedWifiRssi_ ;
       /**
-       * <code>optional int32 connected_wifi_rssi = 13;</code>
+       * <code>int32 connected_wifi_rssi = 13;</code>
        */
       public int getConnectedWifiRssi() {
         return connectedWifiRssi_;
       }
       /**
-       * <code>optional int32 connected_wifi_rssi = 13;</code>
+       * <code>int32 connected_wifi_rssi = 13;</code>
        */
       public Builder setConnectedWifiRssi(int value) {
         
@@ -3322,7 +3322,7 @@ public final class ParkModel {
         return this;
       }
       /**
-       * <code>optional int32 connected_wifi_rssi = 13;</code>
+       * <code>int32 connected_wifi_rssi = 13;</code>
        */
       public Builder clearConnectedWifiRssi() {
         
@@ -3333,7 +3333,7 @@ public final class ParkModel {
 
       private java.lang.Object beaconSearch_ = "";
       /**
-       * <code>optional string beacon_search = 14;</code>
+       * <code>string beacon_search = 14;</code>
        */
       public java.lang.String getBeaconSearch() {
         java.lang.Object ref = beaconSearch_;
@@ -3348,7 +3348,7 @@ public final class ParkModel {
         }
       }
       /**
-       * <code>optional string beacon_search = 14;</code>
+       * <code>string beacon_search = 14;</code>
        */
       public com.google.protobuf.ByteString
           getBeaconSearchBytes() {
@@ -3364,7 +3364,7 @@ public final class ParkModel {
         }
       }
       /**
-       * <code>optional string beacon_search = 14;</code>
+       * <code>string beacon_search = 14;</code>
        */
       public Builder setBeaconSearch(
           java.lang.String value) {
@@ -3377,7 +3377,7 @@ public final class ParkModel {
         return this;
       }
       /**
-       * <code>optional string beacon_search = 14;</code>
+       * <code>string beacon_search = 14;</code>
        */
       public Builder clearBeaconSearch() {
         
@@ -3386,7 +3386,7 @@ public final class ParkModel {
         return this;
       }
       /**
-       * <code>optional string beacon_search = 14;</code>
+       * <code>string beacon_search = 14;</code>
        */
       public Builder setBeaconSearchBytes(
           com.google.protobuf.ByteString value) {
@@ -3453,54 +3453,54 @@ public final class ParkModel {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>optional string id = 1;</code>
+     * <code>string id = 1;</code>
      */
     java.lang.String getId();
     /**
-     * <code>optional string id = 1;</code>
+     * <code>string id = 1;</code>
      */
     com.google.protobuf.ByteString
         getIdBytes();
 
     /**
-     * <code>optional string user_id = 2;</code>
+     * <code>string user_id = 2;</code>
      */
     java.lang.String getUserId();
     /**
-     * <code>optional string user_id = 2;</code>
+     * <code>string user_id = 2;</code>
      */
     com.google.protobuf.ByteString
         getUserIdBytes();
 
     /**
-     * <code>optional .org.naru.park.Beacon beacon = 3;</code>
+     * <code>.org.naru.park.Beacon beacon = 3;</code>
      */
     boolean hasBeacon();
     /**
-     * <code>optional .org.naru.park.Beacon beacon = 3;</code>
+     * <code>.org.naru.park.Beacon beacon = 3;</code>
      */
     org.naru.park.ParkModel.Beacon getBeacon();
     /**
-     * <code>optional .org.naru.park.Beacon beacon = 3;</code>
+     * <code>.org.naru.park.Beacon beacon = 3;</code>
      */
     org.naru.park.ParkModel.BeaconOrBuilder getBeaconOrBuilder();
 
     /**
-     * <code>optional int64 issue_date = 4;</code>
+     * <code>int64 issue_date = 4;</code>
      */
     long getIssueDate();
 
     /**
-     * <code>optional int64 expiration_date = 5;</code>
+     * <code>int64 expiration_date = 5;</code>
      */
     long getExpirationDate();
 
     /**
-     * <code>optional string display = 6;</code>
+     * <code>string display = 6;</code>
      */
     java.lang.String getDisplay();
     /**
-     * <code>optional string display = 6;</code>
+     * <code>string display = 6;</code>
      */
     com.google.protobuf.ByteString
         getDisplayBytes();
@@ -3616,7 +3616,7 @@ public final class ParkModel {
     public static final int ID_FIELD_NUMBER = 1;
     private volatile java.lang.Object id_;
     /**
-     * <code>optional string id = 1;</code>
+     * <code>string id = 1;</code>
      */
     public java.lang.String getId() {
       java.lang.Object ref = id_;
@@ -3631,7 +3631,7 @@ public final class ParkModel {
       }
     }
     /**
-     * <code>optional string id = 1;</code>
+     * <code>string id = 1;</code>
      */
     public com.google.protobuf.ByteString
         getIdBytes() {
@@ -3650,7 +3650,7 @@ public final class ParkModel {
     public static final int USER_ID_FIELD_NUMBER = 2;
     private volatile java.lang.Object userId_;
     /**
-     * <code>optional string user_id = 2;</code>
+     * <code>string user_id = 2;</code>
      */
     public java.lang.String getUserId() {
       java.lang.Object ref = userId_;
@@ -3665,7 +3665,7 @@ public final class ParkModel {
       }
     }
     /**
-     * <code>optional string user_id = 2;</code>
+     * <code>string user_id = 2;</code>
      */
     public com.google.protobuf.ByteString
         getUserIdBytes() {
@@ -3684,19 +3684,19 @@ public final class ParkModel {
     public static final int BEACON_FIELD_NUMBER = 3;
     private org.naru.park.ParkModel.Beacon beacon_;
     /**
-     * <code>optional .org.naru.park.Beacon beacon = 3;</code>
+     * <code>.org.naru.park.Beacon beacon = 3;</code>
      */
     public boolean hasBeacon() {
       return beacon_ != null;
     }
     /**
-     * <code>optional .org.naru.park.Beacon beacon = 3;</code>
+     * <code>.org.naru.park.Beacon beacon = 3;</code>
      */
     public org.naru.park.ParkModel.Beacon getBeacon() {
       return beacon_ == null ? org.naru.park.ParkModel.Beacon.getDefaultInstance() : beacon_;
     }
     /**
-     * <code>optional .org.naru.park.Beacon beacon = 3;</code>
+     * <code>.org.naru.park.Beacon beacon = 3;</code>
      */
     public org.naru.park.ParkModel.BeaconOrBuilder getBeaconOrBuilder() {
       return getBeacon();
@@ -3705,7 +3705,7 @@ public final class ParkModel {
     public static final int ISSUE_DATE_FIELD_NUMBER = 4;
     private long issueDate_;
     /**
-     * <code>optional int64 issue_date = 4;</code>
+     * <code>int64 issue_date = 4;</code>
      */
     public long getIssueDate() {
       return issueDate_;
@@ -3714,7 +3714,7 @@ public final class ParkModel {
     public static final int EXPIRATION_DATE_FIELD_NUMBER = 5;
     private long expirationDate_;
     /**
-     * <code>optional int64 expiration_date = 5;</code>
+     * <code>int64 expiration_date = 5;</code>
      */
     public long getExpirationDate() {
       return expirationDate_;
@@ -3723,7 +3723,7 @@ public final class ParkModel {
     public static final int DISPLAY_FIELD_NUMBER = 6;
     private volatile java.lang.Object display_;
     /**
-     * <code>optional string display = 6;</code>
+     * <code>string display = 6;</code>
      */
     public java.lang.String getDisplay() {
       java.lang.Object ref = display_;
@@ -3738,7 +3738,7 @@ public final class ParkModel {
       }
     }
     /**
-     * <code>optional string display = 6;</code>
+     * <code>string display = 6;</code>
      */
     public com.google.protobuf.ByteString
         getDisplayBytes() {
@@ -3852,7 +3852,7 @@ public final class ParkModel {
         return memoizedHashCode;
       }
       int hash = 41;
-      hash = (19 * hash) + getDescriptorForType().hashCode();
+      hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + ID_FIELD_NUMBER;
       hash = (53 * hash) + getId().hashCode();
       hash = (37 * hash) + USER_ID_FIELD_NUMBER;
@@ -4125,7 +4125,7 @@ public final class ParkModel {
 
       private java.lang.Object id_ = "";
       /**
-       * <code>optional string id = 1;</code>
+       * <code>string id = 1;</code>
        */
       public java.lang.String getId() {
         java.lang.Object ref = id_;
@@ -4140,7 +4140,7 @@ public final class ParkModel {
         }
       }
       /**
-       * <code>optional string id = 1;</code>
+       * <code>string id = 1;</code>
        */
       public com.google.protobuf.ByteString
           getIdBytes() {
@@ -4156,7 +4156,7 @@ public final class ParkModel {
         }
       }
       /**
-       * <code>optional string id = 1;</code>
+       * <code>string id = 1;</code>
        */
       public Builder setId(
           java.lang.String value) {
@@ -4169,7 +4169,7 @@ public final class ParkModel {
         return this;
       }
       /**
-       * <code>optional string id = 1;</code>
+       * <code>string id = 1;</code>
        */
       public Builder clearId() {
         
@@ -4178,7 +4178,7 @@ public final class ParkModel {
         return this;
       }
       /**
-       * <code>optional string id = 1;</code>
+       * <code>string id = 1;</code>
        */
       public Builder setIdBytes(
           com.google.protobuf.ByteString value) {
@@ -4194,7 +4194,7 @@ public final class ParkModel {
 
       private java.lang.Object userId_ = "";
       /**
-       * <code>optional string user_id = 2;</code>
+       * <code>string user_id = 2;</code>
        */
       public java.lang.String getUserId() {
         java.lang.Object ref = userId_;
@@ -4209,7 +4209,7 @@ public final class ParkModel {
         }
       }
       /**
-       * <code>optional string user_id = 2;</code>
+       * <code>string user_id = 2;</code>
        */
       public com.google.protobuf.ByteString
           getUserIdBytes() {
@@ -4225,7 +4225,7 @@ public final class ParkModel {
         }
       }
       /**
-       * <code>optional string user_id = 2;</code>
+       * <code>string user_id = 2;</code>
        */
       public Builder setUserId(
           java.lang.String value) {
@@ -4238,7 +4238,7 @@ public final class ParkModel {
         return this;
       }
       /**
-       * <code>optional string user_id = 2;</code>
+       * <code>string user_id = 2;</code>
        */
       public Builder clearUserId() {
         
@@ -4247,7 +4247,7 @@ public final class ParkModel {
         return this;
       }
       /**
-       * <code>optional string user_id = 2;</code>
+       * <code>string user_id = 2;</code>
        */
       public Builder setUserIdBytes(
           com.google.protobuf.ByteString value) {
@@ -4265,13 +4265,13 @@ public final class ParkModel {
       private com.google.protobuf.SingleFieldBuilderV3<
           org.naru.park.ParkModel.Beacon, org.naru.park.ParkModel.Beacon.Builder, org.naru.park.ParkModel.BeaconOrBuilder> beaconBuilder_;
       /**
-       * <code>optional .org.naru.park.Beacon beacon = 3;</code>
+       * <code>.org.naru.park.Beacon beacon = 3;</code>
        */
       public boolean hasBeacon() {
         return beaconBuilder_ != null || beacon_ != null;
       }
       /**
-       * <code>optional .org.naru.park.Beacon beacon = 3;</code>
+       * <code>.org.naru.park.Beacon beacon = 3;</code>
        */
       public org.naru.park.ParkModel.Beacon getBeacon() {
         if (beaconBuilder_ == null) {
@@ -4281,7 +4281,7 @@ public final class ParkModel {
         }
       }
       /**
-       * <code>optional .org.naru.park.Beacon beacon = 3;</code>
+       * <code>.org.naru.park.Beacon beacon = 3;</code>
        */
       public Builder setBeacon(org.naru.park.ParkModel.Beacon value) {
         if (beaconBuilder_ == null) {
@@ -4297,7 +4297,7 @@ public final class ParkModel {
         return this;
       }
       /**
-       * <code>optional .org.naru.park.Beacon beacon = 3;</code>
+       * <code>.org.naru.park.Beacon beacon = 3;</code>
        */
       public Builder setBeacon(
           org.naru.park.ParkModel.Beacon.Builder builderForValue) {
@@ -4311,7 +4311,7 @@ public final class ParkModel {
         return this;
       }
       /**
-       * <code>optional .org.naru.park.Beacon beacon = 3;</code>
+       * <code>.org.naru.park.Beacon beacon = 3;</code>
        */
       public Builder mergeBeacon(org.naru.park.ParkModel.Beacon value) {
         if (beaconBuilder_ == null) {
@@ -4329,7 +4329,7 @@ public final class ParkModel {
         return this;
       }
       /**
-       * <code>optional .org.naru.park.Beacon beacon = 3;</code>
+       * <code>.org.naru.park.Beacon beacon = 3;</code>
        */
       public Builder clearBeacon() {
         if (beaconBuilder_ == null) {
@@ -4343,7 +4343,7 @@ public final class ParkModel {
         return this;
       }
       /**
-       * <code>optional .org.naru.park.Beacon beacon = 3;</code>
+       * <code>.org.naru.park.Beacon beacon = 3;</code>
        */
       public org.naru.park.ParkModel.Beacon.Builder getBeaconBuilder() {
         
@@ -4351,7 +4351,7 @@ public final class ParkModel {
         return getBeaconFieldBuilder().getBuilder();
       }
       /**
-       * <code>optional .org.naru.park.Beacon beacon = 3;</code>
+       * <code>.org.naru.park.Beacon beacon = 3;</code>
        */
       public org.naru.park.ParkModel.BeaconOrBuilder getBeaconOrBuilder() {
         if (beaconBuilder_ != null) {
@@ -4362,7 +4362,7 @@ public final class ParkModel {
         }
       }
       /**
-       * <code>optional .org.naru.park.Beacon beacon = 3;</code>
+       * <code>.org.naru.park.Beacon beacon = 3;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           org.naru.park.ParkModel.Beacon, org.naru.park.ParkModel.Beacon.Builder, org.naru.park.ParkModel.BeaconOrBuilder> 
@@ -4380,13 +4380,13 @@ public final class ParkModel {
 
       private long issueDate_ ;
       /**
-       * <code>optional int64 issue_date = 4;</code>
+       * <code>int64 issue_date = 4;</code>
        */
       public long getIssueDate() {
         return issueDate_;
       }
       /**
-       * <code>optional int64 issue_date = 4;</code>
+       * <code>int64 issue_date = 4;</code>
        */
       public Builder setIssueDate(long value) {
         
@@ -4395,7 +4395,7 @@ public final class ParkModel {
         return this;
       }
       /**
-       * <code>optional int64 issue_date = 4;</code>
+       * <code>int64 issue_date = 4;</code>
        */
       public Builder clearIssueDate() {
         
@@ -4406,13 +4406,13 @@ public final class ParkModel {
 
       private long expirationDate_ ;
       /**
-       * <code>optional int64 expiration_date = 5;</code>
+       * <code>int64 expiration_date = 5;</code>
        */
       public long getExpirationDate() {
         return expirationDate_;
       }
       /**
-       * <code>optional int64 expiration_date = 5;</code>
+       * <code>int64 expiration_date = 5;</code>
        */
       public Builder setExpirationDate(long value) {
         
@@ -4421,7 +4421,7 @@ public final class ParkModel {
         return this;
       }
       /**
-       * <code>optional int64 expiration_date = 5;</code>
+       * <code>int64 expiration_date = 5;</code>
        */
       public Builder clearExpirationDate() {
         
@@ -4432,7 +4432,7 @@ public final class ParkModel {
 
       private java.lang.Object display_ = "";
       /**
-       * <code>optional string display = 6;</code>
+       * <code>string display = 6;</code>
        */
       public java.lang.String getDisplay() {
         java.lang.Object ref = display_;
@@ -4447,7 +4447,7 @@ public final class ParkModel {
         }
       }
       /**
-       * <code>optional string display = 6;</code>
+       * <code>string display = 6;</code>
        */
       public com.google.protobuf.ByteString
           getDisplayBytes() {
@@ -4463,7 +4463,7 @@ public final class ParkModel {
         }
       }
       /**
-       * <code>optional string display = 6;</code>
+       * <code>string display = 6;</code>
        */
       public Builder setDisplay(
           java.lang.String value) {
@@ -4476,7 +4476,7 @@ public final class ParkModel {
         return this;
       }
       /**
-       * <code>optional string display = 6;</code>
+       * <code>string display = 6;</code>
        */
       public Builder clearDisplay() {
         
@@ -4485,7 +4485,7 @@ public final class ParkModel {
         return this;
       }
       /**
-       * <code>optional string display = 6;</code>
+       * <code>string display = 6;</code>
        */
       public Builder setDisplayBytes(
           com.google.protobuf.ByteString value) {
@@ -4552,31 +4552,31 @@ public final class ParkModel {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>optional string id = 1;</code>
+     * <code>string id = 1;</code>
      */
     java.lang.String getId();
     /**
-     * <code>optional string id = 1;</code>
+     * <code>string id = 1;</code>
      */
     com.google.protobuf.ByteString
         getIdBytes();
 
     /**
-     * <code>optional string device_name = 2;</code>
+     * <code>string device_name = 2;</code>
      */
     java.lang.String getDeviceName();
     /**
-     * <code>optional string device_name = 2;</code>
+     * <code>string device_name = 2;</code>
      */
     com.google.protobuf.ByteString
         getDeviceNameBytes();
 
     /**
-     * <code>optional string description = 3;</code>
+     * <code>string description = 3;</code>
      */
     java.lang.String getDescription();
     /**
-     * <code>optional string description = 3;</code>
+     * <code>string description = 3;</code>
      */
     com.google.protobuf.ByteString
         getDescriptionBytes();
@@ -4667,7 +4667,7 @@ public final class ParkModel {
     public static final int ID_FIELD_NUMBER = 1;
     private volatile java.lang.Object id_;
     /**
-     * <code>optional string id = 1;</code>
+     * <code>string id = 1;</code>
      */
     public java.lang.String getId() {
       java.lang.Object ref = id_;
@@ -4682,7 +4682,7 @@ public final class ParkModel {
       }
     }
     /**
-     * <code>optional string id = 1;</code>
+     * <code>string id = 1;</code>
      */
     public com.google.protobuf.ByteString
         getIdBytes() {
@@ -4701,7 +4701,7 @@ public final class ParkModel {
     public static final int DEVICE_NAME_FIELD_NUMBER = 2;
     private volatile java.lang.Object deviceName_;
     /**
-     * <code>optional string device_name = 2;</code>
+     * <code>string device_name = 2;</code>
      */
     public java.lang.String getDeviceName() {
       java.lang.Object ref = deviceName_;
@@ -4716,7 +4716,7 @@ public final class ParkModel {
       }
     }
     /**
-     * <code>optional string device_name = 2;</code>
+     * <code>string device_name = 2;</code>
      */
     public com.google.protobuf.ByteString
         getDeviceNameBytes() {
@@ -4735,7 +4735,7 @@ public final class ParkModel {
     public static final int DESCRIPTION_FIELD_NUMBER = 3;
     private volatile java.lang.Object description_;
     /**
-     * <code>optional string description = 3;</code>
+     * <code>string description = 3;</code>
      */
     public java.lang.String getDescription() {
       java.lang.Object ref = description_;
@@ -4750,7 +4750,7 @@ public final class ParkModel {
       }
     }
     /**
-     * <code>optional string description = 3;</code>
+     * <code>string description = 3;</code>
      */
     public com.google.protobuf.ByteString
         getDescriptionBytes() {
@@ -4834,7 +4834,7 @@ public final class ParkModel {
         return memoizedHashCode;
       }
       int hash = 41;
-      hash = (19 * hash) + getDescriptorForType().hashCode();
+      hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + ID_FIELD_NUMBER;
       hash = (53 * hash) + getId().hashCode();
       hash = (37 * hash) + DEVICE_NAME_FIELD_NUMBER;
@@ -5071,7 +5071,7 @@ public final class ParkModel {
 
       private java.lang.Object id_ = "";
       /**
-       * <code>optional string id = 1;</code>
+       * <code>string id = 1;</code>
        */
       public java.lang.String getId() {
         java.lang.Object ref = id_;
@@ -5086,7 +5086,7 @@ public final class ParkModel {
         }
       }
       /**
-       * <code>optional string id = 1;</code>
+       * <code>string id = 1;</code>
        */
       public com.google.protobuf.ByteString
           getIdBytes() {
@@ -5102,7 +5102,7 @@ public final class ParkModel {
         }
       }
       /**
-       * <code>optional string id = 1;</code>
+       * <code>string id = 1;</code>
        */
       public Builder setId(
           java.lang.String value) {
@@ -5115,7 +5115,7 @@ public final class ParkModel {
         return this;
       }
       /**
-       * <code>optional string id = 1;</code>
+       * <code>string id = 1;</code>
        */
       public Builder clearId() {
         
@@ -5124,7 +5124,7 @@ public final class ParkModel {
         return this;
       }
       /**
-       * <code>optional string id = 1;</code>
+       * <code>string id = 1;</code>
        */
       public Builder setIdBytes(
           com.google.protobuf.ByteString value) {
@@ -5140,7 +5140,7 @@ public final class ParkModel {
 
       private java.lang.Object deviceName_ = "";
       /**
-       * <code>optional string device_name = 2;</code>
+       * <code>string device_name = 2;</code>
        */
       public java.lang.String getDeviceName() {
         java.lang.Object ref = deviceName_;
@@ -5155,7 +5155,7 @@ public final class ParkModel {
         }
       }
       /**
-       * <code>optional string device_name = 2;</code>
+       * <code>string device_name = 2;</code>
        */
       public com.google.protobuf.ByteString
           getDeviceNameBytes() {
@@ -5171,7 +5171,7 @@ public final class ParkModel {
         }
       }
       /**
-       * <code>optional string device_name = 2;</code>
+       * <code>string device_name = 2;</code>
        */
       public Builder setDeviceName(
           java.lang.String value) {
@@ -5184,7 +5184,7 @@ public final class ParkModel {
         return this;
       }
       /**
-       * <code>optional string device_name = 2;</code>
+       * <code>string device_name = 2;</code>
        */
       public Builder clearDeviceName() {
         
@@ -5193,7 +5193,7 @@ public final class ParkModel {
         return this;
       }
       /**
-       * <code>optional string device_name = 2;</code>
+       * <code>string device_name = 2;</code>
        */
       public Builder setDeviceNameBytes(
           com.google.protobuf.ByteString value) {
@@ -5209,7 +5209,7 @@ public final class ParkModel {
 
       private java.lang.Object description_ = "";
       /**
-       * <code>optional string description = 3;</code>
+       * <code>string description = 3;</code>
        */
       public java.lang.String getDescription() {
         java.lang.Object ref = description_;
@@ -5224,7 +5224,7 @@ public final class ParkModel {
         }
       }
       /**
-       * <code>optional string description = 3;</code>
+       * <code>string description = 3;</code>
        */
       public com.google.protobuf.ByteString
           getDescriptionBytes() {
@@ -5240,7 +5240,7 @@ public final class ParkModel {
         }
       }
       /**
-       * <code>optional string description = 3;</code>
+       * <code>string description = 3;</code>
        */
       public Builder setDescription(
           java.lang.String value) {
@@ -5253,7 +5253,7 @@ public final class ParkModel {
         return this;
       }
       /**
-       * <code>optional string description = 3;</code>
+       * <code>string description = 3;</code>
        */
       public Builder clearDescription() {
         
@@ -5262,7 +5262,7 @@ public final class ParkModel {
         return this;
       }
       /**
-       * <code>optional string description = 3;</code>
+       * <code>string description = 3;</code>
        */
       public Builder setDescriptionBytes(
           com.google.protobuf.ByteString value) {
@@ -5329,11 +5329,11 @@ public final class ParkModel {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>optional string id = 1;</code>
+     * <code>string id = 1;</code>
      */
     java.lang.String getId();
     /**
-     * <code>optional string id = 1;</code>
+     * <code>string id = 1;</code>
      */
     com.google.protobuf.ByteString
         getIdBytes();
@@ -5363,45 +5363,45 @@ public final class ParkModel {
         int index);
 
     /**
-     * <code>optional .org.naru.park.Sensor sensor = 3;</code>
+     * <code>.org.naru.park.Sensor sensor = 3;</code>
      */
     boolean hasSensor();
     /**
-     * <code>optional .org.naru.park.Sensor sensor = 3;</code>
+     * <code>.org.naru.park.Sensor sensor = 3;</code>
      */
     org.naru.park.ParkModel.Sensor getSensor();
     /**
-     * <code>optional .org.naru.park.Sensor sensor = 3;</code>
+     * <code>.org.naru.park.Sensor sensor = 3;</code>
      */
     org.naru.park.ParkModel.SensorOrBuilder getSensorOrBuilder();
 
     /**
-     * <code>optional double lat = 4;</code>
+     * <code>double lat = 4;</code>
      */
     double getLat();
 
     /**
-     * <code>optional double long = 5;</code>
+     * <code>double long = 5;</code>
      */
     double getLong();
 
     /**
-     * <code>optional string connected_wifi = 6;</code>
+     * <code>string connected_wifi = 6;</code>
      */
     java.lang.String getConnectedWifi();
     /**
-     * <code>optional string connected_wifi = 6;</code>
+     * <code>string connected_wifi = 6;</code>
      */
     com.google.protobuf.ByteString
         getConnectedWifiBytes();
 
     /**
-     * <code>optional int32 connected_wifi_rssi = 7;</code>
+     * <code>int32 connected_wifi_rssi = 7;</code>
      */
     int getConnectedWifiRssi();
 
     /**
-     * <code>optional int64 recorded_date = 8;</code>
+     * <code>int64 recorded_date = 8;</code>
      */
     long getRecordedDate();
   }
@@ -5535,7 +5535,7 @@ public final class ParkModel {
     public static final int ID_FIELD_NUMBER = 1;
     private volatile java.lang.Object id_;
     /**
-     * <code>optional string id = 1;</code>
+     * <code>string id = 1;</code>
      */
     public java.lang.String getId() {
       java.lang.Object ref = id_;
@@ -5550,7 +5550,7 @@ public final class ParkModel {
       }
     }
     /**
-     * <code>optional string id = 1;</code>
+     * <code>string id = 1;</code>
      */
     public com.google.protobuf.ByteString
         getIdBytes() {
@@ -5604,19 +5604,19 @@ public final class ParkModel {
     public static final int SENSOR_FIELD_NUMBER = 3;
     private org.naru.park.ParkModel.Sensor sensor_;
     /**
-     * <code>optional .org.naru.park.Sensor sensor = 3;</code>
+     * <code>.org.naru.park.Sensor sensor = 3;</code>
      */
     public boolean hasSensor() {
       return sensor_ != null;
     }
     /**
-     * <code>optional .org.naru.park.Sensor sensor = 3;</code>
+     * <code>.org.naru.park.Sensor sensor = 3;</code>
      */
     public org.naru.park.ParkModel.Sensor getSensor() {
       return sensor_ == null ? org.naru.park.ParkModel.Sensor.getDefaultInstance() : sensor_;
     }
     /**
-     * <code>optional .org.naru.park.Sensor sensor = 3;</code>
+     * <code>.org.naru.park.Sensor sensor = 3;</code>
      */
     public org.naru.park.ParkModel.SensorOrBuilder getSensorOrBuilder() {
       return getSensor();
@@ -5625,7 +5625,7 @@ public final class ParkModel {
     public static final int LAT_FIELD_NUMBER = 4;
     private double lat_;
     /**
-     * <code>optional double lat = 4;</code>
+     * <code>double lat = 4;</code>
      */
     public double getLat() {
       return lat_;
@@ -5634,7 +5634,7 @@ public final class ParkModel {
     public static final int LONG_FIELD_NUMBER = 5;
     private double long_;
     /**
-     * <code>optional double long = 5;</code>
+     * <code>double long = 5;</code>
      */
     public double getLong() {
       return long_;
@@ -5643,7 +5643,7 @@ public final class ParkModel {
     public static final int CONNECTED_WIFI_FIELD_NUMBER = 6;
     private volatile java.lang.Object connectedWifi_;
     /**
-     * <code>optional string connected_wifi = 6;</code>
+     * <code>string connected_wifi = 6;</code>
      */
     public java.lang.String getConnectedWifi() {
       java.lang.Object ref = connectedWifi_;
@@ -5658,7 +5658,7 @@ public final class ParkModel {
       }
     }
     /**
-     * <code>optional string connected_wifi = 6;</code>
+     * <code>string connected_wifi = 6;</code>
      */
     public com.google.protobuf.ByteString
         getConnectedWifiBytes() {
@@ -5677,7 +5677,7 @@ public final class ParkModel {
     public static final int CONNECTED_WIFI_RSSI_FIELD_NUMBER = 7;
     private int connectedWifiRssi_;
     /**
-     * <code>optional int32 connected_wifi_rssi = 7;</code>
+     * <code>int32 connected_wifi_rssi = 7;</code>
      */
     public int getConnectedWifiRssi() {
       return connectedWifiRssi_;
@@ -5686,7 +5686,7 @@ public final class ParkModel {
     public static final int RECORDED_DATE_FIELD_NUMBER = 8;
     private long recordedDate_;
     /**
-     * <code>optional int64 recorded_date = 8;</code>
+     * <code>int64 recorded_date = 8;</code>
      */
     public long getRecordedDate() {
       return recordedDate_;
@@ -5813,7 +5813,7 @@ public final class ParkModel {
         return memoizedHashCode;
       }
       int hash = 41;
-      hash = (19 * hash) + getDescriptorForType().hashCode();
+      hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + ID_FIELD_NUMBER;
       hash = (53 * hash) + getId().hashCode();
       if (getBeaconsCount() > 0) {
@@ -6144,7 +6144,7 @@ public final class ParkModel {
 
       private java.lang.Object id_ = "";
       /**
-       * <code>optional string id = 1;</code>
+       * <code>string id = 1;</code>
        */
       public java.lang.String getId() {
         java.lang.Object ref = id_;
@@ -6159,7 +6159,7 @@ public final class ParkModel {
         }
       }
       /**
-       * <code>optional string id = 1;</code>
+       * <code>string id = 1;</code>
        */
       public com.google.protobuf.ByteString
           getIdBytes() {
@@ -6175,7 +6175,7 @@ public final class ParkModel {
         }
       }
       /**
-       * <code>optional string id = 1;</code>
+       * <code>string id = 1;</code>
        */
       public Builder setId(
           java.lang.String value) {
@@ -6188,7 +6188,7 @@ public final class ParkModel {
         return this;
       }
       /**
-       * <code>optional string id = 1;</code>
+       * <code>string id = 1;</code>
        */
       public Builder clearId() {
         
@@ -6197,7 +6197,7 @@ public final class ParkModel {
         return this;
       }
       /**
-       * <code>optional string id = 1;</code>
+       * <code>string id = 1;</code>
        */
       public Builder setIdBytes(
           com.google.protobuf.ByteString value) {
@@ -6455,13 +6455,13 @@ public final class ParkModel {
       private com.google.protobuf.SingleFieldBuilderV3<
           org.naru.park.ParkModel.Sensor, org.naru.park.ParkModel.Sensor.Builder, org.naru.park.ParkModel.SensorOrBuilder> sensorBuilder_;
       /**
-       * <code>optional .org.naru.park.Sensor sensor = 3;</code>
+       * <code>.org.naru.park.Sensor sensor = 3;</code>
        */
       public boolean hasSensor() {
         return sensorBuilder_ != null || sensor_ != null;
       }
       /**
-       * <code>optional .org.naru.park.Sensor sensor = 3;</code>
+       * <code>.org.naru.park.Sensor sensor = 3;</code>
        */
       public org.naru.park.ParkModel.Sensor getSensor() {
         if (sensorBuilder_ == null) {
@@ -6471,7 +6471,7 @@ public final class ParkModel {
         }
       }
       /**
-       * <code>optional .org.naru.park.Sensor sensor = 3;</code>
+       * <code>.org.naru.park.Sensor sensor = 3;</code>
        */
       public Builder setSensor(org.naru.park.ParkModel.Sensor value) {
         if (sensorBuilder_ == null) {
@@ -6487,7 +6487,7 @@ public final class ParkModel {
         return this;
       }
       /**
-       * <code>optional .org.naru.park.Sensor sensor = 3;</code>
+       * <code>.org.naru.park.Sensor sensor = 3;</code>
        */
       public Builder setSensor(
           org.naru.park.ParkModel.Sensor.Builder builderForValue) {
@@ -6501,7 +6501,7 @@ public final class ParkModel {
         return this;
       }
       /**
-       * <code>optional .org.naru.park.Sensor sensor = 3;</code>
+       * <code>.org.naru.park.Sensor sensor = 3;</code>
        */
       public Builder mergeSensor(org.naru.park.ParkModel.Sensor value) {
         if (sensorBuilder_ == null) {
@@ -6519,7 +6519,7 @@ public final class ParkModel {
         return this;
       }
       /**
-       * <code>optional .org.naru.park.Sensor sensor = 3;</code>
+       * <code>.org.naru.park.Sensor sensor = 3;</code>
        */
       public Builder clearSensor() {
         if (sensorBuilder_ == null) {
@@ -6533,7 +6533,7 @@ public final class ParkModel {
         return this;
       }
       /**
-       * <code>optional .org.naru.park.Sensor sensor = 3;</code>
+       * <code>.org.naru.park.Sensor sensor = 3;</code>
        */
       public org.naru.park.ParkModel.Sensor.Builder getSensorBuilder() {
         
@@ -6541,7 +6541,7 @@ public final class ParkModel {
         return getSensorFieldBuilder().getBuilder();
       }
       /**
-       * <code>optional .org.naru.park.Sensor sensor = 3;</code>
+       * <code>.org.naru.park.Sensor sensor = 3;</code>
        */
       public org.naru.park.ParkModel.SensorOrBuilder getSensorOrBuilder() {
         if (sensorBuilder_ != null) {
@@ -6552,7 +6552,7 @@ public final class ParkModel {
         }
       }
       /**
-       * <code>optional .org.naru.park.Sensor sensor = 3;</code>
+       * <code>.org.naru.park.Sensor sensor = 3;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           org.naru.park.ParkModel.Sensor, org.naru.park.ParkModel.Sensor.Builder, org.naru.park.ParkModel.SensorOrBuilder> 
@@ -6570,13 +6570,13 @@ public final class ParkModel {
 
       private double lat_ ;
       /**
-       * <code>optional double lat = 4;</code>
+       * <code>double lat = 4;</code>
        */
       public double getLat() {
         return lat_;
       }
       /**
-       * <code>optional double lat = 4;</code>
+       * <code>double lat = 4;</code>
        */
       public Builder setLat(double value) {
         
@@ -6585,7 +6585,7 @@ public final class ParkModel {
         return this;
       }
       /**
-       * <code>optional double lat = 4;</code>
+       * <code>double lat = 4;</code>
        */
       public Builder clearLat() {
         
@@ -6596,13 +6596,13 @@ public final class ParkModel {
 
       private double long_ ;
       /**
-       * <code>optional double long = 5;</code>
+       * <code>double long = 5;</code>
        */
       public double getLong() {
         return long_;
       }
       /**
-       * <code>optional double long = 5;</code>
+       * <code>double long = 5;</code>
        */
       public Builder setLong(double value) {
         
@@ -6611,7 +6611,7 @@ public final class ParkModel {
         return this;
       }
       /**
-       * <code>optional double long = 5;</code>
+       * <code>double long = 5;</code>
        */
       public Builder clearLong() {
         
@@ -6622,7 +6622,7 @@ public final class ParkModel {
 
       private java.lang.Object connectedWifi_ = "";
       /**
-       * <code>optional string connected_wifi = 6;</code>
+       * <code>string connected_wifi = 6;</code>
        */
       public java.lang.String getConnectedWifi() {
         java.lang.Object ref = connectedWifi_;
@@ -6637,7 +6637,7 @@ public final class ParkModel {
         }
       }
       /**
-       * <code>optional string connected_wifi = 6;</code>
+       * <code>string connected_wifi = 6;</code>
        */
       public com.google.protobuf.ByteString
           getConnectedWifiBytes() {
@@ -6653,7 +6653,7 @@ public final class ParkModel {
         }
       }
       /**
-       * <code>optional string connected_wifi = 6;</code>
+       * <code>string connected_wifi = 6;</code>
        */
       public Builder setConnectedWifi(
           java.lang.String value) {
@@ -6666,7 +6666,7 @@ public final class ParkModel {
         return this;
       }
       /**
-       * <code>optional string connected_wifi = 6;</code>
+       * <code>string connected_wifi = 6;</code>
        */
       public Builder clearConnectedWifi() {
         
@@ -6675,7 +6675,7 @@ public final class ParkModel {
         return this;
       }
       /**
-       * <code>optional string connected_wifi = 6;</code>
+       * <code>string connected_wifi = 6;</code>
        */
       public Builder setConnectedWifiBytes(
           com.google.protobuf.ByteString value) {
@@ -6691,13 +6691,13 @@ public final class ParkModel {
 
       private int connectedWifiRssi_ ;
       /**
-       * <code>optional int32 connected_wifi_rssi = 7;</code>
+       * <code>int32 connected_wifi_rssi = 7;</code>
        */
       public int getConnectedWifiRssi() {
         return connectedWifiRssi_;
       }
       /**
-       * <code>optional int32 connected_wifi_rssi = 7;</code>
+       * <code>int32 connected_wifi_rssi = 7;</code>
        */
       public Builder setConnectedWifiRssi(int value) {
         
@@ -6706,7 +6706,7 @@ public final class ParkModel {
         return this;
       }
       /**
-       * <code>optional int32 connected_wifi_rssi = 7;</code>
+       * <code>int32 connected_wifi_rssi = 7;</code>
        */
       public Builder clearConnectedWifiRssi() {
         
@@ -6717,13 +6717,13 @@ public final class ParkModel {
 
       private long recordedDate_ ;
       /**
-       * <code>optional int64 recorded_date = 8;</code>
+       * <code>int64 recorded_date = 8;</code>
        */
       public long getRecordedDate() {
         return recordedDate_;
       }
       /**
-       * <code>optional int64 recorded_date = 8;</code>
+       * <code>int64 recorded_date = 8;</code>
        */
       public Builder setRecordedDate(long value) {
         
@@ -6732,7 +6732,7 @@ public final class ParkModel {
         return this;
       }
       /**
-       * <code>optional int64 recorded_date = 8;</code>
+       * <code>int64 recorded_date = 8;</code>
        */
       public Builder clearRecordedDate() {
         
@@ -6794,74 +6794,74 @@ public final class ParkModel {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>optional string token = 1;</code>
+     * <code>string token = 1;</code>
      */
     java.lang.String getToken();
     /**
-     * <code>optional string token = 1;</code>
+     * <code>string token = 1;</code>
      */
     com.google.protobuf.ByteString
         getTokenBytes();
 
     /**
-     * <code>optional .org.naru.park.SensorReport sensor_report = 2;</code>
+     * <code>.org.naru.park.SensorReport sensor_report = 2;</code>
      */
     boolean hasSensorReport();
     /**
-     * <code>optional .org.naru.park.SensorReport sensor_report = 2;</code>
+     * <code>.org.naru.park.SensorReport sensor_report = 2;</code>
      */
     org.naru.park.ParkModel.SensorReport getSensorReport();
     /**
-     * <code>optional .org.naru.park.SensorReport sensor_report = 2;</code>
+     * <code>.org.naru.park.SensorReport sensor_report = 2;</code>
      */
     org.naru.park.ParkModel.SensorReportOrBuilder getSensorReportOrBuilder();
 
     /**
-     * <code>optional .org.naru.park.Sensor sensor = 3;</code>
+     * <code>.org.naru.park.Sensor sensor = 3;</code>
      */
     boolean hasSensor();
     /**
-     * <code>optional .org.naru.park.Sensor sensor = 3;</code>
+     * <code>.org.naru.park.Sensor sensor = 3;</code>
      */
     org.naru.park.ParkModel.Sensor getSensor();
     /**
-     * <code>optional .org.naru.park.Sensor sensor = 3;</code>
+     * <code>.org.naru.park.Sensor sensor = 3;</code>
      */
     org.naru.park.ParkModel.SensorOrBuilder getSensorOrBuilder();
 
     /**
-     * <code>optional .org.naru.park.UserTicket ticket = 4;</code>
+     * <code>.org.naru.park.UserTicket ticket = 4;</code>
      */
     boolean hasTicket();
     /**
-     * <code>optional .org.naru.park.UserTicket ticket = 4;</code>
+     * <code>.org.naru.park.UserTicket ticket = 4;</code>
      */
     org.naru.park.ParkModel.UserTicket getTicket();
     /**
-     * <code>optional .org.naru.park.UserTicket ticket = 4;</code>
+     * <code>.org.naru.park.UserTicket ticket = 4;</code>
      */
     org.naru.park.ParkModel.UserTicketOrBuilder getTicketOrBuilder();
 
     /**
-     * <code>optional .org.naru.park.Beacon beacon = 5;</code>
+     * <code>.org.naru.park.Beacon beacon = 5;</code>
      */
     boolean hasBeacon();
     /**
-     * <code>optional .org.naru.park.Beacon beacon = 5;</code>
+     * <code>.org.naru.park.Beacon beacon = 5;</code>
      */
     org.naru.park.ParkModel.Beacon getBeacon();
     /**
-     * <code>optional .org.naru.park.Beacon beacon = 5;</code>
+     * <code>.org.naru.park.Beacon beacon = 5;</code>
      */
     org.naru.park.ParkModel.BeaconOrBuilder getBeaconOrBuilder();
 
     /**
-     * <code>optional int64 start_time = 6;</code>
+     * <code>int64 start_time = 6;</code>
      */
     long getStartTime();
 
     /**
-     * <code>optional int64 end_time = 7;</code>
+     * <code>int64 end_time = 7;</code>
      */
     long getEndTime();
   }
@@ -7001,7 +7001,7 @@ public final class ParkModel {
     public static final int TOKEN_FIELD_NUMBER = 1;
     private volatile java.lang.Object token_;
     /**
-     * <code>optional string token = 1;</code>
+     * <code>string token = 1;</code>
      */
     public java.lang.String getToken() {
       java.lang.Object ref = token_;
@@ -7016,7 +7016,7 @@ public final class ParkModel {
       }
     }
     /**
-     * <code>optional string token = 1;</code>
+     * <code>string token = 1;</code>
      */
     public com.google.protobuf.ByteString
         getTokenBytes() {
@@ -7035,19 +7035,19 @@ public final class ParkModel {
     public static final int SENSOR_REPORT_FIELD_NUMBER = 2;
     private org.naru.park.ParkModel.SensorReport sensorReport_;
     /**
-     * <code>optional .org.naru.park.SensorReport sensor_report = 2;</code>
+     * <code>.org.naru.park.SensorReport sensor_report = 2;</code>
      */
     public boolean hasSensorReport() {
       return sensorReport_ != null;
     }
     /**
-     * <code>optional .org.naru.park.SensorReport sensor_report = 2;</code>
+     * <code>.org.naru.park.SensorReport sensor_report = 2;</code>
      */
     public org.naru.park.ParkModel.SensorReport getSensorReport() {
       return sensorReport_ == null ? org.naru.park.ParkModel.SensorReport.getDefaultInstance() : sensorReport_;
     }
     /**
-     * <code>optional .org.naru.park.SensorReport sensor_report = 2;</code>
+     * <code>.org.naru.park.SensorReport sensor_report = 2;</code>
      */
     public org.naru.park.ParkModel.SensorReportOrBuilder getSensorReportOrBuilder() {
       return getSensorReport();
@@ -7056,19 +7056,19 @@ public final class ParkModel {
     public static final int SENSOR_FIELD_NUMBER = 3;
     private org.naru.park.ParkModel.Sensor sensor_;
     /**
-     * <code>optional .org.naru.park.Sensor sensor = 3;</code>
+     * <code>.org.naru.park.Sensor sensor = 3;</code>
      */
     public boolean hasSensor() {
       return sensor_ != null;
     }
     /**
-     * <code>optional .org.naru.park.Sensor sensor = 3;</code>
+     * <code>.org.naru.park.Sensor sensor = 3;</code>
      */
     public org.naru.park.ParkModel.Sensor getSensor() {
       return sensor_ == null ? org.naru.park.ParkModel.Sensor.getDefaultInstance() : sensor_;
     }
     /**
-     * <code>optional .org.naru.park.Sensor sensor = 3;</code>
+     * <code>.org.naru.park.Sensor sensor = 3;</code>
      */
     public org.naru.park.ParkModel.SensorOrBuilder getSensorOrBuilder() {
       return getSensor();
@@ -7077,19 +7077,19 @@ public final class ParkModel {
     public static final int TICKET_FIELD_NUMBER = 4;
     private org.naru.park.ParkModel.UserTicket ticket_;
     /**
-     * <code>optional .org.naru.park.UserTicket ticket = 4;</code>
+     * <code>.org.naru.park.UserTicket ticket = 4;</code>
      */
     public boolean hasTicket() {
       return ticket_ != null;
     }
     /**
-     * <code>optional .org.naru.park.UserTicket ticket = 4;</code>
+     * <code>.org.naru.park.UserTicket ticket = 4;</code>
      */
     public org.naru.park.ParkModel.UserTicket getTicket() {
       return ticket_ == null ? org.naru.park.ParkModel.UserTicket.getDefaultInstance() : ticket_;
     }
     /**
-     * <code>optional .org.naru.park.UserTicket ticket = 4;</code>
+     * <code>.org.naru.park.UserTicket ticket = 4;</code>
      */
     public org.naru.park.ParkModel.UserTicketOrBuilder getTicketOrBuilder() {
       return getTicket();
@@ -7098,19 +7098,19 @@ public final class ParkModel {
     public static final int BEACON_FIELD_NUMBER = 5;
     private org.naru.park.ParkModel.Beacon beacon_;
     /**
-     * <code>optional .org.naru.park.Beacon beacon = 5;</code>
+     * <code>.org.naru.park.Beacon beacon = 5;</code>
      */
     public boolean hasBeacon() {
       return beacon_ != null;
     }
     /**
-     * <code>optional .org.naru.park.Beacon beacon = 5;</code>
+     * <code>.org.naru.park.Beacon beacon = 5;</code>
      */
     public org.naru.park.ParkModel.Beacon getBeacon() {
       return beacon_ == null ? org.naru.park.ParkModel.Beacon.getDefaultInstance() : beacon_;
     }
     /**
-     * <code>optional .org.naru.park.Beacon beacon = 5;</code>
+     * <code>.org.naru.park.Beacon beacon = 5;</code>
      */
     public org.naru.park.ParkModel.BeaconOrBuilder getBeaconOrBuilder() {
       return getBeacon();
@@ -7119,7 +7119,7 @@ public final class ParkModel {
     public static final int START_TIME_FIELD_NUMBER = 6;
     private long startTime_;
     /**
-     * <code>optional int64 start_time = 6;</code>
+     * <code>int64 start_time = 6;</code>
      */
     public long getStartTime() {
       return startTime_;
@@ -7128,7 +7128,7 @@ public final class ParkModel {
     public static final int END_TIME_FIELD_NUMBER = 7;
     private long endTime_;
     /**
-     * <code>optional int64 end_time = 7;</code>
+     * <code>int64 end_time = 7;</code>
      */
     public long getEndTime() {
       return endTime_;
@@ -7252,7 +7252,7 @@ public final class ParkModel {
         return memoizedHashCode;
       }
       int hash = 41;
-      hash = (19 * hash) + getDescriptorForType().hashCode();
+      hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + TOKEN_FIELD_NUMBER;
       hash = (53 * hash) + getToken().hashCode();
       if (hasSensorReport()) {
@@ -7561,7 +7561,7 @@ public final class ParkModel {
 
       private java.lang.Object token_ = "";
       /**
-       * <code>optional string token = 1;</code>
+       * <code>string token = 1;</code>
        */
       public java.lang.String getToken() {
         java.lang.Object ref = token_;
@@ -7576,7 +7576,7 @@ public final class ParkModel {
         }
       }
       /**
-       * <code>optional string token = 1;</code>
+       * <code>string token = 1;</code>
        */
       public com.google.protobuf.ByteString
           getTokenBytes() {
@@ -7592,7 +7592,7 @@ public final class ParkModel {
         }
       }
       /**
-       * <code>optional string token = 1;</code>
+       * <code>string token = 1;</code>
        */
       public Builder setToken(
           java.lang.String value) {
@@ -7605,7 +7605,7 @@ public final class ParkModel {
         return this;
       }
       /**
-       * <code>optional string token = 1;</code>
+       * <code>string token = 1;</code>
        */
       public Builder clearToken() {
         
@@ -7614,7 +7614,7 @@ public final class ParkModel {
         return this;
       }
       /**
-       * <code>optional string token = 1;</code>
+       * <code>string token = 1;</code>
        */
       public Builder setTokenBytes(
           com.google.protobuf.ByteString value) {
@@ -7632,13 +7632,13 @@ public final class ParkModel {
       private com.google.protobuf.SingleFieldBuilderV3<
           org.naru.park.ParkModel.SensorReport, org.naru.park.ParkModel.SensorReport.Builder, org.naru.park.ParkModel.SensorReportOrBuilder> sensorReportBuilder_;
       /**
-       * <code>optional .org.naru.park.SensorReport sensor_report = 2;</code>
+       * <code>.org.naru.park.SensorReport sensor_report = 2;</code>
        */
       public boolean hasSensorReport() {
         return sensorReportBuilder_ != null || sensorReport_ != null;
       }
       /**
-       * <code>optional .org.naru.park.SensorReport sensor_report = 2;</code>
+       * <code>.org.naru.park.SensorReport sensor_report = 2;</code>
        */
       public org.naru.park.ParkModel.SensorReport getSensorReport() {
         if (sensorReportBuilder_ == null) {
@@ -7648,7 +7648,7 @@ public final class ParkModel {
         }
       }
       /**
-       * <code>optional .org.naru.park.SensorReport sensor_report = 2;</code>
+       * <code>.org.naru.park.SensorReport sensor_report = 2;</code>
        */
       public Builder setSensorReport(org.naru.park.ParkModel.SensorReport value) {
         if (sensorReportBuilder_ == null) {
@@ -7664,7 +7664,7 @@ public final class ParkModel {
         return this;
       }
       /**
-       * <code>optional .org.naru.park.SensorReport sensor_report = 2;</code>
+       * <code>.org.naru.park.SensorReport sensor_report = 2;</code>
        */
       public Builder setSensorReport(
           org.naru.park.ParkModel.SensorReport.Builder builderForValue) {
@@ -7678,7 +7678,7 @@ public final class ParkModel {
         return this;
       }
       /**
-       * <code>optional .org.naru.park.SensorReport sensor_report = 2;</code>
+       * <code>.org.naru.park.SensorReport sensor_report = 2;</code>
        */
       public Builder mergeSensorReport(org.naru.park.ParkModel.SensorReport value) {
         if (sensorReportBuilder_ == null) {
@@ -7696,7 +7696,7 @@ public final class ParkModel {
         return this;
       }
       /**
-       * <code>optional .org.naru.park.SensorReport sensor_report = 2;</code>
+       * <code>.org.naru.park.SensorReport sensor_report = 2;</code>
        */
       public Builder clearSensorReport() {
         if (sensorReportBuilder_ == null) {
@@ -7710,7 +7710,7 @@ public final class ParkModel {
         return this;
       }
       /**
-       * <code>optional .org.naru.park.SensorReport sensor_report = 2;</code>
+       * <code>.org.naru.park.SensorReport sensor_report = 2;</code>
        */
       public org.naru.park.ParkModel.SensorReport.Builder getSensorReportBuilder() {
         
@@ -7718,7 +7718,7 @@ public final class ParkModel {
         return getSensorReportFieldBuilder().getBuilder();
       }
       /**
-       * <code>optional .org.naru.park.SensorReport sensor_report = 2;</code>
+       * <code>.org.naru.park.SensorReport sensor_report = 2;</code>
        */
       public org.naru.park.ParkModel.SensorReportOrBuilder getSensorReportOrBuilder() {
         if (sensorReportBuilder_ != null) {
@@ -7729,7 +7729,7 @@ public final class ParkModel {
         }
       }
       /**
-       * <code>optional .org.naru.park.SensorReport sensor_report = 2;</code>
+       * <code>.org.naru.park.SensorReport sensor_report = 2;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           org.naru.park.ParkModel.SensorReport, org.naru.park.ParkModel.SensorReport.Builder, org.naru.park.ParkModel.SensorReportOrBuilder> 
@@ -7749,13 +7749,13 @@ public final class ParkModel {
       private com.google.protobuf.SingleFieldBuilderV3<
           org.naru.park.ParkModel.Sensor, org.naru.park.ParkModel.Sensor.Builder, org.naru.park.ParkModel.SensorOrBuilder> sensorBuilder_;
       /**
-       * <code>optional .org.naru.park.Sensor sensor = 3;</code>
+       * <code>.org.naru.park.Sensor sensor = 3;</code>
        */
       public boolean hasSensor() {
         return sensorBuilder_ != null || sensor_ != null;
       }
       /**
-       * <code>optional .org.naru.park.Sensor sensor = 3;</code>
+       * <code>.org.naru.park.Sensor sensor = 3;</code>
        */
       public org.naru.park.ParkModel.Sensor getSensor() {
         if (sensorBuilder_ == null) {
@@ -7765,7 +7765,7 @@ public final class ParkModel {
         }
       }
       /**
-       * <code>optional .org.naru.park.Sensor sensor = 3;</code>
+       * <code>.org.naru.park.Sensor sensor = 3;</code>
        */
       public Builder setSensor(org.naru.park.ParkModel.Sensor value) {
         if (sensorBuilder_ == null) {
@@ -7781,7 +7781,7 @@ public final class ParkModel {
         return this;
       }
       /**
-       * <code>optional .org.naru.park.Sensor sensor = 3;</code>
+       * <code>.org.naru.park.Sensor sensor = 3;</code>
        */
       public Builder setSensor(
           org.naru.park.ParkModel.Sensor.Builder builderForValue) {
@@ -7795,7 +7795,7 @@ public final class ParkModel {
         return this;
       }
       /**
-       * <code>optional .org.naru.park.Sensor sensor = 3;</code>
+       * <code>.org.naru.park.Sensor sensor = 3;</code>
        */
       public Builder mergeSensor(org.naru.park.ParkModel.Sensor value) {
         if (sensorBuilder_ == null) {
@@ -7813,7 +7813,7 @@ public final class ParkModel {
         return this;
       }
       /**
-       * <code>optional .org.naru.park.Sensor sensor = 3;</code>
+       * <code>.org.naru.park.Sensor sensor = 3;</code>
        */
       public Builder clearSensor() {
         if (sensorBuilder_ == null) {
@@ -7827,7 +7827,7 @@ public final class ParkModel {
         return this;
       }
       /**
-       * <code>optional .org.naru.park.Sensor sensor = 3;</code>
+       * <code>.org.naru.park.Sensor sensor = 3;</code>
        */
       public org.naru.park.ParkModel.Sensor.Builder getSensorBuilder() {
         
@@ -7835,7 +7835,7 @@ public final class ParkModel {
         return getSensorFieldBuilder().getBuilder();
       }
       /**
-       * <code>optional .org.naru.park.Sensor sensor = 3;</code>
+       * <code>.org.naru.park.Sensor sensor = 3;</code>
        */
       public org.naru.park.ParkModel.SensorOrBuilder getSensorOrBuilder() {
         if (sensorBuilder_ != null) {
@@ -7846,7 +7846,7 @@ public final class ParkModel {
         }
       }
       /**
-       * <code>optional .org.naru.park.Sensor sensor = 3;</code>
+       * <code>.org.naru.park.Sensor sensor = 3;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           org.naru.park.ParkModel.Sensor, org.naru.park.ParkModel.Sensor.Builder, org.naru.park.ParkModel.SensorOrBuilder> 
@@ -7866,13 +7866,13 @@ public final class ParkModel {
       private com.google.protobuf.SingleFieldBuilderV3<
           org.naru.park.ParkModel.UserTicket, org.naru.park.ParkModel.UserTicket.Builder, org.naru.park.ParkModel.UserTicketOrBuilder> ticketBuilder_;
       /**
-       * <code>optional .org.naru.park.UserTicket ticket = 4;</code>
+       * <code>.org.naru.park.UserTicket ticket = 4;</code>
        */
       public boolean hasTicket() {
         return ticketBuilder_ != null || ticket_ != null;
       }
       /**
-       * <code>optional .org.naru.park.UserTicket ticket = 4;</code>
+       * <code>.org.naru.park.UserTicket ticket = 4;</code>
        */
       public org.naru.park.ParkModel.UserTicket getTicket() {
         if (ticketBuilder_ == null) {
@@ -7882,7 +7882,7 @@ public final class ParkModel {
         }
       }
       /**
-       * <code>optional .org.naru.park.UserTicket ticket = 4;</code>
+       * <code>.org.naru.park.UserTicket ticket = 4;</code>
        */
       public Builder setTicket(org.naru.park.ParkModel.UserTicket value) {
         if (ticketBuilder_ == null) {
@@ -7898,7 +7898,7 @@ public final class ParkModel {
         return this;
       }
       /**
-       * <code>optional .org.naru.park.UserTicket ticket = 4;</code>
+       * <code>.org.naru.park.UserTicket ticket = 4;</code>
        */
       public Builder setTicket(
           org.naru.park.ParkModel.UserTicket.Builder builderForValue) {
@@ -7912,7 +7912,7 @@ public final class ParkModel {
         return this;
       }
       /**
-       * <code>optional .org.naru.park.UserTicket ticket = 4;</code>
+       * <code>.org.naru.park.UserTicket ticket = 4;</code>
        */
       public Builder mergeTicket(org.naru.park.ParkModel.UserTicket value) {
         if (ticketBuilder_ == null) {
@@ -7930,7 +7930,7 @@ public final class ParkModel {
         return this;
       }
       /**
-       * <code>optional .org.naru.park.UserTicket ticket = 4;</code>
+       * <code>.org.naru.park.UserTicket ticket = 4;</code>
        */
       public Builder clearTicket() {
         if (ticketBuilder_ == null) {
@@ -7944,7 +7944,7 @@ public final class ParkModel {
         return this;
       }
       /**
-       * <code>optional .org.naru.park.UserTicket ticket = 4;</code>
+       * <code>.org.naru.park.UserTicket ticket = 4;</code>
        */
       public org.naru.park.ParkModel.UserTicket.Builder getTicketBuilder() {
         
@@ -7952,7 +7952,7 @@ public final class ParkModel {
         return getTicketFieldBuilder().getBuilder();
       }
       /**
-       * <code>optional .org.naru.park.UserTicket ticket = 4;</code>
+       * <code>.org.naru.park.UserTicket ticket = 4;</code>
        */
       public org.naru.park.ParkModel.UserTicketOrBuilder getTicketOrBuilder() {
         if (ticketBuilder_ != null) {
@@ -7963,7 +7963,7 @@ public final class ParkModel {
         }
       }
       /**
-       * <code>optional .org.naru.park.UserTicket ticket = 4;</code>
+       * <code>.org.naru.park.UserTicket ticket = 4;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           org.naru.park.ParkModel.UserTicket, org.naru.park.ParkModel.UserTicket.Builder, org.naru.park.ParkModel.UserTicketOrBuilder> 
@@ -7983,13 +7983,13 @@ public final class ParkModel {
       private com.google.protobuf.SingleFieldBuilderV3<
           org.naru.park.ParkModel.Beacon, org.naru.park.ParkModel.Beacon.Builder, org.naru.park.ParkModel.BeaconOrBuilder> beaconBuilder_;
       /**
-       * <code>optional .org.naru.park.Beacon beacon = 5;</code>
+       * <code>.org.naru.park.Beacon beacon = 5;</code>
        */
       public boolean hasBeacon() {
         return beaconBuilder_ != null || beacon_ != null;
       }
       /**
-       * <code>optional .org.naru.park.Beacon beacon = 5;</code>
+       * <code>.org.naru.park.Beacon beacon = 5;</code>
        */
       public org.naru.park.ParkModel.Beacon getBeacon() {
         if (beaconBuilder_ == null) {
@@ -7999,7 +7999,7 @@ public final class ParkModel {
         }
       }
       /**
-       * <code>optional .org.naru.park.Beacon beacon = 5;</code>
+       * <code>.org.naru.park.Beacon beacon = 5;</code>
        */
       public Builder setBeacon(org.naru.park.ParkModel.Beacon value) {
         if (beaconBuilder_ == null) {
@@ -8015,7 +8015,7 @@ public final class ParkModel {
         return this;
       }
       /**
-       * <code>optional .org.naru.park.Beacon beacon = 5;</code>
+       * <code>.org.naru.park.Beacon beacon = 5;</code>
        */
       public Builder setBeacon(
           org.naru.park.ParkModel.Beacon.Builder builderForValue) {
@@ -8029,7 +8029,7 @@ public final class ParkModel {
         return this;
       }
       /**
-       * <code>optional .org.naru.park.Beacon beacon = 5;</code>
+       * <code>.org.naru.park.Beacon beacon = 5;</code>
        */
       public Builder mergeBeacon(org.naru.park.ParkModel.Beacon value) {
         if (beaconBuilder_ == null) {
@@ -8047,7 +8047,7 @@ public final class ParkModel {
         return this;
       }
       /**
-       * <code>optional .org.naru.park.Beacon beacon = 5;</code>
+       * <code>.org.naru.park.Beacon beacon = 5;</code>
        */
       public Builder clearBeacon() {
         if (beaconBuilder_ == null) {
@@ -8061,7 +8061,7 @@ public final class ParkModel {
         return this;
       }
       /**
-       * <code>optional .org.naru.park.Beacon beacon = 5;</code>
+       * <code>.org.naru.park.Beacon beacon = 5;</code>
        */
       public org.naru.park.ParkModel.Beacon.Builder getBeaconBuilder() {
         
@@ -8069,7 +8069,7 @@ public final class ParkModel {
         return getBeaconFieldBuilder().getBuilder();
       }
       /**
-       * <code>optional .org.naru.park.Beacon beacon = 5;</code>
+       * <code>.org.naru.park.Beacon beacon = 5;</code>
        */
       public org.naru.park.ParkModel.BeaconOrBuilder getBeaconOrBuilder() {
         if (beaconBuilder_ != null) {
@@ -8080,7 +8080,7 @@ public final class ParkModel {
         }
       }
       /**
-       * <code>optional .org.naru.park.Beacon beacon = 5;</code>
+       * <code>.org.naru.park.Beacon beacon = 5;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           org.naru.park.ParkModel.Beacon, org.naru.park.ParkModel.Beacon.Builder, org.naru.park.ParkModel.BeaconOrBuilder> 
@@ -8098,13 +8098,13 @@ public final class ParkModel {
 
       private long startTime_ ;
       /**
-       * <code>optional int64 start_time = 6;</code>
+       * <code>int64 start_time = 6;</code>
        */
       public long getStartTime() {
         return startTime_;
       }
       /**
-       * <code>optional int64 start_time = 6;</code>
+       * <code>int64 start_time = 6;</code>
        */
       public Builder setStartTime(long value) {
         
@@ -8113,7 +8113,7 @@ public final class ParkModel {
         return this;
       }
       /**
-       * <code>optional int64 start_time = 6;</code>
+       * <code>int64 start_time = 6;</code>
        */
       public Builder clearStartTime() {
         
@@ -8124,13 +8124,13 @@ public final class ParkModel {
 
       private long endTime_ ;
       /**
-       * <code>optional int64 end_time = 7;</code>
+       * <code>int64 end_time = 7;</code>
        */
       public long getEndTime() {
         return endTime_;
       }
       /**
-       * <code>optional int64 end_time = 7;</code>
+       * <code>int64 end_time = 7;</code>
        */
       public Builder setEndTime(long value) {
         
@@ -8139,7 +8139,7 @@ public final class ParkModel {
         return this;
       }
       /**
-       * <code>optional int64 end_time = 7;</code>
+       * <code>int64 end_time = 7;</code>
        */
       public Builder clearEndTime() {
         
@@ -8201,11 +8201,11 @@ public final class ParkModel {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>optional string token = 1;</code>
+     * <code>string token = 1;</code>
      */
     java.lang.String getToken();
     /**
-     * <code>optional string token = 1;</code>
+     * <code>string token = 1;</code>
      */
     com.google.protobuf.ByteString
         getTokenBytes();
@@ -8431,7 +8431,7 @@ public final class ParkModel {
     public static final int TOKEN_FIELD_NUMBER = 1;
     private volatile java.lang.Object token_;
     /**
-     * <code>optional string token = 1;</code>
+     * <code>string token = 1;</code>
      */
     public java.lang.String getToken() {
       java.lang.Object ref = token_;
@@ -8446,7 +8446,7 @@ public final class ParkModel {
       }
     }
     /**
-     * <code>optional string token = 1;</code>
+     * <code>string token = 1;</code>
      */
     public com.google.protobuf.ByteString
         getTokenBytes() {
@@ -8690,7 +8690,7 @@ public final class ParkModel {
         return memoizedHashCode;
       }
       int hash = 41;
-      hash = (19 * hash) + getDescriptorForType().hashCode();
+      hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + TOKEN_FIELD_NUMBER;
       hash = (53 * hash) + getToken().hashCode();
       if (getReportsCount() > 0) {
@@ -9097,7 +9097,7 @@ public final class ParkModel {
 
       private java.lang.Object token_ = "";
       /**
-       * <code>optional string token = 1;</code>
+       * <code>string token = 1;</code>
        */
       public java.lang.String getToken() {
         java.lang.Object ref = token_;
@@ -9112,7 +9112,7 @@ public final class ParkModel {
         }
       }
       /**
-       * <code>optional string token = 1;</code>
+       * <code>string token = 1;</code>
        */
       public com.google.protobuf.ByteString
           getTokenBytes() {
@@ -9128,7 +9128,7 @@ public final class ParkModel {
         }
       }
       /**
-       * <code>optional string token = 1;</code>
+       * <code>string token = 1;</code>
        */
       public Builder setToken(
           java.lang.String value) {
@@ -9141,7 +9141,7 @@ public final class ParkModel {
         return this;
       }
       /**
-       * <code>optional string token = 1;</code>
+       * <code>string token = 1;</code>
        */
       public Builder clearToken() {
         
@@ -9150,7 +9150,7 @@ public final class ParkModel {
         return this;
       }
       /**
-       * <code>optional string token = 1;</code>
+       * <code>string token = 1;</code>
        */
       public Builder setTokenBytes(
           com.google.protobuf.ByteString value) {
