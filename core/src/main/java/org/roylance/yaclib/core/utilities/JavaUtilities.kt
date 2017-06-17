@@ -1,7 +1,6 @@
 package org.roylance.yaclib.core.utilities
 
 import org.roylance.yaclib.YaclibModel
-import org.roylance.yaclib.core.enums.CommonTokens
 
 object JavaUtilities {
     private val AlphaRegex = Regex("[^A-Za-z]+")
@@ -31,9 +30,9 @@ object JavaUtilities {
 
     const val ArtifactoryVersion = "4.4.0"
     const val BintrayVersion = "1.7"
-    const val RoylanceCommonVersion = "0.17"
+    const val RoylanceCommonVersion = "0.18"
     const val TomcatVersion = "8.0.28"
-    const val KotlinVersion = "1.1.1"
+    const val KotlinVersion = "1.1.2-5"
 
     const val CommonsIOVersion = "2.5"
     const val ProtobufVersion = "3.2.0"
