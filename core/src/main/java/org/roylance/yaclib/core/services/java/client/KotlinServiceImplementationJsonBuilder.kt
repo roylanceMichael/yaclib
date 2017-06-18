@@ -16,11 +16,11 @@ class KotlinServiceImplementationJsonBuilder(private val controller: YaclibModel
 package ${mainDependency.group}.${CommonTokens.ServicesName}
 
 import com.google.protobuf.util.JsonFormat;
-import org.roylance.common.service.IProtoSerializerService
 
 class ${controller.name}${CommonTokens.ServiceName}(
-        private val $restVariableName: $restInterfaceName,
-        private val protoSerializer: IProtoSerializerService): ${StringUtilities.convertServiceNameToInterfaceName(controller)} {
+        private val $restVariableName: $restInterfaceName): ${StringUtilities.convertServiceNameToInterfaceName(controller)} {
+        private val parser = JsonFormat.parser()
+        private val printer = JsonFormat.printer()
 """
 
         workspace.append(initialTemplate)
@@ -30,21 +30,22 @@ class ${controller.name}${CommonTokens.ServiceName}(
                 "${input.argumentName}: ${input.filePackage}.${input.fileClass}.${input.messageClass}"
             }.joinToString()
 
-            val base64Variables = action.inputsList.map { input ->
-                "val base64${input.argumentName} = protoSerializer.serializeToBase64(${input.argumentName})"
+            val jsonVariables = action.inputsList.map { input ->
+                "val json${input.argumentName} = this.printer.print(${input.argumentName})"
             }.joinToString("\n")
 
-            val base64InputParameters = action.inputsList.map { input ->
-                "base64${input.argumentName}"
+            val jsonInputParameters = action.inputsList.map { input ->
+                "json${input.argumentName}"
             }.joinToString()
 
             val initialActionTemplate = """
     override fun ${action.name}($argumentsList): ${action.output.filePackage}.${action.output.fileClass}.${action.output.messageClass} {
-        $base64Variables
-        val responseCall = $restVariableName.${action.name}($base64InputParameters)
+        $jsonVariables
+        val responseCall = $restVariableName.${action.name}($jsonInputParameters)
         val response = responseCall.execute()
-        return protoSerializer.deserializeFromBase64(response.body(),
-                ${action.output.filePackage}.${action.output.fileClass}.${action.output.messageClass}.getDefaultInstance())
+        val actualResponse = ${action.output.filePackage}.${action.output.fileClass}.${action.output.messageClass}.newBuilder()
+        this.parser.merge(response, actualResponse);
+        return actualResponse.build()
     }
 """
             workspace.append(initialActionTemplate)
