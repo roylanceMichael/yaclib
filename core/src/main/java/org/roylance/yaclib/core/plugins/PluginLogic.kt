@@ -200,7 +200,7 @@ class PluginLogic(
         JavaClientBuilder(location, mainDependency).build()
         println(InitUtilities.buildPhaseMessage(YaclibModel.ExecutionPhase.BUILD_PUBLISH_TYPESCRIPT.name))
         processPhase(YaclibModel.ExecutionPhase.BUILD_PUBLISH_TYPESCRIPT)
-//        TypeScriptBuilder(location, mainDependency).build()
+        TypeScriptBuilder(location, mainDependency).build()
 //        SwiftBuilder(location, projectInformation, processSwift).build()
 
         // process server now
