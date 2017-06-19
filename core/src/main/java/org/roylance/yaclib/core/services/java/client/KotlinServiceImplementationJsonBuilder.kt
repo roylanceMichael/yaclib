@@ -44,7 +44,7 @@ class ${controller.name}${CommonTokens.ServiceName}(
         val responseCall = $restVariableName.${action.name}($jsonInputParameters)
         val response = responseCall.execute()
         val actualResponse = ${action.output.filePackage}.${action.output.fileClass}.${action.output.messageClass}.newBuilder()
-        this.parser.merge(response, actualResponse);
+        this.parser.merge(response.body(), actualResponse);
         return actualResponse.build()
     }
 """

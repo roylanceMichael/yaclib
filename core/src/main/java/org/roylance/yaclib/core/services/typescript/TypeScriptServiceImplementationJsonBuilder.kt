@@ -4,9 +4,10 @@ import org.roylance.common.service.IBuilder
 import org.roylance.yaclib.YaclibModel
 import org.roylance.yaclib.core.enums.CommonTokens
 import org.roylance.yaclib.core.utilities.StringUtilities
+import org.roylance.yaclib.core.utilities.TypeScriptUtilities
 
 class TypeScriptServiceImplementationJsonBuilder(private val controller: YaclibModel.Controller,
-                                                 private val dependency: YaclibModel.Dependency): IBuilder<YaclibModel.File> {
+                                                 private val mainDependency: YaclibModel.Dependency): IBuilder<YaclibModel.File> {
     override fun build(): YaclibModel.File {
         val workspace = StringBuilder()
         val interfaceName = StringUtilities.convertServiceNameToInterfaceName(controller)
@@ -14,9 +15,10 @@ class TypeScriptServiceImplementationJsonBuilder(private val controller: YaclibM
         val initialTemplate = """${CommonTokens.DoNotAlterMessage}
 import {$interfaceName} from "./$interfaceName";
 import {${HttpExecuteServiceBuilder.FileName}} from "./${HttpExecuteServiceBuilder.FileName}";
-import ProtoBufBuilder = ${dependency.group}.ProtoBufBuilder;
+import {${TypeScriptUtilities.getFirstGroup(mainDependency.group)}} from "./${mainDependency.typescriptModelFile}";
 
 export class ${controller.name}${CommonTokens.ServiceName} implements $interfaceName {
+    ${HttpExecuteServiceBuilder.VariableName}:${HttpExecuteServiceBuilder.FileName};
 
     constructor(${HttpExecuteServiceBuilder.VariableName}:${HttpExecuteServiceBuilder.FileName}) {
         this.${HttpExecuteServiceBuilder.VariableName} = ${HttpExecuteServiceBuilder.VariableName};
@@ -37,9 +39,7 @@ export class ${controller.name}${CommonTokens.ServiceName} implements $interface
             const self = this;
             this.${HttpExecuteServiceBuilder.VariableName}.performPost("$fullUrl",
                     ${action.inputsList.first().argumentName},
-                    function(result:${action.output.messageClass}) {
-                        onSuccess(result);
-                    },
+                    onSuccess,
                     onError);
         }
 """

@@ -9,8 +9,6 @@ class WiringFileBuilder(private val allControllerDependencies: YaclibModel.AllCo
     private val http = "\$http"
 
     private val initialTemplate = """${CommonTokens.DoNotAlterMessage}
-/// <reference path="../node_modules/roylance.common/bytebuffer.d.ts" />
-${this.importFactories()}
 ${this.importDependencies()}
 import {${HttpExecuteImplementationBuilder.FileName}} from "./${HttpExecuteImplementationBuilder.FileName}"
 import {furtherAngularSetup} from "./FurtherAngularSetup"
@@ -24,7 +22,6 @@ app.factory("$HttpExecuteVariableName", function ($window, $http) {
     return new ${HttpExecuteImplementationBuilder.FileName}($http);
 });
 
-${this.importFactoryImplementations()}
 ${this.importControllerImplementations()}
 
 furtherAngularSetup(app);
@@ -87,9 +84,6 @@ furtherAngularSetup(app);
         this.allControllerDependencies.controllerDependenciesList.forEach { dependency ->
             dependency.controllers.controllersList.forEach { controller ->
                 val lowercaseFirstChar = "${controller.name[0].toLowerCase()}${controller.name.substring(1)}${CommonTokens.ServiceName}"
-                val lowercaseFirstCharDependency = "${dependency.dependency.typescriptModelFile[0].toLowerCase()}${dependency.dependency.typescriptModelFile.substring(1)}"
-
-
                 val template = """app.factory("$lowercaseFirstChar", function($HttpExecuteVariableName:${HttpExecuteImplementationBuilder.FileName}) {
     return new ${controller.name}${CommonTokens.ServiceName}($HttpExecuteVariableName);
 });
