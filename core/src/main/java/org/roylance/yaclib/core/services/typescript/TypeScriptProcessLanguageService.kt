@@ -25,18 +25,10 @@ class TypeScriptProcessLanguageService: IProcessLanguageService {
                 .filter { it.dependency.group == projectInformation.mainDependency.group && it.dependency.name == projectInformation.mainDependency.name }
                 .forEach { controllerDependency ->
             controllerDependency.controllers.controllersList.forEach { controller ->
-                returnList.addFiles(TypeScriptServiceBuilder(projectInformation.mainDependency, controller).build())
-
-                if (projectInformation.doNotUseJson) {
-                    returnList.addFiles(TypeScriptServiceImplementationBuilder(controller,
-                            controllerDependency.dependency)
-                            .build())
-                }
-                else {
-                    returnList.addFiles(TypeScriptServiceImplementationJsonBuilder(controller,
-                            controllerDependency.dependency)
-                            .build())
-                }
+                returnList.addFiles(TypeScriptServiceBuilder(controller).build())
+                returnList.addFiles(TypeScriptServiceImplementationBuilder(controller,
+                        controllerDependency.dependency)
+                        .build())
 
                 allControllers.addControllers(controller)
             }
