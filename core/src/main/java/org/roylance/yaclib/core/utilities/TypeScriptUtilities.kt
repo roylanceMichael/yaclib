@@ -101,6 +101,11 @@ export var $exportFactoryName = _root;
 """
     }
 
+    fun getFirstGroup(group: String): String {
+        val groups = group.split(".")
+        return groups.first()
+    }
+
     fun buildNpmModel(location: String): NPMPackage? {
         val actualFile = File(location, NPMUtilities.PackageNameJson)
         if (!actualFile.exists()) {

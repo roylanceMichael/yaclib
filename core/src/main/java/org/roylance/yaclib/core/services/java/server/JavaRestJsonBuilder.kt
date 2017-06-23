@@ -71,17 +71,23 @@ public class ${controller.name}Controller {
 
             action.inputsList.forEach { input ->
                 val deserializeTemplate = """
-            final ${input.filePackage}.${input.fileClass}.${input.messageClass}.Builder ${input.argumentName}Temp = ${input.filePackage}.${input.fileClass}.${input.messageClass}.newBuilder();
-            this.parser.merge(${input.argumentName}, ${input.argumentName}Temp);
-            final ${input.filePackage}.${input.fileClass}.${input.messageClass} ${input.argumentName}Actual = ${input.argumentName}Temp.build();
+            try {
+                final ${input.filePackage}.${input.fileClass}.${input.messageClass}.Builder ${input.argumentName}Temp = ${input.filePackage}.${input.fileClass}.${input.messageClass}.newBuilder();
+                this.parser.merge(${input.argumentName}, ${input.argumentName}Temp);
+                final ${input.filePackage}.${input.fileClass}.${input.messageClass} ${input.argumentName}Actual = ${input.argumentName}Temp.build();
 """
                 actionVariableWorkspace.append(deserializeTemplate)
             }
 
             val executeWorkspace = """
-            final ${action.output.filePackage}.${action.output.fileClass}.${action.output.messageClass} response = this.$serviceName.${action.name}($allActualArgumentNames);
-            final String serializedResponse = this.printer.print(response);
-            asyncResponse.resume(serializedResponse);
+                final ${action.output.filePackage}.${action.output.fileClass}.${action.output.messageClass} response = this.$serviceName.${action.name}($allActualArgumentNames);
+                final String serializedResponse = this.printer.print(response);
+                asyncResponse.resume(serializedResponse);
+            }
+            catch(Exception e) {
+                e.printStackTrace();
+                asyncResponse.resume("");
+            }
 """
             actionVariableWorkspace.append(executeWorkspace)
 

@@ -30,7 +30,9 @@ class JavaServerProcessLanguageServiceTest {
         val all = YaclibModel.AllControllerDependencies.newBuilder().addControllerDependencies(controllerDependencies).build()
 
         // act
-        val projectInformation = YaclibModel.ProjectInformation.newBuilder().setControllers(all).setMainDependency(dependency).build()
+        val projectInformation = YaclibModel.ProjectInformation.newBuilder()
+                .setControllers(all)
+                .setMainDependency(dependency).build()
         val item = javaServiceLanguageProcess.buildInterface(projectInformation)
 
         // assert

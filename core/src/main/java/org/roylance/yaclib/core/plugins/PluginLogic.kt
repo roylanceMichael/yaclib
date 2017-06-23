@@ -187,11 +187,11 @@ class PluginLogic(
                 location,
                 projectInformation).build()
 
-        println(InitUtilities.buildPhaseMessage(YaclibModel.ExecutionPhase.BUILD_PUBLISH_CSHARP.name))
-        processPhase(YaclibModel.ExecutionPhase.BUILD_PUBLISH_CSHARP)
-        CSharpBuilder(location, mainDependency, nugetKey).build()
-        println(InitUtilities.buildPhaseMessage(YaclibModel.ExecutionPhase.BUILD_PUBLISH_PYTHON.name))
-        processPhase(YaclibModel.ExecutionPhase.BUILD_PUBLISH_PYTHON)
+//        println(InitUtilities.buildPhaseMessage(YaclibModel.ExecutionPhase.BUILD_PUBLISH_CSHARP.name))
+//        processPhase(YaclibModel.ExecutionPhase.BUILD_PUBLISH_CSHARP)
+//        CSharpBuilder(location, mainDependency, nugetKey).build()
+//        println(InitUtilities.buildPhaseMessage(YaclibModel.ExecutionPhase.BUILD_PUBLISH_PYTHON.name))
+//        processPhase(YaclibModel.ExecutionPhase.BUILD_PUBLISH_PYTHON)
         PythonBuilder(location, mainDependency).build()
 
         println(InitUtilities.buildPhaseMessage(YaclibModel.ExecutionPhase.BUILD_PUBLISH_JAVA_CLIENT.name))
@@ -201,7 +201,7 @@ class PluginLogic(
         println(InitUtilities.buildPhaseMessage(YaclibModel.ExecutionPhase.BUILD_PUBLISH_TYPESCRIPT.name))
         processPhase(YaclibModel.ExecutionPhase.BUILD_PUBLISH_TYPESCRIPT)
         TypeScriptBuilder(location, mainDependency).build()
-        SwiftBuilder(location, projectInformation, processSwift).build()
+//        SwiftBuilder(location, projectInformation, processSwift).build()
 
         // process server now
         ServerLogic(

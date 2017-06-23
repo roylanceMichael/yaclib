@@ -14128,9 +14128,9 @@ public final class YaclibModel {
     boolean getIsServer();
 
     /**
-     * <code>bool use_json = 5;</code>
+     * <code>bool do_not_use_json = 5;</code>
      */
-    boolean getUseJson();
+    boolean getDoNotUseJson();
   }
   /**
    * Protobuf type {@code org.roylance.yaclib.ProjectInformation}
@@ -14146,7 +14146,7 @@ public final class YaclibModel {
     private ProjectInformation() {
       thirdPartyDependencies_ = java.util.Collections.emptyList();
       isServer_ = false;
-      useJson_ = false;
+      doNotUseJson_ = false;
     }
 
     @java.lang.Override
@@ -14216,7 +14216,7 @@ public final class YaclibModel {
             }
             case 40: {
 
-              useJson_ = input.readBool();
+              doNotUseJson_ = input.readBool();
               break;
             }
           }
@@ -14332,13 +14332,13 @@ public final class YaclibModel {
       return isServer_;
     }
 
-    public static final int USE_JSON_FIELD_NUMBER = 5;
-    private boolean useJson_;
+    public static final int DO_NOT_USE_JSON_FIELD_NUMBER = 5;
+    private boolean doNotUseJson_;
     /**
-     * <code>bool use_json = 5;</code>
+     * <code>bool do_not_use_json = 5;</code>
      */
-    public boolean getUseJson() {
-      return useJson_;
+    public boolean getDoNotUseJson() {
+      return doNotUseJson_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -14365,8 +14365,8 @@ public final class YaclibModel {
       if (isServer_ != false) {
         output.writeBool(4, isServer_);
       }
-      if (useJson_ != false) {
-        output.writeBool(5, useJson_);
+      if (doNotUseJson_ != false) {
+        output.writeBool(5, doNotUseJson_);
       }
     }
 
@@ -14391,9 +14391,9 @@ public final class YaclibModel {
         size += com.google.protobuf.CodedOutputStream
           .computeBoolSize(4, isServer_);
       }
-      if (useJson_ != false) {
+      if (doNotUseJson_ != false) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBoolSize(5, useJson_);
+          .computeBoolSize(5, doNotUseJson_);
       }
       memoizedSize = size;
       return size;
@@ -14425,8 +14425,8 @@ public final class YaclibModel {
           .equals(other.getThirdPartyDependenciesList());
       result = result && (getIsServer()
           == other.getIsServer());
-      result = result && (getUseJson()
-          == other.getUseJson());
+      result = result && (getDoNotUseJson()
+          == other.getDoNotUseJson());
       return result;
     }
 
@@ -14452,9 +14452,9 @@ public final class YaclibModel {
       hash = (37 * hash) + IS_SERVER_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
           getIsServer());
-      hash = (37 * hash) + USE_JSON_FIELD_NUMBER;
+      hash = (37 * hash) + DO_NOT_USE_JSON_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
-          getUseJson());
+          getDoNotUseJson());
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -14594,7 +14594,7 @@ public final class YaclibModel {
         }
         isServer_ = false;
 
-        useJson_ = false;
+        doNotUseJson_ = false;
 
         return this;
       }
@@ -14640,7 +14640,7 @@ public final class YaclibModel {
           result.thirdPartyDependencies_ = thirdPartyDependenciesBuilder_.build();
         }
         result.isServer_ = isServer_;
-        result.useJson_ = useJson_;
+        result.doNotUseJson_ = doNotUseJson_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -14718,8 +14718,8 @@ public final class YaclibModel {
         if (other.getIsServer() != false) {
           setIsServer(other.getIsServer());
         }
-        if (other.getUseJson() != false) {
-          setUseJson(other.getUseJson());
+        if (other.getDoNotUseJson() != false) {
+          setDoNotUseJson(other.getDoNotUseJson());
         }
         onChanged();
         return this;
@@ -15248,28 +15248,28 @@ public final class YaclibModel {
         return this;
       }
 
-      private boolean useJson_ ;
+      private boolean doNotUseJson_ ;
       /**
-       * <code>bool use_json = 5;</code>
+       * <code>bool do_not_use_json = 5;</code>
        */
-      public boolean getUseJson() {
-        return useJson_;
+      public boolean getDoNotUseJson() {
+        return doNotUseJson_;
       }
       /**
-       * <code>bool use_json = 5;</code>
+       * <code>bool do_not_use_json = 5;</code>
        */
-      public Builder setUseJson(boolean value) {
+      public Builder setDoNotUseJson(boolean value) {
         
-        useJson_ = value;
+        doNotUseJson_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>bool use_json = 5;</code>
+       * <code>bool do_not_use_json = 5;</code>
        */
-      public Builder clearUseJson() {
+      public Builder clearDoNotUseJson() {
         
-        useJson_ = false;
+        doNotUseJson_ = false;
         onChanged();
         return this;
       }
@@ -18803,68 +18803,68 @@ public final class YaclibModel {
       "al_output\030\001 \001(\t\022\024\n\014error_output\030\002 \001(\t\022\020\n" +
       "\010is_error\030\003 \001(\010\022\022\n\nexit_value\030\004 \001(\005\022\017\n\007c" +
       "ontent\030\005 \001(\t\022\021\n\tnew_major\030\006 \001(\005\022\021\n\tnew_m",
-      "inor\030\007 \001(\005\"\373\001\n\022ProjectInformation\022C\n\013con" +
+      "inor\030\007 \001(\005\"\202\002\n\022ProjectInformation\022C\n\013con" +
       "trollers\030\001 \001(\0132..org.roylance.yaclib.All" +
       "ControllerDependencies\0228\n\017main_dependenc" +
       "y\030\002 \001(\0132\037.org.roylance.yaclib.Dependency" +
       "\022A\n\030third_party_dependencies\030\003 \003(\0132\037.org" +
       ".roylance.yaclib.Dependency\022\021\n\tis_server" +
-      "\030\004 \001(\010\022\020\n\010use_json\030\005 \001(\010\"\366\002\n\020AuxiliaryPr" +
-      "oject\022:\n\rhandle_before\030\001 \001(\0162#.org.royla" +
-      "nce.yaclib.ExecutionPhase\022<\n\nexecutions\030" +
-      "\002 \003(\0162(.org.roylance.yaclib.CustomExecut",
-      "ionType\022:\n\021from_dependencies\030\003 \003(\0132\037.org" +
-      ".roylance.yaclib.Dependency\022:\n\021target_de" +
-      "pendency\030\004 \001(\0132\037.org.roylance.yaclib.Dep" +
-      "endency\0228\n\017to_dependencies\030\005 \003(\0132\037.org.r" +
-      "oylance.yaclib.Dependency\0226\n\014project_typ" +
-      "e\030\006 \001(\0162 .org.roylance.yaclib.ProjectTyp" +
-      "e\"L\n\021AuxiliaryProjects\0227\n\010projects\030\001 \003(\013" +
-      "2%.org.roylance.yaclib.AuxiliaryProject\"" +
-      "E\n\007Service\022\014\n\004name\030\001 \001(\t\022,\n\007actions\030\002 \003(" +
-      "\0132\033.org.roylance.yaclib.Action*\270\001\n\nClien",
-      "tType\022\022\n\016CLIENT_ANDROID\020\000\022\026\n\022CLIENT_IOS_" +
-      "XAMARIN\020\001\022\021\n\rCLIENT_LIBGDX\020\002\022\021\n\rCLIENT_J" +
-      "AVAFX\020\003\022\025\n\021CLIENT_TYPESCRIPT\020\004\022\023\n\017CLIENT" +
-      "_CLI_JAVA\020\005\022\025\n\021CLIENT_CLI_PYTHON\020\006\022\025\n\021CL" +
-      "IENT_CLI_CSHARP\020\007*B\n\nServerType\022\031\n\025MAVEN" +
-      "_TOMCAT_EMBEDDED\020\000\022\031\n\025GRADLE_JETTY_EMBED" +
-      "DED\020\001*\232\001\n\013ProjectType\022\027\n\023GRADLE_PROJECT_" +
-      "TYPE\020\000\022\026\n\022MAVEN_PROJECT_TYPE\020\001\022\024\n\020NPM_PR" +
-      "OJECT_TYPE\020\002\022\025\n\021GULP_PROJECT_TYPE\020\003\022\027\n\023D" +
-      "OTNET_PROJECT_TYPE\020\004\022\024\n\020PIP_PROJECT_TYPE",
-      "\020\005*\367\001\n\016ExecutionPhase\022\026\n\022DELETE_DIRECTOR" +
-      "IES\020\000\022 \n\034GENERATE_CODE_FROM_PROTOBUFS\020\001\022" +
-      "\030\n\024BUILD_PUBLISH_CSHARP\020\002\022\030\n\024BUILD_PUBLI" +
-      "SH_PYTHON\020\003\022\035\n\031BUILD_PUBLISH_JAVA_CLIENT" +
-      "\020\004\022\034\n\030BUILD_PUBLISH_TYPESCRIPT\020\005\022\033\n\027BUIL" +
-      "D_TYPESCRIPT_SERVER\020\006\022\035\n\031BUILD_PACKAGE_J" +
-      "AVA_SERVER\020\007*\267\001\n\023CustomExecutionType\022\020\n\014" +
-      "CUSTOM_BUILD\020\000\022\022\n\016CUSTOM_PACKAGE\020\001\022\022\n\016CU" +
-      "STOM_PUBLISH\020\002\022\034\n\030CUSTOM_INCREMENT_VERSI" +
-      "ON\020\003\022\036\n\032CUSTOM_UPDATE_DEPENDENCIES\020\004\022\026\n\022",
-      "CUSTOM_SET_VERSION\020\005\022\020\n\014CUSTOM_CLEAN\020\006*\342" +
-      "\001\n\016RepositoryType\022\013\n\007BINTRAY\020\000\022\017\n\013ARTIFA" +
-      "CTORY\020\001\022\t\n\005NPMJS\020\002\022\017\n\013PRIVATE_NPM\020\003\022\t\n\005N" +
-      "UGET\020\004\022\021\n\rPRIVATE_NUGET\020\005\022\007\n\003PIP\020\006\022\017\n\013PR" +
-      "IVATE_PIP\020\007\022\023\n\017PRIVATE_BINTRAY\020\010\022\023\n\017ARTI" +
-      "FACTORY_NPM\020\t\022\010\n\004PYPI\020\n\022\026\n\022ARTIFACTORY_P" +
-      "YTHON\020\013\022\022\n\016STANDARD_MAVEN\020\014*[\n\016Dependenc" +
-      "yType\022\014\n\010INTERNAL\020\000\022\010\n\004JAVA\020\001\022\016\n\nTYPESCR" +
-      "IPT\020\002\022\n\n\006CSHARP\020\003\022\t\n\005SWIFT\020\004\022\n\n\006PYTHON\020\005" +
-      "*\271\003\n\rFileExtension\022\n\n\006KT_EXT\020\000\022\014\n\010JAVA_E",
-      "XT\020\001\022\022\n\016TYPESCRIPT_EXT\020\002\022\022\n\016JAVASCRIPT_E" +
-      "XT\020\003\022\r\n\tSWIFT_EXT\020\004\022\013\n\007POM_EXT\020\005\022\013\n\007XML_" +
-      "EXT\020\006\022\014\n\010HTML_EXT\020\007\022\016\n\nGRADLE_EXT\020\010\022\014\n\010J" +
-      "SON_EXT\020\t\022\n\n\006TS_EXT\020\n\022\014\n\010NONE_EXT\020\013\022\013\n\007B" +
-      "AT_EXT\020\014\022\n\n\006JS_EXT\020\r\022\n\n\006CS_EXT\020\016\022\013\n\007SLN_" +
-      "EXT\020\017\022\r\n\tXPROJ_EXT\020\020\022\n\n\006SH_EXT\020\021\022\n\n\006MD_E" +
-      "XT\020\022\022\n\n\006PY_EXT\020\023\022\013\n\007CFG_EXT\020\024\022\022\n\016PROPERT" +
-      "IES_EXT\020\025\022\014\n\010BLOB_EXT\020\026\022\r\n\tPROTO_EXT\020\027\022\r" +
-      "\n\tPLIST_EXT\020\030\022\017\n\013PBXPROJ_EXT\020\031\022\027\n\023XCWORK" +
-      "SPACEDATA_EXT\020\032\022\t\n\005H_EXT\020\033\022\020\n\014XCSCHEME_E",
-      "XT\020\034*8\n\016FileUpdateType\022\r\n\tOVERWRITE\020\000\022\027\n" +
-      "\023WRITE_IF_NOT_EXISTS\020\001b\006proto3"
+      "\030\004 \001(\010\022\027\n\017do_not_use_json\030\005 \001(\010\"\366\002\n\020Auxi" +
+      "liaryProject\022:\n\rhandle_before\030\001 \001(\0162#.or" +
+      "g.roylance.yaclib.ExecutionPhase\022<\n\nexec" +
+      "utions\030\002 \003(\0162(.org.roylance.yaclib.Custo",
+      "mExecutionType\022:\n\021from_dependencies\030\003 \003(" +
+      "\0132\037.org.roylance.yaclib.Dependency\022:\n\021ta" +
+      "rget_dependency\030\004 \001(\0132\037.org.roylance.yac" +
+      "lib.Dependency\0228\n\017to_dependencies\030\005 \003(\0132" +
+      "\037.org.roylance.yaclib.Dependency\0226\n\014proj" +
+      "ect_type\030\006 \001(\0162 .org.roylance.yaclib.Pro" +
+      "jectType\"L\n\021AuxiliaryProjects\0227\n\010project" +
+      "s\030\001 \003(\0132%.org.roylance.yaclib.AuxiliaryP" +
+      "roject\"E\n\007Service\022\014\n\004name\030\001 \001(\t\022,\n\007actio" +
+      "ns\030\002 \003(\0132\033.org.roylance.yaclib.Action*\270\001",
+      "\n\nClientType\022\022\n\016CLIENT_ANDROID\020\000\022\026\n\022CLIE" +
+      "NT_IOS_XAMARIN\020\001\022\021\n\rCLIENT_LIBGDX\020\002\022\021\n\rC" +
+      "LIENT_JAVAFX\020\003\022\025\n\021CLIENT_TYPESCRIPT\020\004\022\023\n" +
+      "\017CLIENT_CLI_JAVA\020\005\022\025\n\021CLIENT_CLI_PYTHON\020" +
+      "\006\022\025\n\021CLIENT_CLI_CSHARP\020\007*B\n\nServerType\022\031" +
+      "\n\025MAVEN_TOMCAT_EMBEDDED\020\000\022\031\n\025GRADLE_JETT" +
+      "Y_EMBEDDED\020\001*\232\001\n\013ProjectType\022\027\n\023GRADLE_P" +
+      "ROJECT_TYPE\020\000\022\026\n\022MAVEN_PROJECT_TYPE\020\001\022\024\n" +
+      "\020NPM_PROJECT_TYPE\020\002\022\025\n\021GULP_PROJECT_TYPE" +
+      "\020\003\022\027\n\023DOTNET_PROJECT_TYPE\020\004\022\024\n\020PIP_PROJE",
+      "CT_TYPE\020\005*\367\001\n\016ExecutionPhase\022\026\n\022DELETE_D" +
+      "IRECTORIES\020\000\022 \n\034GENERATE_CODE_FROM_PROTO" +
+      "BUFS\020\001\022\030\n\024BUILD_PUBLISH_CSHARP\020\002\022\030\n\024BUIL" +
+      "D_PUBLISH_PYTHON\020\003\022\035\n\031BUILD_PUBLISH_JAVA" +
+      "_CLIENT\020\004\022\034\n\030BUILD_PUBLISH_TYPESCRIPT\020\005\022" +
+      "\033\n\027BUILD_TYPESCRIPT_SERVER\020\006\022\035\n\031BUILD_PA" +
+      "CKAGE_JAVA_SERVER\020\007*\267\001\n\023CustomExecutionT" +
+      "ype\022\020\n\014CUSTOM_BUILD\020\000\022\022\n\016CUSTOM_PACKAGE\020" +
+      "\001\022\022\n\016CUSTOM_PUBLISH\020\002\022\034\n\030CUSTOM_INCREMEN" +
+      "T_VERSION\020\003\022\036\n\032CUSTOM_UPDATE_DEPENDENCIE",
+      "S\020\004\022\026\n\022CUSTOM_SET_VERSION\020\005\022\020\n\014CUSTOM_CL" +
+      "EAN\020\006*\342\001\n\016RepositoryType\022\013\n\007BINTRAY\020\000\022\017\n" +
+      "\013ARTIFACTORY\020\001\022\t\n\005NPMJS\020\002\022\017\n\013PRIVATE_NPM" +
+      "\020\003\022\t\n\005NUGET\020\004\022\021\n\rPRIVATE_NUGET\020\005\022\007\n\003PIP\020" +
+      "\006\022\017\n\013PRIVATE_PIP\020\007\022\023\n\017PRIVATE_BINTRAY\020\010\022" +
+      "\023\n\017ARTIFACTORY_NPM\020\t\022\010\n\004PYPI\020\n\022\026\n\022ARTIFA" +
+      "CTORY_PYTHON\020\013\022\022\n\016STANDARD_MAVEN\020\014*[\n\016De" +
+      "pendencyType\022\014\n\010INTERNAL\020\000\022\010\n\004JAVA\020\001\022\016\n\n" +
+      "TYPESCRIPT\020\002\022\n\n\006CSHARP\020\003\022\t\n\005SWIFT\020\004\022\n\n\006P" +
+      "YTHON\020\005*\271\003\n\rFileExtension\022\n\n\006KT_EXT\020\000\022\014\n",
+      "\010JAVA_EXT\020\001\022\022\n\016TYPESCRIPT_EXT\020\002\022\022\n\016JAVAS" +
+      "CRIPT_EXT\020\003\022\r\n\tSWIFT_EXT\020\004\022\013\n\007POM_EXT\020\005\022" +
+      "\013\n\007XML_EXT\020\006\022\014\n\010HTML_EXT\020\007\022\016\n\nGRADLE_EXT" +
+      "\020\010\022\014\n\010JSON_EXT\020\t\022\n\n\006TS_EXT\020\n\022\014\n\010NONE_EXT" +
+      "\020\013\022\013\n\007BAT_EXT\020\014\022\n\n\006JS_EXT\020\r\022\n\n\006CS_EXT\020\016\022" +
+      "\013\n\007SLN_EXT\020\017\022\r\n\tXPROJ_EXT\020\020\022\n\n\006SH_EXT\020\021\022" +
+      "\n\n\006MD_EXT\020\022\022\n\n\006PY_EXT\020\023\022\013\n\007CFG_EXT\020\024\022\022\n\016" +
+      "PROPERTIES_EXT\020\025\022\014\n\010BLOB_EXT\020\026\022\r\n\tPROTO_" +
+      "EXT\020\027\022\r\n\tPLIST_EXT\020\030\022\017\n\013PBXPROJ_EXT\020\031\022\027\n" +
+      "\023XCWORKSPACEDATA_EXT\020\032\022\t\n\005H_EXT\020\033\022\020\n\014XCS",
+      "CHEME_EXT\020\034*8\n\016FileUpdateType\022\r\n\tOVERWRI" +
+      "TE\020\000\022\027\n\023WRITE_IF_NOT_EXISTS\020\001b\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -18949,7 +18949,7 @@ public final class YaclibModel {
     internal_static_org_roylance_yaclib_ProjectInformation_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_org_roylance_yaclib_ProjectInformation_descriptor,
-        new java.lang.String[] { "Controllers", "MainDependency", "ThirdPartyDependencies", "IsServer", "UseJson", });
+        new java.lang.String[] { "Controllers", "MainDependency", "ThirdPartyDependencies", "IsServer", "DoNotUseJson", });
     internal_static_org_roylance_yaclib_AuxiliaryProject_descriptor =
       getDescriptor().getMessageTypes().get(12);
     internal_static_org_roylance_yaclib_AuxiliaryProject_fieldAccessorTable = new

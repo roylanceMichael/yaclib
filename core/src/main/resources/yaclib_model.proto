@@ -203,7 +203,7 @@ message ProjectInformation {
     Dependency main_dependency = 2;
     repeated Dependency third_party_dependencies = 3;
     bool is_server = 4;
-    bool use_json = 5;
+    bool do_not_use_json = 5;
 }
 
 message AuxiliaryProject {

@@ -7,7 +7,6 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
 public class DependencyDescriptor {
-    private static String getDescriptorName = "getDescriptor";
 
     public final YaclibModel.Dependency dependency;
     public final Descriptors.FileDescriptor descriptor;
@@ -29,6 +28,7 @@ public class DependencyDescriptor {
     public static Descriptors.FileDescriptor buildFileDescriptor(String fullName)
             throws ClassNotFoundException, NoSuchMethodException, InvocationTargetException, IllegalAccessException {
         final Class<?> fileDescriptorClass = Class.forName(fullName);
+        final String getDescriptorName = "getDescriptor";
         final Method getDescriptor = fileDescriptorClass.getMethod(getDescriptorName);
         return  (Descriptors.FileDescriptor) getDescriptor.invoke(fileDescriptorClass);
     }
