@@ -41,7 +41,7 @@ ${this.buildFiles()}
         }
         workspace.appendln("\t\"${HttpExecuteServiceBuilder.FileName}.ts\",")
         workspace.appendln("\t\"${this.dependency.typescriptModelFile}.d.ts\",")
-        workspace.appendln("\t\"${this.dependency.typescriptModelFile}${CommonTokens.FactoryName}.ts\",")
+//        workspace.appendln("\t\"${this.dependency.typescriptModelFile}${CommonTokens.FactoryName}.ts\",")
         workspace.append("\t\"node_modules/roylance.common/bytebuffer.d.ts\"")
         return workspace.toString()
     }

@@ -31,7 +31,12 @@ class JavaClientProcessLanguageService: IProcessLanguageService {
             controllerDependency.controllers.controllersList.forEach { controller ->
                 returnList.addFiles(JavaRetrofitBuilder(controller, projectInformation.mainDependency).build())
                 returnList.addFiles(KotlinServiceBuilder(controller, projectInformation.mainDependency).build())
-                returnList.addFiles(KotlinServiceImplementationBuilder(controller, projectInformation.mainDependency).build())
+                if (projectInformation.doNotUseJson) {
+                    returnList.addFiles(KotlinServiceImplementationBuilder(controller, projectInformation.mainDependency).build())
+                }
+                else {
+                    returnList.addFiles(KotlinServiceImplementationJsonBuilder(controller, projectInformation.mainDependency).build())
+                }
             }
         }
 
