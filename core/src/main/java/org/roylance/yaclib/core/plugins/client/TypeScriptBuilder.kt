@@ -16,12 +16,13 @@ class TypeScriptBuilder(private val location: String,
         println(InitUtilities.buildPhaseMessage("typescript client begin"))
 
         println(InitUtilities.buildPhaseMessage("building protobufs for npm"))
-        val protobufJsInstallReport = FileProcessUtilities.executeProcess(
-                javaScriptDirectory.toString(),
-                InitUtilities.NPM,
-                "install -g protobufjs@${TypeScriptUtilities.ProtobufJsVersion}")
+        val protobufJsInstallReport = FileProcessUtilities.executeProcess(javaScriptDirectory.toString(), InitUtilities.NPM, "install -g protobufjs@${TypeScriptUtilities.ProtobufJsVersion}")
         println(protobufJsInstallReport.normalOutput)
         println(protobufJsInstallReport.errorOutput)
+
+        val proto2TypeScriptInstallReport = FileProcessUtilities.executeProcess(javaScriptDirectory.toString(), InitUtilities.NPM, "install -g proto2typescript@${TypeScriptUtilities.Proto2TypeScriptVersion}")
+        println(proto2TypeScriptInstallReport.normalOutput)
+        println(proto2TypeScriptInstallReport.errorOutput)
 
         val restoreDependenciesReport = TypeScriptUtilities.restoreDependencies(javaScriptDirectory.toString())
         println(restoreDependenciesReport.normalOutput)
@@ -30,15 +31,33 @@ class TypeScriptBuilder(private val location: String,
         // this is custom
         val createJsonModelProcess = FileProcessUtilities.executeProcess(javaScriptDirectory.toString(),
                 "pbjs",
-                "-t static-module -w commonjs -o ${mainDependency.typescriptModelFile}.js ../api/src/main/resources/*.proto")
+                "../api/src/main/resources/*.proto > $ModelJson")
         println(createJsonModelProcess.normalOutput)
         println(createJsonModelProcess.errorOutput)
 
+        val createModelJsReport = FileProcessUtilities.executeProcess(javaScriptDirectory.toString(),
+                "pbjs",
+                "../api/src/main/resources/*.proto -t js > $ModelJS")
+        println(createModelJsReport.normalOutput)
+        println(createModelJsReport.errorOutput)
+
         val proto2TypeScriptReport = FileProcessUtilities.executeProcess(javaScriptDirectory.toString(),
-                "pbts",
-                "-o ${mainDependency.typescriptModelFile}.d.ts ${mainDependency.typescriptModelFile}.js")
+                "proto2typescript",
+                "--file $ModelJson > ${mainDependency.typescriptModelFile}.d.ts")
         println(proto2TypeScriptReport.normalOutput)
         println(proto2TypeScriptReport.errorOutput)
+
+        // protobuf ts helper
+        val typeScriptDefinitionPath = "./${mainDependency.typescriptModelFile}.d.ts"
+        val inputFileString = FileProcessUtilities.readFile(Paths.get(javaScriptDirectory.toString(), ModelJS).toString())
+        val outputTypeScript = TypeScriptUtilities.buildTypeScriptOutput(
+                typeScriptDefinitionPath,
+                mainDependency.typescriptModelFile,
+                inputFileString)
+        FileProcessUtilities.writeFile(outputTypeScript, Paths.get(javaScriptDirectory.toString(), "${mainDependency.typescriptModelFile}Factory.ts").toString())
+
+        Paths.get(javaScriptDirectory.toString(), ModelJson).toFile().delete()
+        Paths.get(javaScriptDirectory.toString(), ModelJS).toFile().delete()
 
         println(InitUtilities.buildPhaseMessage("compiling npm"))
         val compileReport = TypeScriptUtilities.build(javaScriptDirectory.toString())
@@ -53,5 +72,12 @@ class TypeScriptBuilder(private val location: String,
         println(InitUtilities.buildPhaseMessage("typescript client end"))
 
         return true
+    }
+
+    companion object {
+        private const val Bin = "bin"
+        private const val NodeModules = "node_modules"
+        private const val ModelJson = "model.json"
+        private const val ModelJS = "model.js"
     }
 }

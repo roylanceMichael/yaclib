@@ -7,14 +7,12 @@ import org.roylance.yaclib.core.utilities.StringUtilities
 import org.roylance.yaclib.core.utilities.TypeScriptUtilities
 
 class TypeScriptServiceBuilder(
-        private val mainDependency: YaclibModel.Dependency,
         private val controller: YaclibModel.Controller): IBuilder<YaclibModel.File> {
     override fun build(): YaclibModel.File {
         val workspace = StringBuilder()
         val interfaceName = StringUtilities.convertServiceNameToInterfaceName(controller)
 
         val initialTemplate = """${CommonTokens.DoNotAlterMessage}
-import {${TypeScriptUtilities.getFirstGroup(mainDependency.group)}} from "./${mainDependency.typescriptModelFile}";
 export interface $interfaceName {
 """
         workspace.append(initialTemplate)

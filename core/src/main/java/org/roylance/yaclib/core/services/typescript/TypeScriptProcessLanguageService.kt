@@ -26,7 +26,6 @@ class TypeScriptProcessLanguageService: IProcessLanguageService {
                 .forEach { controllerDependency ->
             controllerDependency.controllers.controllersList.forEach { controller ->
                 returnList.addFiles(TypeScriptServiceBuilder(
-                        projectInformation.mainDependency,
                         controller).build())
                 returnList.addFiles(TypeScriptServiceImplementationBuilder(controller,
                         controllerDependency.dependency)

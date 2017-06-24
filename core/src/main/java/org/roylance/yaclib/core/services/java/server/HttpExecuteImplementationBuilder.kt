@@ -24,7 +24,7 @@ export class $FileName implements ${HttpExecuteServiceBuilder.FileName} {
             method: this.httpPost,
             data: data
         }).then(function(response) {
-            onSuccess(JSON.parse(response.data));
+            onSuccess(response.data);
         },
             function(response) {
             onError(response.data);
