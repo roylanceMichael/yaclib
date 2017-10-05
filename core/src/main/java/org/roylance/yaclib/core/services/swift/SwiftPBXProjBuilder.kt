@@ -4,20 +4,22 @@ import org.roylance.common.service.IBuilder
 import org.roylance.yaclib.YaclibModel
 import org.roylance.yaclib.core.utilities.SwiftUtilities
 
-class SwiftPBXProjBuilder(private val projectInformation: YaclibModel.ProjectInformation): IBuilder<YaclibModel.File> {
+class SwiftPBXProjBuilder(
+    private val projectInformation: YaclibModel.ProjectInformation) : IBuilder<YaclibModel.File> {
 
-    override fun build(): YaclibModel.File {
-        val file = YaclibModel.File.newBuilder()
-                .setFileExtension(YaclibModel.FileExtension.PBXPROJ_EXT)
-                .setFileToWrite(InitialTemplate)
-                .setFileName("project")
-                .setFullDirectoryLocation("${SwiftUtilities.buildSwiftFullName(projectInformation.mainDependency)}.xcodeproj")
-                .build()
+  override fun build(): YaclibModel.File {
+    val file = YaclibModel.File.newBuilder()
+        .setFileExtension(YaclibModel.FileExtension.PBXPROJ_EXT)
+        .setFileToWrite(InitialTemplate)
+        .setFileName("project")
+        .setFullDirectoryLocation(
+            "${SwiftUtilities.buildSwiftFullName(projectInformation.mainDependency)}.xcodeproj")
+        .build()
 
-        return file
-    }
+    return file
+  }
 
-    private val InitialTemplate = """// !$*UTF8*$!
+  private val InitialTemplate = """// !$*UTF8*$!
 {
 	archiveVersion = 1;
 	classes = {
@@ -26,7 +28,9 @@ class SwiftPBXProjBuilder(private val projectInformation: YaclibModel.ProjectInf
 	objects = {
 
 /* Begin PBXBuildFile section */
-		FD8755A61E5A30C400087F70 /* ${SwiftUtilities.buildSwiftFullName(projectInformation.mainDependency)}.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD87559C1E5A30C300087F70 /* ${SwiftUtilities.buildSwiftFullName(projectInformation.mainDependency)}.framework */; };
+		FD8755A61E5A30C400087F70 /* ${SwiftUtilities.buildSwiftFullName(
+      projectInformation.mainDependency)}.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD87559C1E5A30C300087F70 /* ${SwiftUtilities.buildSwiftFullName(
+      projectInformation.mainDependency)}.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,7 +44,9 @@ class SwiftPBXProjBuilder(private val projectInformation: YaclibModel.ProjectInf
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		FD87559C1E5A30C300087F70 /* ${SwiftUtilities.buildSwiftFullName(projectInformation.mainDependency)}.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ${SwiftUtilities.buildSwiftFullName(projectInformation.mainDependency)}.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FD87559C1E5A30C300087F70 /* ${SwiftUtilities.buildSwiftFullName(
+      projectInformation.mainDependency)}.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ${SwiftUtilities.buildSwiftFullName(
+      projectInformation.mainDependency)}.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD8755A01E5A30C300087F70 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -56,7 +62,8 @@ class SwiftPBXProjBuilder(private val projectInformation: YaclibModel.ProjectInf
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FD8755A61E5A30C400087F70 /* ${SwiftUtilities.buildSwiftFullName(projectInformation.mainDependency)}.framework in Frameworks */,
+				FD8755A61E5A30C400087F70 /* ${SwiftUtilities.buildSwiftFullName(
+      projectInformation.mainDependency)}.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -66,7 +73,8 @@ class SwiftPBXProjBuilder(private val projectInformation: YaclibModel.ProjectInf
 		FD8755921E5A30C300087F70 = {
 			isa = PBXGroup;
 			children = (
-				FD87559E1E5A30C300087F70 /* ${SwiftUtilities.buildSwiftFullName(projectInformation.mainDependency)} */,
+				FD87559E1E5A30C300087F70 /* ${SwiftUtilities.buildSwiftFullName(
+      projectInformation.mainDependency)} */,
 				FD87559D1E5A30C300087F70 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -74,7 +82,8 @@ class SwiftPBXProjBuilder(private val projectInformation: YaclibModel.ProjectInf
 		FD87559D1E5A30C300087F70 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				FD87559C1E5A30C300087F70 /* ${SwiftUtilities.buildSwiftFullName(projectInformation.mainDependency)}.framework */,
+				FD87559C1E5A30C300087F70 /* ${SwiftUtilities.buildSwiftFullName(
+      projectInformation.mainDependency)}.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -92,9 +101,11 @@ class SwiftPBXProjBuilder(private val projectInformation: YaclibModel.ProjectInf
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		FD87559B1E5A30C300087F70 /* ${SwiftUtilities.buildSwiftFullName(projectInformation.mainDependency)} */ = {
+		FD87559B1E5A30C300087F70 /* ${SwiftUtilities.buildSwiftFullName(
+      projectInformation.mainDependency)} */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = FD8755B01E5A30C400087F70 /* Build configuration list for PBXNativeTarget "${SwiftUtilities.buildSwiftFullName(projectInformation.mainDependency)}" */;
+			buildConfigurationList = FD8755B01E5A30C400087F70 /* Build configuration list for PBXNativeTarget "${SwiftUtilities.buildSwiftFullName(
+      projectInformation.mainDependency)}" */;
 			buildPhases = (
 				FD8755971E5A30C300087F70 /* Sources */,
 				FD8755981E5A30C300087F70 /* Frameworks */,
@@ -107,7 +118,8 @@ class SwiftPBXProjBuilder(private val projectInformation: YaclibModel.ProjectInf
 			);
 			name = ${SwiftUtilities.buildSwiftFullName(projectInformation.mainDependency)};
 			productName = ${SwiftUtilities.buildSwiftFullName(projectInformation.mainDependency)};
-			productReference = FD87559C1E5A30C300087F70 /* ${SwiftUtilities.buildSwiftFullName(projectInformation.mainDependency)}.framework */;
+			productReference = FD87559C1E5A30C300087F70 /* ${SwiftUtilities.buildSwiftFullName(
+      projectInformation.mainDependency)}.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -132,7 +144,8 @@ class SwiftPBXProjBuilder(private val projectInformation: YaclibModel.ProjectInf
 					};
 				};
 			};
-			buildConfigurationList = FD8755961E5A30C300087F70 /* Build configuration list for PBXProject "${SwiftUtilities.buildSwiftFullName(projectInformation.mainDependency)}" */;
+			buildConfigurationList = FD8755961E5A30C300087F70 /* Build configuration list for PBXProject "${SwiftUtilities.buildSwiftFullName(
+      projectInformation.mainDependency)}" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -144,7 +157,8 @@ class SwiftPBXProjBuilder(private val projectInformation: YaclibModel.ProjectInf
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				FD87559B1E5A30C300087F70 /* ${SwiftUtilities.buildSwiftFullName(projectInformation.mainDependency)} */,
+				FD87559B1E5A30C300087F70 /* ${SwiftUtilities.buildSwiftFullName(
+      projectInformation.mainDependency)} */,
 			);
 		};
 /* End PBXProject section */
@@ -179,7 +193,8 @@ class SwiftPBXProjBuilder(private val projectInformation: YaclibModel.ProjectInf
 /* Begin PBXTargetDependency section */
 		FD8755A81E5A30C400087F70 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = FD87559B1E5A30C300087F70 /* ${SwiftUtilities.buildSwiftFullName(projectInformation.mainDependency)} */;
+			target = FD87559B1E5A30C300087F70 /* ${SwiftUtilities.buildSwiftFullName(
+      projectInformation.mainDependency)} */;
 			targetProxy = FD8755A71E5A30C400087F70 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -325,7 +340,8 @@ class SwiftPBXProjBuilder(private val projectInformation: YaclibModel.ProjectInf
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		FD8755961E5A30C300087F70 /* Build configuration list for PBXProject "${SwiftUtilities.buildSwiftFullName(projectInformation.mainDependency)}" */ = {
+		FD8755961E5A30C300087F70 /* Build configuration list for PBXProject "${SwiftUtilities.buildSwiftFullName(
+      projectInformation.mainDependency)}" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				FD8755AE1E5A30C400087F70 /* Debug */,
@@ -334,7 +350,8 @@ class SwiftPBXProjBuilder(private val projectInformation: YaclibModel.ProjectInf
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		FD8755B01E5A30C400087F70 /* Build configuration list for PBXNativeTarget "${SwiftUtilities.buildSwiftFullName(projectInformation.mainDependency)}" */ = {
+		FD8755B01E5A30C400087F70 /* Build configuration list for PBXNativeTarget "${SwiftUtilities.buildSwiftFullName(
+      projectInformation.mainDependency)}" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				FD8755B11E5A30C400087F70 /* Debug */,

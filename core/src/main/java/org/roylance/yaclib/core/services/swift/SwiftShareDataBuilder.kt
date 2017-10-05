@@ -4,20 +4,22 @@ import org.roylance.common.service.IBuilder
 import org.roylance.yaclib.YaclibModel
 import org.roylance.yaclib.core.utilities.SwiftUtilities
 
-class SwiftShareDataBuilder(private val projectInformation: YaclibModel.ProjectInformation): IBuilder<YaclibModel.File> {
-    private val frameworkName = SwiftUtilities.buildSwiftFullName(projectInformation.mainDependency)
+class SwiftShareDataBuilder(
+    private val projectInformation: YaclibModel.ProjectInformation) : IBuilder<YaclibModel.File> {
+  private val frameworkName = SwiftUtilities.buildSwiftFullName(projectInformation.mainDependency)
 
-    override fun build(): YaclibModel.File {
-        val file = YaclibModel.File.newBuilder()
-                .setFileExtension(YaclibModel.FileExtension.XCSCHEME_EXT)
-                .setFileToWrite(InitialTemplate)
-                .setFileName("${frameworkName}_iOS")
-                .setFullDirectoryLocation("${SwiftUtilities.buildSwiftFullName(projectInformation.mainDependency)}.xcodeproj/xcshareddata/xcshemes")
-                .build()
-        return file
-    }
+  override fun build(): YaclibModel.File {
+    val file = YaclibModel.File.newBuilder()
+        .setFileExtension(YaclibModel.FileExtension.XCSCHEME_EXT)
+        .setFileToWrite(InitialTemplate)
+        .setFileName("${frameworkName}_iOS")
+        .setFullDirectoryLocation("${SwiftUtilities.buildSwiftFullName(
+            projectInformation.mainDependency)}.xcodeproj/xcshareddata/xcshemes")
+        .build()
+    return file
+  }
 
-    private val InitialTemplate = """<?xml version="1.0" encoding="UTF-8"?>
+  private val InitialTemplate = """<?xml version="1.0" encoding="UTF-8"?>
 <Scheme
    LastUpgradeVersion = "0800"
    version = "1.3">

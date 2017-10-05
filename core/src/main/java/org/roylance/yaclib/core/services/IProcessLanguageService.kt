@@ -4,5 +4,5 @@ import org.roylance.yaclib.YaclibModel
 import java.util.*
 
 interface IProcessLanguageService {
-    fun buildInterface(projectInformation: YaclibModel.ProjectInformation): YaclibModel.AllFiles
+  fun buildInterface(projectInformation: YaclibModel.ProjectInformation): YaclibModel.AllFiles
 }

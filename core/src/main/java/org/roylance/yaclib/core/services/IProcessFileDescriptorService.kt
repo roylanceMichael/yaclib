@@ -4,5 +4,5 @@ import com.google.protobuf.Descriptors
 import org.roylance.yaclib.YaclibModel
 
 interface IProcessFileDescriptorService {
-    fun processFile(fileDescriptor: Descriptors.FileDescriptor): YaclibModel.AllControllers
+  fun processFile(fileDescriptor: Descriptors.FileDescriptor): YaclibModel.AllControllers
 }

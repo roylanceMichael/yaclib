@@ -10,36 +10,36 @@ import org.roylance.yaclib.core.services.java.init.*
 import java.nio.file.Paths
 
 class InitLogic(private val location: String,
-                private val mainDependency: YaclibModel.Dependency,
-                private val yaclibDependency: YaclibModel.Dependency): IBuilder<Boolean> {
-    override fun build(): Boolean {
-        val projectInformation = YaclibModel.ProjectInformation.newBuilder()
-                .setMainDependency(mainDependency)
-                .build()
+    private val mainDependency: YaclibModel.Dependency,
+    private val yaclibDependency: YaclibModel.Dependency) : IBuilder<Boolean> {
+  override fun build(): Boolean {
+    val projectInformation = YaclibModel.ProjectInformation.newBuilder()
+        .setMainDependency(mainDependency)
+        .build()
 
-        val files = YaclibModel.AllFiles.newBuilder()
+    val files = YaclibModel.AllFiles.newBuilder()
 
-        val generateProtoFile = GenerateProtoBuilder().build()
-        val gradleFile = GradleFileBuilder(projectInformation, CommonTokens.ApiName).build()
-        val gradleSettings = GradleSettingsBuilder(CommonTokens.ApiName).build()
-        val yaclibFile = YaclibGradleBuilder(mainDependency).build()
-        val propertiesFile = InitPropertiesBuilder(mainDependency, yaclibDependency).build()
-        val modelFile = ModelProtoBuilder(mainDependency).build()
-        val controllerFile = ControllerProtoBuilder(mainDependency).build()
+    val generateProtoFile = GenerateProtoBuilder().build()
+    val gradleFile = GradleFileBuilder(projectInformation, CommonTokens.ApiName).build()
+    val gradleSettings = GradleSettingsBuilder(CommonTokens.ApiName).build()
+    val yaclibFile = YaclibGradleBuilder(mainDependency).build()
+    val propertiesFile = InitPropertiesBuilder(mainDependency, yaclibDependency).build()
+    val modelFile = ModelProtoBuilder(mainDependency).build()
+    val controllerFile = ControllerProtoBuilder(mainDependency).build()
 
-        files.addFiles(gradleFile)
-                .addFiles(generateProtoFile)
-                .addFiles(gradleSettings)
-                .addFiles(yaclibFile)
-                .addFiles(propertiesFile)
-                .addFiles(modelFile)
-                .addFiles(controllerFile)
+    files.addFiles(gradleFile)
+        .addFiles(generateProtoFile)
+        .addFiles(gradleSettings)
+        .addFiles(yaclibFile)
+        .addFiles(propertiesFile)
+        .addFiles(modelFile)
+        .addFiles(controllerFile)
 
-        val filePersistService = FilePersistService()
+    val filePersistService = FilePersistService()
 
-        val apiLocation = Paths.get(location, CommonTokens.ApiName).toString()
-        filePersistService.persistFiles(apiLocation, files.build())
+    val apiLocation = Paths.get(location, CommonTokens.ApiName).toString()
+    filePersistService.persistFiles(apiLocation, files.build())
 
-        return true
-    }
+    return true
+  }
 }

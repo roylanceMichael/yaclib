@@ -11,40 +11,44 @@ import org.roylance.yaclib.core.services.java.server.JavaServerProcessLanguageSe
 import java.nio.file.Paths
 
 class ServerLogic(private val location: String,
-                  private val mainDependency: YaclibModel.Dependency,
-                  private val mainController: Descriptors.FileDescriptor,
-                  private val dependencyDescriptors: List<DependencyDescriptor>,
-                  private val thirdPartyServerDependencies: List<YaclibModel.Dependency>): IBuilder<Boolean> {
-    override fun build(): Boolean {
-        val mainDependencyDescriptor = DependencyDescriptor(mainDependency, this.mainController)
+    private val mainDependency: YaclibModel.Dependency,
+    private val mainController: Descriptors.FileDescriptor,
+    private val dependencyDescriptors: List<DependencyDescriptor>,
+    private val thirdPartyServerDependencies: List<YaclibModel.Dependency>) : IBuilder<Boolean> {
+  override fun build(): Boolean {
+    val mainDependencyDescriptor = DependencyDescriptor(mainDependency, this.mainController)
 
-        val filePersistService = FilePersistService()
-        val processFileDescriptorService = ProcessFileDescriptorService()
+    val filePersistService = FilePersistService()
+    val processFileDescriptorService = ProcessFileDescriptorService()
 
-        val serverControllerDependencies = YaclibModel.AllControllerDependencies.newBuilder()
+    val serverControllerDependencies = YaclibModel.AllControllerDependencies.newBuilder()
 
-        val mainController = processFileDescriptorService.processFile(mainDependencyDescriptor.descriptor)
-        val mainControllerDependencies = YaclibModel.ControllerDependency.newBuilder().setControllers(mainController)
-                .setDependency(mainDependencyDescriptor.dependency)
+    val mainController = processFileDescriptorService.processFile(
+        mainDependencyDescriptor.descriptor)
+    val mainControllerDependencies = YaclibModel.ControllerDependency.newBuilder().setControllers(
+        mainController)
+        .setDependency(mainDependencyDescriptor.dependency)
 
-        serverControllerDependencies.addControllerDependencies(mainControllerDependencies)
+    serverControllerDependencies.addControllerDependencies(mainControllerDependencies)
 
-        this.dependencyDescriptors.forEach {
-            val controller = processFileDescriptorService.processFile(it.descriptor)
-            val controllerDependencies = YaclibModel.ControllerDependency.newBuilder().setControllers(controller)
-                    .setDependency(it.dependency)
-            serverControllerDependencies.addControllerDependencies(controllerDependencies)
-        }
-        val projectInformation = YaclibModel.ProjectInformation.newBuilder()
-                .addAllThirdPartyDependencies(thirdPartyServerDependencies)
-                .setMainDependency(mainDependencyDescriptor.dependency)
-                .setControllers(serverControllerDependencies.build())
-                .build()
-
-        val serverFiles = JavaServerProcessLanguageService().buildInterface(projectInformation)
-        filePersistService.persistFiles(Paths.get(this.location, CommonTokens.ServerApi).toString(), serverFiles)
-
-        return true
+    this.dependencyDescriptors.forEach {
+      val controller = processFileDescriptorService.processFile(it.descriptor)
+      val controllerDependencies = YaclibModel.ControllerDependency.newBuilder().setControllers(
+          controller)
+          .setDependency(it.dependency)
+      serverControllerDependencies.addControllerDependencies(controllerDependencies)
     }
+    val projectInformation = YaclibModel.ProjectInformation.newBuilder()
+        .addAllThirdPartyDependencies(thirdPartyServerDependencies)
+        .setMainDependency(mainDependencyDescriptor.dependency)
+        .setControllers(serverControllerDependencies.build())
+        .build()
+
+    val serverFiles = JavaServerProcessLanguageService().buildInterface(projectInformation)
+    filePersistService.persistFiles(Paths.get(this.location, CommonTokens.ServerApi).toString(),
+        serverFiles)
+
+    return true
+  }
 
 }

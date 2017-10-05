@@ -4,14 +4,16 @@ import org.roylance.common.service.IBuilder
 import org.roylance.yaclib.YaclibModel
 import org.roylance.yaclib.core.utilities.CSharpUtilities
 
-class SolutionBuilder(generatedSolutionGuid:String,
-                      generatedProjectGuid: String,
-                      private val mainDependency: YaclibModel.Dependency): IBuilder<YaclibModel.File> {
+class SolutionBuilder(generatedSolutionGuid: String,
+    generatedProjectGuid: String,
+    private val mainDependency: YaclibModel.Dependency) : IBuilder<YaclibModel.File> {
 
-    private val InitialTemplate = """
+  private val InitialTemplate = """
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{$generatedSolutionGuid}") = "${CSharpUtilities.buildFullName(mainDependency)}", "${CSharpUtilities.buildFullName(mainDependency)}.xproj", "{$generatedProjectGuid}"
+Project("{$generatedSolutionGuid}") = "${CSharpUtilities.buildFullName(
+      mainDependency)}", "${CSharpUtilities.buildFullName(
+      mainDependency)}.xproj", "{$generatedProjectGuid}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,13 +29,13 @@ Global
 EndGlobal
 """
 
-    override fun build(): YaclibModel.File {
-        val returnFile = YaclibModel.File.newBuilder()
-                .setFileToWrite(InitialTemplate)
-                .setFileExtension(YaclibModel.FileExtension.SLN_EXT)
-                .setFileName(CSharpUtilities.buildFullName(mainDependency))
-                .setFullDirectoryLocation(CSharpUtilities.buildFullName(mainDependency))
-                .build()
-        return returnFile
-    }
+  override fun build(): YaclibModel.File {
+    val returnFile = YaclibModel.File.newBuilder()
+        .setFileToWrite(InitialTemplate)
+        .setFileExtension(YaclibModel.FileExtension.SLN_EXT)
+        .setFileName(CSharpUtilities.buildFullName(mainDependency))
+        .setFullDirectoryLocation(CSharpUtilities.buildFullName(mainDependency))
+        .build()
+    return returnFile
+  }
 }

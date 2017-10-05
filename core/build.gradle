@@ -1,6 +1,6 @@
 buildscript {
-    ext.kotlin_version = '1.1.50'
-    ext.project_version = "0.239"
+    ext.kotlin_version = '1.1.51'
+    ext.project_version = "0.240"
 
     repositories {
         mavenCentral()
@@ -12,7 +12,7 @@ buildscript {
     }
 }
 
-group 'org.roylance.yaclib'
+group 'org.roylance'
 version project_version
 
 apply plugin: 'java'
@@ -38,7 +38,7 @@ bintray {
     publish = true
     pkg {
         repo = 'maven'
-        name = "${group}.${rootProject.name}"
+        name = "${rootProject.name}"
         userOrg = user
         licenses = ['MIT']
         labels = [rootProject.name]
@@ -59,7 +59,7 @@ dependencies {
     compile gradleApi()
     compile localGroovy()
 
-    compile 'org.roylance:common:0.21'
+    compile 'org.roylance:roylance.common:0.23'
 
     compile 'commons-io:commons-io:2.5'
     compile 'org.apache.commons:commons-compress:1.12'

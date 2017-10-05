@@ -9,24 +9,24 @@ import org.roylance.yaclib.core.utilities.InitUtilities
 import java.nio.file.Paths
 
 class JavaClientBuilder(private val location: String,
-                        private val mainDependency: YaclibModel.Dependency): IBuilder<Boolean> {
-    override fun build(): Boolean {
-        val javaClientDirectory = Paths.get(this.location, CommonTokens.ClientApi).toFile()
+    private val mainDependency: YaclibModel.Dependency) : IBuilder<Boolean> {
+  override fun build(): Boolean {
+    val javaClientDirectory = Paths.get(this.location, CommonTokens.ClientApi).toFile()
 
-        println(InitUtilities.buildPhaseMessage("java client begin"))
+    println(InitUtilities.buildPhaseMessage("java client begin"))
 
-        println(InitUtilities.buildPhaseMessage("building gradle"))
-        val buildReport = GradleUtilities.build(javaClientDirectory.toString())
-        println(buildReport.normalOutput)
-        println(buildReport.errorOutput)
+    println(InitUtilities.buildPhaseMessage("building gradle"))
+    val buildReport = GradleUtilities.build(javaClientDirectory.toString())
+    println(buildReport.normalOutput)
+    println(buildReport.errorOutput)
 
-        println(InitUtilities.buildPhaseMessage("publishing gradle"))
-        val publishReport = GradleUtilities.publish(javaClientDirectory.toString(), mainDependency)
-        println(publishReport.normalOutput)
-        println(publishReport.errorOutput)
+    println(InitUtilities.buildPhaseMessage("publishing gradle"))
+    val publishReport = GradleUtilities.publish(javaClientDirectory.toString(), mainDependency)
+    println(publishReport.normalOutput)
+    println(publishReport.errorOutput)
 
-        println(InitUtilities.buildPhaseMessage("java client end"))
+    println(InitUtilities.buildPhaseMessage("java client end"))
 
-        return true
-    }
+    return true
+  }
 }

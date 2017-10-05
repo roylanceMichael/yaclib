@@ -5,77 +5,81 @@ import org.roylance.yaclib.YaclibModel
 import org.roylance.yaclib.core.enums.CommonTokens
 import org.roylance.yaclib.core.utilities.StringUtilities
 
-class ProcessFileDescriptorService: IProcessFileDescriptorService {
-    override fun processFile(fileDescriptor: Descriptors.FileDescriptor): YaclibModel.AllControllers {
-        val returnItem = YaclibModel.AllControllers.newBuilder()
+class ProcessFileDescriptorService : IProcessFileDescriptorService {
+  override fun processFile(fileDescriptor: Descriptors.FileDescriptor): YaclibModel.AllControllers {
+    val returnItem = YaclibModel.AllControllers.newBuilder()
 
-        fileDescriptor.messageTypes.forEach { messageType ->
-            if (messageType.name.endsWith(CommonTokens.ControllerSuffix)) {
-                // process
-                val foundController = this.processControllerMessageType(messageType) ?: return@forEach
-                returnItem.addControllers(foundController)
-            }
-            else if (messageType.name.endsWith(CommonTokens.ServiceSuffix)) {
+    fileDescriptor.messageTypes.forEach { messageType ->
+      if (messageType.name.endsWith(CommonTokens.ControllerSuffix)) {
+        // process
+        val foundController = this.processControllerMessageType(messageType) ?: return@forEach
+        returnItem.addControllers(foundController)
+      } else if (messageType.name.endsWith(CommonTokens.ServiceSuffix)) {
 
-            }
-        }
-
-        return returnItem.build()
+      }
     }
 
-    private fun processControllerMessageType(messageType: Descriptors.Descriptor): YaclibModel.Controller? {
-        val controllerName = messageType.name.substringBefore(CommonTokens.ControllerSuffix)
-        val returnController = YaclibModel.Controller.newBuilder().setName(controllerName)
+    return returnItem.build()
+  }
 
-        messageType.fields.filter { field ->
-                    CommonTokens.ProtoMessageType == field.type.name &&
-                            field.messageType.name.endsWith(CommonTokens.ActionSuffix)
-        }.forEach { actionField ->
-            val foundAction = this.processActionMessageType(actionField.messageType, actionField.name) ?: return@forEach
-            returnController.addActions(foundAction)
-        }
+  private fun processControllerMessageType(
+      messageType: Descriptors.Descriptor): YaclibModel.Controller? {
+    val controllerName = messageType.name.substringBefore(CommonTokens.ControllerSuffix)
+    val returnController = YaclibModel.Controller.newBuilder().setName(controllerName)
 
-        if (returnController.actionsCount > 0) {
-            return returnController.build()
-        }
-        return null
+    messageType.fields.filter { field ->
+      CommonTokens.ProtoMessageType == field.type.name &&
+          field.messageType.name.endsWith(CommonTokens.ActionSuffix)
+    }.forEach { actionField ->
+      val foundAction = this.processActionMessageType(actionField.messageType,
+          actionField.name) ?: return@forEach
+      returnController.addActions(foundAction)
     }
 
-    private fun processActionMessageType(messageType: Descriptors.Descriptor, fieldName: String): YaclibModel.Action? {
-        val foundInputOutputTypes = messageType.fields.filter { field ->
-            CommonTokens.ProtoMessageType == field.type.name
-        }.sortedBy { it.number }
+    if (returnController.actionsCount > 0) {
+      return returnController.build()
+    }
+    return null
+  }
 
-        if (foundInputOutputTypes.isEmpty()) {
-            return null
+  private fun processActionMessageType(messageType: Descriptors.Descriptor,
+      fieldName: String): YaclibModel.Action? {
+    val foundInputOutputTypes = messageType.fields.filter { field ->
+      CommonTokens.ProtoMessageType == field.type.name
+    }.sortedBy { it.number }
+
+    if (foundInputOutputTypes.isEmpty()) {
+      return null
+    }
+
+    val returnItem = YaclibModel.Action.newBuilder().setName(fieldName)
+    val returnType = foundInputOutputTypes[foundInputOutputTypes.size - 1]
+
+    val outputMessage = YaclibModel.Message.newBuilder()
+        .setArgumentName(returnType.name)
+        .setFilePackage(returnType.messageType.file.`package`)
+        .setFileClass(
+            StringUtilities.convertProtoFileNameToJavaClassName(returnType.messageType.file))
+        .setMessagePackage(returnType.messageType.file.`package`)
+        .setMessageClass(returnType.messageType.name)
+        .setFileName(returnType.messageType.file.name)
+
+    returnItem.output = outputMessage.build()
+
+    foundInputOutputTypes.filter { it.number != returnType.number }
+        .forEach {
+          val inputMessage = YaclibModel.Message.newBuilder()
+              .setArgumentName(it.name)
+              .setFilePackage(it.messageType.file.`package`)
+              .setFileClass(
+                  StringUtilities.convertProtoFileNameToJavaClassName(it.messageType.file))
+              .setMessagePackage(it.messageType.file.`package`)
+              .setMessageClass(it.messageType.name)
+              .setFileName(it.messageType.file.name)
+
+          returnItem.addInputs(inputMessage)
         }
 
-        val returnItem = YaclibModel.Action.newBuilder().setName(fieldName)
-        val returnType = foundInputOutputTypes[foundInputOutputTypes.size - 1]
-
-        val outputMessage = YaclibModel.Message.newBuilder()
-            .setArgumentName(returnType.name)
-            .setFilePackage(returnType.messageType.file.`package`)
-            .setFileClass(StringUtilities.convertProtoFileNameToJavaClassName(returnType.messageType.file))
-            .setMessagePackage(returnType.messageType.file.`package`)
-            .setMessageClass(returnType.messageType.name)
-            .setFileName(returnType.messageType.file.name)
-
-        returnItem.output = outputMessage.build()
-
-        foundInputOutputTypes.filter { it.number != returnType.number }
-            .forEach {
-                val inputMessage = YaclibModel.Message.newBuilder()
-                    .setArgumentName(it.name)
-                    .setFilePackage(it.messageType.file.`package`)
-                    .setFileClass(StringUtilities.convertProtoFileNameToJavaClassName(it.messageType.file))
-                    .setMessagePackage(it.messageType.file.`package`)
-                    .setMessageClass(it.messageType.name)
-                    .setFileName(it.messageType.file.name)
-
-                returnItem.addInputs(inputMessage)
-            }
-
-        return returnItem.build()
-    }
+    return returnItem.build()
+  }
 }

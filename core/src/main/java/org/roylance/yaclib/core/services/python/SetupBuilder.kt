@@ -5,9 +5,9 @@ import org.roylance.yaclib.YaclibModel
 import org.roylance.yaclib.core.utilities.JavaUtilities
 import org.roylance.yaclib.core.utilities.PythonUtilities
 
-class SetupBuilder: IBuilder<YaclibModel.File> {
-    override fun build(): YaclibModel.File {
-        val initialTemplate = """from setuptools import setup, find_packages
+class SetupBuilder : IBuilder<YaclibModel.File> {
+  override fun build(): YaclibModel.File {
+    val initialTemplate = """from setuptools import setup, find_packages
 import ${PythonUtilities.PropertiesNameWithoutExtension}
 
 actual_name = ${PythonUtilities.PropertiesNameWithoutExtension}.${JavaUtilities.GroupName} + "_" + ${PythonUtilities.PropertiesNameWithoutExtension}.${JavaUtilities.NameName}
@@ -24,14 +24,14 @@ setup(
     url=properties.${JavaUtilities.GithubUrlName},
     packages=find_packages(exclude=['tests']))
 """
-        val returnFile = YaclibModel.File.newBuilder()
-                .setFileToWrite(initialTemplate.trim())
-                .setFileExtension(YaclibModel.FileExtension.PY_EXT)
-                .setFileName("setup")
-                .setFullDirectoryLocation("")
-                .build()
+    val returnFile = YaclibModel.File.newBuilder()
+        .setFileToWrite(initialTemplate.trim())
+        .setFileExtension(YaclibModel.FileExtension.PY_EXT)
+        .setFileName("setup")
+        .setFullDirectoryLocation("")
+        .build()
 
-        return returnFile
-    }
+    return returnFile
+  }
 
 }

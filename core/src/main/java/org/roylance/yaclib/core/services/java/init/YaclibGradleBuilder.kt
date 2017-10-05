@@ -8,8 +8,8 @@ import org.roylance.yaclib.core.utilities.JavaUtilities
 import org.roylance.yaclib.core.utilities.StringUtilities
 
 class YaclibGradleBuilder(
-        dependency: YaclibModel.Dependency): IBuilder<YaclibModel.File> {
-    private val initialTemplate = """import org.roylance.yaclib.YaclibModel
+    dependency: YaclibModel.Dependency) : IBuilder<YaclibModel.File> {
+  private val initialTemplate = """import org.roylance.yaclib.YaclibModel
 import org.roylance.yaclib.YaclibPlugin
 
 group '${dependency.group}'
@@ -34,7 +34,8 @@ task execute(type: YaclibPlugin) {
     location = new File(System.getProperty("user.dir")).parentFile.toString()
 
     mainModel = "${dependency.group}.${StringUtilities.convertToPascalCase(dependency.name)}Model"
-    mainController = "${dependency.group}.${StringUtilities.convertToPascalCase(dependency.name)}MainController"
+    mainController = "${dependency.group}.${StringUtilities.convertToPascalCase(
+      dependency.name)}MainController"
 
     dependencyDescriptors = new ArrayList<>()
     thirdPartyServerDependencies = new ArrayList<>()
@@ -63,13 +64,13 @@ task execute(type: YaclibPlugin) {
 }
 """
 
-    override fun build(): YaclibModel.File {
-        return YaclibModel.File.newBuilder()
-                .setFileToWrite(initialTemplate)
-                .setFileName("yaclib")
-                .setFileExtension(YaclibModel.FileExtension.GRADLE_EXT)
-                .setFileUpdateType(YaclibModel.FileUpdateType.WRITE_IF_NOT_EXISTS)
-                .setFullDirectoryLocation("")
-                .build()
-    }
+  override fun build(): YaclibModel.File {
+    return YaclibModel.File.newBuilder()
+        .setFileToWrite(initialTemplate)
+        .setFileName("yaclib")
+        .setFileExtension(YaclibModel.FileExtension.GRADLE_EXT)
+        .setFileUpdateType(YaclibModel.FileUpdateType.WRITE_IF_NOT_EXISTS)
+        .setFullDirectoryLocation("")
+        .build()
+  }
 }

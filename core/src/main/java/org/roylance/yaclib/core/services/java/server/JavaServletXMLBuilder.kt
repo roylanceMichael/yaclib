@@ -4,8 +4,8 @@ import org.roylance.common.service.IBuilder
 import org.roylance.yaclib.YaclibModel
 import org.roylance.yaclib.core.enums.CommonTokens
 
-class JavaServletXMLBuilder(mainDependency: YaclibModel.Dependency): IBuilder<YaclibModel.File> {
-    private val ActualXML = """<?xml version="1.0" encoding="UTF-8"?>
+class JavaServletXMLBuilder(mainDependency: YaclibModel.Dependency) : IBuilder<YaclibModel.File> {
+  private val ActualXML = """<?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
@@ -36,13 +36,14 @@ class JavaServletXMLBuilder(mainDependency: YaclibModel.Dependency): IBuilder<Ya
     </servlet-mapping>
 </web-app>
 """
-    override fun build(): YaclibModel.File {
-        return YaclibModel.File.newBuilder()
-            .setFileToWrite(ActualXML)
-            .setFileName("web")
-            .setFileUpdateType(YaclibModel.FileUpdateType.WRITE_IF_NOT_EXISTS)
-            .setFileExtension(YaclibModel.FileExtension.XML_EXT)
-            .setFullDirectoryLocation("src/main/webapp/WEB-INF")
-            .build()
-    }
+
+  override fun build(): YaclibModel.File {
+    return YaclibModel.File.newBuilder()
+        .setFileToWrite(ActualXML)
+        .setFileName("web")
+        .setFileUpdateType(YaclibModel.FileUpdateType.WRITE_IF_NOT_EXISTS)
+        .setFileExtension(YaclibModel.FileExtension.XML_EXT)
+        .setFullDirectoryLocation("src/main/webapp/WEB-INF")
+        .build()
+  }
 }

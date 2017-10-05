@@ -4,20 +4,20 @@ import org.roylance.common.service.IBuilder
 import org.roylance.yaclib.YaclibModel
 import org.roylance.yaclib.core.enums.CommonTokens
 
-class IndexHTMLBuilder: IBuilder<YaclibModel.File> {
-    override fun build(): YaclibModel.File {
-        val returnFile = YaclibModel.File.newBuilder()
-                .setFileToWrite(IndexHTMLFile)
-                .setFileName("index")
-                .setFileExtension(YaclibModel.FileExtension.HTML_EXT)
-                .setFileUpdateType(YaclibModel.FileUpdateType.WRITE_IF_NOT_EXISTS)
-                .setFullDirectoryLocation("src/main/webapp")
+class IndexHTMLBuilder : IBuilder<YaclibModel.File> {
+  override fun build(): YaclibModel.File {
+    val returnFile = YaclibModel.File.newBuilder()
+        .setFileToWrite(IndexHTMLFile)
+        .setFileName("index")
+        .setFileExtension(YaclibModel.FileExtension.HTML_EXT)
+        .setFileUpdateType(YaclibModel.FileUpdateType.WRITE_IF_NOT_EXISTS)
+        .setFullDirectoryLocation("src/main/webapp")
 
-        return returnFile.build()
-    }
+    return returnFile.build()
+  }
 
-    companion object {
-        private const val IndexHTMLFile = """<html lang="en">
+  companion object {
+    private const val IndexHTMLFile = """<html lang="en">
 <head>
     <meta charset="utf-8" />
     <title>${CommonTokens.ServerApi}</title>
@@ -28,5 +28,5 @@ class IndexHTMLBuilder: IBuilder<YaclibModel.File> {
 </body>
 </html>
 """
-    }
+  }
 }

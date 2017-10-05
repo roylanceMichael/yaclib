@@ -6,9 +6,9 @@ import org.roylance.yaclib.core.enums.CommonTokens
 import org.roylance.yaclib.core.utilities.CSharpUtilities
 
 class IHttpClientBuilder(
-        private val dependency: YaclibModel.Dependency): IBuilder<YaclibModel.File> {
+    private val dependency: YaclibModel.Dependency) : IBuilder<YaclibModel.File> {
 
-    private val InitialTemplate = """${CommonTokens.DoNotAlterMessage}
+  private val InitialTemplate = """${CommonTokens.DoNotAlterMessage}
 using System.Threading.Tasks;
 namespace ${CSharpUtilities.buildFullName(dependency)}
 {
@@ -19,12 +19,13 @@ namespace ${CSharpUtilities.buildFullName(dependency)}
 }
 """
 
-    override fun build(): YaclibModel.File {
-        val returnFile = YaclibModel.File.newBuilder()
-                .setFileToWrite(InitialTemplate.trim())
-                .setFileExtension(YaclibModel.FileExtension.CS_EXT)
-                .setFileName(CommonTokens.HttpExecute)
-                .setFullDirectoryLocation(CSharpUtilities.buildFullName(dependency))
-                .build()
-        return returnFile    }
+  override fun build(): YaclibModel.File {
+    val returnFile = YaclibModel.File.newBuilder()
+        .setFileToWrite(InitialTemplate.trim())
+        .setFileExtension(YaclibModel.FileExtension.CS_EXT)
+        .setFileName(CommonTokens.HttpExecute)
+        .setFullDirectoryLocation(CSharpUtilities.buildFullName(dependency))
+        .build()
+    return returnFile
+  }
 }

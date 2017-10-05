@@ -7,8 +7,9 @@ import org.roylance.yaclib.core.utilities.JavaUtilities
 import org.roylance.yaclib.core.utilities.MavenUtilities
 import java.util.*
 
-class POMFileBuilder(private val projectInformation: YaclibModel.ProjectInformation): IBuilder<YaclibModel.File> {
-    private val initialTemplate = """<?xml version="1.0" encoding="UTF-8"?>
+class POMFileBuilder(
+    private val projectInformation: YaclibModel.ProjectInformation) : IBuilder<YaclibModel.File> {
+  private val initialTemplate = """<?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
@@ -251,69 +252,74 @@ class POMFileBuilder(private val projectInformation: YaclibModel.ProjectInformat
 </project>
 """
 
-    override fun build(): YaclibModel.File {
-        val returnFile = YaclibModel.File.newBuilder()
-            .setFileToWrite(initialTemplate.trim())
-            .setFileExtension(YaclibModel.FileExtension.POM_EXT)
-            .setFileName(MavenUtilities.PomName)
-            .setFullDirectoryLocation("")
-            .build()
+  override fun build(): YaclibModel.File {
+    val returnFile = YaclibModel.File.newBuilder()
+        .setFileToWrite(initialTemplate.trim())
+        .setFileExtension(YaclibModel.FileExtension.POM_EXT)
+        .setFileName(MavenUtilities.PomName)
+        .setFullDirectoryLocation("")
+        .build()
 
-        return returnFile
-    }
+    return returnFile
+  }
 
-    private fun buildDependencies():String {
-        val workspace = StringBuilder()
+  private fun buildDependencies(): String {
+    val workspace = StringBuilder()
 
-        projectInformation.thirdPartyDependenciesList
-                .filter { it.type == YaclibModel.DependencyType.JAVA }
-                .forEach { dependency ->
-                    workspace.append("""
+    projectInformation.thirdPartyDependenciesList
+        .filter { it.type == YaclibModel.DependencyType.JAVA }
+        .forEach { dependency ->
+          workspace.append("""
         <dependency>
             <groupId>${dependency.group}</groupId>
             <artifactId>${dependency.name}</artifactId>
-            <version>${buildMavenPropertyReference(JavaUtilities.buildPackageVariableName(dependency))}</version>
+            <version>${buildMavenPropertyReference(
+              JavaUtilities.buildPackageVariableName(dependency))}</version>
         </dependency>
             """)
         }
 
-        projectInformation.controllers.controllerDependenciesList.forEach { controllerDependency ->
-            workspace.append("""
+    projectInformation.controllers.controllerDependenciesList.forEach { controllerDependency ->
+      workspace.append("""
         <dependency>
             <groupId>${controllerDependency.dependency.group}</groupId>
             <artifactId>${controllerDependency.dependency.name}</artifactId>
-            <version>${buildMavenPropertyReference(JavaUtilities.buildPackageVariableName(controllerDependency.dependency))}</version>
+            <version>${buildMavenPropertyReference(
+          JavaUtilities.buildPackageVariableName(controllerDependency.dependency))}</version>
         </dependency>
         <dependency>
             <groupId>${controllerDependency.dependency.group}</groupId>
             <artifactId>c${controllerDependency.dependency.name}</artifactId>
-            <version>${buildMavenPropertyReference(JavaUtilities.buildPackageVariableName(controllerDependency.dependency))}</version>
+            <version>${buildMavenPropertyReference(
+          JavaUtilities.buildPackageVariableName(controllerDependency.dependency))}</version>
         </dependency>
 """)
-        }
-
-        return workspace.toString()
     }
 
-    private fun buildRepositories():String {
-        val workspace = StringBuilder()
+    return workspace.toString()
+  }
 
-        val uniqueRepositories = HashMap<String, String>()
-        uniqueRepositories[projectInformation.mainDependency.mavenRepository.url] = this.buildRepository(projectInformation.mainDependency.mavenRepository)
+  private fun buildRepositories(): String {
+    val workspace = StringBuilder()
 
-        projectInformation.controllers.controllerDependenciesList.forEach {
-            uniqueRepositories[it.dependency.mavenRepository.url] = this.buildRepository(it.dependency.mavenRepository)
-        }
+    val uniqueRepositories = HashMap<String, String>()
+    uniqueRepositories[projectInformation.mainDependency.mavenRepository.url] = this.buildRepository(
+        projectInformation.mainDependency.mavenRepository)
 
-        uniqueRepositories.values.forEach {
-            workspace.appendln(it)
-        }
-
-        return workspace.toString()
+    projectInformation.controllers.controllerDependenciesList.forEach {
+      uniqueRepositories[it.dependency.mavenRepository.url] = this.buildRepository(
+          it.dependency.mavenRepository)
     }
 
-    private fun buildRepository(repository: YaclibModel.Repository): String {
-        return """<repository>
+    uniqueRepositories.values.forEach {
+      workspace.appendln(it)
+    }
+
+    return workspace.toString()
+  }
+
+  private fun buildRepository(repository: YaclibModel.Repository): String {
+    return """<repository>
   <snapshots>
     <enabled>false</enabled>
   </snapshots>
@@ -322,50 +328,56 @@ class POMFileBuilder(private val projectInformation: YaclibModel.ProjectInformat
   <url>${JavaUtilities.buildRepositoryUrl(repository)}</url>
 </repository>
 """
+  }
+
+  private fun buildProperties(): String {
+    val workspace = StringBuilder("<properties>")
+
+    workspace.appendln(
+        buildProperty(JavaUtilities.GroupName, projectInformation.mainDependency.group))
+    workspace.appendln(
+        buildProperty(JavaUtilities.NameName, projectInformation.mainDependency.name))
+    workspace.appendln(buildProperty(JavaUtilities.MinorName,
+        projectInformation.mainDependency.minorVersion.toString()))
+    workspace.appendln(buildProperty(JavaUtilities.MajorName,
+        projectInformation.mainDependency.majorVersion.toString()))
+
+    val uniqueDependencies = HashMap<String, String>()
+    projectInformation.controllers.controllerDependenciesList.forEach {
+      uniqueDependencies[JavaUtilities.buildPackageVariableName(
+          it.dependency)] = "${it.dependency.majorVersion}.${it.dependency.minorVersion}"
     }
 
-    private fun buildProperties(): String {
-        val workspace = StringBuilder("<properties>")
-
-        workspace.appendln(buildProperty(JavaUtilities.GroupName, projectInformation.mainDependency.group))
-        workspace.appendln(buildProperty(JavaUtilities.NameName, projectInformation.mainDependency.name))
-        workspace.appendln(buildProperty(JavaUtilities.MinorName, projectInformation.mainDependency.minorVersion.toString()))
-        workspace.appendln(buildProperty(JavaUtilities.MajorName, projectInformation.mainDependency.majorVersion.toString()))
-
-        val uniqueDependencies = HashMap<String, String>()
-        projectInformation.controllers.controllerDependenciesList.forEach {
-            uniqueDependencies[JavaUtilities.buildPackageVariableName(it.dependency)] = "${it.dependency.majorVersion}.${it.dependency.minorVersion}"
+    projectInformation.thirdPartyDependenciesList
+        .filter { it.type == YaclibModel.DependencyType.JAVA }
+        .forEach {
+          if (it.thirdPartyDependencyVersion.isEmpty()) {
+            uniqueDependencies[JavaUtilities.buildPackageVariableName(
+                it)] = "${it.majorVersion}.${it.minorVersion}"
+          } else {
+            uniqueDependencies[JavaUtilities.buildPackageVariableName(
+                it)] = it.thirdPartyDependencyVersion
+          }
         }
 
-        projectInformation.thirdPartyDependenciesList
-                .filter { it.type == YaclibModel.DependencyType.JAVA }
-                .forEach {
-                    if (it.thirdPartyDependencyVersion.isEmpty()) {
-                        uniqueDependencies[JavaUtilities.buildPackageVariableName(it)] = "${it.majorVersion}.${it.minorVersion}"
-                    }
-                    else {
-                        uniqueDependencies[JavaUtilities.buildPackageVariableName(it)] = it.thirdPartyDependencyVersion
-                    }
-        }
-
-        uniqueDependencies.keys.forEach {
-            workspace.appendln(buildProperty(it, uniqueDependencies[it]!!))
-        }
-
-        workspace.appendln("\t</properties>")
-        return workspace.toString()
+    uniqueDependencies.keys.forEach {
+      workspace.appendln(buildProperty(it, uniqueDependencies[it]!!))
     }
 
-    private fun buildProperty(key:String, value: String): String {
-        return "\t\t<$key>$value</$key>"
-    }
+    workspace.appendln("\t</properties>")
+    return workspace.toString()
+  }
 
-    private fun buildMavenPropertyReference(item: String): String {
-        return "$" + "{" + item + "}"
-    }
+  private fun buildProperty(key: String, value: String): String {
+    return "\t\t<$key>$value</$key>"
+  }
 
-    companion object {
-        const val DefaultSonaTypeOSSRepo = """<repository>
+  private fun buildMavenPropertyReference(item: String): String {
+    return "$" + "{" + item + "}"
+  }
+
+  companion object {
+    const val DefaultSonaTypeOSSRepo = """<repository>
                     <id>sonatype.oss.snapshots</id>
                     <name>Sonatype OSS Snapshot Repository</name>
                     <url>http://oss.sonatype.org/content/repositories/snapshots</url>
@@ -377,7 +389,7 @@ class POMFileBuilder(private val projectInformation: YaclibModel.ProjectInformat
                     </snapshots>
                 </repository>"""
 
-        const val DefaultSonaTypeOSSPlugin = """<pluginRepositories>
+    const val DefaultSonaTypeOSSPlugin = """<pluginRepositories>
                 <pluginRepository>
                     <id>sonatype.oss.snapshots</id>
                     <name>Sonatype OSS Snapshot Repository</name>
@@ -391,5 +403,5 @@ class POMFileBuilder(private val projectInformation: YaclibModel.ProjectInformat
                 </pluginRepository>
             </pluginRepositories>
 """
-    }
+  }
 }

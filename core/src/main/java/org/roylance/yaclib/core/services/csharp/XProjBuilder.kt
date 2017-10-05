@@ -4,9 +4,10 @@ import org.roylance.common.service.IBuilder
 import org.roylance.yaclib.YaclibModel
 import org.roylance.yaclib.core.utilities.CSharpUtilities
 
-class XProjBuilder(projectGuid: String, private val mainDependency: YaclibModel.Dependency): IBuilder<YaclibModel.File> {
+class XProjBuilder(projectGuid: String,
+    private val mainDependency: YaclibModel.Dependency) : IBuilder<YaclibModel.File> {
 
-    private val InitialTemplate = """<?xml version="1.0" encoding="utf-8"?>
+  private val InitialTemplate = """<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">14.0</VisualStudioVersion>
@@ -27,13 +28,13 @@ class XProjBuilder(projectGuid: String, private val mainDependency: YaclibModel.
 </Project>
 """
 
-    override fun build(): YaclibModel.File {
-        val returnFile = YaclibModel.File.newBuilder()
-                .setFileToWrite(InitialTemplate)
-                .setFileExtension(YaclibModel.FileExtension.XPROJ_EXT)
-                .setFileName(CSharpUtilities.buildFullName(mainDependency))
-                .setFullDirectoryLocation(CSharpUtilities.buildFullName(mainDependency))
-                .build()
-        return returnFile
-    }
+  override fun build(): YaclibModel.File {
+    val returnFile = YaclibModel.File.newBuilder()
+        .setFileToWrite(InitialTemplate)
+        .setFileExtension(YaclibModel.FileExtension.XPROJ_EXT)
+        .setFileName(CSharpUtilities.buildFullName(mainDependency))
+        .setFullDirectoryLocation(CSharpUtilities.buildFullName(mainDependency))
+        .build()
+    return returnFile
+  }
 }

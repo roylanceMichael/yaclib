@@ -4,8 +4,9 @@ import org.roylance.common.service.IBuilder
 import org.roylance.yaclib.YaclibModel
 import org.roylance.yaclib.core.utilities.CSharpUtilities
 
-class ProjectJsonBuilder(private val dependency: YaclibModel.Dependency): IBuilder<YaclibModel.File> {
-    private val InitialTemplate = """{
+class ProjectJsonBuilder(
+    private val dependency: YaclibModel.Dependency) : IBuilder<YaclibModel.File> {
+  private val InitialTemplate = """{
   "version": "${dependency.majorVersion}.${dependency.minorVersion}.0-*",
 
   "dependencies": {
@@ -38,13 +39,13 @@ class ProjectJsonBuilder(private val dependency: YaclibModel.Dependency): IBuild
 }
 """
 
-    override fun build(): YaclibModel.File {
-        val returnFile = YaclibModel.File.newBuilder()
-                .setFileToWrite(InitialTemplate.trim())
-                .setFileExtension(YaclibModel.FileExtension.JSON_EXT)
-                .setFileName("project")
-                .setFullDirectoryLocation(CSharpUtilities.buildFullName(dependency))
-                .build()
-        return returnFile
-    }
+  override fun build(): YaclibModel.File {
+    val returnFile = YaclibModel.File.newBuilder()
+        .setFileToWrite(InitialTemplate.trim())
+        .setFileExtension(YaclibModel.FileExtension.JSON_EXT)
+        .setFileName("project")
+        .setFullDirectoryLocation(CSharpUtilities.buildFullName(dependency))
+        .build()
+    return returnFile
+  }
 }

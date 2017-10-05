@@ -3,8 +3,9 @@ package org.roylance.yaclib.core.plugins.debian
 import org.roylance.common.service.IBuilder
 import java.io.File
 
-class InitDBuilder(projectName: String, port: Int, private val fileLocation: String) : IBuilder<Boolean> {
-    private val InitialTemplate = """#!/usr/bin/env bash
+class InitDBuilder(projectName: String, port: Int,
+    private val fileLocation: String) : IBuilder<Boolean> {
+  private val InitialTemplate = """#!/usr/bin/env bash
 # /etc/init.d/$projectName
 
 touch /var/lock/$projectName
@@ -25,9 +26,10 @@ esac
 
 exit 0
 """
-    override fun build(): Boolean {
-        File(fileLocation).delete()
-        File(fileLocation).writeText(InitialTemplate)
-        return true
-    }
+
+  override fun build(): Boolean {
+    File(fileLocation).delete()
+    File(fileLocation).writeText(InitialTemplate)
+    return true
+  }
 }
