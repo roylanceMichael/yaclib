@@ -20,7 +20,7 @@ buildscript {
     }
     dependencies {
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$${JavaUtilities.KotlinName}"
-        classpath "org.roylance.yaclib:core:$${JavaUtilities.YaclibVersionName}"
+        classpath "org.roylance:yaclib.core:$${JavaUtilities.YaclibVersionName}"
     }
 }
 

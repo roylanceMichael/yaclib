@@ -19,11 +19,11 @@ class ClientLogic(
     val filePersistService = FilePersistService()
 
     val javaClientFiles = JavaClientProcessLanguageService().buildInterface(projectInformation)
-    filePersistService.persistFiles(Paths.get(this.location, CommonTokens.ClientApi).toString(),
+    filePersistService.persistFiles(Paths.get(location, CommonTokens.ClientApi).toString(),
         javaClientFiles)
 
     val javaJNIFiles = CPPJNILanguageService().buildInterface(projectInformation)
-    filePersistService.persistFiles(Paths.get(this.location, CommonTokens.ServerJni).toString(),
+    filePersistService.persistFiles(Paths.get(location, CommonTokens.ServerJni).toString(),
         javaJNIFiles)
 
     val typeScriptFiles = TypeScriptProcessLanguageService().buildInterface(projectInformation)

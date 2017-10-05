@@ -29,6 +29,7 @@ object JavaUtilities {
   const val DefaultRepository = "http://dl.bintray.com/roylancemichael/maven"
 
   const val RoylanceCommonVersion = "0.23"
+  const val YaclibVersion = "0.242"
 
   const val ArtifactoryVersion = "4.4.0"
   const val BintrayVersion = "1.7"
@@ -57,6 +58,7 @@ object JavaUtilities {
   const val BintrayName = "yaclib_bintray"
   const val ArtifactoryName = "yaclib_artifacatory"
   const val RetrofitName = "yaclib_retrofit"
+
 
   const val MavenCompilerPluginVersion = "2.3.2"
   const val MavenWarPluginVersion = "2.1.1"

@@ -21,7 +21,7 @@ class InitLogic(private val location: String,
 
     val generateProtoFile = GenerateProtoBuilder().build()
     val gradleFile = GradleFileBuilder(projectInformation, CommonTokens.ApiName).build()
-    val gradleSettings = GradleSettingsBuilder(CommonTokens.ApiName).build()
+    val gradleSettings = GradleSettingsBuilder(mainDependency.name).build()
     val yaclibFile = YaclibGradleBuilder(mainDependency).build()
     val propertiesFile = InitPropertiesBuilder(mainDependency, yaclibDependency).build()
     val modelFile = ModelProtoBuilder(mainDependency).build()

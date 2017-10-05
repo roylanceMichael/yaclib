@@ -25,8 +25,8 @@ buildscript {
         maven { url ${CLITokens.RepoUrlName} }
     }
     dependencies {
-        classpath "org.roylance.yaclib:core:$${CLITokens.YaclibMajorName}.$${CLITokens.YaclibMinorName}"
-        classpath "${dependency.group}:${CommonTokens.ApiName}:$${JavaUtilities.MajorName}.$${JavaUtilities.MinorName}"
+        classpath "org.roylance:yaclib.core:$${CLITokens.YaclibMajorName}.$${CLITokens.YaclibMinorName}"
+        classpath "${dependency.group}:${dependency.name}:$${JavaUtilities.MajorName}.$${JavaUtilities.MinorName}"
     }
 }
 

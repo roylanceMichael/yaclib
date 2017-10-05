@@ -144,14 +144,6 @@ class PluginLogic(
   }
 
   override fun build(): Boolean {
-    auxiliaryProjectsMap.values.forEach { project ->
-      println(
-          "updating ${project.targetDependency.group}.${project.targetDependency.name} with roylance.common (${JavaUtilities.RoylanceCommonVersion}) and kotlin (${JavaUtilities.KotlinVersion})")
-
-      val actualLocation = Paths.get(location, project.targetDependency.name).toString()
-      GradleUtilities.updateDependencyVersion(actualLocation, roylanceCommonDependency)
-      GradleUtilities.updateDependencyVersion(actualLocation, kotlinDependency)
-    }
     processPhase(YaclibModel.ExecutionPhase.DELETE_DIRECTORIES)
 
     // delete phase
@@ -202,6 +194,15 @@ class PluginLogic(
     ClientLogic(
         location,
         projectInformation).build()
+
+    auxiliaryProjectsMap.values.forEach { project ->
+      println(
+          "updating ${project.targetDependency.group}.${project.targetDependency.name} with roylance.common (${JavaUtilities.RoylanceCommonVersion}) and kotlin (${JavaUtilities.KotlinVersion})")
+
+      val actualLocation = Paths.get(location, project.targetDependency.name).toString()
+      GradleUtilities.updateDependencyVersion(actualLocation, roylanceCommonDependency)
+      GradleUtilities.updateDependencyVersion(actualLocation, kotlinDependency)
+    }
 
 //        println(InitUtilities.buildPhaseMessage(YaclibModel.ExecutionPhase.BUILD_PUBLISH_CSHARP.name))
 //        processPhase(YaclibModel.ExecutionPhase.BUILD_PUBLISH_CSHARP)
