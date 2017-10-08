@@ -37,7 +37,7 @@ class JavaServerProcessLanguageService : IProcessLanguageService {
       buildProperties[JavaUtilities.JettyServerName] = JavaUtilities.JettyServerVersion
       buildProperties[JavaUtilities.KotlinName] = JavaUtilities.KotlinVersion
       buildProperties[JavaUtilities.ServerPortName] = projectInformation.mainDependency.serverPort.toString()
-      buildProperties[JavaUtilities.YaclibVersionName] = projectInformation.mainDependency.yaclibVersion
+      buildProperties[JavaUtilities.YaclibVersionName] = JavaUtilities.YaclibVersion
       buildProperties[JavaUtilities.HttpComponentsName] = JavaUtilities.HttpComponentsVersion
 
       returnList.addFiles(

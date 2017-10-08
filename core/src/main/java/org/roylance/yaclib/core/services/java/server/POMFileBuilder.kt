@@ -289,7 +289,7 @@ class POMFileBuilder(
         </dependency>
         <dependency>
             <groupId>${controllerDependency.dependency.group}</groupId>
-            <artifactId>c${controllerDependency.dependency.name}</artifactId>
+            <artifactId>${controllerDependency.dependency.name}</artifactId>
             <version>${buildMavenPropertyReference(
           JavaUtilities.buildPackageVariableName(controllerDependency.dependency))}</version>
         </dependency>

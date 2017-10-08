@@ -72,7 +72,7 @@ public class YaclibPlugin extends DefaultTask {
                 location,
                 mainDependency.toBuilder()
                         .setName(mainDependency.getName())
-                        .setGroup(controllerDescriptor.getPackage())
+                        .setGroup(mainDependency.getGroup())
                         .build(),
                 controllerDescriptor,
                 dependencyDescriptors,

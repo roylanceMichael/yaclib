@@ -36,13 +36,13 @@ class TypeScriptBuilder(private val location: String,
     // this is custom
     val createJsonModelProcess = FileProcessUtilities.executeProcess(javaScriptDirectory.toString(),
         "pbjs",
-        "../api/src/main/resources/*.proto > $ModelJson")
+        "../${mainDependency.name}/src/main/resources/*.proto > $ModelJson")
     println(createJsonModelProcess.normalOutput)
     println(createJsonModelProcess.errorOutput)
 
     val createModelJsReport = FileProcessUtilities.executeProcess(javaScriptDirectory.toString(),
         "pbjs",
-        "../api/src/main/resources/*.proto -t js > $ModelJS")
+        "../${mainDependency.name}/src/main/resources/*.proto -t js > $ModelJS")
     println(createModelJsReport.normalOutput)
     println(createModelJsReport.errorOutput)
 
