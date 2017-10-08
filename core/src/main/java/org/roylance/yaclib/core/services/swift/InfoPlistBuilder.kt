@@ -7,7 +7,7 @@ import org.roylance.yaclib.core.enums.CommonTokens
 class InfoPlistBuilder(private val projectInformation: YaclibModel.ProjectInformation,
     private val isTest: Boolean) : IBuilder<YaclibModel.File> {
   override fun build(): YaclibModel.File {
-    val fileDirectory = "${projectInformation.mainDependency.name}${CommonTokens.ServerSuffix}/Source"
+    val fileDirectory = "${projectInformation.mainDependency.name}${CommonTokens.SwiftSuffix}/Source"
 
     val file = YaclibModel.File.newBuilder()
         .setFileExtension(YaclibModel.FileExtension.PLIST_EXT)
