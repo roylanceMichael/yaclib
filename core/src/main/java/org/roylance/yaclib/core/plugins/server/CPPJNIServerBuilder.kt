@@ -12,7 +12,7 @@ import java.nio.file.Paths
 class CPPJNIServerBuilder(private val location: String,
     private val projectInformation: YaclibModel.ProjectInformation) : IBuilder<Boolean> {
   override fun build(): Boolean {
-    val javaServerJNIDirectory = Paths.get(location, CommonTokens.ServerJni).toFile()
+    val javaServerJNIDirectory = Paths.get(location, "${projectInformation.mainDependency.name}${CommonTokens.JNIAffix}${CommonTokens.ServerSuffix}").toFile()
     println(InitUtilities.buildPhaseMessage("java server jni begin"))
 
     val cleanReport = GradleUtilities.clean(javaServerJNIDirectory.toString())

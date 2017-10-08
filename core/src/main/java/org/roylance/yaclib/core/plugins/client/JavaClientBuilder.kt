@@ -3,7 +3,6 @@ package org.roylance.yaclib.core.plugins.client
 import org.roylance.common.service.IBuilder
 import org.roylance.yaclib.YaclibModel
 import org.roylance.yaclib.core.enums.CommonTokens
-import org.roylance.yaclib.core.utilities.FileProcessUtilities
 import org.roylance.yaclib.core.utilities.GradleUtilities
 import org.roylance.yaclib.core.utilities.InitUtilities
 import java.nio.file.Paths
@@ -11,7 +10,7 @@ import java.nio.file.Paths
 class JavaClientBuilder(private val location: String,
     private val mainDependency: YaclibModel.Dependency) : IBuilder<Boolean> {
   override fun build(): Boolean {
-    val javaClientDirectory = Paths.get(this.location, CommonTokens.ClientApi).toFile()
+    val javaClientDirectory = Paths.get(this.location, "${mainDependency.name}${CommonTokens.ClientSuffix}").toFile()
 
     println(InitUtilities.buildPhaseMessage("java client begin"))
 

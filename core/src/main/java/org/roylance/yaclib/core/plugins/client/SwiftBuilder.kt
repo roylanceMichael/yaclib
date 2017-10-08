@@ -15,13 +15,13 @@ class SwiftBuilder(private val location: String,
   override fun build(): Boolean {
     // generate template
     println(InitUtilities.buildPhaseMessage("building protobufs for swift"))
-    val generateProtoProcessReport = SwiftUtilities.buildProtobufs(location)
+    val generateProtoProcessReport = SwiftUtilities.buildProtobufs(location, projectInformation.mainDependency)
     println(generateProtoProcessReport.normalOutput)
     println(generateProtoProcessReport.errorOutput)
 
     // add custom swift files to project
     val newFiles = ArrayList<String>()
-    val sourceFolders = Paths.get(location, CommonTokens.SwiftName, "Source").toFile()
+    val sourceFolders = Paths.get(location, "${projectInformation.mainDependency.name}${CommonTokens.SwiftSuffix}", "Source").toFile()
 
     if (sourceFolders.exists() && sourceFolders.isDirectory) {
       sourceFolders.list().forEach {

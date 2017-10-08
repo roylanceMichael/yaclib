@@ -71,8 +71,8 @@ public class YaclibPlugin extends DefaultTask {
         return new PluginLogic(
                 location,
                 mainDependency.toBuilder()
-                        .setName(CommonTokens.ApiName)
-                        .setGroup(controllerDescriptor.getPackage())
+                        .setName(mainDependency.getName())
+                        .setGroup(mainDependency.getGroup())
                         .build(),
                 controllerDescriptor,
                 dependencyDescriptors,

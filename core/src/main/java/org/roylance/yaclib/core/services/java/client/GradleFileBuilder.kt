@@ -54,7 +54,7 @@ dependencies {
     testCompile group: 'junit', name: 'junit', version: '${JavaUtilities.JUnitVersion}'
     compile "com.squareup.retrofit2:retrofit:$${JavaUtilities.RetrofitName}"
 
-    compile "org.roylance:common:$${JavaUtilities.RoylanceCommonName}"
+    compile "org.roylance:roylance.common:$${JavaUtilities.RoylanceCommonName}"
     ${GradleUtilities.buildDependencies(projectInformation)}
 }
 """

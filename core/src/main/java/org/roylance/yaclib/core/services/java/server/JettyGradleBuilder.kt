@@ -20,7 +20,7 @@ buildscript {
     }
     dependencies {
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$${JavaUtilities.KotlinName}"
-        classpath "org.roylance.yaclib:core:$${JavaUtilities.YaclibVersionName}"
+        classpath "org.roylance:yaclib.core:$${JavaUtilities.YaclibVersionName}"
     }
 }
 
@@ -93,7 +93,7 @@ packageApp.dependsOn(installDist)
 
     projectInformation.controllers.controllerDependenciesList.forEach { controllerDependency ->
       workspace.append(
-          """    compile "${controllerDependency.dependency.group}:c${controllerDependency.dependency.name}:$${JavaUtilities.buildPackageVariableName(
+          """    compile "${controllerDependency.dependency.group}:${controllerDependency.dependency.name}${CommonTokens.ClientSuffix}:$${JavaUtilities.buildPackageVariableName(
               controllerDependency.dependency)}"
 """)
     }

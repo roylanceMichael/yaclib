@@ -4,13 +4,11 @@ import org.roylance.yaclib.YaclibModel
 import org.roylance.yaclib.core.enums.CommonTokens
 import org.roylance.yaclib.core.services.IProcessLanguageService
 import org.roylance.yaclib.core.services.common.ReadmeBuilder
-import org.roylance.yaclib.core.services.java.client.JavaRetrofitBuilder
 import org.roylance.yaclib.core.services.java.client.KotlinServiceBuilder
-import org.roylance.yaclib.core.services.java.client.KotlinServiceImplementationBuilder
 import org.roylance.yaclib.core.services.java.common.GradleSettingsBuilder
 import org.roylance.yaclib.core.services.java.common.PropertiesBuilder
 import org.roylance.yaclib.core.utilities.JavaUtilities
-import java.util.*
+import java.util.HashMap
 
 class CPPJNILanguageService : IProcessLanguageService {
   override fun buildInterface(
@@ -29,8 +27,8 @@ class CPPJNILanguageService : IProcessLanguageService {
         projectInformation.thirdPartyDependenciesList,
         buildProperties).build())
     returnList.addFiles(ReadmeBuilder(projectInformation.mainDependency).build())
-    returnList.addFiles(CPPJNIGradleBuilder(projectInformation, CommonTokens.ServerJni).build())
-    returnList.addFiles(GradleSettingsBuilder(CommonTokens.ServerJni).build())
+    returnList.addFiles(CPPJNIGradleBuilder(projectInformation, "${projectInformation.mainDependency.name}${CommonTokens.JNIAffix}${CommonTokens.ServerSuffix}").build())
+    returnList.addFiles(GradleSettingsBuilder("${projectInformation.mainDependency.name}${CommonTokens.JNIAffix}${CommonTokens.ServerSuffix}").build())
 
     projectInformation.controllers.controllerDependenciesList
         .filter {

@@ -12,7 +12,7 @@ class TypeScriptBuilder(private val location: String,
     private val mainDependency: YaclibModel.Dependency) : IBuilder<Boolean> {
   override fun build(): Boolean {
     // run node stuff
-    val javaScriptDirectory = Paths.get(location, CommonTokens.JavaScriptName).toFile()
+    val javaScriptDirectory = Paths.get(location, "${mainDependency.name}${CommonTokens.JavaScriptSuffix}").toFile()
     println(InitUtilities.buildPhaseMessage("typescript client begin"))
 
     println(InitUtilities.buildPhaseMessage("building protobufs for npm"))
@@ -36,13 +36,13 @@ class TypeScriptBuilder(private val location: String,
     // this is custom
     val createJsonModelProcess = FileProcessUtilities.executeProcess(javaScriptDirectory.toString(),
         "pbjs",
-        "../api/src/main/resources/*.proto > $ModelJson")
+        "../${mainDependency.name}/src/main/resources/*.proto > $ModelJson")
     println(createJsonModelProcess.normalOutput)
     println(createJsonModelProcess.errorOutput)
 
     val createModelJsReport = FileProcessUtilities.executeProcess(javaScriptDirectory.toString(),
         "pbjs",
-        "../api/src/main/resources/*.proto -t js > $ModelJS")
+        "../${mainDependency.name}/src/main/resources/*.proto -t js > $ModelJS")
     println(createModelJsReport.normalOutput)
     println(createModelJsReport.errorOutput)
 
@@ -82,8 +82,6 @@ class TypeScriptBuilder(private val location: String,
   }
 
   companion object {
-    private const val Bin = "bin"
-    private const val NodeModules = "node_modules"
     private const val ModelJson = "model.json"
     private const val ModelJS = "model.js"
   }

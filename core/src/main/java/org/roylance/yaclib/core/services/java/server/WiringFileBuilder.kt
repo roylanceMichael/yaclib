@@ -89,7 +89,7 @@ furtherAngularSetup(app);
                 val lowercaseFirstChar = "${controller.name[0].toLowerCase()}${controller.name.substring(1)}${CommonTokens.ServiceName}"
                 val lowercaseFirstCharDependency = "${dependency.dependency.typescriptModelFile[0].toLowerCase()}${dependency.dependency.typescriptModelFile.substring(1)}"
 
-                val template = """app.factory("$lowercaseFirstChar", function($HttpExecuteVariableName:${HttpExecuteImplementationBuilder.FileName}, $lowercaseFirstCharDependency:${dependency.dependency.group}.ProtoBufBuilder) {
+                val template = """app.factory("$lowercaseFirstChar", function($HttpExecuteVariableName:${HttpExecuteImplementationBuilder.FileName}, $lowercaseFirstCharDependency:${dependency.dependency.group}.${dependency.dependency.name}.ProtoBufBuilder) {
     return new ${controller.name}${CommonTokens.ServiceName}($HttpExecuteVariableName, $lowercaseFirstCharDependency)
 });
 """

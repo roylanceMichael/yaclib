@@ -3,7 +3,6 @@ package org.roylance.yaclib.core.services.java.init
 import org.roylance.common.service.IBuilder
 import org.roylance.yaclib.YaclibModel
 import org.roylance.yaclib.core.enums.CLITokens
-import org.roylance.yaclib.core.enums.CommonTokens
 import org.roylance.yaclib.core.utilities.JavaUtilities
 import org.roylance.yaclib.core.utilities.StringUtilities
 
@@ -25,8 +24,8 @@ buildscript {
         maven { url ${CLITokens.RepoUrlName} }
     }
     dependencies {
-        classpath "org.roylance.yaclib:core:$${CLITokens.YaclibMajorName}.$${CLITokens.YaclibMinorName}"
-        classpath "${dependency.group}:${CommonTokens.ApiName}:$${JavaUtilities.MajorName}.$${JavaUtilities.MinorName}"
+        classpath "org.roylance:yaclib.core:$${CLITokens.YaclibMajorName}.$${CLITokens.YaclibMinorName}"
+        classpath "${dependency.group}:${dependency.name}:$${JavaUtilities.MajorName}.$${JavaUtilities.MinorName}"
     }
 }
 
@@ -43,7 +42,7 @@ task execute(type: YaclibPlugin) {
 
     mainDependency = YaclibModel.Dependency.newBuilder()
         .setGroup("${dependency.group}")
-        .setName("${CommonTokens.ApiName}")
+        .setName("${dependency.name}")
         .setAuthorName(${CLITokens.AuthorName})
         .setLicense(${CLITokens.LicenseName})
         .setGithubRepo(${CLITokens.GithubRepoName})

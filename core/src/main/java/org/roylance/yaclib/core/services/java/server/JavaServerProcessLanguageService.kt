@@ -28,8 +28,8 @@ class JavaServerProcessLanguageService : IProcessLanguageService {
       returnList.addFiles(JavaLaunchBuilder().build())
       returnList.addFiles(MavenProcBuilder().build())
     } else {
-      returnList.addFiles(GradleSettingsBuilder(CommonTokens.ServerApi).build())
-      returnList.addFiles(JettyGradleProcBuilder(CommonTokens.ServerApi).build())
+      returnList.addFiles(GradleSettingsBuilder("${projectInformation.mainDependency.name}${CommonTokens.ServerSuffix}").build())
+      returnList.addFiles(JettyGradleProcBuilder("${projectInformation.mainDependency.name}${CommonTokens.ServerSuffix}").build())
       returnList.addFiles(JettyGradleBuilder(projectInformation).build())
 
       val buildProperties = HashMap<String, String>()
@@ -37,7 +37,7 @@ class JavaServerProcessLanguageService : IProcessLanguageService {
       buildProperties[JavaUtilities.JettyServerName] = JavaUtilities.JettyServerVersion
       buildProperties[JavaUtilities.KotlinName] = JavaUtilities.KotlinVersion
       buildProperties[JavaUtilities.ServerPortName] = projectInformation.mainDependency.serverPort.toString()
-      buildProperties[JavaUtilities.YaclibVersionName] = projectInformation.mainDependency.yaclibVersion
+      buildProperties[JavaUtilities.YaclibVersionName] = JavaUtilities.YaclibVersion
       buildProperties[JavaUtilities.HttpComponentsName] = JavaUtilities.HttpComponentsVersion
 
       returnList.addFiles(
@@ -53,7 +53,7 @@ class JavaServerProcessLanguageService : IProcessLanguageService {
     returnList.addFiles(
         HttpExecuteImplementationBuilder(actualProjectInformation.mainDependency).build())
     returnList.addFiles(FurtherAngularSetupBuilder().build())
-    returnList.addFiles(IndexHTMLBuilder().build())
+    returnList.addFiles(IndexHTMLBuilder(projectInformation.mainDependency).build())
     returnList.addFiles(WiringFileBuilder(actualProjectInformation.controllers).build())
 
     returnList.addFiles(JavaServletXMLBuilder(actualProjectInformation.mainDependency).build())

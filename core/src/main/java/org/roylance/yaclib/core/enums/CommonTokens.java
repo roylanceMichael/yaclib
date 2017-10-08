@@ -24,18 +24,16 @@ public class CommonTokens {
   public static final String ServiceLocatorLocation =
       UtilitiesName + "." + ServiceLocatorSingletonName;
 
-  public static final String ClientApi = "capi";
-  public static final String ServerApi = "sapi";
-  public static final String ServerJni = "jni";
+  public static final String ClientSuffix = "client";
+  public static final String ServerSuffix = "server";
+  public static final String JNIAffix = "jni";
 
-  public static final String ApiName = "api";
-  public static final String CSharpName = "csharp";
-  public static final String PythonName = "python";
-  public static final String JavaScriptName = "javascript";
+  public static final String PythonSuffix = "py";
+  public static final String CSharpSuffix = "cs";
+  public static final String SwiftSuffix = "swift";
+  public static final String JavaScriptSuffix = "js";
+
   public static final String NodeModules = "node_modules";
-  public static final String SwiftName = "swift";
-
-  public static final String PascalApiName = "Api";
 
   public static final String HttpExecute = "IHttpExecute";
   public static final String HttpExecuteVariableName = "httpExecute";

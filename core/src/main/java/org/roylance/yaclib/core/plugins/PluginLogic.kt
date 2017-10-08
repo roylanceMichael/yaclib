@@ -6,15 +6,22 @@ import org.roylance.common.service.IBuilder
 import org.roylance.yaclib.YaclibModel
 import org.roylance.yaclib.core.enums.CommonTokens
 import org.roylance.yaclib.core.models.DependencyDescriptor
-import org.roylance.yaclib.core.plugins.client.*
-import org.roylance.yaclib.core.plugins.server.CPPJNIServerBuilder
+import org.roylance.yaclib.core.plugins.client.JavaClientBuilder
+import org.roylance.yaclib.core.plugins.client.PythonBuilder
+import org.roylance.yaclib.core.plugins.client.TypeScriptBuilder
 import org.roylance.yaclib.core.plugins.server.JavaServerBuilder
 import org.roylance.yaclib.core.plugins.server.TypeScriptClientServerBuilder
 import org.roylance.yaclib.core.services.IProjectBuilderServices
 import org.roylance.yaclib.core.services.ProcessFileDescriptorService
-import org.roylance.yaclib.core.utilities.*
+import org.roylance.yaclib.core.utilities.CSharpUtilities
+import org.roylance.yaclib.core.utilities.GradleUtilities
+import org.roylance.yaclib.core.utilities.InitUtilities
+import org.roylance.yaclib.core.utilities.JavaUtilities
+import org.roylance.yaclib.core.utilities.MavenUtilities
+import org.roylance.yaclib.core.utilities.PythonUtilities
+import org.roylance.yaclib.core.utilities.TypeScriptUtilities
 import java.nio.file.Paths
-import java.util.*
+import java.util.HashMap
 
 class PluginLogic(
     val location: String,
@@ -144,27 +151,19 @@ class PluginLogic(
   }
 
   override fun build(): Boolean {
-    auxiliaryProjectsMap.values.forEach { project ->
-      println(
-          "updating ${project.targetDependency.group}.${project.targetDependency.name} with roylance.common (${JavaUtilities.RoylanceCommonVersion}) and kotlin (${JavaUtilities.KotlinVersion})")
-
-      val actualLocation = Paths.get(location, project.targetDependency.name).toString()
-      GradleUtilities.updateDependencyVersion(actualLocation, roylanceCommonDependency)
-      GradleUtilities.updateDependencyVersion(actualLocation, kotlinDependency)
-    }
     processPhase(YaclibModel.ExecutionPhase.DELETE_DIRECTORIES)
 
     // delete phase
-    println("deleting ${Paths.get(location, CommonTokens.JavaScriptName).toFile()}")
-    FileUtils.deleteDirectory(Paths.get(location, CommonTokens.JavaScriptName).toFile())
-    println("deleting ${Paths.get(location, CommonTokens.ClientApi).toFile()}")
-    FileUtils.deleteDirectory(Paths.get(location, CommonTokens.ClientApi).toFile())
-    println("deleting ${Paths.get(location, CommonTokens.CSharpName)}")
-    FileUtils.deleteDirectory(Paths.get(location, CommonTokens.CSharpName).toFile())
-    println("deleting ${Paths.get(location, CommonTokens.PythonName)}")
-    FileUtils.deleteDirectory(Paths.get(location, CommonTokens.PythonName).toFile())
-    println("deleting ${Paths.get(location, CommonTokens.SwiftName)}")
-    FileUtils.deleteDirectory(Paths.get(location, CommonTokens.SwiftName).toFile())
+    println("deleting ${Paths.get(location, "${mainDependency.name}${CommonTokens.JavaScriptSuffix}").toFile()}")
+    FileUtils.deleteDirectory(Paths.get(location, "${mainDependency.name}${CommonTokens.JavaScriptSuffix}").toFile())
+    println("deleting ${Paths.get(location, "${mainDependency.name}${CommonTokens.ClientSuffix}").toFile()}")
+    FileUtils.deleteDirectory(Paths.get(location, "${mainDependency.name}${CommonTokens.ClientSuffix}").toFile())
+    println("deleting ${Paths.get(location, "${mainDependency.name}${CommonTokens.CSharpSuffix}")}")
+    FileUtils.deleteDirectory(Paths.get(location, "${mainDependency.name}${CommonTokens.CSharpSuffix}").toFile())
+    println("deleting ${Paths.get(location, "${mainDependency.name}${CommonTokens.PythonSuffix}")}")
+    FileUtils.deleteDirectory(Paths.get(location, "${mainDependency.name}${CommonTokens.PythonSuffix}").toFile())
+    println("deleting ${Paths.get(location, "${mainDependency.name}${CommonTokens.SwiftSuffix}")}")
+    FileUtils.deleteDirectory(Paths.get(location, "${mainDependency.name}${CommonTokens.SwiftSuffix}").toFile())
 
     println(InitUtilities.buildPhaseMessage(
         YaclibModel.ExecutionPhase.GENERATE_CODE_FROM_PROTOBUFS.name))
@@ -203,6 +202,15 @@ class PluginLogic(
         location,
         projectInformation).build()
 
+    auxiliaryProjectsMap.values.forEach { project ->
+      println(
+          "updating ${project.targetDependency.group}.${project.targetDependency.name} with roylance.common (${JavaUtilities.RoylanceCommonVersion}) and kotlin (${JavaUtilities.KotlinVersion})")
+
+      val actualLocation = Paths.get(location, project.targetDependency.name).toString()
+      GradleUtilities.updateDependencyVersion(actualLocation, roylanceCommonDependency)
+      GradleUtilities.updateDependencyVersion(actualLocation, kotlinDependency)
+    }
+
 //        println(InitUtilities.buildPhaseMessage(YaclibModel.ExecutionPhase.BUILD_PUBLISH_CSHARP.name))
 //        processPhase(YaclibModel.ExecutionPhase.BUILD_PUBLISH_CSHARP)
 //        CSharpBuilder(location, mainDependency, nugetKey).build()
@@ -235,12 +243,12 @@ class PluginLogic(
     processPhase(YaclibModel.ExecutionPhase.BUILD_TYPESCRIPT_SERVER)
     println(
         InitUtilities.buildPhaseMessage(YaclibModel.ExecutionPhase.BUILD_TYPESCRIPT_SERVER.name))
-    TypeScriptClientServerBuilder(location).build()
+    TypeScriptClientServerBuilder(location, mainDependency.name).build()
 
     processPhase(YaclibModel.ExecutionPhase.BUILD_PACKAGE_JAVA_SERVER)
     println(
         InitUtilities.buildPhaseMessage(YaclibModel.ExecutionPhase.BUILD_PACKAGE_JAVA_SERVER.name))
-    JavaServerBuilder(location, mainDependency.serverType).build()
+    JavaServerBuilder(location, mainDependency, mainDependency.serverType).build()
 
     processPhase(YaclibModel.ExecutionPhase.BUILD_PACKAGE_JAVA_SERVER)
     println(

@@ -53,7 +53,7 @@ public class YaclibPackagePlugin extends DefaultTask {
         }
 
         // this will build the JavaScript UI
-        new TypeScriptClientServerBuilder(currentDirectory).build();
+        new TypeScriptClientServerBuilder(currentDirectory, appName).build();
 
         // copy /src/main/webapp into /build/install/appname
         FileUtils.copyDirectory(

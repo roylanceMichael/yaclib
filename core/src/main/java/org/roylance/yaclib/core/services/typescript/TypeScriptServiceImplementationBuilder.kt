@@ -14,7 +14,7 @@ class TypeScriptServiceImplementationBuilder(private val controller: YaclibModel
     val initialTemplate = """${CommonTokens.DoNotAlterMessage}
 import {$interfaceName} from "./$interfaceName";
 import {${HttpExecuteServiceBuilder.FileName}} from "./${HttpExecuteServiceBuilder.FileName}";
-import ProtoBufBuilder = ${dependency.group}.ProtoBufBuilder;
+import ProtoBufBuilder = ${dependency.group}.${dependency.name}.ProtoBufBuilder;
 
 export class ${controller.name}${CommonTokens.ServiceName} implements $interfaceName {
     ${HttpExecuteServiceBuilder.VariableName}:${HttpExecuteServiceBuilder.FileName};

@@ -21,8 +21,8 @@ class SwiftProcessLanguageService : IProcessLanguageService {
         .filter { it.dependency.group == projectInformation.mainDependency.group && it.dependency.name == projectInformation.mainDependency.name }
         .forEach { controllerDependency ->
           controllerDependency.controllers.controllersList.forEach { controller ->
-            returnList.addFiles(SwiftServiceBuilder(controller).build())
-            returnList.addFiles(SwiftServiceImplementationBuilder(controller).build())
+            returnList.addFiles(SwiftServiceBuilder(projectInformation.mainDependency, controller).build())
+            returnList.addFiles(SwiftServiceImplementationBuilder(projectInformation.mainDependency, controller).build())
           }
         }
 

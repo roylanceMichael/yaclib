@@ -7,6 +7,7 @@ import org.roylance.yaclib.core.utilities.StringUtilities
 import org.roylance.yaclib.core.utilities.SwiftUtilities
 
 class SwiftServiceImplementationBuilder(
+    private val mainDependency: YaclibModel.Dependency,
     private val controller: YaclibModel.Controller) : IBuilder<YaclibModel.File> {
   override fun build(): YaclibModel.File {
     val workspace = StringBuilder()
@@ -73,7 +74,7 @@ public class ${controller.name}${CommonTokens.ServiceName}: $interfaceName {
         .setFileToWrite(workspace.toString())
         .setFileExtension(YaclibModel.FileExtension.SWIFT_EXT)
         .setFileName("${controller.name}${CommonTokens.ServiceName}")
-        .setFullDirectoryLocation("${CommonTokens.SwiftName}/Source")
+        .setFullDirectoryLocation("${mainDependency.name}${CommonTokens.SwiftSuffix}/Source")
         .build()
 
     return returnFile
