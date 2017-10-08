@@ -19,26 +19,26 @@ class ClientLogic(
     val filePersistService = FilePersistService()
 
     val javaClientFiles = JavaClientProcessLanguageService().buildInterface(projectInformation)
-    filePersistService.persistFiles(Paths.get(location, CommonTokens.ClientApi).toString(),
+    filePersistService.persistFiles(Paths.get(location, "${projectInformation.mainDependency.name}${CommonTokens.ClientSuffix}").toString(),
         javaClientFiles)
 
     val javaJNIFiles = CPPJNILanguageService().buildInterface(projectInformation)
-    filePersistService.persistFiles(Paths.get(location, CommonTokens.ServerJni).toString(),
+    filePersistService.persistFiles(Paths.get(location, "${projectInformation.mainDependency.name}${CommonTokens.JNIAffix}").toString(),
         javaJNIFiles)
 
     val typeScriptFiles = TypeScriptProcessLanguageService().buildInterface(projectInformation)
-    filePersistService.persistFiles(Paths.get(location, CommonTokens.JavaScriptName).toString(),
+    filePersistService.persistFiles(Paths.get(location, "${projectInformation.mainDependency.name}${CommonTokens.JavaScriptSuffix}").toString(),
         typeScriptFiles)
 
     val csharpFiles = CSharpProcessLanguageService().buildInterface(projectInformation)
-    filePersistService.persistFiles(Paths.get(location, CommonTokens.CSharpName).toString(),
+    filePersistService.persistFiles(Paths.get(location, "${projectInformation.mainDependency.name}${CommonTokens.CSharpSuffix}").toString(),
         csharpFiles)
 
     val pythonFiles = PythonProcessLanguageService().buildInterface(projectInformation)
-    filePersistService.persistFiles(Paths.get(location, CommonTokens.PythonName).toString(),
+    filePersistService.persistFiles(Paths.get(location, "${projectInformation.mainDependency.name}${CommonTokens.PythonSuffix}").toString(),
         pythonFiles)
 
-    val swiftDirectory = Paths.get(location, CommonTokens.SwiftName).toFile()
+    val swiftDirectory = Paths.get(location, "${projectInformation.mainDependency.name}${CommonTokens.SwiftSuffix}").toFile()
     if (!swiftDirectory.exists()) {
       swiftDirectory.mkdirs()
     }

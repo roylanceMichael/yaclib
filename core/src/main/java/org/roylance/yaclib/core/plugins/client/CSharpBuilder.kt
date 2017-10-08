@@ -4,7 +4,6 @@ import org.roylance.common.service.IBuilder
 import org.roylance.yaclib.YaclibModel
 import org.roylance.yaclib.core.enums.CommonTokens
 import org.roylance.yaclib.core.utilities.CSharpUtilities
-import org.roylance.yaclib.core.utilities.FileProcessUtilities
 import org.roylance.yaclib.core.utilities.InitUtilities
 import java.nio.file.Paths
 
@@ -21,7 +20,7 @@ class CSharpBuilder(private val location: String,
       return false
     }
 
-    val csharpDirectory = Paths.get(this.location, CommonTokens.CSharpName,
+    val csharpDirectory = Paths.get(this.location, "${mainDependency.name}${CommonTokens.CSharpSuffix}",
         CSharpUtilities.buildFullName(mainDependency)).toFile()
 
     // custom to yaclib process

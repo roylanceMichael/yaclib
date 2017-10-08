@@ -25,8 +25,8 @@ class JavaClientProcessLanguageService : IProcessLanguageService {
         PropertiesBuilder(projectInformation.controllers, projectInformation.mainDependency,
             projectInformation.thirdPartyDependenciesList, buildProperties).build())
     returnList.addFiles(ReadmeBuilder(projectInformation.mainDependency).build())
-    returnList.addFiles(GradleFileBuilder(projectInformation, CommonTokens.ClientApi).build())
-    returnList.addFiles(GradleSettingsBuilder(CommonTokens.ClientApi).build())
+    returnList.addFiles(GradleFileBuilder(projectInformation, "${projectInformation.mainDependency.name}${CommonTokens.ClientSuffix}").build())
+    returnList.addFiles(GradleSettingsBuilder("${projectInformation.mainDependency.name}${CommonTokens.ClientSuffix}").build())
 
     projectInformation.controllers.controllerDependenciesList
         .filter { it.dependency.group == projectInformation.mainDependency.group &&

@@ -3,7 +3,6 @@ package org.roylance.yaclib.core.services.java.init
 import org.roylance.common.service.IBuilder
 import org.roylance.yaclib.YaclibModel
 import org.roylance.yaclib.core.enums.CLITokens
-import org.roylance.yaclib.core.enums.CommonTokens
 import org.roylance.yaclib.core.utilities.JavaUtilities
 import org.roylance.yaclib.core.utilities.StringUtilities
 
@@ -43,7 +42,7 @@ task execute(type: YaclibPlugin) {
 
     mainDependency = YaclibModel.Dependency.newBuilder()
         .setGroup("${dependency.group}")
-        .setName("${CommonTokens.ApiName}")
+        .setName("${dependency.name}")
         .setAuthorName(${CLITokens.AuthorName})
         .setLicense(${CLITokens.LicenseName})
         .setGithubRepo(${CLITokens.GithubRepoName})

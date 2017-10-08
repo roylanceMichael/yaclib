@@ -1,15 +1,17 @@
 package org.roylance.yaclib.core.plugins.server
 
 import org.roylance.common.service.IBuilder
+import org.roylance.yaclib.YaclibModel
 import org.roylance.yaclib.core.enums.CommonTokens
 import org.roylance.yaclib.core.utilities.FileProcessUtilities
 import org.roylance.yaclib.core.utilities.InitUtilities
 import org.roylance.yaclib.core.utilities.TypeScriptUtilities
 import java.nio.file.Paths
 
-class TypeScriptClientServerBuilder(private val location: String) : IBuilder<Boolean> {
+class TypeScriptClientServerBuilder(private val location: String,
+    private val apiProjectName: String) : IBuilder<Boolean> {
   override fun build(): Boolean {
-    val javascriptDirectory = Paths.get(location, CommonTokens.ServerApi, "src", "main",
+    val javascriptDirectory = Paths.get(location, "${apiProjectName}${CommonTokens.ServerSuffix}", "src", "main",
         "javascript").toFile()
     println(InitUtilities.buildPhaseMessage("typescript server begin"))
 

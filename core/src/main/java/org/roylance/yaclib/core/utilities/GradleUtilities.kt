@@ -62,13 +62,11 @@ object GradleUtilities : IProjectBuilderServices {
       inputStream.close()
     }
 
-    // special rule for java types
-    if (otherDependency.name == CommonTokens.ApiName) {
-      properties.setProperty(JavaUtilities.buildPackageVariableName(otherDependency
-          .toBuilder()
-          .setName(CommonTokens.ClientApi).build()),
-          "${otherDependency.majorVersion}.${otherDependency.minorVersion}")
-    }
+    // double check this logic, may need more info
+    properties.setProperty(JavaUtilities.buildPackageVariableName(otherDependency
+        .toBuilder()
+        .setName("${otherDependency.name}${CommonTokens.ClientSuffix}").build()),
+        "${otherDependency.majorVersion}.${otherDependency.minorVersion}")
 
     val variableName = JavaUtilities.buildPackageVariableName(otherDependency)
     if (otherDependency.thirdPartyDependencyVersion.isEmpty()) {

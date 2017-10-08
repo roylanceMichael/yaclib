@@ -20,7 +20,7 @@ class InitLogic(private val location: String,
     val files = YaclibModel.AllFiles.newBuilder()
 
     val generateProtoFile = GenerateProtoBuilder().build()
-    val gradleFile = GradleFileBuilder(projectInformation, CommonTokens.ApiName).build()
+    val gradleFile = GradleFileBuilder(projectInformation, mainDependency.name).build()
     val gradleSettings = GradleSettingsBuilder(mainDependency.name).build()
     val yaclibFile = YaclibGradleBuilder(mainDependency).build()
     val propertiesFile = InitPropertiesBuilder(mainDependency, yaclibDependency).build()
@@ -37,7 +37,7 @@ class InitLogic(private val location: String,
 
     val filePersistService = FilePersistService()
 
-    val apiLocation = Paths.get(location, CommonTokens.ApiName).toString()
+    val apiLocation = Paths.get(location, mainDependency.name).toString()
     filePersistService.persistFiles(apiLocation, files.build())
 
     return true

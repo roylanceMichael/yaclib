@@ -45,7 +45,7 @@ class ServerLogic(private val location: String,
         .build()
 
     val serverFiles = JavaServerProcessLanguageService().buildInterface(projectInformation)
-    filePersistService.persistFiles(Paths.get(this.location, CommonTokens.ServerApi).toString(),
+    filePersistService.persistFiles(Paths.get(location, "${mainDependency.name}${CommonTokens.ServerSuffix}").toString(),
         serverFiles)
 
     return true

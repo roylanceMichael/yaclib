@@ -26,7 +26,7 @@ object PythonUtilities: IProjectBuilderServices {
     }
 
     fun buildPythonSourceDirectory(mainDependency: YaclibModel.Dependency): String {
-        return Paths.get(CommonTokens.PythonName, buildPackageName(mainDependency)).toString()
+        return Paths.get("${mainDependency.name}${CommonTokens.PythonSuffix}", buildPackageName(mainDependency)).toString()
     }
 
     fun buildWheelUrl(dependency: YaclibModel.Dependency): String {
@@ -46,7 +46,7 @@ object PythonUtilities: IProjectBuilderServices {
         val pythonDirectory = Paths.get(location, buildPythonSourceDirectory(mainDependency)).toFile()
         pythonDirectory.mkdirs()
 
-        val protobufLocation = Paths.get(location, CommonTokens.ApiName, "src", "main", "resources").toString()
+        val protobufLocation = Paths.get(location, mainDependency.name, "src", "main", "resources").toString()
         val arguments = "-I=$protobufLocation --proto_path=$protobufLocation --python_out=$pythonDirectory $protobufLocation/*.proto"
         return FileProcessUtilities.executeProcess(pythonDirectory.toString(), InitUtilities.Protoc, arguments)
     }

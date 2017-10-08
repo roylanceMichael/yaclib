@@ -89,11 +89,11 @@ object SwiftUtilities : IProjectBuilderServices {
     return fullName
   }
 
-  fun buildProtobufs(location: String): YaclibModel.ProcessReport {
+  fun buildProtobufs(location: String, mainDependency: YaclibModel.Dependency): YaclibModel.ProcessReport {
     val protocGenSwiftLocation = FileProcessUtilities.getActualLocation(ProtocGenSwift)
 
-    val sourceDirectory = Paths.get(location, CommonTokens.SwiftName, "Source").toFile()
-    val protobufLocation = Paths.get(location, CommonTokens.ApiName, "src", "main",
+    val sourceDirectory = Paths.get(location, "${mainDependency.name}${CommonTokens.SwiftSuffix}", "Source").toFile()
+    val protobufLocation = Paths.get(location, mainDependency.name, "src", "main",
         "resources").toString()
     val arguments = "--plugin=$protocGenSwiftLocation -I=$protobufLocation --proto_path=$protobufLocation --swift_opt=Visibility=Public --swift_out=$sourceDirectory $protobufLocation/*.proto"
     return FileProcessUtilities.executeProcess(sourceDirectory.toString(), InitUtilities.Protoc,

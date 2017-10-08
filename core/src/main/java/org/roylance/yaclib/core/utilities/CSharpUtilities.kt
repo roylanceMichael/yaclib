@@ -85,10 +85,10 @@ object CSharpUtilities : IProjectBuilderServices {
 
   fun buildProtobufs(location: String,
       mainDependency: YaclibModel.Dependency): YaclibModel.ProcessReport {
-    val csharpDirectory = Paths.get(location, CommonTokens.CSharpName,
+    val csharpDirectory = Paths.get(location, "${mainDependency.name}${CommonTokens.CSharpSuffix}",
         CSharpUtilities.buildFullName(mainDependency)).toFile()
 
-    val protobufLocation = Paths.get(location, CommonTokens.ApiName, "src", "main",
+    val protobufLocation = Paths.get(location, mainDependency.name, "src", "main",
         "resources").toString()
     val arguments = "-I=$protobufLocation --proto_path=$protobufLocation --csharp_out=$csharpDirectory $protobufLocation/*.proto"
     return FileProcessUtilities.executeProcess(csharpDirectory.toString(), InitUtilities.Protoc,

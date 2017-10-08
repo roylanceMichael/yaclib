@@ -18,7 +18,7 @@ class POMFileBuilder(
     ${buildProperties()}
 
     <groupId>${projectInformation.mainDependency.group}</groupId>
-    <artifactId>${CommonTokens.ServerApi}</artifactId>
+    <artifactId>${projectInformation.mainDependency.name}${CommonTokens.ServerSuffix}</artifactId>
     <version>${projectInformation.mainDependency.majorVersion}.${projectInformation.mainDependency.minorVersion}</version>
 
     <repositories>
