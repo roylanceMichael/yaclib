@@ -72,7 +72,7 @@ furtherAngularSetup(app);
         this.allControllerDependencies.controllerDependenciesList.forEach { dependency ->
             val lowercaseFirstChar = "${dependency.dependency.typescriptModelFile[0].toLowerCase()}${dependency.dependency.typescriptModelFile.substring(1)}"
             val dependencyTemplate = """app.factory("$lowercaseFirstChar", function () {
-    return ${dependency.dependency.typescriptModelFile}.${dependency.dependency.group};
+    return ${dependency.dependency.typescriptModelFile}.${dependency.dependency.group}.${dependency.dependency.name};
 });
 """
             workspace.append(dependencyTemplate)

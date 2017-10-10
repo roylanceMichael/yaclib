@@ -15,6 +15,13 @@ class TypeScriptBuilder(private val location: String,
     val javaScriptDirectory = Paths.get(location, "${mainDependency.name}${CommonTokens.JavaScriptSuffix}").toFile()
     println(InitUtilities.buildPhaseMessage("typescript client begin"))
 
+    println(InitUtilities.buildPhaseMessage("removing protobufjs"))
+    val protobufJsUninstallReport = FileProcessUtilities.executeProcess(
+        javaScriptDirectory.toString(), InitUtilities.NPM,
+        "uninstall -g protobufjs")
+    println(protobufJsUninstallReport.normalOutput)
+    println(protobufJsUninstallReport.errorOutput)
+
     println(InitUtilities.buildPhaseMessage("building protobufs for npm"))
     val protobufJsInstallReport = FileProcessUtilities.executeProcess(
         javaScriptDirectory.toString(), InitUtilities.NPM,
