@@ -33,12 +33,12 @@ class JavaServerProcessLanguageService : IProcessLanguageService {
       returnList.addFiles(JettyGradleBuilder(projectInformation).build())
 
       val buildProperties = HashMap<String, String>()
-      buildProperties[JavaUtilities.JerseyMediaName] = JavaUtilities.JerseyMediaVersion
-      buildProperties[JavaUtilities.JettyServerName] = JavaUtilities.JettyServerVersion
-      buildProperties[JavaUtilities.KotlinName] = JavaUtilities.KotlinVersion
+      buildProperties[JavaUtilities.JerseyMediaName] = YaclibStatics.JerseyMediaVersion
+      buildProperties[JavaUtilities.JettyServerName] = YaclibStatics.JettyServerVersion
+      buildProperties[JavaUtilities.KotlinName] = YaclibStatics.KotlinVersion
       buildProperties[JavaUtilities.ServerPortName] = projectInformation.mainDependency.serverPort.toString()
-      buildProperties[JavaUtilities.YaclibVersionName] = JavaUtilities.YaclibVersion
-      buildProperties[JavaUtilities.HttpComponentsName] = JavaUtilities.HttpComponentsVersion
+      buildProperties[JavaUtilities.HttpComponentsName] = YaclibStatics.HttpComponentsVersion
+      buildProperties[JavaUtilities.YaclibVersionName] = YaclibStatics.YaclibVersion
 
       returnList.addFiles(
           PropertiesBuilder(projectInformation.controllers, projectInformation.mainDependency,

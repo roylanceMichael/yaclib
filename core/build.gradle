@@ -1,15 +1,20 @@
 buildscript {
   ext.kotlin_version = '1.2.10'
-  ext.project_version = "0.267"
+  ext.project_version = "0.272"
+  ext.roylance_common_version = "0.25"
 
   repositories {
     mavenCentral()
     jcenter()
+    maven {
+      url 'https://plugins.gradle.org/m2/'
+    }
   }
   dependencies {
     classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.7'
     classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
     classpath 'com.google.protobuf:protobuf-gradle-plugin:0.8.1'
+    classpath 'gradle.plugin.de.fuerstenau:BuildConfigPlugin:1.1.8'
   }
 }
 
@@ -23,12 +28,29 @@ apply plugin: 'maven'
 apply plugin: 'maven-publish'
 apply plugin: 'groovy'
 apply plugin: 'com.google.protobuf'
+apply plugin: 'idea'
+apply plugin: 'de.fuerstenau.buildconfig'
 
 sourceCompatibility = 1.8
 
+buildConfig {
+  appName = project.name       // sets value of NAME field
+  version = project_version // sets value of VERSION field,
+  // 'unspecified' if project.version is not set
+
+  clsName = 'BuildConfig'      // sets the name of the BuildConfig class
+  packageName = project.group  // sets the package of the BuildConfig class,
+  // 'de.fuerstenau.buildconfig' if project.group is not set
+  charset = 'UTF-8'            // sets charset of the generated class,
+  // 'UTF-8' if not set otherwise
+  buildConfigField 'String', 'PROTOBUF_VERSION', '3.4.0'
+  buildConfigField 'String', 'KOTLIN_VERSION', kotlin_version
+  buildConfigField 'String', 'ROYLANCE_COMMON_VERSION', roylance_common_version
+}
+
 protobuf {
   protoc {
-    artifact = "com.google.protobuf:protoc:3.3.0"
+    artifact = "com.google.protobuf:protoc:3.4.0"
   }
 }
 
@@ -96,7 +118,7 @@ dependencies {
   compile gradleApi()
   compile localGroovy()
 
-  compile 'org.roylance:roylance.common:0.24'
+  compile "org.roylance:roylance.common:$roylance_common_version"
 
   compile 'commons-io:commons-io:2.5'
   compile 'org.apache.commons:commons-compress:1.12'
@@ -104,3 +126,5 @@ dependencies {
 
   testCompile group: 'junit', name: 'junit', version: '4.11'
 }
+
+compileGroovy.dependsOn compileJava

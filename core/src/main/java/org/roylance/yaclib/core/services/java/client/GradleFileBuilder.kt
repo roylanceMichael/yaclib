@@ -14,11 +14,13 @@ buildscript {
     repositories {
         jcenter()
         mavenCentral()
+        maven { url '${JavaUtilities.DefaultRepository}'}
     }
     dependencies {
         classpath "org.jfrog.buildinfo:build-info-extractor-gradle:$${JavaUtilities.ArtifactoryName}"
         classpath "com.jfrog.bintray.gradle:gradle-bintray-plugin:$${JavaUtilities.BintrayName}"
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$${JavaUtilities.KotlinName}"
+        classpath "org.roylance:yaclib.core:${'$'}${JavaUtilities.YaclibVersionName}"
     }
 }
 
@@ -59,11 +61,9 @@ sourceSets {
 }
 
 dependencies {
-    testCompile group: 'junit', name: 'junit', version: '${JavaUtilities.JUnitVersion}'
-    compile "com.squareup.retrofit2:retrofit:$${JavaUtilities.RetrofitName}"
+    testCompile group: 'junit', name: 'junit', version: '${YaclibStatics.JUnitVersion}'
 
-    compile "org.roylance:roylance.common:$${JavaUtilities.RoylanceCommonName}"
-    ${GradleUtilities.buildDependencies(projectInformation)}
+    compile "org.roylance:roylance.common:${'$'}${'{'}YaclibStatics.RoylanceCommonVersion${'}'}"
 }
 """
 

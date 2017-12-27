@@ -22,7 +22,7 @@ object TypeScriptUtilities : IProjectBuilderServices {
   val protobufJsDependencyBuilder = YaclibModel.Dependency.newBuilder().setThirdPartyDependencyVersion(
       ProtobufJsVersion).setGroup("protobufjs").setType(YaclibModel.DependencyType.TYPESCRIPT)!!
   val roylanceCommonDependencyBuilder = YaclibModel.Dependency.newBuilder().setThirdPartyDependencyVersion(
-      "^${JavaUtilities.RoylanceCommonVersion}.0").setGroup("roylance.common").setType(
+      "^${YaclibStatics.RoylanceCommonVersion}.0").setGroup("roylance.common").setType(
       YaclibModel.DependencyType.TYPESCRIPT)!!
 
   val proto2TypeScriptDependencyBuilder = YaclibModel.Dependency.newBuilder().setThirdPartyDependencyVersion(

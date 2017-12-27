@@ -28,26 +28,6 @@ object JavaUtilities {
 
   const val DefaultRepository = "http://dl.bintray.com/roylancemichael/maven"
 
-  const val RoylanceCommonVersion = "0.24"
-  const val YaclibVersion = "0.256"
-
-  const val ArtifactoryVersion = "4.4.0"
-  const val BintrayVersion = "1.7"
-  const val TomcatVersion = "8.0.28"
-  const val KotlinVersion = "1.2.0"
-
-  const val CommonsIOVersion = "2.5"
-  const val ProtobufVersion = "3.3.0"
-  const val HttpComponentsVersion = "4.5.1"
-  const val IntellijAnnotationsVersion = "12.0"
-  const val JerseyJsonVersion = "1.19.1"
-  const val JerseyMediaVersion = "2.22.2"
-  const val JUnitVersion = "4.12"
-  const val QuartzVersion = "2.2.1"
-  const val GsonVersion = "2.7"
-  const val RetrofitVersion = "2.1.0"
-  const val JettyServerVersion = "9.3.14.v20161028"
-
   const val JettyServerName = "yaclib_jetty"
   const val JerseyMediaName = "yaclib_jersey"
   const val HttpComponentsName = "yaclib_http_components"
@@ -58,15 +38,6 @@ object JavaUtilities {
   const val BintrayName = "yaclib_bintray"
   const val ArtifactoryName = "yaclib_artifacatory"
   const val RetrofitName = "yaclib_retrofit"
-
-
-  const val MavenCompilerPluginVersion = "2.3.2"
-  const val MavenWarPluginVersion = "2.1.1"
-  const val CodeHausAppPluginVersion = "1.1.1"
-  const val MavenSurefirePluginVersion = "2.18.1"
-  const val HerokuPluginVersion = "1.0.3"
-  const val JavaServerJdkVersion = "1.8"
-  const val PropertiesMavenPlugin = "1.0.0"
 
   fun convertGroupNameToFolders(groupName: String): String {
     return groupName.replace(".", "/")

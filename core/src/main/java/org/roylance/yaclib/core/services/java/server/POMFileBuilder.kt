@@ -33,107 +33,107 @@ class POMFileBuilder(
         <dependency>
             <groupId>org.roylance</groupId>
             <artifactId>common</artifactId>
-            <version>${JavaUtilities.RoylanceCommonVersion}</version>
+            <version>${YaclibStatics.RoylanceCommonVersion}</version>
         </dependency>
         <dependency>
             <groupId>com.squareup.retrofit2</groupId>
             <artifactId>retrofit</artifactId>
-            <version>${JavaUtilities.RetrofitVersion}</version>
+            <version>${YaclibStatics.RetrofitVersion}</version>
         </dependency>
         <dependency>
             <groupId>org.apache.tomcat.embed</groupId>
             <artifactId>tomcat-embed-core</artifactId>
-            <version>${JavaUtilities.TomcatVersion}</version>
+            <version>${YaclibStatics.TomcatVersion}</version>
         </dependency>
         <dependency>
             <groupId>org.apache.tomcat.embed</groupId>
             <artifactId>tomcat-embed-logging-juli</artifactId>
-            <version>${JavaUtilities.TomcatVersion}</version>
+            <version>${YaclibStatics.TomcatVersion}</version>
         </dependency>
         <dependency>
             <groupId>org.apache.tomcat.embed</groupId>
             <artifactId>tomcat-embed-jasper</artifactId>
-            <version>${JavaUtilities.TomcatVersion}</version>
+            <version>${YaclibStatics.TomcatVersion}</version>
         </dependency>
         <dependency>
             <groupId>org.apache.tomcat</groupId>
             <artifactId>tomcat-jasper</artifactId>
-            <version>${JavaUtilities.TomcatVersion}</version>
+            <version>${YaclibStatics.TomcatVersion}</version>
         </dependency>
         <dependency>
             <groupId>org.apache.tomcat</groupId>
             <artifactId>tomcat-jasper-el</artifactId>
-            <version>${JavaUtilities.TomcatVersion}</version>
+            <version>${YaclibStatics.TomcatVersion}</version>
         </dependency>
         <dependency>
             <groupId>org.apache.tomcat</groupId>
             <artifactId>tomcat-jsp-api</artifactId>
-            <version>${JavaUtilities.TomcatVersion}</version>
+            <version>${YaclibStatics.TomcatVersion}</version>
         </dependency>
         <dependency>
             <groupId>com.google.code.gson</groupId>
             <artifactId>gson</artifactId>
-            <version>${JavaUtilities.GsonVersion}</version>
+            <version>${YaclibStatics.GsonVersion}</version>
         </dependency>
         <dependency>
             <groupId>org.jetbrains.kotlin</groupId>
             <artifactId>kotlin-stdlib</artifactId>
-            <version>${JavaUtilities.KotlinVersion}</version>
+            <version>${YaclibStatics.KotlinVersion}</version>
         </dependency>
         <dependency>
             <groupId>org.quartz-scheduler</groupId>
             <artifactId>quartz</artifactId>
-            <version>${JavaUtilities.QuartzVersion}</version>
+            <version>${YaclibStatics.QuartzVersion}</version>
         </dependency>
         <dependency>
             <groupId>org.quartz-scheduler</groupId>
             <artifactId>quartz-jobs</artifactId>
-            <version>${JavaUtilities.QuartzVersion}</version>
+            <version>${YaclibStatics.QuartzVersion}</version>
         </dependency>
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>${JavaUtilities.JUnitVersion}</version>
+            <version>${YaclibStatics.JUnitVersion}</version>
         </dependency>
         <dependency>
             <groupId>org.glassfish.jersey.containers</groupId>
             <artifactId>jersey-container-servlet</artifactId>
-            <version>${JavaUtilities.JerseyMediaVersion}</version>
+            <version>${YaclibStatics.JerseyMediaVersion}</version>
         </dependency>
         <dependency>
             <groupId>org.glassfish.jersey.media</groupId>
             <artifactId>jersey-media-multipart</artifactId>
-            <version>${JavaUtilities.JerseyMediaVersion}</version>
+            <version>${YaclibStatics.JerseyMediaVersion}</version>
         </dependency>
         <dependency>
             <groupId>com.sun.jersey</groupId>
             <artifactId>jersey-json</artifactId>
-            <version>${JavaUtilities.JerseyJsonVersion}</version>
+            <version>${YaclibStatics.JerseyJsonVersion}</version>
         </dependency>
         <dependency>
             <groupId>com.intellij</groupId>
             <artifactId>annotations</artifactId>
-            <version>${JavaUtilities.IntellijAnnotationsVersion}</version>
+            <version>${YaclibStatics.IntellijAnnotationsVersion}</version>
         </dependency>
         <dependency>
             <groupId>org.apache.httpcomponents</groupId>
             <artifactId>httpclient</artifactId>
-            <version>${JavaUtilities.HttpComponentsVersion}</version>
+            <version>${YaclibStatics.HttpComponentsVersion}</version>
         </dependency>
         <dependency>
             <groupId>com.google.protobuf</groupId>
             <artifactId>protobuf-java</artifactId>
-            <version>${JavaUtilities.ProtobufVersion}</version>
+            <version>${YaclibStatics.ProtobufVersion}</version>
         </dependency>
         <dependency>
             <groupId>com.google.protobuf</groupId>
             <artifactId>protobuf-java-util</artifactId>
-            <version>${JavaUtilities.ProtobufVersion}</version>
+            <version>${YaclibStatics.ProtobufVersion}</version>
         </dependency>
         <dependency>
             <groupId>commons-io</groupId>
             <artifactId>commons-io</artifactId>
-            <version>${JavaUtilities.CommonsIOVersion}</version>
+            <version>${YaclibStatics.CommonsIOVersion}</version>
         </dependency>
     </dependencies>
 
@@ -154,13 +154,13 @@ class POMFileBuilder(
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>${JavaUtilities.MavenCompilerPluginVersion}</version>
+                <version>${YaclibStatics.MavenCompilerPluginVersion}</version>
                 <configuration>
                     <verbose>true</verbose>
                     <fork>true</fork>
-                    <compilerVersion>${JavaUtilities.JavaServerJdkVersion}</compilerVersion>
-                    <source>${JavaUtilities.JavaServerJdkVersion}</source>
-                    <target>${JavaUtilities.JavaServerJdkVersion}</target>
+                    <compilerVersion>${YaclibStatics.JavaServerJdkVersion}</compilerVersion>
+                    <source>${YaclibStatics.JavaServerJdkVersion}</source>
+                    <target>${YaclibStatics.JavaServerJdkVersion}</target>
                     <encoding>UTF-8</encoding>
                 </configuration>
             </plugin>
@@ -168,7 +168,7 @@ class POMFileBuilder(
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-war-plugin</artifactId>
-                <version>${JavaUtilities.MavenWarPluginVersion}</version>
+                <version>${YaclibStatics.MavenWarPluginVersion}</version>
                 <configuration>
                     <warName>ROOT</warName>
                     <archive>
@@ -183,7 +183,7 @@ class POMFileBuilder(
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>appassembler-maven-plugin</artifactId>
-                <version>${JavaUtilities.CodeHausAppPluginVersion}</version>
+                <version>${YaclibStatics.CodeHausAppPluginVersion}</version>
                 <configuration>
                     <assembleDirectory>target</assembleDirectory>
                     <programs>
@@ -206,13 +206,13 @@ class POMFileBuilder(
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
-                <version>${JavaUtilities.MavenSurefirePluginVersion}</version>
+                <version>${YaclibStatics.MavenSurefirePluginVersion}</version>
             </plugin>
 
             <plugin>
                 <artifactId>kotlin-maven-plugin</artifactId>
                 <groupId>org.jetbrains.kotlin</groupId>
-                <version>${JavaUtilities.KotlinVersion}</version>
+                <version>${YaclibStatics.KotlinVersion}</version>
 
                 <executions>
                     <execution>
@@ -232,9 +232,9 @@ class POMFileBuilder(
             <plugin>
                 <groupId>com.heroku.sdk</groupId>
                 <artifactId>heroku-maven-plugin</artifactId>
-                <version>${JavaUtilities.HerokuPluginVersion}</version>
+                <version>${YaclibStatics.HerokuPluginVersion}</version>
                 <configuration>
-                    <jdkVersion>${JavaUtilities.JavaServerJdkVersion}</jdkVersion>
+                    <jdkVersion>${YaclibStatics.JavaServerJdkVersion}</jdkVersion>
                     <appName>${projectInformation.mainDependency.group}</appName>
                     <processTypes>
                         <web>sh proc.sh</web>

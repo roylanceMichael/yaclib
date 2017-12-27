@@ -36,16 +36,22 @@ class PluginLogic(
   private val auxiliaryProjectsMap = HashMap<String, YaclibModel.AuxiliaryProject.Builder>()
   private val dependencyMap = HashMap<String, YaclibModel.Dependency>()
 
+  private val yaclibDependency = YaclibModel.Dependency.newBuilder()
+      .setGroup("yaclib")
+      .setName("version")
+      .setThirdPartyDependencyVersion(YaclibStatics.YaclibVersion)
+      .build()
+
   private val roylanceCommonDependency = YaclibModel.Dependency.newBuilder()
       .setGroup("yaclib.roylance")
       .setName("common")
-      .setThirdPartyDependencyVersion(JavaUtilities.RoylanceCommonVersion)
+      .setThirdPartyDependencyVersion(YaclibStatics.RoylanceCommonVersion)
       .build()
 
   private val kotlinDependency = YaclibModel.Dependency.newBuilder()
       .setGroup("yaclib")
       .setName("kotlin")
-      .setThirdPartyDependencyVersion(JavaUtilities.KotlinVersion)
+      .setThirdPartyDependencyVersion(YaclibStatics.KotlinVersion)
       .build()
 
   private val projectBuilderServices = HashMap<YaclibModel.ProjectType, IProjectBuilderServices>()
@@ -154,16 +160,23 @@ class PluginLogic(
     processPhase(YaclibModel.ExecutionPhase.DELETE_DIRECTORIES)
 
     // delete phase
-    println("deleting ${Paths.get(location, "${mainDependency.name}${CommonTokens.JavaScriptSuffix}").toFile()}")
-    FileUtils.deleteDirectory(Paths.get(location, "${mainDependency.name}${CommonTokens.JavaScriptSuffix}").toFile())
-    println("deleting ${Paths.get(location, "${mainDependency.name}${CommonTokens.ClientSuffix}").toFile()}")
-    FileUtils.deleteDirectory(Paths.get(location, "${mainDependency.name}${CommonTokens.ClientSuffix}").toFile())
+    println("deleting ${Paths.get(location,
+        "${mainDependency.name}${CommonTokens.JavaScriptSuffix}").toFile()}")
+    FileUtils.deleteDirectory(
+        Paths.get(location, "${mainDependency.name}${CommonTokens.JavaScriptSuffix}").toFile())
+    println("deleting ${Paths.get(location,
+        "${mainDependency.name}${CommonTokens.ClientSuffix}").toFile()}")
+    FileUtils.deleteDirectory(
+        Paths.get(location, "${mainDependency.name}${CommonTokens.ClientSuffix}").toFile())
     println("deleting ${Paths.get(location, "${mainDependency.name}${CommonTokens.CSharpSuffix}")}")
-    FileUtils.deleteDirectory(Paths.get(location, "${mainDependency.name}${CommonTokens.CSharpSuffix}").toFile())
+    FileUtils.deleteDirectory(
+        Paths.get(location, "${mainDependency.name}${CommonTokens.CSharpSuffix}").toFile())
     println("deleting ${Paths.get(location, "${mainDependency.name}${CommonTokens.PythonSuffix}")}")
-    FileUtils.deleteDirectory(Paths.get(location, "${mainDependency.name}${CommonTokens.PythonSuffix}").toFile())
+    FileUtils.deleteDirectory(
+        Paths.get(location, "${mainDependency.name}${CommonTokens.PythonSuffix}").toFile())
     println("deleting ${Paths.get(location, "${mainDependency.name}${CommonTokens.SwiftSuffix}")}")
-    FileUtils.deleteDirectory(Paths.get(location, "${mainDependency.name}${CommonTokens.SwiftSuffix}").toFile())
+    FileUtils.deleteDirectory(
+        Paths.get(location, "${mainDependency.name}${CommonTokens.SwiftSuffix}").toFile())
 
     println(InitUtilities.buildPhaseMessage(
         YaclibModel.ExecutionPhase.GENERATE_CODE_FROM_PROTOBUFS.name))
@@ -204,11 +217,12 @@ class PluginLogic(
 
     auxiliaryProjectsMap.values.forEach { project ->
       println(
-          "updating ${project.targetDependency.group}.${project.targetDependency.name} with roylance.common (${JavaUtilities.RoylanceCommonVersion}) and kotlin (${JavaUtilities.KotlinVersion})")
+          "updating ${project.targetDependency.group}.${project.targetDependency.name} with roylance.common (${YaclibStatics.RoylanceCommonVersion}) and kotlin (${YaclibStatics.KotlinVersion})")
 
       val actualLocation = Paths.get(location, project.targetDependency.name).toString()
       GradleUtilities.updateDependencyVersion(actualLocation, roylanceCommonDependency)
       GradleUtilities.updateDependencyVersion(actualLocation, kotlinDependency)
+      GradleUtilities.updateDependencyVersion(actualLocation, yaclibDependency)
     }
 
 //        println(InitUtilities.buildPhaseMessage(YaclibModel.ExecutionPhase.BUILD_PUBLISH_CSHARP.name))
