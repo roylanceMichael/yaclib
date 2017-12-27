@@ -89,7 +89,7 @@ object CSharpUtilities : IProjectBuilderServices {
         CSharpUtilities.buildFullName(mainDependency)).toFile()
 
     val protobufLocation = Paths.get(location, mainDependency.name, "src", "main",
-        "resources").toString()
+        "proto").toString()
     val arguments = "-I=$protobufLocation --proto_path=$protobufLocation --csharp_out=$csharpDirectory $protobufLocation/*.proto"
     return FileProcessUtilities.executeProcess(csharpDirectory.toString(), InitUtilities.Protoc,
         arguments)

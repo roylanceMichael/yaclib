@@ -43,13 +43,13 @@ class TypeScriptBuilder(private val location: String,
     // this is custom
     val createJsonModelProcess = FileProcessUtilities.executeProcess(javaScriptDirectory.toString(),
         "pbjs",
-        "../${mainDependency.name}/src/main/resources/*.proto > $ModelJson")
+        "../${mainDependency.name}/src/main/proto/*.proto > $ModelJson")
     println(createJsonModelProcess.normalOutput)
     println(createJsonModelProcess.errorOutput)
 
     val createModelJsReport = FileProcessUtilities.executeProcess(javaScriptDirectory.toString(),
         "pbjs",
-        "../${mainDependency.name}/src/main/resources/*.proto -t js > $ModelJS")
+        "../${mainDependency.name}/src/main/proto/*.proto -t js > $ModelJS")
     println(createModelJsReport.normalOutput)
     println(createModelJsReport.errorOutput)
 
@@ -77,12 +77,11 @@ class TypeScriptBuilder(private val location: String,
     val compileReport = TypeScriptUtilities.build(javaScriptDirectory.toString())
     println(compileReport.normalOutput)
     println(compileReport.errorOutput)
-
-    // todo: fix so we publish this
-//    println(InitUtilities.buildPhaseMessage("publishing npm"))
-//    val publishReport = TypeScriptUtilities.publish(javaScriptDirectory.toString(), mainDependency)
-//    println(publishReport.normalOutput)
-//    println(publishReport.errorOutput)
+    
+    println(InitUtilities.buildPhaseMessage("publishing npm"))
+    val publishReport = TypeScriptUtilities.publish(javaScriptDirectory.toString(), mainDependency)
+    println(publishReport.normalOutput)
+    println(publishReport.errorOutput)
 
     println(InitUtilities.buildPhaseMessage("typescript client end"))
 

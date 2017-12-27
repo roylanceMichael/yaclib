@@ -46,7 +46,7 @@ object PythonUtilities: IProjectBuilderServices {
         val pythonDirectory = Paths.get(location, buildPythonSourceDirectory(mainDependency)).toFile()
         pythonDirectory.mkdirs()
 
-        val protobufLocation = Paths.get(location, mainDependency.name, "src", "main", "resources").toString()
+        val protobufLocation = Paths.get(location, mainDependency.name, "src", "main", "proto").toString()
         val arguments = "-I=$protobufLocation --proto_path=$protobufLocation --python_out=$pythonDirectory $protobufLocation/*.proto"
         return FileProcessUtilities.executeProcess(pythonDirectory.toString(), InitUtilities.Protoc, arguments)
     }

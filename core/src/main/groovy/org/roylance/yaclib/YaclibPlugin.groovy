@@ -10,7 +10,7 @@ class YaclibPlugin implements Plugin<Project> {
   @Override
   void apply(Project target) {
     println(
-        "make sure the following variables are defined: yaclib_kotlin, yaclibMajor, yaclibMinor, repoName_, group, githubRepo_, project_version, license")
+        "make sure the following variables are defined: yaclib_kotlin, yaclibMajor, yaclibMinor, repoName_, group, githubRepo_, major, minor, license")
 
     target.task('updateVersion', type: YaclibVersionTask) {}
 
