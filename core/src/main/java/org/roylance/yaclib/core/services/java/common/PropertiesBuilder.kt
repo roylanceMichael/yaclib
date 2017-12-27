@@ -20,6 +20,7 @@ class PropertiesBuilder(private val controllerDependencies: YaclibModel.AllContr
     properties.setProperty(JavaUtilities.KotlinName, JavaUtilities.KotlinVersion)
     properties.setProperty(JavaUtilities.YaclibVersionName, JavaUtilities.YaclibVersion)
     properties.setProperty(JavaUtilities.RoylanceCommonName, JavaUtilities.RoylanceCommonVersion)
+    properties.setProperty(JavaUtilities.RetrofitName, JavaUtilities.RetrofitVersion)
 
     val uniqueDependencies = HashMap<String, String>()
     controllerDependencies.controllerDependenciesList.forEach {

@@ -19,7 +19,7 @@ class TypeScriptProcessLanguageServiceTest {
         val dependency = YaclibModel.Dependency.newBuilder()
                 .setGroup("@mroylance/park")
                 .setName("models")
-                .setMinorVersion(14)
+                .setMinorVersion("14")
                 .setTypescriptModelFile("ParkModel")
                 .build()
 

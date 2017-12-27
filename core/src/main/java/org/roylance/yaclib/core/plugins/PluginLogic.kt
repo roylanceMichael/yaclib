@@ -248,7 +248,7 @@ class PluginLogic(
     processPhase(YaclibModel.ExecutionPhase.BUILD_PACKAGE_JAVA_SERVER)
     println(
         InitUtilities.buildPhaseMessage(YaclibModel.ExecutionPhase.BUILD_PACKAGE_JAVA_SERVER.name))
-    JavaServerBuilder(location, mainDependency, mainDependency.serverType).build()
+    JavaServerBuilder(location, mainDependency).build()
 
     processPhase(YaclibModel.ExecutionPhase.BUILD_PACKAGE_JAVA_SERVER)
     println(
@@ -260,7 +260,7 @@ class PluginLogic(
 
   private fun processPhase(phase: YaclibModel.ExecutionPhase) {
     auxiliaryProjectsMap.keys.filter {
-      auxiliaryProjectsMap[it]!!.handleBefore == phase
+      auxiliaryProjectsMap[it]?.handleBefore == phase
     }.forEach {
       processAuxiliaryProject(it)
     }

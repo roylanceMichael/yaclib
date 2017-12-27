@@ -22,7 +22,7 @@ class SwiftProcessLanguageServiceTest {
         val dependency = YaclibModel.Dependency.newBuilder()
                 .setGroup("park")
                 .setName("models")
-                .setMinorVersion(14)
+                .setMinorVersion("14")
                 .setAuthorName("Mike Roylance")
                 .setNpmRepository(YaclibModel.Repository.newBuilder().setRepositoryType(YaclibModel.RepositoryType.PRIVATE_NPM).setNpmScope("@mroylance"))
                 .setTypescriptModelFile("ParkModel")

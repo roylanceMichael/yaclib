@@ -19,7 +19,7 @@ class JavaServerProcessLanguageServiceTest {
         val dependency = YaclibModel.Dependency.newBuilder()
             .setGroup("org.naru.park")
             .setName("api")
-            .setMinorVersion(14)
+            .setMinorVersion("14")
             .setTypescriptModelFile("NaruPark")
             .build()
 

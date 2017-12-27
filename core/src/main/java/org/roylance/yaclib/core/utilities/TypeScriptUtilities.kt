@@ -136,10 +136,10 @@ export var $exportFactoryName = _root;
       return YaclibModel.ProcessReport.getDefaultInstance()
     }
 
-    val majorVersion = splitVersion[0].toInt()
-    val newMinorVersion = splitVersion[1].toInt() + 1
+    val majorVersion = splitVersion[0]
+    val newMinorVersion = projectModel.version?.substring(majorVersion.length)
 
-    projectModel.version = "$majorVersion.$newMinorVersion.0"
+    projectModel.version = projectModel.version
     File(location, NPMUtilities.PackageNameJson).writeText(gson.toJson(projectModel))
 
     return YaclibModel.ProcessReport.newBuilder()
@@ -176,8 +176,8 @@ export var $exportFactoryName = _root;
       return YaclibModel.ProcessReport.getDefaultInstance()
     }
 
-    val majorVersion = splitVersion[0].toInt()
-    val minorVersion = splitVersion[1].toInt()
+    val majorVersion = splitVersion[0]
+    val minorVersion = projectModel.version?.substring(majorVersion.length)
 
     return YaclibModel.ProcessReport.newBuilder()
         .setNewMinor(minorVersion)

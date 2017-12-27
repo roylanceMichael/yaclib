@@ -18,17 +18,13 @@ object GradleUtilities : IProjectBuilderServices {
 
     val properties = Properties()
     val inputStream = FileInputStream(propertiesFile)
-    try {
-      properties.load(inputStream)
-    } finally {
-      inputStream.close()
+    inputStream.use { it ->
+      properties.load(it)
     }
 
-    var minorVersion = properties.getProperty(JavaUtilities.MinorName).toInt()
-    minorVersion += 1
+    val minorVersion = properties.getProperty(JavaUtilities.MinorName)
     properties.setProperty(JavaUtilities.MinorName, minorVersion.toString())
-
-    val majorVersion = properties.getProperty(JavaUtilities.MajorName).toInt()
+    val majorVersion = properties.getProperty(JavaUtilities.MajorName)
 
     val outputStream = FileOutputStream(propertiesFile)
     try {
@@ -97,8 +93,8 @@ object GradleUtilities : IProjectBuilderServices {
     try {
       properties.load(inputStream)
       return YaclibModel.ProcessReport.newBuilder()
-          .setNewMinor(properties.getProperty(JavaUtilities.MinorName).toInt())
-          .setNewMajor(properties.getProperty(JavaUtilities.MajorName).toInt())
+          .setNewMinor(properties.getProperty(JavaUtilities.MinorName))
+          .setNewMajor(properties.getProperty(JavaUtilities.MajorName))
           .build()
     } finally {
       inputStream.close()

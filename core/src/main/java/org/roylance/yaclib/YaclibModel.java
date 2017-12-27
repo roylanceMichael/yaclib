@@ -2049,6 +2049,17 @@ public final class YaclibModel {
     }
 
     public static org.roylance.yaclib.YaclibModel.Repository parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static org.roylance.yaclib.YaclibModel.Repository parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static org.roylance.yaclib.YaclibModel.Repository parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
@@ -2934,14 +2945,24 @@ public final class YaclibModel {
         getThirdPartyDependencyVersionBytes();
 
     /**
-     * <code>int32 major_version = 12;</code>
+     * <code>string major_version = 12;</code>
      */
-    int getMajorVersion();
+    java.lang.String getMajorVersion();
+    /**
+     * <code>string major_version = 12;</code>
+     */
+    com.google.protobuf.ByteString
+        getMajorVersionBytes();
 
     /**
-     * <code>int32 minor_version = 13;</code>
+     * <code>string minor_version = 13;</code>
      */
-    int getMinorVersion();
+    java.lang.String getMinorVersion();
+    /**
+     * <code>string minor_version = 13;</code>
+     */
+    com.google.protobuf.ByteString
+        getMinorVersionBytes();
 
     /**
      * <code>string github_repo = 14;</code>
@@ -3071,8 +3092,8 @@ public final class YaclibModel {
       name_ = "";
       typescriptModelFile_ = "";
       thirdPartyDependencyVersion_ = "";
-      majorVersion_ = 0;
-      minorVersion_ = 0;
+      majorVersion_ = "";
+      minorVersion_ = "";
       githubRepo_ = "";
       authorName_ = "";
       license_ = "";
@@ -3137,14 +3158,16 @@ public final class YaclibModel {
               thirdPartyDependencyVersion_ = s;
               break;
             }
-            case 96: {
+            case 98: {
+              java.lang.String s = input.readStringRequireUtf8();
 
-              majorVersion_ = input.readInt32();
+              majorVersion_ = s;
               break;
             }
-            case 104: {
+            case 106: {
+              java.lang.String s = input.readStringRequireUtf8();
 
-              minorVersion_ = input.readInt32();
+              minorVersion_ = s;
               break;
             }
             case 114: {
@@ -3415,21 +3438,71 @@ public final class YaclibModel {
     }
 
     public static final int MAJOR_VERSION_FIELD_NUMBER = 12;
-    private int majorVersion_;
+    private volatile java.lang.Object majorVersion_;
     /**
-     * <code>int32 major_version = 12;</code>
+     * <code>string major_version = 12;</code>
      */
-    public int getMajorVersion() {
-      return majorVersion_;
+    public java.lang.String getMajorVersion() {
+      java.lang.Object ref = majorVersion_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        majorVersion_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string major_version = 12;</code>
+     */
+    public com.google.protobuf.ByteString
+        getMajorVersionBytes() {
+      java.lang.Object ref = majorVersion_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        majorVersion_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
     }
 
     public static final int MINOR_VERSION_FIELD_NUMBER = 13;
-    private int minorVersion_;
+    private volatile java.lang.Object minorVersion_;
     /**
-     * <code>int32 minor_version = 13;</code>
+     * <code>string minor_version = 13;</code>
      */
-    public int getMinorVersion() {
-      return minorVersion_;
+    public java.lang.String getMinorVersion() {
+      java.lang.Object ref = minorVersion_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        minorVersion_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string minor_version = 13;</code>
+     */
+    public com.google.protobuf.ByteString
+        getMinorVersionBytes() {
+      java.lang.Object ref = minorVersion_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        minorVersion_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
     }
 
     public static final int GITHUB_REPO_FIELD_NUMBER = 14;
@@ -3713,11 +3786,11 @@ public final class YaclibModel {
       if (!getThirdPartyDependencyVersionBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 11, thirdPartyDependencyVersion_);
       }
-      if (majorVersion_ != 0) {
-        output.writeInt32(12, majorVersion_);
+      if (!getMajorVersionBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 12, majorVersion_);
       }
-      if (minorVersion_ != 0) {
-        output.writeInt32(13, minorVersion_);
+      if (!getMinorVersionBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 13, minorVersion_);
       }
       if (!getGithubRepoBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 14, githubRepo_);
@@ -3775,13 +3848,11 @@ public final class YaclibModel {
       if (!getThirdPartyDependencyVersionBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(11, thirdPartyDependencyVersion_);
       }
-      if (majorVersion_ != 0) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(12, majorVersion_);
+      if (!getMajorVersionBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(12, majorVersion_);
       }
-      if (minorVersion_ != 0) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(13, minorVersion_);
+      if (!getMinorVersionBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(13, minorVersion_);
       }
       if (!getGithubRepoBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(14, githubRepo_);
@@ -3848,10 +3919,10 @@ public final class YaclibModel {
           .equals(other.getTypescriptModelFile());
       result = result && getThirdPartyDependencyVersion()
           .equals(other.getThirdPartyDependencyVersion());
-      result = result && (getMajorVersion()
-          == other.getMajorVersion());
-      result = result && (getMinorVersion()
-          == other.getMinorVersion());
+      result = result && getMajorVersion()
+          .equals(other.getMajorVersion());
+      result = result && getMinorVersion()
+          .equals(other.getMinorVersion());
       result = result && getGithubRepo()
           .equals(other.getGithubRepo());
       result = result && getAuthorName()
@@ -3906,9 +3977,9 @@ public final class YaclibModel {
       hash = (37 * hash) + THIRD_PARTY_DEPENDENCY_VERSION_FIELD_NUMBER;
       hash = (53 * hash) + getThirdPartyDependencyVersion().hashCode();
       hash = (37 * hash) + MAJOR_VERSION_FIELD_NUMBER;
-      hash = (53 * hash) + getMajorVersion();
+      hash = (53 * hash) + getMajorVersion().hashCode();
       hash = (37 * hash) + MINOR_VERSION_FIELD_NUMBER;
-      hash = (53 * hash) + getMinorVersion();
+      hash = (53 * hash) + getMinorVersion().hashCode();
       hash = (37 * hash) + GITHUB_REPO_FIELD_NUMBER;
       hash = (53 * hash) + getGithubRepo().hashCode();
       hash = (37 * hash) + AUTHOR_NAME_FIELD_NUMBER;
@@ -3945,6 +4016,17 @@ public final class YaclibModel {
       return hash;
     }
 
+    public static org.roylance.yaclib.YaclibModel.Dependency parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static org.roylance.yaclib.YaclibModel.Dependency parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
     public static org.roylance.yaclib.YaclibModel.Dependency parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -4068,9 +4150,9 @@ public final class YaclibModel {
 
         thirdPartyDependencyVersion_ = "";
 
-        majorVersion_ = 0;
+        majorVersion_ = "";
 
-        minorVersion_ = 0;
+        minorVersion_ = "";
 
         githubRepo_ = "";
 
@@ -4226,11 +4308,13 @@ public final class YaclibModel {
           thirdPartyDependencyVersion_ = other.thirdPartyDependencyVersion_;
           onChanged();
         }
-        if (other.getMajorVersion() != 0) {
-          setMajorVersion(other.getMajorVersion());
+        if (!other.getMajorVersion().isEmpty()) {
+          majorVersion_ = other.majorVersion_;
+          onChanged();
         }
-        if (other.getMinorVersion() != 0) {
-          setMinorVersion(other.getMinorVersion());
+        if (!other.getMinorVersion().isEmpty()) {
+          minorVersion_ = other.minorVersion_;
+          onChanged();
         }
         if (!other.getGithubRepo().isEmpty()) {
           githubRepo_ = other.githubRepo_;
@@ -4615,54 +4699,140 @@ public final class YaclibModel {
         return this;
       }
 
-      private int majorVersion_ ;
+      private java.lang.Object majorVersion_ = "";
       /**
-       * <code>int32 major_version = 12;</code>
+       * <code>string major_version = 12;</code>
        */
-      public int getMajorVersion() {
-        return majorVersion_;
+      public java.lang.String getMajorVersion() {
+        java.lang.Object ref = majorVersion_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          majorVersion_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
       }
       /**
-       * <code>int32 major_version = 12;</code>
+       * <code>string major_version = 12;</code>
        */
-      public Builder setMajorVersion(int value) {
-        
+      public com.google.protobuf.ByteString
+          getMajorVersionBytes() {
+        java.lang.Object ref = majorVersion_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          majorVersion_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string major_version = 12;</code>
+       */
+      public Builder setMajorVersion(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         majorVersion_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>int32 major_version = 12;</code>
+       * <code>string major_version = 12;</code>
        */
       public Builder clearMajorVersion() {
         
-        majorVersion_ = 0;
+        majorVersion_ = getDefaultInstance().getMajorVersion();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string major_version = 12;</code>
+       */
+      public Builder setMajorVersionBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        majorVersion_ = value;
         onChanged();
         return this;
       }
 
-      private int minorVersion_ ;
+      private java.lang.Object minorVersion_ = "";
       /**
-       * <code>int32 minor_version = 13;</code>
+       * <code>string minor_version = 13;</code>
        */
-      public int getMinorVersion() {
-        return minorVersion_;
+      public java.lang.String getMinorVersion() {
+        java.lang.Object ref = minorVersion_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          minorVersion_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
       }
       /**
-       * <code>int32 minor_version = 13;</code>
+       * <code>string minor_version = 13;</code>
        */
-      public Builder setMinorVersion(int value) {
-        
+      public com.google.protobuf.ByteString
+          getMinorVersionBytes() {
+        java.lang.Object ref = minorVersion_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          minorVersion_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string minor_version = 13;</code>
+       */
+      public Builder setMinorVersion(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         minorVersion_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>int32 minor_version = 13;</code>
+       * <code>string minor_version = 13;</code>
        */
       public Builder clearMinorVersion() {
         
-        minorVersion_ = 0;
+        minorVersion_ = getDefaultInstance().getMinorVersion();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string minor_version = 13;</code>
+       */
+      public Builder setMinorVersionBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        minorVersion_ = value;
         onChanged();
         return this;
       }
@@ -5971,6 +6141,17 @@ public final class YaclibModel {
     }
 
     public static org.roylance.yaclib.YaclibModel.File parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static org.roylance.yaclib.YaclibModel.File parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static org.roylance.yaclib.YaclibModel.File parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
@@ -6843,6 +7024,17 @@ public final class YaclibModel {
       return hash;
     }
 
+    public static org.roylance.yaclib.YaclibModel.Controller parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static org.roylance.yaclib.YaclibModel.Controller parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
     public static org.roylance.yaclib.YaclibModel.Controller parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -7781,6 +7973,17 @@ public final class YaclibModel {
       return hash;
     }
 
+    public static org.roylance.yaclib.YaclibModel.Action parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static org.roylance.yaclib.YaclibModel.Action parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
     public static org.roylance.yaclib.YaclibModel.Action parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -9007,6 +9210,17 @@ public final class YaclibModel {
     }
 
     public static org.roylance.yaclib.YaclibModel.Message parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static org.roylance.yaclib.YaclibModel.Message parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static org.roylance.yaclib.YaclibModel.Message parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
@@ -9914,6 +10128,17 @@ public final class YaclibModel {
     }
 
     public static org.roylance.yaclib.YaclibModel.AllFiles parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static org.roylance.yaclib.YaclibModel.AllFiles parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static org.roylance.yaclib.YaclibModel.AllFiles parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
@@ -10733,6 +10958,17 @@ public final class YaclibModel {
       return hash;
     }
 
+    public static org.roylance.yaclib.YaclibModel.AllControllers parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static org.roylance.yaclib.YaclibModel.AllControllers parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
     public static org.roylance.yaclib.YaclibModel.AllControllers parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -11792,6 +12028,17 @@ public final class YaclibModel {
     }
 
     public static org.roylance.yaclib.YaclibModel.ControllerDependency parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static org.roylance.yaclib.YaclibModel.ControllerDependency parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static org.roylance.yaclib.YaclibModel.ControllerDependency parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
@@ -12505,6 +12752,17 @@ public final class YaclibModel {
     }
 
     public static org.roylance.yaclib.YaclibModel.AllControllerDependencies parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static org.roylance.yaclib.YaclibModel.AllControllerDependencies parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static org.roylance.yaclib.YaclibModel.AllControllerDependencies parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
@@ -13083,14 +13341,24 @@ public final class YaclibModel {
         getContentBytes();
 
     /**
-     * <code>int32 new_major = 6;</code>
+     * <code>string new_major = 6;</code>
      */
-    int getNewMajor();
+    java.lang.String getNewMajor();
+    /**
+     * <code>string new_major = 6;</code>
+     */
+    com.google.protobuf.ByteString
+        getNewMajorBytes();
 
     /**
-     * <code>int32 new_minor = 7;</code>
+     * <code>string new_minor = 7;</code>
      */
-    int getNewMinor();
+    java.lang.String getNewMinor();
+    /**
+     * <code>string new_minor = 7;</code>
+     */
+    com.google.protobuf.ByteString
+        getNewMinorBytes();
   }
   /**
    * Protobuf type {@code org.roylance.yaclib.ProcessReport}
@@ -13109,8 +13377,8 @@ public final class YaclibModel {
       isError_ = false;
       exitValue_ = 0;
       content_ = "";
-      newMajor_ = 0;
-      newMinor_ = 0;
+      newMajor_ = "";
+      newMinor_ = "";
     }
 
     @java.lang.Override
@@ -13166,14 +13434,16 @@ public final class YaclibModel {
               content_ = s;
               break;
             }
-            case 48: {
+            case 50: {
+              java.lang.String s = input.readStringRequireUtf8();
 
-              newMajor_ = input.readInt32();
+              newMajor_ = s;
               break;
             }
-            case 56: {
+            case 58: {
+              java.lang.String s = input.readStringRequireUtf8();
 
-              newMinor_ = input.readInt32();
+              newMinor_ = s;
               break;
             }
           }
@@ -13320,21 +13590,71 @@ public final class YaclibModel {
     }
 
     public static final int NEW_MAJOR_FIELD_NUMBER = 6;
-    private int newMajor_;
+    private volatile java.lang.Object newMajor_;
     /**
-     * <code>int32 new_major = 6;</code>
+     * <code>string new_major = 6;</code>
      */
-    public int getNewMajor() {
-      return newMajor_;
+    public java.lang.String getNewMajor() {
+      java.lang.Object ref = newMajor_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        newMajor_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string new_major = 6;</code>
+     */
+    public com.google.protobuf.ByteString
+        getNewMajorBytes() {
+      java.lang.Object ref = newMajor_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        newMajor_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
     }
 
     public static final int NEW_MINOR_FIELD_NUMBER = 7;
-    private int newMinor_;
+    private volatile java.lang.Object newMinor_;
     /**
-     * <code>int32 new_minor = 7;</code>
+     * <code>string new_minor = 7;</code>
      */
-    public int getNewMinor() {
-      return newMinor_;
+    public java.lang.String getNewMinor() {
+      java.lang.Object ref = newMinor_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        newMinor_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string new_minor = 7;</code>
+     */
+    public com.google.protobuf.ByteString
+        getNewMinorBytes() {
+      java.lang.Object ref = newMinor_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        newMinor_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
     }
 
     private byte memoizedIsInitialized = -1;
@@ -13364,11 +13684,11 @@ public final class YaclibModel {
       if (!getContentBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 5, content_);
       }
-      if (newMajor_ != 0) {
-        output.writeInt32(6, newMajor_);
+      if (!getNewMajorBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 6, newMajor_);
       }
-      if (newMinor_ != 0) {
-        output.writeInt32(7, newMinor_);
+      if (!getNewMinorBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 7, newMinor_);
       }
     }
 
@@ -13394,13 +13714,11 @@ public final class YaclibModel {
       if (!getContentBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, content_);
       }
-      if (newMajor_ != 0) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(6, newMajor_);
+      if (!getNewMajorBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, newMajor_);
       }
-      if (newMinor_ != 0) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(7, newMinor_);
+      if (!getNewMinorBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, newMinor_);
       }
       memoizedSize = size;
       return size;
@@ -13428,10 +13746,10 @@ public final class YaclibModel {
           == other.getExitValue());
       result = result && getContent()
           .equals(other.getContent());
-      result = result && (getNewMajor()
-          == other.getNewMajor());
-      result = result && (getNewMinor()
-          == other.getNewMinor());
+      result = result && getNewMajor()
+          .equals(other.getNewMajor());
+      result = result && getNewMinor()
+          .equals(other.getNewMinor());
       return result;
     }
 
@@ -13454,14 +13772,25 @@ public final class YaclibModel {
       hash = (37 * hash) + CONTENT_FIELD_NUMBER;
       hash = (53 * hash) + getContent().hashCode();
       hash = (37 * hash) + NEW_MAJOR_FIELD_NUMBER;
-      hash = (53 * hash) + getNewMajor();
+      hash = (53 * hash) + getNewMajor().hashCode();
       hash = (37 * hash) + NEW_MINOR_FIELD_NUMBER;
-      hash = (53 * hash) + getNewMinor();
+      hash = (53 * hash) + getNewMinor().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
 
+    public static org.roylance.yaclib.YaclibModel.ProcessReport parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static org.roylance.yaclib.YaclibModel.ProcessReport parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
     public static org.roylance.yaclib.YaclibModel.ProcessReport parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -13585,9 +13914,9 @@ public final class YaclibModel {
 
         content_ = "";
 
-        newMajor_ = 0;
+        newMajor_ = "";
 
-        newMinor_ = 0;
+        newMinor_ = "";
 
         return this;
       }
@@ -13677,11 +14006,13 @@ public final class YaclibModel {
           content_ = other.content_;
           onChanged();
         }
-        if (other.getNewMajor() != 0) {
-          setNewMajor(other.getNewMajor());
+        if (!other.getNewMajor().isEmpty()) {
+          newMajor_ = other.newMajor_;
+          onChanged();
         }
-        if (other.getNewMinor() != 0) {
-          setNewMinor(other.getNewMinor());
+        if (!other.getNewMinor().isEmpty()) {
+          newMinor_ = other.newMinor_;
+          onChanged();
         }
         onChanged();
         return this;
@@ -13968,54 +14299,140 @@ public final class YaclibModel {
         return this;
       }
 
-      private int newMajor_ ;
+      private java.lang.Object newMajor_ = "";
       /**
-       * <code>int32 new_major = 6;</code>
+       * <code>string new_major = 6;</code>
        */
-      public int getNewMajor() {
-        return newMajor_;
+      public java.lang.String getNewMajor() {
+        java.lang.Object ref = newMajor_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          newMajor_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
       }
       /**
-       * <code>int32 new_major = 6;</code>
+       * <code>string new_major = 6;</code>
        */
-      public Builder setNewMajor(int value) {
-        
+      public com.google.protobuf.ByteString
+          getNewMajorBytes() {
+        java.lang.Object ref = newMajor_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          newMajor_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string new_major = 6;</code>
+       */
+      public Builder setNewMajor(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         newMajor_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>int32 new_major = 6;</code>
+       * <code>string new_major = 6;</code>
        */
       public Builder clearNewMajor() {
         
-        newMajor_ = 0;
+        newMajor_ = getDefaultInstance().getNewMajor();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string new_major = 6;</code>
+       */
+      public Builder setNewMajorBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        newMajor_ = value;
         onChanged();
         return this;
       }
 
-      private int newMinor_ ;
+      private java.lang.Object newMinor_ = "";
       /**
-       * <code>int32 new_minor = 7;</code>
+       * <code>string new_minor = 7;</code>
        */
-      public int getNewMinor() {
-        return newMinor_;
+      public java.lang.String getNewMinor() {
+        java.lang.Object ref = newMinor_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          newMinor_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
       }
       /**
-       * <code>int32 new_minor = 7;</code>
+       * <code>string new_minor = 7;</code>
        */
-      public Builder setNewMinor(int value) {
-        
+      public com.google.protobuf.ByteString
+          getNewMinorBytes() {
+        java.lang.Object ref = newMinor_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          newMinor_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string new_minor = 7;</code>
+       */
+      public Builder setNewMinor(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         newMinor_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>int32 new_minor = 7;</code>
+       * <code>string new_minor = 7;</code>
        */
       public Builder clearNewMinor() {
         
-        newMinor_ = 0;
+        newMinor_ = getDefaultInstance().getNewMinor();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string new_minor = 7;</code>
+       */
+      public Builder setNewMinorBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        newMinor_ = value;
         onChanged();
         return this;
       }
@@ -14460,6 +14877,17 @@ public final class YaclibModel {
       return hash;
     }
 
+    public static org.roylance.yaclib.YaclibModel.ProjectInformation parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static org.roylance.yaclib.YaclibModel.ProjectInformation parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
     public static org.roylance.yaclib.YaclibModel.ProjectInformation parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -15876,6 +16304,17 @@ public final class YaclibModel {
     }
 
     public static org.roylance.yaclib.YaclibModel.AuxiliaryProject parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static org.roylance.yaclib.YaclibModel.AuxiliaryProject parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static org.roylance.yaclib.YaclibModel.AuxiliaryProject parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
@@ -17261,6 +17700,17 @@ public final class YaclibModel {
     }
 
     public static org.roylance.yaclib.YaclibModel.AuxiliaryProjects parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static org.roylance.yaclib.YaclibModel.AuxiliaryProjects parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static org.roylance.yaclib.YaclibModel.AuxiliaryProjects parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
@@ -18058,6 +18508,17 @@ public final class YaclibModel {
     }
 
     public static org.roylance.yaclib.YaclibModel.Service parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static org.roylance.yaclib.YaclibModel.Service parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static org.roylance.yaclib.YaclibModel.Service parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
@@ -18763,8 +19224,8 @@ public final class YaclibModel {
       "ce.yaclib.DependencyType\022\r\n\005group\030\002 \001(\t\022" +
       "\014\n\004name\030\003 \001(\t\022\035\n\025typescript_model_file\030\006" +
       " \001(\t\022&\n\036third_party_dependency_version\030\013",
-      " \001(\t\022\025\n\rmajor_version\030\014 \001(\005\022\025\n\rminor_ver" +
-      "sion\030\r \001(\005\022\023\n\013github_repo\030\016 \001(\t\022\023\n\013autho" +
+      " \001(\t\022\025\n\rmajor_version\030\014 \001(\t\022\025\n\rminor_ver" +
+      "sion\030\r \001(\t\022\023\n\013github_repo\030\016 \001(\t\022\023\n\013autho" +
       "r_name\030\017 \001(\t\022\017\n\007license\030\020 \001(\t\0229\n\020maven_r" +
       "epository\030\021 \001(\0132\037.org.roylance.yaclib.Re" +
       "pository\0227\n\016npm_repository\030\022 \001(\0132\037.org.r" +
@@ -18802,8 +19263,8 @@ public final class YaclibModel {
       "llerDependency\"\231\001\n\rProcessReport\022\025\n\rnorm" +
       "al_output\030\001 \001(\t\022\024\n\014error_output\030\002 \001(\t\022\020\n" +
       "\010is_error\030\003 \001(\010\022\022\n\nexit_value\030\004 \001(\005\022\017\n\007c" +
-      "ontent\030\005 \001(\t\022\021\n\tnew_major\030\006 \001(\005\022\021\n\tnew_m",
-      "inor\030\007 \001(\005\"\202\002\n\022ProjectInformation\022C\n\013con" +
+      "ontent\030\005 \001(\t\022\021\n\tnew_major\030\006 \001(\t\022\021\n\tnew_m",
+      "inor\030\007 \001(\t\"\202\002\n\022ProjectInformation\022C\n\013con" +
       "trollers\030\001 \001(\0132..org.roylance.yaclib.All" +
       "ControllerDependencies\0228\n\017main_dependenc" +
       "y\030\002 \001(\0132\037.org.roylance.yaclib.Dependency" +

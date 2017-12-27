@@ -78,10 +78,11 @@ class TypeScriptBuilder(private val location: String,
     println(compileReport.normalOutput)
     println(compileReport.errorOutput)
 
-    println(InitUtilities.buildPhaseMessage("publishing npm"))
-    val publishReport = TypeScriptUtilities.publish(javaScriptDirectory.toString(), mainDependency)
-    println(publishReport.normalOutput)
-    println(publishReport.errorOutput)
+    // todo: fix so we publish this
+//    println(InitUtilities.buildPhaseMessage("publishing npm"))
+//    val publishReport = TypeScriptUtilities.publish(javaScriptDirectory.toString(), mainDependency)
+//    println(publishReport.normalOutput)
+//    println(publishReport.errorOutput)
 
     println(InitUtilities.buildPhaseMessage("typescript client end"))
 

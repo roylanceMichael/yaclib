@@ -40,6 +40,14 @@ repositories {
     ${GradleUtilities.buildRepository(projectInformation.mainDependency.mavenRepository)}
 }
 
+sourceSets {
+    main {
+      java.srcDirs = ['src/main/java',
+                      '../${projectInformation.mainDependency.name}/src/main/java',
+                      '../${projectInformation.mainDependency.name}client/src/main/java']
+    }
+}
+
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '${JavaUtilities.JUnitVersion}'
 
@@ -53,6 +61,9 @@ dependencies {
     compile "org.glassfish.jersey.media:jersey-media-multipart:$${JavaUtilities.JerseyMediaName}"
 
     compile "org.apache.httpcomponents:httpclient:$${JavaUtilities.HttpComponentsName}"
+    compile "com.squareup.retrofit2:retrofit:${'$'}${JavaUtilities.RetrofitName}"
+
+    compile "org.roylance:roylance.common:${'$'}${JavaUtilities.RoylanceCommonName}"
 
 ${buildDependencies()}
 }

@@ -5,9 +5,16 @@ import org.apache.commons.compress.archivers.tar.TarArchiveOutputStream
 import org.apache.commons.compress.compressors.gzip.GzipCompressorOutputStream
 import org.apache.commons.io.IOUtils
 import org.roylance.yaclib.YaclibModel
-import java.io.*
-import java.nio.charset.Charset
-import java.util.*
+import java.io.BufferedOutputStream
+import java.io.File
+import java.io.FileInputStream
+import java.io.FileOutputStream
+import java.io.IOException
+import java.io.StringWriter
+import java.util.ArrayList
+import java.util.HashMap
+import java.util.HashSet
+import java.util.UUID
 
 object FileProcessUtilities {
   private const val Space = " "
@@ -62,8 +69,8 @@ object FileProcessUtilities {
     val inputWriter = StringWriter()
     val errorWriter = StringWriter()
 
-    IOUtils.copy(process.inputStream, inputWriter, Charset.defaultCharset())
-    IOUtils.copy(process.errorStream, errorWriter, Charset.defaultCharset())
+    IOUtils.copy(process.inputStream, inputWriter)
+    IOUtils.copy(process.errorStream, errorWriter)
 
     return returnReport.setErrorOutput(errorWriter.toString()).setNormalOutput(
         inputWriter.toString()).build()
@@ -163,7 +170,7 @@ which $application""")
       val process = Runtime.getRuntime().exec(tempFile.absolutePath)
       process.waitFor()
 
-      IOUtils.copy(process.inputStream, inputWriter, Charset.defaultCharset())
+      IOUtils.copy(process.inputStream, inputWriter)
       return inputWriter.toString().trim()
     } finally {
       inputWriter.close()
