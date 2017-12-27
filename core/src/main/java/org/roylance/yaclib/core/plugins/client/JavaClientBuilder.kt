@@ -20,10 +20,10 @@ class JavaClientBuilder(private val location: String,
     println(buildReport.errorOutput)
 
     // todo: will fix this so it is optional to publish or not
-//    println(InitUtilities.buildPhaseMessage("publishing gradle"))
-//    val publishReport = GradleUtilities.publish(javaClientDirectory.toString(), mainDependency)
-//    println(publishReport.normalOutput)
-//    println(publishReport.errorOutput)
+    println(InitUtilities.buildPhaseMessage("publishing gradle"))
+    val publishReport = GradleUtilities.publish(javaClientDirectory.toString(), mainDependency)
+    println(publishReport.normalOutput)
+    println(publishReport.errorOutput)
 
     println(InitUtilities.buildPhaseMessage("java client end"))
 

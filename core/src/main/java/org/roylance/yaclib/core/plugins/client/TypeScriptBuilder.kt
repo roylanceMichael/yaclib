@@ -77,7 +77,7 @@ class TypeScriptBuilder(private val location: String,
     val compileReport = TypeScriptUtilities.build(javaScriptDirectory.toString())
     println(compileReport.normalOutput)
     println(compileReport.errorOutput)
-    
+
     println(InitUtilities.buildPhaseMessage("publishing npm"))
     val publishReport = TypeScriptUtilities.publish(javaScriptDirectory.toString(), mainDependency)
     println(publishReport.normalOutput)
