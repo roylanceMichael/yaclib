@@ -126,8 +126,8 @@ message Dependency {
     string name = 3;
     string typescript_model_file = 6;
     string third_party_dependency_version = 11;
-    int32 major_version = 12;
-    int32 minor_version = 13;
+    string major_version = 12;
+    string minor_version = 13;
     string github_repo = 14;
     string author_name = 15;
     string license = 16;
@@ -194,8 +194,8 @@ message ProcessReport {
     bool is_error = 3;
     int32 exit_value = 4;
     string content = 5;
-    int32 new_major = 6;
-    int32 new_minor = 7;
+    string new_major = 6;
+    string new_minor = 7;
 }
 
 message ProjectInformation {

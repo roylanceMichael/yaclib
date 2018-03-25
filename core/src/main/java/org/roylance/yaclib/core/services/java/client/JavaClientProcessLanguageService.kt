@@ -15,11 +15,16 @@ class JavaClientProcessLanguageService : IProcessLanguageService {
     val returnList = YaclibModel.AllFiles.newBuilder()
 
     val buildProperties = HashMap<String, String>()
-    buildProperties[JavaUtilities.KotlinName] = JavaUtilities.KotlinVersion
-    buildProperties[JavaUtilities.RoylanceCommonName] = JavaUtilities.RoylanceCommonVersion
-    buildProperties[JavaUtilities.ArtifactoryName] = JavaUtilities.ArtifactoryVersion
-    buildProperties[JavaUtilities.BintrayName] = JavaUtilities.BintrayVersion
-    buildProperties[JavaUtilities.RetrofitName] = JavaUtilities.RetrofitVersion
+    buildProperties[JavaUtilities.KotlinName] = YaclibStatics.KotlinVersion
+    buildProperties[JavaUtilities.RoylanceCommonName] = YaclibStatics.RoylanceCommonVersion
+    buildProperties[JavaUtilities.ArtifactoryName] = YaclibStatics.ArtifactoryVersion
+    buildProperties[JavaUtilities.BintrayName] = YaclibStatics.BintrayVersion
+    buildProperties[JavaUtilities.RetrofitName] = YaclibStatics.RetrofitVersion
+    buildProperties[JavaUtilities.GroupName] = projectInformation.mainDependency.group
+    buildProperties[JavaUtilities.NameName] = projectInformation.mainDependency.name
+    buildProperties[JavaUtilities.MinorName] = projectInformation.mainDependency.minorVersion
+    buildProperties[JavaUtilities.MajorName] = projectInformation.mainDependency.majorVersion
+    buildProperties[JavaUtilities.YaclibVersionName] = YaclibStatics.YaclibVersion
 
     returnList.addFiles(
         PropertiesBuilder(projectInformation.controllers, projectInformation.mainDependency,

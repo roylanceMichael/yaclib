@@ -24,7 +24,7 @@ class FilePersistServiceTest {
         val dependency = YaclibModel.Dependency.newBuilder()
                 .setGroup("org.naru.park")
                 .setName("api")
-                .setMinorVersion(14)
+                .setMinorVersion("14")
                 .setTypescriptModelFile("ParkModel")
                 .build()
 
@@ -55,7 +55,7 @@ class FilePersistServiceTest {
         val dependency = YaclibModel.Dependency.newBuilder()
                 .setGroup("org.naru.park")
                 .setName("api")
-                .setMinorVersion(14)
+                .setMinorVersion("14")
                 .setTypescriptModelFile("ParkModel")
                 .build()
 
@@ -86,7 +86,7 @@ class FilePersistServiceTest {
         val dependency = YaclibModel.Dependency.newBuilder()
                 .setGroup("org.naru.park")
                 .setName("api")
-                .setMinorVersion(14)
+                .setMinorVersion("14")
                 .build()
 
         val controllerDependencies = YaclibModel.ControllerDependency.newBuilder().setDependency(dependency)
@@ -116,7 +116,7 @@ class FilePersistServiceTest {
         val dependency = YaclibModel.Dependency.newBuilder()
                 .setGroup("@mroylance/park")
                 .setName("models")
-                .setMinorVersion(14)
+                .setMinorVersion("14")
                 .setTypescriptModelFile("ParkModel")
                 .build()
 
@@ -147,7 +147,7 @@ class FilePersistServiceTest {
         val dependency = YaclibModel.Dependency.newBuilder()
                 .setGroup("park")
                 .setName("models")
-                .setMinorVersion(14)
+                .setMinorVersion("14")
                 .setNpmRepository(YaclibModel.Repository.newBuilder().setRepositoryType(YaclibModel.RepositoryType.PRIVATE_NPM).setNpmScope("@mroylance"))
                 .setTypescriptModelFile("ParkModel")
                 .build()

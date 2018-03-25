@@ -18,7 +18,7 @@ setup(
     author=${PythonUtilities.PropertiesNameWithoutExtension}.${JavaUtilities.AuthorName},
     license=${PythonUtilities.PropertiesNameWithoutExtension}.${JavaUtilities.LicenseName},
     include_package_data=True,
-    install_requires=['${PythonUtilities.ProtobufName}==${JavaUtilities.ProtobufVersion}'],
+    install_requires=['${PythonUtilities.ProtobufName}==${YaclibStatics.ProtobufVersion}'],
     description=${PythonUtilities.PropertiesNameWithoutExtension}.${JavaUtilities.DescriptionName},
     author_email=${PythonUtilities.PropertiesNameWithoutExtension}.${JavaUtilities.AuthorName},
     url=properties.${JavaUtilities.GithubUrlName},

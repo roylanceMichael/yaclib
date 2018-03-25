@@ -40,8 +40,16 @@ repositories {
     ${GradleUtilities.buildRepository(projectInformation.mainDependency.mavenRepository)}
 }
 
+sourceSets {
+    main {
+      java.srcDirs = ['src/main/java',
+                      '../${projectInformation.mainDependency.name}/src/main/java',
+                      '../${projectInformation.mainDependency.name}client/src/main/java']
+    }
+}
+
 dependencies {
-    testCompile group: 'junit', name: 'junit', version: '${JavaUtilities.JUnitVersion}'
+    testCompile group: 'junit', name: 'junit', version: '${YaclibStatics.JUnitVersion}'
 
     compile "org.eclipse.jetty:jetty-server:$${JavaUtilities.JettyServerName}"
     compile "org.eclipse.jetty:jetty-servlet:$${JavaUtilities.JettyServerName}"
@@ -53,6 +61,9 @@ dependencies {
     compile "org.glassfish.jersey.media:jersey-media-multipart:$${JavaUtilities.JerseyMediaName}"
 
     compile "org.apache.httpcomponents:httpclient:$${JavaUtilities.HttpComponentsName}"
+    compile "com.squareup.retrofit2:retrofit:${'$'}${JavaUtilities.RetrofitName}"
+
+    compile "org.roylance:roylance.common:${'$'}${'{'}YaclibStatics.RoylanceCommonVersion${'}'}"
 
 ${buildDependencies()}
 }
@@ -91,12 +102,13 @@ packageApp.dependsOn(installDist)
 """)
         }
 
-    projectInformation.controllers.controllerDependenciesList.forEach { controllerDependency ->
-      workspace.append(
-          """    compile "${controllerDependency.dependency.group}:${controllerDependency.dependency.name}${CommonTokens.ClientSuffix}:$${JavaUtilities.buildPackageVariableName(
-              controllerDependency.dependency)}"
-""")
-    }
+    // todo: verify we don't need this
+//    projectInformation.controllers.controllerDependenciesList.forEach { controllerDependency ->
+//      workspace.append(
+//          """    compile "${controllerDependency.dependency.group}:${controllerDependency.dependency.name}${CommonTokens.ClientSuffix}:$${JavaUtilities.buildPackageVariableName(
+//              controllerDependency.dependency)}"
+//""")
+//    }
 
     return workspace.toString()
   }

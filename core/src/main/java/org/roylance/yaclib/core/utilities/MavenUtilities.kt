@@ -20,7 +20,7 @@ object MavenUtilities : IProjectBuilderServices {
       pomFile.createNewFile()
     }
     val model = reader.read(FileReader(pomFile))
-    val minorVersion = model.properties.getProperty(JavaUtilities.MinorName).toInt() + 1
+    val minorVersion = model.properties.getProperty(JavaUtilities.MinorName)
     model.properties.setProperty(JavaUtilities.MinorName, minorVersion.toString())
 
     MavenXpp3Writer().write(FileWriter(pomFile), model)
@@ -66,8 +66,8 @@ object MavenUtilities : IProjectBuilderServices {
 
     val model = reader.read(FileReader(pomFile))
     return YaclibModel.ProcessReport.newBuilder()
-        .setNewMinor(model.properties.getProperty(JavaUtilities.MinorName).toInt())
-        .setNewMajor(model.properties.getProperty(JavaUtilities.MajorName).toInt())
+        .setNewMinor(model.properties.getProperty(JavaUtilities.MinorName))
+        .setNewMajor(model.properties.getProperty(JavaUtilities.MajorName))
         .build()
   }
 

@@ -19,7 +19,7 @@ class PythonProcessLanguageServiceTest {
         val dependency = YaclibModel.Dependency.newBuilder()
                 .setGroup("park")
                 .setName("models")
-                .setMinorVersion(14)
+                .setMinorVersion("14")
                 .setNpmRepository(YaclibModel.Repository.newBuilder().setRepositoryType(YaclibModel.RepositoryType.PRIVATE_NPM).setNpmScope("@mroylance"))
                 .setTypescriptModelFile("ParkModel")
                 .build()

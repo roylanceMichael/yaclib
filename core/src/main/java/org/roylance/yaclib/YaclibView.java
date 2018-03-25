@@ -643,6 +643,7 @@ public final class YaclibView {
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:org.roylance.yaclib.ColumnDefinition)
       ColumnDefinitionOrBuilder {
+  private static final long serialVersionUID = 0L;
     // Use ColumnDefinition.newBuilder() to construct.
     private ColumnDefinition(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
@@ -655,7 +656,7 @@ public final class YaclibView {
     @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
-      return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
+      return this.unknownFields;
     }
     private ColumnDefinition(
         com.google.protobuf.CodedInputStream input,
@@ -663,6 +664,8 @@ public final class YaclibView {
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
       int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
         boolean done = false;
         while (!done) {
@@ -672,7 +675,8 @@ public final class YaclibView {
               done = true;
               break;
             default: {
-              if (!input.skipField(tag)) {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
                 done = true;
               }
               break;
@@ -723,6 +727,7 @@ public final class YaclibView {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
+        this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
     }
@@ -854,6 +859,7 @@ public final class YaclibView {
       if (!getTitleBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 4, title_);
       }
+      unknownFields.writeTo(output);
     }
 
     public int getSerializedSize() {
@@ -876,11 +882,11 @@ public final class YaclibView {
       if (!getTitleBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, title_);
       }
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
 
-    private static final long serialVersionUID = 0L;
     @java.lang.Override
     public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
@@ -905,6 +911,7 @@ public final class YaclibView {
       }
       result = result && getTitle()
           .equals(other.getTitle());
+      result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
 
@@ -932,6 +939,17 @@ public final class YaclibView {
       return hash;
     }
 
+    public static org.roylance.yaclib.YaclibView.ColumnDefinition parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static org.roylance.yaclib.YaclibView.ColumnDefinition parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
     public static org.roylance.yaclib.YaclibView.ColumnDefinition parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -1104,7 +1122,7 @@ public final class YaclibView {
       }
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
       public Builder clearField(
@@ -1117,12 +1135,12 @@ public final class YaclibView {
       }
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, Object value) {
+          int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
       public Builder mergeFrom(com.google.protobuf.Message other) {
@@ -1149,6 +1167,7 @@ public final class YaclibView {
           title_ = other.title_;
           onChanged();
         }
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -1523,12 +1542,12 @@ public final class YaclibView {
       }
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return this;
+        return super.setUnknownFieldsProto3(unknownFields);
       }
 
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return this;
+        return super.mergeUnknownFields(unknownFields);
       }
 
 
@@ -1618,6 +1637,7 @@ public final class YaclibView {
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:org.roylance.yaclib.RowDefinition)
       RowDefinitionOrBuilder {
+  private static final long serialVersionUID = 0L;
     // Use RowDefinition.newBuilder() to construct.
     private RowDefinition(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
@@ -1629,7 +1649,7 @@ public final class YaclibView {
     @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
-      return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
+      return this.unknownFields;
     }
     private RowDefinition(
         com.google.protobuf.CodedInputStream input,
@@ -1637,6 +1657,8 @@ public final class YaclibView {
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
       int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
         boolean done = false;
         while (!done) {
@@ -1646,7 +1668,8 @@ public final class YaclibView {
               done = true;
               break;
             default: {
-              if (!input.skipField(tag)) {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
                 done = true;
               }
               break;
@@ -1684,6 +1707,7 @@ public final class YaclibView {
         if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
           columns_ = java.util.Collections.unmodifiableList(columns_);
         }
+        this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
     }
@@ -1774,6 +1798,7 @@ public final class YaclibView {
       if (show_ != null) {
         output.writeMessage(2, getShow());
       }
+      unknownFields.writeTo(output);
     }
 
     public int getSerializedSize() {
@@ -1789,11 +1814,11 @@ public final class YaclibView {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(2, getShow());
       }
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
 
-    private static final long serialVersionUID = 0L;
     @java.lang.Override
     public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
@@ -1812,6 +1837,7 @@ public final class YaclibView {
         result = result && getShow()
             .equals(other.getShow());
       }
+      result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
 
@@ -1835,6 +1861,17 @@ public final class YaclibView {
       return hash;
     }
 
+    public static org.roylance.yaclib.YaclibView.RowDefinition parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static org.roylance.yaclib.YaclibView.RowDefinition parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
     public static org.roylance.yaclib.YaclibView.RowDefinition parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -2009,7 +2046,7 @@ public final class YaclibView {
       }
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
       public Builder clearField(
@@ -2022,12 +2059,12 @@ public final class YaclibView {
       }
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, Object value) {
+          int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
       public Builder mergeFrom(com.google.protobuf.Message other) {
@@ -2070,6 +2107,7 @@ public final class YaclibView {
         if (other.hasShow()) {
           mergeShow(other.getShow());
         }
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -2455,12 +2493,12 @@ public final class YaclibView {
       }
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return this;
+        return super.setUnknownFieldsProto3(unknownFields);
       }
 
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return this;
+        return super.mergeUnknownFields(unknownFields);
       }
 
 
@@ -2596,6 +2634,7 @@ public final class YaclibView {
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:org.roylance.yaclib.ViewDefinition)
       ViewDefinitionOrBuilder {
+  private static final long serialVersionUID = 0L;
     // Use ViewDefinition.newBuilder() to construct.
     private ViewDefinition(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
@@ -2609,7 +2648,7 @@ public final class YaclibView {
     @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
-      return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
+      return this.unknownFields;
     }
     private ViewDefinition(
         com.google.protobuf.CodedInputStream input,
@@ -2617,6 +2656,8 @@ public final class YaclibView {
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
       int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
         boolean done = false;
         while (!done) {
@@ -2626,7 +2667,8 @@ public final class YaclibView {
               done = true;
               break;
             default: {
-              if (!input.skipField(tag)) {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
                 done = true;
               }
               break;
@@ -2695,6 +2737,7 @@ public final class YaclibView {
         if (((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
           rows_ = java.util.Collections.unmodifiableList(rows_);
         }
+        this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
     }
@@ -2866,6 +2909,7 @@ public final class YaclibView {
       if (viewModel_ != null) {
         output.writeMessage(5, getViewModel());
       }
+      unknownFields.writeTo(output);
     }
 
     public int getSerializedSize() {
@@ -2893,11 +2937,11 @@ public final class YaclibView {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(5, getViewModel());
       }
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
 
-    private static final long serialVersionUID = 0L;
     @java.lang.Override
     public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
@@ -2924,6 +2968,7 @@ public final class YaclibView {
         result = result && getViewModel()
             .equals(other.getViewModel());
       }
+      result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
 
@@ -2957,6 +3002,17 @@ public final class YaclibView {
       return hash;
     }
 
+    public static org.roylance.yaclib.YaclibView.ViewDefinition parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static org.roylance.yaclib.YaclibView.ViewDefinition parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
     public static org.roylance.yaclib.YaclibView.ViewDefinition parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -3161,7 +3217,7 @@ public final class YaclibView {
       }
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
       public Builder clearField(
@@ -3174,12 +3230,12 @@ public final class YaclibView {
       }
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, Object value) {
+          int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
       public Builder mergeFrom(com.google.protobuf.Message other) {
@@ -3254,6 +3310,7 @@ public final class YaclibView {
         if (other.hasViewModel()) {
           mergeViewModel(other.getViewModel());
         }
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -4040,12 +4097,12 @@ public final class YaclibView {
       }
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return this;
+        return super.setUnknownFieldsProto3(unknownFields);
       }
 
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return this;
+        return super.mergeUnknownFields(unknownFields);
       }
 
 
@@ -4124,6 +4181,7 @@ public final class YaclibView {
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:org.roylance.yaclib.TransitionDefinition)
       TransitionDefinitionOrBuilder {
+  private static final long serialVersionUID = 0L;
     // Use TransitionDefinition.newBuilder() to construct.
     private TransitionDefinition(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
@@ -4134,7 +4192,7 @@ public final class YaclibView {
     @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
-      return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
+      return this.unknownFields;
     }
     private TransitionDefinition(
         com.google.protobuf.CodedInputStream input,
@@ -4142,6 +4200,8 @@ public final class YaclibView {
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
       int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
         boolean done = false;
         while (!done) {
@@ -4151,7 +4211,8 @@ public final class YaclibView {
               done = true;
               break;
             default: {
-              if (!input.skipField(tag)) {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
                 done = true;
               }
               break;
@@ -4190,6 +4251,7 @@ public final class YaclibView {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
+        this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
     }
@@ -4265,6 +4327,7 @@ public final class YaclibView {
       if (to_ != null) {
         output.writeMessage(2, getTo());
       }
+      unknownFields.writeTo(output);
     }
 
     public int getSerializedSize() {
@@ -4280,11 +4343,11 @@ public final class YaclibView {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(2, getTo());
       }
+      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
 
-    private static final long serialVersionUID = 0L;
     @java.lang.Override
     public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
@@ -4306,6 +4369,7 @@ public final class YaclibView {
         result = result && getTo()
             .equals(other.getTo());
       }
+      result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
 
@@ -4329,6 +4393,17 @@ public final class YaclibView {
       return hash;
     }
 
+    public static org.roylance.yaclib.YaclibView.TransitionDefinition parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static org.roylance.yaclib.YaclibView.TransitionDefinition parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
     public static org.roylance.yaclib.YaclibView.TransitionDefinition parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -4495,7 +4570,7 @@ public final class YaclibView {
       }
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
       public Builder clearField(
@@ -4508,12 +4583,12 @@ public final class YaclibView {
       }
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, Object value) {
+          int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
       public Builder mergeFrom(com.google.protobuf.Message other) {
@@ -4533,6 +4608,7 @@ public final class YaclibView {
         if (other.hasTo()) {
           mergeTo(other.getTo());
         }
+        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
@@ -4794,12 +4870,12 @@ public final class YaclibView {
       }
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return this;
+        return super.setUnknownFieldsProto3(unknownFields);
       }
 
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return this;
+        return super.mergeUnknownFields(unknownFields);
       }
 
 

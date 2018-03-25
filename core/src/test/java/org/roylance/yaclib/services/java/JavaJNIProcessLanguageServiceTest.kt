@@ -18,7 +18,7 @@ class JavaJNIProcessLanguageServiceTest {
         val dependency = YaclibModel.Dependency.newBuilder()
                 .setGroup("org.naru.park")
                 .setName("api")
-                .setMinorVersion(14)
+                .setMinorVersion("14")
                 .build()
 
         val controllerDependencies = YaclibModel.ControllerDependency.newBuilder().setDependency(dependency)

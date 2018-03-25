@@ -46,7 +46,7 @@ object PythonUtilities: IProjectBuilderServices {
         val pythonDirectory = Paths.get(location, buildPythonSourceDirectory(mainDependency)).toFile()
         pythonDirectory.mkdirs()
 
-        val protobufLocation = Paths.get(location, mainDependency.name, "src", "main", "resources").toString()
+        val protobufLocation = Paths.get(location, mainDependency.name, "src", "main", "proto").toString()
         val arguments = "-I=$protobufLocation --proto_path=$protobufLocation --python_out=$pythonDirectory $protobufLocation/*.proto"
         return FileProcessUtilities.executeProcess(pythonDirectory.toString(), InitUtilities.Protoc, arguments)
     }
@@ -73,8 +73,8 @@ object PythonUtilities: IProjectBuilderServices {
             inputStream.close()
         }
 
-        val currentVersion = cleanseProperty(properties.getProperty(JavaUtilities.MinorName)).toInt() + 1
-        properties.setProperty(JavaUtilities.MinorName, surroundWithDoubleQuotes(currentVersion.toString()))
+        val currentVersion = cleanseProperty(properties.getProperty(JavaUtilities.MinorName))
+        properties.setProperty(JavaUtilities.MinorName, surroundWithDoubleQuotes(currentVersion))
         properties.setProperty(JavaUtilities.MajorName, surroundWithDoubleQuotes(dependency.majorVersion))
 
         val outputStream = FileOutputStream(propertiesFile)
@@ -101,8 +101,8 @@ object PythonUtilities: IProjectBuilderServices {
         try {
             properties.load(inputStream)
             return YaclibModel.ProcessReport.newBuilder()
-                    .setNewMajor(cleanseProperty(properties.getProperty(JavaUtilities.MajorName)).toInt())
-                    .setNewMinor(cleanseProperty(properties.getProperty(JavaUtilities.MinorName)).toInt())
+                    .setNewMajor(cleanseProperty(properties.getProperty(JavaUtilities.MajorName)))
+                    .setNewMinor(cleanseProperty(properties.getProperty(JavaUtilities.MinorName)))
                     .build()
         }
         finally {

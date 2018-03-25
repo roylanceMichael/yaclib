@@ -11,8 +11,9 @@ import java.nio.file.Paths
 class TypeScriptClientServerBuilder(private val location: String,
     private val apiProjectName: String) : IBuilder<Boolean> {
   override fun build(): Boolean {
-    val javascriptDirectory = Paths.get(location, "${apiProjectName}${CommonTokens.ServerSuffix}", "src", "main",
-        "javascript").toFile()
+    val javascriptDirectory = Paths.get(location,
+        "$apiProjectName${CommonTokens.ServerSuffix}",
+        "src", "main", "javascript").toFile()
     println(InitUtilities.buildPhaseMessage("typescript server begin"))
 
     val projectModel = TypeScriptUtilities.buildNpmModel(

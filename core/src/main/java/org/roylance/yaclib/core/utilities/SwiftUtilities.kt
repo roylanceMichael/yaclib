@@ -94,7 +94,7 @@ object SwiftUtilities : IProjectBuilderServices {
 
     val sourceDirectory = Paths.get(location, "${mainDependency.name}${CommonTokens.SwiftSuffix}", "Source").toFile()
     val protobufLocation = Paths.get(location, mainDependency.name, "src", "main",
-        "resources").toString()
+        "proto").toString()
     val arguments = "--plugin=$protocGenSwiftLocation -I=$protobufLocation --proto_path=$protobufLocation --swift_opt=Visibility=Public --swift_out=$sourceDirectory $protobufLocation/*.proto"
     return FileProcessUtilities.executeProcess(sourceDirectory.toString(), InitUtilities.Protoc,
         arguments)
