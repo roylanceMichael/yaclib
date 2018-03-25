@@ -53,7 +53,7 @@ object TypeScriptUtilities : IProjectBuilderServices {
   val fontAwesomeBuilder = YaclibModel.Dependency.newBuilder().setThirdPartyDependencyVersion(
       "^4.6.3").setGroup("font-awesome").setType(YaclibModel.DependencyType.TYPESCRIPT)!!
   val jqueryBuilder = YaclibModel.Dependency.newBuilder().setThirdPartyDependencyVersion(
-      "^2.2.4").setGroup("jquery").setType(YaclibModel.DependencyType.TYPESCRIPT)!!
+      "^3.0.0").setGroup("jquery").setType(YaclibModel.DependencyType.TYPESCRIPT)!!
   val webpackStreamBuilder = YaclibModel.Dependency.newBuilder().setThirdPartyDependencyVersion(
       "^3.2.0").setGroup("webpack-stream").setType(YaclibModel.DependencyType.TYPESCRIPT)!!
 
