@@ -52,18 +52,19 @@ repositories {
     ${GradleUtilities.buildRepository(projectInformation.mainDependency.mavenRepository)}
 }
 
-// pull in models
-sourceSets {
-    main {
-      java.srcDirs = ['src/main/java',
-                      '../${projectInformation.mainDependency.name}/src/main/java']
-    }
-}
+// pull in models - uncomment to compile total
+//sourceSets {
+//    main {
+//      java.srcDirs = ['src/main/java',
+//                      '../${projectInformation.mainDependency.name}/src/main/java']
+//    }
+//}
 
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '${YaclibStatics.JUnitVersion}'
 
     compile "org.roylance:roylance.common:${'$'}${'{'}YaclibStatics.RoylanceCommonVersion${'}'}"
+    ${GradleUtilities.buildDependencies(projectInformation)}
 }
 """
 
