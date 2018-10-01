@@ -1,7 +1,7 @@
 buildscript {
-  ext.kotlin_version = '1.2.31'
-  ext.project_version = "0.276"
-  ext.roylance_common_version = "0.26"
+  ext.kotlin_version = '1.2.71'
+  ext.project_version = "0.277"
+  ext.roylance_common_version = "0.27"
 
   repositories {
     mavenCentral()
@@ -13,7 +13,7 @@ buildscript {
   dependencies {
     classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.7'
     classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
-    classpath 'com.google.protobuf:protobuf-gradle-plugin:0.8.1'
+    classpath "com.google.protobuf:protobuf-gradle-plugin:0.8.6"
     classpath 'gradle.plugin.de.fuerstenau:BuildConfigPlugin:1.1.8'
   }
 }
@@ -43,14 +43,14 @@ buildConfig {
   // 'de.fuerstenau.buildconfig' if project.group is not set
   charset = 'UTF-8'            // sets charset of the generated class,
   // 'UTF-8' if not set otherwise
-  buildConfigField 'String', 'PROTOBUF_VERSION', '3.4.0'
+  buildConfigField 'String', 'PROTOBUF_VERSION', '3.6.0'
   buildConfigField 'String', 'KOTLIN_VERSION', kotlin_version
   buildConfigField 'String', 'ROYLANCE_COMMON_VERSION', roylance_common_version
 }
 
 protobuf {
   protoc {
-    artifact = "com.google.protobuf:protoc:3.4.0"
+    artifact = "com.google.protobuf:protoc:3.6.0"
   }
 }
 

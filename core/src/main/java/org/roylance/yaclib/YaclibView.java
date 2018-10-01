@@ -663,6 +663,9 @@ public final class YaclibView {
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -674,13 +677,6 @@ public final class YaclibView {
             case 0:
               done = true;
               break;
-            default: {
-              if (!parseUnknownFieldProto3(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
             case 10: {
               org.roylance.yaclib.YaclibViewmodel.BindingDefinition.Builder subBuilder = null;
               if (binding_ != null) {
@@ -719,6 +715,13 @@ public final class YaclibView {
               title_ = s;
               break;
             }
+            default: {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -736,6 +739,7 @@ public final class YaclibView {
       return org.roylance.yaclib.YaclibView.internal_static_org_roylance_yaclib_ColumnDefinition_descriptor;
     }
 
+    @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return org.roylance.yaclib.YaclibView.internal_static_org_roylance_yaclib_ColumnDefinition_fieldAccessorTable
@@ -776,6 +780,7 @@ public final class YaclibView {
      * <code>.org.roylance.yaclib.VisualSize visual_size = 2;</code>
      */
     public org.roylance.yaclib.YaclibView.VisualSize getVisualSize() {
+      @SuppressWarnings("deprecation")
       org.roylance.yaclib.YaclibView.VisualSize result = org.roylance.yaclib.YaclibView.VisualSize.valueOf(visualSize_);
       return result == null ? org.roylance.yaclib.YaclibView.VisualSize.UNRECOGNIZED : result;
     }
@@ -836,6 +841,7 @@ public final class YaclibView {
     }
 
     private byte memoizedIsInitialized = -1;
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -845,6 +851,7 @@ public final class YaclibView {
       return true;
     }
 
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (binding_ != null) {
@@ -862,6 +869,7 @@ public final class YaclibView {
       unknownFields.writeTo(output);
     }
 
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -1009,6 +1017,7 @@ public final class YaclibView {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -1016,6 +1025,7 @@ public final class YaclibView {
     public static Builder newBuilder(org.roylance.yaclib.YaclibView.ColumnDefinition prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -1039,6 +1049,7 @@ public final class YaclibView {
         return org.roylance.yaclib.YaclibView.internal_static_org_roylance_yaclib_ColumnDefinition_descriptor;
       }
 
+      @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return org.roylance.yaclib.YaclibView.internal_static_org_roylance_yaclib_ColumnDefinition_fieldAccessorTable
@@ -1061,6 +1072,7 @@ public final class YaclibView {
                 .alwaysUseFieldBuilders) {
         }
       }
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         if (bindingBuilder_ == null) {
@@ -1082,15 +1094,18 @@ public final class YaclibView {
         return this;
       }
 
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return org.roylance.yaclib.YaclibView.internal_static_org_roylance_yaclib_ColumnDefinition_descriptor;
       }
 
+      @java.lang.Override
       public org.roylance.yaclib.YaclibView.ColumnDefinition getDefaultInstanceForType() {
         return org.roylance.yaclib.YaclibView.ColumnDefinition.getDefaultInstance();
       }
 
+      @java.lang.Override
       public org.roylance.yaclib.YaclibView.ColumnDefinition build() {
         org.roylance.yaclib.YaclibView.ColumnDefinition result = buildPartial();
         if (!result.isInitialized()) {
@@ -1099,6 +1114,7 @@ public final class YaclibView {
         return result;
       }
 
+      @java.lang.Override
       public org.roylance.yaclib.YaclibView.ColumnDefinition buildPartial() {
         org.roylance.yaclib.YaclibView.ColumnDefinition result = new org.roylance.yaclib.YaclibView.ColumnDefinition(this);
         if (bindingBuilder_ == null) {
@@ -1117,32 +1133,39 @@ public final class YaclibView {
         return result;
       }
 
+      @java.lang.Override
       public Builder clone() {
         return (Builder) super.clone();
       }
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof org.roylance.yaclib.YaclibView.ColumnDefinition) {
           return mergeFrom((org.roylance.yaclib.YaclibView.ColumnDefinition)other);
@@ -1172,10 +1195,12 @@ public final class YaclibView {
         return this;
       }
 
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -1330,6 +1355,7 @@ public final class YaclibView {
        * <code>.org.roylance.yaclib.VisualSize visual_size = 2;</code>
        */
       public org.roylance.yaclib.YaclibView.VisualSize getVisualSize() {
+        @SuppressWarnings("deprecation")
         org.roylance.yaclib.YaclibView.VisualSize result = org.roylance.yaclib.YaclibView.VisualSize.valueOf(visualSize_);
         return result == null ? org.roylance.yaclib.YaclibView.VisualSize.UNRECOGNIZED : result;
       }
@@ -1540,11 +1566,13 @@ public final class YaclibView {
         onChanged();
         return this;
       }
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFieldsProto3(unknownFields);
       }
 
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.mergeUnknownFields(unknownFields);
@@ -1566,11 +1594,12 @@ public final class YaclibView {
 
     private static final com.google.protobuf.Parser<ColumnDefinition>
         PARSER = new com.google.protobuf.AbstractParser<ColumnDefinition>() {
+      @java.lang.Override
       public ColumnDefinition parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-          return new ColumnDefinition(input, extensionRegistry);
+        return new ColumnDefinition(input, extensionRegistry);
       }
     };
 
@@ -1583,6 +1612,7 @@ public final class YaclibView {
       return PARSER;
     }
 
+    @java.lang.Override
     public org.roylance.yaclib.YaclibView.ColumnDefinition getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
@@ -1656,6 +1686,9 @@ public final class YaclibView {
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -1667,13 +1700,6 @@ public final class YaclibView {
             case 0:
               done = true;
               break;
-            default: {
-              if (!parseUnknownFieldProto3(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
             case 10: {
               if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
                 columns_ = new java.util.ArrayList<org.roylance.yaclib.YaclibView.ColumnDefinition>();
@@ -1696,6 +1722,13 @@ public final class YaclibView {
 
               break;
             }
+            default: {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -1716,6 +1749,7 @@ public final class YaclibView {
       return org.roylance.yaclib.YaclibView.internal_static_org_roylance_yaclib_RowDefinition_descriptor;
     }
 
+    @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return org.roylance.yaclib.YaclibView.internal_static_org_roylance_yaclib_RowDefinition_fieldAccessorTable
@@ -1781,6 +1815,7 @@ public final class YaclibView {
     }
 
     private byte memoizedIsInitialized = -1;
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -1790,6 +1825,7 @@ public final class YaclibView {
       return true;
     }
 
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       for (int i = 0; i < columns_.size(); i++) {
@@ -1801,6 +1837,7 @@ public final class YaclibView {
       unknownFields.writeTo(output);
     }
 
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -1931,6 +1968,7 @@ public final class YaclibView {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -1938,6 +1976,7 @@ public final class YaclibView {
     public static Builder newBuilder(org.roylance.yaclib.YaclibView.RowDefinition prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -1961,6 +2000,7 @@ public final class YaclibView {
         return org.roylance.yaclib.YaclibView.internal_static_org_roylance_yaclib_RowDefinition_descriptor;
       }
 
+      @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return org.roylance.yaclib.YaclibView.internal_static_org_roylance_yaclib_RowDefinition_fieldAccessorTable
@@ -1984,6 +2024,7 @@ public final class YaclibView {
           getColumnsFieldBuilder();
         }
       }
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         if (columnsBuilder_ == null) {
@@ -2001,15 +2042,18 @@ public final class YaclibView {
         return this;
       }
 
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return org.roylance.yaclib.YaclibView.internal_static_org_roylance_yaclib_RowDefinition_descriptor;
       }
 
+      @java.lang.Override
       public org.roylance.yaclib.YaclibView.RowDefinition getDefaultInstanceForType() {
         return org.roylance.yaclib.YaclibView.RowDefinition.getDefaultInstance();
       }
 
+      @java.lang.Override
       public org.roylance.yaclib.YaclibView.RowDefinition build() {
         org.roylance.yaclib.YaclibView.RowDefinition result = buildPartial();
         if (!result.isInitialized()) {
@@ -2018,6 +2062,7 @@ public final class YaclibView {
         return result;
       }
 
+      @java.lang.Override
       public org.roylance.yaclib.YaclibView.RowDefinition buildPartial() {
         org.roylance.yaclib.YaclibView.RowDefinition result = new org.roylance.yaclib.YaclibView.RowDefinition(this);
         int from_bitField0_ = bitField0_;
@@ -2041,32 +2086,39 @@ public final class YaclibView {
         return result;
       }
 
+      @java.lang.Override
       public Builder clone() {
         return (Builder) super.clone();
       }
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof org.roylance.yaclib.YaclibView.RowDefinition) {
           return mergeFrom((org.roylance.yaclib.YaclibView.RowDefinition)other);
@@ -2112,10 +2164,12 @@ public final class YaclibView {
         return this;
       }
 
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -2491,11 +2545,13 @@ public final class YaclibView {
         }
         return showBuilder_;
       }
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFieldsProto3(unknownFields);
       }
 
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.mergeUnknownFields(unknownFields);
@@ -2517,11 +2573,12 @@ public final class YaclibView {
 
     private static final com.google.protobuf.Parser<RowDefinition>
         PARSER = new com.google.protobuf.AbstractParser<RowDefinition>() {
+      @java.lang.Override
       public RowDefinition parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-          return new RowDefinition(input, extensionRegistry);
+        return new RowDefinition(input, extensionRegistry);
       }
     };
 
@@ -2534,6 +2591,7 @@ public final class YaclibView {
       return PARSER;
     }
 
+    @java.lang.Override
     public org.roylance.yaclib.YaclibView.RowDefinition getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
@@ -2655,6 +2713,9 @@ public final class YaclibView {
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -2666,13 +2727,6 @@ public final class YaclibView {
             case 0:
               done = true;
               break;
-            default: {
-              if (!parseUnknownFieldProto3(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
             case 8: {
               int rawValue = input.readEnum();
 
@@ -2723,6 +2777,13 @@ public final class YaclibView {
 
               break;
             }
+            default: {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -2746,6 +2807,7 @@ public final class YaclibView {
       return org.roylance.yaclib.YaclibView.internal_static_org_roylance_yaclib_ViewDefinition_descriptor;
     }
 
+    @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return org.roylance.yaclib.YaclibView.internal_static_org_roylance_yaclib_ViewDefinition_fieldAccessorTable
@@ -2766,6 +2828,7 @@ public final class YaclibView {
      * <code>.org.roylance.yaclib.ViewType view_type = 1;</code>
      */
     public org.roylance.yaclib.YaclibView.ViewType getViewType() {
+      @SuppressWarnings("deprecation")
       org.roylance.yaclib.YaclibView.ViewType result = org.roylance.yaclib.YaclibView.ViewType.valueOf(viewType_);
       return result == null ? org.roylance.yaclib.YaclibView.ViewType.UNRECOGNIZED : result;
     }
@@ -2883,6 +2946,7 @@ public final class YaclibView {
     }
 
     private byte memoizedIsInitialized = -1;
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -2892,6 +2956,7 @@ public final class YaclibView {
       return true;
     }
 
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (viewType_ != org.roylance.yaclib.YaclibView.ViewType.CONTAINER.getNumber()) {
@@ -2912,6 +2977,7 @@ public final class YaclibView {
       unknownFields.writeTo(output);
     }
 
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -3072,6 +3138,7 @@ public final class YaclibView {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -3079,6 +3146,7 @@ public final class YaclibView {
     public static Builder newBuilder(org.roylance.yaclib.YaclibView.ViewDefinition prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -3102,6 +3170,7 @@ public final class YaclibView {
         return org.roylance.yaclib.YaclibView.internal_static_org_roylance_yaclib_ViewDefinition_descriptor;
       }
 
+      @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return org.roylance.yaclib.YaclibView.internal_static_org_roylance_yaclib_ViewDefinition_fieldAccessorTable
@@ -3126,6 +3195,7 @@ public final class YaclibView {
           getRowsFieldBuilder();
         }
       }
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         viewType_ = 0;
@@ -3157,15 +3227,18 @@ public final class YaclibView {
         return this;
       }
 
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return org.roylance.yaclib.YaclibView.internal_static_org_roylance_yaclib_ViewDefinition_descriptor;
       }
 
+      @java.lang.Override
       public org.roylance.yaclib.YaclibView.ViewDefinition getDefaultInstanceForType() {
         return org.roylance.yaclib.YaclibView.ViewDefinition.getDefaultInstance();
       }
 
+      @java.lang.Override
       public org.roylance.yaclib.YaclibView.ViewDefinition build() {
         org.roylance.yaclib.YaclibView.ViewDefinition result = buildPartial();
         if (!result.isInitialized()) {
@@ -3174,6 +3247,7 @@ public final class YaclibView {
         return result;
       }
 
+      @java.lang.Override
       public org.roylance.yaclib.YaclibView.ViewDefinition buildPartial() {
         org.roylance.yaclib.YaclibView.ViewDefinition result = new org.roylance.yaclib.YaclibView.ViewDefinition(this);
         int from_bitField0_ = bitField0_;
@@ -3212,32 +3286,39 @@ public final class YaclibView {
         return result;
       }
 
+      @java.lang.Override
       public Builder clone() {
         return (Builder) super.clone();
       }
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof org.roylance.yaclib.YaclibView.ViewDefinition) {
           return mergeFrom((org.roylance.yaclib.YaclibView.ViewDefinition)other);
@@ -3315,10 +3396,12 @@ public final class YaclibView {
         return this;
       }
 
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -3357,6 +3440,7 @@ public final class YaclibView {
        * <code>.org.roylance.yaclib.ViewType view_type = 1;</code>
        */
       public org.roylance.yaclib.YaclibView.ViewType getViewType() {
+        @SuppressWarnings("deprecation")
         org.roylance.yaclib.YaclibView.ViewType result = org.roylance.yaclib.YaclibView.ViewType.valueOf(viewType_);
         return result == null ? org.roylance.yaclib.YaclibView.ViewType.UNRECOGNIZED : result;
       }
@@ -4095,11 +4179,13 @@ public final class YaclibView {
         }
         return viewModelBuilder_;
       }
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFieldsProto3(unknownFields);
       }
 
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.mergeUnknownFields(unknownFields);
@@ -4121,11 +4207,12 @@ public final class YaclibView {
 
     private static final com.google.protobuf.Parser<ViewDefinition>
         PARSER = new com.google.protobuf.AbstractParser<ViewDefinition>() {
+      @java.lang.Override
       public ViewDefinition parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-          return new ViewDefinition(input, extensionRegistry);
+        return new ViewDefinition(input, extensionRegistry);
       }
     };
 
@@ -4138,6 +4225,7 @@ public final class YaclibView {
       return PARSER;
     }
 
+    @java.lang.Override
     public org.roylance.yaclib.YaclibView.ViewDefinition getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
@@ -4199,6 +4287,9 @@ public final class YaclibView {
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -4210,13 +4301,6 @@ public final class YaclibView {
             case 0:
               done = true;
               break;
-            default: {
-              if (!parseUnknownFieldProto3(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
             case 10: {
               org.roylance.yaclib.YaclibView.ViewDefinition.Builder subBuilder = null;
               if (from_ != null) {
@@ -4243,6 +4327,13 @@ public final class YaclibView {
 
               break;
             }
+            default: {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -4260,6 +4351,7 @@ public final class YaclibView {
       return org.roylance.yaclib.YaclibView.internal_static_org_roylance_yaclib_TransitionDefinition_descriptor;
     }
 
+    @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return org.roylance.yaclib.YaclibView.internal_static_org_roylance_yaclib_TransitionDefinition_fieldAccessorTable
@@ -4310,6 +4402,7 @@ public final class YaclibView {
     }
 
     private byte memoizedIsInitialized = -1;
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -4319,6 +4412,7 @@ public final class YaclibView {
       return true;
     }
 
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (from_ != null) {
@@ -4330,6 +4424,7 @@ public final class YaclibView {
       unknownFields.writeTo(output);
     }
 
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -4463,6 +4558,7 @@ public final class YaclibView {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -4470,6 +4566,7 @@ public final class YaclibView {
     public static Builder newBuilder(org.roylance.yaclib.YaclibView.TransitionDefinition prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -4493,6 +4590,7 @@ public final class YaclibView {
         return org.roylance.yaclib.YaclibView.internal_static_org_roylance_yaclib_TransitionDefinition_descriptor;
       }
 
+      @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return org.roylance.yaclib.YaclibView.internal_static_org_roylance_yaclib_TransitionDefinition_fieldAccessorTable
@@ -4515,6 +4613,7 @@ public final class YaclibView {
                 .alwaysUseFieldBuilders) {
         }
       }
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         if (fromBuilder_ == null) {
@@ -4532,15 +4631,18 @@ public final class YaclibView {
         return this;
       }
 
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return org.roylance.yaclib.YaclibView.internal_static_org_roylance_yaclib_TransitionDefinition_descriptor;
       }
 
+      @java.lang.Override
       public org.roylance.yaclib.YaclibView.TransitionDefinition getDefaultInstanceForType() {
         return org.roylance.yaclib.YaclibView.TransitionDefinition.getDefaultInstance();
       }
 
+      @java.lang.Override
       public org.roylance.yaclib.YaclibView.TransitionDefinition build() {
         org.roylance.yaclib.YaclibView.TransitionDefinition result = buildPartial();
         if (!result.isInitialized()) {
@@ -4549,6 +4651,7 @@ public final class YaclibView {
         return result;
       }
 
+      @java.lang.Override
       public org.roylance.yaclib.YaclibView.TransitionDefinition buildPartial() {
         org.roylance.yaclib.YaclibView.TransitionDefinition result = new org.roylance.yaclib.YaclibView.TransitionDefinition(this);
         if (fromBuilder_ == null) {
@@ -4565,32 +4668,39 @@ public final class YaclibView {
         return result;
       }
 
+      @java.lang.Override
       public Builder clone() {
         return (Builder) super.clone();
       }
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof org.roylance.yaclib.YaclibView.TransitionDefinition) {
           return mergeFrom((org.roylance.yaclib.YaclibView.TransitionDefinition)other);
@@ -4613,10 +4723,12 @@ public final class YaclibView {
         return this;
       }
 
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -4868,11 +4980,13 @@ public final class YaclibView {
         }
         return toBuilder_;
       }
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFieldsProto3(unknownFields);
       }
 
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.mergeUnknownFields(unknownFields);
@@ -4894,11 +5008,12 @@ public final class YaclibView {
 
     private static final com.google.protobuf.Parser<TransitionDefinition>
         PARSER = new com.google.protobuf.AbstractParser<TransitionDefinition>() {
+      @java.lang.Override
       public TransitionDefinition parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-          return new TransitionDefinition(input, extensionRegistry);
+        return new TransitionDefinition(input, extensionRegistry);
       }
     };
 
@@ -4911,6 +5026,7 @@ public final class YaclibView {
       return PARSER;
     }
 
+    @java.lang.Override
     public org.roylance.yaclib.YaclibView.TransitionDefinition getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
@@ -4955,7 +5071,7 @@ public final class YaclibView {
       "Definition\022\r\n\005title\030\004 \001(\t\"}\n\rRowDefiniti" +
       "on\0226\n\007columns\030\001 \003(\0132%.org.roylance.yacli" +
       "b.ColumnDefinition\0224\n\004show\030\002 \001(\0132&.org.r" +
-      "oylance.yaclib.BindingDefinition\"\222\002\n\016Vie",
+      "oylance.yaclib.BindingDefinition\"\222\002\n\016Vie" +
       "wDefinition\0220\n\tview_type\030\001 \001(\0162\035.org.roy" +
       "lance.yaclib.ViewType\0222\n\005views\030\002 \003(\0132#.o" +
       "rg.roylance.yaclib.ViewDefinition\0220\n\004row" +
@@ -4965,7 +5081,7 @@ public final class YaclibView {
       "org.roylance.yaclib.ViewModel\"z\n\024Transit" +
       "ionDefinition\0221\n\004from\030\001 \001(\0132#.org.roylan" +
       "ce.yaclib.ViewDefinition\022/\n\002to\030\002 \001(\0132#.o" +
-      "rg.roylance.yaclib.ViewDefinition*;\n\nVis",
+      "rg.roylance.yaclib.ViewDefinition*;\n\nVis" +
       "ualSize\022\r\n\tPARAGRAPH\020\000\022\006\n\002H4\020\001\022\006\n\002H3\020\002\022\006" +
       "\n\002H2\020\003\022\006\n\002H1\020\004*\206\003\n\nColumnSpan\022\n\n\006SPAN_1\020" +
       "\000\022\n\n\006SPAN_2\020\001\022\n\n\006SPAN_3\020\002\022\n\n\006SPAN_4\020\003\022\n\n" +
@@ -4975,7 +5091,7 @@ public final class YaclibView {
       "PAN_OFFSET_2\020\r\022\021\n\rSPAN_OFFSET_3\020\016\022\021\n\rSPA" +
       "N_OFFSET_4\020\017\022\021\n\rSPAN_OFFSET_5\020\020\022\021\n\rSPAN_" +
       "OFFSET_6\020\021\022\021\n\rSPAN_OFFSET_7\020\022\022\021\n\rSPAN_OF" +
-      "FSET_8\020\023\022\021\n\rSPAN_OFFSET_9\020\024\022\022\n\016SPAN_OFFS",
+      "FSET_8\020\023\022\021\n\rSPAN_OFFSET_9\020\024\022\022\n\016SPAN_OFFS" +
       "ET_10\020\025\022\022\n\016SPAN_OFFSET_11\020\026\022\022\n\016SPAN_OFFS" +
       "ET_12\020\027*O\n\010ViewType\022\r\n\tCONTAINER\020\000\022\007\n\003RO" +
       "W\020\001\022\010\n\004FORM\020\002\022\010\n\004ROOT\020\003\022\007\n\003NAV\020\004\022\006\n\002UL\020\005" +
