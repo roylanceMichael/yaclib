@@ -44,8 +44,12 @@ class ${controller.name}${CommonTokens.ServiceName}(
         $base64Variables
         val responseCall = $restVariableName.${action.name}($base64InputParameters)
         val response = responseCall.execute()
-        return protoSerializer.deserializeFromBase64(response.body(),
-                ${action.output.filePackage}.${action.output.fileClass}.${action.output.messageClass}.getDefaultInstance())
+        response.body()?.let {
+            return protoSerializer.deserializeFromBase64(it,
+                org.roylance.yaorm.YaormModel.UIYaormResponse.getDefaultInstance())
+        }
+        return protoSerializer.deserializeFromBase64("",
+            org.roylance.yaorm.YaormModel.UIYaormResponse.getDefaultInstance())
     }
 """
       workspace.append(initialActionTemplate)
