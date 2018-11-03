@@ -7,7 +7,7 @@ public class YaclibStatics {
   public static final String ProtobufVersion = BuildConfig.PROTOBUF_VERSION;
 
   public static final String ArtifactoryVersion = "4.4.0";
-  public static final String BintrayVersion = "1.7";
+  public static final String BintrayVersion = "1.8.4";
   public static final String TomcatVersion = "8.0.28";
 
   public static final String CommonsIOVersion = "2.5";
