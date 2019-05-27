@@ -10,7 +10,7 @@ object ArtifactoryUtilities {
     val actualUrl = JavaUtilities.buildRepositoryUrl(dependency.pipRepository)
     val wheelName = PythonUtilities.buildWheelFileName(dependency)
 
-    val initialTemplate = """#!/usr/bin/env bash
+    return """#!/usr/bin/env bash
 if [ -z "$${JavaUtilities.ArtifactoryUserName}" ]; then
     ${InitUtilities.Curl} -u -X PUT "$actualUrl/${PythonUtilities.buildWheelUrl(
         dependency)}" -T $directory/$wheelName
@@ -19,7 +19,6 @@ else
         dependency)}" -T $directory/$wheelName
 fi
 """
-    return initialTemplate
   }
 
   fun buildUploadTarGzScript(directory: String,
@@ -27,7 +26,7 @@ fi
     val actualUrl = JavaUtilities.buildRepositoryUrl(dependency.npmRepository)
     val tarFileName = buildTarFileName(dependency)
 
-    val initialTemplate = """#!/usr/bin/env bash
+    return """#!/usr/bin/env bash
 if [ -z "$${JavaUtilities.ArtifactoryUserName}" ]; then
     ${InitUtilities.Curl} -u -X PUT "$actualUrl/${buildTarUrl(
         dependency)}" -T $directory/$tarFileName
@@ -36,7 +35,6 @@ else
         dependency)}" -T $directory/$tarFileName
 fi
 """
-    return initialTemplate
   }
 
   fun buildTarFileName(dependency: YaclibModel.Dependency): String {
@@ -48,8 +46,7 @@ fi
   }
 
   fun replacePeriodWithForwardSlash(item: String): String {
-    val newGroup = item.replace(".", "/")
-    return newGroup
+    return item.replace(".", "/")
   }
 
   private fun buildUrlName(dependency: YaclibModel.Dependency): String {

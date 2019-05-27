@@ -1,6 +1,8 @@
 package org.roylance.yaclib.core.utilities
 
 import org.roylance.yaclib.YaclibModel
+import org.roylance.yaclib.YaclibModel.Dependency
+import org.roylance.yaclib.YaclibModel.ProcessReport
 import org.roylance.yaclib.core.enums.CommonTokens
 import org.roylance.yaclib.core.services.IProjectBuilderServices
 import java.io.FileInputStream
@@ -10,7 +12,7 @@ import java.util.*
 
 object GradleUtilities : IProjectBuilderServices {
   override fun incrementVersion(location: String,
-      dependency: YaclibModel.Dependency): YaclibModel.ProcessReport {
+      dependency: Dependency): ProcessReport {
     val propertiesFile = Paths.get(location, JavaUtilities.PropertiesFileName).toFile()
     if (!propertiesFile.exists()) {
       propertiesFile.createNewFile()
@@ -18,7 +20,7 @@ object GradleUtilities : IProjectBuilderServices {
 
     val properties = Properties()
     val inputStream = FileInputStream(propertiesFile)
-    inputStream.use { it ->
+    inputStream.use {
       properties.load(it)
     }
 
@@ -27,35 +29,31 @@ object GradleUtilities : IProjectBuilderServices {
     val majorVersion = properties.getProperty(JavaUtilities.MajorName)
 
     val outputStream = FileOutputStream(propertiesFile)
-    try {
-      properties.store(outputStream,
+    outputStream.use { o ->
+      properties.store(o,
           "incrementVersion: ${dependency.majorVersion}.${dependency.minorVersion}")
-    } finally {
-      outputStream.close()
     }
 
-    return YaclibModel.ProcessReport.newBuilder()
+    return ProcessReport.newBuilder()
         .setNewMinor(minorVersion)
         .setNewMajor(majorVersion)
         .build()
   }
 
   override fun updateDependencyVersion(location: String,
-      otherDependency: YaclibModel.Dependency): YaclibModel.ProcessReport {
+      otherDependency: Dependency): ProcessReport {
     val propertiesFile = Paths.get(location, JavaUtilities.PropertiesFileName).toFile()
     if (!propertiesFile.exists()) {
       propertiesFile.createNewFile()
     }
 
     if (!propertiesFile.exists()) {
-      return YaclibModel.ProcessReport.newBuilder().setIsError(true).build()
+      return ProcessReport.newBuilder().setIsError(true).build()
     }
     val properties = Properties()
     val inputStream = FileInputStream(propertiesFile)
-    try {
-      properties.load(inputStream)
-    } finally {
-      inputStream.close()
+    inputStream.use { i ->
+      properties.load(i)
     }
 
     // double check this logic, may need more info
@@ -73,16 +71,14 @@ object GradleUtilities : IProjectBuilderServices {
     }
 
     val outputStream = FileOutputStream(propertiesFile)
-    try {
-      properties.store(outputStream, "update dependency: $variableName")
-    } finally {
-      outputStream.close()
+    outputStream.use { o ->
+      properties.store(o, "update dependency: $variableName")
     }
 
-    return YaclibModel.ProcessReport.getDefaultInstance()
+    return ProcessReport.getDefaultInstance()
   }
 
-  override fun getVersion(location: String): YaclibModel.ProcessReport {
+  override fun getVersion(location: String): ProcessReport {
     val propertiesFile = Paths.get(location, JavaUtilities.PropertiesFileName).toFile()
     if (!propertiesFile.exists()) {
       propertiesFile.createNewFile()
@@ -90,19 +86,17 @@ object GradleUtilities : IProjectBuilderServices {
 
     val properties = Properties()
     val inputStream = FileInputStream(propertiesFile)
-    try {
-      properties.load(inputStream)
-      return YaclibModel.ProcessReport.newBuilder()
+    inputStream.use { i ->
+      properties.load(i)
+      return ProcessReport.newBuilder()
           .setNewMinor(properties.getProperty(JavaUtilities.MinorName))
           .setNewMajor(properties.getProperty(JavaUtilities.MajorName))
           .build()
-    } finally {
-      inputStream.close()
     }
   }
 
   override fun setVersion(location: String,
-      dependency: YaclibModel.Dependency): YaclibModel.ProcessReport {
+      dependency: Dependency): ProcessReport {
     val propertiesFile = Paths.get(location, JavaUtilities.PropertiesFileName).toFile()
     if (!propertiesFile.exists()) {
       propertiesFile.createNewFile()
@@ -110,31 +104,27 @@ object GradleUtilities : IProjectBuilderServices {
 
     val properties = Properties()
     val inputStream = FileInputStream(propertiesFile)
-    try {
-      properties.load(inputStream)
-    } finally {
-      inputStream.close()
+    inputStream.use { i ->
+      properties.load(i)
     }
 
     properties.setProperty(JavaUtilities.MajorName, dependency.majorVersion.toString())
     properties.setProperty(JavaUtilities.MinorName, dependency.minorVersion.toString())
 
     val outputStream = FileOutputStream(propertiesFile)
-    try {
-      properties.store(outputStream,
+    outputStream.use { o ->
+      properties.store(o,
           "set version: ${dependency.majorVersion}.${dependency.minorVersion}")
-    } finally {
-      outputStream.close()
     }
 
-    return YaclibModel.ProcessReport.getDefaultInstance()
+    return ProcessReport.getDefaultInstance()
   }
 
-  override fun clean(location: String): YaclibModel.ProcessReport {
+  override fun clean(location: String): ProcessReport {
     return FileProcessUtilities.executeProcess(location, InitUtilities.Gradle, "clean")
   }
 
-  override fun build(location: String): YaclibModel.ProcessReport {
+  override fun build(location: String): ProcessReport {
     val buildReport = FileProcessUtilities.executeProcess(location, InitUtilities.Gradle, "build")
     val installReport = FileProcessUtilities.executeProcess(location, InitUtilities.Gradle,
         "install")
@@ -146,51 +136,49 @@ object GradleUtilities : IProjectBuilderServices {
   }
 
   override fun buildPackage(location: String,
-      dependency: YaclibModel.Dependency): YaclibModel.ProcessReport {
+      dependency: Dependency): ProcessReport {
     return FileProcessUtilities.executeProcess(location, InitUtilities.Gradle, "packageApp")
   }
 
   override fun publish(location: String,
-      dependency: YaclibModel.Dependency,
-      apiKey: String): YaclibModel.ProcessReport {
-    if (dependency.mavenRepository.repositoryType == YaclibModel.RepositoryType.ARTIFACTORY) {
-      return FileProcessUtilities.executeProcess(location, InitUtilities.Gradle,
+      dependency: Dependency,
+      apiKey: String): ProcessReport {
+    return if (dependency.mavenRepository.repositoryType == YaclibModel.RepositoryType.ARTIFACTORY) {
+      FileProcessUtilities.executeProcess(location, InitUtilities.Gradle,
           "artifactoryPublish")
     } else if (dependency.mavenRepository.repositoryType == YaclibModel.RepositoryType.STANDARD_MAVEN) {
-      return FileProcessUtilities.executeProcess(location, InitUtilities.Gradle, "upload")
+      FileProcessUtilities.executeProcess(location, InitUtilities.Gradle, "upload")
     } else {
-      return FileProcessUtilities.executeProcess(location, InitUtilities.Gradle, "bintrayUpload")
+      FileProcessUtilities.executeProcess(location, InitUtilities.Gradle, "bintrayUpload")
     }
   }
 
   override fun restoreDependencies(location: String,
-      doAnonymously: Boolean): YaclibModel.ProcessReport {
-    return YaclibModel.ProcessReport.getDefaultInstance()
+      doAnonymously: Boolean): ProcessReport {
+    return ProcessReport.getDefaultInstance()
   }
 
   fun buildRepository(repository: YaclibModel.Repository): String {
-    if (repository.repositoryType == YaclibModel.RepositoryType.PRIVATE_BINTRAY) {
-      return """maven {
-    url "${JavaUtilities.buildRepositoryUrl(repository)}"
-    credentials {
-        username System.getenv('${JavaUtilities.BintrayUserName}')
-        password System.getenv('${JavaUtilities.BintrayKeyName}')
+    when {
+      repository.repositoryType == YaclibModel.RepositoryType.PRIVATE_BINTRAY -> return """maven {
+      url "${JavaUtilities.buildRepositoryUrl(repository)}"
+      credentials {
+          username System.getenv('${JavaUtilities.BintrayUserName}')
+          password System.getenv('${JavaUtilities.BintrayKeyName}')
+      }
+  }"""
+      repository.repositoryType == YaclibModel.RepositoryType.STANDARD_MAVEN -> return """maven {
+      url "${JavaUtilities.buildRepositoryUrl(repository)}"
+      credentials {
+          username System.getenv('${JavaUtilities.StandardMavenUserName}')
+          password System.getenv('${JavaUtilities.StandardMavenPassword}')
+      }
+  }"""
+      repository.url.isNotEmpty() -> return """maven {
+      url "${JavaUtilities.buildRepositoryUrl(repository)}"
+  }"""
+      else -> return ""
     }
-}"""
-    } else if (repository.repositoryType == YaclibModel.RepositoryType.STANDARD_MAVEN) {
-      return """maven {
-    url "${JavaUtilities.buildRepositoryUrl(repository)}"
-    credentials {
-        username System.getenv('${JavaUtilities.StandardMavenUserName}')
-        password System.getenv('${JavaUtilities.StandardMavenPassword}')
-    }
-}"""
-    } else if (repository.url.isNotEmpty()) {
-      return """maven {
-    url "${JavaUtilities.buildRepositoryUrl(repository)}"
-}"""
-    }
-    return ""
   }
 
   fun buildDependencies(projectInformation: YaclibModel.ProjectInformation): String {
@@ -219,7 +207,7 @@ object GradleUtilities : IProjectBuilderServices {
     return buildStandardMaven(projectInformation, projectName)
   }
 
-  fun buildBintray(projectInformation: YaclibModel.ProjectInformation,
+  private fun buildBintray(projectInformation: YaclibModel.ProjectInformation,
       projectName: String): String {
     return """
 bintray {
@@ -242,11 +230,11 @@ bintray {
 }"""
   }
 
-  fun buildGithubRepo(projectInformation: YaclibModel.ProjectInformation): String {
+  private fun buildGithubRepo(projectInformation: YaclibModel.ProjectInformation): String {
     return projectInformation.mainDependency.githubRepo
   }
 
-  fun buildArtifactory(projectInformation: YaclibModel.ProjectInformation): String {
+  private fun buildArtifactory(projectInformation: YaclibModel.ProjectInformation): String {
     return """artifactory {
     contextUrl = "${projectInformation.mainDependency.mavenRepository.url}"   // The base Artifactory URL if not overridden by the publisher/resolver
     publish {
@@ -274,7 +262,7 @@ bintray {
 """
   }
 
-  fun buildStandardMaven(projectInformation: YaclibModel.ProjectInformation,
+  private fun buildStandardMaven(projectInformation: YaclibModel.ProjectInformation,
       projectName: String): String {
     return """uploadArchives {
     repositories {
@@ -289,5 +277,12 @@ bintray {
     }
 }
 """
+  }
+
+  override fun buildProtobufs(
+    location: String,
+    mainDependency: Dependency
+  ): ProcessReport {
+    return ProcessReport.getDefaultInstance()
   }
 }

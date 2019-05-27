@@ -58,13 +58,13 @@ object StringUtilities {
   fun convertToPascalCase(name: String): String {
     val splitItems = name.split(Period)
 
-    return splitItems.map {
+    return splitItems.joinToString(Period) {
       if (it.length > 1) {
         "${it[0].toUpperCase()}${it.substring(1)}"
       } else {
         it.toUpperCase()
       }
-    }.joinToString(Period)
+    }
   }
 
   const val Period = "."

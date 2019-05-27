@@ -3,6 +3,8 @@ package org.roylance.yaclib.core.utilities
 import org.apache.maven.model.io.xpp3.MavenXpp3Reader
 import org.apache.maven.model.io.xpp3.MavenXpp3Writer
 import org.roylance.yaclib.YaclibModel
+import org.roylance.yaclib.YaclibModel.Dependency
+import org.roylance.yaclib.YaclibModel.ProcessReport
 import org.roylance.yaclib.core.services.IProjectBuilderServices
 import java.io.File
 import java.io.FileReader
@@ -12,7 +14,7 @@ object MavenUtilities : IProjectBuilderServices {
   const val PomName = "pom"
   const val PomXml = "$PomName.xml"
   override fun incrementVersion(location: String,
-      dependency: YaclibModel.Dependency): YaclibModel.ProcessReport {
+      dependency: Dependency): ProcessReport {
     val reader = MavenXpp3Reader()
 
     val pomFile = File(location, PomXml)
@@ -25,7 +27,7 @@ object MavenUtilities : IProjectBuilderServices {
 
     MavenXpp3Writer().write(FileWriter(pomFile), model)
 
-    return YaclibModel.ProcessReport.newBuilder()
+    return ProcessReport.newBuilder()
         .setNewMinor(minorVersion)
         .setNewMajor(dependency.majorVersion)
         .setContent("${dependency.majorVersion}.$minorVersion")
@@ -33,7 +35,7 @@ object MavenUtilities : IProjectBuilderServices {
   }
 
   override fun updateDependencyVersion(location: String,
-      otherDependency: YaclibModel.Dependency): YaclibModel.ProcessReport {
+      otherDependency: Dependency): ProcessReport {
     val reader = MavenXpp3Reader()
 
     val pomFile = File(location, PomXml)
@@ -52,11 +54,11 @@ object MavenUtilities : IProjectBuilderServices {
 
     MavenXpp3Writer().write(FileWriter(pomFile), model)
 
-    return YaclibModel.ProcessReport.newBuilder()
+    return ProcessReport.newBuilder()
         .build()
   }
 
-  override fun getVersion(location: String): YaclibModel.ProcessReport {
+  override fun getVersion(location: String): ProcessReport {
     val reader = MavenXpp3Reader()
 
     val pomFile = File(location, PomXml)
@@ -65,14 +67,14 @@ object MavenUtilities : IProjectBuilderServices {
     }
 
     val model = reader.read(FileReader(pomFile))
-    return YaclibModel.ProcessReport.newBuilder()
+    return ProcessReport.newBuilder()
         .setNewMinor(model.properties.getProperty(JavaUtilities.MinorName))
         .setNewMajor(model.properties.getProperty(JavaUtilities.MajorName))
         .build()
   }
 
   override fun setVersion(location: String,
-      dependency: YaclibModel.Dependency): YaclibModel.ProcessReport {
+      dependency: Dependency): ProcessReport {
     val reader = MavenXpp3Reader()
 
     val pomFile = File(location, PomXml)
@@ -85,29 +87,36 @@ object MavenUtilities : IProjectBuilderServices {
 
     MavenXpp3Writer().write(FileWriter(pomFile), model)
 
-    return YaclibModel.ProcessReport.getDefaultInstance()
+    return ProcessReport.getDefaultInstance()
   }
 
-  override fun clean(location: String): YaclibModel.ProcessReport {
+  override fun clean(location: String): ProcessReport {
     return FileProcessUtilities.executeProcess(location, InitUtilities.Maven, "clean")
   }
 
-  override fun build(location: String): YaclibModel.ProcessReport {
+  override fun build(location: String): ProcessReport {
     return FileProcessUtilities.executeProcess(location, InitUtilities.Maven, "compile")
   }
 
   override fun buildPackage(location: String,
-      dependency: YaclibModel.Dependency): YaclibModel.ProcessReport {
+      dependency: Dependency): ProcessReport {
     return FileProcessUtilities.executeProcess(location, InitUtilities.Maven, "package")
   }
 
-  override fun publish(location: String, dependency: YaclibModel.Dependency,
-      apiKey: String): YaclibModel.ProcessReport {
-    return YaclibModel.ProcessReport.getDefaultInstance()
+  override fun publish(location: String, dependency: Dependency,
+      apiKey: String): ProcessReport {
+    return ProcessReport.getDefaultInstance()
   }
 
   override fun restoreDependencies(location: String,
-      doAnonymously: Boolean): YaclibModel.ProcessReport {
-    return YaclibModel.ProcessReport.getDefaultInstance()
+      doAnonymously: Boolean): ProcessReport {
+    return ProcessReport.getDefaultInstance()
+  }
+
+  override fun buildProtobufs(
+    location: String,
+    mainDependency: Dependency
+  ): ProcessReport {
+    return ProcessReport.getDefaultInstance()
   }
 }

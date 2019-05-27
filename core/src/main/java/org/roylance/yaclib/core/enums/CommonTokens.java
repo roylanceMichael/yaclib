@@ -15,6 +15,7 @@ public class CommonTokens {
   public static final String ServiceName = "Service";
   public static final String UpperCaseRestName = "Rest";
 
+  public static final String LibName = "lib";
   public static final String ServicesName = "services";
   public static final String RestName = "rest";
   public static final String UtilitiesName = "utilities";
@@ -32,6 +33,7 @@ public class CommonTokens {
   public static final String CSharpSuffix = "cs";
   public static final String SwiftSuffix = "swift";
   public static final String JavaScriptSuffix = "js";
+  public static final String DartSuffix = "js";
 
   public static final String NodeModules = "node_modules";
 

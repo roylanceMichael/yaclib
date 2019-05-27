@@ -19,6 +19,8 @@ object InitUtilities {
     const val Nuget = "nuget"
     const val DotNet = "dotnet"
 
+    const val DartPub = "pub"
+
     const val Python = "python"
     const val Pip = "pip"
 

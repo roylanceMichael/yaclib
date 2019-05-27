@@ -11,9 +11,21 @@ import java.util.*
 
 object PythonUtilities: IProjectBuilderServices {
     const val ProtobufName = "protobuf"
-
     const val PropertiesNameWithoutExtension = "properties"
-    const val PropertiesName = "$PropertiesNameWithoutExtension.py"
+
+    private const val PropertiesName = "$PropertiesNameWithoutExtension.py"
+
+    private fun cleanseProperty(item: String): String {
+        return item.replace("\"", "")
+    }
+
+    private fun buildPythonSourceDirectory(mainDependency: YaclibModel.Dependency): String {
+        return Paths.get("${mainDependency.name}${CommonTokens.PythonSuffix}", buildPackageName(mainDependency)).toString()
+    }
+
+    private fun replacePeriodWithUnderscore(item: String): String {
+        return item.replace(".", "_")
+    }
 
     fun convertPythonFileNameImport(fileName: String): String {
         val removedDotProto = fileName.replace(".proto", "")
@@ -25,10 +37,6 @@ object PythonUtilities: IProjectBuilderServices {
         return "${replacedName}_${dependency.name}"
     }
 
-    fun buildPythonSourceDirectory(mainDependency: YaclibModel.Dependency): String {
-        return Paths.get("${mainDependency.name}${CommonTokens.PythonSuffix}", buildPackageName(mainDependency)).toString()
-    }
-
     fun buildWheelUrl(dependency: YaclibModel.Dependency): String {
         val newGroup = ArtifactoryUtilities.replacePeriodWithForwardSlash(dependency.group)
         return "$newGroup/${dependency.name}/${replacePeriodWithUnderscore(dependency.group)}_${dependency.name}-${dependency.majorVersion}-${dependency.minorVersion}-py2.py3-none-any.whl"
@@ -38,11 +46,7 @@ object PythonUtilities: IProjectBuilderServices {
         return "${replacePeriodWithUnderscore(dependency.group)}_${dependency.name}-${dependency.majorVersion}-${dependency.minorVersion}-py2.py3-none-any.whl"
     }
 
-    fun replacePeriodWithUnderscore(item: String): String {
-        return item.replace(".", "_")
-    }
-
-    fun buildProtobufs(location: String, mainDependency: YaclibModel.Dependency): YaclibModel.ProcessReport {
+    override fun buildProtobufs(location: String, mainDependency: YaclibModel.Dependency): YaclibModel.ProcessReport {
         val pythonDirectory = Paths.get(location, buildPythonSourceDirectory(mainDependency)).toFile()
         pythonDirectory.mkdirs()
 
@@ -55,10 +59,6 @@ object PythonUtilities: IProjectBuilderServices {
         return """"$item""""
     }
 
-    fun cleanseProperty(item: String): String {
-        return item.replace("\"", "")
-    }
-
     override fun incrementVersion(location: String, dependency: YaclibModel.Dependency): YaclibModel.ProcessReport {
         val propertiesFile = Paths.get(location, PropertiesName).toFile()
         if (!propertiesFile.exists()) {
@@ -66,11 +66,8 @@ object PythonUtilities: IProjectBuilderServices {
         }
         val properties = Properties()
         val inputStream = FileInputStream(propertiesFile)
-        try {
-            properties.load(inputStream)
-        }
-        finally {
-            inputStream.close()
+        inputStream.use { i ->
+            properties.load(i)
         }
 
         val currentVersion = cleanseProperty(properties.getProperty(JavaUtilities.MinorName))
@@ -78,11 +75,8 @@ object PythonUtilities: IProjectBuilderServices {
         properties.setProperty(JavaUtilities.MajorName, surroundWithDoubleQuotes(dependency.majorVersion))
 
         val outputStream = FileOutputStream(propertiesFile)
-        try {
-            properties.store(outputStream, "set version: ${dependency.majorVersion}.${dependency.minorVersion}")
-        }
-        finally {
-            outputStream.close()
+        outputStream.use { o ->
+            properties.store(o, "set version: ${dependency.majorVersion}.${dependency.minorVersion}")
         }
         return YaclibModel.ProcessReport.newBuilder().setNewMinor(currentVersion).build()
     }
@@ -98,15 +92,12 @@ object PythonUtilities: IProjectBuilderServices {
         }
         val properties = Properties()
         val inputStream = FileInputStream(propertiesFile)
-        try {
-            properties.load(inputStream)
+        inputStream.use { i ->
+            properties.load(i)
             return YaclibModel.ProcessReport.newBuilder()
-                    .setNewMajor(cleanseProperty(properties.getProperty(JavaUtilities.MajorName)))
-                    .setNewMinor(cleanseProperty(properties.getProperty(JavaUtilities.MinorName)))
-                    .build()
-        }
-        finally {
-            inputStream.close()
+                .setNewMajor(cleanseProperty(properties.getProperty(JavaUtilities.MajorName)))
+                .setNewMinor(cleanseProperty(properties.getProperty(JavaUtilities.MinorName)))
+                .build()
         }
     }
 
@@ -117,22 +108,16 @@ object PythonUtilities: IProjectBuilderServices {
         }
         val properties = Properties()
         val inputStream = FileInputStream(propertiesFile)
-        try {
-            properties.load(inputStream)
-        }
-        finally {
-            inputStream.close()
+        inputStream.use { i ->
+            properties.load(i)
         }
 
         properties.setProperty(JavaUtilities.MinorName, surroundWithDoubleQuotes(dependency.minorVersion.toString()))
         properties.setProperty(JavaUtilities.MajorName, surroundWithDoubleQuotes(dependency.majorVersion.toString()))
 
         val outputStream = FileOutputStream(propertiesFile)
-        try {
-            properties.store(outputStream, "set version: ${dependency.majorVersion}.${dependency.minorVersion}")
-        }
-        finally {
-            outputStream.close()
+        outputStream.use { o ->
+            properties.store(o, "set version: ${dependency.majorVersion}.${dependency.minorVersion}")
         }
         return YaclibModel.ProcessReport.getDefaultInstance()
     }
@@ -156,7 +141,7 @@ object PythonUtilities: IProjectBuilderServices {
         normalLogs.appendln(buildWheelReport.normalOutput)
         errorLogs.appendln(buildWheelReport.errorOutput)
 
-        val moveWheelReport = FileProcessUtilities.executeProcess(location, InitUtilities.Move, "${Paths.get(location, "dist")}/*.whl  $location/${PythonUtilities.buildWheelFileName(dependency)}")
+        val moveWheelReport = FileProcessUtilities.executeProcess(location, InitUtilities.Move, "${Paths.get(location, "dist")}/*.whl  $location/${buildWheelFileName(dependency)}")
         normalLogs.appendln(moveWheelReport.normalOutput)
         normalLogs.appendln(moveWheelReport.errorOutput)
 

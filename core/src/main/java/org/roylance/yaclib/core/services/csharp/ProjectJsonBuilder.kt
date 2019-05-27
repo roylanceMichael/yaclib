@@ -1,5 +1,6 @@
 package org.roylance.yaclib.core.services.csharp
 
+import org.roylance.BuildConfig
 import org.roylance.common.service.IBuilder
 import org.roylance.yaclib.YaclibModel
 import org.roylance.yaclib.core.utilities.CSharpUtilities
@@ -10,7 +11,7 @@ class ProjectJsonBuilder(
   "version": "${dependency.majorVersion}.${dependency.minorVersion}.0-*",
 
   "dependencies": {
-    "Google.Protobuf": "${CSharpUtilities.ProtobufVersion}"
+    "Google.Protobuf": "${BuildConfig.PROTOBUF_VERSION}"
   },
   "buildOptions": {
     "debugType": "portable"

@@ -44,14 +44,6 @@ class CSharpBuilder(private val location: String,
     println(packReport.normalOutput)
     println(packReport.errorOutput)
 
-    if (nugetKey != null) {
-      println(InitUtilities.buildPhaseMessage("publishing nuget"))
-      val publishReport = CSharpUtilities.publish(csharpDirectory.toString(), mainDependency,
-          nugetKey)
-      println(publishReport.normalOutput)
-      println(publishReport.errorOutput)
-    }
-
     println(InitUtilities.buildPhaseMessage("csharp client end"))
     return true
   }

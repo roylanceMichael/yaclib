@@ -185,11 +185,10 @@ which $application""")
       return
     }
 
-    val entryName: String
-    if (base.isEmpty()) {
-      entryName = "."
+    val entryName = if (base.isEmpty()) {
+      "."
     } else {
-      entryName = base + fileOrDirectory.name
+      base + fileOrDirectory.name
     }
 
     val tarEntry = TarArchiveEntry(fileOrDirectory, entryName)

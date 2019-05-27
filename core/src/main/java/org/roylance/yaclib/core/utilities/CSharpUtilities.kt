@@ -9,8 +9,6 @@ import java.io.File
 import java.nio.file.Paths
 
 object CSharpUtilities : IProjectBuilderServices {
-  const val ProtobufVersion = "3.2.0"
-
   private val gson = Gson()
 
   override fun incrementVersion(location: String,
@@ -83,10 +81,11 @@ object CSharpUtilities : IProjectBuilderServices {
     return StringUtilities.convertToPascalCase("${dependency.group}.${dependency.name}")
   }
 
-  fun buildProtobufs(location: String,
+  override fun buildProtobufs(location: String,
       mainDependency: YaclibModel.Dependency): YaclibModel.ProcessReport {
     val csharpDirectory = Paths.get(location, "${mainDependency.name}${CommonTokens.CSharpSuffix}",
-        CSharpUtilities.buildFullName(mainDependency)).toFile()
+        buildFullName(mainDependency)
+    ).toFile()
 
     val protobufLocation = Paths.get(location, mainDependency.name, "src", "main",
         "proto").toString()
@@ -95,7 +94,7 @@ object CSharpUtilities : IProjectBuilderServices {
         arguments)
   }
 
-  fun buildNugetPackageName(dependency: YaclibModel.Dependency): String {
+  private fun buildNugetPackageName(dependency: YaclibModel.Dependency): String {
     return "${buildFullName(
         dependency)}.${dependency.majorVersion}.${dependency.minorVersion}.0.nupkg"
   }

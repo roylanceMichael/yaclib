@@ -19,4 +19,7 @@ interface IProjectBuilderServices {
 
   fun restoreDependencies(location: String,
       doAnonymously: Boolean = false): YaclibModel.ProcessReport
+
+  fun buildProtobufs(location: String,
+    mainDependency: YaclibModel.Dependency): YaclibModel.ProcessReport
 }

@@ -25,10 +25,6 @@ object TypeScriptUtilities : IProjectBuilderServices {
       "^${YaclibStatics.RoylanceCommonVersion}.0").setGroup("roylance.common").setType(
       YaclibModel.DependencyType.TYPESCRIPT)!!
 
-  val proto2TypeScriptDependencyBuilder = YaclibModel.Dependency.newBuilder().setThirdPartyDependencyVersion(
-      Proto2TypeScriptVersion).setGroup("proto2typescript").setType(
-      YaclibModel.DependencyType.TYPESCRIPT)!!
-
   val baseTypeScriptKit = object : ArrayList<YaclibModel.Dependency>() {
     init {
       add(protobufJsDependencyBuilder.build())
@@ -75,29 +71,29 @@ object TypeScriptUtilities : IProjectBuilderServices {
 
   fun buildDependency(dependency: YaclibModel.Dependency): String {
     if (dependency.type == YaclibModel.DependencyType.INTERNAL) {
-      if (dependency.hasNpmRepository() && dependency.npmRepository.npmScope.isNotEmpty()) {
-        return """"${buildFullName(dependency)}": "${buildVersion(dependency)}"
-"""
+      return if (dependency.hasNpmRepository() && dependency.npmRepository.npmScope.isNotEmpty()) {
+        """"${buildFullName(dependency)}": "${buildVersion(dependency)}"
+    """
       } else if (dependency.hasNpmRepository() && dependency.npmRepository.repositoryType == YaclibModel.RepositoryType.ARTIFACTORY_NPM) {
         val dependencyUrl = JavaUtilities.buildRepositoryUrl(dependency.npmRepository)
         val fileName = ArtifactoryUtilities.buildTarUrl(dependency)
-        return """"${buildFullName(dependency)}": "$dependencyUrl/$fileName"
-"""
+        """"${buildFullName(dependency)}": "$dependencyUrl/$fileName"
+    """
       } else {
-        return """"${buildFullName(dependency)}": "${buildVersion(dependency)}"
-"""
+        """"${buildFullName(dependency)}": "${buildVersion(dependency)}"
+    """
       }
     }
 
-    if (dependency.hasNpmRepository() && dependency.npmRepository.npmScope.isNotEmpty()) {
-      return """"${buildFullName(dependency)}": "${buildVersion(dependency)}"
-"""
+    return if (dependency.hasNpmRepository() && dependency.npmRepository.npmScope.isNotEmpty()) {
+      """"${buildFullName(dependency)}": "${buildVersion(dependency)}"
+  """
     } else if (dependency.npmRepository.repositoryType == YaclibModel.RepositoryType.ARTIFACTORY_NPM) {
-      return """"${buildFullName(dependency)}": "${dependency.npmRepository.url}"
-"""
+      """"${buildFullName(dependency)}": "${dependency.npmRepository.url}"
+  """
     } else {
-      return """"${buildFullName(dependency)}": "${buildVersion(dependency)}"
-"""
+      """"${buildFullName(dependency)}": "${buildVersion(dependency)}"
+  """
     }
   }
 
@@ -274,26 +270,26 @@ export var $exportFactoryName = _root;
   }
 
   private fun buildVersion(dependency: YaclibModel.Dependency): String {
-    if (dependency.type == YaclibModel.DependencyType.INTERNAL) {
-      return "${dependency.majorVersion}.${dependency.minorVersion}.0"
+    return if (dependency.type == YaclibModel.DependencyType.INTERNAL) {
+      "${dependency.majorVersion}.${dependency.minorVersion}.0"
     } else {
-      return dependency.thirdPartyDependencyVersion
+      dependency.thirdPartyDependencyVersion
     }
   }
 
   private fun buildFullName(dependency: YaclibModel.Dependency): String {
     if (dependency.type == YaclibModel.DependencyType.INTERNAL) {
-      if (dependency.hasNpmRepository() && dependency.npmRepository.npmScope.isNotEmpty()) {
-        return "${dependency.npmRepository.npmScope}/${dependency.group}.${dependency.name}"
+      return if (dependency.hasNpmRepository() && dependency.npmRepository.npmScope.isNotEmpty()) {
+        "${dependency.npmRepository.npmScope}/${dependency.group}.${dependency.name}"
       } else {
-        return "${dependency.group}.${dependency.name}"
+        "${dependency.group}.${dependency.name}"
       }
     }
 
-    if (dependency.hasNpmRepository() && dependency.npmRepository.npmScope.isNotEmpty()) {
-      return "${dependency.npmRepository.npmScope}/${dependency.group}"
+    return if (dependency.hasNpmRepository() && dependency.npmRepository.npmScope.isNotEmpty()) {
+      "${dependency.npmRepository.npmScope}/${dependency.group}"
     } else {
-      return dependency.group
+      dependency.group
     }
   }
 }

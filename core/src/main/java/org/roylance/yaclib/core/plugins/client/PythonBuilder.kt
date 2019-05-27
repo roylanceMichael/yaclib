@@ -24,11 +24,6 @@ class PythonBuilder(private val location: String,
     println(packageReport.normalOutput)
     println(packageReport.errorOutput)
 
-    println(InitUtilities.buildPhaseMessage("deploying pip"))
-    val deployReport = PythonUtilities.publish(pythonDirectory.toString(), mainDependency)
-    println(deployReport.normalOutput)
-    println(deployReport.errorOutput)
-
     println(InitUtilities.buildPhaseMessage("python client end"))
 
     return true
